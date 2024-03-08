@@ -1,2 +1,3 @@
-# Frontend
-PharmaLink flutter application (Frontend) includes IOS, Android, Windows, Linux, MacOs
+# PharmaLink Frontend
+
+PharmaLink flutter application includes IOS, Android, Windows, Linux, MacOs
