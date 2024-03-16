@@ -7,12 +7,12 @@ import 'package:pharmalink/components/reusable_card.dart';
 import 'package:pharmalink/utilities/constants.dart';
 // Packages
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
 
-const kBottomMargin = 80.0;
+const kBottomMargin = 115.0;
 const kLogoSize = 175.0;
 const kTitleSize = 37.0;
 const kSubtitleSize = 14.0;
-const kAppBarLogoSize = 55.0;
 
 class WelcomeScreen extends StatelessWidget {
   static String url = "/";
@@ -21,44 +21,22 @@ class WelcomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: const Expanded(
-          child: ImageIcon(
-            AssetImage("${AppPath.images}/white_logo.png"),
-            size: kAppBarLogoSize,
-          ),
-        ),
-        backgroundColor: AppColors.secondary,
-        shape: const Border(
-          bottom: BorderSide(
-            color: AppColors.tertiary,
-            width: 3,
-          ),
-        ),
-        elevation: 1,
-      ),
+      appBar: App.barWithoutLabel,
       backgroundColor: AppColors.primaryBackground,
       body: SafeArea(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Expanded(
-              flex: 3,
+              flex: 8,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Image.asset(
-                    "${AppPath.images}/logo.png",
-                    height: kLogoSize,
-                  ),
                   const Text(
                     "PharmaLink",
-                    textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: kTitleSize,
-                      fontWeight: FontWeight.bold,
-                      fontFamily: 'Readex Pro',
+                      fontWeight: FontWeight.w600,
+                      fontFamily: AppFonts.primary,
                       color: AppColors.primaryText,
                     ),
                   ),
@@ -71,8 +49,7 @@ class WelcomeScreen extends StatelessWidget {
                         textAlign: TextAlign.center,
                         textStyle: const TextStyle(
                           fontSize: kSubtitleSize,
-                          fontWeight: FontWeight.bold,
-                          fontFamily: 'Readex Pro',
+                          fontFamily: AppFonts.secondary,
                           color: AppColors.secondaryText,
                         ),
                       ),
@@ -81,45 +58,56 @@ class WelcomeScreen extends StatelessWidget {
                       print("Tap Event");
                     },
                   ),
+                  LoadingAnimationWidget.twistingDots(
+                    leftDotColor: const Color(0xFF1A1A3F),
+                    rightDotColor: const Color(0xFFEA3799),
+                    size: 35,
+                  ),
                 ],
               ),
             ),
             Expanded(
-              flex: 2,
+              flex: 3,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
+                  ReusableCard(
+                    onPressed: () {},
+                    backgroundColor: AppColors.secondary,
+                    borderColor: AppColors.alternate,
+                    child: IconContent(
+                      icon: Icons.personal_injury_outlined,
+                      label: "PATIENT",
+                      iconColor: AppColors.alternateText,
+                      labelColor: AppColors.alternateText,
+                    ),
+                  ),
                   const Text(
-                    "Who Are You ?",
+                    "OR",
                     style: TextStyle(
                       fontSize: 20.0,
                       fontWeight: FontWeight.bold,
-                      fontFamily: 'Readex Pro',
                       color: AppColors.primaryText,
                     ),
                   ),
                   ReusableCard(
                     onPressed: () {},
-                    backgroundColor: AppColors.secondary,
+                    backgroundColor: AppColors.alternate,
+                    borderColor: AppColors.secondary,
                     child: IconContent(
-                      icon: Icons.medical_services_outlined,
-                      label: "Doctor",
+                      icon: Icons.medical_information_outlined,
+                      label: "DOCTOR",
+                      iconColor: AppColors.primaryText,
+                      labelColor: AppColors.primaryText,
                     ),
                   ),
-                  ReusableCard(
-                    onPressed: () {},
-                    backgroundColor: AppColors.primary,
-                    child: IconContent(
-                      icon: Icons.personal_injury_outlined,
-                      label: "Patient",
-                    ),
-                  ),
-                  const SizedBox(
-                    height: kBottomMargin,
-                  )
                 ],
               ),
             ),
+            Expanded(
+              flex: 2,
+              child: Container(),
+            )
           ],
         ),
       ),

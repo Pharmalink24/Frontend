@@ -1,20 +1,25 @@
 // Flutter Packages
 import 'package:flutter/material.dart';
+// Utilities
+import 'package:pharmalink/utilities/constants.dart';
 
-const kCardMarginValue = 10.0;
-const kCardPaddingValue = 10.0;
-const kCardBorderRadius = 10.0;
+const kCardMarginVertical = 10.0;
+const kCardMarginHorizontal = 30.0;
+
+const kCardBorderRadius = 35.0;
 
 class ReusableCard extends StatelessWidget {
   final Widget child;
   final Function onPressed;
   final Color backgroundColor;
+  final Color borderColor;
 
   ReusableCard({
     super.key,
     required this.child,
     required this.onPressed,
-    this.backgroundColor = Colors.black54,
+    this.backgroundColor = AppColors.tertiary,
+    this.borderColor = AppColors.primary,
   });
 
   @override
@@ -23,11 +28,14 @@ class ReusableCard extends StatelessWidget {
       child: GestureDetector(
         onTap: onPressed(),
         child: Container(
-          padding: const EdgeInsets.all(kCardPaddingValue),
-          margin: const EdgeInsets.all(kCardMarginValue),
+          margin: const EdgeInsets.symmetric(
+              vertical: kCardMarginVertical, horizontal: kCardMarginHorizontal),
           decoration: BoxDecoration(
             color: backgroundColor,
             borderRadius: BorderRadius.circular(kCardBorderRadius),
+            border: Border.all(
+              color: borderColor,
+            ),
           ),
           child: child,
         ),

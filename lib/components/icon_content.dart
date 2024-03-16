@@ -3,19 +3,25 @@ import 'package:flutter/material.dart';
 // Utilities
 import 'package:pharmalink/utilities/constants.dart';
 
-const kIconSize = 40.0;
-const kContentMargin = 25.0;
+const kIconSize = 30.0;
+const kContentMargin = 10.0;
 const kLabelTextStyle = TextStyle(
-  fontSize: 20.0,
-  color: AppColors.alternate,
-  fontWeight: FontWeight.normal,
+  fontSize: 16.0,
 );
 
 class IconContent extends StatelessWidget {
   final IconData? icon;
+  final Color iconColor;
   final String label;
+  final Color labelColor;
 
-  IconContent({@required this.icon, required this.label});
+  IconContent({
+    super.key,
+    required this.icon,
+    this.iconColor = AppColors.alternate,
+    required this.label,
+    this.labelColor = AppColors.alternate,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +30,7 @@ class IconContent extends StatelessWidget {
       children: [
         Icon(
           icon,
-          color: AppColors.alternate,
+          color: iconColor,
           size: kIconSize,
         ),
         const SizedBox(
@@ -32,7 +38,9 @@ class IconContent extends StatelessWidget {
         ),
         Text(
           label,
-          style: kLabelTextStyle,
+          style: kLabelTextStyle.copyWith(
+            color: labelColor,
+          ),
         ),
       ],
     );
