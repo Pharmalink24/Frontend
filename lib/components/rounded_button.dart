@@ -7,10 +7,11 @@ import 'package:pharmalink/utilities/constants.dart';
 
 class RoundedButton extends StatelessWidget {
   final String text;
-
+  final Function onPressed;
   const RoundedButton({
     super.key,
     this.text = "",
+    required this.onPressed,
   });
 
   @override
@@ -19,7 +20,9 @@ class RoundedButton extends StatelessWidget {
       width: double.infinity,
       height: 52,
       child: TextButton(
-        onPressed: () {},
+        onPressed: () {
+          onPressed();
+        },
         child: Text(
           text,
           style: TextStyle(

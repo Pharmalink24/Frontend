@@ -1,13 +1,15 @@
 // Flutter Packages
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 // Screens
 import 'package:pharmalink/screens/patient/signup_screen.dart';
+import 'package:pharmalink/screens/patient/home_screen.dart';
 // Components
 import 'package:pharmalink/components/rounded_text_field.dart';
 import 'package:pharmalink/components/rounded_button.dart';
 // Utilities
 import 'package:pharmalink/utilities/constants.dart';
+// Services
+import 'package:pharmalink/services/networking.dart';
 // Packages
 
 const kMarginBetweenTitleAndInputs = 35.0;
@@ -18,6 +20,9 @@ class PatientSignInScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String email = "";
+    String password = "";
+
     return Scaffold(
       appBar: App.barWithoutLabel,
       backgroundColor: AppColors.primaryBackground,
@@ -33,26 +38,32 @@ class PatientSignInScreen extends StatelessWidget {
                 children: [
                   Padding(
                     padding: const EdgeInsets.only(right: 16.0),
-                    child: GestureDetector(
-                      onTap: () {},
-                      child: Text(
-                        "Sign In",
-                        style: AppTextStyle.title.copyWith(
-                          color: AppColors.primaryText,
+                    child: Hero(
+                      tag: "SignInTitle",
+                      child: GestureDetector(
+                        onTap: () {},
+                        child: Text(
+                          "Sign In",
+                          style: AppTextStyle.title.copyWith(
+                            color: AppColors.primaryText,
+                          ),
                         ),
                       ),
                     ),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(left: 16.0),
-                    child: GestureDetector(
-                      onTap: () {
-                        Navigator.pushNamed(context, PatientSignUpScreen.url);
-                      },
-                      child: Text(
-                        "Sign Up",
-                        style: AppTextStyle.title.copyWith(
-                          color: AppColors.secondaryText,
+                    child: Hero(
+                      tag: "SignUpTitle",
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.pushNamed(context, PatientSignUpScreen.url);
+                        },
+                        child: Text(
+                          "Sign Up",
+                          style: AppTextStyle.title.copyWith(
+                            color: AppColors.secondaryText,
+                          ),
                         ),
                       ),
                     ),
@@ -73,23 +84,50 @@ class PatientSignInScreen extends StatelessWidget {
               const SizedBox(
                 height: kMarginBetweenTitleAndInputs,
               ),
-              RoundedTextField(
-                hintText: "Email",
-                keyboardType: TextInputType.emailAddress,
+              Column(
+                children: [
+                  RoundedTextField(
+                    hintText: "Email",
+                    keyboardType: TextInputType.emailAddress,
+                    onChange: (value) {
+                      email = value;
+                    },
+                  ),
+                  RoundedTextField(
+                    hintText: "Password",
+                    keyboardType: TextInputType.visiblePassword,
+                    onChange: (value) {
+                      password = value;
+                    },
+                    obscureText: true,
+                    enableSuggestions: false,
+                    autocorrect: false,
+                  ),
+                ],
               ),
-              RoundedTextField(
-                hintText: "Password",
-                keyboardType: TextInputType.visiblePassword,
-                obscureText: true,
-                enableSuggestions: false,
-                autocorrect: false,
+              RoundedButton(
+                text: "Sign In",
+                onPressed: () async {
+                  API api = API();
+                  var response = await api.POST(
+                    "user/login/",
+                    {
+                      'email': email,
+                      'password': password,
+                    },
+                    false,
+                  );
+
+                  if (response) {
+                    Navigator.pushNamed(context, PatientHomeScreen.url);
+                  } else {}
+                },
               ),
-              const RoundedButton(text: "Sign In"),
-              GestureDetector(
-                onTap: () {},
-                child: const Padding(
-                  padding: EdgeInsets.all(16.0),
-                  child: Text(
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: GestureDetector(
+                  onTap: () {},
+                  child: const Text(
                     "Forget Password",
                     style: AppTextStyle.subtitle,
                   ),
