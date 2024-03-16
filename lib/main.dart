@@ -25,7 +25,7 @@ class MainApp extends StatelessWidget {
       ),
       initialRoute: WelcomeScreen.url,
       routes: {
-        WelcomeScreen.url: (context) => WelcomeScreen(),
+        WelcomeScreen.url: (context) => const WelcomeScreen(),
       },
     );
   }
