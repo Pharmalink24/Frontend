@@ -15,7 +15,7 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "PharmaLink",
-      theme: ThemeData.dark().copyWith(
+      theme: ThemeData().copyWith(
         textTheme: const TextTheme(
           bodyMedium: TextStyle(
             fontFamily: AppFonts.primary,
