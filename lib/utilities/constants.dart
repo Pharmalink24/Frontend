@@ -1,5 +1,6 @@
 // Flutter Packages
 import 'package:flutter/material.dart';
+// Components
 
 // Colors
 class AppColors {
@@ -20,6 +21,7 @@ class AppColors {
   static const Color accent2 = Color(0x4D39D2C0);
   static const Color accent3 = Color(0x4DEE8B60);
   static const Color accent4 = Color(0xCCFFFFFF);
+  static const Color accent5 = Color(0xFFE0E3E7);
 
   static const Color success = Color(0xFF249689);
   static const Color warning = Color(0xFFF9CF58);
@@ -31,6 +33,7 @@ class AppColors {
 class AppFonts {
   static const String primary = 'Outfit';
   static const String secondary = 'Readex Pro';
+  static const String tertiary = 'Plus Jakarta Sans';
 }
 
 class AppPaths {
@@ -39,29 +42,11 @@ class AppPaths {
   static const String fonts = './assets/fonts';
 }
 
-const kAppBarLogoSize = 45.0;
-
 class App {
-  static AppBar barWithoutLabel = AppBar(
-    centerTitle: true,
-    title: const Expanded(
-      child: ImageIcon(
-        AssetImage("${AppPaths.images}/logo.png"),
-        size: kAppBarLogoSize,
-        color: AppColors.alternate,
-      ),
-    ),
-    backgroundColor: AppColors.secondary,
-    shape: const RoundedRectangleBorder(
-      borderRadius: BorderRadius.vertical(
-        bottom: Radius.circular(8),
-      ),
-    ),
-    elevation: 1,
-  );
+  static const kAppBarLogoSize = 45.0;
 
-  static AppBar barWithLabel = AppBar(
-    centerTitle: true,
+  static AppBar bar = AppBar(
+    automaticallyImplyLeading: false,
     title: const Expanded(
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -83,12 +68,87 @@ class App {
         ],
       ),
     ),
-    backgroundColor: AppColors.secondary,
-    shape: const RoundedRectangleBorder(
-      borderRadius: BorderRadius.vertical(
-        bottom: Radius.circular(8),
+  );
+
+  static AppBar barWithoutLogo = AppBar(
+    automaticallyImplyLeading: false,
+    title: const Expanded(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Text(
+            "PharmaLink",
+            style: TextStyle(
+              fontWeight: FontWeight.w600,
+              fontFamily: AppFonts.primary,
+              color: AppColors.alternateText,
+            ),
+          ),
+        ],
       ),
     ),
-    elevation: 1,
+  );
+
+  static AppBar barWithoutLabel = AppBar(
+    automaticallyImplyLeading: false,
+    title: const Expanded(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          ImageIcon(
+            AssetImage(
+              "${AppPaths.images}/logo.png",
+            ),
+            size: kAppBarLogoSize,
+            color: AppColors.alternateText,
+          ),
+        ],
+      ),
+    ),
+  );
+}
+
+class AppTheme {
+  static ThemeData generalAppTheme = ThemeData().copyWith(
+    appBarTheme: AppTheme.appBarTheme,
+    textButtonTheme: AppTheme.textButtonThemeData,
+  );
+
+  static const kAppBarBorderRadius = 16.0;
+  static const AppBarTheme appBarTheme = AppBarTheme(
+    centerTitle: true,
+    backgroundColor: AppColors.secondary,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.vertical(
+        bottom: Radius.circular(kAppBarBorderRadius),
+      ),
+    ),
+    elevation: 2,
+    foregroundColor: AppColors.alternate,
+  );
+
+  static const TextButtonThemeData textButtonThemeData = TextButtonThemeData(
+    style: ButtonStyle(
+        alignment: Alignment.center,
+        backgroundColor: MaterialStatePropertyAll(AppColors.secondary),
+        elevation: MaterialStatePropertyAll(3.0)),
+  );
+}
+
+class AppTextStyle {
+  static const TextStyle title = TextStyle(
+    fontFamily: AppFonts.tertiary,
+    color: AppColors.primaryText,
+    fontWeight: FontWeight.w600,
+    fontSize: 36.0,
+  );
+
+  static const TextStyle subtitle = TextStyle(
+    fontFamily: AppFonts.tertiary,
+    color: AppColors.secondaryText,
+    fontSize: 14.0,
+    fontWeight: FontWeight.w500,
   );
 }
