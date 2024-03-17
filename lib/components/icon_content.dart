@@ -3,11 +3,8 @@ import 'package:flutter/material.dart';
 // Utilities
 import 'package:pharmalink/utilities/constants.dart';
 
-const kIconSize = 30.0;
+const kIconSize = 45.0;
 const kContentMargin = 10.0;
-const kLabelTextStyle = TextStyle(
-  fontSize: 16.0,
-);
 
 class IconContent extends StatelessWidget {
   final IconData? icon;
@@ -38,7 +35,7 @@ class IconContent extends StatelessWidget {
         ),
         Text(
           label,
-          style: kLabelTextStyle.copyWith(
+          style: AppTextStyle.cardLabelTextStyle.copyWith(
             color: labelColor,
           ),
         ),

@@ -1,5 +1,7 @@
 // Flutter Packages
 import "package:flutter/material.dart";
+import 'package:pharmalink/screens/landing/on_boarding_screen.dart';
+import 'package:pharmalink/screens/landing/landing_screen.dart';
 // Screens Packages
 import 'package:pharmalink/screens/landing/welcome_screen.dart';
 import 'package:pharmalink/screens/patient/home_screen.dart';
@@ -16,6 +18,8 @@ String initialRoute = WelcomeScreen.url;
 
 Map<String, Widget Function(BuildContext)> routes = {
   WelcomeScreen.url: (context) => const WelcomeScreen(),
+  LandingScreen.url: (context) => const LandingScreen(),
+  OnBoardingScreen.url: (context) => const OnBoardingScreen(),
   "${AppUrl.patientUrl}/${SignInScreen.url}": (context) => SignInScreen(
         apiUrl: ApiUrl.patientSignIn,
       ),

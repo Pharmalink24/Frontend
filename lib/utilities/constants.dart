@@ -108,6 +108,7 @@ class AppFonts {
 class AppPaths {
   static const String images = './assets/images';
   static const String icons = '$images/icons';
+  static const String introductions = '$images/introductions';
   static const String fonts = './assets/fonts';
 }
 
@@ -151,6 +152,11 @@ class AppTextStyle {
     color: AppColors.secondaryText,
     fontSize: 14.0,
     fontWeight: FontWeight.w500,
+  );
+
+  static const TextStyle cardLabelTextStyle = TextStyle(
+    fontSize: 22.0,
+    fontWeight: FontWeight.w700,
   );
 }
 
