@@ -1,5 +1,8 @@
 // Flutter Packages
 import 'package:flutter/material.dart';
+// Screens
+import 'package:pharmalink/screens/signin_screen.dart';
+// import 'package:pharmalink/screens/doctor/signin_screen.dart';
 // Components
 import 'package:pharmalink/components/icon_content.dart';
 import 'package:pharmalink/components/reusable_card.dart';
@@ -11,8 +14,8 @@ import 'package:loading_animation_widget/loading_animation_widget.dart';
 
 const kBottomMargin = 115.0;
 const kLogoSize = 175.0;
-const kTitleSize = 37.0;
-const kSubtitleSize = 14.0;
+const kTitleSize = 50.0;
+const kSubtitleSize = 18.0;
 
 class WelcomeScreen extends StatelessWidget {
   static String url = "/";
@@ -45,7 +48,7 @@ class WelcomeScreen extends StatelessWidget {
                     animatedTexts: [
                       TypewriterAnimatedText(
                         speed: const Duration(milliseconds: 75),
-                        'Digital Prescription System',
+                        'Digital Drug Prescription Solution',
                         textAlign: TextAlign.center,
                         textStyle: const TextStyle(
                           fontSize: kSubtitleSize,
@@ -72,7 +75,10 @@ class WelcomeScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   ReusableCard(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamed(
+                          context, "${AppUrl.doctorUrl}/${SignInScreen.url}");
+                    },
                     backgroundColor: AppColors.secondary,
                     borderColor: AppColors.alternate,
                     child: IconContent(
@@ -91,7 +97,10 @@ class WelcomeScreen extends StatelessWidget {
                     ),
                   ),
                   ReusableCard(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamed(
+                          context, "${AppUrl.patientUrl}/${SignInScreen.url}");
+                    },
                     backgroundColor: AppColors.alternate,
                     borderColor: AppColors.secondary,
                     child: IconContent(

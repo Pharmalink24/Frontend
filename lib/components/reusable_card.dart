@@ -26,7 +26,9 @@ class ReusableCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: GestureDetector(
-        onTap: onPressed(),
+        onTap: () {
+          onPressed();
+        },
         child: Container(
           margin: const EdgeInsets.symmetric(
               vertical: kCardMarginVertical, horizontal: kCardMarginHorizontal),

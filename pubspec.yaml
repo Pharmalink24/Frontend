@@ -13,6 +13,7 @@ dependencies:
   google_fonts: 6.1.0
   http: ^1.2.1
   loading_animation_widget: ^1.2.1
+  modal_progress_hud_nsn: ^0.5.1
 
 
 dev_dependencies:
@@ -42,3 +43,19 @@ flutter:
       fonts:
         - asset: assets/fonts/ReadexPro.ttf
 
+    - family: Plus Jakarta Sans
+      fonts:
+        - asset: assets/fonts/Plus Jakarta Sans/PlusJakartaSans-Bold.ttf
+        - asset: assets/fonts/Plus Jakarta Sans/PlusJakartaSans-BoldItalic.ttf
+        - asset: assets/fonts/Plus Jakarta Sans/PlusJakartaSans-ExtraBold.ttf
+        - asset: assets/fonts/Plus Jakarta Sans/PlusJakartaSans-ExtraBoldItalic.ttf
+        - asset: assets/fonts/Plus Jakarta Sans/PlusJakartaSans-ExtraLight.ttf
+        - asset: assets/fonts/Plus Jakarta Sans/PlusJakartaSans-ExtraLightItalic.ttf
+        - asset: assets/fonts/Plus Jakarta Sans/PlusJakartaSans-Italic.ttf
+        - asset: assets/fonts/Plus Jakarta Sans/PlusJakartaSans-Light.ttf
+        - asset: assets/fonts/Plus Jakarta Sans/PlusJakartaSans-LightItalic.ttf
+        - asset: assets/fonts/Plus Jakarta Sans/PlusJakartaSans-Medium.ttf
+        - asset: assets/fonts/Plus Jakarta Sans/PlusJakartaSans-MediumItalic.ttf
+        - asset: assets/fonts/Plus Jakarta Sans/PlusJakartaSans-Regular.ttf
+        - asset: assets/fonts/Plus Jakarta Sans/PlusJakartaSans-SemiBold.ttf
+        - asset: assets/fonts/Plus Jakarta Sans/PlusJakartaSans-SemiBoldItalic.ttf
