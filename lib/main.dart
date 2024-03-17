@@ -4,6 +4,7 @@
 import 'package:flutter/material.dart';
 // Screens
 import 'package:pharmalink/screens/landing/welcome_screen.dart';
+import 'package:pharmalink/screens/patient/home_screen.dart';
 import 'package:pharmalink/screens/patient/signin_screen.dart';
 import 'package:pharmalink/screens/patient/signup_screen.dart';
 // import 'package:pharmalink/screens/doctor/signin_screen.dart';
@@ -31,6 +32,7 @@ class MainApp extends StatelessWidget {
         PatientSignUpScreen.url: (context) => const PatientSignUpScreen(),
         // DoctorSignInScreen.url: (context) => const DoctorSignInScreen(),
         // DoctorSignUpScreen.url: (context) => const DoctorSignUpScreen(),
+        PatientHomeScreen.url: (context) => const PatientHomeScreen(),
       },
     );
   }

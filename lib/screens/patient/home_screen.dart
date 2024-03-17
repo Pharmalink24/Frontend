@@ -30,7 +30,7 @@ class _PatientHomeScreenState extends State<PatientHomeScreen> {
       backgroundColor: AppColors.secondaryBackground,
       resizeToAvoidBottomInset: false,
       body: SafeArea(
-        child: Text(""),
+        child: Text("Home Screen"),
       ),
     );
   }

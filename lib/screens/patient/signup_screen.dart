@@ -10,6 +10,7 @@ import 'package:pharmalink/data/signup.dart';
 // Utilities
 import 'package:pharmalink/utilities/constants.dart';
 // Packages
+import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
 const kMarginBetweenTitleAndInputs = 35.0;
 
@@ -24,6 +25,7 @@ class PatientSignUpScreen extends StatefulWidget {
 
 class _PatientSignUpScreenState extends State<PatientSignUpScreen> {
   Map<String, dynamic> signUpValues = {};
+  bool _saving = false;
 
   List<FlatTextField> getInputs() {
     List<FlatTextField> inputs = [];
@@ -52,7 +54,7 @@ class _PatientSignUpScreenState extends State<PatientSignUpScreen> {
   @override
   void initState() {
     // TODO: implement initState
-    
+
     super.initState();
   }
 
@@ -61,81 +63,91 @@ class _PatientSignUpScreenState extends State<PatientSignUpScreen> {
     return Scaffold(
       appBar: App.barWithoutLabel,
       backgroundColor: AppColors.primaryBackground,
-      resizeToAvoidBottomInset: false,
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Padding(
+        child: ModalProgressHUD(
+          inAsyncCall: _saving,
+          child: ListView(
             padding: const EdgeInsets.all(24.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Row(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(right: 16.0),
-                      child: Hero(
-                        tag: "SignInTitle",
-                        child: GestureDetector(
-                          onTap: () {
-                            Navigator.pushNamed(
-                                context, PatientSignInScreen.url);
-                          },
-                          child: Text(
-                            "Sign In",
-                            style: AppTextStyle.title.copyWith(
-                              color: AppColors.secondaryText,
+            children: [
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Row(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(right: 16.0),
+                        child: Hero(
+                          tag: "SignInTitle",
+                          child: GestureDetector(
+                            onTap: () {
+                              Navigator.pushNamed(
+                                  context, PatientSignInScreen.url);
+                            },
+                            child: Text(
+                              "Sign In",
+                              style: AppTextStyle.title.copyWith(
+                                color: AppColors.secondaryText,
+                              ),
                             ),
                           ),
                         ),
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 16.0),
-                      child: Hero(
-                        tag: "SignUpTitle",
-                        child: GestureDetector(
-                          onTap: () {
-                            Navigator.pop(context);
-                          },
-                          child: Text(
-                            "Sign Up",
-                            style: AppTextStyle.title.copyWith(
-                              color: AppColors.primaryText,
+                      Padding(
+                        padding: const EdgeInsets.only(left: 16.0),
+                        child: Hero(
+                          tag: "SignUpTitle",
+                          child: GestureDetector(
+                            onTap: () {
+                              Navigator.pop(context);
+                            },
+                            child: Text(
+                              "Sign Up",
+                              style: AppTextStyle.title.copyWith(
+                                color: AppColors.primaryText,
+                              ),
                             ),
                           ),
                         ),
                       ),
-                    ),
-                  ],
-                ),
-                Container(
-                  width: double.infinity,
-                  child: const Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: Text(
-                      'Let\'s get started by filling out the form below.',
-                      style: AppTextStyle.subtitle,
-                      textAlign: TextAlign.start,
+                    ],
+                  ),
+                  Container(
+                    width: double.infinity,
+                    child: const Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Text(
+                        'Let\'s get started by filling out the form below.',
+                        style: AppTextStyle.subtitle,
+                        textAlign: TextAlign.start,
+                      ),
                     ),
                   ),
-                ),
-                const SizedBox(
-                  height: kMarginBetweenTitleAndInputs,
-                ),
-                Column(
-                  children: getInputs(),
-                ),
-                RoundedButton(
-                  text: "Create an account",
-                  onPressed: () {
-                    signUpValues.forEach((key, value) {
-                      print((key, value));
-                    });
-                  },
-                ),
-              ],
-            ),
+                  const SizedBox(
+                    height: kMarginBetweenTitleAndInputs,
+                  ),
+                  Column(
+                    children: getInputs(),
+                  ),
+                  RoundedButton(
+                    text: "Create an account",
+                    onPressed: () {
+                      setState(() {
+                        _saving = true;
+                      });
+                      try {
+                        signUpValues.forEach((key, value) {
+                          // print((key, value));
+                        });
+                      } catch (e) {}
+                      setState(() {
+                        _saving = false;
+                      });
+                    },
+                  ),
+                ],
+              ),
+            ],
           ),
         ),
       ),
