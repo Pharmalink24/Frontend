@@ -10,6 +10,7 @@ dependencies:
   flutter:
     sdk: flutter
   font_awesome_flutter: 10.6.0
+  google_fonts: 6.1.0
   http: ^1.2.1
   loading_animation_widget: ^1.2.1
 
