@@ -13,9 +13,17 @@ import 'package:pharmalink/utilities/constants.dart';
 
 const kMarginBetweenTitleAndInputs = 35.0;
 
-class PatientSignUpScreen extends StatelessWidget {
+class PatientSignUpScreen extends StatefulWidget {
   static String url = "/patient/signup";
+
   const PatientSignUpScreen({super.key});
+
+  @override
+  State<PatientSignUpScreen> createState() => _PatientSignUpScreenState();
+}
+
+class _PatientSignUpScreenState extends State<PatientSignUpScreen> {
+  Map<String, dynamic> signUpValues = {};
 
   List<FlatTextField> getInputs() {
     List<FlatTextField> inputs = [];
@@ -32,6 +40,9 @@ class PatientSignUpScreen extends StatelessWidget {
       var textField = FlatTextField(
         hintText: name,
         keyboardType: textInputType,
+        onChanged: (value) {
+          signUpValues[name] = value;
+        },
       );
       inputs.add(textField);
     });
@@ -39,10 +50,17 @@ class PatientSignUpScreen extends StatelessWidget {
   }
 
   @override
+  void initState() {
+    // TODO: implement initState
+    
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: App.barWithoutLabel,
-      backgroundColor: AppColors.secondaryBackground,
+      backgroundColor: AppColors.primaryBackground,
       resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: SingleChildScrollView(
@@ -110,7 +128,11 @@ class PatientSignUpScreen extends StatelessWidget {
                 ),
                 RoundedButton(
                   text: "Create an account",
-                  onPressed: () {},
+                  onPressed: () {
+                    signUpValues.forEach((key, value) {
+                      print((key, value));
+                    });
+                  },
                 ),
               ],
             ),

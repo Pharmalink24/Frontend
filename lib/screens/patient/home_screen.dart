@@ -11,11 +11,17 @@ import 'package:pharmalink/data/signup.dart';
 import 'package:pharmalink/utilities/constants.dart';
 // Packages
 
-const kMarginBetweenTitleAndInputs = 35.0;
-
-class PatientHomeScreen extends StatelessWidget {
+class PatientHomeScreen extends StatefulWidget {
   static String url = "/patient/home";
+
   const PatientHomeScreen({super.key});
+
+  @override
+  State<PatientHomeScreen> createState() => _PatientHomeScreenState();
+}
+
+class _PatientHomeScreenState extends State<PatientHomeScreen> {
+  void getCurrentUser() {}
 
   @override
   Widget build(BuildContext context) {

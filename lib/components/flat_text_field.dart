@@ -15,6 +15,7 @@ class FlatTextField extends StatelessWidget {
   final bool obscureText;
   final bool enableSuggestions;
   final bool autocorrect;
+  final Function onChanged;
 
   FlatTextField({
     super.key,
@@ -23,6 +24,7 @@ class FlatTextField extends StatelessWidget {
     this.obscureText = false,
     this.enableSuggestions = true,
     this.autocorrect = true,
+    required this.onChanged,
   });
 
   @override
@@ -33,6 +35,9 @@ class FlatTextField extends StatelessWidget {
         width: double.infinity,
         height: 50.0,
         child: TextFormField(
+          onChanged: (value) {
+            onChanged(value);
+          },
           autofocus: false,
           obscureText: obscureText,
           autocorrect: autocorrect,
@@ -48,14 +53,14 @@ class FlatTextField extends StatelessWidget {
             ),
             enabledBorder: OutlineInputBorder(
               borderSide: BorderSide(
-                color: AppColors.primaryBackground,
+                color: AppColors.secondaryBackground,
                 width: _kBorderWidth,
               ),
               borderRadius: BorderRadius.circular(_kBorderRadius),
             ),
             focusedBorder: OutlineInputBorder(
               borderSide: BorderSide(
-                color: AppColors.accent1,
+                color: AppColors.secondary,
                 width: _kBorderWidth,
               ),
               borderRadius: BorderRadius.circular(_kBorderRadius),
@@ -75,7 +80,7 @@ class FlatTextField extends StatelessWidget {
               borderRadius: BorderRadius.circular(40),
             ),
             filled: true,
-            fillColor: AppColors.primaryBackground,
+            fillColor: AppColors.secondaryBackground,
             contentPadding: EdgeInsets.all(_kPadding),
           ),
           style: TextStyle(

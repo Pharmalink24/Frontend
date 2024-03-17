@@ -25,7 +25,7 @@ class PatientSignInScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: App.barWithoutLabel,
-      backgroundColor: AppColors.primaryBackground,
+      backgroundColor: AppColors.secondaryBackground,
       resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: Padding(
@@ -89,14 +89,14 @@ class PatientSignInScreen extends StatelessWidget {
                   RoundedTextField(
                     hintText: "Email",
                     keyboardType: TextInputType.emailAddress,
-                    onChange: (value) {
+                    onChanged: (value) {
                       email = value;
                     },
                   ),
                   RoundedTextField(
                     hintText: "Password",
                     keyboardType: TextInputType.visiblePassword,
-                    onChange: (value) {
+                    onChanged: (value) {
                       password = value;
                     },
                     obscureText: true,
@@ -108,19 +108,25 @@ class PatientSignInScreen extends StatelessWidget {
               RoundedButton(
                 text: "Sign In",
                 onPressed: () async {
-                  API api = API();
-                  var response = await api.POST(
-                    "user/login/",
-                    {
-                      'email': email,
-                      'password': password,
-                    },
-                    false,
-                  );
+                  try {
+                    API api = API();
+                    var response = await api.POST(
+                      "user/login/",
+                      {
+                        'email': email,
+                        'password': password,
+                      },
+                      false,
+                    );
 
-                  if (response) {
-                    Navigator.pushNamed(context, PatientHomeScreen.url);
-                  } else {}
+                    if (response) {
+                      Navigator.pushNamed(context, PatientHomeScreen.url);
+                    } else {
+                      throw "Exception";
+                    }
+                  } catch (e) {
+                    print(e);
+                  }
                 },
               ),
               Padding(

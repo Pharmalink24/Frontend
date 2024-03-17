@@ -11,7 +11,7 @@ const double _kPadding = 24.0;
 
 class RoundedTextField extends StatelessWidget {
   final String hintText;
-  final Function onChange;
+  final Function onChanged;
   final TextInputType keyboardType;
   final bool obscureText;
   final bool enableSuggestions;
@@ -24,7 +24,7 @@ class RoundedTextField extends StatelessWidget {
     this.obscureText = false,
     this.enableSuggestions = true,
     this.autocorrect = true,
-    required this.onChange,
+    required this.onChanged,
   });
 
   @override
@@ -35,7 +35,7 @@ class RoundedTextField extends StatelessWidget {
         width: double.infinity,
         child: TextFormField(
           onChanged: (value) {
-            onChange(value);
+            onChanged(value);
           },
           autofocus: false,
           obscureText: obscureText,
