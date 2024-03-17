@@ -86,20 +86,13 @@ class OnBoardingScreenState extends State<OnBoardingScreen> {
       ],
       onDone: () => _onIntroEnd(context),
       onSkip: () => _onIntroEnd(context), // You can override onSkip callback
-      showSkipButton: true,
+      showBackButton: true,
+      showSkipButton: false,
       skipOrBackFlex: 0,
       nextFlex: 0,
-      showBackButton: false,
       back: const Icon(
         Icons.arrow_back,
         color: AppColors.alternate,
-      ),
-      skip: Text(
-        'Skip',
-        style: AppTextStyle.cardLabelTextStyle.copyWith(
-          color: AppColors.alternate,
-          fontSize: 15.0,
-        ),
       ),
       next: const Icon(
         Icons.arrow_forward,
@@ -118,12 +111,13 @@ class OnBoardingScreenState extends State<OnBoardingScreen> {
           ? const EdgeInsets.all(12.0)
           : const EdgeInsets.fromLTRB(8.0, 4.0, 8.0, 4.0),
       dotsDecorator: const DotsDecorator(
-        size: Size(10.0, 10.0),
+        size: Size(12.0, 12.0),
         color: AppColors.accent4,
         activeSize: Size(22.0, 10.0),
         activeShape: RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(25.0)),
         ),
+        activeColor: AppColors.primary,
       ),
       dotsContainerDecorator: const ShapeDecoration(
         color: AppColors.secondary,
