@@ -18,7 +18,7 @@ const kMarginBetweenTitleAndInputs = 35.0;
 class SignUpScreen extends StatefulWidget {
   static String url = "/signup";
   final String apiUrl;
-  final List<Input> signUpModel;
+  List<Input> signUpModel;
 
   SignUpScreen({super.key, required this.apiUrl, required this.signUpModel});
 
@@ -111,6 +111,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         _saving = true;
                       });
                       try {
+                        print(widget.signUpModel);
                         // for (var field in patientSignUpModel) {
                         //   var name = field.name;
                         //   var value = field.value;

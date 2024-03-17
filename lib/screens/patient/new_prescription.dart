@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:pharmalink/screens/landing_prescription.dart';
+import 'package:pharmalink/screens/patient/landing_prescription.dart';
 import 'package:pharmalink/services/networking.dart';
 import 'package:pharmalink/utilities/app_theme.dart';
-import '../components/doctor_prescription_card.dart';
+import '../../components/doctor_prescription_card.dart';
 
-class ActivePrescriptionScreen extends StatefulWidget {
+class NewPrescriptionScreen extends StatefulWidget {
   @override
-  _ActivePrescriptionScreenState createState() =>
-      _ActivePrescriptionScreenState();
+  _NewPrescriptionScreenState createState() => _NewPrescriptionScreenState();
 }
 
-class _ActivePrescriptionScreenState extends State<ActivePrescriptionScreen> {
+class _NewPrescriptionScreenState extends State<NewPrescriptionScreen> {
   List<DoctorPrescriptionCard> doctorCards = [];
 
   @override
@@ -21,17 +20,16 @@ class _ActivePrescriptionScreenState extends State<ActivePrescriptionScreen> {
   }
 
   void getData() async {
-    API api = API('http://10.0.2.2/posts');
-    var doctorInfo = await api.GET();
+    API api = API();
+    var doctorInfo = await api.GET('http://10.0.2.2/posts', "");
     setState(() {
       for (var i = 0; i < doctorInfo.length; i++) {
         doctorCards.add(DoctorPrescriptionCard(
-          firstName: doctorInfo[i]['firstName'],
-          lastName: doctorInfo[i]['lastName'],
-          date: doctorInfo[i]['created_at'],
-          doctorImage: doctorInfo[i]['image'],
-          prescriptionId: doctorInfo[i]['id'],
-        ));
+            firstName: doctorInfo[i]['firstName'],
+            lastName: doctorInfo[i]['lastName'],
+            date: doctorInfo[i]['created_at'],
+            prescriptionId: doctorInfo[i]['id'],
+            doctorImage: doctorInfo[i]['image']));
       }
     });
   }
@@ -44,7 +42,7 @@ class _ActivePrescriptionScreenState extends State<ActivePrescriptionScreen> {
         iconTheme: IconThemeData(color: AppTheme.secondaryText),
         backgroundColor: AppTheme.primaryBackground,
         title: Text(
-          'Active Prescriptions',
+          'New Prescriptions',
           style: AppTheme.displayMedium(
             fontSize: 28,
           ),

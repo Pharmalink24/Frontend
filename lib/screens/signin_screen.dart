@@ -7,6 +7,7 @@ import 'package:pharmalink/models/signin.dart';
 // Screens
 import 'package:pharmalink/screens/signup_screen.dart';
 import 'package:pharmalink/screens/patient/home_screen.dart';
+import 'package:pharmalink/screens/patient/landing_prescription.dart';
 // Components
 import 'package:pharmalink/components/rounded_button.dart';
 // Utilities
@@ -56,7 +57,6 @@ class _SignInScreenState extends State<SignInScreen> {
                           child: Hero(
                             tag: "SignInTitle",
                             child: GestureDetector(
-                              onTap: () {},
                               child: Text(
                                 "Sign In",
                                 style: AppTextStyle.title.copyWith(
@@ -75,8 +75,8 @@ class _SignInScreenState extends State<SignInScreen> {
                                 Navigator.pushNamed(
                                   context,
                                   widget.apiUrl == ApiUrl.doctorSignIn
-                                      ? "${AppUrl.patientUrl}/${SignUpScreen.url}"
-                                      : "${AppUrl.doctorUrl}/${SignUpScreen.url}",
+                                      ? "${AppUrl.doctorUrl}/${SignUpScreen.url}"
+                                      : "${AppUrl.patientUrl}/${SignUpScreen.url}",
                                 );
                               },
                               child: Text(
@@ -115,17 +115,20 @@ class _SignInScreenState extends State<SignInScreen> {
                         _saving = true;
                       });
                       try {
+                        Map body = {};
+                        for (var input in signInModel) {
+                          body[input.dbName] = input.value;
+                        }
                         API api = API();
                         var response = await api.POST(
                           widget.apiUrl,
-                          {
-                            'email': email,
-                            'password': password,
-                          },
+                          body,
                           false,
                         );
+
                         if (response != null) {
-                          Navigator.pushNamed(context, PatientHomeScreen.url);
+                          Navigator.pushNamed(
+                              context, LandingPrescriptionScreen.url);
                         } else {
                           throw "Exception";
                         }

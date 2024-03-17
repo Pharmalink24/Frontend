@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:pharmalink/screens/landing_prescription.dart';
+import 'package:pharmalink/screens/patient/landing_prescription.dart';
 import 'package:pharmalink/services/networking.dart';
 import 'package:pharmalink/utilities/app_theme.dart';
-import '../components/doctor_prescription_card.dart';
+import '../../components/doctor_prescription_card.dart';
 
-class NewPrescriptionScreen extends StatefulWidget {
+class InactivePrescriptionScreen extends StatefulWidget {
   @override
-  _NewPrescriptionScreenState createState() =>
-      _NewPrescriptionScreenState();
+  _InactivePrescriptionScreenState createState() =>
+      _InactivePrescriptionScreenState();
 }
 
-class _NewPrescriptionScreenState extends State<NewPrescriptionScreen> {
+class _InactivePrescriptionScreenState
+    extends State<InactivePrescriptionScreen> {
   List<DoctorPrescriptionCard> doctorCards = [];
 
   @override
@@ -21,8 +22,8 @@ class _NewPrescriptionScreenState extends State<NewPrescriptionScreen> {
   }
 
   void getData() async {
-    API api = API('http://10.0.2.2/posts');
-    var doctorInfo = await api.GET();
+    API api = API();
+    var doctorInfo = await api.GET('http://10.0.2.2/posts', "");
     setState(() {
       for (var i = 0; i < doctorInfo.length; i++) {
         doctorCards.add(DoctorPrescriptionCard(
@@ -43,7 +44,7 @@ class _NewPrescriptionScreenState extends State<NewPrescriptionScreen> {
         iconTheme: IconThemeData(color: AppTheme.secondaryText),
         backgroundColor: AppTheme.primaryBackground,
         title: Text(
-          'New Prescriptions',
+          'Inactive Prescriptions',
           style: AppTheme.displayMedium(
             fontSize: 28,
           ),

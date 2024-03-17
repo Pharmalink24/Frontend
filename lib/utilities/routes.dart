@@ -3,6 +3,7 @@ import "package:flutter/material.dart";
 // Screens Packages
 import 'package:pharmalink/screens/landing/welcome_screen.dart';
 import 'package:pharmalink/screens/patient/home_screen.dart';
+import 'package:pharmalink/screens/patient/landing_prescription.dart';
 import 'package:pharmalink/screens/signin_screen.dart';
 import 'package:pharmalink/screens/signup_screen.dart';
 // Models Packages
@@ -30,5 +31,5 @@ Map<String, Widget Function(BuildContext)> routes = {
         signUpModel: doctorSignUpModel,
       ),
   PatientHomeScreen.url: (context) => const PatientHomeScreen(),
-
+  LandingPrescriptionScreen.url: (context) => const LandingPrescriptionScreen(),
 };

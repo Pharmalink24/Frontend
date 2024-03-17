@@ -38,16 +38,18 @@ class API {
           })
         : null;
 
+    print(body);
     http.Response response = await http.post(
       Uri.parse('$PharmaLinkUrl/$path'),
       body: jsonEncode(body),
       headers: headers,
     );
 
-    if (response.statusCode == 201 || response.statusCode == 200) {
+    if (response.statusCode == 200) {
       var decodedData = jsonDecode(response.body);
       return decodedData;
     } else {
+      print(response.body);
       print(response.request);
       print(response.statusCode);
       print(response.reasonPhrase);

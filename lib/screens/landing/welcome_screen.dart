@@ -77,7 +77,7 @@ class WelcomeScreen extends StatelessWidget {
                   ReusableCard(
                     onPressed: () {
                       Navigator.pushNamed(
-                          context, "${AppUrl.doctorUrl}/${SignInScreen.url}");
+                          context, "${AppUrl.patientUrl}/${SignInScreen.url}");
                     },
                     backgroundColor: AppColors.secondary,
                     borderColor: AppColors.alternate,
@@ -99,7 +99,7 @@ class WelcomeScreen extends StatelessWidget {
                   ReusableCard(
                     onPressed: () {
                       Navigator.pushNamed(
-                          context, "${AppUrl.patientUrl}/${SignInScreen.url}");
+                          context, "${AppUrl.doctorUrl}/${SignInScreen.url}");
                     },
                     backgroundColor: AppColors.alternate,
                     borderColor: AppColors.secondary,
