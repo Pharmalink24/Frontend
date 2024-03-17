@@ -2,11 +2,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:pharmalink/components/form_view.dart';
+import 'package:pharmalink/models/signin.dart';
 // Screens
-import 'package:pharmalink/screens/patient/signup_screen.dart';
+import 'package:pharmalink/screens/signup_screen.dart';
 import 'package:pharmalink/screens/patient/home_screen.dart';
 // Components
-import 'package:pharmalink/components/rounded_text_field.dart';
 import 'package:pharmalink/components/rounded_button.dart';
 // Utilities
 import 'package:pharmalink/utilities/constants.dart';
@@ -17,15 +18,16 @@ import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
 const kMarginBetweenTitleAndInputs = 35.0;
 
-class PatientSignInScreen extends StatefulWidget {
-  static String url = "/patient/signin";
-  const PatientSignInScreen({super.key});
+class SignInScreen extends StatefulWidget {
+  static String url = "signin/";
+  final String apiUrl;
+  SignInScreen({super.key, required this.apiUrl});
 
   @override
-  State<PatientSignInScreen> createState() => _PatientSignInScreenState();
+  State<SignInScreen> createState() => _SignInScreenState();
 }
 
-class _PatientSignInScreenState extends State<PatientSignInScreen> {
+class _SignInScreenState extends State<SignInScreen> {
   String email = "";
   String password = "";
   bool _saving = false;
@@ -71,7 +73,11 @@ class _PatientSignInScreenState extends State<PatientSignInScreen> {
                             child: GestureDetector(
                               onTap: () {
                                 Navigator.pushNamed(
-                                    context, PatientSignUpScreen.url);
+                                  context,
+                                  widget.apiUrl == ApiUrl.doctorSignIn
+                                      ? "${AppUrl.patientUrl}/${SignUpScreen.url}"
+                                      : "${AppUrl.doctorUrl}/${SignUpScreen.url}",
+                                );
                               },
                               child: Text(
                                 "Sign Up",
@@ -101,27 +107,7 @@ class _PatientSignInScreenState extends State<PatientSignInScreen> {
                   const SizedBox(
                     height: kMarginBetweenTitleAndInputs,
                   ),
-                  Column(
-                    children: [
-                      RoundedTextField(
-                        hintText: "Email",
-                        keyboardType: TextInputType.emailAddress,
-                        onChanged: (value) {
-                          email = value;
-                        },
-                      ),
-                      RoundedTextField(
-                        hintText: "Password",
-                        keyboardType: TextInputType.visiblePassword,
-                        onChanged: (value) {
-                          password = value;
-                        },
-                        obscureText: true,
-                        enableSuggestions: false,
-                        autocorrect: false,
-                      ),
-                    ],
-                  ),
+                  FormView(model: signInModel),
                   RoundedButton(
                     text: "Sign In",
                     onPressed: () async {
@@ -131,7 +117,7 @@ class _PatientSignInScreenState extends State<PatientSignInScreen> {
                       try {
                         API api = API();
                         var response = await api.POST(
-                          "user/login/",
+                          widget.apiUrl,
                           {
                             'email': email,
                             'password': password,

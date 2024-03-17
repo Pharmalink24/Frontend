@@ -1,60 +1,36 @@
+// ignore_for_file: prefer_const_constructors
+
 // Flutter Packages
 import 'package:flutter/material.dart';
-// Screens
-import 'package:pharmalink/screens/patient/signin_screen.dart';
-// Components
-import 'package:pharmalink/components/flat_text_field.dart';
+// Screens Packages
+// Components Packages
 import 'package:pharmalink/components/rounded_button.dart';
-// Data
-import 'package:pharmalink/data/signup.dart';
-// Utilities
+import 'package:pharmalink/components/form_view.dart';
+// Models Packages
+import 'package:pharmalink/models/input.dart';
+// Utilities Packages
 import 'package:pharmalink/utilities/constants.dart';
-// Packages
+// External Packages
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
 const kMarginBetweenTitleAndInputs = 35.0;
 
-class PatientSignUpScreen extends StatefulWidget {
-  static String url = "/patient/signup";
+class SignUpScreen extends StatefulWidget {
+  static String url = "/signup";
+  final String apiUrl;
+  final List<Input> signUpModel;
 
-  const PatientSignUpScreen({super.key});
+  SignUpScreen({super.key, required this.apiUrl, required this.signUpModel});
 
   @override
-  State<PatientSignUpScreen> createState() => _PatientSignUpScreenState();
+  State<SignUpScreen> createState() => _SignUpScreenState();
 }
 
-class _PatientSignUpScreenState extends State<PatientSignUpScreen> {
-  Map<String, dynamic> signUpValues = {};
+class _SignUpScreenState extends State<SignUpScreen> {
   bool _saving = false;
-
-  List<FlatTextField> getInputs() {
-    List<FlatTextField> inputs = [];
-    var textInputType;
-    signupInputs.forEach((name, type) {
-      if (type == InputType.text) {
-        textInputType = TextInputType.name;
-      } else if (type == InputType.email) {
-        textInputType = TextInputType.emailAddress;
-      } else if (type == InputType.password) {
-        textInputType = TextInputType.visiblePassword;
-      } else {}
-
-      var textField = FlatTextField(
-        hintText: name,
-        keyboardType: textInputType,
-        onChanged: (value) {
-          signUpValues[name] = value;
-        },
-      );
-      inputs.add(textField);
-    });
-    return inputs;
-  }
 
   @override
   void initState() {
-    // TODO: implement initState
-
     super.initState();
   }
 
@@ -62,7 +38,7 @@ class _PatientSignUpScreenState extends State<PatientSignUpScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: App.barWithoutLabel,
-      backgroundColor: AppColors.primaryBackground,
+      backgroundColor: AppColors.secondaryBackground,
       body: SafeArea(
         child: ModalProgressHUD(
           inAsyncCall: _saving,
@@ -81,8 +57,7 @@ class _PatientSignUpScreenState extends State<PatientSignUpScreen> {
                           tag: "SignInTitle",
                           child: GestureDetector(
                             onTap: () {
-                              Navigator.pushNamed(
-                                  context, PatientSignInScreen.url);
+                              Navigator.pop(context);
                             },
                             child: Text(
                               "Sign In",
@@ -123,11 +98,11 @@ class _PatientSignUpScreenState extends State<PatientSignUpScreen> {
                       ),
                     ),
                   ),
-                  const SizedBox(
+                  SizedBox(
                     height: kMarginBetweenTitleAndInputs,
                   ),
-                  Column(
-                    children: getInputs(),
+                  FormView(
+                    model: widget.signUpModel,
                   ),
                   RoundedButton(
                     text: "Create an account",
@@ -136,10 +111,13 @@ class _PatientSignUpScreenState extends State<PatientSignUpScreen> {
                         _saving = true;
                       });
                       try {
-                        signUpValues.forEach((key, value) {
-                          // print((key, value));
-                        });
-                      } catch (e) {}
+                        // for (var field in patientSignUpModel) {
+                        //   var name = field.name;
+                        //   var value = field.value;
+                        // }
+                      } catch (e) {
+                        print(e);
+                      }
                       setState(() {
                         _saving = false;
                       });

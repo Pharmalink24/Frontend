@@ -1,7 +1,7 @@
 // Flutter Packages
 import 'package:flutter/material.dart';
 // Screens
-import 'package:pharmalink/screens/patient/signin_screen.dart';
+import 'package:pharmalink/screens/signin_screen.dart';
 // import 'package:pharmalink/screens/doctor/signin_screen.dart';
 // Components
 import 'package:pharmalink/components/icon_content.dart';
@@ -76,7 +76,8 @@ class WelcomeScreen extends StatelessWidget {
                 children: [
                   ReusableCard(
                     onPressed: () {
-                      Navigator.pushNamed(context, PatientSignInScreen.url);
+                      Navigator.pushNamed(
+                          context, "${AppUrl.doctorUrl}/${SignInScreen.url}");
                     },
                     backgroundColor: AppColors.secondary,
                     borderColor: AppColors.alternate,
@@ -97,7 +98,8 @@ class WelcomeScreen extends StatelessWidget {
                   ),
                   ReusableCard(
                     onPressed: () {
-                      Navigator.pushNamed(context, PatientSignInScreen.url);
+                      Navigator.pushNamed(
+                          context, "${AppUrl.patientUrl}/${SignInScreen.url}");
                     },
                     backgroundColor: AppColors.alternate,
                     borderColor: AppColors.secondary,

@@ -1,18 +1,13 @@
 // Flutter Packages
 import 'package:flutter/material.dart';
-// Screens
-import 'package:pharmalink/screens/patient/signin_screen.dart';
-// Components
-import 'package:pharmalink/components/flat_text_field.dart';
-import 'package:pharmalink/components/rounded_button.dart';
-// Data
-import 'package:pharmalink/data/signup.dart';
-// Utilities
+// Screens Packages
+// Components Packages
+// Utilities Packages
 import 'package:pharmalink/utilities/constants.dart';
-// Packages
+// External Packages
 
 class PatientHomeScreen extends StatefulWidget {
-  static String url = "/patient/home";
+  static String url = "patient/home/";
 
   const PatientHomeScreen({super.key});
 

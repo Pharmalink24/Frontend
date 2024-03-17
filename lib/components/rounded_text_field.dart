@@ -6,8 +6,6 @@ import "package:flutter/material.dart";
 import 'package:pharmalink/utilities/constants.dart';
 
 const double _kBorderRadius = 40.0;
-const double _kBorderWidth = 2.0;
-const double _kPadding = 24.0;
 
 class RoundedTextField extends StatelessWidget {
   final String hintText;
@@ -16,6 +14,7 @@ class RoundedTextField extends StatelessWidget {
   final bool obscureText;
   final bool enableSuggestions;
   final bool autocorrect;
+  final InputDecoration decoration;
 
   RoundedTextField({
     super.key,
@@ -25,6 +24,7 @@ class RoundedTextField extends StatelessWidget {
     this.enableSuggestions = true,
     this.autocorrect = true,
     required this.onChanged,
+    required this.decoration,
   });
 
   @override
@@ -41,52 +41,12 @@ class RoundedTextField extends StatelessWidget {
           obscureText: obscureText,
           autocorrect: autocorrect,
           enableSuggestions: enableSuggestions,
-          decoration: InputDecoration(
+          decoration: decoration.copyWith(
             hintText: hintText,
             labelText: hintText,
-            labelStyle: TextStyle(
-              fontFamily: AppFonts.tertiary,
-              color: AppColors.secondaryText,
-              fontSize: 14,
-              fontWeight: FontWeight.w500,
-            ),
-            enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(
-                color: AppColors.accent5,
-                width: _kBorderWidth,
-              ),
-              borderRadius: BorderRadius.circular(_kBorderRadius),
-            ),
-            focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(
-                color: AppColors.secondary,
-                width: _kBorderWidth,
-              ),
-              borderRadius: BorderRadius.circular(_kBorderRadius),
-            ),
-            errorBorder: OutlineInputBorder(
-              borderSide: BorderSide(
-                color: AppColors.error,
-                width: _kBorderWidth,
-              ),
-              borderRadius: BorderRadius.circular(_kBorderRadius),
-            ),
-            focusedErrorBorder: OutlineInputBorder(
-              borderSide: BorderSide(
-                color: AppColors.error,
-                width: _kBorderWidth,
-              ),
-              borderRadius: BorderRadius.circular(_kBorderRadius),
-            ),
-            filled: true,
-            fillColor: AppColors.primaryBackground,
-            contentPadding: EdgeInsets.all(_kPadding),
           ),
-          style: TextStyle(
-            fontFamily: AppFonts.tertiary,
+          style: AppTextStyle.subtitle.copyWith(
             color: AppColors.secondary,
-            fontSize: 14,
-            fontWeight: FontWeight.w500,
           ),
           keyboardType: keyboardType,
         ),
