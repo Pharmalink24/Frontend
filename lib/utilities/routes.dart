@@ -7,8 +7,9 @@ import 'package:pharmalink/screens/patient/landing_prescription.dart';
 import 'package:pharmalink/screens/signin_screen.dart';
 import 'package:pharmalink/screens/signup/signup_screen.dart';
 // Models Packages
-import 'package:pharmalink/models/doctor/signup.dart';
-import 'package:pharmalink/models/patient/signup.dart';
+import 'package:pharmalink/models/auth/doctor/signup.dart';
+import 'package:pharmalink/models/auth/patient/signup.dart';
+import 'package:pharmalink/screens/signup/verification_screen.dart';
 // Utilities
 import 'package:pharmalink/utilities/constants.dart';
 
@@ -29,6 +30,14 @@ Map<String, Widget Function(BuildContext)> routes = {
   "${AppUrl.doctorUrl}/${SignUpScreen.url}": (context) => SignUpScreen(
         apiUrl: ApiUrl.doctorSignUp,
         signUpModel: doctorSignUpModel,
+      ),
+  "${AppUrl.patientUrl}/${VerificationScreen.url}": (context) =>
+      VerificationScreen(
+        apiUrl: ApiUrl.patientSendVerification,
+      ),
+  "${AppUrl.doctorUrl}/${VerificationScreen.url}": (context) =>
+      VerificationScreen(
+        apiUrl: ApiUrl.doctorSendVerification,
       ),
   PatientHomeScreen.url: (context) => const PatientHomeScreen(),
   LandingPrescriptionScreen.url: (context) => const LandingPrescriptionScreen(),

@@ -37,15 +37,14 @@ class API {
             HttpHeaders.authorizationHeader: Auth,
           })
         : null;
-
-    print(body);
+   
     http.Response response = await http.post(
       Uri.parse('$PharmaLinkUrl/$path'),
       body: jsonEncode(body),
       headers: headers,
     );
 
-    if (response.statusCode == 200) {
+    if (response.statusCode == 201) {
       var decodedData = jsonDecode(response.body);
       return decodedData;
     } else {

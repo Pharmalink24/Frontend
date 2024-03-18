@@ -5,7 +5,7 @@ import 'package:pharmalink/screens/signup/signup_screen.dart';
 import 'package:pharmalink/screens/patient/home_screen.dart';
 import 'package:pharmalink/screens/patient/landing_prescription.dart';
 // Models Packages
-import 'package:pharmalink/models/signin.dart';
+import 'package:pharmalink/models/auth/signin.dart';
 // Components Packages
 import 'package:pharmalink/components/form_view.dart';
 import 'package:pharmalink/components/rounded_button.dart';
@@ -31,6 +31,29 @@ class _SignInScreenState extends State<SignInScreen> {
   String email = "";
   String password = "";
   bool _saving = false;
+
+  void signInRequest() async {
+    try {
+      Map body = {};
+      for (var input in signInModel) {
+        body[input.dbName] = input.value;
+      }
+      API api = API();
+      var response = await api.POST(
+        widget.apiUrl,
+        body,
+        false,
+      );
+
+      if (response != null) {
+        Navigator.pushNamed(context, PatientHomeScreen.url);
+      } else {
+        throw "Exception";
+      }
+    } catch (e) {
+      print(e);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -113,27 +136,7 @@ class _SignInScreenState extends State<SignInScreen> {
                       setState(() {
                         _saving = true;
                       });
-                      try {
-                        Map body = {};
-                        for (var input in signInModel) {
-                          body[input.dbName] = input.value;
-                        }
-                        API api = API();
-                        var response = await api.POST(
-                          widget.apiUrl,
-                          body,
-                          false,
-                        );
-
-                        if (response != null) {
-                          Navigator.pushNamed(
-                              context, LandingPrescriptionScreen.url);
-                        } else {
-                          throw "Exception";
-                        }
-                      } catch (e) {
-                        print(e);
-                      }
+                      signInRequest();
                       setState(() {
                         _saving = false;
                       });

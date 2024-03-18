@@ -5,14 +5,12 @@ import "package:flutter/material.dart";
 // Utilities
 import 'package:pharmalink/utilities/constants.dart';
 
-const double _kBorderRadius = 40.0;
-
 class RoundedDropDownButton extends StatelessWidget {
   final String? value;
   final List<String> items;
   final Function onChanged;
 
-  RoundedDropDownButton({
+  const RoundedDropDownButton({
     super.key,
     required this.value,
     required this.items,
@@ -28,7 +26,7 @@ class RoundedDropDownButton extends StatelessWidget {
         width: double.infinity,
         child: DropdownButton(
           padding: EdgeInsets.all(16.0),
-          value: value ?? items![0],
+          value: value ?? items[0],
           onChanged: (value) {
             onChanged(value);
           },

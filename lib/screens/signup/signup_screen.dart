@@ -3,6 +3,7 @@
 // Flutter Packages
 import 'package:flutter/material.dart';
 // Screens Packages
+import 'package:pharmalink/screens/signup/verification_screen.dart';
 // Components Packages
 import 'package:pharmalink/components/rounded_button.dart';
 import 'package:pharmalink/components/form_view.dart';
@@ -20,9 +21,10 @@ const kMarginBetweenTitleAndInputs = 35.0;
 class SignUpScreen extends StatefulWidget {
   static String url = "/signup";
   final String apiUrl;
-  List<Input> signUpModel;
+  final List<Input> signUpModel;
 
-  SignUpScreen({super.key, required this.apiUrl, required this.signUpModel});
+  const SignUpScreen(
+      {super.key, required this.apiUrl, required this.signUpModel});
 
   @override
   State<SignUpScreen> createState() => _SignUpScreenState();
@@ -34,6 +36,36 @@ class _SignUpScreenState extends State<SignUpScreen> {
   @override
   void initState() {
     super.initState();
+  }
+
+  void signUpRequest() async {
+    try {
+      Map body = {};
+      for (var input in widget.signUpModel) {
+        if (input.dbName != null) body[input.dbName] = input.value;
+      }
+
+      API api = API();
+      var response = await api.POST(
+        widget.apiUrl,
+        body,
+        false,
+      );
+
+      print("response $response");
+      if (response != null) {
+        Navigator.pushNamed(
+          context,
+          widget.apiUrl == ApiUrl.doctorSignUp
+              ? "${AppUrl.doctorUrl}/${VerificationScreen.url}"
+              : "${AppUrl.patientUrl}/${VerificationScreen.url}",
+        );
+      } else {
+        throw "Null Response";
+      }
+    } catch (e) {
+      print(e);
+    }
   }
 
   @override
@@ -112,26 +144,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       setState(() {
                         _saving = true;
                       });
-                      try {
-                        Map body = {};
-                        for (var input in widget.signUpModel) {
-                          body[input.dbName] = input.value;
-                        }
-                        API api = API();
-                        var response = await api.POST(
-                          widget.apiUrl,
-                          body,
-                          false,
-                        );
-
-                        if (response != null) {
-                          // Navigator.pushNamed(context, thanksScreen.url);
-                        } else {
-                          throw "Exception";
-                        }
-                      } catch (e) {
-                        print(e);
-                      }
+                      signUpRequest();
                       setState(() {
                         _saving = false;
                       });
