@@ -8,6 +8,8 @@ import 'package:pharmalink/components/rounded_button.dart';
 import 'package:pharmalink/components/form_view.dart';
 // Models Packages
 import 'package:pharmalink/models/input.dart';
+// Services Packages
+import 'package:pharmalink/services/networking.dart';
 // Utilities Packages
 import 'package:pharmalink/utilities/constants.dart';
 // External Packages
@@ -106,16 +108,27 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   ),
                   RoundedButton(
                     text: "Create an account",
-                    onPressed: () {
+                    onPressed: () async {
                       setState(() {
                         _saving = true;
                       });
                       try {
-                        print(widget.signUpModel);
-                        // for (var field in patientSignUpModel) {
-                        //   var name = field.name;
-                        //   var value = field.value;
-                        // }
+                        Map body = {};
+                        for (var input in widget.signUpModel) {
+                          body[input.dbName] = input.value;
+                        }
+                        API api = API();
+                        var response = await api.POST(
+                          widget.apiUrl,
+                          body,
+                          false,
+                        );
+
+                        if (response != null) {
+                          // Navigator.pushNamed(context, thanksScreen.url);
+                        } else {
+                          throw "Exception";
+                        }
                       } catch (e) {
                         print(e);
                       }

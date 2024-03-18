@@ -11,5 +11,4 @@ List<Input> patientSignUpModel = [
   Input("Phone", inputType: TextInputType.phone, dbName: "phone"),
   Input("Birth Date", inputType: TextInputType.datetime, dbName: "birthdate"),
   Input("Gender", inputType: TextInputType.datetime, dbName: "gender"),
-  Input("image", inputType: TextInputType.datetime, dbName: "image"),
 ];

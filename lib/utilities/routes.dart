@@ -5,7 +5,7 @@ import 'package:pharmalink/screens/landing/welcome_screen.dart';
 import 'package:pharmalink/screens/patient/home_screen.dart';
 import 'package:pharmalink/screens/patient/landing_prescription.dart';
 import 'package:pharmalink/screens/signin_screen.dart';
-import 'package:pharmalink/screens/signup_screen.dart';
+import 'package:pharmalink/screens/signup/signup_screen.dart';
 // Models Packages
 import 'package:pharmalink/models/doctor/signup.dart';
 import 'package:pharmalink/models/patient/signup.dart';

@@ -1,20 +1,19 @@
 // Flutter Packages
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:pharmalink/components/form_view.dart';
-import 'package:pharmalink/models/signin.dart';
-// Screens
-import 'package:pharmalink/screens/signup_screen.dart';
+// Screens Packages
+import 'package:pharmalink/screens/signup/signup_screen.dart';
 import 'package:pharmalink/screens/patient/home_screen.dart';
 import 'package:pharmalink/screens/patient/landing_prescription.dart';
-// Components
+// Models Packages
+import 'package:pharmalink/models/signin.dart';
+// Components Packages
+import 'package:pharmalink/components/form_view.dart';
 import 'package:pharmalink/components/rounded_button.dart';
-// Utilities
-import 'package:pharmalink/utilities/constants.dart';
-// Services
+// Services Packages
 import 'package:pharmalink/services/networking.dart';
-// Packages
+// Utilities Packages
+import 'package:pharmalink/utilities/constants.dart';
+// External Packages
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
 const kMarginBetweenTitleAndInputs = 35.0;

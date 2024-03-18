@@ -161,7 +161,7 @@ class AppTextFieldDecoration {
   static const _kBorderRadius1 = 40.0;
   static const _kBorderRadius2 = 12.0;
 
-  static const InputDecoration _generalDecoration = InputDecoration(
+  static final InputDecoration _generalInputDecoration = InputDecoration(
     labelStyle: AppTextStyle.subtitle,
     enabledBorder: OutlineInputBorder(
       borderSide: BorderSide(
@@ -190,7 +190,8 @@ class AppTextFieldDecoration {
     contentPadding: EdgeInsets.all(_kPadding),
   );
 
-  static InputDecoration primaryDecoration = _generalDecoration.copyWith(
+  static InputDecoration primaryInputDecoration =
+      _generalInputDecoration.copyWith(
     fillColor: AppColors.primaryBackground,
     border: OutlineInputBorder(
       borderRadius: BorderRadius.circular(_kBorderRadius1),
@@ -212,7 +213,8 @@ class AppTextFieldDecoration {
     ),
   );
 
-  static InputDecoration secondaryDecoration = _generalDecoration.copyWith(
+  static InputDecoration secondaryInputDecoration =
+      _generalInputDecoration.copyWith(
     fillColor: AppColors.primaryBackground,
     border: OutlineInputBorder(
       borderRadius: BorderRadius.circular(_kBorderRadius2),
@@ -232,6 +234,28 @@ class AppTextFieldDecoration {
     focusedErrorBorder: OutlineInputBorder(
       borderRadius: BorderRadius.circular(_kBorderRadius2),
     ),
+  );
+
+  static final BoxDecoration _generalBoxDecoration = BoxDecoration(
+    border: Border.all(
+      width: _kBorderWidth,
+    ),
+  );
+
+  static BoxDecoration primaryBoxDecoration = _generalBoxDecoration.copyWith(
+    color: AppColors.primaryBackground,
+    border: Border.all(
+      color: AppColors.accent5,
+    ),
+    borderRadius: BorderRadius.circular(_kBorderRadius1),
+  );
+
+  static BoxDecoration secondaryBoxDecoration = _generalBoxDecoration.copyWith(
+    color: AppColors.primaryBackground,
+    border: Border.all(
+      color: AppColors.secondaryBackground,
+    ),
+    borderRadius: BorderRadius.circular(_kBorderRadius2),
   );
 }
 
