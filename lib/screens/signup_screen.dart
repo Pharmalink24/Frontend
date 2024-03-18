@@ -13,7 +13,7 @@ import 'package:pharmalink/utilities/constants.dart';
 // External Packages
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
-const kMarginBetweenTitleAndInputs = 35.0;
+const kMarginBetweenTitleAndInputs = 20.0;
 
 class SignUpScreen extends StatefulWidget {
   static String url = "/signup";
@@ -61,7 +61,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             },
                             child: Text(
                               "Sign In",
-                              style: AppTextStyle.title.copyWith(
+                              style: AppTextStyle.headlineLarge.copyWith(
                                 color: AppColors.secondaryText,
                               ),
                             ),
@@ -78,7 +78,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             },
                             child: Text(
                               "Sign Up",
-                              style: AppTextStyle.title.copyWith(
+                              style: AppTextStyle.headlineLarge.copyWith(
                                 color: AppColors.primaryText,
                               ),
                             ),
@@ -93,7 +93,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       padding: EdgeInsets.all(8.0),
                       child: Text(
                         'Let\'s get started by filling out the form below.',
-                        style: AppTextStyle.subtitle,
+                        style: AppTextStyle.labelSmall,
                         textAlign: TextAlign.start,
                       ),
                     ),

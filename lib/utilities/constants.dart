@@ -1,6 +1,8 @@
 // Flutter Packages
 import 'package:flutter/material.dart';
 // Components Packages
+// External Packages
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 // App Config
 class App {
@@ -69,6 +71,49 @@ class App {
       ),
     ),
   );
+
+  static BottomNavigationBar bottomNavigationBar = BottomNavigationBar(
+    backgroundColor: AppColors.secondaryBackground,
+    selectedItemColor: AppColors.primary,
+    unselectedItemColor: AppColors.secondaryText,
+    type: BottomNavigationBarType.fixed,
+    showSelectedLabels: false,
+    showUnselectedLabels: false,
+    items: const <BottomNavigationBarItem>[
+      BottomNavigationBarItem(
+        icon: FaIcon(
+          FontAwesomeIcons.house,
+          size: 24.0,
+        ),
+        label: 'Home',
+        tooltip: 'Home',
+      ),
+      BottomNavigationBarItem(
+        icon: FaIcon(
+          FontAwesomeIcons.clipboardList,
+          size: 24.0,
+        ),
+        label: 'Prescriptions',
+        tooltip: 'Prescriptions',
+      ),
+      BottomNavigationBarItem(
+        icon: FaIcon(
+          FontAwesomeIcons.flask,
+          size: 24.0,
+        ),
+        label: 'Drug Interactions',
+        tooltip: 'Drug Interactions',
+      ),
+      BottomNavigationBarItem(
+        icon: FaIcon(
+          FontAwesomeIcons.solidUser,
+          size: 24.0,
+        ),
+        label: 'User Information',
+        tooltip: 'User Information',
+      )
+    ],
+  );
 }
 
 // Colors
@@ -83,8 +128,8 @@ class AppColors {
   static const Color secondaryText = Color(0xFF57636C);
   static const Color alternateText = Color(0xFFF9F9F9);
 
-  static const Color primaryBackground = Color(0xFFFFFFFF);
-  static const Color secondaryBackground = Color(0xFFF1F4F8);
+  static const Color primaryBackground = Color(0xFFffffff);
+  static const Color secondaryBackground = Color(0XFFf1f4f8);
 
   static const Color accent1 = Color(0x4C4B39EF);
   static const Color accent2 = Color(0x4D39D2C0);
@@ -139,19 +184,110 @@ class AppTheme {
 }
 
 class AppTextStyle {
-  static const TextStyle title = TextStyle(
-    fontFamily: AppFonts.tertiary,
+  static const TextStyle displayLarge = TextStyle(
+    fontFamily: AppFonts.primary,
     color: AppColors.primaryText,
-    fontWeight: FontWeight.w600,
-    fontSize: 36.0,
+    fontWeight: FontWeight.normal,
+    fontSize: 64.0,
   );
 
-  static const TextStyle subtitle = TextStyle(
-    fontFamily: AppFonts.tertiary,
-    color: AppColors.secondaryText,
-    fontSize: 14.0,
-    fontWeight: FontWeight.w500,
-  );
+  static const TextStyle displayMedium = TextStyle(
+        fontFamily: AppFonts.primary,
+        color: AppColors.primaryText,
+        fontWeight: FontWeight.normal,
+        fontSize: 44.0,
+      );
+  
+  static const TextStyle displaySmall = TextStyle(
+        fontFamily:AppFonts.primary,
+        color: AppColors.primaryText,
+        fontWeight: FontWeight.w600,
+        fontSize: 36.0,
+      );
+  
+  static const TextStyle headlineLarge = TextStyle(
+        fontFamily:AppFonts.primary,
+        color: AppColors.primaryText,
+        fontWeight: FontWeight.w600,
+        fontSize: 32.0,
+      );
+  
+  static const TextStyle headlineMedium = TextStyle(
+        fontFamily:AppFonts.primary,
+        color: AppColors.primaryText,
+        fontWeight: FontWeight.normal,
+        fontSize: 24.0,
+      );
+  
+  static const TextStyle headlineSmall = TextStyle(
+        fontFamily:AppFonts.primary,
+        color: AppColors.primaryText,
+        fontWeight: FontWeight.w500,
+        fontSize: 24.0,
+      );
+  
+  static const TextStyle titleLarge = TextStyle(
+        fontFamily:AppFonts.primary,
+        color: AppColors.primaryText,
+        fontWeight: FontWeight.w500,
+        fontSize: 22.0,
+      );
+  
+  static const TextStyle titleMedium = TextStyle(
+        fontFamily:AppFonts.secondary,
+        color: AppColors.info,
+        fontWeight: FontWeight.normal,
+        fontSize: 18.0,
+      );
+  
+  static const TextStyle titleSmall = TextStyle(
+        fontFamily:AppFonts.secondary,
+        color: AppColors.info,
+        fontWeight: FontWeight.w500,
+        fontSize: 16.0,
+      );
+  
+  static const TextStyle labelLarge = TextStyle(
+        fontFamily:AppFonts.secondary,
+        color: AppColors.secondaryText,
+        fontWeight: FontWeight.normal,
+        fontSize: 16.0,
+      );
+  
+  static const TextStyle labelMedium = TextStyle(
+        fontFamily:AppFonts.secondary,
+        color: AppColors.secondaryText,
+        fontWeight: FontWeight.normal,
+        fontSize: 14.0,
+      );
+  
+  static const TextStyle labelSmall = TextStyle(
+        fontFamily:AppFonts.secondary,
+        color: AppColors.secondaryText,
+        fontWeight: FontWeight.normal,
+        fontSize: 12.0,
+      );
+  
+  static const TextStyle bodyLarge = TextStyle(
+        fontFamily:AppFonts.secondary,
+        color: AppColors.primaryText,
+        fontWeight: FontWeight.normal,
+        fontSize: 16.0,
+      );
+  
+  static const TextStyle bodyMedium = TextStyle(
+        fontFamily:AppFonts.secondary,
+        color: AppColors.primaryText,
+        fontWeight: FontWeight.normal,
+        fontSize: 14.0,
+      );
+  
+  static const TextStyle bodySmall = TextStyle(
+        fontFamily:AppFonts.secondary,
+        color: AppColors.primaryText,
+        fontWeight: FontWeight.normal,
+        fontSize: 12.0,
+      );
 }
 
 // Text Field Decoration
@@ -162,7 +298,7 @@ class AppTextFieldDecoration {
   static const _kBorderRadius2 = 12.0;
 
   static const InputDecoration _generalDecoration = InputDecoration(
-    labelStyle: AppTextStyle.subtitle,
+    labelStyle: AppTextStyle.labelMedium,
     enabledBorder: OutlineInputBorder(
       borderSide: BorderSide(
         width: _kBorderWidth,

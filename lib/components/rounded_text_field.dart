@@ -45,7 +45,7 @@ class RoundedTextField extends StatelessWidget {
             hintText: hintText,
             labelText: hintText,
           ),
-          style: AppTextStyle.subtitle.copyWith(
+          style: AppTextStyle.labelSmall.copyWith(
             color: AppColors.secondary,
           ),
           keyboardType: keyboardType,
