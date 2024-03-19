@@ -26,89 +26,91 @@ class _PatientHomeScreenState extends State<PatientHomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return  Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            "Hello,",
-            style: AppTextStyle.bodyMedium.copyWith(
-              fontFamily: AppFonts.secondary,
-              fontSize: 45,
+    return  SafeArea(
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              "Hello,",
+              style: AppTextStyle.bodyMedium.copyWith(
+                fontFamily: AppFonts.secondary,
+                fontSize: 45,
+              ),
             ),
-          ),
-          Text(
-            Name,
-            style: AppTextStyle.bodyMedium.copyWith(
-              fontFamily: AppFonts.secondary,
-              fontSize: 45,
-              color: AppColors.primary,
+            Text(
+              Name,
+              style: AppTextStyle.bodyMedium.copyWith(
+                fontFamily: AppFonts.secondary,
+                fontSize: 45,
+                color: AppColors.primary,
+              ),
             ),
-          ),
-          SizedBox(
-            height: 10.0,
-          ),
-          WhiteCard(
-            title: "Your Doctors",
-            child: SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
+            SizedBox(
+              height: 10.0,
+            ),
+            WhiteCard(
+              title: "Your Doctors",
+              child: SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    CircleImage(
+                      image: Image.network(
+                        imageUrl,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                    CircleImage(
+                      image: Image.network(
+                        imageUrl,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                    CircleImage(
+                      image: Image.network(
+                        imageUrl,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 10.0,
+            ),
+            WhiteCard(
+              title: "Your Prescriptions",
+              child: Column(
                 children: [
-                  CircleImage(
-                    image: Image.network(
-                      imageUrl,
-                      fit: BoxFit.cover,
-                    ),
+                  DrugListTile(
+                    drugName: "Mohamed",
+                    quantity: "20",
+                    measure: "mg",
+                    time: "2 PM",
                   ),
-                  CircleImage(
-                    image: Image.network(
-                      imageUrl,
-                      fit: BoxFit.cover,
-                    ),
+                  DrugListTile(
+                    drugName: "Mohamed",
+                    quantity: "20",
+                    measure: "mg",
+                    time: "2 PM",
                   ),
-                  CircleImage(
-                    image: Image.network(
-                      imageUrl,
-                      fit: BoxFit.cover,
-                    ),
+                  DrugListTile(
+                    drugName: "Mohamed",
+                    quantity: "20",
+                    measure: "mg",
+                    time: "2 PM",
                   ),
                 ],
               ),
             ),
-          ),
-          SizedBox(
-            height: 10.0,
-          ),
-          WhiteCard(
-            title: "Your Prescriptions",
-            child: Column(
-              children: [
-                DrugListTile(
-                  drugName: "Mohamed",
-                  quantity: "20",
-                  measure: "mg",
-                  time: "2 PM",
-                ),
-                DrugListTile(
-                  drugName: "Mohamed",
-                  quantity: "20",
-                  measure: "mg",
-                  time: "2 PM",
-                ),
-                DrugListTile(
-                  drugName: "Mohamed",
-                  quantity: "20",
-                  measure: "mg",
-                  time: "2 PM",
-                ),
-              ],
-            ),
-          ),
-        ],
+          ],
+        ),
       ),
     )
     ;

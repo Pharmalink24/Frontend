@@ -3,13 +3,14 @@ import '../utilities/app_theme.dart';
 import '../screens/patient/prescription/prescription.dart';
 
 class DoctorPrescriptionCard extends StatelessWidget {
-  DoctorPrescriptionCard(
-      {super.key,
-      required this.firstName,
-      required this.lastName,
-      required this.date,
-      required this.doctorImage,
-      required this.prescriptionId});
+  DoctorPrescriptionCard({
+    super.key,
+    required this.firstName,
+    required this.lastName,
+    required this.date,
+    required this.doctorImage,
+    required this.prescriptionId,
+  });
   String firstName;
   String lastName;
   String date;
@@ -24,8 +25,7 @@ class DoctorPrescriptionCard extends StatelessWidget {
         onTap: () {
           Navigator.push(
             context,
-            MaterialPageRoute(
-                builder: (context) => PatientPrescriptionScreen()),
+            MaterialPageRoute(builder: (context) => PrescriptionScreen()),
           );
         },
         child: Card(

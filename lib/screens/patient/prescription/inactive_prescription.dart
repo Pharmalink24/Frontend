@@ -1,9 +1,15 @@
+// Flutter Packages
 import 'package:flutter/material.dart';
+// Services Packages
 import 'package:pharmalink/services/networking.dart';
-import 'package:pharmalink/utilities/app_theme.dart';
-import '../../../components/doctor_prescription_card.dart';
+// Components Packages
+import 'package:pharmalink/components/doctor_prescription_card.dart';
+// Utilities Packages
+import 'package:pharmalink/utilities/constants.dart';
 
 class InactivePrescriptionScreen extends StatefulWidget {
+  static String url = "/inactive_prescription";
+
   @override
   _InactivePrescriptionScreenState createState() =>
       _InactivePrescriptionScreenState();
@@ -21,30 +27,44 @@ class _InactivePrescriptionScreenState
   }
 
   void getData() async {
-    API api = API();
-    var doctorInfo = await api.GET('posts', true, 200);
-    setState(() {
-      for (var i = 0; i < doctorInfo.length; i++) {
-        doctorCards.add(DoctorPrescriptionCard(
-            firstName: doctorInfo[i]['firstName'],
-            lastName: doctorInfo[i]['lastName'],
-            date: doctorInfo[i]['created_at'],
-            prescriptionId: doctorInfo[i]['id'],
-            doctorImage: doctorInfo[i]['image']));
+    try {
+      API api = API();
+      var doctorInfo = await api.GET(
+        'Prescription/user/prescriptions/',
+        true,
+        200,
+      );
+
+      if (doctorInfo != null) {
+        setState(() {
+          for (var i = 0; i < doctorInfo.length; i++) {
+            doctorCards.add(DoctorPrescriptionCard(
+              firstName: doctorInfo[i]['firstName'],
+              lastName: doctorInfo[i]['lastName'],
+              date: doctorInfo[i]['created_at'],
+              doctorImage: doctorInfo[i]['image'],
+              prescriptionId: doctorInfo[i]['id'],
+            ));
+          }
+        });
+      } else {
+        throw "Exception";
       }
-    });
+    } catch (e) {
+      print(e);
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppTheme.primaryBackground,
+      backgroundColor: AppColors.primaryBackground,
       appBar: AppBar(
-        iconTheme: IconThemeData(color: AppTheme.secondaryText),
-        backgroundColor: AppTheme.primaryBackground,
+        iconTheme: IconThemeData(color: AppColors.secondaryText),
+        backgroundColor: AppColors.primaryBackground,
         title: Text(
           'Inactive Prescriptions',
-          style: AppTheme.displayMedium(
+          style: AppTextStyle.displayMedium.copyWith(
             fontSize: 28,
           ),
         ),

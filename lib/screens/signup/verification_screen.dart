@@ -5,9 +5,7 @@ import 'package:flutter/material.dart';
 // Screens Packages
 // Components Packages
 import 'package:pharmalink/components/rounded_button.dart';
-import 'package:pharmalink/components/form_view.dart';
 // Models Packages
-import 'package:pharmalink/models/input.dart';
 // Services Packages
 import 'package:pharmalink/services/networking.dart';
 // Utilities Packages
@@ -40,16 +38,17 @@ class _VerificationScreenState extends State<VerificationScreen> {
   void sendVerificationRequest() async {
     try {
       API api = API();
-      // var response = await api.POST(
-      //   widget.apiUrl,
-      //   {},
-      //   false,
-      // );
+      var response = await api.POST(
+        widget.apiUrl,
+        {},
+        false,
+        200
+      );
 
-      // if (response != null) {
-      // } else {
-      //   throw "Exception";
-      // }
+      if (response != null) {
+      } else {
+        throw "Null Response";
+      }
     } catch (e) {
       print(e);
     }

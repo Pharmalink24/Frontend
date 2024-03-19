@@ -1,14 +1,12 @@
 // Flutter Packages
 import "package:flutter/material.dart";
-import 'package:pharmalink/screens/landing/on_boarding_screen.dart';
-import 'package:pharmalink/screens/landing/landing_screen.dart';
 // Screens Packages
 import 'package:pharmalink/screens/landing/welcome_screen.dart';
-import 'package:pharmalink/screens/patient/home_screen.dart';
 import 'package:pharmalink/screens/patient/main.dart';
-import 'package:pharmalink/screens/patient/prescription/landing_prescription.dart';
 import 'package:pharmalink/screens/signin_screen.dart';
 import 'package:pharmalink/screens/signup/signup_screen.dart';
+import 'package:pharmalink/screens/landing/on_boarding_screen.dart';
+import 'package:pharmalink/screens/landing/landing_screen.dart';
 // Models Packages
 import 'package:pharmalink/models/auth/doctor/signup.dart';
 import 'package:pharmalink/models/auth/patient/signup.dart';
@@ -16,7 +14,7 @@ import 'package:pharmalink/screens/signup/verification_screen.dart';
 // Utilities
 import 'package:pharmalink/utilities/constants.dart';
 
-String initialRoute = WelcomeScreen.url;
+String initialRoute = PatientScreen.url;
 
 Map<String, Widget Function(BuildContext)> routes = {
   WelcomeScreen.url: (context) => const WelcomeScreen(),
@@ -44,6 +42,5 @@ Map<String, Widget Function(BuildContext)> routes = {
       const VerificationScreen(
         apiUrl: ApiUrl.doctorSendVerification,
       ),
-  LandingPrescriptionScreen.url: (context) => const LandingPrescriptionScreen(),
-  PatientScreen.url: (context) => const PatientScreen(),
+  PatientScreen.url: (context) => PatientScreen(),
 };

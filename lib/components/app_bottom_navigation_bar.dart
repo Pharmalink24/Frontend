@@ -1,22 +1,29 @@
 import "package:flutter/material.dart";
 import "package:pharmalink/utilities/constants.dart";
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class AppBottomNavigationBar extends StatelessWidget {
-  int currentIndex;
-  Function onTap;
-  AppBottomNavigationBar({
+class AppBottomNavigationBar extends StatefulWidget {
+  final int currentIndex;
+  final Function onTap;
+  final List<BottomNavigationBarItem> items;
+
+  const AppBottomNavigationBar({
     super.key,
     required this.currentIndex,
     required this.onTap,
+    required this.items,
   });
 
   @override
+  State<AppBottomNavigationBar> createState() => _AppBottomNavigationBarState();
+}
+
+class _AppBottomNavigationBarState extends State<AppBottomNavigationBar> {
+  @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
-      currentIndex: currentIndex,
-      onTap: (i) => () {
-        onTap(i);
+      currentIndex: widget.currentIndex,
+      onTap: (i) {
+        widget.onTap(i);
       },
       backgroundColor: AppColors.secondaryBackground,
       selectedItemColor: AppColors.primary,
@@ -24,40 +31,7 @@ class AppBottomNavigationBar extends StatelessWidget {
       type: BottomNavigationBarType.fixed,
       showSelectedLabels: false,
       showUnselectedLabels: false,
-      items: const <BottomNavigationBarItem>[
-        BottomNavigationBarItem(
-          icon: FaIcon(
-            FontAwesomeIcons.house,
-            size: 24.0,
-          ),
-          label: 'Home',
-          tooltip: 'Home',
-        ),
-        BottomNavigationBarItem(
-          icon: FaIcon(
-            FontAwesomeIcons.clipboardList,
-            size: 24.0,
-          ),
-          label: 'Prescriptions',
-          tooltip: 'Prescriptions',
-        ),
-        BottomNavigationBarItem(
-          icon: FaIcon(
-            FontAwesomeIcons.flask,
-            size: 24.0,
-          ),
-          label: 'Drug Interactions',
-          tooltip: 'Drug Interactions',
-        ),
-        BottomNavigationBarItem(
-          icon: FaIcon(
-            FontAwesomeIcons.solidUser,
-            size: 24.0,
-          ),
-          label: 'User Information',
-          tooltip: 'User Information',
-        )
-      ],
+      items: widget.items,
     );
   }
 }

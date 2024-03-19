@@ -2,15 +2,12 @@
 import 'package:flutter/material.dart';
 // Screens
 import 'package:pharmalink/screens/signin_screen.dart';
-// import 'package:pharmalink/screens/doctor/signin_screen.dart';
-// Components
+// Components Packages
 import 'package:pharmalink/components/icon_content.dart';
 import 'package:pharmalink/components/reusable_card.dart';
-// Utilities
+// Utilities Packages
 import 'package:pharmalink/utilities/constants.dart';
-// Packages
-import 'package:animated_text_kit/animated_text_kit.dart';
-import 'package:loading_animation_widget/loading_animation_widget.dart';
+// External Packages
 
 const kLogoSize = 175.0;
 const kTitleSize = 50.0;
