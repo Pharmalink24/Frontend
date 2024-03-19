@@ -1,9 +1,12 @@
+// Flutter Packages
 import 'package:flutter/material.dart';
-import '../utilities/app_theme.dart';
-import '../screens/patient/prescription/prescription.dart';
+// Screens Packages
+import 'package:pharmalink/screens/patient/prescription/prescription.dart';
+// Utilities Packages
+import 'package:pharmalink/utilities/constants.dart';
 
 class DoctorPrescriptionCard extends StatelessWidget {
-  DoctorPrescriptionCard({
+  const DoctorPrescriptionCard({
     super.key,
     required this.firstName,
     required this.lastName,
@@ -11,11 +14,11 @@ class DoctorPrescriptionCard extends StatelessWidget {
     required this.doctorImage,
     required this.prescriptionId,
   });
-  String firstName;
-  String lastName;
-  String date;
-  String doctorImage;
-  int prescriptionId;
+  final String firstName;
+  final String lastName;
+  final String date;
+  final String doctorImage;
+  final int prescriptionId;
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +32,7 @@ class DoctorPrescriptionCard extends StatelessWidget {
           );
         },
         child: Card(
-          color: AppTheme.secondaryBackground,
+          color: AppColors.secondaryBackground,
           elevation: 4,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
@@ -55,7 +58,7 @@ class DoctorPrescriptionCard extends StatelessWidget {
                   children: [
                     Text(
                       'Dr. $firstName $lastName',
-                      style: AppTheme.displayMedium(
+                      style: AppTextStyle.displayMedium.copyWith(
                         fontSize: 18,
                       ),
                     ),
@@ -64,7 +67,7 @@ class DoctorPrescriptionCard extends StatelessWidget {
                       child: Text(
                         date,
                         // random_data.randomDate().toString(),
-                        style: AppTheme.displayMedium(
+                        style: AppTextStyle.displayMedium.copyWith(
                           fontSize: 16,
                           color: Colors.grey,
                         ),
