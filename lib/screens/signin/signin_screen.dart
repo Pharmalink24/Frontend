@@ -1,7 +1,8 @@
 // Flutter Packages
 import 'package:flutter/material.dart';
 // Screens Packages
-import 'package:pharmalink/screens/patient/main.dart';
+import 'package:pharmalink/screens/doctor/doctor_main.dart';
+import 'package:pharmalink/screens/patient/patient_main.dart';
 import 'package:pharmalink/screens/signup/signup_screen.dart';
 // Models Packages
 import 'package:pharmalink/models/auth/signin.dart';
@@ -45,7 +46,12 @@ class _SignInScreenState extends State<SignInScreen> {
       );
 
       if (response != null) {
-        Navigator.pushNamed(context, PatientScreen.url);
+        Navigator.pushNamed(
+          context,
+          widget.apiUrl == ApiUrl.doctorSignUp
+              ? DoctorScreen.url
+              : PatientScreen.url,
+        );
       } else {
         throw "Exception";
       }
