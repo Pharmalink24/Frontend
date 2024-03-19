@@ -11,7 +11,7 @@ import 'package:pharmalink/screens/landing/landing_screen.dart';
 import 'package:pharmalink/models/auth/doctor/signup.dart';
 import 'package:pharmalink/models/auth/patient/signup.dart';
 import 'package:pharmalink/screens/signup/verification_screen.dart';
-// Utilities
+// Utilities Packages
 import 'package:pharmalink/utilities/constants.dart';
 
 String initialRoute = WelcomeScreen.url;
