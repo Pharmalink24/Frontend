@@ -14,7 +14,7 @@ import 'package:pharmalink/screens/signup/verification_screen.dart';
 // Utilities
 import 'package:pharmalink/utilities/constants.dart';
 
-String initialRoute = PatientScreen.url;
+String initialRoute = WelcomeScreen.url;
 
 Map<String, Widget Function(BuildContext)> routes = {
   WelcomeScreen.url: (context) => const WelcomeScreen(),
@@ -42,5 +42,5 @@ Map<String, Widget Function(BuildContext)> routes = {
       const VerificationScreen(
         apiUrl: ApiUrl.doctorSendVerification,
       ),
-  PatientScreen.url: (context) => PatientScreen(),
+  PatientScreen.url: (context) => const PatientScreen(),
 };
