@@ -23,6 +23,7 @@ class _FormViewState extends State<FormView> {
       itemBuilder: ((context, index) {
         var field = widget.model[index].items != null
             ? RoundedDropDownButton(
+                hintText: widget.model[index].name,
                 value: widget.model[index].value,
                 items: widget.model[index].items!,
                 onChanged: (value) {

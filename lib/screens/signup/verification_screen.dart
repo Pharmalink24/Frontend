@@ -40,16 +40,16 @@ class _VerificationScreenState extends State<VerificationScreen> {
   void sendVerificationRequest() async {
     try {
       API api = API();
-      var response = await api.POST(
-        widget.apiUrl,
-        {},
-        false,
-      );
+      // var response = await api.POST(
+      //   widget.apiUrl,
+      //   {},
+      //   false,
+      // );
 
-      if (response != null) {
-      } else {
-        throw "Exception";
-      }
+      // if (response != null) {
+      // } else {
+      //   throw "Exception";
+      // }
     } catch (e) {
       print(e);
     }
@@ -101,7 +101,7 @@ class _VerificationScreenState extends State<VerificationScreen> {
                     setState(() {
                       _saving = true;
                     });
-                    // sendVerificationRequest();
+                    sendVerificationRequest();
                     setState(() {
                       _saving = false;
                     });
