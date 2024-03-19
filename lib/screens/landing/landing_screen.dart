@@ -1,7 +1,7 @@
 // Flutter Packages
 import 'package:flutter/material.dart';
 // Screens
-import 'package:pharmalink/screens/signin_screen.dart';
+import 'package:pharmalink/screens/signin/signin_screen.dart';
 // Components Packages
 import 'package:pharmalink/components/icon_content.dart';
 import 'package:pharmalink/components/reusable_card.dart';
