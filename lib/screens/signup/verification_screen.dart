@@ -73,22 +73,22 @@ class _VerificationScreenState extends State<VerificationScreen> {
                   padding: const EdgeInsets.symmetric(vertical: 32.0),
                   child: Text(
                     "Please verify your email",
-                    style: AppTextStyle.title.copyWith(fontSize: 28.0),
+                    style: AppTextStyle.displayMedium.copyWith(fontSize: 28.0),
                   ),
                 ),
                 Text(
                   "You're almost there! We sent an email to",
-                  style: AppTextStyle.subtitle.copyWith(fontSize: 16.0),
+                  style: AppTextStyle.displayMedium.copyWith(fontSize: 16.0),
                 ),
                 Text(
                   email,
-                  style: AppTextStyle.title.copyWith(fontSize: 20.0),
+                  style: AppTextStyle.displayMedium.copyWith(fontSize: 20.0),
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 32.0),
                   child: Text(
                     "Just click on the link in that email to complete your signup. if you don't see it, you may need to check your spam folder.",
-                    style: AppTextStyle.subtitle,
+                    style: AppTextStyle.bodyMedium,
                   ),
                 ),
                 Padding(

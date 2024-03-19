@@ -4,11 +4,13 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 // Screens Packages
 import 'package:pharmalink/screens/landing/landing_screen.dart';
+import 'package:introduction_screen/introduction_screen.dart';
+// Model Packages
+import 'package:pharmalink/models/landing/landing.dart';
 // Components Packages
 // Utilities Packages
 import 'package:pharmalink/utilities/constants.dart';
 // External Packages
-import 'package:introduction_screen/introduction_screen.dart';
 
 class OnBoardingScreen extends StatefulWidget {
   static String url = "introduction/";
@@ -21,6 +23,32 @@ class OnBoardingScreen extends StatefulWidget {
 
 class OnBoardingScreenState extends State<OnBoardingScreen> {
   final introKey = GlobalKey<IntroductionScreenState>();
+  List<PageViewModel> listPagesViewModel = [];
+
+  PageDecoration pageDecoration = PageDecoration(
+    titleTextStyle:
+        AppTextStyle.headlineLarge.copyWith(fontWeight: FontWeight.w700),
+    bodyTextStyle: AppTextStyle.labelSmall
+        .copyWith(fontSize: 16.0, fontWeight: FontWeight.w700),
+    pageColor: AppColors.primaryBackground,
+    imagePadding: EdgeInsets.all(0.0),
+    imageFlex: 7,
+    bodyFlex: 5,
+    footerFlex: 1,
+  );
+
+  @override
+  void initState() {
+    for (PageModel pageModel in onBoardingPagesModel) {
+      listPagesViewModel.add(PageViewModel(
+        title: pageModel.title,
+        body: pageModel.body,
+        image: _buildImage("${AppPaths.introductions}/${pageModel.image}"),
+        decoration: pageDecoration,
+      ));
+    }
+    super.initState();
+  }
 
   void _onIntroEnd(context) {
     Navigator.pushNamed(context, LandingScreen.url);
@@ -37,53 +65,13 @@ class OnBoardingScreenState extends State<OnBoardingScreen> {
 
   @override
   Widget build(BuildContext context) {
-    PageDecoration pageDecoration = PageDecoration(
-      titleTextStyle: AppTextStyle.title.copyWith(fontWeight: FontWeight.w900),
-      bodyTextStyle: AppTextStyle.subtitle
-          .copyWith(fontSize: 16.0, fontWeight: FontWeight.w700),
-      pageColor: AppColors.primaryBackground,
-      imagePadding: EdgeInsets.all(0.0),
-      imageFlex: 7,
-      bodyFlex: 5,
-      footerFlex: 1,
-    );
-
     return IntroductionScreen(
       key: introKey,
       globalBackgroundColor: AppColors.primaryBackground,
       allowImplicitScrolling: true,
       autoScrollDuration: 5000,
       infiniteAutoScroll: true,
-      pages: [
-        PageViewModel(
-          title: "Streamlined Companion App.",
-          body:
-              "Patients cant track prescriptions, contact their physicians, and get medication reminders.",
-          image: _buildImage('${AppPaths.introductions}/image (1).png'),
-          decoration: pageDecoration,
-        ),
-        PageViewModel(
-          title: "Real-Time Drug Interaction Alerts",
-          body:
-              "Physicians get alerted about possible risky interactions as the medications are prescribed.",
-          image: _buildImage('${AppPaths.introductions}/image (2).png'),
-          decoration: pageDecoration,
-        ),
-        PageViewModel(
-          title: "100% Digital Prescription System.",
-          body:
-              "Paper-and-pen prescriptions are totally eliminated and replaced by a greener, more reliable, and more readable alternative.",
-          image: _buildImage('${AppPaths.introductions}/image (3).png'),
-          decoration: pageDecoration,
-        ),
-        PageViewModel(
-          title: "Cloud-Based Operation",
-          body:
-              "PharmaLink requires no installation and a very minimal learning curve to get physicians started.",
-          image: _buildImage('${AppPaths.introductions}/image (4).png'),
-          decoration: pageDecoration,
-        ),
-      ],
+      pages: listPagesViewModel,
       onDone: () => _onIntroEnd(context),
       onSkip: () => _onIntroEnd(context), // You can override onSkip callback
       showBackButton: true,
@@ -100,9 +88,9 @@ class OnBoardingScreenState extends State<OnBoardingScreen> {
       ),
       done: Text(
         'Done',
-        style: AppTextStyle.cardLabelTextStyle.copyWith(
+        style: AppTextStyle.labelMedium.copyWith(
           color: AppColors.alternate,
-          fontSize: 15.0,
+          // fontSize: 15.0,
         ),
       ),
       curve: Curves.fastLinearToSlowEaseIn,

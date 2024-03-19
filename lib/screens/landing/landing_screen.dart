@@ -39,7 +39,7 @@ class LandingScreen extends StatelessWidget {
                 children: [
                   Text(
                     "Who Are You ?",
-                    style: AppTextStyle.cardLabelTextStyle.copyWith(
+                    style: AppTextStyle.bodyMedium.copyWith(
                       fontSize: 35.0,
                     ),
                   ),

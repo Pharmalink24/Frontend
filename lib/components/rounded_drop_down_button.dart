@@ -40,7 +40,7 @@ class RoundedDropDownButton extends StatelessWidget {
                         child: Text(value),
                       ))
               .toList(),
-          style: AppTextStyle.subtitle.copyWith(
+          style: AppTextStyle.bodyMedium.copyWith(
             color: AppColors.secondary,
           ),
           underline: SizedBox(),

@@ -11,7 +11,7 @@ import 'package:pharmalink/utilities/constants.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 
-const kLogoSize = 164.0;
+const kLogoSize = 150.0;
 const kTitleSize = 48.0;
 const kSubtitleSize = 18.0;
 

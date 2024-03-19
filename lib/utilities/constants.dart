@@ -298,7 +298,7 @@ class AppTextFieldDecoration {
   static const _kBorderRadius1 = 40.0;
   static const _kBorderRadius2 = 12.0;
 
-  static final InputDecoration _generalInputDecoration = InputDecoration(
+  static const InputDecoration _generalInputDecoration = InputDecoration(
     labelStyle: AppTextStyle.labelMedium,
     enabledBorder: OutlineInputBorder(
       borderSide: BorderSide(
