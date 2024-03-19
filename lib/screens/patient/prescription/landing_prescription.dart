@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:pharmalink/screens/patient/inactive_prescription.dart';
+import 'package:pharmalink/screens/patient/prescription/inactive_prescription.dart';
 import 'package:pharmalink/utilities/app_theme.dart';
 import 'active_prescription.dart';
 import 'new_prescription.dart';
-import '../../components/category_widget.dart';
+import '../../../components/category_widget.dart';
 
 class LandingPrescriptionScreen extends StatelessWidget {
   static String url = "/landingPrescription";

@@ -1,17 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:pharmalink/screens/patient/landing_prescription.dart';
+import 'package:pharmalink/screens/patient/prescription/landing_prescription.dart';
 import 'package:pharmalink/services/networking.dart';
 import 'package:pharmalink/utilities/app_theme.dart';
-import '../../components/doctor_prescription_card.dart';
+import '../../../components/doctor_prescription_card.dart';
 
-class InactivePrescriptionScreen extends StatefulWidget {
+class NewPrescriptionScreen extends StatefulWidget {
   @override
-  _InactivePrescriptionScreenState createState() =>
-      _InactivePrescriptionScreenState();
+  _NewPrescriptionScreenState createState() => _NewPrescriptionScreenState();
 }
 
-class _InactivePrescriptionScreenState
-    extends State<InactivePrescriptionScreen> {
+class _NewPrescriptionScreenState extends State<NewPrescriptionScreen> {
   List<DoctorPrescriptionCard> doctorCards = [];
 
   @override
@@ -44,7 +42,7 @@ class _InactivePrescriptionScreenState
         iconTheme: IconThemeData(color: AppTheme.secondaryText),
         backgroundColor: AppTheme.primaryBackground,
         title: Text(
-          'Inactive Prescriptions',
+          'New Prescriptions',
           style: AppTheme.displayMedium(
             fontSize: 28,
           ),

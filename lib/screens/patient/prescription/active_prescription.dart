@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:pharmalink/screens/patient/landing_prescription.dart';
+import 'package:pharmalink/screens/patient/prescription/landing_prescription.dart';
 import 'package:pharmalink/services/networking.dart';
 import 'package:pharmalink/utilities/app_theme.dart';
-import '../../components/doctor_prescription_card.dart';
+import '../../../components/doctor_prescription_card.dart';
 
-class NewPrescriptionScreen extends StatefulWidget {
+class ActivePrescriptionScreen extends StatefulWidget {
   @override
-  _NewPrescriptionScreenState createState() => _NewPrescriptionScreenState();
+  _ActivePrescriptionScreenState createState() =>
+      _ActivePrescriptionScreenState();
 }
 
-class _NewPrescriptionScreenState extends State<NewPrescriptionScreen> {
+class _ActivePrescriptionScreenState extends State<ActivePrescriptionScreen> {
   List<DoctorPrescriptionCard> doctorCards = [];
 
   @override
@@ -25,11 +26,12 @@ class _NewPrescriptionScreenState extends State<NewPrescriptionScreen> {
     setState(() {
       for (var i = 0; i < doctorInfo.length; i++) {
         doctorCards.add(DoctorPrescriptionCard(
-            firstName: doctorInfo[i]['firstName'],
-            lastName: doctorInfo[i]['lastName'],
-            date: doctorInfo[i]['created_at'],
-            prescriptionId: doctorInfo[i]['id'],
-            doctorImage: doctorInfo[i]['image']));
+          firstName: doctorInfo[i]['firstName'],
+          lastName: doctorInfo[i]['lastName'],
+          date: doctorInfo[i]['created_at'],
+          doctorImage: doctorInfo[i]['image'],
+          prescriptionId: doctorInfo[i]['id'],
+        ));
       }
     });
   }
@@ -42,7 +44,7 @@ class _NewPrescriptionScreenState extends State<NewPrescriptionScreen> {
         iconTheme: IconThemeData(color: AppTheme.secondaryText),
         backgroundColor: AppTheme.primaryBackground,
         title: Text(
-          'New Prescriptions',
+          'Active Prescriptions',
           style: AppTheme.displayMedium(
             fontSize: 28,
           ),

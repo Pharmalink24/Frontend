@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:pharmalink/screens/patient/landing_prescription.dart';
+import 'package:pharmalink/screens/patient/prescription/landing_prescription.dart';
 import 'package:pharmalink/services/networking.dart';
 import 'package:pharmalink/utilities/app_theme.dart';
-import '../../components/doctor_prescription_card.dart';
+import '../../../components/doctor_prescription_card.dart';
 
-class ActivePrescriptionScreen extends StatefulWidget {
+class InactivePrescriptionScreen extends StatefulWidget {
   @override
-  _ActivePrescriptionScreenState createState() =>
-      _ActivePrescriptionScreenState();
+  _InactivePrescriptionScreenState createState() =>
+      _InactivePrescriptionScreenState();
 }
 
-class _ActivePrescriptionScreenState extends State<ActivePrescriptionScreen> {
+class _InactivePrescriptionScreenState
+    extends State<InactivePrescriptionScreen> {
   List<DoctorPrescriptionCard> doctorCards = [];
 
   @override
@@ -26,12 +27,11 @@ class _ActivePrescriptionScreenState extends State<ActivePrescriptionScreen> {
     setState(() {
       for (var i = 0; i < doctorInfo.length; i++) {
         doctorCards.add(DoctorPrescriptionCard(
-          firstName: doctorInfo[i]['firstName'],
-          lastName: doctorInfo[i]['lastName'],
-          date: doctorInfo[i]['created_at'],
-          doctorImage: doctorInfo[i]['image'],
-          prescriptionId: doctorInfo[i]['id'],
-        ));
+            firstName: doctorInfo[i]['firstName'],
+            lastName: doctorInfo[i]['lastName'],
+            date: doctorInfo[i]['created_at'],
+            prescriptionId: doctorInfo[i]['id'],
+            doctorImage: doctorInfo[i]['image']));
       }
     });
   }
@@ -44,7 +44,7 @@ class _ActivePrescriptionScreenState extends State<ActivePrescriptionScreen> {
         iconTheme: IconThemeData(color: AppTheme.secondaryText),
         backgroundColor: AppTheme.primaryBackground,
         title: Text(
-          'Active Prescriptions',
+          'Inactive Prescriptions',
           style: AppTheme.displayMedium(
             fontSize: 28,
           ),

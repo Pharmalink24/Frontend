@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 // Screens Packages
 import 'package:pharmalink/screens/signup/signup_screen.dart';
 import 'package:pharmalink/screens/patient/home_screen.dart';
-import 'package:pharmalink/screens/patient/landing_prescription.dart';
+import 'package:pharmalink/screens/patient/prescription/landing_prescription.dart';
 // Models Packages
 import 'package:pharmalink/models/auth/signin.dart';
 // Components Packages

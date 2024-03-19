@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../utilities/app_theme.dart';
-import '../screens/patient/prescription.dart';
+import '../screens/patient/prescription/prescription.dart';
 
 class DoctorPrescriptionCard extends StatelessWidget {
   DoctorPrescriptionCard({
