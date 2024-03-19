@@ -38,13 +38,16 @@ class _SignInScreenState extends State<SignInScreen> {
       for (var input in signInModel) {
         body[input.dbName] = input.value;
       }
+
       API api = API();
       var response = await api.POST(
         widget.apiUrl,
         body,
         false,
+        200,
       );
 
+      print(response);
       if (response != null) {
         Navigator.pushNamed(context, PatientHomeScreen.url);
       } else {

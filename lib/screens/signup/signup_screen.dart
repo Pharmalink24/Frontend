@@ -50,6 +50,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
         widget.apiUrl,
         body,
         false,
+        201,
       );
 
       print("response $response");

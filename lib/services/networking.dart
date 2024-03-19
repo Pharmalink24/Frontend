@@ -9,25 +9,7 @@ const String Auth = "";
 class API {
   API();
 
-  Future GET(String url, String auth) async {
-    http.Response response = await http.get(
-      Uri.parse(url),
-      headers: {
-        HttpHeaders.authorizationHeader: auth,
-      },
-    );
-
-    if (response.statusCode == 200) {
-      var decodedData = jsonDecode(response.body);
-      print(decodedData);
-      return decodedData;
-    } else {
-      print(response.request);
-      print(response.statusCode);
-    }
-  }
-
-  Future POST(String path, Map body, bool auth) async {
+  Future GET(String url, bool auth, int code) async {
     Map<String, String> headers = {
       'Content-Type': 'application/json; charset=UTF-8',
     };
@@ -37,14 +19,40 @@ class API {
             HttpHeaders.authorizationHeader: Auth,
           })
         : null;
-   
+
+    http.Response response = await http.get(
+      Uri.parse(url),
+      headers: headers,
+    );
+
+    if (response.statusCode == code) {
+      var decodedData = jsonDecode(response.body);
+      print(decodedData);
+      return decodedData;
+    } else {
+      print(response.request);
+      print(response.statusCode);
+    }
+  }
+
+  Future POST(String path, Map body, bool auth, int code) async {
+    Map<String, String> headers = {
+      'Content-Type': 'application/json; charset=UTF-8',
+    };
+
+    auth
+        ? headers.addAll({
+            HttpHeaders.authorizationHeader: Auth,
+          })
+        : null;
+
     http.Response response = await http.post(
       Uri.parse('$PharmaLinkUrl/$path'),
       body: jsonEncode(body),
       headers: headers,
     );
 
-    if (response.statusCode == 201) {
+    if (response.statusCode == code) {
       var decodedData = jsonDecode(response.body);
       return decodedData;
     } else {
