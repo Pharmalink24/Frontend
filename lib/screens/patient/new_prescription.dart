@@ -21,7 +21,7 @@ class _NewPrescriptionScreenState extends State<NewPrescriptionScreen> {
 
   void getData() async {
     API api = API();
-    var doctorInfo = await api.GET('http://10.0.2.2/posts', true, 200);
+    var doctorInfo = await api.GET('posts', true, 200);
     setState(() {
       for (var i = 0; i < doctorInfo.length; i++) {
         doctorCards.add(DoctorPrescriptionCard(

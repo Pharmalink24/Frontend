@@ -28,8 +28,6 @@ class SignInScreen extends StatefulWidget {
 }
 
 class _SignInScreenState extends State<SignInScreen> {
-  String email = "";
-  String password = "";
   bool _saving = false;
 
   void signInRequest() async {
@@ -47,7 +45,6 @@ class _SignInScreenState extends State<SignInScreen> {
         200,
       );
 
-      print(response);
       if (response != null) {
         Navigator.pushNamed(context, PatientHomeScreen.url);
       } else {

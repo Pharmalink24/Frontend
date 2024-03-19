@@ -9,7 +9,7 @@ const String Auth = "";
 class API {
   API();
 
-  Future GET(String url, bool auth, int code) async {
+  Future GET(String path, bool auth, int code) async {
     Map<String, String> headers = {
       'Content-Type': 'application/json; charset=UTF-8',
     };
@@ -21,7 +21,7 @@ class API {
         : null;
 
     http.Response response = await http.get(
-      Uri.parse(url),
+      Uri.parse('$PharmaLinkUrl/$path'),
       headers: headers,
     );
 
