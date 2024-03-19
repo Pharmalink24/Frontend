@@ -16,7 +16,7 @@ import 'package:pharmalink/utilities/constants.dart';
 // External Packages
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
-const kMarginBetweenTitleAndInputs = 35.0;
+const kMarginBetweenTitleAndInputs = 20.0;
 
 class SignInScreen extends StatefulWidget {
   static String url = "signin/";
@@ -81,7 +81,8 @@ class _SignInScreenState extends State<SignInScreen> {
                             child: GestureDetector(
                               child: Text(
                                 "Sign In",
-                                style: AppTextStyle.title.copyWith(
+                                style: AppTextStyle.displaySmall.copyWith(
+                                  fontFamily: AppFonts.tertiary,
                                   color: AppColors.primaryText,
                                 ),
                               ),
@@ -103,7 +104,8 @@ class _SignInScreenState extends State<SignInScreen> {
                               },
                               child: Text(
                                 "Sign Up",
-                                style: AppTextStyle.title.copyWith(
+                                style: AppTextStyle.displaySmall.copyWith(
+                                  fontFamily: AppFonts.tertiary,
                                   color: AppColors.secondaryText,
                                 ),
                               ),
@@ -120,7 +122,7 @@ class _SignInScreenState extends State<SignInScreen> {
                         padding: EdgeInsets.all(8.0),
                         child: Text(
                           'Let\'s get started by filling out the form below.',
-                          style: AppTextStyle.subtitle,
+                          style: AppTextStyle.labelSmall,
                           textAlign: TextAlign.start,
                         ),
                       ),
@@ -148,7 +150,7 @@ class _SignInScreenState extends State<SignInScreen> {
                       onTap: () {},
                       child: const Text(
                         "Forget Password",
-                        style: AppTextStyle.subtitle,
+                        style: AppTextStyle.labelMedium,
                       ),
                     ),
                   ),
