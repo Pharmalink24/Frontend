@@ -1,31 +1,32 @@
 import 'package:flutter/material.dart';
-import 'package:pharmalink/services/networking.dart';
 import 'package:pharmalink/utilities/app_theme.dart';
-import '../../../components/doctor_prescription_card.dart';
 
-class PrescriptionScreen extends StatefulWidget {
-  const PrescriptionScreen({super.key});
+class PatientPrescriptionScreen extends StatefulWidget {
+  static String url = "patient/prescription/";
+
+  const PatientPrescriptionScreen({super.key});
 
   @override
-  State<PrescriptionScreen> createState() => _PrescriptionScreenState();
+  State<PatientPrescriptionScreen> createState() =>
+      _PatientPrescriptionScreenState();
 }
 
-class _PrescriptionScreenState extends State<PrescriptionScreen> {
+class _PatientPrescriptionScreenState extends State<PatientPrescriptionScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppTheme.primaryBackground,
+      appBar: AppBar(
+        iconTheme: IconThemeData(color: AppTheme.secondaryText),
         backgroundColor: AppTheme.primaryBackground,
-        appBar: AppBar(
-          iconTheme: IconThemeData(color: AppTheme.secondaryText),
-          backgroundColor: AppTheme.primaryBackground,
-          title: Text(
-            'Prescription',
-            style: AppTheme.displayMedium(
-              fontSize: 28,
-            ),
+        title: Text(
+          'Prescription',
+          style: AppTheme.displayMedium(
+            fontSize: 28,
           ),
-          elevation: 2,
         ),
+        elevation: 2,
+      ),
       body: Container(),
     );
   }

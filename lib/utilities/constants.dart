@@ -2,7 +2,6 @@
 import 'package:flutter/material.dart';
 // Components Packages
 // External Packages
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 // App Config
 class App {
@@ -70,49 +69,6 @@ class App {
         ],
       ),
     ),
-  );
-
-  static BottomNavigationBar bottomNavigationBar = BottomNavigationBar(
-    backgroundColor: AppColors.secondaryBackground,
-    selectedItemColor: AppColors.primary,
-    unselectedItemColor: AppColors.secondaryText,
-    type: BottomNavigationBarType.fixed,
-    showSelectedLabels: false,
-    showUnselectedLabels: false,
-    items: const <BottomNavigationBarItem>[
-      BottomNavigationBarItem(
-        icon: FaIcon(
-          FontAwesomeIcons.house,
-          size: 24.0,
-        ),
-        label: 'Home',
-        tooltip: 'Home',
-      ),
-      BottomNavigationBarItem(
-        icon: FaIcon(
-          FontAwesomeIcons.clipboardList,
-          size: 24.0,
-        ),
-        label: 'Prescriptions',
-        tooltip: 'Prescriptions',
-      ),
-      BottomNavigationBarItem(
-        icon: FaIcon(
-          FontAwesomeIcons.flask,
-          size: 24.0,
-        ),
-        label: 'Drug Interactions',
-        tooltip: 'Drug Interactions',
-      ),
-      BottomNavigationBarItem(
-        icon: FaIcon(
-          FontAwesomeIcons.solidUser,
-          size: 24.0,
-        ),
-        label: 'User Information',
-        tooltip: 'User Information',
-      )
-    ],
   );
 }
 

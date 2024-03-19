@@ -5,6 +5,7 @@ import 'package:pharmalink/screens/landing/landing_screen.dart';
 // Screens Packages
 import 'package:pharmalink/screens/landing/welcome_screen.dart';
 import 'package:pharmalink/screens/patient/home_screen.dart';
+import 'package:pharmalink/screens/patient/main.dart';
 import 'package:pharmalink/screens/patient/prescription/landing_prescription.dart';
 import 'package:pharmalink/screens/signin_screen.dart';
 import 'package:pharmalink/screens/signup/signup_screen.dart';
@@ -36,13 +37,13 @@ Map<String, Widget Function(BuildContext)> routes = {
         signUpModel: doctorSignUpModel,
       ),
   "${AppUrl.patientUrl}/${VerificationScreen.url}": (context) =>
-      VerificationScreen(
+      const VerificationScreen(
         apiUrl: ApiUrl.patientSendVerification,
       ),
   "${AppUrl.doctorUrl}/${VerificationScreen.url}": (context) =>
-      VerificationScreen(
+      const VerificationScreen(
         apiUrl: ApiUrl.doctorSendVerification,
       ),
-  PatientHomeScreen.url: (context) => const PatientHomeScreen(),
   LandingPrescriptionScreen.url: (context) => const LandingPrescriptionScreen(),
+  PatientScreen.url: (context) => const PatientScreen(),
 };
