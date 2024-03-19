@@ -5,8 +5,8 @@ import 'package:pharmalink/utilities/constants.dart';
 
 const kCardMarginVertical = 10.0;
 const kCardMarginHorizontal = 30.0;
-
 const kCardBorderRadius = 35.0;
+const kCardBorderWidth = 2.0;
 
 class ReusableCard extends StatelessWidget {
   final Widget child;
@@ -37,6 +37,7 @@ class ReusableCard extends StatelessWidget {
             borderRadius: BorderRadius.circular(kCardBorderRadius),
             border: Border.all(
               color: borderColor,
+              width: kCardBorderWidth,
             ),
           ),
           child: child,

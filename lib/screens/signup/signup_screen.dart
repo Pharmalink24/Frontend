@@ -19,7 +19,7 @@ import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 const kMarginBetweenTitleAndInputs = 35.0;
 
 class SignUpScreen extends StatefulWidget {
-  static String url = "/signup";
+  static String url = "signup/";
   final String apiUrl;
   final List<Input> signUpModel;
 
