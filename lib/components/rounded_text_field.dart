@@ -5,8 +5,6 @@ import "package:flutter/material.dart";
 // Utilities
 import 'package:pharmalink/utilities/constants.dart';
 
-const double _kBorderRadius = 40.0;
-
 class RoundedTextField extends StatelessWidget {
   final String hintText;
   final Function onChanged;
