@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../../services/networking.dart';
+import '../../../../data/web_services/networking.dart';
 import '../../../../utilities/constants/constants.dart';
 import '../../../components/doctor_prescription_card.dart';
 

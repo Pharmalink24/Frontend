@@ -12,7 +12,7 @@ import 'package:pharmalink/presentation/screens/doctor/doctor_main.dart';
 import 'package:pharmalink/presentation/screens/patient/patient_main.dart';
 import 'package:pharmalink/presentation/screens/signup/signup_screen.dart';
 // Services Packages
-import 'package:pharmalink/services/networking.dart';
+import 'package:pharmalink/data/web_services/networking.dart';
 // Utilities Packages
 import 'package:pharmalink/utilities/constants/constants.dart';
 

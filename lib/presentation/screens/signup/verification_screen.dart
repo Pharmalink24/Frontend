@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:pharmalink/presentation/components/rounded_button.dart';
 // Models Packages
 // Services Packages
-import 'package:pharmalink/services/networking.dart';
+import 'package:pharmalink/data/web_services/networking.dart';
 // Utilities Packages
 import 'package:pharmalink/utilities/constants/constants.dart';
 // External Packages

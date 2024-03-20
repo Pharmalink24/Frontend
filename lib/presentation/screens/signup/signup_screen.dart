@@ -10,7 +10,7 @@ import 'package:pharmalink/presentation/components/form_view.dart';
 // Models Packages
 import 'package:pharmalink/presentation/classes/field.dart';
 // Services Packages
-import 'package:pharmalink/services/networking.dart';
+import 'package:pharmalink/data/web_services/networking.dart';
 // Utilities Packages
 import 'package:pharmalink/utilities/constants/constants.dart';
 // External Packages
