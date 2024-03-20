@@ -41,7 +41,6 @@ class _SignInScreenState extends State<SignInScreen> {
       var response = await api.POST(
         widget.apiUrl,
         body,
-        false,
         200,
       );
 

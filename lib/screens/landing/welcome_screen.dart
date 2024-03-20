@@ -10,7 +10,6 @@ import 'package:pharmalink/utilities/constants.dart';
 // External Packages
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
-import 'package:flutter_appauth/flutter_appauth.dart';
 
 const kLogoSize = 150.0;
 const kTitleSize = 48.0;

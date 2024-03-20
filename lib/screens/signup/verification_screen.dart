@@ -41,8 +41,7 @@ class _VerificationScreenState extends State<VerificationScreen> {
       var response = await api.POST(
         widget.apiUrl,
         {},
-        false,
-        200
+        200,
       );
 
       if (response != null) {
