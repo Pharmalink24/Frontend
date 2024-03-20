@@ -13,10 +13,10 @@ import 'package:pharmalink/utilities/constants/constants.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 List<Widget> pages = [
-  PatientHomeScreen(),
-  PatientLandingPrescriptionScreen(),
-  PatientDrugInteractionScreen(),
-  PatientProfileScreen(),
+  const PatientHomeScreen(),
+  const PatientLandingPrescriptionScreen(),
+  const PatientDrugInteractionScreen(),
+  const PatientProfileScreen(),
 ];
 
 class PatientScreen extends StatefulWidget {

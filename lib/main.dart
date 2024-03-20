@@ -7,9 +7,11 @@ import 'package:pharmalink/utilities/routes.dart';
 // Packages
 // import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-void main() => runApp(PharmalinkApp());
+void main() => runApp(const PharmalinkApp());
 
 class PharmalinkApp extends StatelessWidget {
+  const PharmalinkApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

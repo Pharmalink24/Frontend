@@ -20,10 +20,10 @@ Map<String, Widget Function(BuildContext)> routes = {
   WelcomeScreen.url: (context) => const WelcomeScreen(),
   LandingScreen.url: (context) => const LandingScreen(),
   OnBoardingScreen.url: (context) => const OnBoardingScreen(),
-  "${AppUrl.patient}/${SignInScreen.url}": (context) => SignInScreen(
+  "${AppUrl.patient}/${SignInScreen.url}": (context) => const SignInScreen(
         apiUrl: ApiUrl.patientSignIn,
       ),
-  "${AppUrl.doctor}/${SignInScreen.url}": (context) => SignInScreen(
+  "${AppUrl.doctor}/${SignInScreen.url}": (context) => const SignInScreen(
         apiUrl: ApiUrl.doctorSignIn,
       ),
   "${AppUrl.patient}/${SignUpScreen.url}": (context) => SignUpScreen(

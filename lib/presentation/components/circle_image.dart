@@ -11,12 +11,12 @@ class CircleImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsetsDirectional.symmetric(vertical: 0, horizontal: 8),
+      padding: const EdgeInsetsDirectional.symmetric(vertical: 0, horizontal: 8),
       child: Container(
         width: 120,
         height: 120,
         clipBehavior: Clip.antiAlias,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           shape: BoxShape.circle,
         ),
         child: image,

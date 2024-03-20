@@ -29,7 +29,7 @@ class _InactivePrescriptionScreenState
   void getData() async {
     try {
       API api = API();
-      var doctorInfo = await api.GET(
+      var doctorInfo = await api.get(
         'Prescription/user/prescriptions/',
         true,
         200,

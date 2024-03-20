@@ -23,7 +23,7 @@ class _NewPrescriptionScreenState extends State<NewPrescriptionScreen> {
   void getData() async {
     try {
       API api = API();
-      var doctorInfo = await api.GET(
+      var doctorInfo = await api.get(
         'Prescription/user/prescriptions/',
         true,
         200,
@@ -54,7 +54,7 @@ class _NewPrescriptionScreenState extends State<NewPrescriptionScreen> {
     return Scaffold(
       backgroundColor: AppColors.primaryBackground,
       appBar: AppBar(
-        iconTheme: IconThemeData(color: AppColors.secondaryText),
+        iconTheme: const IconThemeData(color: AppColors.secondaryText),
         backgroundColor: AppColors.primaryBackground,
         title: Text(
           'New Prescriptions',

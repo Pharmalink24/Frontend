@@ -21,7 +21,7 @@ const kMarginBetweenTitleAndInputs = 20.0;
 class SignInScreen extends StatefulWidget {
   static String url = "signin/";
   final String apiUrl;
-  SignInScreen({super.key, required this.apiUrl});
+  const SignInScreen({super.key, required this.apiUrl});
 
   @override
   State<SignInScreen> createState() => _SignInScreenState();
@@ -38,7 +38,7 @@ class _SignInScreenState extends State<SignInScreen> {
       }
 
       API api = API();
-      var response = await api.POST(
+      var response = await api.post(
         widget.apiUrl,
         body,
         false,
@@ -120,10 +120,10 @@ class _SignInScreenState extends State<SignInScreen> {
                       ],
                     ),
                   ),
-                  Flexible(
-                    child: Container(
+                  const Flexible(
+                    child: SizedBox(
                       width: double.infinity,
-                      child: const Padding(
+                      child: Padding(
                         padding: EdgeInsets.all(8.0),
                         child: Text(
                           'Let\'s get started by filling out the form below.',

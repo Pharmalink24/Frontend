@@ -27,7 +27,7 @@ class _ActivePrescriptionScreenState extends State<ActivePrescriptionScreen> {
   void getData() async {
     try {
       API api = API();
-      var doctorInfo = await api.GET(
+      var doctorInfo = await api.get(
         'Prescription/user/prescriptions/',
         true,
         200,

@@ -14,7 +14,7 @@ class ReusableCard extends StatelessWidget {
   final Color backgroundColor;
   final Color borderColor;
 
-  ReusableCard({
+  const ReusableCard({
     super.key,
     required this.child,
     required this.onPressed,

@@ -9,7 +9,7 @@ import 'package:pharmalink/presentation/components/circle_image.dart';
 import 'package:pharmalink/utilities/constants/constants.dart';
 // External Packages
 
-String Name = "Youssef";
+String userName = "Mohammed";
 String imageUrl =
     'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8ZG9jb3RyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=900&q=60';
 
@@ -42,14 +42,14 @@ class _PatientHomeScreenState extends State<PatientHomeScreen> {
               ),
             ),
             Text(
-              Name,
+              userName,
               style: AppTextStyle.bodyMedium.copyWith(
                 fontFamily: AppFonts.secondary,
                 fontSize: 45,
                 color: AppColors.primary,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10.0,
             ),
             CardContainer(
@@ -82,10 +82,10 @@ class _PatientHomeScreenState extends State<PatientHomeScreen> {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10.0,
             ),
-            CardContainer(
+            const CardContainer(
               title: "Your Prescriptions",
               child: Column(
                 children: [

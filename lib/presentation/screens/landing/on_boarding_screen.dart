@@ -31,7 +31,7 @@ class OnBoardingScreenState extends State<OnBoardingScreen> {
     bodyTextStyle: AppTextStyle.labelSmall
         .copyWith(fontSize: 16.0, fontWeight: FontWeight.w700),
     pageColor: AppColors.primaryBackground,
-    imagePadding: EdgeInsets.all(0.0),
+    imagePadding: const EdgeInsets.all(0.0),
     imageFlex: 7,
     bodyFlex: 5,
     footerFlex: 1,

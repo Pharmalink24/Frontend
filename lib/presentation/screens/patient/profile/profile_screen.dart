@@ -20,7 +20,7 @@ class _PatientProfileScreenState extends State<PatientProfileScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+    return const SafeArea(
       child: Padding(
         padding: EdgeInsets.all(8.0),
         child: Column(

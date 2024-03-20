@@ -14,6 +14,7 @@ import 'package:loading_animation_widget/loading_animation_widget.dart';
 const kLogoSize = 150.0;
 const kTitleSize = 48.0;
 const kSubtitleSize = 18.0;
+const kWaitingTime = 6;
 
 class WelcomeScreen extends StatelessWidget {
   static String url = "/";
@@ -21,7 +22,7 @@ class WelcomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Timer(Duration(seconds: 10),
+    Timer(const Duration(seconds: kWaitingTime),
         () => Navigator.pushNamed(context, OnBoardingScreen.url));
 
     return Scaffold(

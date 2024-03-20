@@ -4,13 +4,13 @@ import 'dart:io';
 
 import 'package:http/http.dart' as http;
 
-const String PharmaLinkUrl = "http://10.0.2.2:8000";
+const String _baseUrl = "http://10.0.2.2:8000";
 const String Auth = "";
 
 class API {
   API();
 
-  Future GET(String path, bool auth, int code) async {
+  Future get(String path, bool auth, int code) async {
     Map<String, String> headers = {
       'Content-Type': 'application/json; charset=UTF-8',
     };
@@ -22,7 +22,7 @@ class API {
         : null;
 
     http.Response response = await http.get(
-      Uri.parse('$PharmaLinkUrl/$path'),
+      Uri.parse('$_baseUrl/$path'),
       headers: headers,
     );
 
@@ -36,7 +36,7 @@ class API {
     }
   }
 
-  Future POST(String path, Map body, bool auth, int code) async {
+  Future post(String path, Map body, bool auth, int code) async {
     Map<String, String> headers = {
       'Content-Type': 'application/json; charset=UTF-8',
     };
@@ -48,7 +48,7 @@ class API {
         : null;
 
     http.Response response = await http.post(
-      Uri.parse('$PharmaLinkUrl/$path'),
+      Uri.parse('$_baseUrl/$path'),
       body: jsonEncode(body),
       headers: headers,
     );
@@ -64,9 +64,9 @@ class API {
     }
   }
 
-  Future PATCH(String url, String auth) async {}
+  Future patch(String url, String auth) async {}
 
-  Future PUT(String url, String auth) async {}
+  Future put(String url, String auth) async {}
 
-  Future DELETE(String url, String auth) async {}
+  Future delete(String url, String auth) async {}
 }

@@ -12,7 +12,7 @@ class IconContent extends StatelessWidget {
   final String label;
   final Color labelColor;
 
-  IconContent({
+  const IconContent({
     super.key,
     required this.icon,
     this.iconColor = AppColors.alternate,

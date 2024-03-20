@@ -46,7 +46,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
       }
 
       API api = API();
-      var response = await api.POST(
+      var response = await api.post(
         widget.apiUrl,
         body,
         false,
@@ -122,7 +122,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       ),
                     ],
                   ),
-                  Container(
+                  SizedBox(
                     width: double.infinity,
                     child: const Padding(
                       padding: EdgeInsets.all(8.0),
