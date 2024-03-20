@@ -1,17 +1,15 @@
 // Flutter Packages
 import 'package:flutter/material.dart';
 // Utilities
-import 'package:pharmalink/utilities/constants.dart';
-import 'package:pharmalink/utilities/info.dart';
+import 'package:pharmalink/utilities/constants/constants.dart';
+import 'package:pharmalink/utilities/constants/app_info.dart';
 import 'package:pharmalink/utilities/routes.dart';
 // Packages
 // import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-void main() => runApp(const MainApp());
+void main() => runApp(PharmalinkApp());
 
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
-
+class PharmalinkApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -19,6 +17,7 @@ class MainApp extends StatelessWidget {
       theme: AppTheme.generalAppTheme,
       initialRoute: initialRoute,
       routes: routes,
+      debugShowCheckedModeBanner: false,
     );
   }
 }
