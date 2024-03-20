@@ -1,7 +1,7 @@
 // Flutter Packages
 import 'package:flutter/material.dart';
 // Utilities Packages
-import 'package:pharmalink/utilities/constants/constants.dart';
+import 'package:pharmalink/utilities/constants/styles.dart';
 
 class DrugListTile extends StatelessWidget {
   final String drugName;

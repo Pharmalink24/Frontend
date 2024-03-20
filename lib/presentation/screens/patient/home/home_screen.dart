@@ -6,7 +6,9 @@ import 'package:pharmalink/presentation/components/card_container.dart';
 import 'package:pharmalink/presentation/components/drug_list_tile.dart';
 import 'package:pharmalink/presentation/components/circle_image.dart';
 // Utilities Packages
-import 'package:pharmalink/utilities/constants/constants.dart';
+import 'package:pharmalink/utilities/constants/colors.dart';
+import 'package:pharmalink/utilities/constants/fonts.dart';
+import 'package:pharmalink/utilities/constants/styles.dart';
 // External Packages
 
 String userName = "Mohammed";

@@ -14,7 +14,12 @@ import 'package:pharmalink/presentation/screens/signup/signup_screen.dart';
 // Services Packages
 import 'package:pharmalink/data/web_services/networking.dart';
 // Utilities Packages
-import 'package:pharmalink/utilities/constants/constants.dart';
+import 'package:pharmalink/utilities/constants/apis.dart';
+import 'package:pharmalink/utilities/constants/app_bar.dart';
+import 'package:pharmalink/utilities/constants/colors.dart';
+import 'package:pharmalink/utilities/constants/fonts.dart';
+import 'package:pharmalink/utilities/constants/styles.dart';
+import 'package:pharmalink/utilities/constants/urls.dart';
 
 const kMarginBetweenTitleAndInputs = 20.0;
 
@@ -37,7 +42,7 @@ class _SignInScreenState extends State<SignInScreen> {
         body[input.dbName] = input.value;
       }
 
-      API api = API();
+      Api api = Api();
       var response = await api.post(
         widget.apiUrl,
         body,
@@ -48,7 +53,7 @@ class _SignInScreenState extends State<SignInScreen> {
       if (response != null) {
         Navigator.pushNamed(
           context,
-          widget.apiUrl == ApiUrl.doctorSignUp
+          widget.apiUrl == API.doctorSignUp
               ? DoctorScreen.url
               : PatientScreen.url,
         );
@@ -63,7 +68,7 @@ class _SignInScreenState extends State<SignInScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: App.barWithoutLabel,
+      appBar: MyAppBar.withoutLabel,
       backgroundColor: AppColors.secondaryBackground,
       body: SafeArea(
         child: ModalProgressHUD(
@@ -102,9 +107,9 @@ class _SignInScreenState extends State<SignInScreen> {
                               onTap: () {
                                 Navigator.pushNamed(
                                   context,
-                                  widget.apiUrl == ApiUrl.doctorSignIn
-                                      ? "${AppUrl.doctor}/${SignUpScreen.url}"
-                                      : "${AppUrl.patient}/${SignUpScreen.url}",
+                                  widget.apiUrl == API.doctorSignIn
+                                      ? "${URL.doctor}/${SignUpScreen.url}"
+                                      : "${URL.patient}/${SignUpScreen.url}",
                                 );
                               },
                               child: Text(

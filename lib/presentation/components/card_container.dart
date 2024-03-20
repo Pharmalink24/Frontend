@@ -1,7 +1,7 @@
 // Flutter Packages
 import 'package:flutter/material.dart';
-// Utilities Packages
-import 'package:pharmalink/utilities/constants/constants.dart';
+import 'package:pharmalink/utilities/constants/colors.dart';
+import 'package:pharmalink/utilities/constants/styles.dart';
 
 class CardContainer extends StatelessWidget {
   final String title;

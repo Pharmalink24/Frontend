@@ -8,7 +8,7 @@ import 'package:pharmalink/presentation/screens/patient/profile/profile_screen.d
 // Components Packages
 import 'package:pharmalink/presentation/components/app_bottom_navigation_bar.dart';
 // Utilities Packages
-import 'package:pharmalink/utilities/constants/constants.dart';
+import 'package:pharmalink/utilities/constants/colors.dart';
 // External Packages
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 

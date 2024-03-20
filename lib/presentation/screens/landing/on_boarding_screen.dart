@@ -2,14 +2,14 @@
 // Flutter Packages
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:introduction_screen/introduction_screen.dart';
 // Screens Packages
 import 'package:pharmalink/presentation/screens/landing/landing_screen.dart';
-import 'package:introduction_screen/introduction_screen.dart';
 // Model Packages
 import 'package:pharmalink/presentation/screens/landing/on_boarding_model.dart';
-// Components Packages
-// Utilities Packages
-import 'package:pharmalink/utilities/constants/constants.dart';
+import 'package:pharmalink/utilities/constants/colors.dart';
+import 'package:pharmalink/utilities/constants/paths.dart';
+import 'package:pharmalink/utilities/constants/styles.dart';
 // External Packages
 
 class OnBoardingScreen extends StatefulWidget {

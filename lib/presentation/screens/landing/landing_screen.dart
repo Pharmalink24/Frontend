@@ -6,7 +6,10 @@ import 'package:pharmalink/presentation/screens/signin/signin_screen.dart';
 import 'package:pharmalink/presentation/components/icon_content.dart';
 import 'package:pharmalink/presentation/components/reusable_card.dart';
 // Utilities Packages
-import 'package:pharmalink/utilities/constants/constants.dart';
+import 'package:pharmalink/utilities/constants/app_bar.dart';
+import 'package:pharmalink/utilities/constants/colors.dart';
+import 'package:pharmalink/utilities/constants/styles.dart';
+import 'package:pharmalink/utilities/constants/urls.dart';
 // External Packages
 
 const kLogoSize = 175.0;
@@ -20,7 +23,7 @@ class LandingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: App.barWithoutLabel,
+      appBar: MyAppBar.withoutLabel,
       backgroundColor: AppColors.primaryBackground,
       body: SafeArea(
         child: Column(
@@ -43,11 +46,11 @@ class LandingScreen extends StatelessWidget {
                   ReusableCard(
                     onPressed: () {
                       Navigator.pushNamed(
-                          context, "${AppUrl.patient}/${SignInScreen.url}");
+                          context, "${URL.patient}/${SignInScreen.url}");
                     },
                     backgroundColor: AppColors.secondary,
                     borderColor: AppColors.alternate,
-                    child: IconContent(
+                    child: const IconContent(
                       icon: Icons.personal_injury_outlined,
                       label: "PATIENT",
                       iconColor: AppColors.alternateText,
@@ -65,11 +68,11 @@ class LandingScreen extends StatelessWidget {
                   ReusableCard(
                     onPressed: () {
                       Navigator.pushNamed(
-                          context, "${AppUrl.doctor}/${SignInScreen.url}");
+                          context, "${URL.doctor}/${SignInScreen.url}");
                     },
                     backgroundColor: AppColors.alternate,
                     borderColor: AppColors.secondary,
-                    child: IconContent(
+                    child: const IconContent(
                       icon: Icons.medical_information_outlined,
                       label: "DOCTOR",
                       iconColor: AppColors.primaryText,

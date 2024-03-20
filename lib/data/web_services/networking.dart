@@ -7,8 +7,8 @@ import 'package:http/http.dart' as http;
 const String _baseUrl = "http://10.0.2.2:8000";
 const String Auth = "";
 
-class API {
-  API();
+class Api {
+  Api();
 
   Future get(String path, bool auth, int code) async {
     Map<String, String> headers = {

@@ -12,7 +12,11 @@ import 'package:pharmalink/presentation/classes/field.dart';
 // Services Packages
 import 'package:pharmalink/data/web_services/networking.dart';
 // Utilities Packages
-import 'package:pharmalink/utilities/constants/constants.dart';
+import 'package:pharmalink/utilities/constants/apis.dart';
+import 'package:pharmalink/utilities/constants/app_bar.dart';
+import 'package:pharmalink/utilities/constants/colors.dart';
+import 'package:pharmalink/utilities/constants/styles.dart';
+import 'package:pharmalink/utilities/constants/urls.dart';
 // External Packages
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
@@ -45,7 +49,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
         if (input.dbName != null) body[input.dbName] = input.value;
       }
 
-      API api = API();
+      Api api = Api();
       var response = await api.post(
         widget.apiUrl,
         body,
@@ -57,9 +61,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
       if (response != null) {
         Navigator.pushNamed(
           context,
-          widget.apiUrl == ApiUrl.doctorSignUp
-              ? "${AppUrl.doctor}/${VerificationScreen.url}"
-              : "${AppUrl.patient}/${VerificationScreen.url}",
+          widget.apiUrl == API.doctorSignUp
+              ? "${URL.doctor}/${VerificationScreen.url}"
+              : "${URL.patient}/${VerificationScreen.url}",
         );
       } else {
         throw "Null Response";
@@ -72,7 +76,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: App.barWithoutLabel,
+      appBar: MyAppBar.withoutLabel,
       backgroundColor: AppColors.secondaryBackground,
       body: SafeArea(
         child: ModalProgressHUD(

@@ -5,10 +5,13 @@ import 'package:pharmalink/data/web_services/networking.dart';
 // Components Packages
 import 'package:pharmalink/presentation/components/doctor_prescription_card.dart';
 // Utilities Packages
-import 'package:pharmalink/utilities/constants/constants.dart';
+import 'package:pharmalink/utilities/constants/colors.dart';
+import 'package:pharmalink/utilities/constants/styles.dart';
 
 class InactivePrescriptionScreen extends StatefulWidget {
   static String url = "/inactive_prescription";
+
+  const InactivePrescriptionScreen({super.key});
 
   @override
   _InactivePrescriptionScreenState createState() =>
@@ -28,7 +31,7 @@ class _InactivePrescriptionScreenState
 
   void getData() async {
     try {
-      API api = API();
+      Api api = Api();
       var doctorInfo = await api.get(
         'Prescription/user/prescriptions/',
         true,

@@ -11,8 +11,9 @@ import 'package:pharmalink/presentation/screens/patient/patient_main.dart';
 import 'package:pharmalink/presentation/screens/signin/signin_screen.dart';
 import 'package:pharmalink/presentation/screens/signup/signup_screen.dart';
 import 'package:pharmalink/presentation/screens/signup/verification_screen.dart';
-// Utilities Packages
-import 'package:pharmalink/utilities/constants/constants.dart';
+// Utilities
+import 'package:pharmalink/utilities/constants/apis.dart';
+import 'package:pharmalink/utilities/constants/urls.dart';
 
 String initialRoute = WelcomeScreen.url;
 
@@ -20,27 +21,27 @@ Map<String, Widget Function(BuildContext)> routes = {
   WelcomeScreen.url: (context) => const WelcomeScreen(),
   LandingScreen.url: (context) => const LandingScreen(),
   OnBoardingScreen.url: (context) => const OnBoardingScreen(),
-  "${AppUrl.patient}/${SignInScreen.url}": (context) => const SignInScreen(
-        apiUrl: ApiUrl.patientSignIn,
+  "${URL.patient}/${SignInScreen.url}": (context) => const SignInScreen(
+        apiUrl: API.patientSignIn,
       ),
-  "${AppUrl.doctor}/${SignInScreen.url}": (context) => const SignInScreen(
-        apiUrl: ApiUrl.doctorSignIn,
+  "${URL.doctor}/${SignInScreen.url}": (context) => const SignInScreen(
+        apiUrl: API.doctorSignIn,
       ),
-  "${AppUrl.patient}/${SignUpScreen.url}": (context) => SignUpScreen(
-        apiUrl: ApiUrl.patientSignUp,
+  "${URL.patient}/${SignUpScreen.url}": (context) => SignUpScreen(
+        apiUrl: API.patientSignUp,
         signUpModel: patientSignUpFields,
       ),
-  "${AppUrl.doctor}/${SignUpScreen.url}": (context) => SignUpScreen(
-        apiUrl: ApiUrl.doctorSignUp,
+  "${URL.doctor}/${SignUpScreen.url}": (context) => SignUpScreen(
+        apiUrl: API.doctorSignUp,
         signUpModel: doctorSignUpFields,
       ),
-  "${AppUrl.patient}/${VerificationScreen.url}": (context) =>
+  "${URL.patient}/${VerificationScreen.url}": (context) =>
       const VerificationScreen(
-        apiUrl: ApiUrl.patientSendVerification,
+        apiUrl: API.patientSendVerification,
       ),
-  "${AppUrl.doctor}/${VerificationScreen.url}": (context) =>
+  "${URL.doctor}/${VerificationScreen.url}": (context) =>
       const VerificationScreen(
-        apiUrl: ApiUrl.doctorSendVerification,
+        apiUrl: API.doctorSendVerification,
       ),
   PatientScreen.url: (context) => const PatientScreen(),
 };

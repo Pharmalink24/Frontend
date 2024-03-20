@@ -1,8 +1,9 @@
 import "package:flutter/material.dart";
+
+import '../../utilities/constants/styles.dart';
+import '../classes/field.dart';
 import 'rounded_drop_down_button.dart';
 import 'rounded_text_field.dart';
-import '../classes/field.dart';
-import '../../utilities/constants/constants.dart';
 
 class FormView extends StatefulWidget {
   final List<Field> model;

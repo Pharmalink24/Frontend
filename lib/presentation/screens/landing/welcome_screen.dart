@@ -6,7 +6,9 @@ import 'package:flutter/material.dart';
 import 'package:pharmalink/presentation/screens/landing/on_boarding_screen.dart';
 // Components Packages
 // Utilities Packages
-import 'package:pharmalink/utilities/constants/constants.dart';
+import 'package:pharmalink/utilities/constants/colors.dart';
+import 'package:pharmalink/utilities/constants/fonts.dart';
+import 'package:pharmalink/utilities/constants/paths.dart';
 // External Packages
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';

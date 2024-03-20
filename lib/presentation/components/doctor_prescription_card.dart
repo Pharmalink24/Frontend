@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 // Screens Packages
 import 'package:pharmalink/presentation/screens/patient/prescription/prescription.dart';
 // Utilities Packages
-import 'package:pharmalink/utilities/constants/constants.dart';
+import 'package:pharmalink/utilities/constants/colors.dart';
+import 'package:pharmalink/utilities/constants/styles.dart';
 
 class DoctorPrescriptionCard extends StatelessWidget {
   const DoctorPrescriptionCard({
@@ -23,12 +24,12 @@ class DoctorPrescriptionCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsetsDirectional.fromSTEB(16, 8, 16, 8),
+      padding: const EdgeInsetsDirectional.fromSTEB(16, 8, 16, 8),
       child: GestureDetector(
         onTap: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => PrescriptionScreen()),
+            MaterialPageRoute(builder: (context) => const PrescriptionScreen()),
           );
         },
         child: Card(
@@ -41,7 +42,7 @@ class DoctorPrescriptionCard extends StatelessWidget {
             mainAxisSize: MainAxisSize.max,
             children: [
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16, 16, 0, 16),
+                padding: const EdgeInsetsDirectional.fromSTEB(16, 16, 0, 16),
                 child: CircleAvatar(
                   radius: 42,
                   backgroundColor: Colors.grey,
@@ -51,7 +52,7 @@ class DoctorPrescriptionCard extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16, 0, 0, 0),
+                padding: const EdgeInsetsDirectional.fromSTEB(16, 0, 0, 0),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -63,7 +64,7 @@ class DoctorPrescriptionCard extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
+                      padding: const EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
                       child: Text(
                         date,
                         // random_data.randomDate().toString(),

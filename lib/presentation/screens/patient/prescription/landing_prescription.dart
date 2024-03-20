@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pharmalink/utilities/constants/constants.dart';
+import '../../../../utilities/constants/colors.dart';
+import '../../../../utilities/constants/styles.dart';
 
 import '../../../components/category_widget.dart';
 import 'active_prescription.dart';

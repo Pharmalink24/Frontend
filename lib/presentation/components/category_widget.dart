@@ -1,8 +1,10 @@
-import '../../utilities/constants/constants.dart';
 import 'package:flutter/material.dart';
 
+import '../../utilities/constants/colors.dart';
+import '../../utilities/constants/styles.dart';
+
 class PrescriptionCategoryWidget extends StatelessWidget {
-  PrescriptionCategoryWidget({
+  const PrescriptionCategoryWidget({
     super.key,
     required this.titleText,
     required this.descriptionText,

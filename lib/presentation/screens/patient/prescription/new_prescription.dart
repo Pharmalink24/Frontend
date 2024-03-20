@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import '../../../../data/web_services/networking.dart';
-import '../../../../utilities/constants/constants.dart';
+import '../../../../utilities/constants/colors.dart';
+import '../../../../utilities/constants/styles.dart';
 import '../../../components/doctor_prescription_card.dart';
 
 class NewPrescriptionScreen extends StatefulWidget {
   static String url = "/new_prescription";
+
+  const NewPrescriptionScreen({super.key});
 
   @override
   _NewPrescriptionScreenState createState() => _NewPrescriptionScreenState();
@@ -22,7 +25,7 @@ class _NewPrescriptionScreenState extends State<NewPrescriptionScreen> {
 
   void getData() async {
     try {
-      API api = API();
+      Api api = Api();
       var doctorInfo = await api.get(
         'Prescription/user/prescriptions/',
         true,

@@ -1,7 +1,7 @@
 // Flutter Packages
 import 'package:flutter/material.dart';
 // Utilities
-import 'package:pharmalink/utilities/constants/constants.dart';
+import 'package:pharmalink/utilities/constants/app_theme.dart';
 import 'package:pharmalink/utilities/constants/app_info.dart';
 import 'package:pharmalink/utilities/routes.dart';
 // Packages

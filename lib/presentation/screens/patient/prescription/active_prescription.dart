@@ -5,7 +5,8 @@ import 'package:pharmalink/presentation/components/doctor_prescription_card.dart
 // Services Packages
 import 'package:pharmalink/data/web_services/networking.dart';
 // Utilities Packages
-import 'package:pharmalink/utilities/constants/constants.dart';
+import 'package:pharmalink/utilities/constants/colors.dart';
+import 'package:pharmalink/utilities/constants/styles.dart';
 
 class ActivePrescriptionScreen extends StatefulWidget {
   static String url = "/active_prescription";
@@ -26,7 +27,7 @@ class _ActivePrescriptionScreenState extends State<ActivePrescriptionScreen> {
 
   void getData() async {
     try {
-      API api = API();
+      Api api = Api();
       var doctorInfo = await api.get(
         'Prescription/user/prescriptions/',
         true,

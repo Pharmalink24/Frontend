@@ -2,16 +2,17 @@
 
 // Flutter Packages
 import 'package:flutter/material.dart';
-// Screens Packages
-// Components Packages
-import 'package:pharmalink/presentation/components/rounded_button.dart';
+// External Packages
+import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 // Models Packages
 // Services Packages
 import 'package:pharmalink/data/web_services/networking.dart';
-// Utilities Packages
-import 'package:pharmalink/utilities/constants/constants.dart';
-// External Packages
-import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
+// Screens Packages
+// Components Packages
+import 'package:pharmalink/presentation/components/rounded_button.dart';
+import 'package:pharmalink/utilities/constants/app_bar.dart';
+import 'package:pharmalink/utilities/constants/colors.dart';
+import 'package:pharmalink/utilities/constants/styles.dart';
 
 const kMarginBetweenTitleAndInputs = 35.0;
 
@@ -37,7 +38,7 @@ class _VerificationScreenState extends State<VerificationScreen> {
 
   void sendVerificationRequest() async {
     try {
-      API api = API();
+      Api api = Api();
       var response = await api.post(widget.apiUrl, {}, false, 200);
 
       if (response != null) {
@@ -52,7 +53,7 @@ class _VerificationScreenState extends State<VerificationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: App.barWithoutLabel,
+      appBar: MyAppBar.withoutLabel,
       backgroundColor: AppColors.secondaryBackground,
       body: SafeArea(
         child: ModalProgressHUD(

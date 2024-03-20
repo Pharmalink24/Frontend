@@ -3,7 +3,7 @@
 // Flutter Packages
 import "package:flutter/material.dart";
 // Utilities
-import 'package:pharmalink/utilities/constants/constants.dart';
+import 'package:pharmalink/utilities/constants/fonts.dart';
 
 class RoundedButton extends StatelessWidget {
   final String text;
