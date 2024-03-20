@@ -29,7 +29,7 @@ class RoundedTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
-      child: Container(
+      child: SizedBox(
         width: double.infinity,
         child: TextFormField(
           onChanged: (value) {
