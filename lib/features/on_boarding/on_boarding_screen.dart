@@ -7,7 +7,6 @@ import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/helpers/constants/paths.dart';
 import 'package:pharmalink/core/theme/styles.dart';
 import 'package:pharmalink/features/on_boarding/widgets/intro_image.dart';
-import 'package:pharmalink/features/signin/signin_screen.dart';
 import "./models/on_boarding_page.dart";
 import 'package:pharmalink/core/helpers/extensions.dart';
 

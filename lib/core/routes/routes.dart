@@ -1,6 +1,6 @@
 class Routes {
   // Start
-  static const String splashScreen = '/splashScreen';
+  static const String splashScreen = '/';
   static const String onBoardingScreen = '/onBoardingScreen';
   
   // Auth
