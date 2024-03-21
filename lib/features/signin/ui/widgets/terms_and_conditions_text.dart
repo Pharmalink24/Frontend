@@ -13,22 +13,22 @@ class TermsAndConditionsText extends StatelessWidget {
         children: [
           const TextSpan(
             text: 'By logging, you agree to our',
-            style: AppTextStyle.labelMedium,
+            style: AppTextStyle.labelSmall,
           ),
           TextSpan(
             text: ' Terms & Conditions',
-            style: AppTextStyle.labelMedium.copyWith(
+            style: AppTextStyle.labelSmall.copyWith(
               color: AppColors.secondary,
               fontWeight: FontWeight.bold,
             ),
           ),
           TextSpan(
             text: ' and ',
-            style: AppTextStyle.labelMedium.copyWith(height: 1.5),
+            style: AppTextStyle.labelSmall.copyWith(height: 1.5),
           ),
           TextSpan(
             text: 'Privacy Policy',
-            style: AppTextStyle.labelMedium.copyWith(
+            style: AppTextStyle.labelSmall.copyWith(
               color: AppColors.secondary,
               fontWeight: FontWeight.bold,
             ),

@@ -12,7 +12,7 @@ class SigninTab extends StatelessWidget {
     return Row(
       children: [
         Padding(
-          padding: const EdgeInsets.only(right: 16.0, bottom: 8.0),
+          padding: const EdgeInsets.only(right: 16.0, bottom: 12.0),
           child: Text(
             "Sign In",
             style: AppTextStyle.displaySmall.copyWith(
@@ -22,7 +22,7 @@ class SigninTab extends StatelessWidget {
           ),
         ),
         Padding(
-          padding: const EdgeInsets.only(left: 16.0, bottom: 8.0),
+          padding: const EdgeInsets.only(left: 16.0, bottom: 12.0),
           child: GestureDetector(
             onTap: () {
               Navigator.pushNamed(context, Routes.signUpScreen);
