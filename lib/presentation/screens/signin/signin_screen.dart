@@ -24,7 +24,7 @@ import 'package:pharmalink/utilities/constants/urls.dart';
 const kMarginBetweenTitleAndInputs = 20.0;
 
 class SignInScreen extends StatefulWidget {
-  static String url = "signin/";
+  static const String url = "signin/";
   final String apiUrl;
   const SignInScreen({super.key, required this.apiUrl});
 

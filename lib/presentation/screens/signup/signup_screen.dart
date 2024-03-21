@@ -2,6 +2,10 @@
 
 // Flutter Packages
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pharmalink/business_logic/sign/cubit/signup_cubit.dart';
+import 'package:pharmalink/data/models/signup/doctor.dart';
+import 'package:pharmalink/data/models/signup/patient.dart';
 // Screens Packages
 import 'package:pharmalink/presentation/screens/signup/verification_screen.dart';
 // Components Packages
@@ -23,12 +27,12 @@ import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 const kMarginBetweenTitleAndInputs = 20.0;
 
 class SignUpScreen extends StatefulWidget {
-  static String url = "signup/";
+  static const String url = "signup/";
   final String apiUrl;
-  final List<Field> signUpModel;
+  final List<Field> signUpFields;
 
   const SignUpScreen(
-      {super.key, required this.apiUrl, required this.signUpModel});
+      {super.key, required this.apiUrl, required this.signUpFields});
 
   @override
   State<SignUpScreen> createState() => _SignUpScreenState();
@@ -36,41 +40,21 @@ class SignUpScreen extends StatefulWidget {
 
 class _SignUpScreenState extends State<SignUpScreen> {
   bool _saving = false;
+  late var user;
 
   @override
   void initState() {
     super.initState();
   }
 
-  void signUpRequest() async {
-    try {
-      Map body = {};
-      for (var input in widget.signUpModel) {
-        if (input.dbName != null) body[input.dbName] = input.value;
-      }
-
-      Api api = Api();
-      var response = await api.post(
-        widget.apiUrl,
-        body,
-        false,
-        201,
-      );
-
-      print("response $response");
-      if (response != null) {
-        Navigator.pushNamed(
-          context,
-          widget.apiUrl == API.doctorSignUp
-              ? "${URL.doctor}/${VerificationScreen.url}"
-              : "${URL.patient}/${VerificationScreen.url}",
-        );
-      } else {
-        throw "Null Response";
-      }
-    } catch (e) {
-      print(e);
+  void signupRequest() {
+    Map body = {};
+    for (var field in widget.signUpFields) {
+      if (field.dbName != null) body[field.dbName] = field.value;
     }
+    user = widget.apiUrl == API.doctorSignUp
+        ? BlocProvider.of<SignupCubit>(context).signupDoctor(body)
+        : BlocProvider.of<SignupCubit>(context).signupPatient(body);
   }
 
   @override
@@ -81,83 +65,84 @@ class _SignUpScreenState extends State<SignUpScreen> {
       body: SafeArea(
         child: ModalProgressHUD(
           inAsyncCall: _saving,
-          child: ListView(
+          child: SingleChildScrollView(
             padding: const EdgeInsets.all(24.0),
-            children: [
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(right: 16.0),
-                        child: Hero(
-                          tag: "SignInTitle",
-                          child: GestureDetector(
-                            onTap: () {
-                              Navigator.pop(context);
-                            },
-                            child: Text(
-                              "Sign In",
-                              style: AppTextStyle.headlineLarge.copyWith(
-                                color: AppColors.secondaryText,
-                              ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(right: 16.0),
+                      child: Hero(
+                        tag: "SignInTitle",
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.pop(context);
+                          },
+                          child: Text(
+                            "Sign In",
+                            style: AppTextStyle.headlineLarge.copyWith(
+                              color: AppColors.secondaryText,
                             ),
                           ),
                         ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 16.0),
-                        child: Hero(
-                          tag: "SignUpTitle",
-                          child: GestureDetector(
-                            onTap: () {
-                              Navigator.pop(context);
-                            },
-                            child: Text(
-                              "Sign Up",
-                              style: AppTextStyle.headlineLarge.copyWith(
-                                color: AppColors.primaryText,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    width: double.infinity,
-                    child: const Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: Text(
-                        'Let\'s get started by filling out the form below.',
-                        style: AppTextStyle.labelSmall,
-                        textAlign: TextAlign.start,
                       ),
                     ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 16.0),
+                      child: Hero(
+                        tag: "SignUpTitle",
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.pop(context);
+                          },
+                          child: Text(
+                            "Sign Up",
+                            style: AppTextStyle.headlineLarge.copyWith(
+                              color: AppColors.primaryText,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  width: double.infinity,
+                  child: const Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: Text(
+                      'Let\'s get started by filling out the form below.',
+                      style: AppTextStyle.labelSmall,
+                      textAlign: TextAlign.start,
+                    ),
                   ),
-                  SizedBox(
-                    height: kMarginBetweenTitleAndInputs,
-                  ),
-                  FormView(
-                    model: widget.signUpModel,
-                  ),
-                  RoundedButton(
-                    text: "Create an account",
-                    onPressed: () async {
-                      setState(() {
-                        _saving = true;
-                      });
-                      signUpRequest();
-                      setState(() {
-                        _saving = false;
-                      });
-                    },
-                  ),
-                ],
-              ),
-            ],
+                ),
+                SizedBox(
+                  height: kMarginBetweenTitleAndInputs,
+                ),
+                FormView(
+                  model: widget.signUpFields,
+                ),
+                RoundedButton(
+                  text: "Create an account",
+                  onPressed: () async {
+                    setState(() {
+                      _saving = true;
+                    });
+
+                    // Sign up process
+                    signupRequest();
+
+                    setState(() {
+                      _saving = false;
+                    });
+                  },
+                ),
+              ],
+            ),
           ),
         ),
       ),

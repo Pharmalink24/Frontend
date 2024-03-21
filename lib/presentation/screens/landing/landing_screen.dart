@@ -17,7 +17,7 @@ const kTitleSize = 50.0;
 const kSubtitleSize = 18.0;
 
 class LandingScreen extends StatelessWidget {
-  static String url = "landing/";
+  static const String url = "landing/";
   const LandingScreen({super.key});
 
   @override
@@ -57,9 +57,9 @@ class LandingScreen extends StatelessWidget {
                       labelColor: AppColors.alternateText,
                     ),
                   ),
-                  const Text(
+                  Text(
                     "OR",
-                    style: TextStyle(
+                    style: AppTextStyle.bodyLarge.copyWith(
                       fontSize: 20.0,
                       fontWeight: FontWeight.bold,
                       color: AppColors.primaryText,

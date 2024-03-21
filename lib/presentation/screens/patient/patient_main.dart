@@ -20,8 +20,8 @@ List<Widget> pages = [
 ];
 
 class PatientScreen extends StatefulWidget {
+  static const String url = "patient/";
   const PatientScreen({super.key});
-  static String url = "patient/";
 
   @override
   State<PatientScreen> createState() => _PatientScreenState();

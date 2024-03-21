@@ -12,21 +12,18 @@ import 'package:pharmalink/utilities/constants/paths.dart';
 // External Packages
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
+import 'package:pharmalink/utilities/constants/styles.dart';
 
 const kLogoSize = 150.0;
 const kTitleSize = 48.0;
 const kSubtitleSize = 18.0;
-const kWaitingTime = 6;
 
 class WelcomeScreen extends StatelessWidget {
-  static String url = "/";
+  static const String url = "/";
   const WelcomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    Timer(const Duration(seconds: kWaitingTime),
-        () => Navigator.pushNamed(context, OnBoardingScreen.url));
-
     return Scaffold(
       backgroundColor: AppColors.secondary,
       body: SafeArea(
@@ -41,15 +38,13 @@ class WelcomeScreen extends StatelessWidget {
                   size: kLogoSize,
                   color: AppColors.alternate,
                 ),
-                const Text(
+                Text(
                   "PharmaLink",
                   textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: kTitleSize,
-                    fontWeight: FontWeight.w600,
-                    fontFamily: AppFonts.primary,
-                    color: AppColors.alternateText,
-                  ),
+                  style: AppTextStyle.displayMedium.copyWith(
+                      color: AppColors.alternate,
+                      fontFamily: AppFonts.primary,
+                      fontWeight: FontWeight.w600),
                 ),
                 AnimatedTextKit(
                   repeatForever: false,
@@ -58,13 +53,15 @@ class WelcomeScreen extends StatelessWidget {
                       speed: const Duration(milliseconds: 100),
                       'Digital Drug Prescription Solution',
                       textAlign: TextAlign.center,
-                      textStyle: const TextStyle(
-                        fontSize: kSubtitleSize,
+                      textStyle: AppTextStyle.titleMedium.copyWith(
                         fontFamily: AppFonts.secondary,
                         color: AppColors.primary,
                       ),
                     ),
                   ],
+                  onNext: (_, __) {
+                    Navigator.pushNamed(context, OnBoardingScreen.url);
+                  },
                 ),
                 LoadingAnimationWidget.twistingDots(
                   leftDotColor: AppColors.primary,

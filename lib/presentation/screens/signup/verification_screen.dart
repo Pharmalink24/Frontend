@@ -17,7 +17,7 @@ import 'package:pharmalink/utilities/constants/styles.dart';
 const kMarginBetweenTitleAndInputs = 35.0;
 
 class VerificationScreen extends StatefulWidget {
-  static String url = "/signup/verification";
+  static const String url = "/signup/verification";
   final String apiUrl;
 
   const VerificationScreen({super.key, required this.apiUrl});

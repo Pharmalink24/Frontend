@@ -2,15 +2,18 @@
 import 'package:flutter/material.dart';
 // Utilities
 import 'package:pharmalink/utilities/constants/app_theme.dart';
-import 'package:pharmalink/utilities/constants/app_info.dart';
-import 'package:pharmalink/utilities/routes.dart';
+import 'package:pharmalink/utilities/constants/strings.dart';
+import 'package:pharmalink/utilities/app_router.dart';
 // Packages
 // import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-void main() => runApp(const PharmalinkApp());
+void main() => runApp(PharmalinkApp(
+      appRouter: AppRouter(),
+    ));
 
 class PharmalinkApp extends StatelessWidget {
-  const PharmalinkApp({super.key});
+  final AppRouter appRouter;
+  const PharmalinkApp({super.key, required this.appRouter});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +21,8 @@ class PharmalinkApp extends StatelessWidget {
       title: appTitle,
       theme: AppTheme.generalAppTheme,
       initialRoute: initialRoute,
-      routes: routes,
+      // routes: routes,
+      onGenerateRoute: AppRouter().generateRoute,
       debugShowCheckedModeBanner: false,
     );
   }

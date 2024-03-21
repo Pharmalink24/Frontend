@@ -1,10 +1,9 @@
 // Packages
 import 'dart:convert';
 import 'dart:io';
-
 import 'package:http/http.dart' as http;
+import 'package:pharmalink/utilities/constants/strings.dart';
 
-const String _baseUrl = "http://10.0.2.2:8000";
 const String Auth = "";
 
 class Api {
@@ -22,7 +21,7 @@ class Api {
         : null;
 
     http.Response response = await http.get(
-      Uri.parse('$_baseUrl/$path'),
+      Uri.parse('$baseUrl/$path'),
       headers: headers,
     );
 
@@ -48,7 +47,7 @@ class Api {
         : null;
 
     http.Response response = await http.post(
-      Uri.parse('$_baseUrl/$path'),
+      Uri.parse('$baseUrl/$path'),
       body: jsonEncode(body),
       headers: headers,
     );

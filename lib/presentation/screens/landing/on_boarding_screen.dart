@@ -13,7 +13,7 @@ import 'package:pharmalink/utilities/constants/styles.dart';
 // External Packages
 
 class OnBoardingScreen extends StatefulWidget {
-  static String url = "introduction/";
+  static const String url = "introduction/";
 
   const OnBoardingScreen({super.key});
 

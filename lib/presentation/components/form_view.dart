@@ -21,6 +21,7 @@ class _FormViewState extends State<FormView> {
   Widget build(BuildContext context) {
     return ListView.builder(
       shrinkWrap: true,
+      physics: const ClampingScrollPhysics(),
       itemBuilder: ((context, index) {
         var field = widget.model[index].items != null
             ? RoundedDropDownButton(

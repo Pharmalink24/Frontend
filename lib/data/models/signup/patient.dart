@@ -1,4 +1,4 @@
-class User {
+class Patient {
   late int id;
   late String fname;
   late String lname;
@@ -10,7 +10,7 @@ class User {
   late List<String> chronicDisease;
   late String image;
 
-  User.fromJson(Map<String, dynamic> json) {
+  Patient.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     fname = json['fname'];
     lname = json['lname'];
