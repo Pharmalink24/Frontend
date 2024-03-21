@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 // Screens Packages
 // Components Packages
 import 'package:pharmalink/core/widgets/card_container.dart';
-import 'package:pharmalink/core/widgets/drug_list_tile.dart';
+import 'package:pharmalink/features/home/ui/widgets/drug_list_tile.dart';
 import 'package:pharmalink/core/widgets/circle_image.dart';
 // Utilities Packages
 import 'package:pharmalink/core/theme/colors.dart';

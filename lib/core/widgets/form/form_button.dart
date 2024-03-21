@@ -5,10 +5,10 @@ import "package:flutter/material.dart";
 // Utilities
 import 'package:pharmalink/core/theme/fonts.dart';
 
-class RoundedButton extends StatelessWidget {
+class FormButton extends StatelessWidget {
   final String text;
   final Function onPressed;
-  const RoundedButton({
+  const FormButton({
     super.key,
     this.text = "",
     required this.onPressed,

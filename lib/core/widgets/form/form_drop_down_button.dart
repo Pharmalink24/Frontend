@@ -6,18 +6,20 @@ import "package:flutter/material.dart";
 import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/theme/styles.dart';
 
-class RoundedDropDownButton extends StatelessWidget {
+class FormDropDownButton extends StatelessWidget {
   final String? hintText;
   final String? value;
   final List<String> items;
   final Function onChanged;
+  final BoxDecoration decoration;
 
-  const RoundedDropDownButton({
+  const FormDropDownButton({
     super.key,
     this.hintText,
     required this.value,
     required this.items,
     required this.onChanged,
+    required this.decoration,
   });
 
   @override
@@ -25,7 +27,7 @@ class RoundedDropDownButton extends StatelessWidget {
     return Padding(
       padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
       child: Container(
-        decoration: AppTextFieldDecoration.primaryBoxDecoration,
+        decoration: decoration,
         width: double.infinity,
         child: DropdownButton(
           hint: Text(hintText ?? ""),

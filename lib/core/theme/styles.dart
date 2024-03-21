@@ -113,12 +113,15 @@ class AppTextStyle {
 
 // Text Field Decoration
 class AppTextFieldDecoration {
+  // Constants
   static const _kBorderWidth = 2.0;
   static const _kPadding = 24.0;
-  static const _kBorderRadius1 = 40.0;
-  static const _kBorderRadius2 = 12.0;
+  static const _kPrimaryBorderRadius = 40.0;
+  static const _kSecondaryBorderRadius = 12.0;
 
+  // Input Decoration for text field
   static const InputDecoration _generalInputDecoration = InputDecoration(
+    isDense: true,
     labelStyle: AppTextStyle.labelMedium,
     enabledBorder: OutlineInputBorder(
       borderSide: BorderSide(
@@ -151,22 +154,22 @@ class AppTextFieldDecoration {
       _generalInputDecoration.copyWith(
     fillColor: AppColors.primaryBackground,
     border: OutlineInputBorder(
-      borderRadius: BorderRadius.circular(_kBorderRadius1),
+      borderRadius: BorderRadius.circular(_kPrimaryBorderRadius),
     ),
     enabledBorder: OutlineInputBorder(
       borderSide: const BorderSide(
         color: AppColors.accent5,
       ),
-      borderRadius: BorderRadius.circular(_kBorderRadius1),
+      borderRadius: BorderRadius.circular(_kPrimaryBorderRadius),
     ),
     focusedBorder: OutlineInputBorder(
-      borderRadius: BorderRadius.circular(_kBorderRadius1),
+      borderRadius: BorderRadius.circular(_kPrimaryBorderRadius),
     ),
     errorBorder: OutlineInputBorder(
-      borderRadius: BorderRadius.circular(_kBorderRadius1),
+      borderRadius: BorderRadius.circular(_kPrimaryBorderRadius),
     ),
     focusedErrorBorder: OutlineInputBorder(
-      borderRadius: BorderRadius.circular(_kBorderRadius1),
+      borderRadius: BorderRadius.circular(_kPrimaryBorderRadius),
     ),
   );
 
@@ -174,25 +177,26 @@ class AppTextFieldDecoration {
       _generalInputDecoration.copyWith(
     fillColor: AppColors.primaryBackground,
     border: OutlineInputBorder(
-      borderRadius: BorderRadius.circular(_kBorderRadius2),
+      borderRadius: BorderRadius.circular(_kSecondaryBorderRadius),
     ),
     enabledBorder: OutlineInputBorder(
       borderSide: const BorderSide(
         color: AppColors.secondaryBackground,
       ),
-      borderRadius: BorderRadius.circular(_kBorderRadius2),
+      borderRadius: BorderRadius.circular(_kSecondaryBorderRadius),
     ),
     focusedBorder: OutlineInputBorder(
-      borderRadius: BorderRadius.circular(_kBorderRadius2),
+      borderRadius: BorderRadius.circular(_kSecondaryBorderRadius),
     ),
     errorBorder: OutlineInputBorder(
-      borderRadius: BorderRadius.circular(_kBorderRadius2),
+      borderRadius: BorderRadius.circular(_kSecondaryBorderRadius),
     ),
     focusedErrorBorder: OutlineInputBorder(
-      borderRadius: BorderRadius.circular(_kBorderRadius2),
+      borderRadius: BorderRadius.circular(_kSecondaryBorderRadius),
     ),
   );
 
+  // Box Decoration for drop menu button
   static final BoxDecoration _generalBoxDecoration = BoxDecoration(
     border: Border.all(
       width: _kBorderWidth,
@@ -204,7 +208,7 @@ class AppTextFieldDecoration {
     border: Border.all(
       color: AppColors.accent5,
     ),
-    borderRadius: BorderRadius.circular(_kBorderRadius1),
+    borderRadius: BorderRadius.circular(_kPrimaryBorderRadius),
   );
 
   static BoxDecoration secondaryBoxDecoration = _generalBoxDecoration.copyWith(
@@ -212,6 +216,6 @@ class AppTextFieldDecoration {
     border: Border.all(
       color: AppColors.secondaryBackground,
     ),
-    borderRadius: BorderRadius.circular(_kBorderRadius2),
+    borderRadius: BorderRadius.circular(_kSecondaryBorderRadius),
   );
 }

@@ -6,7 +6,7 @@ import "package:flutter/material.dart";
 import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/theme/styles.dart';
 
-class RoundedTextField extends StatelessWidget {
+class FormTextField extends StatelessWidget {
   final String hintText;
   final Function onChanged;
   final TextInputType keyboardType;
@@ -14,8 +14,9 @@ class RoundedTextField extends StatelessWidget {
   final bool enableSuggestions;
   final bool autocorrect;
   final InputDecoration decoration;
+  final IconButton? suffixIcon;
 
-  const RoundedTextField({
+  const FormTextField({
     super.key,
     required this.hintText,
     this.keyboardType = TextInputType.text,
@@ -24,6 +25,7 @@ class RoundedTextField extends StatelessWidget {
     this.autocorrect = true,
     required this.onChanged,
     required this.decoration,
+    this.suffixIcon
   });
 
   @override
@@ -42,6 +44,7 @@ class RoundedTextField extends StatelessWidget {
           enableSuggestions: enableSuggestions,
           decoration: decoration.copyWith(
             hintText: hintText,
+            suffixIcon: suffixIcon,
             labelText: hintText,
           ),
           style: AppTextStyle.labelSmall.copyWith(

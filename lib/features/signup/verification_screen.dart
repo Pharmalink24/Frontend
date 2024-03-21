@@ -7,10 +7,10 @@ import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 // Models Packages
 // Screens Packages
 // Components Packages
-import 'package:pharmalink/core/widgets/rounded_button.dart';
 import 'package:pharmalink/core/theme/app_bar.dart';
 import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/theme/styles.dart';
+import 'package:pharmalink/core/widgets/form/form_button.dart';
 
 const kMarginBetweenTitleAndInputs = 35.0;
 
@@ -33,8 +33,7 @@ class _VerificationScreenState extends State<VerificationScreen> {
     super.initState();
   }
 
-  void sendVerificationRequest() async {
-  }
+  void sendVerificationRequest() async {}
 
   @override
   Widget build(BuildContext context) {
@@ -76,7 +75,7 @@ class _VerificationScreenState extends State<VerificationScreen> {
                   padding: const EdgeInsets.symmetric(vertical: 16.0),
                   child: Text("Still can't find the email? No problem."),
                 ),
-                RoundedButton(
+                FormButton(
                   text: "Resend Verification Email",
                   onPressed: () {
                     setState(() {

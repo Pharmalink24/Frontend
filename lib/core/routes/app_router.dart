@@ -7,7 +7,7 @@ import 'package:pharmalink/features/signup/patient_signup_fields.dart';
 import 'package:pharmalink/features/on_boarding/on_boarding_screen.dart';
 // Screens Packages
 import 'package:pharmalink/features/splash/splash_screen.dart';
-import 'package:pharmalink/features/patient/patient_main.dart';
+import 'package:pharmalink/features/patient_main.dart';
 import 'package:pharmalink/features/signin/signin_screen.dart';
 import 'package:pharmalink/features/signup/signup_screen.dart';
 import 'package:pharmalink/features/signup/verification_screen.dart';
@@ -27,11 +27,11 @@ class AppRouter {
       case Routes.onBoardingScreen:
         return MaterialPageRoute(builder: (_) => const OnBoardingScreen());
 
-      // case Routes.signInScreen:
-      //   return MaterialPageRoute(
-      //       builder: (_) => const SignInScreen(
-      //             apiUrl: API.patientSignIn,
-      //           ));
+      case Routes.signInScreen:
+        return MaterialPageRoute(
+          builder: (_) => const SignInScreen(
+          ),
+        );
 
       // case Routes.signUpScreen:
       //   return MaterialPageRoute(

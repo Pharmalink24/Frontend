@@ -1,10 +1,10 @@
 // Flutter Packages
 import 'package:flutter/material.dart';
 // Screens Packages
-import 'package:pharmalink/features/patient/home/ui/home_screen.dart';
-import 'package:pharmalink/features/patient/prescription/landing_prescription.dart';
-import 'package:pharmalink/features/patient/drug_interaction/drug_interaction_screen.dart';
-import 'package:pharmalink/features/patient/profile/profile_screen.dart';
+import 'package:pharmalink/features/home/ui/home_screen.dart';
+import 'package:pharmalink/features/prescription/landing_prescription.dart';
+import 'package:pharmalink/features/drug_interaction/drug_interaction_screen.dart';
+import 'package:pharmalink/features/profile/profile_screen.dart';
 // Components Packages
 import 'package:pharmalink/core/widgets/app_bottom_navigation_bar.dart';
 // Utilities Packages

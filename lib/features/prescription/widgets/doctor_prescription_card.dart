@@ -1,7 +1,7 @@
 // Flutter Packages
 import 'package:flutter/material.dart';
 // Screens Packages
-import 'package:pharmalink/features/patient/prescription/prescription.dart';
+import 'package:pharmalink/features/prescription/prescription.dart';
 // Utilities Packages
 import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/theme/styles.dart';

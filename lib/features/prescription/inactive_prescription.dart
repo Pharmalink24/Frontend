@@ -1,18 +1,23 @@
+// Flutter Packages
 import 'package:flutter/material.dart';
-import '../../../core/theme/colors.dart';
-import '../../../core/theme/styles.dart';
-import '../../../core/widgets/doctor_prescription_card.dart';
+// Components Packages
+import 'package:pharmalink/features/prescription/widgets/doctor_prescription_card.dart';
+// Utilities Packages
+import 'package:pharmalink/core/theme/colors.dart';
+import 'package:pharmalink/core/theme/styles.dart';
 
-class NewPrescriptionScreen extends StatefulWidget {
-  static String url = "/new_prescription";
+class InactivePrescriptionScreen extends StatefulWidget {
+  static String url = "/inactive_prescription";
 
-  const NewPrescriptionScreen({super.key});
+  const InactivePrescriptionScreen({super.key});
 
   @override
-  _NewPrescriptionScreenState createState() => _NewPrescriptionScreenState();
+  _InactivePrescriptionScreenState createState() =>
+      _InactivePrescriptionScreenState();
 }
 
-class _NewPrescriptionScreenState extends State<NewPrescriptionScreen> {
+class _InactivePrescriptionScreenState
+    extends State<InactivePrescriptionScreen> {
   List<DoctorPrescriptionCard> doctorCards = [];
 
   @override
@@ -56,10 +61,10 @@ class _NewPrescriptionScreenState extends State<NewPrescriptionScreen> {
     return Scaffold(
       backgroundColor: AppColors.primaryBackground,
       appBar: AppBar(
-        iconTheme: const IconThemeData(color: AppColors.secondaryText),
+        iconTheme: IconThemeData(color: AppColors.secondaryText),
         backgroundColor: AppColors.primaryBackground,
         title: Text(
-          'New Prescriptions',
+          'Inactive Prescriptions',
           style: AppTextStyle.displayMedium.copyWith(
             fontSize: 28,
           ),

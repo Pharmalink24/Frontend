@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import '../../../core/theme/colors.dart';
-import '../../../core/theme/styles.dart';
+import '../../core/theme/colors.dart';
+import '../../core/theme/styles.dart';
 
-import '../../../core/widgets/category_widget.dart';
+import 'widgets/category_widget.dart';
 import 'active_prescription.dart';
 import 'inactive_prescription.dart';
 import 'new_prescription.dart';

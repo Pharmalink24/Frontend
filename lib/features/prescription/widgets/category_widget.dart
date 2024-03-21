@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../theme/colors.dart';
-import '../theme/styles.dart';
+import '../../../core/theme/colors.dart';
+import '../../../core/theme/styles.dart';
 
 class PrescriptionCategoryWidget extends StatelessWidget {
   const PrescriptionCategoryWidget({

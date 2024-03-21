@@ -1,7 +1,7 @@
 // Flutter Packages
 import 'package:flutter/material.dart';
 // Components Packages
-import 'package:pharmalink/core/widgets/doctor_prescription_card.dart';
+import 'package:pharmalink/features/prescription/widgets/doctor_prescription_card.dart';
 // Utilities Packages
 import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/theme/styles.dart';
