@@ -1,5 +1,5 @@
 import "package:flutter/material.dart";
-import "../../core/helpers/classes/field.dart";
+import "../../../core/helpers/classes/field.dart";
 
 List<Field> patientSignUpFields = [
   Field("First Name", inputType: TextInputType.name, dbName: "fname"),

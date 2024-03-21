@@ -115,7 +115,7 @@ class AppTextStyle {
 class AppTextFieldDecoration {
   // Constants
   static const _kBorderWidth = 2.0;
-  static const _kPadding = 24.0;
+  static const _kPadding = 22.0;
   static const _kPrimaryBorderRadius = 40.0;
   static const _kSecondaryBorderRadius = 12.0;
 
@@ -147,12 +147,12 @@ class AppTextFieldDecoration {
       ),
     ),
     filled: true,
+    fillColor: AppColors.primaryBackground,
     contentPadding: EdgeInsets.all(_kPadding),
   );
 
   static InputDecoration primaryInputDecoration =
       _generalInputDecoration.copyWith(
-    fillColor: AppColors.primaryBackground,
     border: OutlineInputBorder(
       borderRadius: BorderRadius.circular(_kPrimaryBorderRadius),
     ),
@@ -175,7 +175,6 @@ class AppTextFieldDecoration {
 
   static InputDecoration secondaryInputDecoration =
       _generalInputDecoration.copyWith(
-    fillColor: AppColors.primaryBackground,
     border: OutlineInputBorder(
       borderRadius: BorderRadius.circular(_kSecondaryBorderRadius),
     ),

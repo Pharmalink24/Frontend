@@ -6,8 +6,8 @@ import 'package:pharmalink/features/on_boarding/models/on_boarding_pages.dart';
 import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/helpers/constants/paths.dart';
 import 'package:pharmalink/core/theme/styles.dart';
-import 'package:pharmalink/features/on_boarding/widgets/intro_image.dart';
-import "./models/on_boarding_page.dart";
+import 'package:pharmalink/features/on_boarding/ui/widgets/intro_image.dart';
+import "../models/on_boarding_page.dart";
 import 'package:pharmalink/core/helpers/extensions.dart';
 
 class OnBoardingScreen extends StatefulWidget {

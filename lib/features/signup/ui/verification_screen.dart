@@ -15,9 +15,7 @@ import 'package:pharmalink/core/widgets/form/form_button.dart';
 const kMarginBetweenTitleAndInputs = 35.0;
 
 class VerificationScreen extends StatefulWidget {
-  final String apiUrl;
-
-  const VerificationScreen({super.key, required this.apiUrl});
+  const VerificationScreen({super.key});
 
   @override
   State<VerificationScreen> createState() => _VerificationScreenState();

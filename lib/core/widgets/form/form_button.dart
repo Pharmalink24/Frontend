@@ -7,7 +7,7 @@ import 'package:pharmalink/core/theme/fonts.dart';
 
 class FormButton extends StatelessWidget {
   final String text;
-  final Function onPressed;
+  final VoidCallback onPressed;
   const FormButton({
     super.key,
     this.text = "",

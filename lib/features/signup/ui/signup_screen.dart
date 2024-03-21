@@ -3,8 +3,9 @@
 // Flutter Packages
 import 'package:flutter/material.dart';
 import 'package:pharmalink/core/widgets/form/form_view.dart';
+import 'package:pharmalink/features/signup/models/patient_signup_fields.dart';
 // Screens Packages
-import 'package:pharmalink/features/signup/verification_screen.dart';
+import 'package:pharmalink/features/signup/ui/verification_screen.dart';
 import 'package:pharmalink/core/helpers/classes/field.dart';
 import 'package:pharmalink/core/helpers/constants/apis.dart';
 import 'package:pharmalink/core/theme/app_bar.dart';
@@ -14,16 +15,12 @@ import 'package:pharmalink/core/theme/styles.dart';
 import 'package:pharmalink/core/helpers/constants/urls.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
-import '../../core/widgets/form/form_button.dart';
+import '../../../core/widgets/form/form_button.dart';
 
 const kMarginBetweenTitleAndInputs = 40.0;
 
 class SignUpScreen extends StatefulWidget {
-  final String apiUrl;
-  final List<Field> signUpFields;
-
-  const SignUpScreen(
-      {super.key, required this.apiUrl, required this.signUpFields});
+  const SignUpScreen({super.key});
 
   @override
   State<SignUpScreen> createState() => _SignUpScreenState();
@@ -31,7 +28,6 @@ class SignUpScreen extends StatefulWidget {
 
 class _SignUpScreenState extends State<SignUpScreen> {
   bool _saving = false;
-  late var user;
 
   @override
   void initState() {
@@ -111,7 +107,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 ),
               ),
               FormView(
-                model: widget.signUpFields,
+                model: patientSignUpFields,
               ),
               FormButton(
                 text: "Create an account",
@@ -119,6 +115,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   setState(() {
                     _saving = true;
                   });
+
                   setState(() {
                     _saving = false;
                   });

@@ -16,17 +16,16 @@ class FormTextField extends StatelessWidget {
   final InputDecoration decoration;
   final IconButton? suffixIcon;
 
-  const FormTextField({
-    super.key,
-    required this.hintText,
-    this.keyboardType = TextInputType.text,
-    this.obscureText = false,
-    this.enableSuggestions = true,
-    this.autocorrect = true,
-    required this.onChanged,
-    required this.decoration,
-    this.suffixIcon
-  });
+  const FormTextField(
+      {super.key,
+      required this.hintText,
+      this.keyboardType = TextInputType.text,
+      this.obscureText = false,
+      this.enableSuggestions = true,
+      this.autocorrect = true,
+      required this.onChanged,
+      required this.decoration,
+      this.suffixIcon});
 
   @override
   Widget build(BuildContext context) {
