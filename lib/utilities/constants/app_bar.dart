@@ -10,65 +10,59 @@ class MyAppBar {
 
   static AppBar withLogoAndLabel = AppBar(
     automaticallyImplyLeading: false,
-    title: const Expanded(
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          ImageIcon(
-            AssetImage("${AppPaths.images}/logo.png"),
-            size: kAppBarLogoSize,
+    title: const Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        ImageIcon(
+          AssetImage("${AppPaths.images}/logo.png"),
+          size: kAppBarLogoSize,
+          color: AppColors.alternateText,
+        ),
+        Text(
+          "PharmaLink",
+          style: TextStyle(
+            fontWeight: FontWeight.w600,
+            fontFamily: AppFonts.primary,
             color: AppColors.alternateText,
           ),
-          Text(
-            "PharmaLink",
-            style: TextStyle(
-              fontWeight: FontWeight.w600,
-              fontFamily: AppFonts.primary,
-              color: AppColors.alternateText,
-            ),
-          ),
-        ],
-      ),
+        ),
+      ],
     ),
   );
 
   static AppBar withoutLogo = AppBar(
     automaticallyImplyLeading: false,
-    title: const Expanded(
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Text(
-            "PharmaLink",
-            style: TextStyle(
-              fontWeight: FontWeight.w600,
-              fontFamily: AppFonts.primary,
-              color: AppColors.alternateText,
-            ),
+    title: const Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Text(
+          "PharmaLink",
+          style: TextStyle(
+            fontWeight: FontWeight.w600,
+            fontFamily: AppFonts.primary,
+            color: AppColors.alternateText,
           ),
-        ],
-      ),
+        ),
+      ],
     ),
   );
 
   static AppBar withoutLabel = AppBar(
     automaticallyImplyLeading: false,
-    title: const Expanded(
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          ImageIcon(
-            AssetImage(
-              "${AppPaths.images}/logo.png",
-            ),
-            size: kAppBarLogoSize,
-            color: AppColors.alternateText,
+    title: const Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        ImageIcon(
+          AssetImage(
+            "${AppPaths.images}/logo.png",
           ),
-        ],
-      ),
+          size: kAppBarLogoSize,
+          color: AppColors.alternateText,
+        ),
+      ],
     ),
   );
 }

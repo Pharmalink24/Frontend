@@ -23,14 +23,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 String initialRoute = WelcomeScreen.url;
 
 class AppRouter {
-  late SignupRepository signupRepository;
-  late SignupCubit signupCubit;
-
-  AppRouter() {
-    signupRepository = SignupRepository(SignupWebServices());
-    signupCubit = SignupCubit(signupRepository);
-  }
-
+  AppRouter();
   Route? generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case WelcomeScreen.url:
@@ -56,22 +49,16 @@ class AppRouter {
 
       case "${URL.patient}/${SignUpScreen.url}":
         return MaterialPageRoute(
-            builder: (_) => BlocProvider(
-                  create: (BuildContext context) => signupCubit,
-                  child: SignUpScreen(
-                    apiUrl: API.patientSignUp,
-                    signUpFields: patientSignUpFields,
-                  ),
+            builder: (_) => SignUpScreen(
+                  apiUrl: API.patientSignUp,
+                  signUpFields: patientSignUpFields,
                 ));
 
       case "${URL.doctor}/${SignUpScreen.url}":
         return MaterialPageRoute(
-            builder: (_) => BlocProvider(
-                  create: (BuildContext context) => signupCubit,
-                  child: SignUpScreen(
-                    apiUrl: API.patientSignUp,
-                    signUpFields: doctorSignUpFields,
-                  ),
+            builder: (_) => SignUpScreen(
+                  apiUrl: API.patientSignUp,
+                  signUpFields: doctorSignUpFields,
                 ));
 
       case "${URL.patient}/${VerificationScreen.url}":

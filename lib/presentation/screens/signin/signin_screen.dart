@@ -74,98 +74,102 @@ class _SignInScreenState extends State<SignInScreen> {
         child: ModalProgressHUD(
           blur: 1.0,
           inAsyncCall: _saving,
-          child: Flexible(
-            child: Padding(
-              padding: const EdgeInsets.all(24.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Flexible(
-                    child: Row(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(right: 16.0),
-                          child: Hero(
-                            tag: "SignInTitle",
-                            child: GestureDetector(
-                              child: Text(
-                                "Sign In",
-                                style: AppTextStyle.displaySmall.copyWith(
-                                  fontFamily: AppFonts.tertiary,
-                                  color: AppColors.primaryText,
-                                ),
+          child: Padding(
+            padding: const EdgeInsets.all(24.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(right: 16.0),
+                      child: Hero(
+                        tag: "SignInTitle",
+                        child: GestureDetector(
+                          child: Material(
+                            type: MaterialType.transparency,
+                            child: Text(
+                              "Sign In",
+                              style: AppTextStyle.displaySmall.copyWith(
+                                fontFamily: AppFonts.tertiary,
+                                color: AppColors.primaryText,
                               ),
                             ),
                           ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 16.0),
-                          child: Hero(
-                            tag: "SignUpTitle",
-                            child: GestureDetector(
-                              onTap: () {
-                                Navigator.pushNamed(
-                                  context,
-                                  widget.apiUrl == API.doctorSignIn
-                                      ? "${URL.doctor}/${SignUpScreen.url}"
-                                      : "${URL.patient}/${SignUpScreen.url}",
-                                );
-                              },
-                              child: Text(
-                                "Sign Up",
-                                style: AppTextStyle.displaySmall.copyWith(
-                                  fontFamily: AppFonts.tertiary,
-                                  color: AppColors.secondaryText,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  const Flexible(
-                    child: SizedBox(
-                      width: double.infinity,
-                      child: Padding(
-                        padding: EdgeInsets.all(8.0),
-                        child: Text(
-                          'Let\'s get started by filling out the form below.',
-                          style: AppTextStyle.labelSmall,
-                          textAlign: TextAlign.start,
                         ),
                       ),
                     ),
-                  ),
-                  const SizedBox(
-                    height: kMarginBetweenTitleAndInputs,
-                  ),
-                  FormView(model: signInFields),
-                  RoundedButton(
-                    text: "Sign In",
-                    onPressed: () async {
-                      setState(() {
-                        _saving = true;
-                      });
-                      signInRequest();
-                      setState(() {
-                        _saving = false;
-                      });
-                    },
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: GestureDetector(
-                      onTap: () {},
-                      child: const Text(
-                        "Forget Password",
+                    Padding(
+                      padding: const EdgeInsets.only(left: 16.0),
+                      child: Hero(
+                        tag: "SignUpTitle",
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.pushNamed(
+                              context,
+                              widget.apiUrl == API.doctorSignIn
+                                  ? "${URL.doctor}/${SignUpScreen.url}"
+                                  : "${URL.patient}/${SignUpScreen.url}",
+                            );
+                          },
+                          child: Material(
+                            type: MaterialType.transparency,
+                            child: Text(
+                              "Sign Up",
+                              style: AppTextStyle.displaySmall.copyWith(
+                                fontFamily: AppFonts.tertiary,
+                                color: AppColors.secondaryText,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  width: double.infinity,
+                  height: kMarginBetweenTitleAndInputs,
+                  child: Hero(
+                    tag: "label",
+                    child: Material(
+                      type: MaterialType.transparency,
+                      child: Text(
+                        'Let\'s get started by filling out the form below.',
                         style: AppTextStyle.labelMedium,
+                        textAlign: TextAlign.start,
                       ),
                     ),
                   ),
-                ],
-              ),
+                ),
+                const SizedBox(
+                  height: kMarginBetweenTitleAndInputs,
+                ),
+                FormView(model: signInFields),
+                RoundedButton(
+                  text: "Sign In",
+                  onPressed: () async {
+                    setState(() {
+                      _saving = true;
+                    });
+                    signInRequest();
+                    setState(() {
+                      _saving = false;
+                    });
+                  },
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: GestureDetector(
+                    onTap: () {},
+                    child: const Text(
+                      "Forget Password",
+                      style: AppTextStyle.labelMedium,
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
         ),

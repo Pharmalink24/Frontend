@@ -19,12 +19,13 @@ import 'package:pharmalink/data/web_services/networking.dart';
 import 'package:pharmalink/utilities/constants/apis.dart';
 import 'package:pharmalink/utilities/constants/app_bar.dart';
 import 'package:pharmalink/utilities/constants/colors.dart';
+import 'package:pharmalink/utilities/constants/fonts.dart';
 import 'package:pharmalink/utilities/constants/styles.dart';
 import 'package:pharmalink/utilities/constants/urls.dart';
 // External Packages
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
-const kMarginBetweenTitleAndInputs = 20.0;
+const kMarginBetweenTitleAndInputs = 40.0;
 
 class SignUpScreen extends StatefulWidget {
   static const String url = "signup/";
@@ -65,84 +66,89 @@ class _SignUpScreenState extends State<SignUpScreen> {
       body: SafeArea(
         child: ModalProgressHUD(
           inAsyncCall: _saving,
-          child: SingleChildScrollView(
+          child: ListView(
             padding: const EdgeInsets.all(24.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Row(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(right: 16.0),
-                      child: Hero(
-                        tag: "SignInTitle",
-                        child: GestureDetector(
-                          onTap: () {
-                            Navigator.pop(context);
-                          },
+            children: [
+              Row(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(right: 16.0),
+                    child: Hero(
+                      tag: "SignInTitle",
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.pop(context);
+                        },
+                        child: Material(
+                          type: MaterialType.transparency,
                           child: Text(
                             "Sign In",
                             style: AppTextStyle.headlineLarge.copyWith(
                               color: AppColors.secondaryText,
+                              fontFamily: AppFonts.tertiary,
                             ),
                           ),
                         ),
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 16.0),
-                      child: Hero(
-                        tag: "SignUpTitle",
-                        child: GestureDetector(
-                          onTap: () {
-                            Navigator.pop(context);
-                          },
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 16.0),
+                    child: Hero(
+                      tag: "SignUpTitle",
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.pop(context);
+                        },
+                        child: Material(
+                          type: MaterialType.transparency,
                           child: Text(
                             "Sign Up",
                             style: AppTextStyle.headlineLarge.copyWith(
                               color: AppColors.primaryText,
+                              fontFamily: AppFonts.tertiary,
                             ),
                           ),
                         ),
                       ),
                     ),
-                  ],
-                ),
-                SizedBox(
-                  width: double.infinity,
-                  child: const Padding(
-                    padding: EdgeInsets.all(8.0),
+                  ),
+                ],
+              ),
+              SizedBox(
+                width: double.infinity,
+                height: kMarginBetweenTitleAndInputs,
+                child: Hero(
+                  tag: "label",
+                  child: Material(
+                    type: MaterialType.transparency,
                     child: Text(
                       'Let\'s get started by filling out the form below.',
-                      style: AppTextStyle.labelSmall,
+                      style: AppTextStyle.labelMedium,
                       textAlign: TextAlign.start,
                     ),
                   ),
                 ),
-                SizedBox(
-                  height: kMarginBetweenTitleAndInputs,
-                ),
-                FormView(
-                  model: widget.signUpFields,
-                ),
-                RoundedButton(
-                  text: "Create an account",
-                  onPressed: () async {
-                    setState(() {
-                      _saving = true;
-                    });
+              ),
+              FormView(
+                model: widget.signUpFields,
+              ),
+              RoundedButton(
+                text: "Create an account",
+                onPressed: () async {
+                  setState(() {
+                    _saving = true;
+                  });
 
-                    // Sign up process
-                    signupRequest();
+                  // Sign up process
+                  signupRequest();
 
-                    setState(() {
-                      _saving = false;
-                    });
-                  },
-                ),
-              ],
-            ),
+                  setState(() {
+                    _saving = false;
+                  });
+                },
+              )
+            ],
           ),
         ),
       ),
