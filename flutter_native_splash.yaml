@@ -2,8 +2,8 @@ flutter_native_splash:
   color: "#ffffff"
   color_dark: "#011936"
 
-  image: assets/images/splash-invert.png
-  image_dark: assets/images/splash.png
+  image: assets/images/splash.png
+  image_dark: assets/images/splash-invert.png
 
   # From Android 12 onwards, the splash screen is handled differently than in previous versions.
   # Please visit https://developer.android.com/guide/topics/ui/splash-screen
@@ -12,7 +12,7 @@ flutter_native_splash:
     color: "#ffffff"
     color_dark: "#011936"
 
-    image: assets/images/splash-invert.png
-    image_dark: assets/images/splash.png
+    image: assets/images/splash-android12.png
+    image_dark: assets/images/splash-invert-android12.png
 
   fullscreen: true

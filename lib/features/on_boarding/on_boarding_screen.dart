@@ -2,7 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:pharmalink/core/routes/routes.dart';
-import 'package:pharmalink/features/on_boarding/on_boarding_page.dart';
+import 'package:pharmalink/features/on_boarding/models/on_boarding_pages.dart';
 import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/helpers/constants/paths.dart';
 import 'package:pharmalink/core/theme/styles.dart';
@@ -67,7 +67,7 @@ class OnBoardingScreenState extends State<OnBoardingScreen> {
         color: AppColors.alternate,
       ),
       done: Text(
-        'Done',
+        'Sign in',
         style: AppTextStyle.labelMedium.copyWith(
           color: AppColors.alternate,
           // fontSize: 15.0,
