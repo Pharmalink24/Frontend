@@ -6,12 +6,11 @@ import 'package:pharmalink/features/signup/models/patient_signup_fields.dart';
 // Screens Packages
 import 'package:pharmalink/features/signup/ui/verification_screen.dart';
 import 'package:pharmalink/core/helpers/classes/field.dart';
-import 'package:pharmalink/core/helpers/constants/apis.dart';
+import 'package:pharmalink/core/networking/apis.dart';
 import 'package:pharmalink/core/theme/app_bar.dart';
 import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/theme/fonts.dart';
 import 'package:pharmalink/core/theme/styles.dart';
-import 'package:pharmalink/core/helpers/constants/urls.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:pharmalink/features/signup/ui/widgets/signup_tab.dart';
 
