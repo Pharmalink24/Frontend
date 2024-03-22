@@ -8,24 +8,29 @@ import 'package:pharmalink/core/theme/styles.dart';
 
 class FormTextField extends StatelessWidget {
   final String hintText;
-  final Function onChanged;
+  final void Function(String)? onChanged;
   final TextInputType keyboardType;
   final bool obscureText;
   final bool enableSuggestions;
   final bool autocorrect;
   final InputDecoration decoration;
   final IconButton? suffixIcon;
+  final TextEditingController? controller;
+  final Function(String?) validator;
 
-  const FormTextField(
-      {super.key,
-      required this.hintText,
-      this.keyboardType = TextInputType.text,
-      this.obscureText = false,
-      this.enableSuggestions = true,
-      this.autocorrect = true,
-      required this.onChanged,
-      required this.decoration,
-      this.suffixIcon});
+  const FormTextField({
+    super.key,
+    required this.hintText,
+    required this.validator,
+    this.onChanged,
+    required this.decoration,
+    this.controller,
+    this.keyboardType = TextInputType.text,
+    this.obscureText = false,
+    this.enableSuggestions = true,
+    this.autocorrect = true,
+    this.suffixIcon,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -34,9 +39,8 @@ class FormTextField extends StatelessWidget {
       child: SizedBox(
         width: double.infinity,
         child: TextFormField(
-          onChanged: (value) {
-            onChanged(value);
-          },
+          controller: controller,
+          onChanged: onChanged,
           autofocus: false,
           obscureText: obscureText,
           autocorrect: autocorrect,
@@ -50,6 +54,9 @@ class FormTextField extends StatelessWidget {
             color: AppColors.secondary,
           ),
           keyboardType: keyboardType,
+          validator: (value) {
+            return validator(value);
+          },
         ),
       ),
     );

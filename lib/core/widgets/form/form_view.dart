@@ -11,10 +11,12 @@ enum DecorationType {
 }
 
 class FormView extends StatefulWidget {
+  final Key? formKey;
   final DecorationType decorationType;
-  final List<Field> model;
+  final Map<String, Field> model;
   const FormView({
     super.key,
+    this.formKey,
     required this.model,
     this.decorationType = DecorationType.primary,
   });
@@ -24,7 +26,6 @@ class FormView extends StatefulWidget {
 }
 
 class _FormViewState extends State<FormView> {
-  final formKey = GlobalKey<FormState>();
   late InputDecoration inputDecoration;
   late BoxDecoration boxDecoration;
   late bool _isVisible;
@@ -77,6 +78,8 @@ class _FormViewState extends State<FormView> {
               ? true
               : false
           : false,
+      controller: field.controller,
+      validator: (value) {},
       onChanged: (value) {
         setState(() {
           field.value = value;
@@ -103,12 +106,12 @@ class _FormViewState extends State<FormView> {
   @override
   Widget build(BuildContext context) {
     return Form(
-      key: formKey,
+      key: widget.formKey,
       child: ListView.builder(
         shrinkWrap: true,
         physics: const ClampingScrollPhysics(),
         itemBuilder: ((context, index) {
-          Field field = widget.model[index];
+          Field field = widget.model.values.elementAt(index);
           return isDropDownMenu(field)
               ? generateFormTextField(field)
               : generateDropDownButton(field);
