@@ -1,23 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:pharmalink/core/widgets/form/form_view.dart';
-import 'package:pharmalink/features/signin/models/signin_fields.dart';
+import 'package:pharmalink/features/signin/data/models/signin_fields.dart';
 import 'package:pharmalink/core/theme/app_bar.dart';
 import 'package:pharmalink/core/theme/colors.dart';
-import 'package:pharmalink/core/theme/styles.dart';
 import 'package:pharmalink/features/signin/ui/widgets/signin_button.dart';
 import 'package:pharmalink/features/signin/ui/widgets/terms_and_conditions_text.dart';
+import 'widgets/forget_password_text.dart';
 import 'widgets/signin_tab.dart';
+import 'widgets/welcome_text.dart';
 
-const kMarginBetweenTitleAndInputs = 60.0;
-
-class SignInScreen extends StatefulWidget {
-  const SignInScreen({super.key});
+class SigninScreen extends StatefulWidget {
+  const SigninScreen({super.key});
 
   @override
-  State<SignInScreen> createState() => _SignInScreenState();
+  State<SigninScreen> createState() => _SigninScreenState();
 }
 
-class _SignInScreenState extends State<SignInScreen> {
+class _SigninScreenState extends State<SigninScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,36 +31,11 @@ class _SignInScreenState extends State<SignInScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const SigninTab(),
-                const SizedBox(
-                  width: double.infinity,
-                  height: kMarginBetweenTitleAndInputs,
-                  child: Text(
-                    'Welcome to PharmaLink, where you manage your prescriptions !',
-                    style: AppTextStyle.labelMedium,
-                  ),
-                ),
+                const WelcomeText(),
                 FormView(model: signInFields),
+                const ForgetPasswordText(),
                 const SigninButton(),
-                Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Align(
-                    alignment: AlignmentDirectional.bottomEnd,
-                    child: GestureDetector(
-                      onTap: () {},
-                      child: Text(
-                        "Forget Password?",
-                        style: AppTextStyle.labelMedium.copyWith(
-                          color: AppColors.secondary,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-                const Padding(
-                  padding:
-                      EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
-                  child: TermsAndConditionsText(),
-                ),
+                const TermsAndConditionsText(),
               ],
             ),
           ),

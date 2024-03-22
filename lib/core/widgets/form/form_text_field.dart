@@ -30,7 +30,7 @@ class FormTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+      padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 8),
       child: SizedBox(
         width: double.infinity,
         child: TextFormField(

@@ -7,33 +7,36 @@ class TermsAndConditionsText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return RichText(
-      textAlign: TextAlign.center,
-      text: TextSpan(
-        children: [
-          const TextSpan(
-            text: 'By logging, you agree to our',
-            style: AppTextStyle.labelSmall,
-          ),
-          TextSpan(
-            text: ' Terms & Conditions',
-            style: AppTextStyle.labelSmall.copyWith(
-              color: AppColors.secondary,
-              fontWeight: FontWeight.bold,
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 32.0),
+      child: RichText(
+        textAlign: TextAlign.center,
+        text: TextSpan(
+          children: [
+            const TextSpan(
+              text: 'By logging, you agree to our',
+              style: AppTextStyle.labelSmall,
             ),
-          ),
-          TextSpan(
-            text: ' and ',
-            style: AppTextStyle.labelSmall.copyWith(height: 1.5),
-          ),
-          TextSpan(
-            text: 'Privacy Policy',
-            style: AppTextStyle.labelSmall.copyWith(
-              color: AppColors.secondary,
-              fontWeight: FontWeight.bold,
+            TextSpan(
+              text: ' Terms & Conditions',
+              style: AppTextStyle.labelSmall.copyWith(
+                color: AppColors.secondary,
+                fontWeight: FontWeight.bold,
+              ),
             ),
-          ),
-        ],
+            TextSpan(
+              text: ' and ',
+              style: AppTextStyle.labelSmall.copyWith(height: 1.5),
+            ),
+            TextSpan(
+              text: 'Privacy Policy',
+              style: AppTextStyle.labelSmall.copyWith(
+                color: AppColors.secondary,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

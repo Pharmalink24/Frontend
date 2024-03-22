@@ -6,7 +6,7 @@ import 'package:pharmalink/features/signup/models/patient_signup_fields.dart';
 // Screens Packages
 import 'package:pharmalink/features/signup/ui/verification_screen.dart';
 import 'package:pharmalink/core/helpers/classes/field.dart';
-import 'package:pharmalink/core/networking/apis.dart';
+import 'package:pharmalink/core/networking/api_constants.dart';
 import 'package:pharmalink/core/theme/app_bar.dart';
 import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/theme/fonts.dart';
@@ -18,14 +18,14 @@ import '../../../core/widgets/form/form_button.dart';
 
 const kMarginBetweenTitleAndInputs = 60.0;
 
-class SignUpScreen extends StatefulWidget {
-  const SignUpScreen({super.key});
+class SignupScreen extends StatefulWidget {
+  const SignupScreen({super.key});
 
   @override
-  State<SignUpScreen> createState() => _SignUpScreenState();
+  State<SignupScreen> createState() => _SignupScreenState();
 }
 
-class _SignUpScreenState extends State<SignUpScreen> {
+class _SignupScreenState extends State<SignupScreen> {
   @override
   void initState() {
     super.initState();

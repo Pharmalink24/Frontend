@@ -1,7 +1,9 @@
 // Flutter Packages
 import "package:flutter/material.dart";
+import 'package:pharmalink/core/di/dependency_injection.dart';
 import 'package:pharmalink/core/routes/routes.dart';
 import 'package:pharmalink/features/404/error_404_screen.dart';
+import 'package:pharmalink/features/signin/logic/cubit/signin_cubit.dart';
 // Models Packages
 import 'package:pharmalink/features/signup/models/doctor_signup_fields.dart';
 import 'package:pharmalink/features/signup/models/patient_signup_fields.dart';
@@ -13,13 +15,12 @@ import 'package:pharmalink/features/signin/ui/signin_screen.dart';
 import 'package:pharmalink/features/signup/ui/signup_screen.dart';
 import 'package:pharmalink/features/signup/ui/verification_screen.dart';
 // Utilities
-import 'package:pharmalink/core/networking/apis.dart';
+import 'package:pharmalink/core/networking/api_constants.dart';
 // External Packages
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AppRouter {
-  AppRouter();
-  Route? generateRoute(RouteSettings settings) {
+  Route generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case Routes.splashScreen:
         return MaterialPageRoute(builder: (_) => const SplashScreen());
@@ -28,10 +29,14 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const OnBoardingScreen());
 
       case Routes.signInScreen:
-        return MaterialPageRoute(builder: (_) => const SignInScreen());
+        return MaterialPageRoute(
+            builder: (_) => BlocProvider(
+                  create: (context) => getIt<SigninCubit>(),
+                  child: const SigninScreen(),
+                ));
 
       case Routes.signUpScreen:
-        return MaterialPageRoute(builder: (_) => const SignUpScreen());
+        return MaterialPageRoute(builder: (_) => const SignupScreen());
 
       case Routes.verificationScreen:
         return MaterialPageRoute(builder: (_) => const VerificationScreen());
