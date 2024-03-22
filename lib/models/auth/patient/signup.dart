@@ -10,5 +10,5 @@ List<Input> patientSignUpModel = [
   Input("Email", inputType: TextInputType.emailAddress, dbName: "email"),
   Input("Phone", inputType: TextInputType.phone, dbName: "phone"),
   Input("Birth Date", inputType: TextInputType.datetime, dbName: "birthdate"),
-  Input("Gender", inputType: TextInputType.datetime, dbName: "gender"),
+  Input("Gender", inputType: TextInputType.name, dbName: "gender"),
 ];
