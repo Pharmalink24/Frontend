@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors
-
 // Flutter Packages
 import 'package:flutter/material.dart';
 import 'package:pharmalink/core/widgets/form/form_view.dart';
@@ -29,8 +27,6 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
-  bool _saving = false;
-
   @override
   void initState() {
     super.initState();
@@ -42,39 +38,27 @@ class _SignUpScreenState extends State<SignUpScreen> {
       appBar: MyAppBar.withoutLabel,
       backgroundColor: AppColors.secondaryBackground,
       body: SafeArea(
-        child: ModalProgressHUD(
-          inAsyncCall: _saving,
-          child: ListView(
-            padding:
-                const EdgeInsets.symmetric(vertical: 32.0, horizontal: 22.0),
-            children: [
-              SignupTab(),
-              SizedBox(
-                width: double.infinity,
-                height: kMarginBetweenTitleAndInputs,
-                child: Text(
-                  'Welcome to PharmaLink, where you manage your prescriptions !',
-                  style: AppTextStyle.labelMedium,
-                  textAlign: TextAlign.start,
-                ),
+        child: ListView(
+          padding: const EdgeInsets.symmetric(vertical: 32.0, horizontal: 22.0),
+          children: [
+            const SignupTab(),
+            const SizedBox(
+              width: double.infinity,
+              height: kMarginBetweenTitleAndInputs,
+              child: Text(
+                'Welcome to PharmaLink, where you manage your prescriptions !',
+                style: AppTextStyle.labelMedium,
+                textAlign: TextAlign.start,
               ),
-              FormView(
-                model: patientSignUpFields,
-              ),
-              FormButton(
-                text: "Create an account",
-                onPressed: () async {
-                  setState(() {
-                    _saving = true;
-                  });
-
-                  setState(() {
-                    _saving = false;
-                  });
-                },
-              )
-            ],
-          ),
+            ),
+            FormView(
+              model: patientSignUpFields,
+            ),
+            FormButton(
+              text: "Create an account",
+              onPressed: () async {},
+            )
+          ],
         ),
       ),
     );
