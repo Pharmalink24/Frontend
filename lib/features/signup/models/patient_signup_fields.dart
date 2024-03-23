@@ -50,7 +50,7 @@ Map<String, Field> patientSignUpFields = {
     "Birth Date",
     inputType: TextInputType.datetime,
     dbName: "birthdate",
-    regex: RegExp(r"^(0[1-9]|1[012])[-/.](0[1-9]|[12][0-9]|3[01])[-/.](19|20)\\d\\d$"),
+    regex: RegExp(r'^(?=.[a-z])(?=.[A-Z])(?=.\d)(?=.[@$!%?&])[A-Za-z\d@$!%?&]{8,}$'),
   ),
   "gender": Field(
     "Gender",

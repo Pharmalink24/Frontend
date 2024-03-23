@@ -25,7 +25,7 @@ class _SigninScreenState extends State<SigninScreen> {
   void initState() {
     super.initState();
 
-    // Initialize controllers 
+    // Initialize controllers
     signInFields["email"]!.controller =
         context.read<SigninCubit>().emailController;
     signInFields["password"]!.controller =
@@ -48,7 +48,7 @@ class _SigninScreenState extends State<SigninScreen> {
                 const SigninTab(),
                 const WelcomeText(),
                 FormView(
-                  key: context.read<SigninCubit>().formKey,
+                  formKey: context.read<SigninCubit>().formKey,
                   model: signInFields,
                 ),
                 const ForgetPasswordText(),
@@ -67,6 +67,7 @@ class _SigninScreenState extends State<SigninScreen> {
   }
 
   void validationThenLogin(BuildContext context) {
+    print(context.read<SigninCubit>().formKey.currentState);
     if (context.read<SigninCubit>().formKey.currentState!.validate()) {
       context.read<SigninCubit>().emitSigninStates(
             SigninRequestBody(

@@ -24,6 +24,7 @@ class SigninBlocListener extends StatelessWidget {
 
   // Show error indicator dialog
   void showError(BuildContext context, String error) {
+    print("${error}");
     context.pop();
     showDialog(
       context: context,
@@ -34,15 +35,18 @@ class SigninBlocListener extends StatelessWidget {
           size: 32,
         ),
         content: Text(
-          error,
-          style: AppTextStyle.bodySmall,
+          error == " " ? error : "Unexpected error!\nPlease try again.",
+          style: AppTextStyle.titleLarge,
+          textAlign: TextAlign.center,
         ),
         actions: [
           TextButton(
             onPressed: () => context.pop(),
-            child: const Text(
+            child: Text(
               "Got it",
-              style: AppTextStyle.headlineSmall,
+              style: AppTextStyle.labelLarge.copyWith(
+                color: AppColors.alternateText,
+              ),
             ),
           ),
         ],
