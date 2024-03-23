@@ -4,11 +4,11 @@ import 'package:pharmalink/core/helpers/extensions.dart';
 import 'package:pharmalink/core/routes/routes.dart';
 import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/theme/styles.dart';
-import 'package:pharmalink/features/signin/logic/cubit/signin_cubit.dart';
-import 'package:pharmalink/features/signin/logic/cubit/signin_state.dart';
+import 'package:pharmalink/features/signup/data/logic/cubit/signup_cubit.dart';
+import 'package:pharmalink/features/signup/data/logic/cubit/signup_state.dart';
 
-class SigninBlocListener extends StatelessWidget {
-  const SigninBlocListener({super.key});
+class SignupBlocListener extends StatelessWidget {
+  const SignupBlocListener({super.key});
 
   // Show loading indicator dialog
   void showLoading(BuildContext context) {
@@ -56,12 +56,12 @@ class SigninBlocListener extends StatelessWidget {
   void showSuccess(BuildContext context) {
     context.pop();
     // context.pushNamed(Routes.patientScreen);
-    context.pushReplacementNamed(Routes.patientScreen);
+    context.pushReplacementNamed(Routes.verificationScreen);
   }
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<SigninCubit, SigninState>(
+    return BlocListener<SignupCubit, SignupState>(
       listenWhen: (previous, current) =>
           current is Loading || current is Success || current is Error,
       listener: (context, state) {

@@ -1,16 +1,19 @@
 // Flutter Packages
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pharmalink/core/widgets/form/form_view.dart';
+import 'package:pharmalink/core/widgets/terms_and_conditions_text.dart';
 import 'package:pharmalink/features/signin/ui/widgets/welcome_text.dart';
-import 'package:pharmalink/features/signup/models/patient_signup_fields.dart';
+import 'package:pharmalink/features/signup/data/logic/cubit/signup_cubit.dart';
+import 'package:pharmalink/features/signup/data/models/signup_fields.dart';
 // Screens Packages
 import 'package:pharmalink/core/theme/app_bar.dart';
 import 'package:pharmalink/core/theme/colors.dart';
+import 'package:pharmalink/features/signup/data/models/signup_request_body.dart';
 import 'package:pharmalink/features/signup/ui/widgets/signup_tab.dart';
 
 import '../../../core/widgets/form/form_button.dart';
-
-const kMarginBetweenTitleAndInputs = 60.0;
+import 'widgets/signup_bloc_listener.dart';
 
 class SignupScreen extends StatefulWidget {
   const SignupScreen({super.key});
@@ -23,6 +26,26 @@ class _SignupScreenState extends State<SignupScreen> {
   @override
   void initState() {
     super.initState();
+
+    // Initialize controllers
+    signUpFields["fname"]!.controller =
+        context.read<SignupCubit>().fnameController;
+    signUpFields["lname"]!.controller =
+        context.read<SignupCubit>().lnameController;
+    signUpFields["username"]!.controller =
+        context.read<SignupCubit>().usernameController;
+    signUpFields["password"]!.controller =
+        context.read<SignupCubit>().passwordController;
+    signUpFields["confirmPassword"]!.controller =
+        context.read<SignupCubit>().confirmPasswordController;
+    signUpFields["email"]!.controller =
+        context.read<SignupCubit>().emailController;
+    signUpFields["phone"]!.controller =
+        context.read<SignupCubit>().passwordController;
+    signUpFields["birthdate"]!.controller =
+        context.read<SignupCubit>().birthdateController;
+    signUpFields["gender"]!.controller =
+        context.read<SignupCubit>().genderController;
   }
 
   @override
@@ -37,15 +60,36 @@ class _SignupScreenState extends State<SignupScreen> {
             const SignupTab(),
             const WelcomeText(),
             FormView(
-              model: patientSignUpFields,
+              formKey: context.read<SignupCubit>().formKey,
+              model: signUpFields,
             ),
             FormButton(
               text: "Create an account",
-              onPressed: () async {},
-            )
+              onPressed: () => validationThenSignup(context),
+            ),
+            const TermsAndConditionsText(),
+            const SignupBlocListener(),
           ],
         ),
       ),
     );
+  }
+
+  void validationThenSignup(BuildContext context) {
+    if (context.read<SignupCubit>().formKey.currentState!.validate()) {
+      context.read<SignupCubit>().emitSignupStates(
+            SignupRequestBody(
+              fname: context.read<SignupCubit>().fnameController.text,
+              lname: context.read<SignupCubit>().fnameController.text,
+              username: context.read<SignupCubit>().usernameController.text,
+              password: context.read<SignupCubit>().passwordController.text,
+              birthdate: context.read<SignupCubit>().birthdateController.text,
+              email: context.read<SignupCubit>().emailController.text,
+              phone: context.read<SignupCubit>().phoneController.text,
+              gender: context.read<SignupCubit>().genderController.text,
+              image: '',
+            ),
+          );
+    }
   }
 }

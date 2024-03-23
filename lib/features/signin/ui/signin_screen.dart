@@ -8,7 +8,7 @@ import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/features/signin/data/models/signin_request_body.dart';
 import 'package:pharmalink/features/signin/logic/cubit/signin_cubit.dart';
 import 'package:pharmalink/features/signin/ui/widgets/signin_bloc_listener.dart';
-import 'package:pharmalink/features/signin/ui/widgets/terms_and_conditions_text.dart';
+import 'package:pharmalink/core/widgets/terms_and_conditions_text.dart';
 import 'widgets/forget_password_text.dart';
 import 'widgets/signin_tab.dart';
 import 'widgets/welcome_text.dart';
@@ -54,7 +54,7 @@ class _SigninScreenState extends State<SigninScreen> {
                 const ForgetPasswordText(),
                 FormButton(
                   text: "Sign In",
-                  onPressed: () => validationThenLogin(context),
+                  onPressed: () => validationThenSignin(context),
                 ),
                 const TermsAndConditionsText(),
                 const SigninBlocListener(),
@@ -66,8 +66,7 @@ class _SigninScreenState extends State<SigninScreen> {
     );
   }
 
-  void validationThenLogin(BuildContext context) {
-    print(context.read<SigninCubit>().formKey.currentState);
+  void validationThenSignin(BuildContext context) {
     if (context.read<SigninCubit>().formKey.currentState!.validate()) {
       context.read<SigninCubit>().emitSigninStates(
             SigninRequestBody(

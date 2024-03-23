@@ -1,7 +1,7 @@
 import "package:flutter/material.dart";
-import "../../../core/helpers/classes/field.dart";
+import "../../../../core/helpers/classes/field.dart";
 
-Map<String, Field> patientSignUpFields = {
+Map<String, Field> signUpFields = {
   "fname": Field(
     "First Name",
     inputType: TextInputType.name,
@@ -25,14 +25,14 @@ Map<String, Field> patientSignUpFields = {
     inputType: TextInputType.visiblePassword,
     dbName: "password",
     regex: RegExp(
-        r"^(?=.[a-z])(?=.[A-Z])(?=.\d)(?=.[@$!%?&])[A-Za-z\d@$!%?&]{8,}$"),
+        r"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"),
   ),
   "confirmPassword": Field(
     "Confirm Password",
     inputType: TextInputType.visiblePassword,
     dbName: null,
     regex: RegExp(
-        r'^(?=.[a-z])(?=.[A-Z])(?=.\d)(?=.[@$!%?&])[A-Za-z\d@$!%?&]{8,}$'),
+        r"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"),
   ),
   "email": Field(
     "Email",
@@ -50,7 +50,8 @@ Map<String, Field> patientSignUpFields = {
     "Birth Date",
     inputType: TextInputType.datetime,
     dbName: "birthdate",
-    regex: RegExp(r'^(?=.[a-z])(?=.[A-Z])(?=.\d)(?=.[@$!%?&])[A-Za-z\d@$!%?&]{8,}$'),
+    regex: RegExp(
+        r'^(?=.[a-z])(?=.[A-Z])(?=.\d)(?=.[@$!%?&])[A-Za-z\d@$!%?&]{8,}$'),
   ),
   "gender": Field(
     "Gender",

@@ -4,9 +4,7 @@ import 'package:pharmalink/core/di/dependency_injection.dart';
 import 'package:pharmalink/core/routes/routes.dart';
 import 'package:pharmalink/features/404/error_404_screen.dart';
 import 'package:pharmalink/features/signin/logic/cubit/signin_cubit.dart';
-// Models Packages
-import 'package:pharmalink/features/signup/models/doctor_signup_fields.dart';
-import 'package:pharmalink/features/signup/models/patient_signup_fields.dart';
+import 'package:pharmalink/features/signup/data/logic/cubit/signup_cubit.dart';
 import 'package:pharmalink/features/on_boarding/ui/on_boarding_screen.dart';
 // Screens Packages
 import 'package:pharmalink/features/splash/splash_screen.dart';
@@ -14,9 +12,6 @@ import 'package:pharmalink/features/patient_main.dart';
 import 'package:pharmalink/features/signin/ui/signin_screen.dart';
 import 'package:pharmalink/features/signup/ui/signup_screen.dart';
 import 'package:pharmalink/features/signup/ui/verification_screen.dart';
-// Utilities
-import 'package:pharmalink/core/networking/api_constants.dart';
-// External Packages
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AppRouter {
@@ -36,7 +31,11 @@ class AppRouter {
                 ));
 
       case Routes.signUpScreen:
-        return MaterialPageRoute(builder: (_) => const SignupScreen());
+        return MaterialPageRoute(
+            builder: (_) => BlocProvider(
+                  create: (context) => getIt<SignupCubit>(),
+                  child: const SignupScreen(),
+                ));
 
       case Routes.verificationScreen:
         return MaterialPageRoute(builder: (_) => const VerificationScreen());

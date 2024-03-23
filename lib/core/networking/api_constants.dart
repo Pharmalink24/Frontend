@@ -2,15 +2,10 @@
 class ApiConstants {
   static const String baseUrl = "http://10.0.2.2:8000/";
   // User API
-  static const patientSignIn = "user/login/";
-  static const patientSignUp = "user/signup/";
-  static const patientSendVerification =
-      "user/resend-email-verification/?user_id=10";
-  // Patient API
-  static const doctorSignIn = "doctor/login/";
-  static const doctorSignUp = "doctor/signup/";
-  static const doctorSendVerification =
-      "doctor/resend-email-verification/?user_id=10";
+  static const signIn = "user/login/";
+  static const signUp = "user/signup/";
+  static const sendVerification =
+      "user/resend-email-verification/"; // ?user_id=10
 }
 
 class ApiErrors {
