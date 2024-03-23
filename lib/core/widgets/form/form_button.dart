@@ -8,16 +8,19 @@ import 'package:pharmalink/core/theme/fonts.dart';
 class FormButton extends StatelessWidget {
   final String text;
   final VoidCallback onPressed;
+  final EdgeInsets padding;
+
   const FormButton({
     super.key,
     this.text = "",
     required this.onPressed,
+    this.padding = const EdgeInsets.symmetric(vertical: 24.0),
   });
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 24.0),
+      padding: padding,
       child: SizedBox(
         width: double.infinity,
         height: 52,

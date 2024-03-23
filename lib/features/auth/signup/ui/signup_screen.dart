@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pharmalink/core/widgets/form/form_view.dart';
 import 'package:pharmalink/core/widgets/terms_and_conditions_text.dart';
 import 'package:pharmalink/features/auth/signin/ui/widgets/welcome_text.dart';
-import 'package:pharmalink/features/auth/signup/data/logic/cubit/signup_cubit.dart';
+import 'package:pharmalink/features/auth/signup/logic/cubit/signup_cubit.dart';
 import 'package:pharmalink/features/auth/signup/data/models/signup_fields.dart';
 // Screens Packages
 import 'package:pharmalink/core/theme/app_bar.dart';

@@ -1,29 +1,28 @@
 // Flutter Packages
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pharmalink/core/helpers/extensions.dart';
+import 'package:pharmalink/core/routes/routes.dart';
 import 'package:pharmalink/core/theme/app_bar.dart';
 import 'package:pharmalink/core/theme/colors.dart';
-import 'package:pharmalink/core/theme/styles.dart';
 import 'package:pharmalink/core/widgets/form/form_button.dart';
+import 'package:pharmalink/features/auth/verification/data/models/verification_request_params.dart';
+import 'package:pharmalink/features/auth/verification/logic/cubit/verification_cubit.dart';
+import 'package:pharmalink/features/auth/verification/ui/widgets/email_text.dart';
+import 'package:pharmalink/features/auth/verification/ui/widgets/just_click_text.dart';
+import 'package:pharmalink/features/auth/verification/ui/widgets/please_verify_text.dart';
+import 'package:pharmalink/features/auth/verification/ui/widgets/still_cant_find_text.dart';
+import 'package:pharmalink/features/auth/verification/ui/widgets/verification_bloc_listener.dart';
 
-const kMarginBetweenTitleAndInputs = 35.0;
+class VerificationScreen extends StatelessWidget {
+  final String email;
+  final int userId;
 
-class VerificationScreen extends StatefulWidget {
-  const VerificationScreen({super.key});
-
-  @override
-  State<VerificationScreen> createState() => _VerificationScreenState();
-}
-
-class _VerificationScreenState extends State<VerificationScreen> {
-  String email = "member@email.com";
-
-  @override
-  void initState() {
-    sendVerificationRequest();
-    super.initState();
-  }
-
-  void sendVerificationRequest() async {}
+  const VerificationScreen({
+    super.key,
+    required this.email,
+    required this.userId,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -37,40 +36,31 @@ class _VerificationScreenState extends State<VerificationScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 32.0),
-                child: Text(
-                  "Please verify your email",
-                  style: AppTextStyle.displayMedium.copyWith(fontSize: 28.0),
-                ),
-              ),
-              Text(
-                "You're almost there! We sent an email to",
-                style: AppTextStyle.displayMedium.copyWith(fontSize: 16.0),
-              ),
-              Text(
-                email,
-                style: AppTextStyle.displayMedium.copyWith(fontSize: 20.0),
-              ),
-              const Padding(
-                padding: EdgeInsets.symmetric(vertical: 32.0),
-                child: Text(
-                  "Just click on the link in that email to complete your signup. if you don't see it, you may need to check your spam folder.",
-                  style: AppTextStyle.bodyMedium,
-                ),
-              ),
-              const Padding(
-                padding: EdgeInsets.symmetric(vertical: 16.0),
-                child: Text("Still can't find the email? No problem."),
-              ),
+              const PleaseVerifyText(),
+              EmailText(email: email),
+              const JustClickText(),
+              const StillCantFindText(),
               FormButton(
                 text: "Resend Verification Email",
-                onPressed: () {},
-              )
+                padding: const EdgeInsets.only(top: 8.0, bottom: 16.0),
+                onPressed: () => sendVerification(context),
+              ),
+              FormButton(
+                text: "Sign in",
+                padding: EdgeInsets.zero,
+                onPressed: () => context.pushNamed(Routes.signInScreen),
+              ),
+              const VerificationBlocListener(),
             ],
           ),
         ),
       ),
     );
+  }
+
+  void sendVerification(BuildContext context) {
+    context
+        .read<VerificationCubit>()
+        .emitVerificationStates(VerificationRequestParams(userId: userId));
   }
 }

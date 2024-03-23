@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:pharmalink/core/helpers/errors.dart';
-import 'package:pharmalink/features/auth/signup/data/logic/cubit/signup_state.dart';
+import 'package:pharmalink/features/auth/signup/logic/cubit/signup_state.dart';
 import 'package:pharmalink/features/auth/signup/data/models/signup_request_body.dart';
 import 'package:pharmalink/features/auth/signup/data/repo/signup_repo.dart';
 

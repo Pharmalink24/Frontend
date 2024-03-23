@@ -23,8 +23,7 @@ class SigninCubit extends Cubit<SigninState> {
       emit(SigninState.success(signinResponse));
     }, failure: (error) {
       emit(SigninState.error(
-          error: "${error.apiErrorModel.code} - ${error.apiErrorModel.message}" ??
-              ERR.UNEXPECTED));
+          error: error.apiErrorModel.message ?? ERR.UNEXPECTED));
     });
   }
 }

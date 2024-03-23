@@ -1,10 +1,13 @@
 // Flutter Packages
 import "package:flutter/material.dart";
+import 'package:get_it/get_it.dart';
 import 'package:pharmalink/core/di/dependency_injection.dart';
 import 'package:pharmalink/core/routes/routes.dart';
 import 'package:pharmalink/features/404/error_404_screen.dart';
 import 'package:pharmalink/features/auth/signin/logic/cubit/signin_cubit.dart';
-import 'package:pharmalink/features/auth/signup/data/logic/cubit/signup_cubit.dart';
+import 'package:pharmalink/features/auth/signup/data/models/signup_response.dart';
+import 'package:pharmalink/features/auth/signup/logic/cubit/signup_cubit.dart';
+import 'package:pharmalink/features/auth/verification/logic/cubit/verification_cubit.dart';
 import 'package:pharmalink/features/on_boarding/ui/on_boarding_screen.dart';
 // Screens Packages
 import 'package:pharmalink/features/splash/splash_screen.dart';
@@ -38,7 +41,15 @@ class AppRouter {
                 ));
 
       case Routes.verificationScreen:
-        return MaterialPageRoute(builder: (_) => const VerificationScreen());
+        final signupResponse = settings.arguments as SignupResponse;
+        return MaterialPageRoute(
+            builder: (_) => BlocProvider(
+                  create: (context) => getIt<VerificationCubit>(),
+                  child: VerificationScreen(
+                    email: signupResponse.email,
+                    userId: signupResponse.id,
+                  ),
+                ));
 
       case Routes.mainScreen:
         return MaterialPageRoute(builder: (_) => const MainScreen());

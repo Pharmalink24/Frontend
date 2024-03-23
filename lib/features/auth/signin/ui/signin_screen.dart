@@ -5,7 +5,6 @@ import 'package:pharmalink/core/widgets/form/form_view.dart';
 import 'package:pharmalink/features/auth/signin/data/models/signin_fields.dart';
 import 'package:pharmalink/core/theme/app_bar.dart';
 import 'package:pharmalink/core/theme/colors.dart';
-import 'package:pharmalink/features/auth/signin/data/models/signin_request_body.dart';
 import 'package:pharmalink/features/auth/signin/logic/cubit/signin_cubit.dart';
 import 'package:pharmalink/features/auth/signin/ui/widgets/signin_bloc_listener.dart';
 import 'package:pharmalink/core/widgets/terms_and_conditions_text.dart';
