@@ -12,7 +12,7 @@ class SignupRequestBody {
   final String email;
   final String phone;
   final String gender;
-  final String image;
+  final String? image;
 
   SignupRequestBody({
     required this.fname,

@@ -19,7 +19,7 @@ SignupResponse _$SignupResponseFromJson(Map<String, dynamic> json) =>
       chronicDisease: (json['chronic_disease'] as List<dynamic>)
           .map((e) => e as String)
           .toList(),
-      image: json['image'] as String,
+      image: json['image'] as String?,
     );
 
 Map<String, dynamic> _$SignupResponseToJson(SignupResponse instance) =>

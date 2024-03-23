@@ -5,11 +5,7 @@ import 'package:dio/dio.dart';
 import 'api_constants.dart';
 import 'api_error_model.dart';
 
-
-
-// TODO: wallahy I will refactor this .. Omar Ahmed
 enum DataSource {
-  NO_CONTENT,
   BAD_REQUEST,
   FORBIDDEN,
   UNAUTHORIZED,
@@ -27,9 +23,11 @@ enum DataSource {
 
 class ResponseCode {
   static const int SUCCESS = 200; // success with data
-  static const int NO_CONTENT = 201; // success with no data (no content)
+  static const int CREATED = 201; // success (created)
+  static const int NO_CONTENT = 204; // success with no data (no content)
+
   static const int BAD_REQUEST = 400; // failure, API rejected request
-  static const int UNAUTHORIZED = 401; // failure, user is not authorised
+  static const int UNAUTHORIZED = 401; // failure, user is not authorized
   static const int FORBIDDEN = 403; //  failure, API rejected request
   static const int INTERNAL_SERVER_ERROR = 500; // failure, crash in server side
   static const int NOT_FOUND = 404; // failure, not found
@@ -46,12 +44,10 @@ class ResponseCode {
 }
 
 class ResponseMessage {
-  static const String NO_CONTENT =
-      ApiErrors.noContent; // success with no data (no content)
   static const String BAD_REQUEST =
       ApiErrors.badRequestError; // failure, API rejected request
   static const String UNAUTHORIZED =
-      ApiErrors.unauthorizedError; // failure, user is not authorised
+      ApiErrors.unauthorizedError; // failure, user is not authorized
   static const String FORBIDDEN =
       ApiErrors.forbiddenError; //  failure, API rejected request
   static const String INTERNAL_SERVER_ERROR =
@@ -72,53 +68,66 @@ class ResponseMessage {
 extension DataSourceExtension on DataSource {
   ApiErrorModel getFailure() {
     switch (this) {
-      case DataSource.NO_CONTENT:
-        return ApiErrorModel(
-            code: ResponseCode.NO_CONTENT, message: ResponseMessage.NO_CONTENT);
       case DataSource.BAD_REQUEST:
         return ApiErrorModel(
-            code: ResponseCode.BAD_REQUEST,
-            message: ResponseMessage.BAD_REQUEST);
+          code: ResponseCode.BAD_REQUEST,
+          message: ResponseMessage.BAD_REQUEST,
+        );
       case DataSource.FORBIDDEN:
         return ApiErrorModel(
-            code: ResponseCode.FORBIDDEN, message: ResponseMessage.FORBIDDEN);
+          code: ResponseCode.FORBIDDEN,
+          message: ResponseMessage.FORBIDDEN,
+        );
       case DataSource.UNAUTHORIZED:
         return ApiErrorModel(
-            code: ResponseCode.UNAUTHORIZED,
-            message: ResponseMessage.UNAUTHORIZED);
+          code: ResponseCode.UNAUTHORIZED,
+          message: ResponseMessage.UNAUTHORIZED,
+        );
       case DataSource.NOT_FOUND:
         return ApiErrorModel(
-            code: ResponseCode.NOT_FOUND, message: ResponseMessage.NOT_FOUND);
+          code: ResponseCode.NOT_FOUND,
+          message: ResponseMessage.NOT_FOUND,
+        );
       case DataSource.INTERNAL_SERVER_ERROR:
         return ApiErrorModel(
-            code: ResponseCode.INTERNAL_SERVER_ERROR,
-            message: ResponseMessage.INTERNAL_SERVER_ERROR);
+          code: ResponseCode.INTERNAL_SERVER_ERROR,
+          message: ResponseMessage.INTERNAL_SERVER_ERROR,
+        );
       case DataSource.CONNECT_TIMEOUT:
         return ApiErrorModel(
-            code: ResponseCode.CONNECT_TIMEOUT,
-            message: ResponseMessage.CONNECT_TIMEOUT);
+          code: ResponseCode.CONNECT_TIMEOUT,
+          message: ResponseMessage.CONNECT_TIMEOUT,
+        );
       case DataSource.CANCEL:
         return ApiErrorModel(
-            code: ResponseCode.CANCEL, message: ResponseMessage.CANCEL);
+          code: ResponseCode.CANCEL,
+          message: ResponseMessage.CANCEL,
+        );
       case DataSource.RECEIVE_TIMEOUT:
         return ApiErrorModel(
-            code: ResponseCode.RECEIVE_TIMEOUT,
-            message: ResponseMessage.RECEIVE_TIMEOUT);
+          code: ResponseCode.RECEIVE_TIMEOUT,
+          message: ResponseMessage.RECEIVE_TIMEOUT,
+        );
       case DataSource.SEND_TIMEOUT:
         return ApiErrorModel(
-            code: ResponseCode.SEND_TIMEOUT,
-            message: ResponseMessage.SEND_TIMEOUT);
+          code: ResponseCode.SEND_TIMEOUT,
+          message: ResponseMessage.SEND_TIMEOUT,
+        );
       case DataSource.CACHE_ERROR:
         return ApiErrorModel(
-            code: ResponseCode.CACHE_ERROR,
-            message: ResponseMessage.CACHE_ERROR);
+          code: ResponseCode.CACHE_ERROR,
+          message: ResponseMessage.CACHE_ERROR,
+        );
       case DataSource.NO_INTERNET_CONNECTION:
         return ApiErrorModel(
-            code: ResponseCode.NO_INTERNET_CONNECTION,
-            message: ResponseMessage.NO_INTERNET_CONNECTION);
+          code: ResponseCode.NO_INTERNET_CONNECTION,
+          message: ResponseMessage.NO_INTERNET_CONNECTION,
+        );
       case DataSource.DEFAULT:
         return ApiErrorModel(
-            code: ResponseCode.DEFAULT, message: ResponseMessage.DEFAULT);
+          code: ResponseCode.DEFAULT,
+          message: ResponseMessage.DEFAULT,
+        );
     }
   }
 }
@@ -166,8 +175,6 @@ ApiErrorModel _handleError(DioException error) {
     case DioExceptionType.connectionError:
       return DataSource.DEFAULT.getFailure();
     case DioExceptionType.badCertificate:
-      return DataSource.DEFAULT.getFailure();
-    case DioExceptionType.badResponse:
       return DataSource.DEFAULT.getFailure();
   }
 }

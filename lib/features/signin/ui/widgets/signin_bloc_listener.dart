@@ -56,7 +56,7 @@ class SigninBlocListener extends StatelessWidget {
   void showSuccess(BuildContext context) {
     context.pop();
     // context.pushNamed(Routes.patientScreen);
-    context.pushReplacementNamed(Routes.patientScreen);
+    context.pushNamed(Routes.mainScreen);
   }
 
   @override

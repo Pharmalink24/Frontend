@@ -40,7 +40,7 @@ class AppRouter {
       case Routes.verificationScreen:
         return MaterialPageRoute(builder: (_) => const VerificationScreen());
 
-      case Routes.patientScreen:
+      case Routes.mainScreen:
         return MaterialPageRoute(builder: (_) => const PatientScreen());
 
       default:

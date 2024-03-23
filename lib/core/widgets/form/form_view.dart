@@ -11,11 +11,11 @@ enum DecorationType {
 }
 
 class FormView extends StatefulWidget {
-  Key? formKey;
+  final Key? formKey;
   final Map<String, Field> model;
   final DecorationType decorationType;
 
-  FormView({
+  const FormView({
     super.key,
     this.formKey,
     required this.model,
@@ -29,13 +29,18 @@ class FormView extends StatefulWidget {
 class _FormViewState extends State<FormView> {
   late InputDecoration inputDecoration;
   late BoxDecoration boxDecoration;
-  late bool _isVisible;
+  final Map<String, bool> _isVisible = {};
 
   @override
   void initState() {
     super.initState();
     setupDecoration();
-    _isVisible = false;
+
+    widget.model.forEach((key, field) {
+      if (isPasswordField(field)) {
+        _isVisible[key] = false;
+      }
+    });
   }
 
   // Setup the decoration of fields
@@ -60,7 +65,7 @@ class _FormViewState extends State<FormView> {
   }
 
   // Generate form text field
-  FormTextField generateFormTextField(Field field) {
+  FormTextField generateFormTextField(String key, Field field) {
     return FormTextField(
       decoration: inputDecoration,
       hintText: field.name,
@@ -69,13 +74,14 @@ class _FormViewState extends State<FormView> {
           ? IconButton(
               onPressed: () {
                 setState(() {
-                  _isVisible = !_isVisible;
+                  _isVisible[key] = !_isVisible[key]!;
                 });
               },
-              icon: Icon(_isVisible ? Icons.visibility : Icons.visibility_off))
+              icon: Icon(
+                  _isVisible[key]! ? Icons.visibility : Icons.visibility_off))
           : null,
       obscureText: isPasswordField(field)
-          ? !_isVisible
+          ? !_isVisible[key]!
               ? true
               : false
           : false,
@@ -113,16 +119,14 @@ class _FormViewState extends State<FormView> {
     return Form(
       key: widget.formKey,
       autovalidateMode: AutovalidateMode.always,
-      onChanged: () {
-        print("fdsfd");
-      },
       child: ListView.builder(
         shrinkWrap: true,
         physics: const ClampingScrollPhysics(),
         itemBuilder: ((context, index) {
           Field field = widget.model.values.elementAt(index);
+          String key = widget.model.keys.elementAt(index);
           return isDropDownMenu(field)
-              ? generateFormTextField(field)
+              ? generateFormTextField(key, field)
               : generateDropDownButton(field);
         }),
         itemCount: widget.model.length,

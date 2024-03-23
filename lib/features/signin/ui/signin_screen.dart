@@ -68,12 +68,7 @@ class _SigninScreenState extends State<SigninScreen> {
 
   void validationThenSignin(BuildContext context) {
     if (context.read<SigninCubit>().formKey.currentState!.validate()) {
-      context.read<SigninCubit>().emitSigninStates(
-            SigninRequestBody(
-              email: context.read<SigninCubit>().emailController.text,
-              password: context.read<SigninCubit>().passwordController.text,
-            ),
-          );
+      context.read<SigninCubit>().emitSigninStates();
     }
   }
 }

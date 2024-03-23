@@ -9,7 +9,6 @@ import 'package:pharmalink/features/signup/data/models/signup_fields.dart';
 // Screens Packages
 import 'package:pharmalink/core/theme/app_bar.dart';
 import 'package:pharmalink/core/theme/colors.dart';
-import 'package:pharmalink/features/signup/data/models/signup_request_body.dart';
 import 'package:pharmalink/features/signup/ui/widgets/signup_tab.dart';
 
 import '../../../core/widgets/form/form_button.dart';
@@ -41,7 +40,7 @@ class _SignupScreenState extends State<SignupScreen> {
     signUpFields["email"]!.controller =
         context.read<SignupCubit>().emailController;
     signUpFields["phone"]!.controller =
-        context.read<SignupCubit>().passwordController;
+        context.read<SignupCubit>().phoneController;
     signUpFields["birthdate"]!.controller =
         context.read<SignupCubit>().birthdateController;
     signUpFields["gender"]!.controller =
@@ -77,19 +76,7 @@ class _SignupScreenState extends State<SignupScreen> {
 
   void validationThenSignup(BuildContext context) {
     if (context.read<SignupCubit>().formKey.currentState!.validate()) {
-      context.read<SignupCubit>().emitSignupStates(
-            SignupRequestBody(
-              fname: context.read<SignupCubit>().fnameController.text,
-              lname: context.read<SignupCubit>().fnameController.text,
-              username: context.read<SignupCubit>().usernameController.text,
-              password: context.read<SignupCubit>().passwordController.text,
-              birthdate: context.read<SignupCubit>().birthdateController.text,
-              email: context.read<SignupCubit>().emailController.text,
-              phone: context.read<SignupCubit>().phoneController.text,
-              gender: context.read<SignupCubit>().genderController.text,
-              image: '',
-            ),
-          );
+      context.read<SignupCubit>().emitSignupStates();
     }
   }
 }

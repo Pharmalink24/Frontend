@@ -6,33 +6,32 @@ Map<String, Field> signUpFields = {
     "First Name",
     inputType: TextInputType.name,
     dbName: "fname",
-    regex: RegExp(r"^[a-z]{1,10}$"),
   ),
   "lname": Field(
     "Last Name",
     inputType: TextInputType.name,
     dbName: "lname",
-    regex: RegExp(r"^[a-z']{2,10}$"),
   ),
   "username": Field(
     "Username",
     inputType: TextInputType.name,
     dbName: "username",
-    regex: RegExp(r"^[a-z0-9_-]{3,15}$"),
+    regex:
+        RegExp(r'^(?=.{8,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$'),
   ),
   "password": Field(
     "Password",
     inputType: TextInputType.visiblePassword,
     dbName: "password",
-    regex: RegExp(
-        r"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"),
+    regex:
+        RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$'),
   ),
   "confirmPassword": Field(
     "Confirm Password",
     inputType: TextInputType.visiblePassword,
     dbName: null,
-    regex: RegExp(
-        r"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"),
+    regex:
+        RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$'),
   ),
   "email": Field(
     "Email",
@@ -50,8 +49,7 @@ Map<String, Field> signUpFields = {
     "Birth Date",
     inputType: TextInputType.datetime,
     dbName: "birthdate",
-    regex: RegExp(
-        r'^(?=.[a-z])(?=.[A-Z])(?=.\d)(?=.[@$!%?&])[A-Za-z\d@$!%?&]{8,}$'),
+    regex: RegExp(r'^\d{4}\-(0?[1-9]|1[012])\-(0?[1-9]|[12][0-9]|3[01])$'),
   ),
   "gender": Field(
     "Gender",

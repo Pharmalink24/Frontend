@@ -10,7 +10,6 @@ class ApiConstants {
 
 class ApiErrors {
   static const String badRequestError = "badRequestError";
-  static const String noContent = "noContent";
   static const String forbiddenError = "forbiddenError";
   static const String unauthorizedError = "unauthorizedError";
   static const String notFoundError = "notFoundError";

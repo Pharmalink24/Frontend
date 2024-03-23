@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:pharmalink/core/helpers/errors.dart';
 import 'package:pharmalink/features/signup/data/logic/cubit/signup_state.dart';
 import 'package:pharmalink/features/signup/data/models/signup_request_body.dart';
 import 'package:pharmalink/features/signup/data/repo/signup_repo.dart';
@@ -20,13 +21,24 @@ class SignupCubit extends Cubit<SignupState> {
   TextEditingController genderController = TextEditingController();
   final formKey = GlobalKey<FormState>();
 
-  void emitSignupStates(SignupRequestBody signupRequestBody) async {
+  void emitSignupStates() async {
     emit(const SignupState.loading());
-    final response = await _signupRepo.signup(signupRequestBody);
+    final response = await _signupRepo.signup(SignupRequestBody(
+      fname: fnameController.text,
+      lname: lnameController.text,
+      username: usernameController.text,
+      password: passwordController.text,
+      birthdate: birthdateController.text,
+      email: emailController.text,
+      phone: phoneController.text,
+      gender: genderController.text,
+      image: null,
+    ));
     response.when(success: (signupResponse) {
       emit(SignupState.success(signupResponse));
     }, failure: (error) {
-      emit(SignupState.error(error: error.apiErrorModel.message ?? ''));
+      emit(SignupState.error(
+          error: error.apiErrorModel.message ?? ERR.UNEXPECTED));
     });
   }
 }

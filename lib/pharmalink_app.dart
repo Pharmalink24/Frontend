@@ -15,7 +15,7 @@ class PharmalinkApp extends StatelessWidget {
     return MaterialApp(
       title: appTitle,
       theme: AppTheme.generalTheme,
-      initialRoute: Routes.onBoardingScreen,
+      initialRoute: Routes.signUpScreen,
       onGenerateRoute: AppRouter().generateRoute,
       debugShowCheckedModeBanner: false,
     );

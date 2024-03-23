@@ -15,7 +15,7 @@ class SignupResponse {
   final String gender;
   @JsonKey(name: "chronic_disease")
   final List<String> chronicDisease;
-  final String image;
+  final String? image;
 
   SignupResponse({
     required this.id,
