@@ -44,7 +44,6 @@ flutter:
     - assets/
     - assets/images/
     - assets/images/introductions/
-    - assets/images/icons/
 
   fonts:
     # Outfit Font

@@ -6,7 +6,6 @@ import 'package:pharmalink/features/signin/logic/cubit/signin_state.dart';
 
 class SigninCubit extends Cubit<SigninState> {
   final SigninRepo _signinRepo;
-
   SigninCubit(this._signinRepo) : super(const SigninState.initial());
 
   TextEditingController emailController = TextEditingController();

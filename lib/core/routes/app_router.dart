@@ -45,7 +45,7 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const PatientScreen());
 
       default:
-        print(settings.name);
+        // print(settings.name);
         return MaterialPageRoute(builder: (_) => const Error404Screen());
     }
   }

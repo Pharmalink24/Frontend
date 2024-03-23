@@ -1,6 +1,4 @@
 import "package:flutter/material.dart";
-import "package:flutter_bloc/flutter_bloc.dart";
-import "package:pharmalink/features/signin/logic/cubit/signin_cubit.dart";
 import "../../../../core/helpers/classes/field.dart";
 
 Map<String, Field> signInFields = {
@@ -8,10 +6,12 @@ Map<String, Field> signInFields = {
     "Email",
     inputType: TextInputType.emailAddress,
     dbName: "email",
+    regex: RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$'),
   ),
   "password": Field(
     "Password",
     inputType: TextInputType.visiblePassword,
     dbName: "password",
+    regex: RegExp(r'^(?=.[a-z])(?=.[A-Z])(?=.\d)(?=.[@$!%?&])[A-Za-z\d@$!%?&]{8,}$'),
   ),
 };

@@ -6,21 +6,15 @@ part "signin_response.g.dart";
 @JsonSerializable()
 class SigninResponse {
   int id;
+  String username;
   String email;
   String token;
-  @JsonKey(name: 'first_name')
-  String firstName;
-  @JsonKey(name: 'last_name')
-  String lastName;
-  String initials;
 
   SigninResponse({
     required this.id,
+    required this.username,
     required this.email,
     required this.token,
-    required this.firstName,
-    required this.lastName,
-    required this.initials,
   });
 
   factory SigninResponse.fromJson(Map<String, dynamic> json) =>

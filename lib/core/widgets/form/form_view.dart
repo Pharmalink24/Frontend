@@ -12,11 +12,14 @@ enum DecorationType {
 
 class FormView extends StatefulWidget {
   final Key? formKey;
-  final DecorationType decorationType;
+  final void Function()? onChanged;
   final Map<String, Field> model;
+  final DecorationType decorationType;
+
   const FormView({
     super.key,
     this.formKey,
+    this.onChanged,
     required this.model,
     this.decorationType = DecorationType.primary,
   });
@@ -79,11 +82,15 @@ class _FormViewState extends State<FormView> {
               : false
           : false,
       controller: field.controller,
-      validator: (value) {},
+      validator: (value) {
+        if (field.regex != null) {
+          if (field.regex!.hasMatch(value!)) {
+            return field.errorMessage ?? "Invalid ${field.name}.";
+          }
+        }
+      },
       onChanged: (value) {
-        setState(() {
-          field.value = value;
-        });
+        field.value = value;
       },
     );
   }
@@ -107,6 +114,7 @@ class _FormViewState extends State<FormView> {
   Widget build(BuildContext context) {
     return Form(
       key: widget.formKey,
+      onChanged: widget.onChanged,
       child: ListView.builder(
         shrinkWrap: true,
         physics: const ClampingScrollPhysics(),
