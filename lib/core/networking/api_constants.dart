@@ -1,6 +1,6 @@
 // Apis
 class ApiConstants {
-  static const String baseUrl = "http://10.0.2.2:8000/";
+  static const String baseUrl = "http://54.234.91.4:8000/";
   // User API
   static const signIn = "user/login/";
   static const signUp = "user/signup/";

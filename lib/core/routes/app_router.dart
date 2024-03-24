@@ -19,7 +19,7 @@ class AppRouter {
   Route generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case Routes.initialRoute:
-        return MaterialPageRoute(builder: (_) => const RouterScreen());
+        return MaterialPageRoute(builder: (_) => const SplashScreen());
 
       case Routes.splashScreen:
         return MaterialPageRoute(builder: (_) => const SplashScreen());

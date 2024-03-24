@@ -2,11 +2,10 @@
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'dart:io';
-
-const String kPharmaLinkUrl = "http://10.0.2.2:8000";
+import 'api_constants.dart';
 
 class API {
-  API({this.auth=false});
+  API({this.auth = false});
 
   final bool auth;
   Map<String, String> headers = {
@@ -21,7 +20,7 @@ class API {
         : null;
 
     http.Response response = await http.get(
-      Uri.parse('$kPharmaLinkUrl/$path'),
+      Uri.parse('${ApiConstants.baseUrl}$path'),
       headers: headers,
     );
 
@@ -44,7 +43,7 @@ class API {
         : null;
 
     http.Response response = await http.post(
-      Uri.parse('$kPharmaLinkUrl/$path'),
+      Uri.parse('${ApiConstants.baseUrl}$path'),
       body: jsonEncode(body),
       headers: headers,
     );
@@ -68,7 +67,7 @@ class API {
         : null;
 
     http.Response response = await http.patch(
-      Uri.parse('$kPharmaLinkUrl/$path'),
+      Uri.parse('${ApiConstants.baseUrl}$path'),
       body: jsonEncode(body),
       headers: headers,
     );
@@ -91,7 +90,7 @@ class API {
         : null;
 
     http.Response response = await http.put(
-      Uri.parse('$kPharmaLinkUrl/$path'),
+      Uri.parse('${ApiConstants.baseUrl}$path'),
       body: jsonEncode(body),
       headers: headers,
     );
@@ -114,7 +113,7 @@ class API {
         : null;
 
     http.Response response = await http.delete(
-      Uri.parse('$kPharmaLinkUrl/$path'),
+      Uri.parse('${ApiConstants.baseUrl}$path'),
       body: jsonEncode(body),
       headers: headers,
     );
