@@ -25,7 +25,6 @@ class _NewPrescriptionScreenState extends State<NewPrescriptionScreen> {
       API api = API();
       var doctorInfo = await api.GET(
         'Prescription/user/prescriptions/',
-        true,
         200,
       );
 

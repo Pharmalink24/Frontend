@@ -49,8 +49,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
       var response = await api.POST(
         widget.apiUrl,
         body,
-        false,
-        201,
+        201
       );
 
       print("response $response");
