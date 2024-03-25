@@ -30,7 +30,7 @@ class SubtitleAnimation extends StatelessWidget {
     _isFirstOpen
         ? context.pushNamed(Routes.onBoardingScreen)
         : _isLogged
-            ? context.pushNamed(Routes.homeScreen)
+            ? context.pushNamed(Routes.mainScreen)
             : context.pushNamed(Routes.signInScreen);
   }
 
@@ -40,7 +40,7 @@ class SubtitleAnimation extends StatelessWidget {
       repeatForever: false,
       animatedTexts: [
         TypewriterAnimatedText(
-          speed: const Duration(milliseconds: 100),
+          speed: const Duration(milliseconds: 75),
           appSubtitle,
           textAlign: TextAlign.center,
           textStyle: AppTextStyle.titleMedium.copyWith(
