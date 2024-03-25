@@ -13,7 +13,6 @@ import 'package:pharmalink/features/auth/signin/ui/signin_screen.dart';
 import 'package:pharmalink/features/auth/signup/ui/signup_screen.dart';
 import 'package:pharmalink/features/auth/verification/ui/verification_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pharmalink/router_screen.dart';
 
 class AppRouter {
   Route generateRoute(RouteSettings settings) {

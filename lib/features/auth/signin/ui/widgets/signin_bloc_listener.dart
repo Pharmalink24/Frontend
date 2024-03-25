@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pharmalink/core/helpers/constants/strings.dart';
 import 'package:pharmalink/core/helpers/extensions.dart';
 import 'package:pharmalink/core/routes/routes.dart';
 import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/theme/styles.dart';
+import 'package:pharmalink/features/auth/signin/data/models/signin_response.dart';
 import 'package:pharmalink/features/auth/signin/logic/cubit/signin_cubit.dart';
 import 'package:pharmalink/features/auth/signin/logic/cubit/signin_state.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SigninBlocListener extends StatelessWidget {
   const SigninBlocListener({super.key});
@@ -53,10 +56,17 @@ class SigninBlocListener extends StatelessWidget {
     );
   }
 
-  void showSuccess(BuildContext context) {
+  void showSuccess(BuildContext context, SigninResponse signinResponse) async {
     context.pop();
-    // context.pushNamed(Routes.patientScreen);
     context.pushNamed(Routes.mainScreen);
+
+    // Retrieve shared Preferences instance
+    final SharedPreferences prefs = await context.read<SigninCubit>().prefs;
+    // Store Token in shared Preferences
+    prefs.setString(
+      AppKeys.token,
+      signinResponse.token,
+    );
   }
 
   @override
@@ -67,7 +77,7 @@ class SigninBlocListener extends StatelessWidget {
       listener: (context, state) {
         state.whenOrNull(
           loading: () => showLoading(context),
-          success: (signinResponse) => showSuccess(context),
+          success: (signinResponse) => showSuccess(context, signinResponse),
           error: (error) => showError(context, error),
         );
       },
