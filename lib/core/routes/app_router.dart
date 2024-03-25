@@ -7,13 +7,13 @@ import 'package:pharmalink/features/auth/signup/data/models/signup_response.dart
 import 'package:pharmalink/features/auth/signup/logic/cubit/signup_cubit.dart';
 import 'package:pharmalink/features/auth/verification/logic/cubit/verification_cubit.dart';
 import 'package:pharmalink/features/on_boarding/ui/on_boarding_screen.dart';
-import 'package:pharmalink/features/splash/splash_screen.dart';
+import 'package:pharmalink/features/splash/ui/splash_screen.dart';
 import 'package:pharmalink/features/main/main_screen.dart';
 import 'package:pharmalink/features/auth/signin/ui/signin_screen.dart';
 import 'package:pharmalink/features/auth/signup/ui/signup_screen.dart';
 import 'package:pharmalink/features/auth/verification/ui/verification_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pharmalink/core/routes/router_screen.dart';
+import 'package:pharmalink/router_screen.dart';
 
 class AppRouter {
   Route generateRoute(RouteSettings settings) {
