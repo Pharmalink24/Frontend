@@ -1,13 +1,13 @@
-// Flutter Packages
 import 'package:flutter/material.dart';
-// Utilities Packages
+import 'package:pharmalink/core/helpers/extensions.dart';
+import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/theme/styles.dart';
 
-class DrugListTile extends StatelessWidget {
+class DrugListTile extends StatefulWidget {
   final String drugName;
   final String quantity;
   final String measure;
-  final String time;
+  final TimeOfDay time;
 
   const DrugListTile({
     super.key,
@@ -18,17 +18,46 @@ class DrugListTile extends StatelessWidget {
   });
 
   @override
+  State<DrugListTile> createState() => _DrugListTileState();
+}
+
+class _DrugListTileState extends State<DrugListTile> {
+  bool isChecked = false;
+  @override
   Widget build(BuildContext context) {
+    String timeInString =
+        "${widget.time.hourIn12hour()}:${widget.time.minutes()}\n${widget.time.getPeriod()}";
+
     return CheckboxListTile(
-      onChanged: (value) {},
-      value: false,
+      value: isChecked,
+      onChanged: (value) => setState(() {
+        isChecked = value ?? false;
+      }),
+      checkboxShape:
+          RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
+      checkColor: AppColors.alternate,
+      activeColor: AppColors.secondary,
+      secondary: Text(
+        timeInString,
+        textAlign: TextAlign.center,
+        style: AppTextStyle.labelLarge.copyWith(
+          decoration:
+              isChecked ? TextDecoration.lineThrough : TextDecoration.none,
+        ),
+      ),
       title: Text(
-        drugName,
-        style: AppTextStyle.titleLarge,
+        widget.drugName,
+        style: AppTextStyle.titleLarge.copyWith(
+          decoration:
+              isChecked ? TextDecoration.lineThrough : TextDecoration.none,
+        ),
       ),
       subtitle: Text(
-        "$quantity $measure, $time",
-        style: AppTextStyle.labelMedium,
+        "${widget.quantity} ${widget.measure}",
+        style: AppTextStyle.labelMedium.copyWith(
+          decoration:
+              isChecked ? TextDecoration.lineThrough : TextDecoration.none,
+        ),
       ),
     );
   }

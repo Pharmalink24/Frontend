@@ -1,6 +1,7 @@
 // Flutter Packages
 import 'package:flutter/material.dart';
 import 'package:pharmalink/core/theme/colors.dart';
+import 'package:pharmalink/core/theme/fonts.dart';
 import 'package:pharmalink/core/theme/styles.dart';
 
 class CardContainer extends StatelessWidget {
@@ -16,7 +17,9 @@ class CardContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(8.0),
+      width: double.infinity,
+      padding: const EdgeInsets.all(12.0),
+      margin: const EdgeInsets.symmetric(vertical: 8.0),
       decoration: BoxDecoration(
         color: AppColors.primaryBackground,
         borderRadius: BorderRadius.circular(16.0),
@@ -24,15 +27,26 @@ class CardContainer extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            title,
-            style: AppTextStyle.bodyMedium.copyWith(
-              fontFamily: 'Readex Pro',
-              fontSize: 25,
-            ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                title,
+                style: AppTextStyle.bodyMedium.copyWith(
+                  fontFamily: AppFonts.secondary,
+                  fontSize: 24,
+                  fontWeight: FontWeight.w300,
+                ),
+              ),
+              IconButton(
+                onPressed: () {},
+                icon: const Icon(Icons.menu),
+                color: AppColors.secondaryText,
+              ),
+            ],
           ),
           Container(
-            padding: const EdgeInsets.only(top: 8.0),
+            padding: const EdgeInsets.symmetric(vertical: 16.0),
             child: child,
           ),
         ],

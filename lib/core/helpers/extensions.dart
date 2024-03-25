@@ -19,3 +19,23 @@ extension Navigation on BuildContext {
 
   void pop() => Navigator.of(this).pop();
 }
+
+extension StringTime on TimeOfDay {
+  int hoursIn12hour() {
+    return (hour + 11) % 12 + 1;
+  }
+
+  String hourIn12hour({bool padding = true}) {
+    return padding
+        ? hoursIn12hour().toString().padLeft(2, '0')
+        : hoursIn12hour().toString();
+  }
+
+  String minutes({bool padding = true}) {
+    return padding ? minute.toString().padLeft(2, '0') : minute.toString();
+  }
+
+  String getPeriod() {
+    return hour >= 12 ? "pm" : "am";
+  }
+}
