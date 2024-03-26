@@ -1,11 +1,13 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pharmalink/core/helpers/constants/strings.dart';
 import 'package:pharmalink/core/helpers/extensions.dart';
 import 'package:pharmalink/core/routes/routes.dart';
 import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/theme/fonts.dart';
 import 'package:pharmalink/core/theme/styles.dart';
+import 'package:pharmalink/features/access/auth/logic/cubit/auth_cubit.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SubtitleAnimation extends StatelessWidget {
@@ -13,17 +15,12 @@ class SubtitleAnimation extends StatelessWidget {
   bool _isLogged = false;
   SubtitleAnimation({super.key});
 
+  void validationThenSignin(BuildContext context) {}
+
   // Load stored variables
-  Future<void> _loadPreferences() async {
-    // Retrieve shared Preferences instance
-    final SharedPreferences prefs = await SharedPreferences.getInstance();
-
-    // Set first time key
-    _isFirstOpen = prefs.getBool(AppKeys.isFirstOpen) ?? true;
-    prefs.setBool(AppKeys.isFirstOpen, false);
-
-    // Set first time key
-    _isLogged = prefs.getString(AppKeys.token) != null;
+  void _loadPreferences(context) {
+    context.read<AuthCubit>().emitSigninStates();
+    // context.read<EntryCubit>().emitEntry();
   }
 
   void directToRightScreen(BuildContext context) {
@@ -49,8 +46,8 @@ class SubtitleAnimation extends StatelessWidget {
           ),
         ),
       ],
-      onNext: (index, isLast) async {
-        await _loadPreferences();
+      onNext: (index, isLast) {
+        _loadPreferences(context);
         directToRightScreen(context);
       },
     );
