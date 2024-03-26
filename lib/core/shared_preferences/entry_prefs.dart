@@ -48,7 +48,7 @@ abstract class EntrySharedPrefs {
   static void updateEntrySetting(
       {bool? isFirstEntry, bool clear = false}) async {
     if (isFirstEntry != null || clear) {
-      entryStore[EntryStore.isFirstEntry] = isFirstEntry ?? false;
+      entryStore[EntryStore.isFirstEntry] = isFirstEntry ?? true;
     }
   }
 }

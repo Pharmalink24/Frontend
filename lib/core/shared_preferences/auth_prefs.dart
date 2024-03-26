@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:pharmalink/core/shared_preferences/shared_preferences_service.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:pharmalink/features/access/signin/data/models/signin_response.dart';
 
@@ -24,6 +25,7 @@ abstract class AuthSharedPrefs {
 
   /// check if user is logged in or not
   static bool isUserLoggedIn() {
+    print(authStore[AuthStore.isLoggedIn]);
     return authStore[AuthStore.isLoggedIn];
   }
 
@@ -39,7 +41,6 @@ abstract class AuthSharedPrefs {
   static String getAccessToken() {
     return authStore[AuthStore.userAuth].accessToken;
   }
-
 
   /// load [UserAuth] if saved in shared pref
   static Future<void> loadUserAuthData() async {

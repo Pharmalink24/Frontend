@@ -5,10 +5,6 @@ part 'auth_state.freezed.dart';
 
 @freezed
 class AuthState<T> with _$AuthState<T> {
-  const factory AuthState.initial() = _Initial;
-  const factory AuthState.accessTokenAuth(String? token) = accessTokenAuth<T>;
-  const factory AuthState.authorization(SigninResponse? userAuth) = authorization<T>;
-  const factory AuthState.loggedIn(bool isLogged) = loggedIn<T>;
-  const factory AuthState.loggedOut(bool isLogged) = loggedOut<T>;
-  const factory AuthState.error({required String error}) = Error;
+  const factory AuthState.initial() = initial;
+  const factory AuthState.authorized(SigninResponse? response) = authorized<T>;
 }

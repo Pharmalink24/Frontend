@@ -58,7 +58,6 @@ class SigninBlocListener extends StatelessWidget {
   void showSuccess(BuildContext context, SigninResponse signinResponse) async {
     context.pop();
     context.pushNamed(Routes.mainScreen);
-    context.read<AuthCubit>().emitSigninStates(auth:signinResponse);
   }
 
   @override

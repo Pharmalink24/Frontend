@@ -1,32 +1,47 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pharmalink/core/helpers/constants/strings.dart';
 import 'package:pharmalink/core/helpers/extensions.dart';
 import 'package:pharmalink/core/routes/routes.dart';
+import 'package:pharmalink/core/shared_preferences/auth_prefs.dart';
+import 'package:pharmalink/core/shared_preferences/entry_prefs.dart';
 import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/theme/fonts.dart';
 import 'package:pharmalink/core/theme/styles.dart';
-import 'package:pharmalink/features/access/auth/logic/cubit/auth_cubit.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
-class SubtitleAnimation extends StatelessWidget {
-  bool _isFirstOpen = true;
-  bool _isLogged = false;
+class SubtitleAnimation extends StatefulWidget {
   SubtitleAnimation({super.key});
 
-  void validationThenSignin(BuildContext context) {}
+  @override
+  State<SubtitleAnimation> createState() => _SubtitleAnimationState();
+}
+
+class _SubtitleAnimationState extends State<SubtitleAnimation> {
+  bool _isFirstEntry = true;
+  bool _isLoggedIn = false;
+
+  @override
+  void initState() {
+    super.initState();
+  }
 
   // Load stored variables
-  void _loadPreferences(context) {
-    context.read<AuthCubit>().emitSigninStates();
-    // context.read<EntryCubit>().emitEntry();
+  void _loadPreferences(BuildContext context) async {
+    await AuthSharedPrefs.loadUserAuthData();
+    await EntrySharedPrefs.loadEntryData();
+
+    _isLoggedIn = AuthSharedPrefs.isUserLoggedIn();
+
+    _isFirstEntry = EntrySharedPrefs.isFirstEntry();
+    EntrySharedPrefs.storeEntryData(false);
   }
 
   void directToRightScreen(BuildContext context) {
-    _isFirstOpen
-        ? context.pushNamed(Routes.onBoardingScreen)
-        : _isLogged
+    _isFirstEntry
+        ? _isLoggedIn
+            ? context.pushNamed(Routes.mainScreen)
+            : context.pushNamed(Routes.onBoardingScreen)
+        : _isLoggedIn
             ? context.pushNamed(Routes.mainScreen)
             : context.pushNamed(Routes.signInScreen);
   }

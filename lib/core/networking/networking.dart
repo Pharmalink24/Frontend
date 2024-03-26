@@ -1,5 +1,6 @@
 // Packages
 import 'package:http/http.dart' as http;
+import 'package:pharmalink/core/shared_preferences/auth_prefs.dart';
 import 'dart:convert';
 import 'dart:io';
 import 'api_constants.dart';
@@ -15,7 +16,7 @@ class API {
   Future GET(String path, int code, {String token = ""}) async {
     auth
         ? headers.addAll({
-            HttpHeaders.authorizationHeader: token,
+            HttpHeaders.authorizationHeader: AuthSharedPrefs.getAccessToken(),
           })
         : null;
 
@@ -40,7 +41,7 @@ class API {
         ? headers.addAll({
             HttpHeaders.authorizationHeader: token,
           })
-        : null;
+        : AuthSharedPrefs.getAccessToken();
 
     http.Response response = await http.post(
       Uri.parse('${ApiConstants.baseUrl}$path'),
@@ -64,7 +65,7 @@ class API {
         ? headers.addAll({
             HttpHeaders.authorizationHeader: token,
           })
-        : null;
+        : AuthSharedPrefs.getAccessToken();
 
     http.Response response = await http.patch(
       Uri.parse('${ApiConstants.baseUrl}$path'),
@@ -87,7 +88,7 @@ class API {
         ? headers.addAll({
             HttpHeaders.authorizationHeader: token,
           })
-        : null;
+        : AuthSharedPrefs.getAccessToken();
 
     http.Response response = await http.put(
       Uri.parse('${ApiConstants.baseUrl}$path'),
@@ -110,7 +111,7 @@ class API {
         ? headers.addAll({
             HttpHeaders.authorizationHeader: token,
           })
-        : null;
+        : AuthSharedPrefs.getAccessToken();
 
     http.Response response = await http.delete(
       Uri.parse('${ApiConstants.baseUrl}$path'),
