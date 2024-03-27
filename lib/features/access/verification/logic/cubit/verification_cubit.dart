@@ -1,8 +1,8 @@
 import 'package:bloc/bloc.dart';
-import 'package:pharmalink/core/helpers/errors.dart';
-import 'package:pharmalink/features/access/verification/data/models/verification_request_params.dart';
-import 'package:pharmalink/features/access/verification/data/repo/verification_repo.dart';
-import 'package:pharmalink/features/access/verification/logic/cubit/verification_state.dart';
+import '../../../../../core/helpers/errors.dart';
+import '../../data/models/verification_request_params.dart';
+import '../../data/repo/verification_repo.dart';
+import 'verification_state.dart';
 
 class VerificationCubit extends Cubit<VerificationState> {
   final VerificationRepo _verificationRepo;

@@ -1,14 +1,14 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
-import 'package:pharmalink/core/routes/routes.dart';
-import 'package:pharmalink/features/on_boarding/models/on_boarding_pages.dart';
-import 'package:pharmalink/core/theme/colors.dart';
-import 'package:pharmalink/core/helpers/constants/paths.dart';
-import 'package:pharmalink/core/theme/styles.dart';
-import 'package:pharmalink/features/on_boarding/ui/widgets/intro_image.dart';
+import '../../../core/routes/routes.dart';
+import '../models/on_boarding_pages.dart';
+import '../../../core/theme/colors.dart';
+import '../../../core/helpers/constants/paths.dart';
+import '../../../core/theme/styles.dart';
+import 'widgets/intro_image.dart';
 import "../models/on_boarding_page.dart";
-import 'package:pharmalink/core/helpers/extensions.dart';
+import '../../../core/helpers/extensions.dart';
 
 class OnBoardingScreen extends StatefulWidget {
   const OnBoardingScreen({super.key});

@@ -1,10 +1,10 @@
 import 'package:dio/dio.dart';
-import 'package:pharmalink/core/networking/api_constants.dart';
-import 'package:pharmalink/features/access/signin/data/models/refresh_taken_request_body.dart';
-import 'package:pharmalink/features/access/signup/data/models/signup_request_body.dart';
-import 'package:pharmalink/features/access/signup/data/models/signup_response.dart';
-import 'package:pharmalink/features/access/verification/data/models/verification_request_params.dart';
-import 'package:pharmalink/features/access/verification/data/models/verification_response.dart';
+import 'api_constants.dart';
+import '../../features/access/signin/data/models/refresh_taken_request_body.dart';
+import '../../features/access/signup/data/models/signup_request_body.dart';
+import '../../features/access/signup/data/models/signup_response.dart';
+import '../../features/access/verification/data/models/verification_request_params.dart';
+import '../../features/access/verification/data/models/verification_response.dart';
 import 'package:retrofit/retrofit.dart';
 
 import '../../features/access/signin/data/models/signin_request_body.dart';

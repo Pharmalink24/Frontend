@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:pharmalink/core/theme/colors.dart';
-import 'package:pharmalink/core/theme/fonts.dart';
-import 'package:pharmalink/core/theme/styles.dart';
+import '../../../../../core/theme/colors.dart';
+import '../../../../../core/theme/fonts.dart';
+import '../../../../../core/theme/styles.dart';
 
 String username = "Mohammed";
 

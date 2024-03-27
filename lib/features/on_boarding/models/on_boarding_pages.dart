@@ -1,4 +1,4 @@
-import 'package:pharmalink/features/on_boarding/models/on_boarding_page.dart';
+import 'on_boarding_page.dart';
 
 List<OnBoardingPageModel> onBoardingPages = [
   OnBoardingPageModel(

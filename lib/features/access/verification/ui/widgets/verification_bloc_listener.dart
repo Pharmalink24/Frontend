@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pharmalink/core/helpers/extensions.dart';
-import 'package:pharmalink/core/routes/routes.dart';
-import 'package:pharmalink/core/theme/colors.dart';
-import 'package:pharmalink/core/theme/styles.dart';
-import 'package:pharmalink/features/access/verification/logic/cubit/verification_cubit.dart';
-import 'package:pharmalink/features/access/verification/logic/cubit/verification_state.dart';
+import '../../../../../core/helpers/extensions.dart';
+import '../../../../../core/theme/colors.dart';
+import '../../../../../core/theme/styles.dart';
+import '../../logic/cubit/verification_cubit.dart';
+import '../../logic/cubit/verification_state.dart';
 
 class VerificationBlocListener extends StatelessWidget {
   const VerificationBlocListener({super.key});

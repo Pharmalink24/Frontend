@@ -1,4 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
+
 part 'signin_request_body.g.dart';
 
 @JsonSerializable()

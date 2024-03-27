@@ -1,16 +1,16 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:logger/logger.dart';
-import 'package:pharmalink/core/networking/api_service.dart';
-import 'package:pharmalink/core/networking/dio_factory.dart';
-import 'package:pharmalink/features/access/auth/logic/cubit/auth_cubit.dart';
-import 'package:pharmalink/features/access/signin/data/repo/auth_repo.dart';
-import 'package:pharmalink/features/access/signin/data/repo/signin_repo.dart';
-import 'package:pharmalink/features/access/signin/logic/cubit/signin_cubit.dart';
-import 'package:pharmalink/features/access/signup/logic/cubit/signup_cubit.dart';
-import 'package:pharmalink/features/access/signup/data/repo/signup_repo.dart';
-import 'package:pharmalink/features/access/verification/data/repo/verification_repo.dart';
-import 'package:pharmalink/features/access/verification/logic/cubit/verification_cubit.dart';
+import '../networking/api_service.dart';
+import '../networking/dio_factory.dart';
+import '../../features/access/auth/logic/cubit/auth_cubit.dart';
+import '../../features/access/signin/data/repo/auth_repo.dart';
+import '../../features/access/signin/data/repo/signin_repo.dart';
+import '../../features/access/signin/logic/cubit/signin_cubit.dart';
+import '../../features/access/signup/logic/cubit/signup_cubit.dart';
+import '../../features/access/signup/data/repo/signup_repo.dart';
+import '../../features/access/verification/data/repo/verification_repo.dart';
+import '../../features/access/verification/logic/cubit/verification_cubit.dart';
 
 final getIt = GetIt.instance;
 

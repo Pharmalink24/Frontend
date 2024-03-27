@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:pharmalink/core/helpers/extensions.dart';
-import 'package:pharmalink/core/theme/colors.dart';
-import 'package:pharmalink/core/theme/styles.dart';
+import '../../../../../core/helpers/extensions.dart';
+import '../../../../../core/theme/colors.dart';
+import '../../../../../core/theme/styles.dart';
 
 class DrugListTile extends StatefulWidget {
   final String drugName;

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pharmalink/core/helpers/errors.dart';
+import '../../../../../core/helpers/errors.dart';
 // import 'package:pharmalink/features/access/auth/logic/cubit/auth_cubit.dart';
 import 'package:pharmalink/features/access/signin/data/models/signin_request_body.dart';
 import 'package:pharmalink/features/access/signin/data/repo/auth_repo.dart';

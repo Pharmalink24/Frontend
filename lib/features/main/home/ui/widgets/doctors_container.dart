@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pharmalink/core/widgets/card_container.dart';
-import 'package:pharmalink/core/widgets/circle_image.dart';
+import '../../../../../core/widgets/card_container.dart';
+import '../../../../../core/widgets/circle_image.dart';
 
 List<String> imagesUrl = [
   'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8ZG9jb3RyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=900&q=60',

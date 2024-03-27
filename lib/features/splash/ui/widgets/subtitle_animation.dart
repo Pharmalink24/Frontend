@@ -1,13 +1,13 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
-import 'package:pharmalink/core/helpers/constants/strings.dart';
-import 'package:pharmalink/core/helpers/extensions.dart';
-import 'package:pharmalink/core/routes/routes.dart';
-import 'package:pharmalink/core/shared_preferences/auth_prefs.dart';
-import 'package:pharmalink/core/shared_preferences/entry_prefs.dart';
-import 'package:pharmalink/core/theme/colors.dart';
-import 'package:pharmalink/core/theme/fonts.dart';
-import 'package:pharmalink/core/theme/styles.dart';
+import '../../../../core/helpers/constants/strings.dart';
+import '../../../../core/helpers/extensions.dart';
+import '../../../../core/routes/routes.dart';
+import '../../../../core/shared_preferences/auth_prefs.dart';
+import '../../../../core/shared_preferences/entry_prefs.dart';
+import '../../../../core/theme/colors.dart';
+import '../../../../core/theme/fonts.dart';
+import '../../../../core/theme/styles.dart';
 
 class SubtitleAnimation extends StatefulWidget {
   const SubtitleAnimation({super.key});
@@ -32,9 +32,6 @@ class _SubtitleAnimationState extends State<SubtitleAnimation> {
     _isFirstEntry = EntrySharedPrefs.isFirstEntry();
     EntrySharedPrefs.storeEntryData(false);
   }
-
-  // Load stored variables
-  Future<void> _setStoredVariables() async {}
 
   void directToRightScreen(BuildContext context) {
     _isFirstEntry
@@ -61,8 +58,7 @@ class _SubtitleAnimationState extends State<SubtitleAnimation> {
           ),
         ),
       ],
-      onNext: (index, isLast) async {
-        await _setStoredVariables();
+      onNext: (index, isLast) {
         directToRightScreen(context);
       },
     );

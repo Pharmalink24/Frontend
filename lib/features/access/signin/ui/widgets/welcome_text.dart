@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pharmalink/core/theme/styles.dart';
+import '../../../../../core/theme/styles.dart';
 
 const kPadding = 8.0;
 

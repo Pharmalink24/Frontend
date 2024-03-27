@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:pharmalink/core/theme/colors.dart';
-import 'package:pharmalink/features/splash/ui/widgets/logo_icon.dart';
-import 'package:pharmalink/features/splash/ui/widgets/subtitle_animation.dart';
+import '../../../core/theme/colors.dart';
+import 'widgets/logo_icon.dart';
+import 'widgets/subtitle_animation.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});

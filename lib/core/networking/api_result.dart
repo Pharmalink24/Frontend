@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:pharmalink/core/networking/api_error_handler.dart';
+import 'api_error_handler.dart';
 part 'api_result.freezed.dart';
 
 @Freezed()

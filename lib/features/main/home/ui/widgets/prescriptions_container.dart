@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pharmalink/core/widgets/card_container.dart';
+import '../../../../../core/widgets/card_container.dart';
 import 'drug_list_tile.dart';
 
 class PrescriptionsContainer extends StatelessWidget {

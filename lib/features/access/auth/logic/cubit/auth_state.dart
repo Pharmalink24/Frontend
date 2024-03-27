@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:pharmalink/features/access/signin/data/models/signin_response.dart';
+import '../../../signin/data/models/signin_response.dart';
 
 part 'auth_state.freezed.dart';
 

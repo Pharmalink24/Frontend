@@ -1,9 +1,9 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:pharmalink/core/helpers/errors.dart';
-import 'package:pharmalink/features/access/signup/logic/cubit/signup_state.dart';
-import 'package:pharmalink/features/access/signup/data/models/signup_request_body.dart';
-import 'package:pharmalink/features/access/signup/data/repo/signup_repo.dart';
+import '../../../../../core/helpers/errors.dart';
+import 'signup_state.dart';
+import '../../data/models/signup_request_body.dart';
+import '../../data/repo/signup_repo.dart';
 
 class SignupCubit extends Cubit<SignupState> {
   final SignupRepo _signupRepo;

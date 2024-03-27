@@ -1,8 +1,8 @@
-import 'package:pharmalink/core/networking/api_error_handler.dart';
-import 'package:pharmalink/core/networking/api_result.dart';
-import 'package:pharmalink/core/networking/api_service.dart';
-import 'package:pharmalink/features/access/signin/data/models/signin_request_body.dart';
-import 'package:pharmalink/features/access/signin/data/models/signin_response.dart';
+import '../../../../../core/networking/api_error_handler.dart';
+import '../../../../../core/networking/api_result.dart';
+import '../../../../../core/networking/api_service.dart';
+import '../models/signin_request_body.dart';
+import '../models/signin_response.dart';
 
 class SigninRepo {
   final ApiService _apiService;

@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pharmalink/features/access/signin/data/repo/auth_repo.dart';
-import 'package:pharmalink/features/access/signin/data/models/signin_response.dart';
+import '../../../signin/data/repo/auth_repo.dart';
+import '../../../signin/data/models/signin_response.dart';
 
 import 'auth_state.dart';
 
