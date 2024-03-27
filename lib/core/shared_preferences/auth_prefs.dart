@@ -4,6 +4,8 @@
 import 'package:pharmalink/core/shared_preferences/shared_preferences_service.dart';
 import 'package:pharmalink/features/access/signin/data/models/signin_response.dart';
 
+import '../helpers/token.dart';
+
 abstract class AuthSharedPrefs {
   static const String _ACCESS_TOKEN = "access_token_";
   static const String _IS_LOGGED_IN = "isLoggedIn_";
@@ -24,7 +26,7 @@ abstract class AuthSharedPrefs {
 
   /// save [UserAuth] in shared pref
   static Future<bool> storeAuthData(SigninResponse userAuthData) async {
-    await SharedPrefsService.setString(_ACCESS_TOKEN, userAuthData.accessToken);
+    await SharedPrefsService.setString(_ACCESS_TOKEN, "$tokenKey ${userAuthData.accessToken}");
     await SharedPrefsService.setInt(_ID, userAuthData.id);
     await SharedPrefsService.setBool(_IS_LOGGED_IN, true);
 

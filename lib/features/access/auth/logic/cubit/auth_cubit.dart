@@ -17,9 +17,9 @@ class AuthCubit extends Cubit<AuthState> {
     emit(const AuthState.initial());
   }
 
-  void setToken(SigninResponse token) async {
-    await _authRepo.setToken(token);
-    emit(AuthState.authorized(token));
+  void setAuth(SigninResponse signinResponse) async {
+    await _authRepo.setAuth(signinResponse);
+    emit(AuthState.authorized(signinResponse));
   }
 
   Future<SigninResponse?> refreshToken(SigninResponse token) async {

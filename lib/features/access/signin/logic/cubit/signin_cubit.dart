@@ -35,7 +35,7 @@ class SigninCubit extends Cubit<SigninState> {
     // Authorized or not?
     response.when(
       success: (signinResponse) {
-        _authRepo.setToken(signinResponse);
+        _authRepo.setAuth(signinResponse);
         emit(SigninState.success(signinResponse));
       },
       failure: (error) {
