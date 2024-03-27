@@ -8,7 +8,7 @@ class SplashScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       backgroundColor: AppColors.alternate,
       body: SafeArea(
         child: Column(
@@ -17,7 +17,7 @@ class SplashScreen extends StatelessWidget {
           children: [
             Column(
               children: [
-                const LogoIcon(),
+                LogoIcon(),
                 SubtitleAnimation(),
               ],
             ),
