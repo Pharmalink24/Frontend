@@ -6,9 +6,10 @@ import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/theme/styles.dart';
 import 'package:pharmalink/core/widgets/card_container.dart';
 import 'package:pharmalink/core/widgets/form/form_button.dart';
-import 'package:pharmalink/features/access/signin/logic/cubit/signin_cubit.dart';
 import 'package:pharmalink/features/main/drug_interaction/logic/cubit/drug_interaction_cubit.dart';
 import 'package:pharmalink/features/main/drug_interaction/ui/widgets/drug_interaction_form.dart';
+
+import 'widgets/interaction_result_container.dart';
 
 class DrugInteractionScreen extends StatefulWidget {
   const DrugInteractionScreen({super.key});
@@ -39,44 +40,23 @@ class _DrugInteractionScreenState extends State<DrugInteractionScreen> {
                     FormButton(
                       onPressed: () => drugInteraction(context),
                       text: "Check",
-                      color: AppColors.primary,
+                      color: AppColors.secondary,
                       padding: EdgeInsets.symmetric(vertical: 12.0),
+                      borderRadius: 8.0,
+                      elevation: 5.0,
                     ),
                   ],
                 ),
               ),
-              Container(
-                width: double.infinity,
-                padding: const EdgeInsets.all(12.0),
-                margin: const EdgeInsets.symmetric(vertical: 8.0),
-                decoration: BoxDecoration(
-                  color: AppColors.primaryBackground,
-                  borderRadius: BorderRadius.circular(16.0),
+              InteractionResultContainer(
+                interactionIcon: Icon(
+                  Icons.warning_rounded,
+                  color: AppColors.warning,
+                  size: 70.0,
                 ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Icon(
-                      Icons.warning_rounded,
-                      size: 60.0,
-                      color: AppColors.warning,
-                    ),
-                    Text(
-                      "Risky",
-                      style: AppTextStyle.displaySmall,
-                      textAlign: TextAlign.center,
-                    ),
-                    SizedBox(
-                      height: 12.0,
-                    ),
-                    Text(
-                      "This interaction can increase the risk of bleeding.",
-                      style: AppTextStyle.headlineMedium,
-                      textAlign: TextAlign.center,
-                    ),
-                  ],
-                ),
+                interactionTitle: "Risky",
+                interactionDescription:
+                    "This interaction can increase the risk of bleeding.",
               ),
             ]),
       ),
