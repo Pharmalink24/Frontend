@@ -6,7 +6,6 @@ import 'package:pharmalink/features/access/signin/data/models/signin_request_bod
 import 'package:pharmalink/features/access/signin/data/repo/auth_repo.dart';
 import 'package:pharmalink/features/access/signin/data/repo/signin_repo.dart';
 import 'package:pharmalink/features/access/signin/logic/cubit/signin_state.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class SigninCubit extends Cubit<SigninState> {
   final SigninRepo _signinRepo;
@@ -18,7 +17,6 @@ class SigninCubit extends Cubit<SigninState> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   final formKey = GlobalKey<FormState>();
-  final Future<SharedPreferences> prefs = SharedPreferences.getInstance();
 
   void emitSigninStates() async {
     // Loading until sign in

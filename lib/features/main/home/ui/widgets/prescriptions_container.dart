@@ -7,9 +7,9 @@ class PrescriptionsContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const CardContainer(
+    return CardContainer(
       title: "Your Prescriptions",
-      child: Column(
+      child: const Column(
         children: [
           DrugListTile(
             drugName: "Brufen",

@@ -6,12 +6,14 @@ import 'package:pharmalink/core/theme/styles.dart';
 
 class CardContainer extends StatelessWidget {
   final String title;
+  TextStyle? style;
   final Widget child;
 
-  const CardContainer({
+  CardContainer({
     super.key,
     required this.title,
     required this.child,
+    this.style,
   });
 
   @override
@@ -32,11 +34,12 @@ class CardContainer extends StatelessWidget {
             children: [
               Text(
                 title,
-                style: AppTextStyle.bodyMedium.copyWith(
-                  fontFamily: AppFonts.secondary,
-                  fontSize: 24,
-                  fontWeight: FontWeight.w300,
-                ),
+                style: style ??
+                    AppTextStyle.bodyMedium.copyWith(
+                      fontFamily: AppFonts.secondary,
+                      fontSize: 24,
+                      fontWeight: FontWeight.w300,
+                    ),
               ),
               IconButton(
                 onPressed: () {},
@@ -45,8 +48,8 @@ class CardContainer extends StatelessWidget {
               ),
             ],
           ),
-          Container(
-            padding: const EdgeInsets.symmetric(vertical: 16.0),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 12.0),
             child: child,
           ),
         ],

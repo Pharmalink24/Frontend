@@ -1,4 +1,6 @@
 import 'package:dio/dio.dart';
+import 'package:pharmalink/features/main/drug_interaction/data/models/drug_eye_search_request_params.dart';
+import 'package:pharmalink/features/main/drug_interaction/data/models/drug_eye_search_response.dart';
 import 'api_constants.dart';
 import '../../features/access/signin/data/models/refresh_taken_request_body.dart';
 import '../../features/access/signup/data/models/signup_request_body.dart';
@@ -40,4 +42,11 @@ abstract class ApiService {
   Future<VerificationResponse> resendVerification(
     @Queries() VerificationRequestParams verificationRequestParams,
   );
+
+  // Resend Verification
+  @POST(ApiConstants.searchDrugFromDrugEye)
+  Future<DrugEyeSearchResponse> searchDrugFromDrugEye(
+    @Queries() DrugEyeSearchRequestParams drugEyeSearchRequestParams,
+  );
+
 }
