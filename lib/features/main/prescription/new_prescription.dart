@@ -46,7 +46,7 @@ class _NewPrescriptionScreenState extends State<NewPrescriptionScreen> {
     //     throw "Exception";
     //   }
     // } catch (e) {
-    //   print(e);
+    //   getIt<Logger>().e(e);
     // }
   }
 

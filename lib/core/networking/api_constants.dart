@@ -4,8 +4,8 @@ class ApiConstants {
   // User API
   static const signIn = "user/login/";
   static const signUp = "user/signup/";
-  static const sendVerification =
-      "user/resend-email-verification/"; // ?user_id=10
+  static const sendVerification = "user/resend-email-verification/";
+  static const refreshToken = "user/refreshTaken/";
 }
 
 class ApiErrors {
