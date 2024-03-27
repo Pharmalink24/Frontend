@@ -24,52 +24,28 @@ class DoctorsContainer extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             CircleImage(
-              image: Image.network(
-                imagesUrl[0],
-                fit: BoxFit.cover,
-              ),
+              url: imagesUrl[0],
             ),
             CircleImage(
-              image: Image.network(
-                imagesUrl[2],
-                fit: BoxFit.cover,
-              ),
+              url: imagesUrl[1],
             ),
             CircleImage(
-              image: Image.network(
-                imagesUrl[1],
-                fit: BoxFit.cover,
-              ),
+              url: imagesUrl[2],
             ),
             CircleImage(
-              image: Image.network(
-                imagesUrl[2],
-                fit: BoxFit.cover,
-              ),
+              url: imagesUrl[1],
             ),
             CircleImage(
-              image: Image.network(
-                imagesUrl[0],
-                fit: BoxFit.cover,
-              ),
+              url: imagesUrl[2],
             ),
             CircleImage(
-              image: Image.network(
-                imagesUrl[2],
-                fit: BoxFit.cover,
-              ),
+              url: imagesUrl[0],
             ),
             CircleImage(
-              image: Image.network(
-                imagesUrl[1],
-                fit: BoxFit.cover,
-              ),
+              url: imagesUrl[2],
             ),
             CircleImage(
-              image: Image.network(
-                imagesUrl[2],
-                fit: BoxFit.cover,
-              ),
+              url: imagesUrl[1],
             ),
           ],
         ),
