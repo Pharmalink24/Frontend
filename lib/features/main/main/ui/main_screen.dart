@@ -28,7 +28,7 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  int activeIndex = 2;
+  int activeIndex = 0;
 
   @override
   void initState() {
