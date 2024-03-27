@@ -1,4 +1,3 @@
-// Flutter Packages
 import 'package:flutter/material.dart';
 import 'package:pharmalink/core/routes/app_router.dart';
 import 'pharmalink_app.dart';
