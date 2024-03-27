@@ -1,42 +1,50 @@
+import 'dart:async' show Future;
 import 'package:shared_preferences/shared_preferences.dart';
 
-class SharedPreferencesService {
-  SharedPreferences? _prefs;
+class SharedPrefsService {
+  static Future<SharedPreferences> get _instance async =>
+      _prefsInstance ??= await SharedPreferences.getInstance();
+  static SharedPreferences? _prefsInstance;
 
-  SharedPreferencesService._internal();
-
-  factory SharedPreferencesService() {
-    return SharedPreferencesService._internal();
+  // call this method from iniState() function of mainApp().
+  static Future<SharedPreferences> init() async {
+    _prefsInstance = await _instance;
+    return _prefsInstance!;
   }
 
-  Future<SharedPreferences?> get _initializePrefs async {
-    _prefs ??= await SharedPreferences.getInstance();
-    return _prefs;
+  // Integer getters & setters
+  static int? getInt(String key, [int? value]) {
+    return _prefsInstance!.getInt(key) ?? value;
   }
 
-  Future<String> getString(String key) async {
-    var pref = await _initializePrefs;
-    return pref?.getString(key) ?? "";
+  static Future<bool> setInt(String key, int value) async {
+    var prefs = await _instance;
+    return prefs.setInt(key, value);
   }
 
-  Future<void> setString(String key, String? value) async {
-    var pref = await _initializePrefs;
-    pref?.setString(key, value ?? '');
+  // String getters & setters
+  static String? getString(String key, [String? value]) {
+    return _prefsInstance!.getString(key) ?? value;
   }
 
-  Future<bool> getBool(String key) async {
-    var pref = await _initializePrefs;
-    return pref?.getBool(key) ?? false;
+  static Future<bool> setString(String key, String value) async {
+    var prefs = await _instance;
+    return prefs.setString(key, value);
   }
 
-  Future<void> setBool(String key, bool? value) async {
-    var pref = await _initializePrefs;
-    pref?.setBool(key, value ?? false);
+  // Boolean getters & setters
+  static bool? getBool(String key, [bool? value]) {
+    return _prefsInstance!.getBool(key) ?? value;
   }
 
-  Future<void> remove(String key) async {
-    var pref = await _initializePrefs;
-    pref?.remove(key);
+  static Future<bool> setBool(String key, bool value) async {
+    var prefs = await _instance;
+    return prefs.setBool(key, value);
   }
-  
+
+  // Remove
+  static Future<bool> remove(String key) async {
+    var prefs = await _instance;
+    return prefs.remove(key);
+  }
 }

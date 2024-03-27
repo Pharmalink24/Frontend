@@ -1,3 +1,5 @@
+import 'package:logger/logger.dart';
+import 'package:pharmalink/core/di/dependency_injection.dart';
 import 'package:pharmalink/core/networking/api_error_handler.dart';
 import 'package:pharmalink/core/networking/api_result.dart';
 import 'package:pharmalink/core/networking/api_service.dart';
@@ -16,7 +18,7 @@ class VerificationRepo {
           await _apiService.resendVerification(verificationRequestParams);
       return ApiResult.success(response);
     } catch (error) {
-      // print(error);
+      getIt<Logger>().e(error);
       return ApiResult.failure(ErrorHandler.handle(error));
     }
   }

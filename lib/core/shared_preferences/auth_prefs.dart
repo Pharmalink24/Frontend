@@ -1,86 +1,41 @@
-import 'dart:convert';
+
+// ignore_for_file: constant_identifier_names
+
 import 'package:pharmalink/core/shared_preferences/shared_preferences_service.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:pharmalink/features/access/signin/data/models/signin_response.dart';
 
-enum AuthStore {
-  isLoggedIn,
-  userAuth,
-}
-
 abstract class AuthSharedPrefs {
-  static const String USER_IDENTIFIER = "tokens_";
-
-  /// Instantiation of the SharedPreferences library
-  static final Future<SharedPreferences> prefs =
-      SharedPreferences.getInstance();
-
-  static final Map<AuthStore, dynamic> authStore = <AuthStore, dynamic>{
-    AuthStore.isLoggedIn: false,
-  };
-
-  static Map<AuthStore, dynamic> getAuthStore() {
-    return authStore;
-  }
+  static const String _ACCESS_TOKEN = "access_token_";
+  static const String _IS_LOGGED_IN = "isLoggedIn_";
+  static const String _ID = "id_";
 
   /// check if user is logged in or not
   static bool isUserLoggedIn() {
-    print(authStore[AuthStore.isLoggedIn]);
-    return authStore[AuthStore.isLoggedIn];
+    return SharedPrefsService.getBool(_IS_LOGGED_IN, false) ?? false;
   }
 
-  /// get [UserAuth]
-  static SigninResponse getUserAuthData() {
-    return authStore[AuthStore.userAuth];
+  static int? getUserId() {
+    return SharedPrefsService.getInt(_ID);
   }
 
-  static int getUserId() {
-    return authStore[AuthStore.userAuth].id;
-  }
-
-  static String getAccessToken() {
-    return authStore[AuthStore.userAuth].accessToken;
-  }
-
-  /// load [UserAuth] if saved in shared pref
-  static Future<void> loadUserAuthData() async {
-    final userString = (await prefs).getString(USER_IDENTIFIER);
-    if (userString != null) {
-      final userJson = json.decode(userString);
-      updateUserSetting(
-        userAuthData: SigninResponse.fromJson(userJson),
-        isLoggedIn: true,
-      );
-    }
+  static String? getAccessToken() {
+    return SharedPrefsService.getString(_ACCESS_TOKEN);
   }
 
   /// save [UserAuth] in shared pref
-  static Future<bool> storeUserAuthData(SigninResponse userAuthData) async {
-    updateUserSetting(
-      userAuthData: userAuthData,
-      isLoggedIn: true,
-    );
-    // converts Map<String, dynamic> to string type using jsonEncode()
-    final userAuth = userAuthData.toJson();
-    return (await prefs).setString(USER_IDENTIFIER, jsonEncode(userAuth));
+  static Future<bool> storeAuthData(SigninResponse userAuthData) async {
+    await SharedPrefsService.setString(_ACCESS_TOKEN, userAuthData.accessToken);
+    await SharedPrefsService.setInt(_ID, userAuthData.id);
+    await SharedPrefsService.setBool(_IS_LOGGED_IN, true);
+
+    return true;
   }
 
-  static Future<bool> clearUserToken() async {
-    updateUserSetting(clear: true);
-    return (await prefs).remove(USER_IDENTIFIER);
-  }
+  static Future<bool> clearAuthData() async {
+    await SharedPrefsService.remove(_ACCESS_TOKEN);
+    await SharedPrefsService.remove(_ID);
+    await SharedPrefsService.setBool(_IS_LOGGED_IN, false);
 
-  static void updateUserSetting({
-    SigninResponse? userAuthData,
-    bool? isLoggedIn,
-    bool clear = false,
-  }) async {
-    if (userAuthData != null || clear) {
-      authStore[AuthStore.userAuth] = userAuthData;
-    }
-
-    if (isLoggedIn != null || clear) {
-      authStore[AuthStore.isLoggedIn] = isLoggedIn ?? false;
-    }
+    return true;
   }
 }

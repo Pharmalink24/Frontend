@@ -56,7 +56,6 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const MainScreen());
 
       default:
-        // print(settings.name);
         return MaterialPageRoute(builder: (_) => const Error404Screen());
     }
   }

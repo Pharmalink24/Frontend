@@ -1,5 +1,7 @@
 // ignore_for_file: avoid_print
 
+import 'package:logger/logger.dart';
+import 'package:pharmalink/core/di/dependency_injection.dart';
 import 'package:pharmalink/core/networking/api_error_handler.dart';
 import 'package:pharmalink/core/networking/api_result.dart';
 import 'package:pharmalink/core/networking/api_service.dart';
@@ -15,25 +17,25 @@ class AuthRepo {
     try {
       return AuthSharedPrefs.isUserLoggedIn();
     } catch (error) {
-      print(error);
+      getIt<Logger>().e(error);
       return false;
     }
   }
 
   Future<void> clearToken() async {
     try {
-      await AuthSharedPrefs.clearUserToken();
+      await AuthSharedPrefs.clearAuthData();
     } catch (error) {
-      print(error);
+      getIt<Logger>().e(error);
     }
   }
 
-  Future<void> setToken(SigninResponse? auth) async {
+  Future<void> setToken(SigninResponse auth) async {
     try {
-      await AuthSharedPrefs.storeUserAuthData(
-          auth ?? AuthSharedPrefs.getUserAuthData());
+      await AuthSharedPrefs.storeAuthData(
+          auth);
     } catch (error) {
-      print(error);
+      getIt<Logger>().e(error);
     }
   }
 

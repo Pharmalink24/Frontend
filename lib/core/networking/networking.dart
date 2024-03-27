@@ -1,22 +1,25 @@
 // Packages
+// ignore_for_file: non_constant_identifier_names
+
 import 'package:http/http.dart' as http;
+import 'package:logger/logger.dart';
+import 'package:pharmalink/core/di/dependency_injection.dart';
 import 'package:pharmalink/core/shared_preferences/auth_prefs.dart';
 import 'dart:convert';
 import 'dart:io';
 import 'api_constants.dart';
 
 class API {
-  API({this.auth = false});
-
-  final bool auth;
+  API();
   Map<String, String> headers = {
     'Content-Type': 'application/json; charset=UTF-8',
   };
 
-  Future GET(String path, int code, {String token = ""}) async {
+  Future GET(String path, int code, {bool auth=false}) async {
     auth
         ? headers.addAll({
-            HttpHeaders.authorizationHeader: AuthSharedPrefs.getAccessToken(),
+            HttpHeaders.authorizationHeader:
+                AuthSharedPrefs.getAccessToken() ?? '',
           })
         : null;
 
@@ -27,19 +30,19 @@ class API {
 
     if (response.statusCode == code) {
       var decodedData = jsonDecode(response.body);
-      print(decodedData);
+      getIt<Logger>().i(decodedData);
       return decodedData;
     } else {
-      print(response.request);
-      print(response.statusCode);
+      getIt<Logger>().e(response.request);
+      getIt<Logger>().e(response.statusCode);
     }
   }
 
   Future POST(String path, Map body, int code,
-      {bool auth = false, String token = ""}) async {
+      {bool auth=false}) async {
     auth
         ? headers.addAll({
-            HttpHeaders.authorizationHeader: token,
+            HttpHeaders.authorizationHeader: AuthSharedPrefs.getAccessToken() ?? '',
           })
         : AuthSharedPrefs.getAccessToken();
 
@@ -53,17 +56,17 @@ class API {
       var decodedData = jsonDecode(response.body);
       return decodedData;
     } else {
-      print(response.body);
-      print(response.request);
-      print(response.statusCode);
-      print(response.reasonPhrase);
+      getIt<Logger>().e(response.body);
+      getIt<Logger>().e(response.request);
+      getIt<Logger>().e(response.statusCode);
+      getIt<Logger>().e(response.reasonPhrase);
     }
   }
 
-  Future PATCH(String path, Map body, int code, {String token = ""}) async {
+  Future PATCH(String path, Map body, int code, {bool auth=false}) async {
     auth
         ? headers.addAll({
-            HttpHeaders.authorizationHeader: token,
+            HttpHeaders.authorizationHeader: AuthSharedPrefs.getAccessToken() ?? '',
           })
         : AuthSharedPrefs.getAccessToken();
 
@@ -75,18 +78,18 @@ class API {
 
     if (response.statusCode == code) {
       var decodedData = jsonDecode(response.body);
-      print(decodedData);
+      getIt<Logger>().i(decodedData);
       return decodedData;
     } else {
-      print(response.request);
-      print(response.statusCode);
+      getIt<Logger>().e(response.request);
+      getIt<Logger>().e(response.statusCode);
     }
   }
 
-  Future PUT(String path, Map body, int code, {String token = ""}) async {
+  Future PUT(String path, Map body, int code, {bool auth=false}) async {
     auth
         ? headers.addAll({
-            HttpHeaders.authorizationHeader: token,
+            HttpHeaders.authorizationHeader: AuthSharedPrefs.getAccessToken() ?? '',
           })
         : AuthSharedPrefs.getAccessToken();
 
@@ -98,18 +101,18 @@ class API {
 
     if (response.statusCode == code) {
       var decodedData = jsonDecode(response.body);
-      print(decodedData);
+      getIt<Logger>().i(decodedData);
       return decodedData;
     } else {
-      print(response.request);
-      print(response.statusCode);
+      getIt<Logger>().e(response.request);
+      getIt<Logger>().e(response.statusCode);
     }
   }
 
-  Future DELETE(String path, Map body, int code, {String token = ""}) async {
+  Future DELETE(String path, Map body, int code, {bool auth=false}) async {
     auth
         ? headers.addAll({
-            HttpHeaders.authorizationHeader: token,
+            HttpHeaders.authorizationHeader: AuthSharedPrefs.getAccessToken() ?? '',
           })
         : AuthSharedPrefs.getAccessToken();
 
@@ -123,8 +126,8 @@ class API {
       var decodedData = jsonDecode(response.body);
       return decodedData;
     } else {
-      print(response.request);
-      print(response.statusCode);
+      getIt<Logger>().e(response.request);
+      getIt<Logger>().e(response.statusCode);
     }
   }
 }

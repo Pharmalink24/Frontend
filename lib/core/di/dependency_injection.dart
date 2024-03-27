@@ -1,8 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
+import 'package:logger/logger.dart';
 import 'package:pharmalink/core/networking/api_service.dart';
 import 'package:pharmalink/core/networking/dio_factory.dart';
-import 'package:pharmalink/core/shared_preferences/shared_preferences_service.dart';
 import 'package:pharmalink/features/access/auth/logic/cubit/auth_cubit.dart';
 import 'package:pharmalink/features/access/signin/data/repo/auth_repo.dart';
 import 'package:pharmalink/features/access/signin/data/repo/signin_repo.dart';
@@ -15,10 +15,6 @@ import 'package:pharmalink/features/access/verification/logic/cubit/verification
 final getIt = GetIt.instance;
 
 Future<void> setupGetIt() async {
-  //  register shared preference
-  getIt.registerFactory<SharedPreferencesService>(
-      () => SharedPreferencesService());
-
   // Dio & ApiService
   Dio dio = DioFactory.getDio();
   getIt.registerLazySingleton<ApiService>(() => ApiService(dio));
@@ -39,4 +35,7 @@ Future<void> setupGetIt() async {
   getIt
       .registerLazySingleton<VerificationRepo>(() => VerificationRepo(getIt()));
   getIt.registerFactory<VerificationCubit>(() => VerificationCubit(getIt()));
+
+  // Logger
+  getIt.registerLazySingleton<Logger>(() => Logger());
 }

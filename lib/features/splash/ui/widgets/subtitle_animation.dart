@@ -10,7 +10,7 @@ import 'package:pharmalink/core/theme/fonts.dart';
 import 'package:pharmalink/core/theme/styles.dart';
 
 class SubtitleAnimation extends StatefulWidget {
-  SubtitleAnimation({super.key});
+  const SubtitleAnimation({super.key});
 
   @override
   State<SubtitleAnimation> createState() => _SubtitleAnimationState();
@@ -23,18 +23,18 @@ class _SubtitleAnimationState extends State<SubtitleAnimation> {
   @override
   void initState() {
     super.initState();
+    _loadPreferences();
   }
 
-  // Load stored variables
-  void _loadPreferences(BuildContext context) async {
-    await AuthSharedPrefs.loadUserAuthData();
-    await EntrySharedPrefs.loadEntryData();
-
+  // load Preferences to memory
+  Future<void> _loadPreferences() async {
     _isLoggedIn = AuthSharedPrefs.isUserLoggedIn();
-
     _isFirstEntry = EntrySharedPrefs.isFirstEntry();
     EntrySharedPrefs.storeEntryData(false);
   }
+
+  // Load stored variables
+  Future<void> _setStoredVariables() async {}
 
   void directToRightScreen(BuildContext context) {
     _isFirstEntry
@@ -61,8 +61,8 @@ class _SubtitleAnimationState extends State<SubtitleAnimation> {
           ),
         ),
       ],
-      onNext: (index, isLast) {
-        _loadPreferences(context);
+      onNext: (index, isLast) async {
+        await _setStoredVariables();
         directToRightScreen(context);
       },
     );
