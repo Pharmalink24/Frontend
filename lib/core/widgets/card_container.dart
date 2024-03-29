@@ -6,20 +6,26 @@ import 'package:pharmalink/core/theme/styles.dart';
 
 class CardContainer extends StatelessWidget {
   final String title;
+  final TextStyle? textStyle;
   final Widget child;
+  final EdgeInsets padding;
+  final EdgeInsets margin;
 
   const CardContainer({
     super.key,
     required this.title,
+    this.textStyle,
     required this.child,
+    this.padding = const EdgeInsets.all(12.0),
+    this.margin = const EdgeInsets.all(12.0),
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      padding: const EdgeInsets.all(12.0),
-      margin: const EdgeInsets.symmetric(vertical: 8.0),
+      padding: padding,
+      margin: margin,
       decoration: BoxDecoration(
         color: AppColors.primaryBackground,
         borderRadius: BorderRadius.circular(16.0),
@@ -32,11 +38,12 @@ class CardContainer extends StatelessWidget {
             children: [
               Text(
                 title,
-                style: AppTextStyle.bodyMedium.copyWith(
-                  fontFamily: AppFonts.secondary,
-                  fontSize: 24,
-                  fontWeight: FontWeight.w300,
-                ),
+                style: textStyle ??
+                    AppTextStyle.bodyMedium.copyWith(
+                      fontFamily: AppFonts.secondary,
+                      fontSize: 24,
+                      fontWeight: FontWeight.w300,
+                    ),
               ),
               IconButton(
                 onPressed: () {},
@@ -46,7 +53,7 @@ class CardContainer extends StatelessWidget {
             ],
           ),
           Container(
-            padding: const EdgeInsets.symmetric(vertical: 16.0),
+            padding: const EdgeInsets.only(top: 16.0),
             child: child,
           ),
         ],

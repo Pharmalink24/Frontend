@@ -1,10 +1,9 @@
 // Flutter Packages
 import 'package:flutter/material.dart';
-// Screens Packages
-// Components Packages
-// Utilities Packages
-// import 'package:pharmalink/utilities/constants.dart';
-// External Packages
+import 'package:flutter/widgets.dart';
+import 'package:pharmalink/core/theme/colors.dart';
+import 'widgets/account_settings.dart';
+import 'widgets/profile_info.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -19,12 +18,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return const SafeArea(
-      child: Padding(
-        padding: EdgeInsets.all(8.0),
+      child: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: [],
+          children: [
+            ProfileInfo(),
+            AccountSettings(),
+          ],
         ),
       ),
     );
