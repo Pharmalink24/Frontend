@@ -6,10 +6,10 @@ import 'package:pharmalink/core/theme/styles.dart';
 
 class CardContainer extends StatelessWidget {
   final String title;
-  TextStyle? style;
+  final TextStyle? style;
   final Widget child;
 
-  CardContainer({
+  const CardContainer({
     super.key,
     required this.title,
     required this.child,

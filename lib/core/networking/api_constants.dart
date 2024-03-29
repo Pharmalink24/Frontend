@@ -1,14 +1,16 @@
 // Apis
 class ApiConstants {
   static const String baseUrl = "http://54.234.91.4:8000/";
+  static const String tokenKey = "patientCustomToken";
   // User API
   static const signIn = "user/login/";
   static const signUp = "user/signup/";
   static const sendVerification = "user/resend-email-verification/";
   static const refreshToken = "user/refreshTaken/";
 
+  // Drug Interaction
   static const searchDrugFromDrugEye = "Prescription/drug_search/";
-
+  static const drugInteraction = "Drugs/check-drug-interaction-TradeName/";
 }
 
 class ApiErrors {

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/features/main/drug_interaction/logic/cubit/drug_interaction_cubit.dart';
 import 'package:pharmalink/features/main/drug_interaction/ui/widgets/drug_search_field.dart';
 
@@ -33,7 +34,7 @@ class _DrugInteractionFormState extends State<DrugInteractionForm> {
           ),
           const Divider(
             thickness: 1,
-            color: Color(0x00FFFFFF),
+            color: AppColors.transparent,
           ),
           const FormInputLabel(text: 'Second Drug'),
           DrugSearchField(

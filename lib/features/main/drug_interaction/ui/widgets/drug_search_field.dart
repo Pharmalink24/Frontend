@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_typeahead/flutter_typeahead.dart';
-import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/theme/styles.dart';
+import 'package:pharmalink/core/widgets/loading_indicator.dart';
 
 import '../../data/models/drug.dart';
 import '../../logic/cubit/drug_interaction_cubit.dart';
@@ -22,8 +22,8 @@ class _DrugSearchFieldState extends State<DrugSearchField> {
   Widget build(BuildContext context) {
     return TypeAheadField<Drug>(
       controller: widget.controller,
-      suggestionsCallback: (search) =>
-          getSearchedDrugs(drugId: widget.drugFieldId, search: search),
+      suggestionsCallback: (search) async =>
+          await getSearchedDrugs(drugId: widget.drugFieldId, search: search),
       itemBuilder: (context, drug) {
         return drugListTile(drug);
       },
@@ -39,7 +39,7 @@ class _DrugSearchFieldState extends State<DrugSearchField> {
       onSelected: (drug) {
         selectDrug(widget.controller, drug);
       },
-      loadingBuilder: (context) => showLoadingIndicator(),
+      loadingBuilder: (context) => const LoadingIndicator(),
       errorBuilder: (context, error) => const Text('Error!'),
       emptyBuilder: (context) => noDrugFoundWidget(),
     );
@@ -59,17 +59,9 @@ class _DrugSearchFieldState extends State<DrugSearchField> {
     ));
   }
 
-  Widget showLoadingIndicator() {
-    return const Center(
-      child: CircularProgressIndicator(
-        color: AppColors.primary,
-      ),
-    );
-  }
-
-  List<Drug>? getSearchedDrugs({required int drugId, required String search}) {
+  Future<List<Drug>?> getSearchedDrugs({required int drugId, required String search}) async {
     if (search.length > 2) {
-      return context
+      return await context
           .read<DrugInteractionCubit>()
           .getDrugSearchSuggestion(drugId: drugId);
     }
@@ -80,3 +72,4 @@ class _DrugSearchFieldState extends State<DrugSearchField> {
     controller?.text = drug.tradeName;
   }
 }
+

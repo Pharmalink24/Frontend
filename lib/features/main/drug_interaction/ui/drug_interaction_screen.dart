@@ -47,16 +47,7 @@ class _DrugInteractionScreenState extends State<DrugInteractionScreen> {
                 ],
               ),
             ),
-            InteractionResultContainer(
-              interactionIcon: Icon(
-                Icons.warning_rounded,
-                color: AppColors.warning,
-                size: 70.0,
-              ),
-              interactionTitle: "Risky",
-              interactionDescription:
-                  "This interaction can increase the risk of bleeding.",
-            ),
+            InteractionResultContainer(),
           ],
         ),
       ),
