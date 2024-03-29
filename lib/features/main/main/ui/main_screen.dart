@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../../home/ui/home_screen.dart';
 import '../../prescription/landing_prescription.dart';
 import '../../drug_interaction/drug_interaction_screen.dart';
-import '../../profile/profile_screen.dart';
+import '../../profile/ui/profile_screen.dart';
 import 'widgets/app_bottom_navigation_bar.dart';
 import '../../../../core/theme/colors.dart';
 import '../data/models/navigation_items.dart';

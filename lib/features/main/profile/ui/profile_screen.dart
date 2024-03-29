@@ -7,8 +7,6 @@ import 'package:flutter/material.dart';
 // External Packages
 
 class ProfileScreen extends StatefulWidget {
-  static String url = "patient/drug_interaction/";
-
   const ProfileScreen({super.key});
 
   @override
