@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pharmalink/core/widgets/card_container_column.dart';
 import '../../../../../core/widgets/card_container.dart';
 import '../../../../../core/widgets/circle_image.dart';
 
@@ -15,7 +16,7 @@ class DoctorsContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CardContainer(
+    return CardContainerWithTitle(
       title: "Your Doctors",
       child: SingleChildScrollView(
         scrollDirection: Axis.horizontal,
