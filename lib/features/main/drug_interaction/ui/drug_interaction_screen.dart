@@ -8,7 +8,6 @@ import 'package:pharmalink/core/widgets/card_container.dart';
 import 'package:pharmalink/core/widgets/form/form_button.dart';
 import 'package:pharmalink/features/main/drug_interaction/logic/cubit/drug_interaction_cubit.dart';
 import 'package:pharmalink/features/main/drug_interaction/ui/widgets/drug_interaction_form.dart';
-
 import 'widgets/interaction_result_container.dart';
 
 class DrugInteractionScreen extends StatefulWidget {
@@ -27,38 +26,39 @@ class _DrugInteractionScreenState extends State<DrugInteractionScreen> {
       width: double.infinity,
       child: SafeArea(
         child: ListView(
-            padding: const EdgeInsetsDirectional.fromSTEB(16, 32, 16, 16),
-            children: [
-              CardContainer(
-                title: 'Interactions',
-                style: AppTextStyle.displayMedium.copyWith(fontSize: 40),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    DrugInteractionForm(),
-                    FormButton(
-                      onPressed: () => drugInteraction(context),
-                      text: "Check",
-                      color: AppColors.secondary,
-                      padding: EdgeInsets.symmetric(vertical: 12.0),
-                      borderRadius: 8.0,
-                      elevation: 5.0,
-                    ),
-                  ],
-                ),
+          padding: const EdgeInsetsDirectional.fromSTEB(16, 16, 16, 16),
+          children: [
+            CardContainer(
+              title: 'Interactions',
+              style: AppTextStyle.displayMedium.copyWith(fontSize: 40),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  DrugInteractionForm(),
+                  FormButton(
+                    onPressed: () => drugInteraction(context),
+                    text: "Check",
+                    color: AppColors.secondary,
+                    padding: EdgeInsets.symmetric(vertical: 12.0),
+                    borderRadius: 8.0,
+                    elevation: 5.0,
+                  ),
+                ],
               ),
-              InteractionResultContainer(
-                interactionIcon: Icon(
-                  Icons.warning_rounded,
-                  color: AppColors.warning,
-                  size: 70.0,
-                ),
-                interactionTitle: "Risky",
-                interactionDescription:
-                    "This interaction can increase the risk of bleeding.",
+            ),
+            InteractionResultContainer(
+              interactionIcon: Icon(
+                Icons.warning_rounded,
+                color: AppColors.warning,
+                size: 70.0,
               ),
-            ]),
+              interactionTitle: "Risky",
+              interactionDescription:
+                  "This interaction can increase the risk of bleeding.",
+            ),
+          ],
+        ),
       ),
     );
   }

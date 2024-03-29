@@ -135,18 +135,26 @@ class _ApiService implements ApiService {
   }
 
   @override
-  Future<DrugEyeSearchResponse> searchDrugFromDrugEye(
-      DrugEyeSearchRequestParams drugEyeSearchRequestParams) async {
+  Future<List<Drug>> searchDrugFromDrugEye(
+    DrugEyeSearchRequestParams drugEyeSearchRequestParams,
+    String? auth,
+  ) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     queryParameters.addAll(drugEyeSearchRequestParams.toJson());
-    final _headers = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{
+      r'Content-Type': 'application/json',
+      r'Authorization': auth,
+    };
+    _headers.removeWhere((k, v) => v == null);
     const Map<String, dynamic>? _data = null;
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<DrugEyeSearchResponse>(Options(
-      method: 'POST',
+    final _result =
+        await _dio.fetch<List<dynamic>>(_setStreamType<List<Drug>>(Options(
+      method: 'GET',
       headers: _headers,
       extra: _extra,
+      contentType: 'application/json',
     )
             .compose(
               _dio.options,
@@ -159,7 +167,9 @@ class _ApiService implements ApiService {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = DrugEyeSearchResponse.fromJson(_result.data!);
+    var value = _result.data!
+        .map((dynamic i) => Drug.fromJson(i as Map<String, dynamic>))
+        .toList();
     return value;
   }
 
