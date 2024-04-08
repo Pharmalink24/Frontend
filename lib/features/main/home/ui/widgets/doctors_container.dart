@@ -1,11 +1,21 @@
 import 'package:flutter/material.dart';
 import '../../../../../core/widgets/card_container.dart';
-import '../../../../../core/widgets/circle_image.dart';
+import 'doctor_container.dart';
 
-List<String> imagesUrl = [
-  'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8ZG9jb3RyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=900&q=60',
-  'https://t4.ftcdn.net/jpg/03/20/52/31/360_F_320523164_tx7Rdd7I2XDTvvKfz2oRuRpKOPE5z0ni.jpg',
-  'https://t4.ftcdn.net/jpg/03/05/41/27/360_F_305412791_XRNiWaFCREjLLpSQfj0e736foBoYXXYv.jpg',
+const firstNames = ['Ahmed', 'Mohammed', 'Ali', 'Omar'];
+const lastNames = ['Elmowafy', 'El Sayed', 'El Gendy', 'El Shazly'];
+const specialists = [
+  'Dentist, M.D.',
+  'Surgeon, M.D.',
+  'Pediatrician, M.D.',
+  'Cardiologist, M.D.'
+];
+
+List<String?> imagesUrl = [
+  null,
+  'https://www.precisionptandmed.com/wp-content/uploads/2019/02/Doctor-PNG-Clipart.png',
+  null,
+  'https://purepng.com/public/uploads/large/purepng.com-doctorsdoctorsdoctors-and-nursesa-qualified-practitioner-of-medicine-aclinicianmedical-practitionermale-doctornotepad-1421526857009zrma0.png',
 ];
 
 class DoctorsContainer extends StatelessWidget {
@@ -23,29 +33,29 @@ class DoctorsContainer extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            CircleImage(
+            DoctorContainer(
+              firstName: firstNames[0],
+              lastName: lastNames[0],
+              specialty: specialists[0],
               url: imagesUrl[0],
             ),
-            CircleImage(
+            DoctorContainer(
+              firstName: firstNames[1],
+              lastName: lastNames[1],
+              specialty: specialists[1],
               url: imagesUrl[1],
             ),
-            CircleImage(
+            DoctorContainer(
+              firstName: firstNames[2],
+              lastName: lastNames[2],
+              specialty: specialists[2],
               url: imagesUrl[2],
             ),
-            CircleImage(
-              url: imagesUrl[1],
-            ),
-            CircleImage(
-              url: imagesUrl[2],
-            ),
-            CircleImage(
-              url: imagesUrl[0],
-            ),
-            CircleImage(
-              url: imagesUrl[2],
-            ),
-            CircleImage(
-              url: imagesUrl[1],
+            DoctorContainer(
+              firstName: firstNames[3],
+              lastName: lastNames[3],
+              specialty: specialists[3],
+              url: imagesUrl[3],
             ),
           ],
         ),

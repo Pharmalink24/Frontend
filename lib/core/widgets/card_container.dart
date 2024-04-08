@@ -34,8 +34,9 @@ class CardContainer extends StatelessWidget {
                 title,
                 style: AppTextStyle.bodyMedium.copyWith(
                   fontFamily: AppFonts.secondary,
-                  fontSize: 24,
-                  fontWeight: FontWeight.w300,
+                  fontSize: 25,
+                  letterSpacing: 0,
+                  fontWeight: FontWeight.w600,
                 ),
               ),
               IconButton(
