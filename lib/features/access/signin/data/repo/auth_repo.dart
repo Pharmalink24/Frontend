@@ -6,7 +6,8 @@ import 'package:pharmalink/core/networking/api_error_handler.dart';
 import 'package:pharmalink/core/networking/api_result.dart';
 import 'package:pharmalink/core/networking/api_service.dart';
 import 'package:pharmalink/core/shared_preferences/auth_prefs.dart';
-import 'package:pharmalink/features/access/signin/data/models/refresh_taken_request_body.dart';
+import 'package:pharmalink/features/access/signin/data/models/refresh_token_request_body.dart';
+import 'package:pharmalink/features/access/signin/data/models/refresh_token_response.dart';
 import 'package:pharmalink/features/access/signin/data/models/signin_response.dart';
 
 class AuthRepo {
@@ -32,18 +33,15 @@ class AuthRepo {
 
   Future<void> setToken(SigninResponse auth) async {
     try {
-      await AuthSharedPrefs.storeAuthData(
-          auth);
+      await AuthSharedPrefs.storeAuthData(auth);
     } catch (error) {
       getIt<Logger>().e(error);
     }
   }
 
-  Future<ApiResult<SigninResponse>> refreshToken(String refreshTaken) async {
+  Future<ApiResult<RefreshTokenResponse>> refreshToken(RefreshTokenRequestBody refreshTokenRequestBody) async {
     try {
-      final response = await _apiService.refreshToken(RefreshTakenRequestBody(
-        refreshTaken: refreshTaken,
-      ));
+      final response = await _apiService.refreshToken(refreshTokenRequestBody);
       return ApiResult.success(response);
     } catch (error) {
       return ApiResult.failure(ErrorHandler.handle(error));

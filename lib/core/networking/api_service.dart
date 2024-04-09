@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
+import 'package:pharmalink/features/access/signin/data/models/refresh_token_response.dart';
 import 'api_constants.dart';
-import '../../features/access/signin/data/models/refresh_taken_request_body.dart';
+import '../../features/access/signin/data/models/refresh_token_request_body.dart';
 import '../../features/access/signup/data/models/signup_request_body.dart';
 import '../../features/access/signup/data/models/signup_response.dart';
 import '../../features/access/verification/data/models/verification_request_params.dart';
@@ -22,11 +23,10 @@ abstract class ApiService {
     @Body() SigninRequestBody signinRequestBody,
   );
 
-  // Refresh Taken
-  // TODO: Edit this API
+  // Refresh Token
   @POST(ApiConstants.refreshToken)
-  Future<SigninResponse> refreshToken(
-    @Body() RefreshTakenRequestBody refreshTakenRequestBody,
+  Future<RefreshTokenResponse> refreshToken(
+    @Body() RefreshTokenRequestBody refreshTokenRequestBody,
   );
 
   // Signup

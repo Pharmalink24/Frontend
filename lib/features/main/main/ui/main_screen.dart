@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:pharmalink/core/helpers/extensions.dart';
+import 'package:pharmalink/core/routes/routes.dart';
+import 'package:pharmalink/core/shared_preferences/auth_prefs.dart';
 import '../../home/ui/home_screen.dart';
 import '../../prescription/landing_prescription.dart';
 import '../../drug_interaction/drug_interaction_screen.dart';
@@ -27,6 +30,23 @@ class _MainScreenState extends State<MainScreen> {
   @override
   void initState() {
     super.initState();
+    if (!isTokenValid()) {
+      // If token is not valid
+      showErrMsg();
+      // Clear all data and navigate to sign in screen
+      AuthSharedPrefs.clearAuthData();
+      context.pushNamed(Routes.signInScreen);
+    }
+  }
+
+  void showErrMsg() {
+    // Todo: Show error message
+  }
+
+  bool isTokenValid() {
+    // Check if token is valid
+    // _token = AuthSharedPrefs.getAccessToken();
+    return false;
   }
 
   @override

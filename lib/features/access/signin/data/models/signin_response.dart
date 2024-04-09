@@ -8,13 +8,16 @@ class SigninResponse {
   int id;
   String username;
   String email;
-  @JsonKey(name: "token")
+  @JsonKey(name: "refresh_token")
+  String refreshToken;
+  @JsonKey(name: "access_token")
   String accessToken;
 
   SigninResponse({
     required this.id,
     required this.username,
     required this.email,
+    required this.refreshToken,
     required this.accessToken,
   });
 

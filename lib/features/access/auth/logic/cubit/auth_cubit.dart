@@ -22,16 +22,16 @@ class AuthCubit extends Cubit<AuthState> {
     emit(AuthState.authorized(token));
   }
 
-  Future<SigninResponse?> refreshToken(SigninResponse token) async {
-    // TODO: must change it to refresh taken.
-    final response = await _authRepo.refreshToken(token.accessToken);
+  // Future<SigninResponse?> refreshToken(SigninResponse token) async {
+  //   // TODO: must change it to refresh token.
+  //   final response = await _authRepo.refreshToken(token.accessToken);
 
-    response.when(success: (takenResponse) {
-      emit(AuthState.authorized(takenResponse));
-      return response;
-    }, failure: (error) {
-      emit(const AuthState.initial());
-    });
-    return null;
-  }
+  //   response.when(success: (takenResponse) {
+  //     emit(AuthState.authorized(takenResponse));
+  //     return response;
+  //   }, failure: (error) {
+  //     emit(const AuthState.initial());
+  //   });
+  //   return null;
+  // }
 }
