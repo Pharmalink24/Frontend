@@ -42,7 +42,7 @@ class InteractionResultContainer extends StatelessWidget {
           color: AppColors.success,
         ),
         Text(
-          interactionResult.message,
+          interactionResult.type,
           style: AppTextStyle.displaySmall,
           textAlign: TextAlign.center,
         ),
