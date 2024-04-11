@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:pharmalink/core/helpers/constants/paths.dart';
 import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/theme/styles.dart';
 import 'package:pharmalink/core/widgets/card_container.dart';
 
 String name = 'Youssef Osama';
 String email = 'youssefosama@google.com';
+const ImageProvider<Object>? image =  const NetworkImage(
+  'https://www.dcu.ie/sites/default/files/sal_editor/2024-02/blank-headshot.jpg',
+);
 
 class ProfileInfo extends StatefulWidget {
   const ProfileInfo({
@@ -34,7 +38,10 @@ class _ProfileInfoState extends State<ProfileInfo> {
               children: [
                 const CircleAvatar(
                   radius: 30,
-                  backgroundImage: AssetImage('assets/images/user.png'),
+                  backgroundImage: image ??
+                      AssetImage(
+                        '${AppPaths.images}/user_placeholder.jpg',
+                      ),
                 ),
                 const SizedBox(
                   width: 10,
