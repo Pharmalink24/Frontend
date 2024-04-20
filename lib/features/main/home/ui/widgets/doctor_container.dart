@@ -61,6 +61,7 @@ class DoctorContainer extends StatelessWidget {
                     style: AppTextStyle.titleMedium.copyWith(
                       fontFamily: AppFonts.secondary,
                       fontWeight: FontWeight.bold,
+                      fontSize: 16,
                     ),
                   ),
                   Text(
@@ -69,13 +70,14 @@ class DoctorContainer extends StatelessWidget {
                     style: AppTextStyle.titleMedium.copyWith(
                       fontFamily: AppFonts.secondary,
                       fontWeight: FontWeight.bold,
+                      fontSize: 16,
                     ),
                   ),
                   Text(
                     cropperName(specialty, length: 14),
                     style: AppTextStyle.bodyMedium.copyWith(
                       fontFamily: AppFonts.secondary,
-                      fontSize: 12,
+                      fontSize: 11,
                     ),
                   ),
                 ],

@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:pharmalink/core/helpers/extensions.dart';
+import 'package:pharmalink/core/routes/routes.dart';
+import 'package:pharmalink/core/theme/colors.dart';
+import 'package:pharmalink/core/theme/styles.dart';
+import 'package:pharmalink/core/widgets/text_with_icon.dart';
 import '../../../../../core/widgets/card_container.dart';
 import 'doctor_container.dart';
 
@@ -27,6 +32,11 @@ class DoctorsContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return CardContainer(
       title: "Your Doctors",
+      iconButton: TextWithIcon(
+        onTap: () => context.pushNamed(Routes.doctorsScreen),
+        icon: Icons.arrow_circle_right_sharp,
+        text: 'View All',
+      ),
       child: SingleChildScrollView(
         scrollDirection: Axis.horizontal,
         child: Row(

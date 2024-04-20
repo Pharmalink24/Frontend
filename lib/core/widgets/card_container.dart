@@ -7,11 +7,13 @@ import 'package:pharmalink/core/theme/styles.dart';
 class CardContainer extends StatelessWidget {
   final String title;
   final Widget child;
+  final Widget iconButton;
 
   const CardContainer({
     super.key,
     required this.title,
     required this.child,
+    this.iconButton = const SizedBox.shrink(),
   });
 
   @override
@@ -39,15 +41,11 @@ class CardContainer extends StatelessWidget {
                   fontWeight: FontWeight.w600,
                 ),
               ),
-              IconButton(
-                onPressed: () {},
-                icon: const Icon(Icons.menu),
-                color: AppColors.secondaryText,
-              ),
+              iconButton
             ],
           ),
           Container(
-            padding: const EdgeInsets.symmetric(vertical: 16.0),
+            padding: const EdgeInsets.symmetric(vertical: 8.0),
             child: child,
           ),
         ],

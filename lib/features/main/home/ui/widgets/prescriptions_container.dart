@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pharmalink/core/widgets/text_with_icon.dart';
 import '../../../../../core/widgets/card_container.dart';
 import 'drug_list_tile.dart';
 
@@ -9,6 +10,10 @@ class PrescriptionsContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return const CardContainer(
       title: "Your Reminders",
+      iconButton: TextWithIcon(
+        icon: Icons.playlist_add_check_circle_rounded,
+        text: 'Check All',
+      ),
       child: Column(
         children: [
           DrugListTile(
