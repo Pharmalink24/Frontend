@@ -1,10 +1,10 @@
-// {
-//   "commercial_name": "CALCIDOL 0.25mcg soft gelatin caps.",
-//   "start_date": "2024-03-17",
-//   "end_date": "2024-03-30",
-//   "quantity": 10,
-//   "quantity_unit": "capsule"
-// },
+// "commercial_name": "PROCTO-4 supp.",
+// "start_date": "2024-04-10",
+// "end_date": "2024-04-30",
+// "quantity": 1,
+// "quantity_unit": "ampoule",
+// "rate": 25.5,
+// "rate_unit": "I.U"
 
 import 'package:flutter/material.dart';
 import 'package:json_annotation/json_annotation.dart';
@@ -22,6 +22,9 @@ class Drug {
   final int quantity;
   @JsonKey(name: "quantity_unit")
   final String quantityUnit;
+  final double rate;
+  @JsonKey(name: "rate_unit")
+  final String rateUnit;
 
   Drug({
     required this.commercialName,
@@ -29,6 +32,8 @@ class Drug {
     required this.endDate,
     required this.quantity,
     required this.quantityUnit,
+    required this.rate,
+    required this.rateUnit,
   });
 
   // Todo: Complete Implementing the isToday method

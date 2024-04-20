@@ -23,9 +23,9 @@ class DoctorsContainer extends StatelessWidget {
         itemCount: doctors.length,
         itemBuilder: (context, index) {
           return DoctorContainer(
-            firstName: doctors[index].username,
-            lastName: doctors[index].username,
-            specialty: doctors[index].username,
+            firstName: doctors[index].firstName,
+            lastName: doctors[index].lastName,
+            specialty: doctors[index].specialty,
             url: doctors[index].image,
           );
         },
