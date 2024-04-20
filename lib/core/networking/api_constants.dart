@@ -6,6 +6,9 @@ class ApiConstants {
   static const signUp = "user/signup/";
   static const sendVerification = "user/resend-email-verification/";
   static const refreshToken = "user/refreshTaken/";
+
+  // Home API
+  static const homePage = "Prescription/user/HomePage/";
 }
 
 class ApiErrors {

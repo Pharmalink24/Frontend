@@ -28,10 +28,11 @@ class AppRouter {
 
       case Routes.signInScreen:
         return MaterialPageRoute(
-            builder: (_) => BlocProvider(
-                  create: (context) => getIt<SigninCubit>(),
-                  child: const SigninScreen(),
-                ));
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<SigninCubit>(),
+            child: const SigninScreen(),
+          ),
+        );
 
       case Routes.signUpScreen:
         return MaterialPageRoute(
@@ -44,13 +45,14 @@ class AppRouter {
       case Routes.verificationScreen:
         final signupResponse = settings.arguments as SignupResponse;
         return MaterialPageRoute(
-            builder: (_) => BlocProvider(
-                  create: (context) => getIt<VerificationCubit>(),
-                  child: VerificationScreen(
-                    email: signupResponse.email,
-                    userId: signupResponse.id,
-                  ),
-                ));
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<VerificationCubit>(),
+            child: VerificationScreen(
+              email: signupResponse.email,
+              userId: signupResponse.id,
+            ),
+          ),
+        );
 
       case Routes.mainScreen:
         return MaterialPageRoute(builder: (_) => const MainScreen());

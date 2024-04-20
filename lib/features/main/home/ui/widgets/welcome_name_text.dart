@@ -4,11 +4,15 @@ import '../../../../../core/theme/fonts.dart';
 import '../../../../../core/theme/styles.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
 
-String username = "Mohammed";
 const kFontSize = 30.0;
 
 class WelcomeNameText extends StatelessWidget {
-  const WelcomeNameText({super.key});
+  final String name;
+  
+  const WelcomeNameText({
+    super.key,
+    required this.name,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +33,7 @@ class WelcomeNameText extends StatelessWidget {
               ),
             ),
             GradientText(
-              username,
+              name,
               textAlign: TextAlign.start,
               style: AppTextStyle.bodyMedium.copyWith(
                 fontFamily: AppFonts.secondary,

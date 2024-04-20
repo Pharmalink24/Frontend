@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pharmalink/core/di/dependency_injection.dart';
+import 'package:pharmalink/features/main/home/logic/cubit/home_page_cubit.dart';
 import '../../home/ui/home_screen.dart';
 import '../../prescription/landing_prescription.dart';
 import '../../drug_interaction/drug_interaction_screen.dart';
@@ -8,7 +11,10 @@ import '../../../../core/theme/colors.dart';
 import '../data/models/navigation_items.dart';
 
 List<Widget> pages = [
-  const HomeScreen(),
+  BlocProvider(
+    create: (context) => getIt<HomePageCubit>(),
+    child: const HomeScreen(),
+  ),
   const LandingPrescriptionScreen(),
   const DrugInteractionScreen(),
   const ProfileScreen(),

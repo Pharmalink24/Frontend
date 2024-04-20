@@ -5,7 +5,7 @@ import '../../../../../core/theme/styles.dart';
 
 class DrugListTile extends StatefulWidget {
   final String drugName;
-  final String quantity;
+  final int quantity;
   final String measure;
   final TimeOfDay time;
 
