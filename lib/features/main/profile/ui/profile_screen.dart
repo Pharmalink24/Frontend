@@ -1,7 +1,6 @@
 // Flutter Packages
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:pharmalink/core/theme/colors.dart';
 import 'widgets/account_settings.dart';
 import 'widgets/profile_info.dart';
 
