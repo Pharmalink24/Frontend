@@ -32,6 +32,10 @@ class _MainScreenState extends State<MainScreen> {
     super.initState();
 
     // Refresh token on start
+    refreshAccessToken(context);
+  }
+
+  void refreshAccessToken(BuildContext context) {
     context.read<SigninCubit>().refreshToken();
   }
 
@@ -45,7 +49,7 @@ class _MainScreenState extends State<MainScreen> {
             Expanded(
               child: pages[activeIndex],
             ),
-            const RefreshTokenBlocListener(),
+            RefreshTokenBlocListener(),
           ],
         ),
         backgroundColor: AppColors.secondaryBackground,

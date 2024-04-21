@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:logger/logger.dart';
-import 'package:pharmalink/core/di/dependency_injection.dart';
-import 'package:pharmalink/core/shared_preferences/auth_prefs.dart';
+import 'package:pharmalink/core/widgets/loading_indicator.dart';
 import '../../../../../core/helpers/extensions.dart';
 import '../../../../../core/routes/routes.dart';
 import '../../../../../core/theme/colors.dart';
@@ -12,23 +10,18 @@ import '../../logic/cubit/signin_cubit.dart';
 import '../../logic/cubit/signin_state.dart';
 
 class SigninBlocListener extends StatelessWidget {
-  const SigninBlocListener({super.key});
+  SigninBlocListener({super.key});
+
+  final LoadingOverlay _loadingOverlay = LoadingOverlay();
 
   // Show loading indicator dialog
   void showLoading(BuildContext context) {
-    showDialog(
-      context: context,
-      builder: (context) => const Center(
-        child: CircularProgressIndicator(
-          color: AppColors.secondary,
-        ),
-      ),
-    );
+    _loadingOverlay.show(context);
   }
 
   // Show error indicator dialog
   void showError(BuildContext context, String error) {
-    context.pop();
+    _loadingOverlay.hide();
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
@@ -58,11 +51,7 @@ class SigninBlocListener extends StatelessWidget {
   }
 
   void showSuccess(BuildContext context, SigninResponse signinResponse) async {
-
-    getIt<Logger>().i(signinResponse.accessToken);
-    getIt<Logger>().i(AuthSharedPrefs.getAccessToken());
-
-    context.pop();
+    _loadingOverlay.hide();
     context.pushNamed(Routes.mainScreen);
   }
 

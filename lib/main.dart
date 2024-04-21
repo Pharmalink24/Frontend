@@ -1,7 +1,6 @@
 // Flutter Packages
 import 'package:flutter/material.dart';
 import 'package:pharmalink/core/di/dependency_injection.dart';
-import 'package:pharmalink/core/shared_preferences/auth_prefs.dart';
 import 'package:pharmalink/core/shared_preferences/shared_preferences_service.dart';
 import 'pharmalink_app.dart';
 import 'package:pharmalink/core/routes/app_router.dart';
@@ -12,8 +11,6 @@ void main() async {
 
   setupGetIt(); // Initialize get it
   await SharedPrefsService.init(); // Initialize PreferenceUtils instance.
-
-  AuthSharedPrefs.clearAuthData();
   
   runApp(
     PharmalinkApp(

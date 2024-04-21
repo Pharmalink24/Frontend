@@ -56,7 +56,7 @@ class _SigninScreenState extends State<SigninScreen> {
                   onPressed: () => validationThenSignin(context),
                 ),
                 const TermsAndConditionsText(),
-                const SigninBlocListener(),
+                SigninBlocListener(),
               ],
             ),
           ),

@@ -4,29 +4,25 @@ import 'package:pharmalink/core/helpers/extensions.dart';
 import 'package:pharmalink/core/routes/routes.dart';
 import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/theme/styles.dart';
+import 'package:pharmalink/core/widgets/loading_indicator.dart';
 import 'package:pharmalink/features/access/signin/data/models/refresh_token_response.dart';
 import 'package:pharmalink/features/access/signin/logic/cubit/signin_cubit.dart';
 import 'package:pharmalink/features/access/signin/logic/cubit/signin_state.dart';
 
 class RefreshTokenBlocListener extends StatelessWidget {
-  const RefreshTokenBlocListener({super.key});
+  RefreshTokenBlocListener({super.key});
+  
+  final LoadingOverlay _loadingOverlay = LoadingOverlay();
 
   // Show loading indicator dialog
   void showLoading(BuildContext context) {
-    showDialog(
-      context: context,
-      builder: (context) => const Center(
-        child: CircularProgressIndicator(
-          color: AppColors.secondary,
-        ),
-      ),
-    );
+    _loadingOverlay.show(context);
   }
 
   // Show error indicator dialog
   void showError(BuildContext context, String error) {
     // Close loading dialog
-    context.pop();
+    _loadingOverlay.hide();
 
     // Show error dialog
     showDialog(
@@ -63,7 +59,7 @@ class RefreshTokenBlocListener extends StatelessWidget {
   void showSuccess(
       BuildContext context, RefreshTokenResponse refreshTokenResponse) async {
     // Close loading dialog
-    context.pop();
+    _loadingOverlay.hide();
   }
 
   @override
