@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pharmalink/core/widgets/card_container_column.dart';
+import 'package:pharmalink/core/widgets/card_container_with_title.dart';
 import 'package:pharmalink/core/helpers/extensions.dart';
 import 'package:pharmalink/core/routes/routes.dart';
 import 'package:pharmalink/core/theme/styles.dart';

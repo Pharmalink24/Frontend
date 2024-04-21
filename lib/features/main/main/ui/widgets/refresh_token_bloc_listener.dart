@@ -4,7 +4,7 @@ import 'package:pharmalink/core/helpers/extensions.dart';
 import 'package:pharmalink/core/routes/routes.dart';
 import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/theme/styles.dart';
-import 'package:pharmalink/core/widgets/loading_indicator.dart';
+import 'package:pharmalink/core/widgets/loading_overlay.dart';
 import 'package:pharmalink/features/access/signin/data/models/refresh_token_response.dart';
 import 'package:pharmalink/features/access/signin/logic/cubit/signin_cubit.dart';
 import 'package:pharmalink/features/access/signin/logic/cubit/signin_state.dart';

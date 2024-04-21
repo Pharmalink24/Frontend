@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:pharmalink/core/theme/styles.dart';
+import 'package:pharmalink/core/widgets/card_container_with_title.dart';
 import 'package:pharmalink/core/widgets/text_with_icon.dart';
 import 'package:pharmalink/features/main/home/data/models/drug.dart';
-import '../../../../../core/widgets/card_container.dart';
 import 'drug_list_tile.dart';
 
 class RemindersContainer extends StatelessWidget {
@@ -43,7 +43,7 @@ class RemindersContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CardContainer(
+    return CardContainerWithTitle(
       title: "Your Reminders",
       iconButton: const TextWithIcon(
         icon: Icons.playlist_add_check_circle_rounded,

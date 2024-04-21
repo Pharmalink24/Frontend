@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pharmalink/core/widgets/loading_indicator.dart';
+import 'package:pharmalink/core/widgets/loading_overlay.dart';
 import '../../../../../core/helpers/extensions.dart';
 import '../../../../../core/theme/colors.dart';
 import '../../../../../core/theme/styles.dart';
