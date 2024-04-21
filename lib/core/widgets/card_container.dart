@@ -1,18 +1,19 @@
 // Flutter Packages
 import 'package:flutter/material.dart';
 import 'package:pharmalink/core/theme/colors.dart';
+import 'package:pharmalink/core/theme/fonts.dart';
+import 'package:pharmalink/core/theme/styles.dart';
 
 class CardContainer extends StatelessWidget {
-  final MainAxisAlignment mainAxisAlignment;
-  final CrossAxisAlignment crossAxisAlignment;
-
-  final List<Widget> children;
+  final String title;
+  final Widget child;
+  final Widget iconButton;
 
   const CardContainer({
     super.key,
-    required this.children,
-    this.mainAxisAlignment = MainAxisAlignment.center,
-    this.crossAxisAlignment = CrossAxisAlignment.start,
+    required this.title,
+    required this.child,
+    this.iconButton = const SizedBox.shrink(),
   });
 
   @override
@@ -26,9 +27,28 @@ class CardContainer extends StatelessWidget {
         borderRadius: BorderRadius.circular(16.0),
       ),
       child: Column(
-        mainAxisAlignment: mainAxisAlignment,
-        crossAxisAlignment: crossAxisAlignment,
-        children: children,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                title,
+                style: AppTextStyle.bodyMedium.copyWith(
+                  fontFamily: AppFonts.secondary,
+                  fontSize: 25,
+                  letterSpacing: 0,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+              iconButton
+            ],
+          ),
+          Container(
+            padding: const EdgeInsets.symmetric(vertical: 8.0),
+            child: child,
+          ),
+        ],
       ),
     );
   }

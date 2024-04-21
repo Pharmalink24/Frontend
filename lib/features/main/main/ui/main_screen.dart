@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../access/signin/logic/cubit/signin_cubit.dart';
 import 'package:pharmalink/core/di/dependency_injection.dart';
 import 'package:pharmalink/features/main/drug_interaction/logic/cubit/drug_interaction_cubit.dart';
+import 'package:pharmalink/features/main/home/logic/cubit/home_page_cubit.dart';
 import '../../home/ui/home_screen.dart';
 import '../../prescription/landing_prescription.dart';
 import '../../drug_interaction/ui/drug_interaction_screen.dart';
@@ -13,7 +14,10 @@ import '../data/models/navigation_items.dart';
 import 'widgets/refresh_token_bloc_listener.dart';
 
 List<Widget> pages = [
-  const HomeScreen(),
+  BlocProvider(
+    create: (context) => getIt<HomePageCubit>(),
+    child: const HomeScreen(),
+  ),
   const LandingPrescriptionScreen(),
   BlocProvider(
     create: (context) => getIt<DrugInteractionCubit>(),

@@ -11,6 +11,9 @@ class ApiConstants {
   // Drug Interaction & Search API
   static const searchDrugFromDrugEye = "Prescription/drug_search/";
   static const drugInteraction = "Drugs/check-drug-interaction-TradeName/";
+
+  // Home API
+  static const homePage = "Prescription/user/HomePage/";
 }
 
 class ApiErrors {
