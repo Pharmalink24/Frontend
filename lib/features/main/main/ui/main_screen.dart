@@ -7,7 +7,8 @@ import 'package:pharmalink/features/main/home/logic/cubit/home_page_cubit.dart';
 import '../../home/ui/home_screen.dart';
 import '../../prescription/landing_prescription.dart';
 import '../../drug_interaction/ui/drug_interaction_screen.dart';
-import '../../profile/profile_screen.dart';
+import '../../profile/logic/cubit/profile_cubit.dart';
+import '../../profile/ui/profile_screen.dart';
 import 'widgets/app_bottom_navigation_bar.dart';
 import '../../../../core/theme/colors.dart';
 import '../data/models/navigation_items.dart';
@@ -23,7 +24,17 @@ List<Widget> pages = [
     create: (context) => getIt<DrugInteractionCubit>(),
     child: const DrugInteractionScreen(),
   ),
-  const ProfileScreen(),
+  MultiBlocProvider(
+    providers: [
+      BlocProvider(
+        create: (context) => getIt<ProfileCubit>(),
+      ),
+      BlocProvider(
+        create: (context) => getIt<SigninCubit>(),
+      ),
+    ],
+    child: const ProfileScreen(),
+  ),
 ];
 
 class MainScreen extends StatefulWidget {

@@ -14,6 +14,9 @@ class ApiConstants {
 
   // Home API
   static const homePage = "Prescription/user/HomePage/";
+
+  // Profile API
+  static const userInformation = "user/user-info/";
 }
 
 class ApiErrors {

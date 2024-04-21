@@ -12,6 +12,7 @@ class FormDropDownButton extends StatelessWidget {
   final List<String> items;
   final Function onChanged;
   final BoxDecoration decoration;
+  final EdgeInsetsGeometry? padding;
 
   const FormDropDownButton({
     super.key,
@@ -20,6 +21,7 @@ class FormDropDownButton extends StatelessWidget {
     required this.items,
     required this.onChanged,
     required this.decoration,
+    this.padding,
   });
 
   @override
@@ -30,8 +32,13 @@ class FormDropDownButton extends StatelessWidget {
         decoration: decoration,
         width: double.infinity,
         child: DropdownButton(
+          icon: Icon(
+            Icons.keyboard_arrow_down_rounded,
+            color: AppColors.secondary,
+            size: 24,
+          ),
           hint: Text(hintText ?? ""),
-          padding: EdgeInsets.all(16.0),
+          padding: padding,
           value: value ?? items[0],
           onChanged: (value) {
             onChanged(value);
@@ -47,6 +54,8 @@ class FormDropDownButton extends StatelessWidget {
             color: AppColors.secondary,
           ),
           underline: SizedBox(),
+          elevation: 5,
+          isExpanded: true,
         ),
       ),
     );

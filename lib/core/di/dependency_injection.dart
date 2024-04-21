@@ -5,6 +5,8 @@ import 'package:pharmalink/features/main/drug_interaction/data/repo/drug_interac
 import 'package:pharmalink/features/main/drug_interaction/logic/cubit/drug_interaction_cubit.dart';
 import 'package:pharmalink/features/main/home/data/repo/home_page_repo.dart';
 import 'package:pharmalink/features/main/home/logic/cubit/home_page_cubit.dart';
+import 'package:pharmalink/features/main/profile/data/repo/profile_repo.dart';
+import 'package:pharmalink/features/main/profile/logic/cubit/profile_cubit.dart';
 import '../networking/api_service.dart';
 import '../networking/dio_factory.dart';
 import '../../features/access/auth/logic/cubit/auth_cubit.dart';
@@ -40,16 +42,20 @@ Future<void> setupGetIt() async {
       .registerLazySingleton<VerificationRepo>(() => VerificationRepo(getIt()));
   getIt.registerFactory<VerificationCubit>(() => VerificationCubit(getIt()));
 
+  // Home Page
+  getIt.registerLazySingleton<HomePageRepo>(() => HomePageRepo(getIt()));
+  getIt.registerFactory<HomePageCubit>(() => HomePageCubit(getIt()));
+  
   // Drug Interaction
   getIt.registerLazySingleton<DrugInteractionRepo>(
       () => DrugInteractionRepo(getIt()));
   getIt.registerFactory<DrugInteractionCubit>(
       () => DrugInteractionCubit(getIt()));
 
-  // Home Page
-  getIt.registerLazySingleton<HomePageRepo>(() => HomePageRepo(getIt()));
-  getIt.registerFactory<HomePageCubit>(() => HomePageCubit(getIt()));
-  
+  // Profile Information
+  getIt.registerLazySingleton<ProfileRepo>(() => ProfileRepo(getIt()));
+  getIt.registerFactory<ProfileCubit>(() => ProfileCubit(getIt()));
+
   // Logger
   getIt.registerLazySingleton<Logger>(() => Logger());
 }
