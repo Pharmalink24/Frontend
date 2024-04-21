@@ -7,7 +7,7 @@ class RefreshTokenRequestBody {
   @JsonKey(name: "refresh_token")
   final String refreshToken;
 
-  RefreshTokenRequestBody({
+  const RefreshTokenRequestBody({
     required this.refreshToken,
   });
 

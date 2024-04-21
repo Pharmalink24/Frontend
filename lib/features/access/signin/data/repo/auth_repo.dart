@@ -23,7 +23,7 @@ class AuthRepo {
     }
   }
 
-  Future<void> clearToken() async {
+  Future<void> clearAuthData() async {
     try {
       await AuthSharedPrefs.clearAuthData();
     } catch (error) {
@@ -39,7 +39,8 @@ class AuthRepo {
     }
   }
 
-  Future<ApiResult<RefreshTokenResponse>> refreshToken(RefreshTokenRequestBody refreshTokenRequestBody) async {
+  Future<ApiResult<RefreshTokenResponse>> refreshToken(
+      RefreshTokenRequestBody refreshTokenRequestBody) async {
     try {
       final response = await _apiService.refreshToken(refreshTokenRequestBody);
       return ApiResult.success(response);
@@ -47,4 +48,5 @@ class AuthRepo {
       return ApiResult.failure(ErrorHandler.handle(error));
     }
   }
+
 }

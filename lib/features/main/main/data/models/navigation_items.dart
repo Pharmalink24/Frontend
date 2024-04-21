@@ -1,12 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class BottomNavigationBarItemInfo {
-  final IconData icon;
-  final String label;
-
-  BottomNavigationBarItemInfo({required this.icon, required this.label});
-}
+import 'bottom_navigation_bar_item_info.dart';
 
 // List of navigation items
 List<BottomNavigationBarItemInfo> navigationItems = [

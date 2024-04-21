@@ -13,7 +13,7 @@ class AuthCubit extends Cubit<AuthState> {
   // }
 
   void logout() async {
-    await _authRepo.clearToken();
+    await _authRepo.clearAuthData();
     emit(const AuthState.initial());
   }
 

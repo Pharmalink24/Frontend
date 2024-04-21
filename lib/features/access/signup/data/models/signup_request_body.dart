@@ -2,6 +2,10 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'signup_request_body.g.dart';
 
+// "id": 12,
+// "email": "mohamed.ahmedfrg.2002@outlook.com",
+// "username": "mohd2002132"
+
 @JsonSerializable()
 class SignupRequestBody {
   final String fname;

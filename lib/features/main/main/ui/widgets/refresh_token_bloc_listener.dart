@@ -1,18 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:logger/logger.dart';
-import 'package:pharmalink/core/di/dependency_injection.dart';
-import 'package:pharmalink/core/shared_preferences/auth_prefs.dart';
-import '../../../../../core/helpers/extensions.dart';
-import '../../../../../core/routes/routes.dart';
-import '../../../../../core/theme/colors.dart';
-import '../../../../../core/theme/styles.dart';
-import '../../data/models/signin_response.dart';
-import '../../logic/cubit/signin_cubit.dart';
-import '../../logic/cubit/signin_state.dart';
+import 'package:pharmalink/core/helpers/extensions.dart';
+import 'package:pharmalink/core/routes/routes.dart';
+import 'package:pharmalink/core/theme/colors.dart';
+import 'package:pharmalink/core/theme/styles.dart';
+import 'package:pharmalink/features/access/signin/data/models/refresh_token_response.dart';
+import 'package:pharmalink/features/access/signin/logic/cubit/signin_cubit.dart';
+import 'package:pharmalink/features/access/signin/logic/cubit/signin_state.dart';
 
-class SigninBlocListener extends StatelessWidget {
-  const SigninBlocListener({super.key});
+class RefreshTokenBlocListener extends StatelessWidget {
+  const RefreshTokenBlocListener({super.key});
 
   // Show loading indicator dialog
   void showLoading(BuildContext context) {
@@ -28,7 +25,10 @@ class SigninBlocListener extends StatelessWidget {
 
   // Show error indicator dialog
   void showError(BuildContext context, String error) {
+    // Close loading dialog
     context.pop();
+
+    // Show error dialog
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
@@ -55,15 +55,15 @@ class SigninBlocListener extends StatelessWidget {
         ],
       ),
     );
+
+    // Navigate to sign in screen
+    context.pushNamed(Routes.signInScreen);
   }
 
-  void showSuccess(BuildContext context, SigninResponse signinResponse) async {
-
-    getIt<Logger>().i(signinResponse.accessToken);
-    getIt<Logger>().i(AuthSharedPrefs.getAccessToken());
-
+  void showSuccess(
+      BuildContext context, RefreshTokenResponse refreshTokenResponse) async {
+    // Close loading dialog
     context.pop();
-    context.pushNamed(Routes.mainScreen);
   }
 
   @override
@@ -74,7 +74,8 @@ class SigninBlocListener extends StatelessWidget {
       listener: (context, state) {
         state.whenOrNull(
           loading: () => showLoading(context),
-          success: (signinResponse) => showSuccess(context, signinResponse),
+          success: (refreshTakenResponse) =>
+              showSuccess(context, refreshTakenResponse),
           error: (error) => showError(context, error),
         );
       },

@@ -7,7 +7,7 @@ class RefreshTokenResponse {
   @JsonKey(name: "access_token")
   final String accessToken;
 
-  RefreshTokenResponse({
+  const RefreshTokenResponse({
     required this.accessToken,
   });
 

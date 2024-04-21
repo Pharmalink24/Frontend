@@ -55,8 +55,12 @@ abstract class AuthSharedPrefs {
   }
 
   static Future<bool> clearAuthData() async {
-    await SharedPrefsService.remove(_ACCESS_TOKEN);
     await SharedPrefsService.remove(_ID);
+    await SharedPrefsService.remove(_USERNAME);
+    await SharedPrefsService.remove(_EMAIL);
+    await SharedPrefsService.remove(_REFRESH_TOKEN);
+    await SharedPrefsService.remove(_ACCESS_TOKEN);
+
     await SharedPrefsService.setBool(_IS_LOGGED_IN, false);
 
     return true;

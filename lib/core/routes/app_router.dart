@@ -53,7 +53,12 @@ class AppRouter {
                 ));
 
       case Routes.mainScreen:
-        return MaterialPageRoute(builder: (_) => const MainScreen());
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<SigninCubit>(),
+            child: const MainScreen(),
+          ),
+        );
 
       default:
         return MaterialPageRoute(builder: (_) => const Error404Screen());

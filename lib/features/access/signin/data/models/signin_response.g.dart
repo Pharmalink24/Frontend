@@ -11,8 +11,8 @@ SigninResponse _$SigninResponseFromJson(Map<String, dynamic> json) =>
       id: json['id'] as int,
       username: json['username'] as String,
       email: json['email'] as String,
-      accessToken: json['token'] as String,
       refreshToken: json['refresh_token'] as String,
+      accessToken: json['access_token'] as String,
     );
 
 Map<String, dynamic> _$SigninResponseToJson(SigninResponse instance) =>
@@ -20,6 +20,6 @@ Map<String, dynamic> _$SigninResponseToJson(SigninResponse instance) =>
       'id': instance.id,
       'username': instance.username,
       'email': instance.email,
-      'token': instance.accessToken,
+      'access_token': instance.accessToken,
       'refresh_token': instance.refreshToken,
     };

@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:pharmalink/features/access/signin/data/models/refresh_token_response.dart';
+import 'package:retrofit/http.dart';
 import 'api_constants.dart';
 import '../../features/access/signin/data/models/refresh_token_request_body.dart';
 import '../../features/access/signup/data/models/signup_request_body.dart';

@@ -5,15 +5,15 @@ part "signin_response.g.dart";
 
 @JsonSerializable()
 class SigninResponse {
-  int id;
-  String username;
-  String email;
-  @JsonKey(name: "refresh_token")
-  String refreshToken;
+  final int id;
+  final String username;
+  final String email;
   @JsonKey(name: "access_token")
-  String accessToken;
+  final String accessToken;
+  @JsonKey(name: "refresh_token")
+  final String refreshToken;
 
-  SigninResponse({
+  const SigninResponse({
     required this.id,
     required this.username,
     required this.email,

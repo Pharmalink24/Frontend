@@ -6,6 +6,8 @@ class ApiConstants {
   static const signUp = "user/signup/";
   static const sendVerification = "user/resend-email-verification/";
   static const refreshToken = "user/refresh-token/";
+
+  static const isValidAccessToken = "user/is-valid-access-token/";
 }
 
 class ApiErrors {

@@ -5,33 +5,30 @@ import 'package:pharmalink/core/shared_preferences/auth_prefs.dart';
 import 'package:pharmalink/core/shared_preferences/entry_prefs.dart';
 import 'package:pharmalink/core/theme/colors.dart';
 
-class AuthListener extends StatefulWidget {
-  const AuthListener({super.key});
+class DirectTo extends StatefulWidget {
+  const DirectTo({super.key});
 
   @override
-  State<AuthListener> createState() => _AuthListenerState();
+  State<DirectTo> createState() => _DirectToState();
 }
 
-class _AuthListenerState extends State<AuthListener> {
+class _DirectToState extends State<DirectTo> {
   bool _isFirstEntry = true;
   bool _isLoggedIn = false;
-  String? _token;
 
   @override
   void initState() {
     super.initState();
-
-    // Load Preferences
-    _loadPreferences().then((_) {
-      direct(context);
-    });
+    WidgetsBinding.instance
+        .addPostFrameCallback((_) => _loadPreferences().then((_) {
+              direct(context);
+            }));
   }
 
   // load Preferences to memory
   Future<void> _loadPreferences() async {
     // Is logged in ?
     _isLoggedIn = AuthSharedPrefs.isUserLoggedIn();
-
     // Is this first entry ?
     _isFirstEntry = EntrySharedPrefs.isFirstEntry();
     EntrySharedPrefs.storeEntryData(false);

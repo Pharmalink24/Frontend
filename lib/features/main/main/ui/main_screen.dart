@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pharmalink/core/helpers/extensions.dart';
-import 'package:pharmalink/core/routes/routes.dart';
-import 'package:pharmalink/core/shared_preferences/auth_prefs.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../../access/signin/logic/cubit/signin_cubit.dart';
 import '../../home/ui/home_screen.dart';
 import '../../prescription/landing_prescription.dart';
 import '../../drug_interaction/drug_interaction_screen.dart';
@@ -9,6 +8,7 @@ import '../../profile/profile_screen.dart';
 import 'widgets/app_bottom_navigation_bar.dart';
 import '../../../../core/theme/colors.dart';
 import '../data/models/navigation_items.dart';
+import 'widgets/refresh_token_bloc_listener.dart';
 
 List<Widget> pages = [
   const HomeScreen(),
@@ -30,23 +30,9 @@ class _MainScreenState extends State<MainScreen> {
   @override
   void initState() {
     super.initState();
-    if (!isTokenValid()) {
-      // If token is not valid
-      showErrMsg();
-      // Clear all data and navigate to sign in screen
-      AuthSharedPrefs.clearAuthData();
-      context.pushNamed(Routes.signInScreen);
-    }
-  }
 
-  void showErrMsg() {
-    // Todo: Show error message
-  }
-
-  bool isTokenValid() {
-    // Check if token is valid
-    // _token = AuthSharedPrefs.getAccessToken();
-    return false;
+    // Refresh token on start
+    context.read<SigninCubit>().refreshToken();
   }
 
   @override
@@ -54,7 +40,14 @@ class _MainScreenState extends State<MainScreen> {
     return PopScope(
       canPop: false,
       child: Scaffold(
-        body: pages.elementAt(activeIndex),
+        body: Column(
+          children: [
+            Expanded(
+              child: pages[activeIndex],
+            ),
+            const RefreshTokenBlocListener(),
+          ],
+        ),
         backgroundColor: AppColors.secondaryBackground,
         bottomNavigationBar: AppBottomNavigationBar(
           currentIndex: activeIndex,

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../core/theme/colors.dart';
-import 'widgets/auth_listener.dart';
+import 'widgets/direct_to.dart';
 import 'widgets/logo_icon.dart';
 import 'widgets/subtitle_animation.dart';
 
@@ -20,7 +20,7 @@ class SplashScreen extends StatelessWidget {
               children: [
                 LogoIcon(),
                 SubtitleAnimation(),
-                AuthListener(),
+                DirectTo(),
               ],
             ),
           ],
