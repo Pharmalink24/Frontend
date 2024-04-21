@@ -21,6 +21,7 @@ class _DrugSearchFieldState extends State<DrugSearchField> {
   @override
   Widget build(BuildContext context) {
     return TypeAheadField<Drug>(
+      hideWithKeyboard: false,
       controller: widget.controller,
       suggestionsCallback: (search) async =>
           await getSearchedDrugs(drugId: widget.drugFieldId, search: search),

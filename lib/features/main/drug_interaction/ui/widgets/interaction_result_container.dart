@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/theme/styles.dart';
@@ -30,30 +31,53 @@ class InteractionResultContainer extends StatelessWidget {
     );
   }
 
+  // Get icon status
+  Widget getIconStatus(bool isEmpty) {
+    return isEmpty
+        ? const Icon(
+            Icons.info,
+            size: 40,
+            color: AppColors.success,
+          )
+        : const Icon(
+            Icons.error_outline_sharp,
+            size: 40,
+            color: AppColors.error,
+          );
+  }
+
+  // Get interaction result
+  Widget getInteractionResult(List<String> messages) {
+    return messages.isEmpty
+        ? const Text(
+            'No Interaction Found',
+            style: AppTextStyle.headlineMedium,
+            textAlign: TextAlign.center,
+          )
+        : ListView.builder(
+            itemBuilder: (context, index) {
+              return Text(
+                messages[index],
+                style: AppTextStyle.headlineMedium,
+                textAlign: TextAlign.center,
+              );
+            },
+            itemCount: messages.length,
+            shrinkWrap: true,
+          );
+  }
+
   Widget showSuccess(DrugInteractionResponse interactionResult) {
     // Show success dialog
     return CardContainer(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        const Icon(
-          Icons.info,
-          size: 40,
-          color: AppColors.success,
-        ),
-        Text(
-          interactionResult.type,
-          style: AppTextStyle.displaySmall,
-          textAlign: TextAlign.center,
-        ),
+        getIconStatus(interactionResult.messages.isEmpty),
         const SizedBox(
           height: 16.0,
         ),
-        Text(
-          interactionResult.message,
-          style: AppTextStyle.headlineMedium,
-          textAlign: TextAlign.center,
-        ),
+        getInteractionResult(interactionResult.messages),
       ],
     );
   }

@@ -9,13 +9,12 @@ part of 'drug_interaction_response.dart';
 DrugInteractionResponse _$DrugInteractionResponseFromJson(
         Map<String, dynamic> json) =>
     DrugInteractionResponse(
-      type: json['Type'] as String,
-      message: json['message'] as String,
+      messages:
+          (json['message'] as List<dynamic>).map((e) => e as String).toList(),
     );
 
 Map<String, dynamic> _$DrugInteractionResponseToJson(
         DrugInteractionResponse instance) =>
     <String, dynamic>{
-      'Type': instance.type,
-      'message': instance.message,
+      'message': instance.messages,
     };

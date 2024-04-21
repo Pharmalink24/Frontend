@@ -4,17 +4,15 @@ part 'drug_interaction_response.g.dart';
 
 @JsonSerializable()
 class DrugInteractionResponse {
-  @JsonKey(name: 'Type')
-  final String type;
   @JsonKey(name: 'message')
-  final String message;
+  final List<String> messages;
 
   DrugInteractionResponse({
-    required this.type,
-    required this.message,
+    required this.messages,
   });
 
   factory DrugInteractionResponse.fromJson(Map<String, dynamic> json) =>
       _$DrugInteractionResponseFromJson(json);
 
-  Map<String, dynamic> toJson() => _$DrugInteractionResponseToJson(this);}
+  Map<String, dynamic> toJson() => _$DrugInteractionResponseToJson(this);
+}

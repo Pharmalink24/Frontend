@@ -51,7 +51,7 @@ class DrugInteractionCubit extends Cubit<DrugInteractionState> {
     final response = await _drugInteractionRepo
         .drugInteractionCheck(DrugInteractionRequestBody(
       tradename1: drugController1.text,
-      tradename2: drugController1.text,
+      tradename2: drugController2.text,
     ));
 
     response.when(success: (drugInteractionResponse) {
