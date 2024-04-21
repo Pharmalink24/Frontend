@@ -6,17 +6,20 @@ import 'card_container.dart';
 
 class CardContainerWithTitle extends StatelessWidget {
   final String title;
-  final TextStyle? style;
   final Widget child;
-    final Widget iconButton;
+  final Widget iconButton;
+  final TextStyle? textStyle;
+  final EdgeInsets padding;
+  final EdgeInsets margin;
 
   const CardContainerWithTitle({
     super.key,
     required this.title,
-    this.style,
     required this.child,
-        this.iconButton = const SizedBox.shrink(),
-
+    this.iconButton = const SizedBox.shrink(),
+    this.padding = const EdgeInsets.all(12.0),
+    this.margin = const EdgeInsets.all(12.0),
+    this.textStyle,
   });
 
   @override
@@ -28,7 +31,7 @@ class CardContainerWithTitle extends StatelessWidget {
           children: [
             Text(
               title,
-              style: style ??
+              style: textStyle ??
                   AppTextStyle.bodyMedium.copyWith(
                     fontFamily: AppFonts.secondary,
                     fontSize: 24,

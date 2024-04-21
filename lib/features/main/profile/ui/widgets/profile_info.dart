@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pharmalink/core/helpers/constants/paths.dart';
 import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/theme/styles.dart';
-import 'package:pharmalink/core/widgets/card_container.dart';
+import 'package:pharmalink/core/widgets/card_container_with_title.dart';
 import 'package:pharmalink/features/main/profile/data/models/user.dart';
 
 import 'dark_mode_switch.dart';
@@ -31,7 +31,7 @@ class _ProfileInfoState extends State<ProfileInfo> {
       widget.user.image ?? '',
     );
 
-    return CardContainer(
+    return CardContainerWithTitle(
       title: 'Profile',
       textStyle: AppTextStyle.displaySmall,
       padding: const EdgeInsets.only(left: 16.0, right: 16.0, top: 32.0),

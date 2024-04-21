@@ -30,7 +30,7 @@ class _DrugInteractionScreenState extends State<DrugInteractionScreen> {
           children: [
             CardContainerWithTitle(
               title: 'Interactions',
-              style: AppTextStyle.displayMedium.copyWith(fontSize: 40),
+              textStyle: AppTextStyle.displayMedium.copyWith(fontSize: 40),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
