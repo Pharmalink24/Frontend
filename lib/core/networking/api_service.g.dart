@@ -49,22 +49,22 @@ class _ApiService implements ApiService {
   }
 
   @override
-  Future<SigninResponse> refreshToken(
-      RefreshTakenRequestBody refreshTakenRequestBody) async {
+  Future<RefreshTokenResponse> refreshToken(
+      RefreshTokenRequestBody refreshTokenRequestBody) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
-    _data.addAll(refreshTakenRequestBody.toJson());
-    final _result = await _dio
-        .fetch<Map<String, dynamic>>(_setStreamType<SigninResponse>(Options(
+    _data.addAll(refreshTokenRequestBody.toJson());
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<RefreshTokenResponse>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
     )
             .compose(
               _dio.options,
-              'user/refreshTaken/',
+              'user/refresh-token/',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -73,7 +73,7 @@ class _ApiService implements ApiService {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = SigninResponse.fromJson(_result.data!);
+    final value = RefreshTokenResponse.fromJson(_result.data!);
     return value;
   }
 
@@ -131,6 +131,119 @@ class _ApiService implements ApiService {
               baseUrl,
             ))));
     final value = VerificationResponse.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<List<Drug>> searchDrugFromDrugEye(
+    DrugEyeSearchRequestParams drugEyeSearchRequestParams,
+    String? auth,
+  ) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    queryParameters.addAll(drugEyeSearchRequestParams.toJson());
+    queryParameters.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{
+      r'Content-Type': 'application/json',
+      r'Authorization': auth,
+    };
+    _headers.removeWhere((k, v) => v == null);
+    const Map<String, dynamic>? _data = null;
+    final _result =
+        await _dio.fetch<List<dynamic>>(_setStreamType<List<Drug>>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+      contentType: 'application/json',
+    )
+            .compose(
+              _dio.options,
+              'Prescription/drug_search/',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    var value = _result.data!
+        .map((dynamic i) => Drug.fromJson(i as Map<String, dynamic>))
+        .toList();
+    return value;
+  }
+
+  @override
+  Future<DrugInteractionResponse> drugInteractionCheck(
+    DrugInteractionRequestBody drugInteractionRequestBody,
+    String? auth,
+  ) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{
+      r'Content-Type': 'application/json',
+      r'Authorization': auth,
+    };
+    _headers.removeWhere((k, v) => v == null);
+    final _data = <String, dynamic>{};
+    _data.addAll(drugInteractionRequestBody.toJson());
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<DrugInteractionResponse>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+      contentType: 'application/json',
+    )
+            .compose(
+              _dio.options,
+              'Drugs/check-drug-interaction-TradeName/',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    final value = DrugInteractionResponse.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<HomePageResponse> homePage(
+    HomePageRequestBody homePageRequestBody,
+    String? auth,
+  ) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    queryParameters.addAll(homePageRequestBody.toJson());
+    queryParameters.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{
+      r'Content-Type': 'application/json',
+      r'Authorization': auth,
+    };
+    _headers.removeWhere((k, v) => v == null);
+    const Map<String, dynamic>? _data = null;
+    final _result = await _dio
+        .fetch<Map<String, dynamic>>(_setStreamType<HomePageResponse>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+      contentType: 'application/json',
+    )
+            .compose(
+              _dio.options,
+              'Prescription/user/HomePage/',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    final value = HomePageResponse.fromJson(_result.data!);
     return value;
   }
 
