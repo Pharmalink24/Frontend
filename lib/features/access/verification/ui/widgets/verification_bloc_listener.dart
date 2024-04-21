@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pharmalink/core/widgets/loading_indicator.dart';
 import '../../../../../core/helpers/extensions.dart';
 import '../../../../../core/theme/colors.dart';
 import '../../../../../core/theme/styles.dart';
@@ -7,23 +8,17 @@ import '../../logic/cubit/verification_cubit.dart';
 import '../../logic/cubit/verification_state.dart';
 
 class VerificationBlocListener extends StatelessWidget {
-  const VerificationBlocListener({super.key});
+  VerificationBlocListener({super.key});
+  final LoadingOverlay _loadingOverlay = LoadingOverlay();
 
   // Show loading indicator dialog
   void showLoading(BuildContext context) {
-    showDialog(
-      context: context,
-      builder: (context) => const Center(
-        child: CircularProgressIndicator(
-          color: AppColors.secondary,
-        ),
-      ),
-    );
+    _loadingOverlay.show(context);
   }
 
   // Show error indicator dialog
   void showError(BuildContext context, String error) {
-    context.pop();
+    _loadingOverlay.hide();
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
@@ -53,7 +48,7 @@ class VerificationBlocListener extends StatelessWidget {
   }
 
   void showSuccess(BuildContext context) {
-    context.pop();
+    _loadingOverlay.hide();
   }
 
   @override

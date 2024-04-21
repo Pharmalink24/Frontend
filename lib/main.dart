@@ -11,7 +11,7 @@ void main() async {
 
   setupGetIt(); // Initialize get it
   await SharedPrefsService.init(); // Initialize PreferenceUtils instance.
-  
+
   runApp(
     PharmalinkApp(
       appRouter: AppRouter(),

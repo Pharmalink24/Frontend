@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pharmalink/core/widgets/loading_indicator.dart';
 import '../../../../../core/helpers/extensions.dart';
 import '../../../../../core/routes/routes.dart';
 import '../../../../../core/theme/colors.dart';
@@ -9,23 +10,17 @@ import '../../logic/cubit/signup_cubit.dart';
 import '../../logic/cubit/signup_state.dart';
 
 class SignupBlocListener extends StatelessWidget {
-  const SignupBlocListener({super.key});
+  SignupBlocListener({super.key});
+  final LoadingOverlay _loadingOverlay = LoadingOverlay();
 
   // Show loading indicator dialog
   void showLoading(BuildContext context) {
-    showDialog(
-      context: context,
-      builder: (context) => const Center(
-        child: CircularProgressIndicator(
-          color: AppColors.secondary,
-        ),
-      ),
-    );
+    _loadingOverlay.show(context);
   }
 
   // Show error indicator dialog
   void showError(BuildContext context, String error) {
-    context.pop();
+    _loadingOverlay.hide();
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
@@ -55,7 +50,7 @@ class SignupBlocListener extends StatelessWidget {
   }
 
   void showSuccess(BuildContext context, SignupResponse signupResponse) {
-    context.pop();
+    _loadingOverlay.hide();
     context.pushNamed(
       Routes.verificationScreen,
       argument: signupResponse,

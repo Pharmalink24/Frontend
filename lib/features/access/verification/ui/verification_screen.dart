@@ -50,7 +50,7 @@ class VerificationScreen extends StatelessWidget {
                 padding: EdgeInsets.zero,
                 onPressed: () => context.pushNamed(Routes.signInScreen),
               ),
-              const VerificationBlocListener(),
+              VerificationBlocListener(),
             ],
           ),
         ),

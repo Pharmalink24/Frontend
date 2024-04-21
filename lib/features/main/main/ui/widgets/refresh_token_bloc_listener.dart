@@ -23,7 +23,6 @@ class RefreshTokenBlocListener extends StatelessWidget {
   void showError(BuildContext context, String error) {
     // Close loading dialog
     _loadingOverlay.hide();
-
     // Show error dialog
     showDialog(
       context: context,
@@ -51,7 +50,6 @@ class RefreshTokenBlocListener extends StatelessWidget {
         ],
       ),
     );
-
     // Navigate to sign in screen
     context.pushNamed(Routes.signInScreen);
   }

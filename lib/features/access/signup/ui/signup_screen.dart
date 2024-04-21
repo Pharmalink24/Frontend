@@ -67,7 +67,7 @@ class _SignupScreenState extends State<SignupScreen> {
               onPressed: () => validationThenSignup(context),
             ),
             const TermsAndConditionsText(),
-            const SignupBlocListener(),
+            SignupBlocListener(),
           ],
         ),
       ),
