@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../access/signin/logic/cubit/signin_cubit.dart';
+import 'package:pharmalink/core/di/dependency_injection.dart';
+import 'package:pharmalink/features/main/drug_interaction/logic/cubit/drug_interaction_cubit.dart';
 import '../../home/ui/home_screen.dart';
 import '../../prescription/landing_prescription.dart';
-import '../../drug_interaction/drug_interaction_screen.dart';
+import '../../drug_interaction/ui/drug_interaction_screen.dart';
 import '../../profile/profile_screen.dart';
 import 'widgets/app_bottom_navigation_bar.dart';
 import '../../../../core/theme/colors.dart';
@@ -13,7 +15,10 @@ import 'widgets/refresh_token_bloc_listener.dart';
 List<Widget> pages = [
   const HomeScreen(),
   const LandingPrescriptionScreen(),
-  const DrugInteractionScreen(),
+  BlocProvider(
+    create: (context) => getIt<DrugInteractionCubit>(),
+    child: const DrugInteractionScreen(),
+  ),
   const ProfileScreen(),
 ];
 

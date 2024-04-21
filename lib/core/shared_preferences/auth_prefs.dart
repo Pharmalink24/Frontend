@@ -1,6 +1,7 @@
 
 // ignore_for_file: constant_identifier_names
 
+import 'package:pharmalink/core/networking/api_constants.dart';
 import 'package:pharmalink/core/shared_preferences/shared_preferences_service.dart';
 import 'package:pharmalink/features/access/signin/data/models/signin_response.dart';
 
@@ -39,7 +40,8 @@ abstract class AuthSharedPrefs {
 
   /// save [UserAuth] in shared pref
   static Future<bool> storeAuthData(SigninResponse userAuthData) async {
-    // save user id
+    // TODO: save access token with token key
+    // await SharedPrefsService.setString(_ACCESS_TOKEN, "${ApiConstants.tokenKey} ${userAuthData.accessToken}");
     await SharedPrefsService.setInt(_ID, userAuthData.id);
     // save username
     await SharedPrefsService.setString(_USERNAME, userAuthData.username);

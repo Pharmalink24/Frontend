@@ -35,7 +35,7 @@ class SigninCubit extends Cubit<SigninState> {
     // Authorized or not?
     response.when(
       success: (signinResponse) async {
-        await _authRepo.setToken(signinResponse);
+        await _authRepo.setAuth(signinResponse);
         emit(SigninState.success(signinResponse));
       },
       failure: (error) async {
@@ -60,7 +60,7 @@ class SigninCubit extends Cubit<SigninState> {
     // Authorized or not?
     response.when(
       success: (refreshTokenResponse) async {
-        await _authRepo.setToken(
+        await _authRepo.setAuth(
           SigninResponse(
             id: AuthSharedPrefs.getUserId() ?? 0,
             username: AuthSharedPrefs.getUsername() ?? '',

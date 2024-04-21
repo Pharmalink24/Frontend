@@ -115,9 +115,10 @@ class AppTextStyle {
 class AppTextFieldDecoration {
   // Constants
   static const _kBorderWidth = 2.0;
-  static const _kPadding = 22.0;
+  static const _kPadding = 20.0;
   static const _kPrimaryBorderRadius = 40.0;
   static const _kSecondaryBorderRadius = 12.0;
+  static const _kSearchBorderRadius = 8.0;
 
   // Input Decoration for text field
   static const InputDecoration _generalInputDecoration = InputDecoration(
@@ -168,9 +169,6 @@ class AppTextFieldDecoration {
     errorBorder: OutlineInputBorder(
       borderRadius: BorderRadius.circular(_kPrimaryBorderRadius),
     ),
-    focusedErrorBorder: OutlineInputBorder(
-      borderRadius: BorderRadius.circular(_kPrimaryBorderRadius),
-    ),
   );
 
   static InputDecoration secondaryInputDecoration =
@@ -190,8 +188,36 @@ class AppTextFieldDecoration {
     errorBorder: OutlineInputBorder(
       borderRadius: BorderRadius.circular(_kSecondaryBorderRadius),
     ),
-    focusedErrorBorder: OutlineInputBorder(
-      borderRadius: BorderRadius.circular(_kSecondaryBorderRadius),
+  );
+
+  static InputDecoration searchInputDecoration =
+      _generalInputDecoration.copyWith(
+    fillColor: AppColors.primaryBackground,
+    contentPadding: const EdgeInsets.all(14.0),
+    suffixIcon: const Icon(
+      Icons.keyboard_arrow_down_rounded,
+      color: AppColors.secondary,
+    ),
+    hintStyle: AppTextStyle.labelMedium,
+    labelStyle: AppTextStyle.bodyMedium,
+    border: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(_kSearchBorderRadius),
+    ),
+    enabledBorder: OutlineInputBorder(
+      borderSide: const BorderSide(
+        width: _kBorderWidth,
+        color: AppColors.accent5,
+      ),
+      borderRadius: BorderRadius.circular(_kSearchBorderRadius),
+    ),
+    focusedBorder: const OutlineInputBorder(
+      borderSide: BorderSide(
+        width: _kBorderWidth,
+        color: AppColors.secondary,
+      ),
+    ),
+    errorBorder: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(_kSearchBorderRadius),
     ),
   );
 

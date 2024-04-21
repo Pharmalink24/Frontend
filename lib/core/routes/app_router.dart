@@ -18,7 +18,7 @@ class AppRouter {
   Route generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case Routes.initialRoute:
-        return MaterialPageRoute(builder: (_) => const SplashScreen());
+        return MaterialPageRoute(builder: (_) => const MainScreen());
 
       case Routes.splashScreen:
         return MaterialPageRoute(builder: (_) => const SplashScreen());
@@ -44,13 +44,14 @@ class AppRouter {
       case Routes.verificationScreen:
         final signupResponse = settings.arguments as SignupResponse;
         return MaterialPageRoute(
-            builder: (_) => BlocProvider(
-                  create: (context) => getIt<VerificationCubit>(),
-                  child: VerificationScreen(
-                    email: signupResponse.email,
-                    userId: signupResponse.id,
-                  ),
-                ));
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<VerificationCubit>(),
+            child: VerificationScreen(
+              email: signupResponse.email,
+              userId: signupResponse.id,
+            ),
+          ),
+        );
 
       case Routes.mainScreen:
         return MaterialPageRoute(

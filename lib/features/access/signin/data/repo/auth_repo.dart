@@ -31,7 +31,7 @@ class AuthRepo {
     }
   }
 
-  Future<void> setToken(SigninResponse auth) async {
+  Future<void> setAuth(SigninResponse auth) async {
     try {
       await AuthSharedPrefs.storeAuthData(auth);
     } catch (error) {

@@ -1,32 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:pharmalink/core/theme/colors.dart';
 
-class LoadingOverlay {
-  OverlayEntry? _overlay;
+class LoadingIndicator extends StatelessWidget {
+  const LoadingIndicator({
+    super.key,
+  });
 
-  LoadingOverlay();
-
-  void show(BuildContext context) {
-    if (_overlay == null) {
-      _overlay = OverlayEntry(
-        // replace with your own layout
-        builder: (context) => const ColoredBox(
-          color: AppColors.primary,
-          child: Center(
-            child: CircularProgressIndicator(
-              valueColor: AlwaysStoppedAnimation(Colors.white),
-            ),
-          ),
-        ),
-      );
-      Overlay.of(context).insert(_overlay!);
-    }
-  }
-
-  void hide() {
-    if (_overlay != null) {
-      _overlay!.remove();
-      _overlay = null;
-    }
+  @override
+  Widget build(BuildContext context) {
+    return const Center(
+      child: CircularProgressIndicator(
+        color: AppColors.primary,
+      ),
+    );
   }
 }
