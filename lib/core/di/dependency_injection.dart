@@ -1,6 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:logger/logger.dart';
+import 'package:pharmalink/features/main/profile/data/repo/profile_repo.dart';
+import 'package:pharmalink/features/main/profile/logic/cubit/profile_cubit.dart';
 import '../networking/api_service.dart';
 import '../networking/dio_factory.dart';
 import '../../features/access/auth/logic/cubit/auth_cubit.dart';
@@ -35,6 +37,10 @@ Future<void> setupGetIt() async {
   getIt
       .registerLazySingleton<VerificationRepo>(() => VerificationRepo(getIt()));
   getIt.registerFactory<VerificationCubit>(() => VerificationCubit(getIt()));
+
+  // Profile Information
+  getIt.registerLazySingleton<ProfileRepo>(() => ProfileRepo(getIt()));
+  getIt.registerFactory<ProfileCubit>(() => ProfileCubit(getIt()));
 
   // Logger
   getIt.registerLazySingleton<Logger>(() => Logger());

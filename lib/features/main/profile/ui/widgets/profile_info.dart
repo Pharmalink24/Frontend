@@ -3,16 +3,17 @@ import 'package:pharmalink/core/helpers/constants/paths.dart';
 import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/theme/styles.dart';
 import 'package:pharmalink/core/widgets/card_container.dart';
+import 'package:pharmalink/features/main/profile/data/models/user.dart';
 
-String name = 'Youssef Osama';
-String email = 'youssefosama@google.com';
-const ImageProvider<Object>? image =  const NetworkImage(
-  'https://www.dcu.ie/sites/default/files/sal_editor/2024-02/blank-headshot.jpg',
-);
+import 'dark_mode_switch.dart';
+
+const String kPlaceholderImage = '${AppPaths.images}/user_placeholder.jpg';
 
 class ProfileInfo extends StatefulWidget {
+  final User user;
   const ProfileInfo({
     super.key,
+    required this.user,
   });
 
   @override
@@ -20,10 +21,16 @@ class ProfileInfo extends StatefulWidget {
 }
 
 class _ProfileInfoState extends State<ProfileInfo> {
-  bool isDarkMode = false;
+  String cropperName(String name, {int length = 5}) {
+    return name.length > length ? '${name.substring(0, length - 1)}..' : name;
+  }
 
   @override
   Widget build(BuildContext context) {
+    ImageProvider<Object>? image = NetworkImage(
+      widget.user.image ?? '',
+    );
+
     return CardContainer(
       title: 'Profile',
       textStyle: AppTextStyle.displaySmall,
@@ -36,12 +43,11 @@ class _ProfileInfoState extends State<ProfileInfo> {
                 const EdgeInsets.symmetric(horizontal: 8.0, vertical: 12.0),
             child: Row(
               children: [
-                const CircleAvatar(
+                CircleAvatar(
                   radius: 30,
-                  backgroundImage: image ??
-                      AssetImage(
-                        '${AppPaths.images}/user_placeholder.jpg',
-                      ),
+                  backgroundImage: widget.user.image != null
+                      ? image
+                      : const AssetImage(kPlaceholderImage),
                 ),
                 const SizedBox(
                   width: 10,
@@ -51,11 +57,12 @@ class _ProfileInfoState extends State<ProfileInfo> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      name,
+                      cropperName("${widget.user.fname} ${widget.user.lname}",
+                          length: 14),
                       style: AppTextStyle.headlineSmall,
                     ),
                     Text(
-                      email,
+                      cropperName(widget.user.email, length: 30),
                       style: AppTextStyle.bodySmall.copyWith(
                         color: AppColors.primary,
                       ),
@@ -68,42 +75,7 @@ class _ProfileInfoState extends State<ProfileInfo> {
           const Divider(
             color: AppColors.secondaryBackground,
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 8.0,
-              vertical: 4.0,
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const Text(
-                  'Switch to Dark Mode',
-                  style: AppTextStyle.bodyMedium,
-                ),
-                Switch(
-                  value: isDarkMode,
-                  onChanged: (value) {
-                    setState(() {
-                      isDarkMode = value;
-                    });
-                  },
-                  // trackColor: const MaterialStatePropertyAll(
-                  //   AppColors.primaryBackground,
-                  // ),
-                  // trackOutlineColor:
-                  //     MaterialStatePropertyAll(AppColors.primary),
-                  // thumbColor:
-                  //     const MaterialStatePropertyAll(AppColors.secondary),
-                  // overlayColor:
-                  //     const MaterialStatePropertyAll(AppColors.secondary),
-                  activeTrackColor: AppColors.secondary,
-                  activeColor: AppColors.primaryBackground,
-                  inactiveTrackColor: AppColors.primaryBackground,
-                  inactiveThumbColor: AppColors.tertiary,
-                ),
-              ],
-            ),
-          ),
+          const DarkModeSwitch(),
         ],
       ),
     );
