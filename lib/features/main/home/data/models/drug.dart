@@ -1,11 +1,3 @@
-// "commercial_name": "PROCTO-4 supp.",
-// "start_date": "2024-04-10",
-// "end_date": "2024-04-30",
-// "quantity": 1,
-// "quantity_unit": "ampoule",
-// "rate": 25.5,
-// "rate_unit": "I.U"
-
 import 'package:flutter/material.dart';
 import 'package:json_annotation/json_annotation.dart';
 
@@ -43,7 +35,7 @@ class Drug {
 
   // Todo: Complete Implementing the reminder time calculation
   TimeOfDay calcReminderTime() {
-    return TimeOfDay(hour: 2, minute: 10);
+    return const TimeOfDay(hour: 2, minute: 10);
   }
 
   factory Drug.fromJson(Map<String, dynamic> json) => _$DrugFromJson(json);

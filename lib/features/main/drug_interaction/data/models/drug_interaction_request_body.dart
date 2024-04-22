@@ -14,5 +14,8 @@ class DrugInteractionRequestBody {
     required this.tradename2,
   });
 
+  factory DrugInteractionRequestBody.fromJson(Map<String, dynamic> json) =>
+      _$DrugInteractionRequestBodyFromJson(json);
+
   Map<String, dynamic> toJson() => _$DrugInteractionRequestBodyToJson(this);
 }

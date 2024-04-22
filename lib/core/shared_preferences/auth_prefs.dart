@@ -1,6 +1,7 @@
-
 // ignore_for_file: constant_identifier_names
 
+import 'package:logger/logger.dart';
+import 'package:pharmalink/core/di/dependency_injection.dart';
 import 'package:pharmalink/core/networking/api_constants.dart';
 import 'package:pharmalink/core/shared_preferences/shared_preferences_service.dart';
 import 'package:pharmalink/features/access/signin/data/models/signin_response.dart';
@@ -31,7 +32,7 @@ abstract class AuthSharedPrefs {
   }
 
   static String? getAccessToken() {
-    return SharedPrefsService.getString(_ACCESS_TOKEN);
+    return "${ApiConstants.tokenKey} ${SharedPrefsService.getString(_ACCESS_TOKEN)}";
   }
 
   static String? getRefreshToken() {
@@ -40,8 +41,7 @@ abstract class AuthSharedPrefs {
 
   /// save [UserAuth] in shared pref
   static Future<bool> storeAuthData(SigninResponse userAuthData) async {
-    // TODO: save access token with token key
-    // await SharedPrefsService.setString(_ACCESS_TOKEN, "${ApiConstants.tokenKey} ${userAuthData.accessToken}");
+    // save user id
     await SharedPrefsService.setInt(_ID, userAuthData.id);
     // save username
     await SharedPrefsService.setString(_USERNAME, userAuthData.username);
@@ -49,7 +49,8 @@ abstract class AuthSharedPrefs {
     await SharedPrefsService.setString(_EMAIL, userAuthData.email);
     // save access token and refresh token
     await SharedPrefsService.setString(_ACCESS_TOKEN, userAuthData.accessToken);
-    await SharedPrefsService.setString(_REFRESH_TOKEN, userAuthData.refreshToken);
+    await SharedPrefsService.setString(
+        _REFRESH_TOKEN, userAuthData.refreshToken);
     // set user logged in
     await SharedPrefsService.setBool(_IS_LOGGED_IN, true);
 
@@ -66,5 +67,14 @@ abstract class AuthSharedPrefs {
     await SharedPrefsService.setBool(_IS_LOGGED_IN, false);
 
     return true;
+  }
+
+  static void logger() {
+    getIt<Logger>().d("User ID: ${getUserId()}");
+    getIt<Logger>().d("Username: ${getUsername()}");
+    getIt<Logger>().d("Email: ${getEmail()}");
+    getIt<Logger>().d("Access Token: ${getAccessToken()}");
+    getIt<Logger>().d("Refresh Token: ${getRefreshToken()}");
+    getIt<Logger>().d("Is Logged In: ${isUserLoggedIn()}");
   }
 }

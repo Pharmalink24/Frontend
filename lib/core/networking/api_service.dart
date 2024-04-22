@@ -5,11 +5,9 @@ import 'package:pharmalink/features/main/drug_interaction/data/models/drug_eye_s
 import 'package:pharmalink/features/main/drug_interaction/data/models/drug.dart';
 import 'package:pharmalink/features/main/drug_interaction/data/models/drug_interaction_request_body.dart';
 import 'package:pharmalink/features/main/drug_interaction/data/models/drug_interaction_response.dart';
-import 'package:retrofit/http.dart' as http;
 import 'package:pharmalink/features/main/home/data/models/home_page_request_body.dart';
 import 'package:pharmalink/features/main/home/data/models/home_page_response.dart';
 import 'package:pharmalink/features/main/profile/data/models/user.dart';
-import 'package:retrofit/http.dart';
 import 'api_constants.dart';
 import '../../features/access/signin/data/models/refresh_token_request_body.dart';
 import '../../features/access/signup/data/models/signup_request_body.dart';
@@ -52,9 +50,6 @@ abstract class ApiService {
 
   // Search Drug from drug eye
   @GET(ApiConstants.searchDrugFromDrugEye)
-  @http.Headers(<String, dynamic>{
-    'Content-Type': 'application/json',
-  })
   Future<List<Drug>> searchDrugFromDrugEye(
     @Queries() DrugEyeSearchRequestParams drugEyeSearchRequestParams,
     @Header("Authorization") String? auth,
@@ -63,28 +58,20 @@ abstract class ApiService {
   // TODO: EDIT THIS FROM 'POST' TO 'GET' WHEN BACKEND EDIT IT.
   // Drug Interaction Checker
   @POST(ApiConstants.drugInteraction)
-  @http.Headers(<String, dynamic>{
-    'Content-Type': 'application/json',
-  })
   Future<DrugInteractionResponse> drugInteractionCheck(
     @Body() DrugInteractionRequestBody drugInteractionRequestBody,
     @Header("Authorization") String? auth,
   );
-  
+
   // Home Page
   @GET(ApiConstants.homePage)
-  @http.Headers(<String, dynamic>{
-    'Content-Type': 'application/json',
-  })
   Future<HomePageResponse> homePage(
     @Queries() HomePageRequestBody homePageRequestBody,
     @Header("Authorization") String? auth,
-    );
+  );
+
   // User Profile Data
   @GET(ApiConstants.userInformation)
-  @http.Headers(<String, dynamic>{
-    'Content-Type': 'application/json',
-  })
   Future<User> getUserInformation(
     @Header('Authorization') String? auth,
   );

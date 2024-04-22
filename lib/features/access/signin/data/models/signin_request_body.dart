@@ -12,5 +12,8 @@ class SigninRequestBody {
     required this.password,
   });
 
+  factory SigninRequestBody.fromJson(Map<String, dynamic> json) =>
+      _$SigninRequestBodyFromJson(json);
+      
   Map<String, dynamic> toJson() => _$SigninRequestBodyToJson(this);
 }

@@ -18,7 +18,7 @@ class AppRouter {
   Route generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case Routes.initialRoute:
-        return MaterialPageRoute(builder: (_) => const MainScreen());
+        return MaterialPageRoute(builder: (_) => const SplashScreen());
 
       case Routes.splashScreen:
         return MaterialPageRoute(builder: (_) => const SplashScreen());
@@ -62,6 +62,7 @@ class AppRouter {
           ),
         );
 
+      
       default:
         return MaterialPageRoute(builder: (_) => const Error404Screen());
     }

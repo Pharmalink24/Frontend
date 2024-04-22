@@ -1,41 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../access/signin/logic/cubit/signin_cubit.dart';
-import 'package:pharmalink/core/di/dependency_injection.dart';
-import 'package:pharmalink/features/main/drug_interaction/logic/cubit/drug_interaction_cubit.dart';
-import 'package:pharmalink/features/main/home/logic/cubit/home_page_cubit.dart';
-import '../../home/ui/home_screen.dart';
-import '../../prescription/landing_prescription.dart';
-import '../../drug_interaction/ui/drug_interaction_screen.dart';
-import '../../profile/logic/cubit/profile_cubit.dart';
-import '../../profile/ui/profile_screen.dart';
 import 'widgets/app_bottom_navigation_bar.dart';
 import '../../../../core/theme/colors.dart';
 import '../data/models/navigation_items.dart';
 import 'widgets/refresh_token_bloc_listener.dart';
-
-List<Widget> pages = [
-  BlocProvider(
-    create: (context) => getIt<HomePageCubit>(),
-    child: const HomeScreen(),
-  ),
-  const LandingPrescriptionScreen(),
-  BlocProvider(
-    create: (context) => getIt<DrugInteractionCubit>(),
-    child: const DrugInteractionScreen(),
-  ),
-  MultiBlocProvider(
-    providers: [
-      BlocProvider(
-        create: (context) => getIt<ProfileCubit>(),
-      ),
-      BlocProvider(
-        create: (context) => getIt<SigninCubit>(),
-      ),
-    ],
-    child: const ProfileScreen(),
-  ),
-];
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -50,26 +19,23 @@ class _MainScreenState extends State<MainScreen> {
   @override
   void initState() {
     super.initState();
-
-    // Refresh token on start
-    refreshAccessToken(context);
+    WidgetsBinding.instance
+        .addPostFrameCallback((_) => refreshAccessToken(context));
   }
 
-  void refreshAccessToken(BuildContext context) {
+  Future<void> refreshAccessToken(BuildContext context) async {
     context.read<SigninCubit>().refreshToken();
   }
 
   @override
   Widget build(BuildContext context) {
+    // Refresh token on start
     return PopScope(
       canPop: false,
       child: Scaffold(
         body: Column(
           children: [
-            Expanded(
-              child: pages[activeIndex],
-            ),
-            RefreshTokenBlocListener(),
+            RefreshTokenBlocListener(activeIndex: activeIndex),
           ],
         ),
         backgroundColor: AppColors.secondaryBackground,

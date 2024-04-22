@@ -18,13 +18,15 @@ class CardContainerWithTitle extends StatelessWidget {
     required this.child,
     this.iconButton = const SizedBox.shrink(),
     this.padding = const EdgeInsets.all(12.0),
-    this.margin = const EdgeInsets.all(12.0),
+    this.margin = const EdgeInsets.symmetric(vertical: 8.0),
     this.textStyle,
   });
 
   @override
   Widget build(BuildContext context) {
     return CardContainer(
+      padding: padding,
+      margin: margin,
       children: [
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,

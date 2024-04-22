@@ -143,10 +143,7 @@ class _ApiService implements ApiService {
     final queryParameters = <String, dynamic>{};
     queryParameters.addAll(drugEyeSearchRequestParams.toJson());
     queryParameters.removeWhere((k, v) => v == null);
-    final _headers = <String, dynamic>{
-      r'Content-Type': 'application/json',
-      r'Authorization': auth,
-    };
+    final _headers = <String, dynamic>{r'Authorization': auth};
     _headers.removeWhere((k, v) => v == null);
     const Map<String, dynamic>? _data = null;
     final _result =
@@ -154,7 +151,6 @@ class _ApiService implements ApiService {
       method: 'GET',
       headers: _headers,
       extra: _extra,
-      contentType: 'application/json',
     )
             .compose(
               _dio.options,
@@ -181,10 +177,7 @@ class _ApiService implements ApiService {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     queryParameters.removeWhere((k, v) => v == null);
-    final _headers = <String, dynamic>{
-      r'Content-Type': 'application/json',
-      r'Authorization': auth,
-    };
+    final _headers = <String, dynamic>{r'Authorization': auth};
     _headers.removeWhere((k, v) => v == null);
     final _data = <String, dynamic>{};
     _data.addAll(drugInteractionRequestBody.toJson());
@@ -193,7 +186,6 @@ class _ApiService implements ApiService {
       method: 'POST',
       headers: _headers,
       extra: _extra,
-      contentType: 'application/json',
     )
             .compose(
               _dio.options,
@@ -219,10 +211,7 @@ class _ApiService implements ApiService {
     final queryParameters = <String, dynamic>{};
     queryParameters.addAll(homePageRequestBody.toJson());
     queryParameters.removeWhere((k, v) => v == null);
-    final _headers = <String, dynamic>{
-      r'Content-Type': 'application/json',
-      r'Authorization': auth,
-    };
+    final _headers = <String, dynamic>{r'Authorization': auth};
     _headers.removeWhere((k, v) => v == null);
     const Map<String, dynamic>? _data = null;
     final _result = await _dio
@@ -230,7 +219,6 @@ class _ApiService implements ApiService {
       method: 'GET',
       headers: _headers,
       extra: _extra,
-      contentType: 'application/json',
     )
             .compose(
               _dio.options,
@@ -252,10 +240,7 @@ class _ApiService implements ApiService {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     queryParameters.removeWhere((k, v) => v == null);
-    final _headers = <String, dynamic>{
-      r'Content-Type': 'application/json',
-      r'Authorization': auth,
-    };
+    final _headers = <String, dynamic>{r'Authorization': auth};
     _headers.removeWhere((k, v) => v == null);
     const Map<String, dynamic>? _data = null;
     final _result =
@@ -263,7 +248,6 @@ class _ApiService implements ApiService {
       method: 'GET',
       headers: _headers,
       extra: _extra,
-      contentType: 'application/json',
     )
             .compose(
               _dio.options,

@@ -8,10 +8,23 @@ import 'package:pharmalink/core/widgets/loading_overlay.dart';
 import 'package:pharmalink/features/access/signin/data/models/refresh_token_response.dart';
 import 'package:pharmalink/features/access/signin/logic/cubit/signin_cubit.dart';
 import 'package:pharmalink/features/access/signin/logic/cubit/signin_state.dart';
+import 'package:pharmalink/features/main/main/ui/widgets/pages.dart';
 
-class RefreshTokenBlocListener extends StatelessWidget {
-  RefreshTokenBlocListener({super.key});
-  
+class RefreshTokenBlocListener extends StatefulWidget {
+  final int activeIndex;
+  const RefreshTokenBlocListener({super.key, required this.activeIndex});
+
+  @override
+  State<RefreshTokenBlocListener> createState() =>
+      _RefreshTokenBlocListenerState();
+}
+
+class _RefreshTokenBlocListenerState extends State<RefreshTokenBlocListener> {
+  @override
+  void initState() {
+    super.initState();
+  }
+
   final LoadingOverlay _loadingOverlay = LoadingOverlay();
 
   // Show loading indicator dialog
@@ -62,7 +75,7 @@ class RefreshTokenBlocListener extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<SigninCubit, SigninState>(
+    return BlocConsumer<SigninCubit, SigninState>(
       listenWhen: (previous, current) =>
           current is Loading || current is Success || current is Error,
       listener: (context, state) {
@@ -73,7 +86,14 @@ class RefreshTokenBlocListener extends StatelessWidget {
           error: (error) => showError(context, error),
         );
       },
-      child: const SizedBox.shrink(),
+      buildWhen: (previous, current) => current is! Loading,
+      builder: (context, state) {
+        if (state is Success) {
+          return Expanded(child: pages[widget.activeIndex]);
+        }else{
+          return const SizedBox.shrink();
+        }
+      },
     );
   }
 }

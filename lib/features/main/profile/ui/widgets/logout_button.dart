@@ -11,7 +11,7 @@ class LogoutButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(20.0),
-      child: Container(
+      child: SizedBox(
         width: 90,
         height: 40,
         child: TextButton(

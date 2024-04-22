@@ -1,6 +1,7 @@
+// ignore_for_file: constant_identifier_names
+
 import 'package:flutter/material.dart';
 import 'package:pharmalink/core/theme/colors.dart';
-import 'package:pharmalink/core/theme/styles.dart';
 import 'package:pharmalink/core/widgets/form/form_drop_down_button.dart';
 
 enum Language { English, Arabic }

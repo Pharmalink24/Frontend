@@ -15,7 +15,7 @@ class CardContainer extends StatelessWidget {
     this.mainAxisAlignment = MainAxisAlignment.center,
     this.crossAxisAlignment = CrossAxisAlignment.start,
     this.padding = const EdgeInsets.all(12.0),
-    this.margin = const EdgeInsets.all(12.0),
+    this.margin = const EdgeInsets.symmetric(vertical: 8.0),
   });
 
   @override

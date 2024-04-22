@@ -31,4 +31,6 @@ class Drug {
 
   factory Drug.fromJson(Map<String, dynamic> json) =>
       _$DrugFromJson(json);
+
+  Map<String, dynamic> toJson() => _$DrugToJson(this);
 }

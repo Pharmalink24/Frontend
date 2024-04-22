@@ -3,19 +3,6 @@ import 'package:json_annotation/json_annotation.dart';
 
 part "user.g.dart";
 
-// {
-//   "id": 15,
-//   "fname": "mohyamed",
-//   "lname": "ahmed",
-//   "username": "ziad7rrr",
-//   "birthdate": "2006-02-05",
-//   "email": "elshelyztttiad@gmail.com",
-//   "phone": "01123454321",
-//   "gender": "M",
-//   "chronic_disease": [],
-//   "image": "/user_images/Screenshot_2024-02-14_at_1.02.46AM_ikwP7Xk.png"
-// }
-
 @JsonSerializable()
 class User {
   final int id;
@@ -45,4 +32,6 @@ class User {
 
   factory User.fromJson(Map<String, dynamic> json) =>
       _$UserFromJson(json);
+
+  Map<String, dynamic> toJson() => _$UserToJson(this);
 }

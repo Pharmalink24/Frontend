@@ -11,5 +11,8 @@ class VerificationRequestParams {
     required this.userId,
   });
 
+  factory VerificationRequestParams.fromJson(Map<String, dynamic> json) =>
+      _$VerificationRequestParamsFromJson(json);
+
   Map<String, dynamic> toJson() => _$VerificationRequestParamsToJson(this);
 }

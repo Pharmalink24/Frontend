@@ -17,4 +17,6 @@ class SignupResponse {
 
   factory SignupResponse.fromJson(Map<String, dynamic> json) =>
       _$SignupResponseFromJson(json);
+
+  Map<String, dynamic> toJson() => _$SignupResponseToJson(this);
 }

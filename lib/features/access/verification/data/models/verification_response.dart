@@ -13,4 +13,6 @@ class VerificationResponse {
 
   factory VerificationResponse.fromJson(Map<String, dynamic> json) =>
       _$VerificationResponseFromJson(json);
+
+  Map<String, dynamic> toJson() => _$VerificationResponseToJson(this);
 }

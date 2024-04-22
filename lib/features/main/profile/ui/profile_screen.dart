@@ -1,6 +1,5 @@
 // Flutter Packages
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/theme/styles.dart';
@@ -9,6 +8,7 @@ import '../logic/cubit/profile_cubit.dart';
 import '../logic/cubit/profile_state.dart';
 import 'widgets/account_settings.dart';
 import 'widgets/profile_info.dart';
+import 'package:pharmalink/core/widgets/loading_indicator.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -85,15 +85,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
     return BlocBuilder<ProfileCubit, ProfileState>(
       builder: (context, state) {
         if (state is Loading) {
-          // TODO: Add loading widget
-          return const Center(child: CircularProgressIndicator());
+          return const LoadingIndicator();
         } else if (state is Success) {
           final user = state.data;
           return buildProfileScreen(user);
         } else if (state is Error) {
           return buildErrorWidget(state.error);
+        } else {
+          return const SizedBox.shrink();
         }
-        return const SizedBox.shrink();
       },
     );
   }
