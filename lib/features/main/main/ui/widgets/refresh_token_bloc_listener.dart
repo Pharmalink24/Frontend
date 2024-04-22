@@ -5,9 +5,9 @@ import 'package:pharmalink/core/routes/routes.dart';
 import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/theme/styles.dart';
 import 'package:pharmalink/core/widgets/loading_overlay.dart';
-import 'package:pharmalink/features/access/signin/data/models/refresh_token_response.dart';
-import 'package:pharmalink/features/access/signin/logic/cubit/signin_cubit.dart';
-import 'package:pharmalink/features/access/signin/logic/cubit/signin_state.dart';
+import 'package:pharmalink/features/access/auth/logic/cubit/auth_cubit.dart';
+import 'package:pharmalink/features/access/auth/logic/cubit/auth_state.dart';
+import 'package:pharmalink/features/access/auth/data/models/refresh_token_response.dart';
 import 'package:pharmalink/features/main/main/ui/widgets/pages.dart';
 
 class RefreshTokenBlocListener extends StatefulWidget {
@@ -68,14 +68,16 @@ class _RefreshTokenBlocListenerState extends State<RefreshTokenBlocListener> {
   }
 
   void showSuccess(
-      BuildContext context, RefreshTokenResponse refreshTokenResponse) async {
+    BuildContext context,
+    RefreshTokenResponse refreshTokenResponse,
+  ) async {
     // Close loading dialog
     _loadingOverlay.hide();
   }
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<SigninCubit, SigninState>(
+    return BlocConsumer<AuthCubit, AuthState>(
       listenWhen: (previous, current) =>
           current is Loading || current is Success || current is Error,
       listener: (context, state) {
@@ -90,7 +92,7 @@ class _RefreshTokenBlocListenerState extends State<RefreshTokenBlocListener> {
       builder: (context, state) {
         if (state is Success) {
           return Expanded(child: pages[widget.activeIndex]);
-        }else{
+        } else {
           return const SizedBox.shrink();
         }
       },

@@ -7,7 +7,7 @@ import 'package:pharmalink/features/main/home/data/models/home_page_response.dar
 import 'package:pharmalink/features/main/home/logic/cubit/home_page_cubit.dart';
 import 'package:pharmalink/features/main/home/logic/cubit/home_page_state.dart';
 import 'package:pharmalink/features/main/home/ui/widgets/doctors_container.dart';
-
+import 'package:pharmalink/core/widgets/loading_indicator.dart';
 import 'widgets/reminders_container.dart';
 import 'widgets/welcome_name_text.dart';
 
@@ -29,18 +29,13 @@ class _HomeScreenState extends State<HomeScreen> {
     return BlocBuilder<HomePageCubit, HomePageState>(
       builder: (context, state) {
         if (state is success) {
-          var homePageData = (state as HomePageResponse);
+          var homePageData = state.data;
           return buildLoadedListWidgets(homePageData);
         } else if (state is Loading) {
-          return showLoadingIndicator();
+          return const LoadingIndicator();
         } else {
           var error = (state as Error).error;
-          return Center(
-            child: Text(
-              error,
-              style: AppTextStyle.headlineMedium,
-            ),
-          );
+          return showError(error);
         }
       },
     );
@@ -52,9 +47,7 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          WelcomeNameText(
-            name: homePageData.firstName,
-          ),
+          WelcomeNameText(name: homePageData.firstName),
           DoctorsContainer(doctors: homePageData.doctors),
           RemindersContainer(drugs: homePageData.drugs),
         ],
@@ -62,10 +55,11 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  Widget showLoadingIndicator() {
-    return const Center(
-      child: CircularProgressIndicator(
-        color: AppColors.secondary,
+  Widget showError(String error) {
+    return Center(
+      child: Text(
+        error,
+        style: AppTextStyle.headlineMedium,
       ),
     );
   }

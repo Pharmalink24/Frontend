@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import 'package:pharmalink/features/access/auth/logic/cubit/auth_cubit.dart';
 import '../di/dependency_injection.dart';
 import 'routes.dart';
 import '../../features/404/error_404_screen.dart';
@@ -57,7 +58,7 @@ class AppRouter {
       case Routes.mainScreen:
         return MaterialPageRoute(
           builder: (_) => BlocProvider(
-            create: (context) => getIt<SigninCubit>(),
+            create: (context) => getIt<AuthCubit>(),
             child: const MainScreen(),
           ),
         );

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/theme/styles.dart';
 import 'package:pharmalink/core/widgets/card_container_with_title.dart';
 import 'package:pharmalink/core/widgets/text_with_icon.dart';
@@ -33,11 +34,22 @@ class RemindersContainer extends StatelessWidget {
   }
 
   Widget buildNoDataWidget() {
-    return const Center(
-      child: Text(
-        'Here will be your reminders list.',
-        style: AppTextStyle.bodyLarge,
-      ),
+    return Column(
+      children: [
+        const Icon(
+          Icons.playlist_add_check_circle_rounded,
+          size: 80,
+          color: AppColors.accent5,
+        ),
+        Center(
+          child: Text(
+            'Your reminders list is empty.',
+            style: AppTextStyle.headlineSmall.copyWith(
+              color: Colors.grey,
+            ),
+          ),
+        ),
+      ],
     );
   }
 
@@ -49,7 +61,7 @@ class RemindersContainer extends StatelessWidget {
         icon: Icons.playlist_add_check_circle_rounded,
         text: 'Check All',
       ),
-      child: drugs.isEmpty ? buildLoadedListWidgets() : buildNoDataWidget(),
+      child: drugs.isEmpty ? buildNoDataWidget() : buildLoadedListWidgets(),
     );
   }
 }

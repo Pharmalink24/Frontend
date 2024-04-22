@@ -10,7 +10,7 @@ import 'package:pharmalink/features/main/profile/logic/cubit/profile_cubit.dart'
 import '../networking/api_service.dart';
 import '../networking/dio_factory.dart';
 import '../../features/access/auth/logic/cubit/auth_cubit.dart';
-import '../../features/access/signin/data/repo/auth_repo.dart';
+import '../../features/access/auth/data/repo/auth_repo.dart';
 import '../../features/access/signin/data/repo/signin_repo.dart';
 import '../../features/access/signin/logic/cubit/signin_cubit.dart';
 import '../../features/access/signup/logic/cubit/signup_cubit.dart';
@@ -45,7 +45,7 @@ Future<void> setupGetIt() async {
   // Home Page
   getIt.registerLazySingleton<HomePageRepo>(() => HomePageRepo(getIt()));
   getIt.registerFactory<HomePageCubit>(() => HomePageCubit(getIt()));
-  
+
   // Drug Interaction
   getIt.registerLazySingleton<DrugInteractionRepo>(
       () => DrugInteractionRepo(getIt()));

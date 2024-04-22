@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:pharmalink/features/access/signin/data/models/refresh_token_response.dart';
+import 'package:pharmalink/features/access/auth/data/models/refresh_token_response.dart';
 import 'package:retrofit/http.dart';
 import 'package:pharmalink/features/main/drug_interaction/data/models/drug_eye_search_request_params.dart';
 import 'package:pharmalink/features/main/drug_interaction/data/models/drug.dart';
@@ -9,7 +9,7 @@ import 'package:pharmalink/features/main/home/data/models/home_page_request_body
 import 'package:pharmalink/features/main/home/data/models/home_page_response.dart';
 import 'package:pharmalink/features/main/profile/data/models/user.dart';
 import 'api_constants.dart';
-import '../../features/access/signin/data/models/refresh_token_request_body.dart';
+import '../../features/access/auth/data/models/refresh_token_request_body.dart';
 import '../../features/access/signup/data/models/signup_request_body.dart';
 import '../../features/access/signup/data/models/signup_response.dart';
 import '../../features/access/verification/data/models/verification_request_params.dart';

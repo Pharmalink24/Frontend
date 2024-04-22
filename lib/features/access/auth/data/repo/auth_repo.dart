@@ -6,8 +6,8 @@ import 'package:pharmalink/core/networking/api_error_handler.dart';
 import 'package:pharmalink/core/networking/api_result.dart';
 import 'package:pharmalink/core/networking/api_service.dart';
 import 'package:pharmalink/core/shared_preferences/auth_prefs.dart';
-import 'package:pharmalink/features/access/signin/data/models/refresh_token_request_body.dart';
-import 'package:pharmalink/features/access/signin/data/models/refresh_token_response.dart';
+import 'package:pharmalink/features/access/auth/data/models/refresh_token_request_body.dart';
+import 'package:pharmalink/features/access/auth/data/models/refresh_token_response.dart';
 import 'package:pharmalink/features/access/signin/data/models/signin_response.dart';
 
 class AuthRepo {
@@ -39,14 +39,32 @@ class AuthRepo {
     }
   }
 
-  Future<ApiResult<RefreshTokenResponse>> refreshToken(
-      RefreshTokenRequestBody refreshTokenRequestBody) async {
+  Future<void> setAccessToken(String accessToken) async {
     try {
-      final response = await _apiService.refreshToken(refreshTokenRequestBody);
+      await AuthSharedPrefs.storeAuthData(
+        SigninResponse(
+          id: AuthSharedPrefs.getUserId() ?? 0,
+          username: AuthSharedPrefs.getUsername() ?? '',
+          email: AuthSharedPrefs.getEmail() ?? '',
+          accessToken: accessToken,
+          refreshToken: AuthSharedPrefs.getRefreshToken() ?? '',
+        ),
+      );
+    } catch (error) {
+      getIt<Logger>().e(error);
+    }
+  }
+
+  Future<ApiResult<RefreshTokenResponse>> refreshToken() async {
+    try {
+      final response = await _apiService.refreshToken(
+        RefreshTokenRequestBody(
+          refreshToken: AuthSharedPrefs.getRefreshToken() ?? '',
+        ),
+      );
       return ApiResult.success(response);
     } catch (error) {
       return ApiResult.failure(ErrorHandler.handle(error));
     }
   }
-
 }

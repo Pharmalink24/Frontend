@@ -1,10 +1,3 @@
-  // "id": 9,
-  // "image": "/doctor_images/WhatsApp_Image_2023-11-27_at_11.12.12_AM_ZktVrpO.jpeg",
-  // "username": "potojj243DDD",
-  // "first_name": "Ismail",
-  // "last_name": "Tawfik",
-  // "specialty": "general"
-
 import 'package:json_annotation/json_annotation.dart';
 
 part 'doctor.g.dart';

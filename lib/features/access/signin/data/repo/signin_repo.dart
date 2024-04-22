@@ -1,3 +1,6 @@
+import 'package:logger/logger.dart';
+import 'package:pharmalink/core/di/dependency_injection.dart';
+
 import '../../../../../core/networking/api_error_handler.dart';
 import '../../../../../core/networking/api_result.dart';
 import '../../../../../core/networking/api_service.dart';
@@ -15,6 +18,7 @@ class SigninRepo {
       final response = await _apiService.signin(signinRequestBody);
       return ApiResult.success(response);
     } catch (error) {
+      getIt<Logger>().e(error);
       return ApiResult.failure(ErrorHandler.handle(error));
     }
   }

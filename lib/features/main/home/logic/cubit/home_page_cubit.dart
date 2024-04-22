@@ -9,24 +9,25 @@ class HomePageCubit extends Cubit<HomePageState> {
   final HomePageRepo _homePageRepo;
   HomePageCubit(this._homePageRepo) : super(const HomePageState.initial());
 
-  Future<void> getHomePageData() async {
+  void getHomePageData() async {
+    // Loading until get data
     emit(const HomePageState.loading());
-    await _homePageRepo
-        .getHomePageData(
-          HomePageRequestBody(state: State.NEW),
-        )
-        .then(
-          (response) => response.when(
-            success: (data) {
-              emit(HomePageState.success(data));
-            },
-            failure: (error) {
-              emit(
-                HomePageState.error(
-                    error: error.apiErrorModel.message ?? ERR.UNEXPECTED),
-              );
-            },
+
+    // Get data
+    final response = await _homePageRepo.getHomePageData(
+      HomePageRequestBody(state: State.NEW),
+    );
+    response.when(
+      success: (data) {
+        emit(HomePageState.success(data));
+      },
+      failure: (error) {
+        emit(
+          HomePageState.error(
+            error: error.apiErrorModel.message ?? ERR.UNEXPECTED,
           ),
         );
+      },
+    );
   }
 }

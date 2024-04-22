@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/widgets/card_container_with_title.dart';
 import 'package:pharmalink/core/helpers/extensions.dart';
 import 'package:pharmalink/core/routes/routes.dart';
@@ -14,33 +15,43 @@ class DoctorsContainer extends StatelessWidget {
     required this.doctors,
   });
 
-    Widget buildLoadedListWidgets() {
-      return ListView.builder(
-        scrollDirection: Axis.horizontal,
-        shrinkWrap: true,
-        physics: const ClampingScrollPhysics(),
-        padding: EdgeInsets.zero,
-        itemCount: doctors.length,
-        itemBuilder: (context, index) {
-          return DoctorContainer(
-            firstName: doctors[index].firstName,
-            lastName: doctors[index].lastName,
-            specialty: doctors[index].specialty,
-            url: doctors[index].image,
-          );
-        },
-      );
-    }
+  Widget buildLoadedListWidgets() {
+    return ListView.builder(
+      scrollDirection: Axis.horizontal,
+      shrinkWrap: true,
+      physics: const ClampingScrollPhysics(),
+      padding: EdgeInsets.zero,
+      itemCount: doctors.length,
+      itemBuilder: (context, index) {
+        return DoctorContainer(
+          firstName: doctors[index].firstName,
+          lastName: doctors[index].lastName,
+          specialty: doctors[index].specialty,
+          url: doctors[index].image,
+        );
+      },
+    );
+  }
 
-    Widget buildNoDataWidget() {
-      return const Center(
-        child: Text(
-          'Here will be your doctors list.',
-          style: AppTextStyle.bodyLarge,
+  Widget buildNoDataWidget() {
+    return Column(
+      children: [
+        const Icon(
+          Icons.person_add_alt_1_rounded,
+          size: 80,
+          color: AppColors.accent5,
         ),
-      );
-    }
-
+        Center(
+          child: Text(
+            'Your doctors list is empty.',
+            style: AppTextStyle.headlineSmall.copyWith(
+              color: Colors.grey,
+            ),
+          ),
+        ),
+      ],
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +62,7 @@ class DoctorsContainer extends StatelessWidget {
         icon: Icons.arrow_circle_right_sharp,
         text: 'View All',
       ),
-      child: doctors.isEmpty ? buildLoadedListWidgets() : buildNoDataWidget(),
+      child: doctors.isEmpty ? buildNoDataWidget() : buildLoadedListWidgets(),
     );
   }
 }
