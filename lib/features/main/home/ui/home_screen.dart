@@ -42,10 +42,9 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Widget buildLoadedListWidgets(HomePageResponse homePageData) {
-    return SingleChildScrollView(
+    return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           WelcomeNameText(name: homePageData.firstName),
           DoctorsContainer(doctors: homePageData.doctors),
@@ -68,7 +67,6 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Container(
       color: AppColors.secondaryBackground,
-      height: double.infinity,
       child: SafeArea(
         child: buildBlocWidget(),
       ),

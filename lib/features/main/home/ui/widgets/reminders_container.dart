@@ -13,23 +13,22 @@ class RemindersContainer extends StatelessWidget {
     required this.drugs,
   });
 
+  // Todo: Delete the height of the SizedBox
   Widget buildLoadedListWidgets() {
-    return ListView.builder(
-      scrollDirection: Axis.horizontal,
-      shrinkWrap: true,
-      physics: const ClampingScrollPhysics(),
-      padding: EdgeInsets.zero,
-      itemCount: drugs.length,
-      itemBuilder: (context, index) {
-        return drugs[index].isToday()
-            ? DrugListTile(
-                drugName: drugs[index].commercialName,
-                quantity: drugs[index].quantity,
-                measure: drugs[index].quantityUnit,
-                time: drugs[index].calcReminderTime(),
-              )
-            : const SizedBox.shrink();
-      },
+    return Expanded(
+      child: SizedBox(
+        height: 250,
+        child: ListView.builder(
+          scrollDirection: Axis.vertical,
+          padding: EdgeInsets.zero,
+          itemCount: drugs.length,
+          itemBuilder: (context, index) {
+            return drugs[index].isToday()
+                ? DrugListTile(drugs[index])
+                : const SizedBox.shrink();
+          },
+        ),
+      ),
     );
   }
 

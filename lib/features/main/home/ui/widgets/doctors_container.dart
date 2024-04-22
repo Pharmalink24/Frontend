@@ -16,20 +16,18 @@ class DoctorsContainer extends StatelessWidget {
   });
 
   Widget buildLoadedListWidgets() {
-    return ListView.builder(
-      scrollDirection: Axis.horizontal,
-      shrinkWrap: true,
-      physics: const ClampingScrollPhysics(),
-      padding: EdgeInsets.zero,
-      itemCount: doctors.length,
-      itemBuilder: (context, index) {
-        return DoctorContainer(
-          firstName: doctors[index].firstName,
-          lastName: doctors[index].lastName,
-          specialty: doctors[index].specialty,
-          url: doctors[index].image,
-        );
-      },
+    return Expanded(
+      child: SizedBox(
+        height: 125,
+        child: ListView.builder(
+          scrollDirection: Axis.horizontal,
+          padding: EdgeInsets.zero,
+          itemCount: doctors.length,
+          itemBuilder: (context, index) {
+            return DoctorContainer(doctors[index]);
+          },
+        ),
+      ),
     );
   }
 

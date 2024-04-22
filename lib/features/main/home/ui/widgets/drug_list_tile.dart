@@ -1,20 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:pharmalink/features/main/home/data/models/drug.dart';
 import '../../../../../core/helpers/extensions.dart';
 import '../../../../../core/theme/colors.dart';
 import '../../../../../core/theme/styles.dart';
 
 class DrugListTile extends StatefulWidget {
-  final String drugName;
-  final int quantity;
-  final String measure;
-  final TimeOfDay time;
+  final Drug drug;
 
-  const DrugListTile({
+  const DrugListTile(
+    this.drug, {
     super.key,
-    required this.drugName,
-    required this.quantity,
-    required this.measure,
-    required this.time,
   });
 
   @override
@@ -26,7 +21,7 @@ class _DrugListTileState extends State<DrugListTile> {
   @override
   Widget build(BuildContext context) {
     String timeInString =
-        "${widget.time.hourIn12hour()}:${widget.time.minutes()}\n${widget.time.getPeriod()}";
+        "${widget.drug.calcReminderTime().hourIn12hour()}:${widget.drug.calcReminderTime().minutes()}\n${widget.drug.calcReminderTime().getPeriod()}";
 
     return CheckboxListTile(
       value: isChecked,
@@ -46,14 +41,15 @@ class _DrugListTileState extends State<DrugListTile> {
         ),
       ),
       title: Text(
-        widget.drugName,
-        style: AppTextStyle.titleLarge.copyWith(
+        widget.drug.commercialName,
+        style: AppTextStyle.titleMedium.copyWith(
+          color: AppColors.primaryText,
           decoration:
               isChecked ? TextDecoration.lineThrough : TextDecoration.none,
         ),
       ),
       subtitle: Text(
-        "${widget.quantity} ${widget.measure}",
+        "${widget.drug.quantity} ${widget.drug.quantityUnit}",
         style: AppTextStyle.labelMedium.copyWith(
           decoration:
               isChecked ? TextDecoration.lineThrough : TextDecoration.none,

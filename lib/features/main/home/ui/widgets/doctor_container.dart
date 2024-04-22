@@ -1,22 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:pharmalink/core/helpers/constants/paths.dart';
+import 'package:pharmalink/core/networking/api_constants.dart';
 
 import '../../../../../core/theme/colors.dart';
 import '../../../../../core/theme/fonts.dart';
 import '../../../../../core/theme/styles.dart';
+import '../../data/models/doctor.dart';
 
 class DoctorContainer extends StatelessWidget {
-  final String firstName;
-  final String lastName;
-  final String specialty;
-  final String? url;
+  final Doctor doctor;
 
-  const DoctorContainer({
+  const DoctorContainer(
+    this.doctor, {
     super.key,
-    required this.firstName,
-    required this.lastName,
-    required this.specialty,
-    required this.url,
   });
 
   String cropperName(String name, {int length = 5}) {
@@ -29,7 +25,6 @@ class DoctorContainer extends StatelessWidget {
       padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 16, 0),
       child: Container(
         width: 205,
-        height: 125,
         decoration: BoxDecoration(
           gradient: const LinearGradient(
             colors: [
@@ -56,7 +51,7 @@ class DoctorContainer extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Dr. ${cropperName(firstName)}',
+                    'Dr. ${cropperName(doctor.firstName, length: 8)}',
                     textAlign: TextAlign.start,
                     style: AppTextStyle.titleMedium.copyWith(
                       fontFamily: AppFonts.secondary,
@@ -65,7 +60,7 @@ class DoctorContainer extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    cropperName(lastName, length: 8),
+                    cropperName(doctor.lastName, length: 8),
                     textAlign: TextAlign.start,
                     style: AppTextStyle.titleMedium.copyWith(
                       fontFamily: AppFonts.secondary,
@@ -74,7 +69,7 @@ class DoctorContainer extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    cropperName(specialty, length: 14),
+                    cropperName(doctor.specialty, length: 14),
                     style: AppTextStyle.bodyMedium.copyWith(
                       fontFamily: AppFonts.secondary,
                       fontSize: 11,
@@ -85,7 +80,9 @@ class DoctorContainer extends StatelessWidget {
               Align(
                 alignment: const AlignmentDirectional(1, 1),
                 child: Image.network(
-                  url ?? '${AppPaths.images}/doctor_placeholder.png',
+                  doctor.image != null
+                      ? "${ApiConstants.baseUrl}${doctor.image}"
+                      : '${AppPaths.images}/doctor_placeholder.png',
                   width: 100,
                   fit: BoxFit.scaleDown,
                   loadingBuilder: (BuildContext context, Widget child,
