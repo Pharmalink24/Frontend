@@ -16,6 +16,15 @@ extension LanguageExtension on Language {
         return "Arabic";
     }
   }
+
+  String get key {
+    switch (this) {
+      case Language.English:
+        return "en";
+      case Language.Arabic:
+        return "ar";
+    }
+  }
 }
 
 class LanguageDropDown extends StatefulWidget {
@@ -41,16 +50,16 @@ class _LanguageDropDownState extends State<LanguageDropDown> {
           color: AppColors.primaryBackground,
         ),
         hintText: "Language",
-        value: _language.value,
+        value: _language.key,
         items: {
-          "en": Language.English.value,
-          "ar": Language.Arabic.value,
+          Language.English.key: Language.English.value,
+          Language.Arabic.key: Language.Arabic.value,
         },
         onChanged: (value) {
           setState(() {
-            if (value == Language.English.value) {
+            if (value == Language.English.key) {
               _language = Language.English;
-            } else if (value == Language.Arabic.value) {
+            } else if (value == Language.Arabic.key) {
               _language = Language.Arabic;
             }
           });
