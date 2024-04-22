@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:json_annotation/json_annotation.dart';
 
 part 'doctor.g.dart';
@@ -5,9 +7,11 @@ part 'doctor.g.dart';
 @JsonSerializable()
 class Doctor {
   final int id;
-  final String image;
+  final String? image;
   final String username;
+  @JsonKey(name:"first_name")
   final String firstName;
+  @JsonKey(name:"last_name")
   final String lastName;
   final String specialty;
 

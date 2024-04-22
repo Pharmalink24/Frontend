@@ -9,7 +9,7 @@ import 'package:pharmalink/core/theme/styles.dart';
 class FormDropDownButton extends StatelessWidget {
   final String? hintText;
   final String? value;
-  final List<String> items;
+  final Map<String, String> items;
   final Function onChanged;
   final BoxDecoration decoration;
   final EdgeInsetsGeometry? padding;
@@ -23,6 +23,17 @@ class FormDropDownButton extends StatelessWidget {
     required this.decoration,
     this.padding,
   });
+
+  List<DropdownMenuItem<String>> buildItemsWidget(Map<String, String> items) {
+    return items.entries
+        .map(
+          (entry) => DropdownMenuItem(
+            value: entry.key,
+            child: Text(entry.value),
+          ),
+        )
+        .toList();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -39,17 +50,12 @@ class FormDropDownButton extends StatelessWidget {
           ),
           hint: Text(hintText ?? ""),
           padding: padding,
-          value: value ?? items[0],
+          value: value ?? items.keys.elementAt(0),
           onChanged: (value) {
             onChanged(value);
           },
-          items: items
-              .map<DropdownMenuItem<String>>(
-                  (String value) => DropdownMenuItem<String>(
-                        value: value,
-                        child: Text(value),
-                      ))
-              .toList(),
+          //
+          items: buildItemsWidget(items),
           style: AppTextStyle.bodyMedium.copyWith(
             color: AppColors.secondary,
           ),

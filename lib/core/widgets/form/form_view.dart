@@ -1,7 +1,9 @@
 import "package:flutter/material.dart";
+import 'package:pharmalink/core/helpers/classes/field_type.dart';
 
 import '../../theme/styles.dart';
 import '../../helpers/classes/field.dart';
+import 'date_picker.dart';
 import 'form_drop_down_button.dart';
 import 'form_text_field.dart';
 
@@ -54,14 +56,24 @@ class _FormViewState extends State<FormView> {
     }
   }
 
+  // Check if field is confirm ?
+  bool isConfirm(Field field) {
+    return field.confirmationValue != null;
+  }
+
   // Check if field is drop down menu button ?
   bool isDropDownMenu(Field field) {
-    return field.items == null;
+    return field.inputType == FieldType.dropdown;
+  }
+
+  // Check if field is date ?
+  bool isDate(Field field) {
+    return field.inputType == FieldType.date;
   }
 
   // Check if field is password ?
   bool isPasswordField(Field field) {
-    return field.inputType == TextInputType.visiblePassword;
+    return field.inputType == FieldType.password;
   }
 
   // Generate form text field
@@ -69,16 +81,20 @@ class _FormViewState extends State<FormView> {
     return FormTextField(
       decoration: inputDecoration,
       hintText: field.name,
-      keyboardType: field.inputType,
+      keyboardType: field.textInputType ?? TextInputType.text,
       suffixIcon: isPasswordField(field)
           ? IconButton(
               onPressed: () {
-                setState(() {
-                  _isVisible[key] = !_isVisible[key]!;
-                });
+                setState(
+                  () {
+                    _isVisible[key] = !_isVisible[key]!;
+                  },
+                );
               },
               icon: Icon(
-                  _isVisible[key]! ? Icons.visibility : Icons.visibility_off))
+                _isVisible[key]! ? Icons.visibility : Icons.visibility_off,
+              ),
+            )
           : null,
       obscureText: isPasswordField(field)
           ? !_isVisible[key]!
@@ -87,11 +103,26 @@ class _FormViewState extends State<FormView> {
           : false,
       controller: field.controller,
       validator: (value) {
-        return field.regex != null
-            ? !field.regex!.hasMatch(value!)
-                ? field.errorMessage ?? "Invalid ${field.name}."
-                : null
-            : null;
+        if (field.regex != null) {
+          if (field.name == "Confirm Password") {
+            print("Has match: ${field.regex!.hasMatch(value!)}");
+            print("Is confirm: ${isConfirm(field)}");
+          }
+          if (!field.regex!.hasMatch(value!)) {
+            return field.errorMessage ?? "Invalid ${field.name}.";
+          } else if (isConfirm(field)) {
+            if (value !=
+                widget.model[field.confirmationValue!]!.controller!.text) {
+              return field.confirmationErrorMessage ?? "${widget.model[field.confirmationValue!]!.name}s do not match.";
+            } else {
+              return null;
+            }
+          } else {
+            return null;
+          }
+        } else {
+          return null;
+        }
       },
       onChanged: (value) {
         field.value = value;
@@ -102,6 +133,7 @@ class _FormViewState extends State<FormView> {
   // Generate drop down menu button
   FormDropDownButton generateDropDownButton(Field field) {
     return FormDropDownButton(
+      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 2.0),
       decoration: boxDecoration,
       hintText: field.name,
       value: field.value,
@@ -110,6 +142,25 @@ class _FormViewState extends State<FormView> {
         setState(() {
           field.value = value;
         });
+      },
+    );
+  }
+
+  // Generate date picker
+  DatePicker generateDatePicker(Field field) {
+    return DatePicker(
+      decoration: inputDecoration,
+      hintText: field.name,
+      controller: field.controller,
+      validator: (value) {
+        return field.regex != null
+            ? !field.regex!.hasMatch(value!)
+                ? field.errorMessage ?? "Invalid ${field.name}."
+                : null
+            : null;
+      },
+      onChanged: (value) {
+        field.value = value;
       },
     );
   }
@@ -126,8 +177,10 @@ class _FormViewState extends State<FormView> {
           Field field = widget.model.values.elementAt(index);
           String key = widget.model.keys.elementAt(index);
           return isDropDownMenu(field)
-              ? generateFormTextField(key, field)
-              : generateDropDownButton(field);
+              ? generateDropDownButton(field)
+              : isDate(field)
+                  ? generateDatePicker(field)
+                  : generateFormTextField(key, field);
         }),
         itemCount: widget.model.length,
       ),

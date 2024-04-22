@@ -42,10 +42,10 @@ class _LanguageDropDownState extends State<LanguageDropDown> {
         ),
         hintText: "Language",
         value: _language.value,
-        items: [
-          Language.English.value,
-          Language.Arabic.value,
-        ],
+        items: {
+          "en": Language.English.value,
+          "ar": Language.Arabic.value,
+        },
         onChanged: (value) {
           setState(() {
             if (value == Language.English.value) {

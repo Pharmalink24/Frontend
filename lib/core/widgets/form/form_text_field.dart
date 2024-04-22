@@ -35,12 +35,11 @@ class FormTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 8),
+      padding: const EdgeInsetsDirectional.fromSTEB(0, 8, 0, 8),
       child: SizedBox(
         width: double.infinity,
         child: TextFormField(
           controller: controller,
-          onChanged: onChanged,
           autofocus: false,
           obscureText: obscureText,
           autocorrect: autocorrect,
@@ -54,9 +53,7 @@ class FormTextField extends StatelessWidget {
             color: AppColors.secondary,
           ),
           keyboardType: keyboardType,
-          validator: (value) {
-            return validator(value);
-          },
+          validator: (value) => validator(value),
         ),
       ),
     );

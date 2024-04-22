@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import "package:pharmalink/core/helpers/classes/field_type.dart";
 
 import "../core/helpers/classes/field.dart";
 
@@ -68,26 +69,75 @@ const List<String> doctorDegreeList = [
 ];
 
 List<Field> doctorSignUpFields = [
-  Field("First Name", inputType: TextInputType.name, dbName: "fname"),
-  Field("Last Name", inputType: TextInputType.name, dbName: "lname"),
-  Field("Username", inputType: TextInputType.name, dbName: "username"),
-  Field("Password",
-      inputType: TextInputType.visiblePassword, dbName: "password"),
-  Field("Confirm Password",
-      inputType: TextInputType.visiblePassword, dbName: null),
-  Field("Email", inputType: TextInputType.emailAddress, dbName: "email"),
-  Field("Phone", inputType: TextInputType.phone, dbName: "phone"),
-  Field("License Number",
-      inputType: TextInputType.name, dbName: "license_number"),
-  Field("Degree",
-      inputType: TextInputType.none, items: doctorDegreeList, dbName: "degree"),
-  Field("Specialty",
-      inputType: TextInputType.none,
-      items: doctorSpecialtyList,
-      dbName: "specialization"),
-  Field("Graduation Date",
-      inputType: TextInputType.datetime, dbName: "graduation_date"),
-  Field("University", inputType: TextInputType.name, dbName: "university"),
-  Field("Birth Date", inputType: TextInputType.datetime, dbName: "birthdate"),
-  Field("Gender", inputType: TextInputType.name, dbName: "gender"),
+  Field(
+    "First Name",
+    inputType: FieldType.text,
+    dbName: "fname",
+  ),
+  Field(
+    "Last Name",
+    inputType: FieldType.text,
+    dbName: "lname",
+  ),
+  Field(
+    "Username",
+    inputType: FieldType.text,
+    dbName: "username",
+  ),
+  Field(
+    "Password",
+    inputType: FieldType.password,
+    dbName: "password",
+  ),
+  Field(
+    "Confirm Password",
+    inputType: FieldType.password,
+    dbName: null,
+  ),
+  Field(
+    "Email",
+    inputType: FieldType.text,
+    dbName: "email",
+  ),
+  Field(
+    "Phone",
+    inputType: FieldType.phone,
+    dbName: "phone",
+  ),
+  Field(
+    "License Number",
+    inputType: FieldType.text,
+    dbName: "license_number",
+  ),
+  Field(
+    "Degree",
+    inputType: FieldType.text,
+    // items: doctorDegreeList,
+    dbName: "degree",
+  ),
+  Field(
+    "Specialty",
+    inputType: FieldType.text,
+    // items: doctorSpecialtyList,
+    dbName: "specialization",
+  ),
+  Field(
+    "Graduation Date",
+    inputType: FieldType.date,
+    dbName: "graduation_date",
+  ),
+  Field(
+    "University",
+    inputType: FieldType.text,
+    dbName: "university",
+  ),
+  Field(
+    "Birth Date",
+    inputType: FieldType.date,
+    dbName: "birthdate",
+  ),
+  Field("Gender", inputType: FieldType.dropdown, dbName: "gender", items: {
+    "Male": "M",
+    "Female": "F",
+  }),
 ];
