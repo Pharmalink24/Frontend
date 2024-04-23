@@ -11,9 +11,23 @@ class DoctorsRepo {
   final ApiService _apiService;
   DoctorsRepo(this._apiService);
 
-  Future<ApiResult<List<Doctor>>> getDoctorList(StateRequestBody stateRequestBody) async {
+  // Retrieve the list of doctors
+  Future<ApiResult<List<Doctor>>> getDoctorList() async {
     try {
-      final response = await _apiService.getDoctorList(
+      final response =
+          await _apiService.getDoctorList(AuthSharedPrefs.getAccessToken());
+      return ApiResult.success(response);
+    } catch (error) {
+      getIt<Logger>().e(error);
+      return ApiResult.failure(ErrorHandler.handle(error));
+    }
+  }
+
+  // Retrieve the list of doctors based on their state
+  Future<ApiResult<List<Doctor>>> getDoctorListWithState(
+      StateRequestBody stateRequestBody) async {
+    try {
+      final response = await _apiService.getDoctorListWithState(
           stateRequestBody, AuthSharedPrefs.getAccessToken());
       return ApiResult.success(response);
     } catch (error) {

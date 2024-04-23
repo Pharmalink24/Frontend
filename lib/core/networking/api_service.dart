@@ -80,6 +80,12 @@ abstract class ApiService {
   // Get Doctors List
   @GET(ApiConstants.doctorsList)
   Future<List<Doctor>> getDoctorList(
+    @Header('Authorization') String? auth,
+  );
+
+  // Get Doctors List by state of the doctor
+  @GET(ApiConstants.doctorsListWithState)
+  Future<List<Doctor>> getDoctorListWithState(
     @Queries() StateRequestBody stateRequestBody,
     @Header('Authorization') String? auth,
   );

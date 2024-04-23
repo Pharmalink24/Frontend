@@ -9,13 +9,33 @@ class DoctorsCubit extends Cubit<DoctorsState> {
   final DoctorsRepo _doctorsRepo;
   DoctorsCubit(this._doctorsRepo) : super(const DoctorsState.initial());
 
-  void getDoctorsList() async {
+  void emitDoctorsList() async {
     // Loading until get data
     emit(const DoctorsState.loading());
 
     // Get data
-    final response = await _doctorsRepo.getDoctorList(
-      StateRequestBody(state: State.NEW),
+    final response = await _doctorsRepo.getDoctorList();
+    response.when(
+      success: (data) {
+        emit(DoctorsState.success(data));
+      },
+      failure: (error) {
+        emit(
+          DoctorsState.error(
+            error: error.apiErrorModel.message ?? ERR.UNEXPECTED,
+          ),
+        );
+      },
+    );
+  }
+
+  void emitNewDoctorsListWithState(State state) async {
+    // Loading until get data
+    emit(const DoctorsState.loading());
+
+    // Get data
+    final response = await _doctorsRepo.getDoctorListWithState(
+      StateRequestBody(state: state),
     );
     response.when(
       success: (data) {

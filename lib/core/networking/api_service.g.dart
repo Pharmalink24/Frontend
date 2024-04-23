@@ -265,7 +265,38 @@ class _ApiService implements ApiService {
   }
 
   @override
-  Future<List<Doctor>> getDoctorList(
+  Future<List<Doctor>> getDoctorList(String? auth) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{r'Authorization': auth};
+    _headers.removeWhere((k, v) => v == null);
+    const Map<String, dynamic>? _data = null;
+    final _result =
+        await _dio.fetch<List<dynamic>>(_setStreamType<List<Doctor>>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'Prescription/user/prescriptions/Doctorinfo/',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    var value = _result.data!
+        .map((dynamic i) => Doctor.fromJson(i as Map<String, dynamic>))
+        .toList();
+    return value;
+  }
+
+  @override
+  Future<List<Doctor>> getDoctorListWithState(
     StateRequestBody stateRequestBody,
     String? auth,
   ) async {
@@ -284,7 +315,7 @@ class _ApiService implements ApiService {
     )
             .compose(
               _dio.options,
-              'user/doctors-list/',
+              'Prescription/user/state-prescriptions/Doctorinfo/',
               queryParameters: queryParameters,
               data: _data,
             )

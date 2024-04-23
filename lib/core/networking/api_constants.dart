@@ -19,7 +19,8 @@ class ApiConstants {
   static const userInformation = "user/user-info/";
 
   // Doctors List API
-  static const doctorsList = "user/doctors-list/";
+  static const doctorsList = "Prescription/user/prescriptions/Doctorinfo/";
+  static const doctorsListWithState = "Prescription/user/state-prescriptions/Doctorinfo/";
 }
 
 class ApiErrors {
