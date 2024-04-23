@@ -69,7 +69,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
             ),
             const RetrieveProfileBlocBuilder(),
             FormButton(
-              text: "Update password",
+              text: "Update Profile",
               onPressed: () => changePassword(context),
               color: AppColors.primary,
               borderRadius: 12.0,
