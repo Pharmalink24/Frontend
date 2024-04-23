@@ -1,5 +1,7 @@
 import "package:flutter/material.dart";
 import 'package:pharmalink/features/access/auth/logic/cubit/auth_cubit.dart';
+import 'package:pharmalink/features/main/settings/change_password/logic/cubit/change_password_cubit.dart';
+import 'package:pharmalink/features/main/settings/change_password/ui/change_password_screen.dart';
 import '../di/dependency_injection.dart';
 import 'routes.dart';
 import '../../features/404/error_404_screen.dart';
@@ -63,7 +65,14 @@ class AppRouter {
           ),
         );
 
-      
+      case Routes.changePasswordScreen:
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<ChangePasswordCubit>(),
+            child: const ChangePasswordScreen(),
+          ),
+        );
+
       default:
         return MaterialPageRoute(builder: (_) => const Error404Screen());
     }

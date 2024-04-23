@@ -1,5 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:pharmalink/features/access/auth/data/models/refresh_token_response.dart';
+import 'package:pharmalink/features/main/settings/change_password/data/models/change_password_request_body.dart';
+import 'package:pharmalink/features/main/settings/change_password/data/models/change_password_response.dart';
 import 'package:retrofit/http.dart';
 import 'package:pharmalink/features/main/drug_interaction/data/models/drug_eye_search_request_params.dart';
 import 'package:pharmalink/features/main/drug_interaction/data/models/drug.dart';
@@ -73,6 +75,13 @@ abstract class ApiService {
   // User Profile Data
   @GET(ApiConstants.userInformation)
   Future<User> getUserInformation(
+    @Header('Authorization') String? auth,
+  );
+
+  // Change Password
+  @PATCH(ApiConstants.changePassword)
+  Future<ChangePasswordResponse> changePassword(
+    @Body() ChangePasswordRequestBody changePasswordRequestBody,
     @Header('Authorization') String? auth,
   );
 }
