@@ -17,6 +17,9 @@ class ApiConstants {
 
   // Profile API
   static const userInformation = "user/user-info/";
+
+  // Edit Profile API
+  static const updateUserInformation = "user/update/";
 }
 
 class ApiErrors {

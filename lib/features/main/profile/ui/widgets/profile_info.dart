@@ -3,7 +3,7 @@ import 'package:pharmalink/core/helpers/constants/paths.dart';
 import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/theme/styles.dart';
 import 'package:pharmalink/core/widgets/card_container_with_title.dart';
-import 'package:pharmalink/features/main/profile/data/models/user.dart';
+import 'package:pharmalink/core/models/user.dart';
 
 import 'dark_mode_switch.dart';
 
@@ -62,7 +62,7 @@ class _ProfileInfoState extends State<ProfileInfo> {
                       style: AppTextStyle.headlineSmall,
                     ),
                     Text(
-                      cropperName(widget.user.email, length: 30),
+                      cropperName(widget.user.email!, length: 30),
                       style: AppTextStyle.bodySmall.copyWith(
                         color: AppColors.primary,
                       ),

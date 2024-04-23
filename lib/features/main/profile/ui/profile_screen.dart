@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/theme/styles.dart';
-import '../data/models/user.dart';
+import '../../../../core/models/user.dart';
 import '../logic/cubit/profile_cubit.dart';
 import '../logic/cubit/profile_state.dart';
 import 'widgets/account_settings.dart';

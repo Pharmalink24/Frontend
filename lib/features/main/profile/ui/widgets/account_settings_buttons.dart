@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:pharmalink/core/helpers/extensions.dart';
+import 'package:pharmalink/core/routes/routes.dart';
 import 'package:pharmalink/features/main/profile/ui/widgets/account_settings_drop_down.dart';
 
 import 'logout_button.dart';
@@ -9,13 +11,16 @@ class AccountSettingsButtons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return Column(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
-        AccountSettingsButton(text: 'Change Password'),
-        AccountSettingsButton(text: 'Edit Profile'),
-        LanguageDropDown(),
-        LogoutButton(),
+        const AccountSettingsButton(text: 'Change Password'),
+        AccountSettingsButton(
+          text: 'Edit Profile',
+          onPressed: () => context.pushNamed(Routes.editProfileScreen),
+        ),
+        const LanguageDropDown(),
+        const LogoutButton(),
       ],
     );
   }

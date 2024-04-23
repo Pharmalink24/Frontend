@@ -7,7 +7,7 @@ import 'package:pharmalink/features/main/drug_interaction/data/models/drug_inter
 import 'package:pharmalink/features/main/drug_interaction/data/models/drug_interaction_response.dart';
 import 'package:pharmalink/features/main/home/data/models/home_page_request_body.dart';
 import 'package:pharmalink/features/main/home/data/models/home_page_response.dart';
-import 'package:pharmalink/features/main/profile/data/models/user.dart';
+import 'package:pharmalink/core/models/user.dart';
 import 'api_constants.dart';
 import '../../features/access/auth/data/models/refresh_token_request_body.dart';
 import '../../features/access/signup/data/models/signup_request_body.dart';
@@ -75,4 +75,12 @@ abstract class ApiService {
   Future<User> getUserInformation(
     @Header('Authorization') String? auth,
   );
+
+  // Update User Profile
+  @PATCH(ApiConstants.updateUserInformation)
+  Future<User> updateUserInformation(
+    @Body() User user,
+    @Header('Authorization') String? auth,
+  );
+
 }

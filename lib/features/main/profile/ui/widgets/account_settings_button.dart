@@ -4,7 +4,12 @@ import 'package:pharmalink/core/theme/styles.dart';
 
 class AccountSettingsButton extends StatelessWidget {
   final String text;
-  const AccountSettingsButton({super.key, required this.text});
+  final void Function()? onPressed;
+  const AccountSettingsButton({
+    super.key,
+    required this.text,
+    this.onPressed,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +27,7 @@ class AccountSettingsButton extends StatelessWidget {
               borderRadius: BorderRadius.circular(8.0),
             ),
           ),
-          onPressed: () {},
+          onPressed: onPressed,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [

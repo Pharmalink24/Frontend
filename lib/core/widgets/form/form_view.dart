@@ -104,10 +104,6 @@ class _FormViewState extends State<FormView> {
       controller: field.controller,
       validator: (value) {
         if (field.regex != null) {
-          if (field.name == "Confirm Password") {
-            print("Has match: ${field.regex!.hasMatch(value!)}");
-            print("Is confirm: ${isConfirm(field)}");
-          }
           if (!field.regex!.hasMatch(value!)) {
             return field.errorMessage ?? "Invalid ${field.name}.";
           } else if (isConfirm(field)) {

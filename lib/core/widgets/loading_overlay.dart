@@ -3,8 +3,11 @@ import 'package:pharmalink/core/theme/colors.dart';
 
 class LoadingOverlay {
   OverlayEntry? _overlay;
+  final Duration hideTime;
 
-  LoadingOverlay();
+  LoadingOverlay({
+    this.hideTime = const Duration(seconds: 2),
+  });
 
   void show(BuildContext context) {
     if (_overlay == null) {
@@ -21,6 +24,10 @@ class LoadingOverlay {
       );
       Overlay.of(context).insert(_overlay!);
     }
+
+    Future.delayed(hideTime, () {
+      hide();
+    });
   }
 
   void hide() {

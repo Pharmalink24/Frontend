@@ -7,6 +7,8 @@ import 'package:pharmalink/features/main/home/data/repo/home_page_repo.dart';
 import 'package:pharmalink/features/main/home/logic/cubit/home_page_cubit.dart';
 import 'package:pharmalink/features/main/profile/data/repo/profile_repo.dart';
 import 'package:pharmalink/features/main/profile/logic/cubit/profile_cubit.dart';
+import 'package:pharmalink/features/main/settings/edit_profile/data/repo/edit_profile_repo.dart';
+import 'package:pharmalink/features/main/settings/edit_profile/logic/cubit/edit_profile_cubit.dart';
 import '../networking/api_service.dart';
 import '../networking/dio_factory.dart';
 import '../../features/access/auth/logic/cubit/auth_cubit.dart';
@@ -55,6 +57,10 @@ Future<void> setupGetIt() async {
   // Profile Information
   getIt.registerLazySingleton<ProfileRepo>(() => ProfileRepo(getIt()));
   getIt.registerFactory<ProfileCubit>(() => ProfileCubit(getIt()));
+
+  // Edit Profile
+  getIt.registerLazySingleton<EditProfileRepo>(() => EditProfileRepo(getIt()));
+  getIt.registerFactory<EditProfileCubit>(() => EditProfileCubit(getIt()));
 
   // Logger
   getIt.registerLazySingleton<Logger>(() => Logger());
