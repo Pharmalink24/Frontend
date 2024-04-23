@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:pharmalink/core/helpers/constants/paths.dart';
 import 'package:pharmalink/core/networking/api_constants.dart';
 
-import '../../../../../core/theme/colors.dart';
-import '../../../../../core/theme/fonts.dart';
-import '../../../../../core/theme/styles.dart';
-import '../../data/models/doctor.dart';
+import '../theme/colors.dart';
+import '../theme/fonts.dart';
+import '../theme/styles.dart';
+import '../models/doctor.dart';
 
-class DoctorContainer extends StatelessWidget {
+class DoctorCard extends StatelessWidget {
   final Doctor doctor;
 
-  const DoctorContainer(
+  const DoctorCard(
     this.doctor, {
     super.key,
   });

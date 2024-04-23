@@ -1,18 +1,17 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'home_page_request_body.dart';
+part of 'state_request_body.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-HomePageRequestBody _$HomePageRequestBodyFromJson(Map<String, dynamic> json) =>
-    HomePageRequestBody(
+StateRequestBody _$StateRequestBodyFromJson(Map<String, dynamic> json) =>
+    StateRequestBody(
       state: $enumDecode(_$StateEnumMap, json['state']),
     );
 
-Map<String, dynamic> _$HomePageRequestBodyToJson(
-        HomePageRequestBody instance) =>
+Map<String, dynamic> _$StateRequestBodyToJson(StateRequestBody instance) =>
     <String, dynamic>{
       'state': _$StateEnumMap[instance.state]!,
     };

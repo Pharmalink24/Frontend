@@ -17,6 +17,9 @@ class ApiConstants {
 
   // Profile API
   static const userInformation = "user/user-info/";
+
+  // Doctors List API
+  static const doctorsList = "user/doctors-list/";
 }
 
 class ApiErrors {

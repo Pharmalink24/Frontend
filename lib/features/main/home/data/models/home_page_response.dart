@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
-import 'doctor.dart';
+import '../../../../../core/models/doctor.dart';
 import 'drug.dart';
 
 part 'home_page_response.g.dart';

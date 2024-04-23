@@ -204,7 +204,7 @@ class _ApiService implements ApiService {
 
   @override
   Future<HomePageResponse> homePage(
-    HomePageRequestBody homePageRequestBody,
+    StateRequestBody homePageRequestBody,
     String? auth,
   ) async {
     final _extra = <String, dynamic>{};
@@ -261,6 +261,41 @@ class _ApiService implements ApiService {
               baseUrl,
             ))));
     final value = User.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<List<Doctor>> getDoctorList(
+    StateRequestBody homePageRequestBody,
+    String? auth,
+  ) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    queryParameters.addAll(homePageRequestBody.toJson());
+    queryParameters.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{r'Authorization': auth};
+    _headers.removeWhere((k, v) => v == null);
+    const Map<String, dynamic>? _data = null;
+    final _result =
+        await _dio.fetch<List<dynamic>>(_setStreamType<List<Doctor>>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'user/doctor-list/',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    var value = _result.data!
+        .map((dynamic i) => Doctor.fromJson(i as Map<String, dynamic>))
+        .toList();
     return value;
   }
 
