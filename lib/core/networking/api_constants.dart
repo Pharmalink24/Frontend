@@ -19,7 +19,7 @@ class ApiConstants {
   static const userInformation = "user/user-info/";
 
   // Change Password API
-  static const changePassword = "user/change-password/";
+  static const changePassword = "user/password/change/";
 }
 
 class ApiErrors {

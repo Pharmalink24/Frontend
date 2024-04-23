@@ -284,7 +284,7 @@ class _ApiService implements ApiService {
     )
             .compose(
               _dio.options,
-              'user/change-password/',
+              'user/password/change/',
               queryParameters: queryParameters,
               data: _data,
             )
