@@ -24,7 +24,11 @@ class DoctorsContainer extends StatelessWidget {
           padding: EdgeInsets.zero,
           itemCount: doctors.length,
           itemBuilder: (context, index) {
-            return DoctorCard(doctors[index]);
+            return DoctorCard(
+              doctors[index],
+              width: 225,
+              // height: 125,
+            );
           },
         ),
       ),

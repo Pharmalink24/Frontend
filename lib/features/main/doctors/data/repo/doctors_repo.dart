@@ -23,16 +23,16 @@ class DoctorsRepo {
     }
   }
 
-  // Retrieve the list of doctors based on their state
-  Future<ApiResult<List<Doctor>>> getDoctorListWithState(
-      StateRequestBody stateRequestBody) async {
-    try {
-      final response = await _apiService.getDoctorListWithState(
-          stateRequestBody, AuthSharedPrefs.getAccessToken());
-      return ApiResult.success(response);
-    } catch (error) {
-      getIt<Logger>().e(error);
-      return ApiResult.failure(ErrorHandler.handle(error));
-    }
-  }
+  // // Retrieve the list of doctors based on their state
+  // Future<ApiResult<List<Doctor>>> getDoctorListWithState(
+  //     StateRequestBody stateRequestBody) async {
+  //   try {
+  //     final response = await _apiService.getDoctorListWithState(
+  //         stateRequestBody, AuthSharedPrefs.getAccessToken());
+  //     return ApiResult.success(response);
+  //   } catch (error) {
+  //     getIt<Logger>().e(error);
+  //     return ApiResult.failure(ErrorHandler.handle(error));
+  //   }
+  // }
 }

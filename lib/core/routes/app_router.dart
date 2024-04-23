@@ -1,5 +1,7 @@
 import "package:flutter/material.dart";
 import 'package:pharmalink/features/access/auth/logic/cubit/auth_cubit.dart';
+import 'package:pharmalink/features/main/doctors/logic/cubit/doctors_cubit.dart';
+import 'package:pharmalink/features/main/doctors/ui/doctors_page.dart';
 import '../di/dependency_injection.dart';
 import 'routes.dart';
 import '../../features/404/error_404_screen.dart';
@@ -63,6 +65,13 @@ class AppRouter {
           ),
         );
 
+      case Routes.doctorsScreen:
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<DoctorsCubit>(),
+            child: const DoctorsScreen(),
+          ),
+        );
       
       default:
         return MaterialPageRoute(builder: (_) => const Error404Screen());

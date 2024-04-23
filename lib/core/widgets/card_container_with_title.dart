@@ -25,6 +25,7 @@ class CardContainerWithTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CardContainer(
+      mainAxisAlignment: MainAxisAlignment.start,
       padding: padding,
       margin: margin,
       children: [

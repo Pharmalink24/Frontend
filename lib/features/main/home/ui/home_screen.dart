@@ -22,6 +22,8 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
+
+    // Get home page data
     BlocProvider.of<HomePageCubit>(context).getHomePageData();
   }
 

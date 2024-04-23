@@ -29,25 +29,70 @@ class DoctorsCubit extends Cubit<DoctorsState> {
     );
   }
 
-  void emitNewDoctorsListWithState(State state) async {
-    // Loading until get data
-    emit(const DoctorsState.loading());
+  // void emitNewDoctorsList() async {
+  //   // Loading until get data
+  //   emit(const DoctorsState.loading());
 
-    // Get data
-    final response = await _doctorsRepo.getDoctorListWithState(
-      StateRequestBody(state: state),
-    );
-    response.when(
-      success: (data) {
-        emit(DoctorsState.success(data));
-      },
-      failure: (error) {
-        emit(
-          DoctorsState.error(
-            error: error.apiErrorModel.message ?? ERR.UNEXPECTED,
-          ),
-        );
-      },
-    );
-  }
+  //   // Get data
+  //   final response = await _doctorsRepo.getDoctorListWithState(
+  //     StateRequestBody(state: State.NEW),
+  //   );
+  //   response.when(
+  //     success: (data) {
+  //       emit(DoctorsState.success(data));
+  //     },
+  //     failure: (error) {
+  //       emit(
+  //         DoctorsState.error(
+  //           error: error.apiErrorModel.message ?? ERR.UNEXPECTED,
+  //         ),
+  //       );
+  //     },
+  //   );
+  // }
+
+  // void emitActiveDoctorsList() async {
+  //   // Loading until get data
+  //   emit(const DoctorsState.loading());
+
+  //   // Get data
+  //   final response = await _doctorsRepo.getDoctorListWithState(
+  //     StateRequestBody(state: State.ACTIVE),
+  //   );
+  //   response.when(
+  //     success: (data) {
+  //       emit(DoctorsState.success(data));
+  //     },
+  //     failure: (error) {
+  //       emit(
+  //         DoctorsState.error(
+  //           error: error.apiErrorModel.message ?? ERR.UNEXPECTED,
+  //         ),
+  //       );
+  //     },
+  //   );
+  // }
+
+  // void emitInactiveDoctorsList() async {
+  //   // Loading until get data
+  //   emit(const DoctorsState.loading());
+
+  //   // Get data
+  //   final response = await _doctorsRepo.getDoctorListWithState(
+  //     StateRequestBody(state: State.INACTIVE),
+  //   );
+  //   response.when(
+  //     success: (data) {
+  //       emit(DoctorsState.success(data));
+  //     },
+  //     failure: (error) {
+  //       emit(
+  //         DoctorsState.error(
+  //           error: error.apiErrorModel.message ?? ERR.UNEXPECTED,
+  //         ),
+  //       );
+  //     },
+  //   );
+  // }
+
 }

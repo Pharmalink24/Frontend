@@ -1,6 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:logger/logger.dart';
+import 'package:pharmalink/features/main/doctors/data/repo/doctors_repo.dart';
+import 'package:pharmalink/features/main/doctors/logic/cubit/doctors_cubit.dart';
 import 'package:pharmalink/features/main/drug_interaction/data/repo/drug_interaction_repo.dart';
 import 'package:pharmalink/features/main/drug_interaction/logic/cubit/drug_interaction_cubit.dart';
 import 'package:pharmalink/features/main/home/data/repo/home_page_repo.dart';
@@ -55,6 +57,10 @@ Future<void> setupGetIt() async {
   // Profile Information
   getIt.registerLazySingleton<ProfileRepo>(() => ProfileRepo(getIt()));
   getIt.registerFactory<ProfileCubit>(() => ProfileCubit(getIt()));
+
+  // Doctors 
+  getIt.registerLazySingleton<DoctorsRepo>(() => DoctorsRepo(getIt()));
+  getIt.registerFactory<DoctorsCubit>(() => DoctorsCubit(getIt()));
 
   // Logger
   getIt.registerLazySingleton<Logger>(() => Logger());
