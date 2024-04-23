@@ -267,8 +267,6 @@ class _ApiService implements ApiService {
   @override
   Future<User> updateUserInformation(
     User user,
-  Future<ChangePasswordResponse> changePassword(
-    ChangePasswordRequestBody changePasswordRequestBody,
     String? auth,
   ) async {
     final _extra = <String, dynamic>{};
@@ -280,9 +278,6 @@ class _ApiService implements ApiService {
     _data.addAll(user.toJson());
     final _result =
         await _dio.fetch<Map<String, dynamic>>(_setStreamType<User>(Options(
-    _data.addAll(changePasswordRequestBody.toJson());
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<ChangePasswordResponse>(Options(
       method: 'PATCH',
       headers: _headers,
       extra: _extra,
@@ -290,7 +285,6 @@ class _ApiService implements ApiService {
             .compose(
               _dio.options,
               'user/update/',
-              'user/password/change/',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -300,6 +294,38 @@ class _ApiService implements ApiService {
               baseUrl,
             ))));
     final value = User.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<ChangePasswordResponse> changePassword(
+    ChangePasswordRequestBody changePasswordRequestBody,
+    String? auth,
+  ) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{r'Authorization': auth};
+    _headers.removeWhere((k, v) => v == null);
+    final _data = <String, dynamic>{};
+    _data.addAll(changePasswordRequestBody.toJson());
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<ChangePasswordResponse>(Options(
+      method: 'PATCH',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'user/password/change/',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = ChangePasswordResponse.fromJson(_result.data!);
     return value;
   }
