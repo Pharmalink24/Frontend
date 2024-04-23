@@ -1,5 +1,6 @@
 import "package:flutter/material.dart";
 import 'package:pharmalink/features/access/auth/logic/cubit/auth_cubit.dart';
+import 'package:pharmalink/features/main/chat/ui/chats_screen.dart';
 import 'package:pharmalink/features/main/settings/edit_profile/logic/cubit/edit_profile_cubit.dart';
 import 'package:pharmalink/features/main/settings/edit_profile/ui/edit_profile_screen.dart';
 import 'package:pharmalink/features/main/settings/change_password/logic/cubit/change_password_cubit.dart';

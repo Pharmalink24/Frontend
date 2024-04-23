@@ -18,6 +18,10 @@ List<BottomNavigationBarItemInfo> navigationItems = [
     label: "Drug Interactions",
   ),
   BottomNavigationBarItemInfo(
+    icon: Icons.chat,
+    label: "Chats",
+  ),
+  BottomNavigationBarItemInfo(
     icon: FontAwesomeIcons.solidUser,
     label: "User Information",
   ),

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pharmalink/core/di/dependency_injection.dart';
 import 'package:pharmalink/features/access/auth/logic/cubit/auth_cubit.dart';
+import 'package:pharmalink/features/main/chat/logic/cubit/chat_cubit.dart';
+import 'package:pharmalink/features/main/chat/ui/chats_screen.dart';
 import 'package:pharmalink/features/main/drug_interaction/logic/cubit/drug_interaction_cubit.dart';
 import 'package:pharmalink/features/main/drug_interaction/ui/drug_interaction_screen.dart';
 import 'package:pharmalink/features/main/home/logic/cubit/home_page_cubit.dart';
@@ -20,6 +22,10 @@ List<Widget> pages = [
     create: (context) => getIt<DrugInteractionCubit>(),
     child: const DrugInteractionScreen(),
   ),
+  BlocProvider(
+    create: (context) => getIt<ChatCubit>(),
+    child: const ChatsScreen(),
+  ), 
   MultiBlocProvider(
     providers: [
       BlocProvider(

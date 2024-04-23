@@ -1,6 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:logger/logger.dart';
+import 'package:pharmalink/features/main/chat/data/repo/chat_repo.dart';
+import 'package:pharmalink/features/main/chat/logic/cubit/chat_cubit.dart';
 import 'package:pharmalink/features/main/drug_interaction/data/repo/drug_interaction_repo.dart';
 import 'package:pharmalink/features/main/drug_interaction/logic/cubit/drug_interaction_cubit.dart';
 import 'package:pharmalink/features/main/home/data/repo/home_page_repo.dart';
@@ -70,6 +72,10 @@ Future<void> setupGetIt() async {
   getIt.registerFactory<ChangePasswordCubit>(
       () => ChangePasswordCubit(getIt()));
 
+  // Chat
+  getIt.registerLazySingleton<ChatRepo>(() => ChatRepo(getIt()));
+  getIt.registerFactory<ChatCubit>(() => ChatCubit(getIt()));
+  
   // Logger
   getIt.registerLazySingleton<Logger>(() => Logger());
 }
