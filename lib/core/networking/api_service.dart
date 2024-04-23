@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:pharmalink/core/models/doctor.dart';
 import 'package:pharmalink/features/access/auth/data/models/refresh_token_response.dart';
 import 'package:pharmalink/features/main/settings/change_password/data/models/change_password_request_body.dart';
 import 'package:pharmalink/features/main/settings/change_password/data/models/change_password_response.dart';
@@ -7,7 +8,7 @@ import 'package:pharmalink/features/main/drug_interaction/data/models/drug_eye_s
 import 'package:pharmalink/features/main/drug_interaction/data/models/drug.dart';
 import 'package:pharmalink/features/main/drug_interaction/data/models/drug_interaction_request_body.dart';
 import 'package:pharmalink/features/main/drug_interaction/data/models/drug_interaction_response.dart';
-import 'package:pharmalink/features/main/home/data/models/home_page_request_body.dart';
+import 'package:pharmalink/core/models/state_request_body.dart';
 import 'package:pharmalink/features/main/home/data/models/home_page_response.dart';
 import 'package:pharmalink/core/models/user.dart';
 import 'api_constants.dart';
@@ -68,7 +69,7 @@ abstract class ApiService {
   // Home Page
   @GET(ApiConstants.homePage)
   Future<HomePageResponse> homePage(
-    @Queries() HomePageRequestBody homePageRequestBody,
+    @Queries() StateRequestBody stateRequestBody,
     @Header("Authorization") String? auth,
   );
 
@@ -89,6 +90,11 @@ abstract class ApiService {
   @PATCH(ApiConstants.changePassword)
   Future<ChangePasswordResponse> changePassword(
     @Body() ChangePasswordRequestBody changePasswordRequestBody,
+    @Header('Authorization') String? auth,
+  );
+  // Get Doctors List
+  @GET(ApiConstants.doctorsList)
+  Future<List<Doctor>> getDoctorList(
     @Header('Authorization') String? auth,
   );
 }

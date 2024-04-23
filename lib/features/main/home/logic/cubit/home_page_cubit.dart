@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:pharmalink/core/helpers/errors.dart';
-import 'package:pharmalink/features/main/home/data/models/home_page_request_body.dart';
+import 'package:pharmalink/core/models/state_request_body.dart';
 import 'package:pharmalink/features/main/home/data/repo/home_page_repo.dart';
 
 import 'home_page_state.dart';
@@ -15,7 +15,7 @@ class HomePageCubit extends Cubit<HomePageState> {
 
     // Get data
     final response = await _homePageRepo.getHomePageData(
-      HomePageRequestBody(state: State.NEW),
+      StateRequestBody(state: State.NEW),
     );
     response.when(
       success: (data) {

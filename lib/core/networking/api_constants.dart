@@ -23,6 +23,8 @@ class ApiConstants {
   
   // Change Password API
   static const changePassword = "user/password/change/";
+  // Doctors List API
+  static const doctorsList = "Prescription/user/Doctors/list/"; 
 }
 
 class ApiErrors {

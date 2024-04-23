@@ -5,8 +5,8 @@ import 'package:pharmalink/core/helpers/extensions.dart';
 import 'package:pharmalink/core/routes/routes.dart';
 import 'package:pharmalink/core/theme/styles.dart';
 import 'package:pharmalink/core/widgets/text_with_icon.dart';
-import '../../data/models/doctor.dart';
-import 'doctor_container.dart';
+import '../../../../../core/models/doctor.dart';
+import '../../../../../core/widgets/doctor_card.dart';
 
 class DoctorsContainer extends StatelessWidget {
   final List<Doctor> doctors;
@@ -24,7 +24,11 @@ class DoctorsContainer extends StatelessWidget {
           padding: EdgeInsets.zero,
           itemCount: doctors.length,
           itemBuilder: (context, index) {
-            return DoctorContainer(doctors[index]);
+            return DoctorCard(
+              doctors[index],
+              width: 225,
+              // height: 125,
+            );
           },
         ),
       ),

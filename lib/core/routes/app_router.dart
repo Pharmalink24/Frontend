@@ -4,6 +4,8 @@ import 'package:pharmalink/features/main/settings/edit_profile/logic/cubit/edit_
 import 'package:pharmalink/features/main/settings/edit_profile/ui/edit_profile_screen.dart';
 import 'package:pharmalink/features/main/settings/change_password/logic/cubit/change_password_cubit.dart';
 import 'package:pharmalink/features/main/settings/change_password/ui/change_password_screen.dart';
+import 'package:pharmalink/features/main/doctors/logic/cubit/doctors_cubit.dart';
+import 'package:pharmalink/features/main/doctors/ui/doctors_page.dart';
 import '../di/dependency_injection.dart';
 import 'routes.dart';
 import '../../features/404/error_404_screen.dart';
@@ -83,6 +85,14 @@ class AppRouter {
           ),
         );
 
+      case Routes.doctorsScreen:
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<DoctorsCubit>(),
+            child: const DoctorsScreen(),
+          ),
+        );
+      
       default:
         return MaterialPageRoute(builder: (_) => const Error404Screen());
     }

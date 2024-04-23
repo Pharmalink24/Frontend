@@ -2,17 +2,29 @@ import 'package:flutter/material.dart';
 import 'package:pharmalink/core/helpers/constants/paths.dart';
 import 'package:pharmalink/core/networking/api_constants.dart';
 
-import '../../../../../core/theme/colors.dart';
-import '../../../../../core/theme/fonts.dart';
-import '../../../../../core/theme/styles.dart';
-import '../../data/models/doctor.dart';
+import '../theme/colors.dart';
+import '../theme/fonts.dart';
+import '../theme/styles.dart';
+import '../models/doctor.dart';
 
-class DoctorContainer extends StatelessWidget {
+class DoctorCard extends StatelessWidget {
   final Doctor doctor;
+  final double? width;
+  final double? height;
+  final double titleFontSize;
+  final double subTitleFontSize;
+  final EdgeInsetsDirectional outerPadding;
+  final EdgeInsetsDirectional innerPadding;
 
-  const DoctorContainer(
+  const DoctorCard(
     this.doctor, {
     super.key,
+    this.width,
+    this.height,
+    this.titleFontSize = 16.0,
+    this.subTitleFontSize = 11.0,
+    this.outerPadding = const EdgeInsetsDirectional.fromSTEB(0, 0, 16, 0),
+    this.innerPadding = const EdgeInsetsDirectional.only(start: 8, end: 5),
   });
 
   String cropperName(String name, {int length = 5}) {
@@ -22,9 +34,10 @@ class DoctorContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 16, 0),
+      padding: outerPadding,
       child: Container(
-        width: 205,
+        width: width,
+        height: height,
         decoration: BoxDecoration(
           gradient: const LinearGradient(
             colors: [
@@ -38,8 +51,7 @@ class DoctorContainer extends StatelessWidget {
           borderRadius: BorderRadius.circular(16),
         ),
         child: Padding(
-          padding:
-              const EdgeInsetsDirectional.symmetric(vertical: 0, horizontal: 5),
+          padding: innerPadding,
           child: Row(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -51,28 +63,18 @@ class DoctorContainer extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Dr. ${cropperName(doctor.firstName, length: 8)}',
+                    'Dr. ${cropperName(doctor.firstName, length: 8)}\n${cropperName(doctor.lastName, length: 8)}',
                     textAlign: TextAlign.start,
                     style: AppTextStyle.titleMedium.copyWith(
                       fontFamily: AppFonts.secondary,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16,
-                    ),
-                  ),
-                  Text(
-                    cropperName(doctor.lastName, length: 8),
-                    textAlign: TextAlign.start,
-                    style: AppTextStyle.titleMedium.copyWith(
-                      fontFamily: AppFonts.secondary,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16,
+                      fontSize: titleFontSize,
                     ),
                   ),
                   Text(
                     cropperName(doctor.specialty, length: 14),
                     style: AppTextStyle.bodyMedium.copyWith(
                       fontFamily: AppFonts.secondary,
-                      fontSize: 11,
+                      fontSize: subTitleFontSize,
                     ),
                   ),
                 ],

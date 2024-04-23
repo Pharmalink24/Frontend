@@ -204,12 +204,12 @@ class _ApiService implements ApiService {
 
   @override
   Future<HomePageResponse> homePage(
-    HomePageRequestBody homePageRequestBody,
+    StateRequestBody stateRequestBody,
     String? auth,
   ) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
-    queryParameters.addAll(homePageRequestBody.toJson());
+    queryParameters.addAll(stateRequestBody.toJson());
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{r'Authorization': auth};
     _headers.removeWhere((k, v) => v == null);
@@ -269,6 +269,7 @@ class _ApiService implements ApiService {
     User user,
     String? auth,
   ) async {
+  Future<List<Doctor>> getDoctorList(String? auth) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     queryParameters.removeWhere((k, v) => v == null);
@@ -279,12 +280,17 @@ class _ApiService implements ApiService {
     final _result =
         await _dio.fetch<Map<String, dynamic>>(_setStreamType<User>(Options(
       method: 'PATCH',
+    const Map<String, dynamic>? _data = null;
+    final _result =
+        await _dio.fetch<List<dynamic>>(_setStreamType<List<Doctor>>(Options(
+      method: 'GET',
       headers: _headers,
       extra: _extra,
     )
             .compose(
               _dio.options,
               'user/update/',
+              'Prescription/user/Doctors/list/',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -327,6 +333,9 @@ class _ApiService implements ApiService {
               baseUrl,
             ))));
     final value = ChangePasswordResponse.fromJson(_result.data!);
+    var value = _result.data!
+        .map((dynamic i) => Doctor.fromJson(i as Map<String, dynamic>))
+        .toList();
     return value;
   }
 
