@@ -17,4 +17,7 @@ class Routes {
 
   // Edit Profile Settings
   static const String editProfileScreen = '/editProfileScreen';
+  
+  // Change Password
+  static const String changePasswordScreen = '/changePasswordScreen';
 }

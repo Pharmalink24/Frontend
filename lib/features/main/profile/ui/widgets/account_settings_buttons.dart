@@ -14,10 +14,13 @@ class AccountSettingsButtons extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
-        const AccountSettingsButton(text: 'Change Password'),
         AccountSettingsButton(
           text: 'Edit Profile',
           onPressed: () => context.pushNamed(Routes.editProfileScreen),
+        ),
+        AccountSettingsButton(
+          text: 'Change Password',
+          onPressed: () => context.pushNamed(Routes.changePasswordScreen),
         ),
         const LanguageDropDown(),
         const LogoutButton(),

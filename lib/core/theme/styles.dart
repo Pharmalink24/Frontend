@@ -148,7 +148,6 @@ class AppTextFieldDecoration {
       ),
     ),
     filled: true,
-    fillColor: AppColors.primaryBackground,
     contentPadding: EdgeInsets.all(_kPadding),
   );
 
@@ -169,6 +168,7 @@ class AppTextFieldDecoration {
     errorBorder: OutlineInputBorder(
       borderRadius: BorderRadius.circular(_kPrimaryBorderRadius),
     ),
+    fillColor: AppColors.primaryBackground,
   );
 
   static InputDecoration secondaryInputDecoration =
@@ -188,6 +188,7 @@ class AppTextFieldDecoration {
     errorBorder: OutlineInputBorder(
       borderRadius: BorderRadius.circular(_kSecondaryBorderRadius),
     ),
+    fillColor: AppColors.secondaryBackground,
   );
 
   static InputDecoration searchInputDecoration =
@@ -237,7 +238,7 @@ class AppTextFieldDecoration {
   );
 
   static BoxDecoration secondaryBoxDecoration = _generalBoxDecoration.copyWith(
-    color: AppColors.primaryBackground,
+    color: AppColors.secondaryBackground,
     border: Border.all(
       color: AppColors.secondaryBackground,
     ),

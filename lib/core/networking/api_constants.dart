@@ -20,6 +20,9 @@ class ApiConstants {
 
   // Edit Profile API
   static const updateUserInformation = "user/update/";
+  
+  // Change Password API
+  static const changePassword = "user/password/change/";
 }
 
 class ApiErrors {
