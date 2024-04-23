@@ -7,6 +7,8 @@ import 'package:pharmalink/features/main/home/data/repo/home_page_repo.dart';
 import 'package:pharmalink/features/main/home/logic/cubit/home_page_cubit.dart';
 import 'package:pharmalink/features/main/profile/data/repo/profile_repo.dart';
 import 'package:pharmalink/features/main/profile/logic/cubit/profile_cubit.dart';
+import 'package:pharmalink/features/main/settings/change_password/data/repo/change_password_repo.dart';
+import 'package:pharmalink/features/main/settings/change_password/logic/cubit/change_password_cubit.dart';
 import '../networking/api_service.dart';
 import '../networking/dio_factory.dart';
 import '../../features/access/auth/logic/cubit/auth_cubit.dart';
@@ -55,6 +57,12 @@ Future<void> setupGetIt() async {
   // Profile Information
   getIt.registerLazySingleton<ProfileRepo>(() => ProfileRepo(getIt()));
   getIt.registerFactory<ProfileCubit>(() => ProfileCubit(getIt()));
+
+  // Change Password
+  getIt.registerLazySingleton<ChangePasswordRepo>(
+      () => ChangePasswordRepo(getIt()));
+  getIt.registerFactory<ChangePasswordCubit>(
+      () => ChangePasswordCubit(getIt()));
 
   // Logger
   getIt.registerLazySingleton<Logger>(() => Logger());

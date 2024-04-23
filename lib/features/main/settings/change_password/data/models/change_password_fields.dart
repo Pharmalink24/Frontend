@@ -2,25 +2,25 @@ import "package:pharmalink/core/helpers/classes/field.dart";
 import "package:pharmalink/core/helpers/classes/field_type.dart";
 
 Map<String, Field> changePasswordFields = {
-  "current_password": Field(
+  "currentPassword": Field(
     "Current Password",
     inputType: FieldType.password,
     dbName: "old_password",
     regex:
         RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$'),
   ),
-  "new_password": Field(
+  "newPassword": Field(
     "New Password",
-    inputType: FieldType.text,
+    inputType: FieldType.password,
     dbName: "new_password",
     regex:
         RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$'),
   ),
-  "confirm_password": Field(
+  "confirmPassword": Field(
     "Confirm Password",
     inputType: FieldType.password,
     dbName: null,
-    confirmationValue: "new_password",
+    confirmationValue: "newPassword",
     regex:
         RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$'),
   ),

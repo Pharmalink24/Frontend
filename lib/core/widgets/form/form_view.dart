@@ -47,13 +47,12 @@ class _FormViewState extends State<FormView> {
 
   // Setup the decoration of fields
   void setupDecoration() {
-    if (widget.decorationType == DecorationType.primary) {
-      inputDecoration = AppTextFieldDecoration.primaryInputDecoration;
-      boxDecoration = AppTextFieldDecoration.primaryBoxDecoration;
-    } else {
-      inputDecoration = AppTextFieldDecoration.secondaryInputDecoration;
-      boxDecoration = AppTextFieldDecoration.secondaryBoxDecoration;
-    }
+    inputDecoration = widget.decorationType == DecorationType.primary
+        ? AppTextFieldDecoration.primaryInputDecoration
+        : AppTextFieldDecoration.secondaryInputDecoration;
+    boxDecoration = widget.decorationType == DecorationType.primary
+        ? AppTextFieldDecoration.primaryBoxDecoration
+        : AppTextFieldDecoration.secondaryBoxDecoration;
   }
 
   // Check if field is confirm ?
@@ -104,16 +103,13 @@ class _FormViewState extends State<FormView> {
       controller: field.controller,
       validator: (value) {
         if (field.regex != null) {
-          if (field.name == "Confirm Password") {
-            print("Has match: ${field.regex!.hasMatch(value!)}");
-            print("Is confirm: ${isConfirm(field)}");
-          }
           if (!field.regex!.hasMatch(value!)) {
             return field.errorMessage ?? "Invalid ${field.name}.";
           } else if (isConfirm(field)) {
             if (value !=
                 widget.model[field.confirmationValue!]!.controller!.text) {
-              return field.confirmationErrorMessage ?? "${widget.model[field.confirmationValue!]!.name}s do not match.";
+              return field.confirmationErrorMessage ??
+                  "${widget.model[field.confirmationValue!]!.name}s do not match.";
             } else {
               return null;
             }
