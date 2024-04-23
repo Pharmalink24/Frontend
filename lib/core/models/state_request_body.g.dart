@@ -20,4 +20,5 @@ const _$StateEnumMap = {
   State.NEW: 'new',
   State.ACTIVE: 'active',
   State.INACTIVE: 'inactive',
+  State.All: 'all',
 };

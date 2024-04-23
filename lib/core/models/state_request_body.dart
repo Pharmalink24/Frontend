@@ -11,6 +11,8 @@ enum State {
   ACTIVE,
   @JsonValue("inactive")
   INACTIVE,
+  @JsonValue("all")
+  All,
 }
 
 @JsonSerializable()

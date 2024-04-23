@@ -204,12 +204,12 @@ class _ApiService implements ApiService {
 
   @override
   Future<HomePageResponse> homePage(
-    StateRequestBody homePageRequestBody,
+    StateRequestBody stateRequestBody,
     String? auth,
   ) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
-    queryParameters.addAll(homePageRequestBody.toJson());
+    queryParameters.addAll(stateRequestBody.toJson());
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{r'Authorization': auth};
     _headers.removeWhere((k, v) => v == null);
@@ -266,12 +266,12 @@ class _ApiService implements ApiService {
 
   @override
   Future<List<Doctor>> getDoctorList(
-    StateRequestBody homePageRequestBody,
+    StateRequestBody stateRequestBody,
     String? auth,
   ) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
-    queryParameters.addAll(homePageRequestBody.toJson());
+    queryParameters.addAll(stateRequestBody.toJson());
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{r'Authorization': auth};
     _headers.removeWhere((k, v) => v == null);
@@ -284,7 +284,7 @@ class _ApiService implements ApiService {
     )
             .compose(
               _dio.options,
-              'user/doctor-list/',
+              'user/doctors-list/',
               queryParameters: queryParameters,
               data: _data,
             )
