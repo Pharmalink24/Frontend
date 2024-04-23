@@ -269,7 +269,6 @@ class _ApiService implements ApiService {
     User user,
     String? auth,
   ) async {
-  Future<List<Doctor>> getDoctorList(String? auth) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     queryParameters.removeWhere((k, v) => v == null);
@@ -280,17 +279,12 @@ class _ApiService implements ApiService {
     final _result =
         await _dio.fetch<Map<String, dynamic>>(_setStreamType<User>(Options(
       method: 'PATCH',
-    const Map<String, dynamic>? _data = null;
-    final _result =
-        await _dio.fetch<List<dynamic>>(_setStreamType<List<Doctor>>(Options(
-      method: 'GET',
       headers: _headers,
       extra: _extra,
     )
             .compose(
               _dio.options,
               'user/update/',
-              'Prescription/user/Doctors/list/',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -333,6 +327,34 @@ class _ApiService implements ApiService {
               baseUrl,
             ))));
     final value = ChangePasswordResponse.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<List<Doctor>> getDoctorList(String? auth) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{r'Authorization': auth};
+    _headers.removeWhere((k, v) => v == null);
+    const Map<String, dynamic>? _data = null;
+    final _result =
+        await _dio.fetch<List<dynamic>>(_setStreamType<List<Doctor>>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'Prescription/user/Doctors/list/',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     var value = _result.data!
         .map((dynamic i) => Doctor.fromJson(i as Map<String, dynamic>))
         .toList();
