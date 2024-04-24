@@ -20,4 +20,7 @@ class Routes {
 
   // Change Password
   static const String changePasswordScreen = '/changePasswordScreen';
+
+  // Chat
+  static const String messageScreen = '/messageScreen';
 }

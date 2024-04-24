@@ -1,10 +1,11 @@
 import "package:flutter/material.dart";
 import 'package:pharmalink/features/access/auth/logic/cubit/auth_cubit.dart';
-import 'package:pharmalink/features/main/chat/ui/chats_screen.dart';
+import 'package:pharmalink/features/main/chat/ui/messages_screen.dart';
 import 'package:pharmalink/features/main/settings/edit_profile/logic/cubit/edit_profile_cubit.dart';
 import 'package:pharmalink/features/main/settings/edit_profile/ui/edit_profile_screen.dart';
 import 'package:pharmalink/features/main/settings/change_password/logic/cubit/change_password_cubit.dart';
 import 'package:pharmalink/features/main/settings/change_password/ui/change_password_screen.dart';
+import '../../features/main/chat/data/models/chat.dart';
 import '../di/dependency_injection.dart';
 import 'routes.dart';
 import '../../features/404/error_404_screen.dart';
@@ -73,7 +74,7 @@ class AppRouter {
           builder: (_) => BlocProvider(
             create: (context) => getIt<EditProfileCubit>(),
             child: const EditProfileScreen(),
-                      ),
+          ),
         );
 
       case Routes.changePasswordScreen:
@@ -82,6 +83,12 @@ class AppRouter {
             create: (context) => getIt<ChangePasswordCubit>(),
             child: const ChangePasswordScreen(),
           ),
+        );
+
+      case Routes.messageScreen:
+        final chat = settings.arguments as Chat;
+        return MaterialPageRoute(
+          builder: (_) => MessagesScreen(chat),
         );
 
       default:
