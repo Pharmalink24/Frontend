@@ -11,21 +11,22 @@ class Drug {
   final String startDate;
   @JsonKey(name: "end_date")
   final String endDate;
-  final int quantity;
-  @JsonKey(name: "quantity_unit")
-  final String quantityUnit;
-  final double rate;
-  @JsonKey(name: "rate_unit")
-  final String rateUnit;
+  final int course;
+  final int repetition;
+  final String per;
+  final double dosage;
+  @JsonKey(name: "dosage_unit")
+  final String dosageUnit;
 
   Drug({
     required this.commercialName,
     required this.startDate,
     required this.endDate,
-    required this.quantity,
-    required this.quantityUnit,
-    required this.rate,
-    required this.rateUnit,
+    required this.course,
+    required this.repetition,
+    required this.per,
+    required this.dosage,
+    required this.dosageUnit,
   });
 
   // Todo: Complete Implementing the isToday method
