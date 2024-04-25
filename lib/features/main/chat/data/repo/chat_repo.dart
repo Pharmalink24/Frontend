@@ -22,4 +22,17 @@ class ChatRepo {
       Logger().e(error);
     }
   }
+
+  Future<void> retrieveMessage(Message message) async {
+    try {
+      _wsService.retrieveMessages(
+        message,
+        AuthSharedPrefs.getAccessToken() ?? '',
+      );
+    } catch (error) {
+      Logger().e(error);
+    }
+  }
+
+
 }
