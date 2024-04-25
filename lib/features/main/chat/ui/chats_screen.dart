@@ -7,8 +7,7 @@ import 'widgets/chat_card.dart';
 
 List<Chat> chats = [
   Chat(
-    id: '1',
-    doctorId: '1',
+    doctorId: 1,
     doctorFname: "Mohamed",
     doctorLname: "Ali",
     doctorImage:
@@ -18,8 +17,7 @@ List<Chat> chats = [
     lastMessageDateTime: "12:00 PM",
   ),
   Chat(
-    id: '3',
-    doctorId: '3',
+    doctorId: 3,
     doctorFname: 'Ali',
     doctorLname: 'Mohamed',
     doctorImage:
@@ -29,8 +27,7 @@ List<Chat> chats = [
     lastMessageDateTime: "12:00 PM",
   ),
   Chat(
-    id: '4',
-    doctorId: '4',
+    doctorId: 4,
     doctorFname: 'Mona',
     doctorLname: 'Ali',
     doctorImage:
@@ -40,8 +37,7 @@ List<Chat> chats = [
     lastMessageDateTime: "12:00 PM",
   ),
   Chat(
-    id: '11',
-    doctorId: '11',
+    doctorId: 11,
     doctorFname: 'Nada',
     doctorLname: 'Ali',
     doctorUsername: 'nada',
@@ -49,8 +45,7 @@ List<Chat> chats = [
     lastMessageDateTime: "12:00 PM",
   ),
   Chat(
-    id: '5',
-    doctorId: '5',
+    doctorId: 5,
     doctorFname: 'Sara',
     doctorLname: 'Ali',
     doctorImage: 'https://www.smhbhopal.com/upload/doctors/1694428861.jpg',
@@ -59,8 +54,7 @@ List<Chat> chats = [
     lastMessageDateTime: "12:00 PM",
   ),
   Chat(
-    id: '6',
-    doctorId: '6',
+    doctorId: 6,
     doctorFname: 'Hana',
     doctorLname: 'Ali',
     doctorUsername: 'hanoo',
@@ -68,8 +62,7 @@ List<Chat> chats = [
     lastMessageDateTime: "12:00 PM",
   ),
   Chat(
-    id: '7',
-    doctorId: '7',
+    doctorId: 7,
     doctorFname: 'Nada',
     doctorLname: 'Mohamed',
     doctorUsername: 'nada',
@@ -77,8 +70,7 @@ List<Chat> chats = [
     lastMessageDateTime: "12:00 PM",
   ),
   Chat(
-    id: '9',
-    doctorId: '9',
+    doctorId: 9,
     doctorFname: 'Nour',
     doctorLname: 'Ali',
     doctorUsername: 'nour',
@@ -86,8 +78,7 @@ List<Chat> chats = [
     lastMessageDateTime: "12:00 PM",
   ),
   Chat(
-    id: '10',
-    doctorId: '10',
+    doctorId: 10,
     doctorFname: 'Nada',
     doctorLname: 'Ali',
     doctorUsername: 'nada',
@@ -95,8 +86,7 @@ List<Chat> chats = [
     lastMessageDateTime: "12:00 PM",
   ),
   Chat(
-    id: '3',
-    doctorId: '3',
+    doctorId: 3,
     doctorFname: 'Ali',
     doctorLname: 'Mohamed',
     doctorImage:
@@ -106,8 +96,7 @@ List<Chat> chats = [
     lastMessageDateTime: "12:00 PM",
   ),
   Chat(
-    id: '4',
-    doctorId: '4',
+    doctorId: 4,
     doctorFname: 'Mona',
     doctorLname: 'Ali',
     doctorImage:
@@ -117,8 +106,7 @@ List<Chat> chats = [
     lastMessageDateTime: "12:00 PM",
   ),
   Chat(
-    id: '5',
-    doctorId: '5',
+    doctorId: 5,
     doctorFname: 'Sara',
     doctorLname: 'Ali',
     doctorImage: 'https://www.smhbhopal.com/upload/doctors/1694428861.jpg',
@@ -127,8 +115,7 @@ List<Chat> chats = [
     lastMessageDateTime: "12:00 PM",
   ),
   Chat(
-    id: '8',
-    doctorId: '8',
+    doctorId: 8,
     doctorFname: 'Noha',
     doctorLname: 'Ali',
     doctorUsername: 'noha',

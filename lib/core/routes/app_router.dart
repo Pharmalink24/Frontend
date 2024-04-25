@@ -1,5 +1,6 @@
 import "package:flutter/material.dart";
 import 'package:pharmalink/features/access/auth/logic/cubit/auth_cubit.dart';
+import 'package:pharmalink/features/main/chat/logic/cubit/chat_cubit.dart';
 import 'package:pharmalink/features/main/chat/ui/messages_screen.dart';
 import 'package:pharmalink/features/main/settings/edit_profile/logic/cubit/edit_profile_cubit.dart';
 import 'package:pharmalink/features/main/settings/edit_profile/ui/edit_profile_screen.dart';
@@ -88,7 +89,10 @@ class AppRouter {
       case Routes.messageScreen:
         final chat = settings.arguments as Chat;
         return MaterialPageRoute(
-          builder: (_) => MessagesScreen(chat),
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<ChatCubit>(),
+            child: MessagesScreen(chat),
+          ),
         );
 
       default:

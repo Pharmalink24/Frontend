@@ -4,9 +4,8 @@ part "chat.g.dart";
 
 @JsonSerializable()
 class Chat {
-  final String id;
   @JsonKey(name: "doctor_id")
-  final String doctorId;
+  final int doctorId;
   @JsonKey(name: "doctor_fname")
   final String doctorFname;
   @JsonKey(name: "doctor_lname")
@@ -21,7 +20,6 @@ class Chat {
   final String lastMessageDateTime;
 
   Chat({
-    required this.id,
     required this.doctorId,
     required this.doctorFname,
     required this.doctorLname,

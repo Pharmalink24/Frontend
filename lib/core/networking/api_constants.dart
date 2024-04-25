@@ -1,6 +1,11 @@
 // Apis
 class ApiConstants {
-  static const String baseUrl = "http://54.234.91.4:8000/";
+  // Protocols
+  static const httpProtocol = "http://";
+  static const httpsProtocol = "https://";
+  static const wsProtocol = "ws://";
+
+  static const String baseUrl = "pharmalink.tech/";
   static const String tokenKey = "patientCustomToken";
   // User API
   static const signIn = "user/login/";
@@ -20,9 +25,13 @@ class ApiConstants {
 
   // Edit Profile API
   static const updateUserInformation = "user/update/";
-  
+
   // Change Password API
   static const changePassword = "user/password/change/";
+
+  // ===================== Chat APIs =====================
+  static const sendMessage = "websocket";
+  static const retrieveMessages = "websocket/retrieve";
 }
 
 class ApiErrors {

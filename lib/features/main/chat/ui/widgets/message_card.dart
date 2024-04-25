@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:logger/logger.dart';
 import 'package:pharmalink/core/shared_preferences/auth_prefs.dart';
 import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/features/main/chat/data/models/message.dart';
@@ -11,7 +12,9 @@ class MessageCard extends StatelessWidget {
   });
 
   bool isMeSender() {
-    return message.senderId == AuthSharedPrefs.getUserId();
+    Logger().i(AuthSharedPrefs.getUserId());
+    Logger().i(message.senderUserId);
+    return message.senderUserId == AuthSharedPrefs.getUserId();
   }
 
   @override
@@ -53,7 +56,7 @@ class MessageCard extends StatelessWidget {
           Flexible(
             flex: 5,
             child: Text(
-              message.message,
+              message.message ?? "",
               style: const TextStyle(
                 fontSize: 16,
                 color: Colors.black,
@@ -63,7 +66,7 @@ class MessageCard extends StatelessWidget {
           const SizedBox(height: 4),
           Flexible(
             child: Text(
-              message.timestamp,
+              message.timestamp.date,
               style: const TextStyle(
                 fontSize: 12,
                 color: AppColors.secondaryText,

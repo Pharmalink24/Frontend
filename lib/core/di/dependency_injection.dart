@@ -23,6 +23,7 @@ import '../../features/access/signup/logic/cubit/signup_cubit.dart';
 import '../../features/access/signup/data/repo/signup_repo.dart';
 import '../../features/access/verification/data/repo/verification_repo.dart';
 import '../../features/access/verification/logic/cubit/verification_cubit.dart';
+import '../networking/ws_factory.dart';
 
 final getIt = GetIt.instance;
 
@@ -30,6 +31,9 @@ Future<void> setupGetIt() async {
   // Dio & ApiService
   Dio dio = DioFactory.getDio();
   getIt.registerLazySingleton<ApiService>(() => ApiService(dio));
+
+  // Websocket
+  getIt.registerLazySingleton<WsFactory>(() => WsFactory());
 
   // Auth
   getIt.registerLazySingleton<AuthRepo>(() => AuthRepo(getIt()));
@@ -65,17 +69,17 @@ Future<void> setupGetIt() async {
   // Edit Profile
   getIt.registerLazySingleton<EditProfileRepo>(() => EditProfileRepo(getIt()));
   getIt.registerFactory<EditProfileCubit>(() => EditProfileCubit(getIt()));
-  
+
   // Change Password
   getIt.registerLazySingleton<ChangePasswordRepo>(
       () => ChangePasswordRepo(getIt()));
-  getIt.registerFactory<ChangePasswordCubit>(
-      () => ChangePasswordCubit(getIt()));
+  getIt
+      .registerFactory<ChangePasswordCubit>(() => ChangePasswordCubit(getIt()));
 
   // Chat
-  getIt.registerLazySingleton<ChatRepo>(() => ChatRepo(getIt()));
+  getIt.registerLazySingleton<ChatRepo>(() => ChatRepo(getIt(), getIt()));
   getIt.registerFactory<ChatCubit>(() => ChatCubit(getIt()));
-  
+
   // Logger
   getIt.registerLazySingleton<Logger>(() => Logger());
 }

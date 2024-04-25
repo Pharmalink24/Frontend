@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pharmalink/core/models/timestamp.dart';
 import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/features/main/chat/data/models/chat.dart';
 import 'package:pharmalink/features/main/chat/data/models/message.dart';
+import 'package:pharmalink/features/main/chat/logic/cubit/chat_cubit.dart';
 import 'package:pharmalink/features/main/chat/ui/widgets/messages_header.dart';
 
 import 'widgets/message_card.dart';
@@ -11,72 +14,92 @@ List<Message> messages = [
   Message(
     id: 1,
     message: "Hello, how are you?",
-    senderId: 1,
-    receiverId: 9,
-    timestamp: "12:00",
+    senderUserId: 9,
+    receiverDoctorId: 1,
+    timestamp: Timestamp(
+      date: DateTime.now().toString(),
+    ),
   ),
   Message(
     id: 2,
     message: "Hi! I'm good, thanks for asking. How about you?",
-    senderId: 9,
-    receiverId: 1,
-    timestamp: "12:01",
+    senderDoctorId: 1,
+    receiverUserId: 9,
+    timestamp: Timestamp(
+      date: DateTime.now().toString(),
+    ),
   ),
   Message(
     id: 3,
     message: "I'm doing well. Are you free to catch up later?",
-    senderId: 1,
-    receiverId: 9,
-    timestamp: "12:02",
+    senderUserId: 9,
+    receiverDoctorId: 1,
+    timestamp: Timestamp(
+      date: DateTime.now().toString(),
+    ),
   ),
   Message(
     id: 4,
     message: "Sure, would love to. How about 4 PM?",
-    senderId: 9,
-    receiverId: 1,
-    timestamp: "12:03",
+    senderDoctorId: 1,
+    receiverUserId: 9,
+    timestamp: Timestamp(
+      date: DateTime.now().toString(),
+    ),
   ),
   Message(
     id: 5,
     message: "Perfect, see you then!",
-    senderId: 1,
-    receiverId: 9,
-    timestamp: "12:04",
+    senderUserId: 9,
+    receiverDoctorId: 1,
+    timestamp: Timestamp(
+      date: DateTime.now().toString(),
+    ),
   ),
   Message(
     id: 6,
     message: "Should we meet at the usual place?",
-    senderId: 1,
-    receiverId: 9,
-    timestamp: "12:05",
+    senderUserId: 9,
+    receiverDoctorId: 1,
+    timestamp: Timestamp(
+      date: DateTime.now().toString(),
+    ),
   ),
   Message(
     id: 7,
     message: "Sounds good. I'll be there.",
-    senderId: 9,
-    receiverId: 1,
-    timestamp: "12:06",
+    senderDoctorId: 1,
+    receiverUserId: 9,
+    timestamp: Timestamp(
+      date: DateTime.now().toString(),
+    ),
   ),
   Message(
     id: 8,
     message: "Great! I'll bring the project files.",
-    senderId: 1,
-    receiverId: 9,
-    timestamp: "12:07",
+    senderUserId: 9,
+    receiverDoctorId: 1,
+    timestamp: Timestamp(
+      date: DateTime.now().toString(),
+    ),
   ),
   Message(
-    id: 9,
+    id: 1,
     message: "Do you need me to bring anything else?",
-    senderId: 9,
-    receiverId: 1,
-    timestamp: "12:08",
+    senderDoctorId: 1,
+    receiverDoctorId: 9,
+    timestamp: Timestamp(
+      date: DateTime.now().toString(),
+    ),
   ),
   Message(
     id: 10,
     message: "Just bring your laptop so we can review everything together.",
-    senderId: 1,
-    receiverId: 9,
-    timestamp: "12:09",
+    senderUserId: 9,
+    receiverDoctorId: 1,
+    timestamp: Timestamp(
+      date: DateTime.now().toString(),
+    ),
   ),
 ];
 
@@ -92,32 +115,24 @@ class MessagesScreen extends StatefulWidget {
 }
 
 class _MessagesScreenState extends State<MessagesScreen> {
-  final scrollController = ScrollController();
   int messageId = 0;
-  TextEditingController textEditingController = TextEditingController();
   List<Message> showedMessages = [];
 
-  void addMessage() {
-    // Add message to the list
-    showedMessages.add(messages[messageId % messages.length]);
-    messageId++;
-  }
-
-  Future<void> onFieldSubmitted() async {
-    setState(() {
-      addMessage();
-      // Move the scroll position to the bottom
-      scrollController.animateTo(
-        0,
-        duration: const Duration(milliseconds: 300),
-        curve: Curves.easeInOut,
-      );
-
-      textEditingController.text = '';
-    });
+  void sendMessage() {
+    // Send message to the doctor
+    context.read<ChatCubit>().sendMessage(widget.chat.doctorId);
   }
 
   Widget buildMessages(List<Message> messages) {
+//     StreamBuilder(
+//   stream:  context.read<ChatCubit>().stream,
+//   builder: (context, snapshot) {
+//     return Padding(
+//       padding: const EdgeInsets.all(20.0),
+//   child: Text(snapshot.hasData ? '${snapshot.data}' : ''),
+//   );
+//   },
+// )
     messages = messages.reversed.toList();
     return Expanded(
       child: GestureDetector(
@@ -127,7 +142,7 @@ class _MessagesScreenState extends State<MessagesScreen> {
         child: Align(
           alignment: Alignment.topCenter,
           child: ListView.builder(
-            controller: scrollController,
+            controller: context.read<ChatCubit>().scrollController,
             shrinkWrap: true,
             reverse: true,
             padding: const EdgeInsetsDirectional.only(
@@ -162,8 +177,8 @@ class _MessagesScreenState extends State<MessagesScreen> {
             children: [
               buildMessages(showedMessages),
               MessageInput(
-                controller: textEditingController,
-                onPressed: onFieldSubmitted,
+                controller: context.read<ChatCubit>().messageController,
+                onPressed: sendMessage,
               ),
             ],
           ),

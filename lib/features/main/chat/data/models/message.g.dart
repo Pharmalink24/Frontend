@@ -8,16 +8,26 @@ part of 'message.dart';
 
 Message _$MessageFromJson(Map<String, dynamic> json) => Message(
       id: json['id'] as int,
-      message: json['message'] as String,
-      senderId: json['sender_user_id'] as int,
-      receiverId: json['receiver_doctor_id'] as int,
-      timestamp: json['timestamp'] as String,
+      senderUserId: json['sender_user_id'] as int?,
+      senderDoctorId: json['sender_doctor_id'] as int?,
+      receiverUserId: json['receiver_user_id'] as int?,
+      receiverDoctorId: json['receiver_doctor_id'] as int?,
+      message: json['message'] as String?,
+      image: json['image'] as String?,
+      file: json['file'] as String?,
+      voiceMessage: json['voice_message'] as String?,
+      timestamp: Timestamp.fromJson(json['timestamp'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$MessageToJson(Message instance) => <String, dynamic>{
       'id': instance.id,
+      'sender_user_id': instance.senderUserId,
+      'sender_doctor_id': instance.senderDoctorId,
+      'receiver_user_id': instance.receiverUserId,
+      'receiver_doctor_id': instance.receiverDoctorId,
       'message': instance.message,
-      'sender_user_id': instance.senderId,
-      'receiver_doctor_id': instance.receiverId,
+      'image': instance.image,
+      'file': instance.file,
+      'voice_message': instance.voiceMessage,
       'timestamp': instance.timestamp,
     };

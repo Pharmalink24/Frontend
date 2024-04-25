@@ -6,6 +6,7 @@ part 'chat_state.freezed.dart';
 class ChatState<T> with _$ChatState<T> {
   const factory ChatState.initial() = _Initial;
 
+
   // Chats
   const factory ChatState.chatsRetrievedLoading() = ChatsRetrievedLoading;
   const factory ChatState.chatsRetrieved(T data) = ChatsRetrieved<T>;
