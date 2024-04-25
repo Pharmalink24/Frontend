@@ -134,6 +134,7 @@ class _FormViewState extends State<FormView> {
       hintText: field.name,
       value: field.value,
       items: field.items!,
+      controller: field.controller,
       onChanged: (value) {
         setState(() {
           field.value = value;

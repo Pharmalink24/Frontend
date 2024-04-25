@@ -13,6 +13,7 @@ class FormDropDownButton extends StatelessWidget {
   final Function onChanged;
   final BoxDecoration decoration;
   final EdgeInsetsGeometry? padding;
+  final TextEditingController? controller;
 
   const FormDropDownButton({
     super.key,
@@ -22,6 +23,7 @@ class FormDropDownButton extends StatelessWidget {
     required this.onChanged,
     required this.decoration,
     this.padding,
+    this.controller,
   });
 
   List<DropdownMenuItem<String>> buildItemsWidget(Map<String, String> items) {
@@ -37,6 +39,8 @@ class FormDropDownButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    controller?.text = value ?? items.keys.elementAt(0);
+
     return Padding(
       padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
       child: Container(
@@ -52,6 +56,7 @@ class FormDropDownButton extends StatelessWidget {
           padding: padding,
           value: value ?? items.keys.elementAt(0),
           onChanged: (value) {
+            controller?.text = value!;
             onChanged(value);
           },
           //
