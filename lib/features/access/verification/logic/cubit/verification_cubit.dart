@@ -11,10 +11,10 @@ class VerificationCubit extends Cubit<VerificationState> {
       : super(const VerificationState.initial());
 
   void emitVerificationStates(
-      VerificationRequestParams verificationRequestParams) async {
+      int userId) async {
     emit(const VerificationState.loading());
     final response =
-        await _verificationRepo.resendVerification(verificationRequestParams);
+        await _verificationRepo.resendVerification(VerificationRequestParams(userId: userId));
     response.when(success: (verificationResponse) {
       emit(VerificationState.success(verificationResponse));
     }, failure: (error) {

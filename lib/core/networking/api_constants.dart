@@ -20,11 +20,15 @@ class ApiConstants {
 
   // Edit Profile API
   static const updateUserInformation = "user/update/";
-  
+
   // Change Password API
   static const changePassword = "user/password/change/";
+
   // Doctors List API
-  static const doctorsList = "Prescription/user/Doctors/list/"; 
+  static const doctorsList = "Prescription/user/Doctors/list/";
+
+  // Doctor Profile API
+  static const doctorProfile = "doctor/doctors/";
 }
 
 class ApiErrors {

@@ -20,4 +20,7 @@ class Routes {
   
   // Change Password
   static const String changePasswordScreen = '/changePasswordScreen';
+
+  // DoctorProfile 
+  static const String doctorProfileScreen = '/doctorProfile';
 }

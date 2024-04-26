@@ -97,4 +97,11 @@ abstract class ApiService {
   Future<List<Doctor>> getDoctorList(
     @Header('Authorization') String? auth,
   );
+
+  // Get Doctor Profile
+  @GET(ApiConstants.doctorProfile)
+  Future<Doctor> getDoctorProfile(
+    @Path() int doctorId,
+    @Header('Authorization') String? auth,
+  );
 }

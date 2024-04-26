@@ -59,8 +59,6 @@ class VerificationScreen extends StatelessWidget {
   }
 
   void sendVerification(BuildContext context) {
-    context
-        .read<VerificationCubit>()
-        .emitVerificationStates(VerificationRequestParams(userId: userId));
+    context.read<VerificationCubit>().emitVerificationStates(userId);
   }
 }

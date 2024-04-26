@@ -1,5 +1,7 @@
 import "package:flutter/material.dart";
 import 'package:pharmalink/features/access/auth/logic/cubit/auth_cubit.dart';
+import 'package:pharmalink/features/main/doctor/logic/cubit/doctor_cubit.dart';
+import 'package:pharmalink/features/main/doctor/ui/doctor_screen.dart';
 import 'package:pharmalink/features/main/settings/edit_profile/logic/cubit/edit_profile_cubit.dart';
 import 'package:pharmalink/features/main/settings/edit_profile/ui/edit_profile_screen.dart';
 import 'package:pharmalink/features/main/settings/change_password/logic/cubit/change_password_cubit.dart';
@@ -74,7 +76,7 @@ class AppRouter {
           builder: (_) => BlocProvider(
             create: (context) => getIt<EditProfileCubit>(),
             child: const EditProfileScreen(),
-                      ),
+          ),
         );
 
       case Routes.changePasswordScreen:
@@ -92,7 +94,15 @@ class AppRouter {
             child: const DoctorsScreen(),
           ),
         );
-      
+
+      case Routes.doctorProfileScreen:
+        final doctorId = settings.arguments as int;
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<DoctorCubit>(),
+            child: DoctorScreen(doctorId:doctorId),
+          ),
+        );
       default:
         return MaterialPageRoute(builder: (_) => const Error404Screen());
     }
