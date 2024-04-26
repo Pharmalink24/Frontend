@@ -19,6 +19,7 @@ class WsService {
 
     // Convert the message object to a JSON string
     final payload = jsonEncode(message.toJson());
+    print(payload);
     ws.send(payload);
   }
 
