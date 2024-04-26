@@ -16,6 +16,7 @@ class DrugInteractionForm extends StatelessWidget {
     return CardContainerWithTitle(
       title: 'Interactions',
       textStyle: AppTextStyle.displayMedium.copyWith(fontSize: 40),
+      flex: 7,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,

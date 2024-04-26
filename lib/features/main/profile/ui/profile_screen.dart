@@ -1,5 +1,6 @@
 // Flutter Packages
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/theme/styles.dart';
@@ -28,15 +29,19 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   Widget buildProfileScreen(User user) {
     return SafeArea(
-      child: SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            ProfileInfo(user: user),
-            const AccountSettings(),
-          ],
-        ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Expanded(
+            flex: 2,
+            child: ProfileInfo(user: user),
+          ),
+          const Expanded(
+            flex: 4,
+            child: AccountSettings(),
+          ),
+        ],
       ),
     );
   }

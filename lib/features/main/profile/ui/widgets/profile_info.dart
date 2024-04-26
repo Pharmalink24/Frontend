@@ -33,49 +33,53 @@ class _ProfileInfoState extends State<ProfileInfo> {
 
     return CardContainerWithTitle(
       title: 'Profile',
+      flex: 4,
       textStyle: AppTextStyle.displaySmall,
-      padding: const EdgeInsets.only(left: 16.0, right: 16.0, top: 32.0),
+      padding: const EdgeInsets.only(left: 16.0, right: 16.0, top: 16.0),
       margin: const EdgeInsets.all(0.0),
       child: Column(
         children: [
-          Padding(
-            padding:
-                const EdgeInsets.symmetric(horizontal: 8.0, vertical: 12.0),
-            child: Row(
-              children: [
-                CircleAvatar(
-                  radius: 30,
-                  backgroundImage: widget.user.image != null
-                      ? image
-                      : const AssetImage(kPlaceholderImage),
-                ),
-                const SizedBox(
-                  width: 10,
-                ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      cropperName("${widget.user.fname} ${widget.user.lname}",
-                          length: 14),
-                      style: AppTextStyle.headlineSmall,
-                    ),
-                    Text(
-                      cropperName(widget.user.email!, length: 30),
-                      style: AppTextStyle.bodySmall.copyWith(
-                        color: AppColors.primary,
+          Expanded(
+            flex: 4,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8.0),
+              child: Row(
+                children: [
+                  CircleAvatar(
+                    radius: 30,
+                    backgroundImage: widget.user.image != null
+                        ? image
+                        : const AssetImage(kPlaceholderImage),
+                  ),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        cropperName("${widget.user.fname} ${widget.user.lname}",
+                            length: 14),
+                        style: AppTextStyle.headlineSmall,
                       ),
-                    ),
-                  ],
-                ),
-              ],
+                      Text(
+                        cropperName(widget.user.email!, length: 30),
+                        style: AppTextStyle.bodySmall.copyWith(
+                          color: AppColors.primary,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
-          const Divider(
-            color: AppColors.secondaryBackground,
+          const Divider(color: AppColors.secondaryBackground),
+          const Expanded(
+            flex: 2,
+            child: DarkModeSwitch(),
           ),
-          const DarkModeSwitch(),
         ],
       ),
     );

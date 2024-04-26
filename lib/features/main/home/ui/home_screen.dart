@@ -54,11 +54,11 @@ class _HomeScreenState extends State<HomeScreen> {
               child: WelcomeNameText(name: homePageData.firstName),
             ),
             Expanded(
-              flex: 8,
+              flex: 4,
               child: DoctorsContainer(doctors: homePageData.doctors),
             ),
             Expanded(
-              flex: 16,
+              flex: 6,
               child: RemindersContainer(drugs: homePageData.drugs),
             ),
           ],

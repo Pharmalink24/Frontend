@@ -51,6 +51,7 @@ class RemindersContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return CardContainerWithTitle(
       title: "Your Reminders",
+      flex: 6,
       iconButton: const TextWithIcon(
         icon: Icons.playlist_add_check_circle_rounded,
         text: 'Check All',
