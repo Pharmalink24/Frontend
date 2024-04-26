@@ -49,7 +49,7 @@ class _DrugListTileState extends State<DrugListTile> {
         ),
       ),
       subtitle: Text(
-        "${widget.drug.quantity} ${widget.drug.quantityUnit}",
+        "${widget.drug.dosage} ${widget.drug.dosageUnit}",
         style: AppTextStyle.labelMedium.copyWith(
           decoration:
               isChecked ? TextDecoration.lineThrough : TextDecoration.none,

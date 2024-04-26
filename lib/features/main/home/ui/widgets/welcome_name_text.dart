@@ -8,7 +8,7 @@ const kFontSize = 30.0;
 
 class WelcomeNameText extends StatelessWidget {
   final String name;
-  
+
   const WelcomeNameText({
     super.key,
     required this.name,
@@ -50,11 +50,12 @@ class WelcomeNameText extends StatelessWidget {
           ],
         ),
         IconButton(
-            onPressed: () {},
-            icon: const Icon(
-              Icons.notifications,
-              color: AppColors.primaryText,
-            )),
+          onPressed: () {},
+          icon: const Icon(
+            Icons.notifications,
+            color: AppColors.primaryText,
+          ),
+        ),
       ],
     );
   }

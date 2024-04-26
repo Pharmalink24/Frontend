@@ -46,12 +46,23 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget buildLoadedListWidgets(HomePageResponse homePageData) {
     return Padding(
       padding: const EdgeInsets.all(16.0),
-      child: Column(
-        children: [
-          WelcomeNameText(name: homePageData.firstName),
-          DoctorsContainer(doctors: homePageData.doctors),
-          RemindersContainer(drugs: homePageData.drugs),
-        ],
+      child: Expanded(
+        child: Column(
+          children: [
+            Expanded(
+              flex: 1,
+              child: WelcomeNameText(name: homePageData.firstName),
+            ),
+            Expanded(
+              flex: 8,
+              child: DoctorsContainer(doctors: homePageData.doctors),
+            ),
+            Expanded(
+              flex: 16,
+              child: RemindersContainer(drugs: homePageData.drugs),
+            ),
+          ],
+        ),
       ),
     );
   }
