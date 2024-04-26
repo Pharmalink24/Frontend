@@ -1,5 +1,5 @@
 name: pharmalink
-description: "A Flutter project."
+description: "Digital Drug Prescription Solution."
 version: 0.1.0
 
 environment:
@@ -7,26 +7,51 @@ environment:
 
 dependencies:
   animated_text_kit: ^4.2.2
+  bloc: ^8.1.3
+  build_runner: ^2.4.8
+  dio: ^5.4.1
   flutter:
     sdk: flutter
+  flutter_bloc: ^8.1.4
+  auto_size_text: ^3.0.0
+  flutter_native_splash: ^2.4.0
+  flutter_secure_storage: ^9.0.0
+  flutter_svg: ^2.0.10+1
   font_awesome_flutter: 10.6.0
+  freezed: ^2.4.7
+  freezed_annotation: ^2.4.1
+  get_it: ^7.6.7
   google_fonts: 6.1.0
   http: ^1.2.1
+  introduction_screen: ^3.1.12
+  json_annotation: ^4.8.1
+  json_serializable: ^6.7.1
   loading_animation_widget: ^1.2.1
-
+  logger: ^2.2.0
+  meta: ^1.11.0
+  modal_progress_hud_nsn: ^0.5.1
+  pretty_dio_logger: ^1.3.1
+  retrofit: ^4.1.0
+  retrofit_generator: ^8.1.0
+  shared_preferences: ^2.2.2
+  flutter_typeahead: ^5.2.0
+  simple_gradient_text: ^1.3.0
+  date_time_picker: ^2.1.0
 
 dev_dependencies:
+  flutter_lints: ^3.0.0
   flutter_test:
     sdk: flutter
-  flutter_lints: ^3.0.0
 
 flutter:
   uses-material-design: true
   assets:
+    - assets/
     - assets/images/
-    - assets/images/icons/
+    - assets/images/introductions/
 
   fonts:
+    # Outfit Font
     - family: Outfit
       fonts:
         - asset: assets/fonts/Outfit/Outfit-Black.ttf
@@ -38,7 +63,25 @@ flutter:
         - asset: assets/fonts/Outfit/Outfit-SemiBold.ttf
         - asset: assets/fonts/Outfit/Outfit-Thin.ttf
 
+    # Plus Jakarta Sans Font
+    - family: Plus Jakarta Sans
+      fonts:
+        - asset: assets/fonts/Plus Jakarta Sans/PlusJakartaSans-Bold.ttf
+        - asset: assets/fonts/Plus Jakarta Sans/PlusJakartaSans-BoldItalic.ttf
+        - asset: assets/fonts/Plus Jakarta Sans/PlusJakartaSans-ExtraBold.ttf
+        - asset: assets/fonts/Plus Jakarta Sans/PlusJakartaSans-ExtraBoldItalic.ttf
+        - asset: assets/fonts/Plus Jakarta Sans/PlusJakartaSans-ExtraLight.ttf
+        - asset: assets/fonts/Plus Jakarta Sans/PlusJakartaSans-ExtraLightItalic.ttf
+        - asset: assets/fonts/Plus Jakarta Sans/PlusJakartaSans-Italic.ttf
+        - asset: assets/fonts/Plus Jakarta Sans/PlusJakartaSans-Light.ttf
+        - asset: assets/fonts/Plus Jakarta Sans/PlusJakartaSans-LightItalic.ttf
+        - asset: assets/fonts/Plus Jakarta Sans/PlusJakartaSans-Medium.ttf
+        - asset: assets/fonts/Plus Jakarta Sans/PlusJakartaSans-MediumItalic.ttf
+        - asset: assets/fonts/Plus Jakarta Sans/PlusJakartaSans-Regular.ttf
+        - asset: assets/fonts/Plus Jakarta Sans/PlusJakartaSans-SemiBold.ttf
+        - asset: assets/fonts/Plus Jakarta Sans/PlusJakartaSans-SemiBoldItalic.ttf
+
+    # Readex Pro Font
     - family: Readex Pro
       fonts:
         - asset: assets/fonts/ReadexPro.ttf
-
