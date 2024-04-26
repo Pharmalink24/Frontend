@@ -1,6 +1,6 @@
 // Apis
 class ApiConstants {
-  static const String baseUrl = "http://54.234.91.4:8000/";
+  static const String baseUrl = "https://pharmalink.tech/";
   static const String tokenKey = "patientCustomToken";
   // User API
   static const signIn = "user/login/";

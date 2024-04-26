@@ -29,24 +29,30 @@ class CardContainerWithTitle extends StatelessWidget {
       padding: padding,
       margin: margin,
       children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              title,
-              style: textStyle ??
-                  AppTextStyle.bodyMedium.copyWith(
-                    fontFamily: AppFonts.secondary,
-                    fontSize: 24,
-                    fontWeight: FontWeight.w300,
-                  ),
-            ),
-            iconButton
-          ],
+        Expanded(
+          flex: 1,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                title,
+                style: textStyle ??
+                    AppTextStyle.bodyMedium.copyWith(
+                      fontFamily: AppFonts.secondary,
+                      fontSize: 24,
+                      fontWeight: FontWeight.w300,
+                    ),
+              ),
+              iconButton
+            ],
+          ),
         ),
-        Padding(
-          padding: const EdgeInsets.symmetric(vertical: 12.0),
-          child: child,
+        Expanded(
+          flex: 7,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 12.0),
+            child: child,
+          ),
         ),
       ],
     );

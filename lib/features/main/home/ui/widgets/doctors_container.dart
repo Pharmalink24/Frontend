@@ -16,22 +16,16 @@ class DoctorsContainer extends StatelessWidget {
   });
 
   Widget buildLoadedListWidgets() {
-    return Expanded(
-      child: SizedBox(
-        height: 125,
-        child: ListView.builder(
-          scrollDirection: Axis.horizontal,
-          padding: EdgeInsets.zero,
-          itemCount: doctors.length,
-          itemBuilder: (context, index) {
-            return DoctorCard(
-              doctors[index],
-              width: 225,
-              // height: 125,
-            );
-          },
-        ),
-      ),
+    return ListView.builder(
+      scrollDirection: Axis.horizontal,
+      padding: EdgeInsets.zero,
+      itemCount: doctors.length,
+      itemBuilder: (context, index) {
+        return DoctorCard(
+          doctors[index],
+          width: 225,
+        );
+      },
     );
   }
 
