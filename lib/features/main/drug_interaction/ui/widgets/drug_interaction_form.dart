@@ -1,48 +1,40 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pharmalink/core/theme/colors.dart';
-import 'package:pharmalink/features/main/drug_interaction/logic/cubit/drug_interaction_cubit.dart';
-import 'package:pharmalink/features/main/drug_interaction/ui/widgets/drug_search_field.dart';
+import 'package:pharmalink/core/theme/styles.dart';
+import 'package:pharmalink/core/widgets/card_container_with_title.dart';
+import 'package:pharmalink/core/widgets/form/form_button.dart';
 
-import 'form_input_label.dart';
+import '../../logic/cubit/drug_interaction_cubit.dart';
+import 'drug_interaction_inputs.dart';
 
-class DrugInteractionForm extends StatefulWidget {
+class DrugInteractionForm extends StatelessWidget {
   const DrugInteractionForm({super.key});
 
   @override
-  State<DrugInteractionForm> createState() => _DrugInteractionFormState();
-}
-
-class _DrugInteractionFormState extends State<DrugInteractionForm> {
-  @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return Form(
-      autovalidateMode: AutovalidateMode.always,
-      key: context.read<DrugInteractionCubit>().formKey,
+    return CardContainerWithTitle(
+      title: 'Interactions',
+      textStyle: AppTextStyle.displayMedium.copyWith(fontSize: 40),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const FormInputLabel(text: 'First Drug'),
-          DrugSearchField(
-            drugFieldId: 1,
-            controller: context.read<DrugInteractionCubit>().drugController1,
-          ),
-          const Divider(
-            thickness: 1,
-            color: AppColors.transparent,
-          ),
-          const FormInputLabel(text: 'Second Drug'),
-          DrugSearchField(
-            drugFieldId: 2,
-            controller: context.read<DrugInteractionCubit>().drugController2,
+          const DrugInteractionInputs(),
+          FormButton(
+            onPressed: () => drugInteraction(context),
+            text: "Check",
+            color: AppColors.secondary,
+            padding: const EdgeInsets.symmetric(vertical: 12.0),
+            borderRadius: 8.0,
+            elevation: 5.0,
           ),
         ],
       ),
     );
+  }
+
+  void drugInteraction(BuildContext context) {
+    context.read<DrugInteractionCubit>().emitDrugInteractionStates();
   }
 }

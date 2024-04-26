@@ -108,8 +108,8 @@ class InteractionResultContainer extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Text(
-          'Enter 2 Drugs to check interaction between them',
-          style: AppTextStyle.headlineSmall,
+          'Enter 2 Drugs to check interaction',
+          style: AppTextStyle.headlineLarge,
           textAlign: TextAlign.center,
         ),
       ],

@@ -48,7 +48,7 @@ class CardContainerWithTitle extends StatelessWidget {
           ),
         ),
         Expanded(
-          flex: 7,
+          flex: 6,
           child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 12.0),
             child: child,

@@ -14,6 +14,7 @@ class FormButton extends StatelessWidget {
   final Color color;
   final double? elevation;
   final double? borderRadius;
+  final bool hideKeyboardWhenClicked;
 
   const FormButton({
     super.key,
@@ -23,6 +24,7 @@ class FormButton extends StatelessWidget {
     this.color = AppColors.secondary,
     this.elevation,
     this.borderRadius,
+    this.hideKeyboardWhenClicked = true,
   });
 
   @override
@@ -45,6 +47,9 @@ class FormButton extends StatelessWidget {
                 : null,
           ),
           onPressed: () {
+            if (hideKeyboardWhenClicked) {
+              FocusManager.instance.primaryFocus?.unfocus();
+            }
             onPressed();
           },
           child: Text(

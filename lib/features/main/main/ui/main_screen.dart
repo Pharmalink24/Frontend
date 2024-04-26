@@ -33,6 +33,7 @@ class _MainScreenState extends State<MainScreen> {
     return PopScope(
       canPop: false,
       child: Scaffold(
+        resizeToAvoidBottomInset: false,
         body: Column(
           children: [
             RefreshTokenBlocListener(activeIndex: activeIndex),
