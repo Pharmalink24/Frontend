@@ -30,7 +30,10 @@ class WsFactory {
     if (channel != null) {
       // Listen to the stream and call the event listener
       channel!.stream.listen(
-        (event) {},
+        (event) {
+          Logger().i('Websocket connection established');
+          Logger().i(event);
+        },
         onDone: () {
           Logger().i('Websocket connection closed');
         },
@@ -41,12 +44,24 @@ class WsFactory {
     }
   }
 
+  // Send data to the websocket connection
   void send(dynamic data) {
     if (channel != null) {
       channel!.sink.add(data);
     }
   }
 
+  // Receive data from the websocket connection
+  dynamic receive() {
+    return channel?.stream;
+  }
+
+  // Check if the websocket connection is active
+  bool isConnected() {
+    return channel != null;
+  }
+
+  // Close the websocket connection
   void disconnect() {
     if (channel != null) {
       channel!.sink.close();

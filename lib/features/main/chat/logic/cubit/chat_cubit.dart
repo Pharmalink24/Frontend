@@ -13,10 +13,12 @@ class ChatCubit extends Cubit<ChatState> {
 
   TextEditingController messageController = TextEditingController();
   final scrollController = ScrollController();
+  Stream<dynamic>? messagesStream;
 
   Future<void> sendMessage(int receiverDoctorId) async {
     // emit(const ChatState.loading());
-    await _chatRepo.sendMessage(
+    await _chatRepo
+        .sendMessage(
       Message(
         id: 1,
         senderUserId: AuthSharedPrefs.getUserId(),
@@ -24,7 +26,10 @@ class ChatCubit extends Cubit<ChatState> {
         message: messageController.text,
         timestamp: Timestamp(date: DateTime.now().toString()),
       ),
-    );
+    )
+        .then((stream) {
+      messagesStream = stream;
+    });
 
     // Move the scroll position to the bottom
     scrollController.animateTo(

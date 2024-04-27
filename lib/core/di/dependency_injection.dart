@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:logger/logger.dart';
+import 'package:pharmalink/core/networking/ws_service.dart';
 import 'package:pharmalink/features/main/chat/data/repo/chat_repo.dart';
 import 'package:pharmalink/features/main/chat/logic/cubit/chat_cubit.dart';
 import 'package:pharmalink/features/main/drug_interaction/data/repo/drug_interaction_repo.dart';
@@ -33,7 +34,8 @@ Future<void> setupGetIt() async {
   getIt.registerLazySingleton<ApiService>(() => ApiService(dio));
 
   // Websocket
-  getIt.registerLazySingleton<WsFactory>(() => WsFactory());
+  WsFactory ws = WsFactory();
+  getIt.registerLazySingleton<WsService>(() => WsService(ws));
 
   // Auth
   getIt.registerLazySingleton<AuthRepo>(() => AuthRepo(getIt()));

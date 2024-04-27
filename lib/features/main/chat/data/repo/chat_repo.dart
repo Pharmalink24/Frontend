@@ -12,14 +12,17 @@ class ChatRepo {
 
   const ChatRepo(this._wsService, this._apiService);
 
-  Future<void> sendMessage(Message message) async {
+  Future<Stream<dynamic>?> sendMessage(Message message) async {
     try {
-      _wsService.sendMessage(
+      var messagesStream = await _wsService.sendMessage(
         message,
         AuthSharedPrefs.getAccessToken() ?? '',
       );
+
+      return messagesStream;
     } catch (error) {
       Logger().e(error);
+      return null;
     }
   }
 
@@ -33,6 +36,4 @@ class ChatRepo {
       Logger().e(error);
     }
   }
-
-
 }
