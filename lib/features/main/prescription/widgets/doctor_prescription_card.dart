@@ -1,4 +1,6 @@
 // Flutter Packages
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 // Screens Packages
 import 'package:pharmalink/features/main/prescription/prescription.dart';
@@ -29,25 +31,42 @@ class DoctorPrescriptionCard extends StatelessWidget {
         onTap: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => const PrescriptionScreen()),
+            MaterialPageRoute(
+                builder: (context) => PrescriptionScreen(
+                      fName: firstName,
+                      date: date,
+                      id: prescriptionId.toString(),
+                      image: doctorImage,
+                      lName: lastName,
+
+                )),
           );
         },
-        child: Card(
-          color: AppColors.secondaryBackground,
-          elevation: 4,
-          shape: RoundedRectangleBorder(
+        child: Container(
+          width: 100,
+          height: 110,
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [AppColors.primary, AppColors.accent4],
+              stops: [0, 1],
+              begin: AlignmentDirectional(1, 1),
+              end: AlignmentDirectional(-1, -1),
+            ),
             borderRadius: BorderRadius.circular(16),
           ),
+          alignment: AlignmentDirectional(0, 0),
           child: Row(
             mainAxisSize: MainAxisSize.max,
             children: [
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(16, 16, 0, 16),
-                child: CircleAvatar(
-                  radius: 42,
-                  backgroundColor: Colors.grey,
-                  backgroundImage: NetworkImage(
+                padding: const EdgeInsetsDirectional.fromSTEB(10, 16, 0, 16),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(8),
+                  child: Image.network(
                     doctorImage,
+                    width: 89,
+                    fit: BoxFit.scaleDown,
+                    alignment: Alignment(1, 1),
                   ),
                 ),
               ),
@@ -55,22 +74,25 @@ class DoctorPrescriptionCard extends StatelessWidget {
                 padding: const EdgeInsetsDirectional.fromSTEB(16, 0, 0, 0),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
                       'Dr. $firstName $lastName',
-                      style: AppTextStyle.displayMedium.copyWith(
-                        fontSize: 18,
+                      style: AppTextStyle.titleMedium.copyWith(
+                        fontFamily: 'Readex Pro',
+                        fontSize: 20,
+                        letterSpacing: 0,
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
                       child: Text(
                         date,
                         // random_data.randomDate().toString(),
-                        style: AppTextStyle.displayMedium.copyWith(
-                          fontSize: 16,
-                          color: Colors.grey,
+                        style: AppTextStyle.titleSmall.copyWith(
+                          fontFamily: 'Readex Pro',
                         ),
                       ),
                     ),
