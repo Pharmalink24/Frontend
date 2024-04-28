@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pharmalink/core/helpers/constants/paths.dart';
+import 'package:pharmalink/core/networking/api_constants.dart';
 import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/theme/styles.dart';
 import 'package:pharmalink/core/widgets/card_container_with_title.dart';
@@ -28,7 +29,7 @@ class _ProfileInfoState extends State<ProfileInfo> {
   @override
   Widget build(BuildContext context) {
     ImageProvider<Object>? image = NetworkImage(
-      widget.user.image ?? '',
+      '${ApiConstants.baseUrl}${widget.user.image}',
     );
 
     return CardContainerWithTitle(
