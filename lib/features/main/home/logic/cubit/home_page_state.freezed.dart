@@ -19,9 +19,12 @@ mixin _$HomePageState<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() homePageLoading,
-    required TResult Function(T data) homePageSuccess,
-    required TResult Function(String error) homePageError,
+    required TResult Function() userInfoLoading,
+    required TResult Function(T data) userInfoSuccess,
+    required TResult Function(String error) userInfoError,
+    required TResult Function() doctorsLoading,
+    required TResult Function(T data) doctorsSuccess,
+    required TResult Function(String error) doctorsError,
     required TResult Function() remindersLoading,
     required TResult Function(T data) remindersSuccess,
     required TResult Function(String error) remindersError,
@@ -33,9 +36,12 @@ mixin _$HomePageState<T> {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? homePageLoading,
-    TResult? Function(T data)? homePageSuccess,
-    TResult? Function(String error)? homePageError,
+    TResult? Function()? userInfoLoading,
+    TResult? Function(T data)? userInfoSuccess,
+    TResult? Function(String error)? userInfoError,
+    TResult? Function()? doctorsLoading,
+    TResult? Function(T data)? doctorsSuccess,
+    TResult? Function(String error)? doctorsError,
     TResult? Function()? remindersLoading,
     TResult? Function(T data)? remindersSuccess,
     TResult? Function(String error)? remindersError,
@@ -47,9 +53,12 @@ mixin _$HomePageState<T> {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? homePageLoading,
-    TResult Function(T data)? homePageSuccess,
-    TResult Function(String error)? homePageError,
+    TResult Function()? userInfoLoading,
+    TResult Function(T data)? userInfoSuccess,
+    TResult Function(String error)? userInfoError,
+    TResult Function()? doctorsLoading,
+    TResult Function(T data)? doctorsSuccess,
+    TResult Function(String error)? doctorsError,
     TResult Function()? remindersLoading,
     TResult Function(T data)? remindersSuccess,
     TResult Function(String error)? remindersError,
@@ -62,9 +71,12 @@ mixin _$HomePageState<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial<T> value) initial,
-    required TResult Function(HomePageLoading<T> value) homePageLoading,
-    required TResult Function(HomePageSuccess<T> value) homePageSuccess,
-    required TResult Function(HomePageError<T> value) homePageError,
+    required TResult Function(UserInfoLoading<T> value) userInfoLoading,
+    required TResult Function(UserInfoSuccess<T> value) userInfoSuccess,
+    required TResult Function(UserInfoError<T> value) userInfoError,
+    required TResult Function(DoctorsLoading<T> value) doctorsLoading,
+    required TResult Function(DoctorsSuccess<T> value) doctorsSuccess,
+    required TResult Function(DoctorsError<T> value) doctorsError,
     required TResult Function(RemindersLoading<T> value) remindersLoading,
     required TResult Function(RemindersSuccess<T> value) remindersSuccess,
     required TResult Function(RemindersError<T> value) remindersError,
@@ -79,9 +91,12 @@ mixin _$HomePageState<T> {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(HomePageLoading<T> value)? homePageLoading,
-    TResult? Function(HomePageSuccess<T> value)? homePageSuccess,
-    TResult? Function(HomePageError<T> value)? homePageError,
+    TResult? Function(UserInfoLoading<T> value)? userInfoLoading,
+    TResult? Function(UserInfoSuccess<T> value)? userInfoSuccess,
+    TResult? Function(UserInfoError<T> value)? userInfoError,
+    TResult? Function(DoctorsLoading<T> value)? doctorsLoading,
+    TResult? Function(DoctorsSuccess<T> value)? doctorsSuccess,
+    TResult? Function(DoctorsError<T> value)? doctorsError,
     TResult? Function(RemindersLoading<T> value)? remindersLoading,
     TResult? Function(RemindersSuccess<T> value)? remindersSuccess,
     TResult? Function(RemindersError<T> value)? remindersError,
@@ -96,9 +111,12 @@ mixin _$HomePageState<T> {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial<T> value)? initial,
-    TResult Function(HomePageLoading<T> value)? homePageLoading,
-    TResult Function(HomePageSuccess<T> value)? homePageSuccess,
-    TResult Function(HomePageError<T> value)? homePageError,
+    TResult Function(UserInfoLoading<T> value)? userInfoLoading,
+    TResult Function(UserInfoSuccess<T> value)? userInfoSuccess,
+    TResult Function(UserInfoError<T> value)? userInfoError,
+    TResult Function(DoctorsLoading<T> value)? doctorsLoading,
+    TResult Function(DoctorsSuccess<T> value)? doctorsSuccess,
+    TResult Function(DoctorsError<T> value)? doctorsError,
     TResult Function(RemindersLoading<T> value)? remindersLoading,
     TResult Function(RemindersSuccess<T> value)? remindersSuccess,
     TResult Function(RemindersError<T> value)? remindersError,
@@ -170,9 +188,12 @@ class _$InitialImpl<T> implements _Initial<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() homePageLoading,
-    required TResult Function(T data) homePageSuccess,
-    required TResult Function(String error) homePageError,
+    required TResult Function() userInfoLoading,
+    required TResult Function(T data) userInfoSuccess,
+    required TResult Function(String error) userInfoError,
+    required TResult Function() doctorsLoading,
+    required TResult Function(T data) doctorsSuccess,
+    required TResult Function(String error) doctorsError,
     required TResult Function() remindersLoading,
     required TResult Function(T data) remindersSuccess,
     required TResult Function(String error) remindersError,
@@ -187,9 +208,12 @@ class _$InitialImpl<T> implements _Initial<T> {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? homePageLoading,
-    TResult? Function(T data)? homePageSuccess,
-    TResult? Function(String error)? homePageError,
+    TResult? Function()? userInfoLoading,
+    TResult? Function(T data)? userInfoSuccess,
+    TResult? Function(String error)? userInfoError,
+    TResult? Function()? doctorsLoading,
+    TResult? Function(T data)? doctorsSuccess,
+    TResult? Function(String error)? doctorsError,
     TResult? Function()? remindersLoading,
     TResult? Function(T data)? remindersSuccess,
     TResult? Function(String error)? remindersError,
@@ -204,9 +228,12 @@ class _$InitialImpl<T> implements _Initial<T> {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? homePageLoading,
-    TResult Function(T data)? homePageSuccess,
-    TResult Function(String error)? homePageError,
+    TResult Function()? userInfoLoading,
+    TResult Function(T data)? userInfoSuccess,
+    TResult Function(String error)? userInfoError,
+    TResult Function()? doctorsLoading,
+    TResult Function(T data)? doctorsSuccess,
+    TResult Function(String error)? doctorsError,
     TResult Function()? remindersLoading,
     TResult Function(T data)? remindersSuccess,
     TResult Function(String error)? remindersError,
@@ -225,9 +252,12 @@ class _$InitialImpl<T> implements _Initial<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial<T> value) initial,
-    required TResult Function(HomePageLoading<T> value) homePageLoading,
-    required TResult Function(HomePageSuccess<T> value) homePageSuccess,
-    required TResult Function(HomePageError<T> value) homePageError,
+    required TResult Function(UserInfoLoading<T> value) userInfoLoading,
+    required TResult Function(UserInfoSuccess<T> value) userInfoSuccess,
+    required TResult Function(UserInfoError<T> value) userInfoError,
+    required TResult Function(DoctorsLoading<T> value) doctorsLoading,
+    required TResult Function(DoctorsSuccess<T> value) doctorsSuccess,
+    required TResult Function(DoctorsError<T> value) doctorsError,
     required TResult Function(RemindersLoading<T> value) remindersLoading,
     required TResult Function(RemindersSuccess<T> value) remindersSuccess,
     required TResult Function(RemindersError<T> value) remindersError,
@@ -245,9 +275,12 @@ class _$InitialImpl<T> implements _Initial<T> {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(HomePageLoading<T> value)? homePageLoading,
-    TResult? Function(HomePageSuccess<T> value)? homePageSuccess,
-    TResult? Function(HomePageError<T> value)? homePageError,
+    TResult? Function(UserInfoLoading<T> value)? userInfoLoading,
+    TResult? Function(UserInfoSuccess<T> value)? userInfoSuccess,
+    TResult? Function(UserInfoError<T> value)? userInfoError,
+    TResult? Function(DoctorsLoading<T> value)? doctorsLoading,
+    TResult? Function(DoctorsSuccess<T> value)? doctorsSuccess,
+    TResult? Function(DoctorsError<T> value)? doctorsError,
     TResult? Function(RemindersLoading<T> value)? remindersLoading,
     TResult? Function(RemindersSuccess<T> value)? remindersSuccess,
     TResult? Function(RemindersError<T> value)? remindersError,
@@ -265,9 +298,12 @@ class _$InitialImpl<T> implements _Initial<T> {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial<T> value)? initial,
-    TResult Function(HomePageLoading<T> value)? homePageLoading,
-    TResult Function(HomePageSuccess<T> value)? homePageSuccess,
-    TResult Function(HomePageError<T> value)? homePageError,
+    TResult Function(UserInfoLoading<T> value)? userInfoLoading,
+    TResult Function(UserInfoSuccess<T> value)? userInfoSuccess,
+    TResult Function(UserInfoError<T> value)? userInfoError,
+    TResult Function(DoctorsLoading<T> value)? doctorsLoading,
+    TResult Function(DoctorsSuccess<T> value)? doctorsSuccess,
+    TResult Function(DoctorsError<T> value)? doctorsError,
     TResult Function(RemindersLoading<T> value)? remindersLoading,
     TResult Function(RemindersSuccess<T> value)? remindersSuccess,
     TResult Function(RemindersError<T> value)? remindersError,
@@ -291,35 +327,35 @@ abstract class _Initial<T> implements HomePageState<T> {
 }
 
 /// @nodoc
-abstract class _$$HomePageLoadingImplCopyWith<T, $Res> {
-  factory _$$HomePageLoadingImplCopyWith(_$HomePageLoadingImpl<T> value,
-          $Res Function(_$HomePageLoadingImpl<T>) then) =
-      __$$HomePageLoadingImplCopyWithImpl<T, $Res>;
+abstract class _$$UserInfoLoadingImplCopyWith<T, $Res> {
+  factory _$$UserInfoLoadingImplCopyWith(_$UserInfoLoadingImpl<T> value,
+          $Res Function(_$UserInfoLoadingImpl<T>) then) =
+      __$$UserInfoLoadingImplCopyWithImpl<T, $Res>;
 }
 
 /// @nodoc
-class __$$HomePageLoadingImplCopyWithImpl<T, $Res>
-    extends _$HomePageStateCopyWithImpl<T, $Res, _$HomePageLoadingImpl<T>>
-    implements _$$HomePageLoadingImplCopyWith<T, $Res> {
-  __$$HomePageLoadingImplCopyWithImpl(_$HomePageLoadingImpl<T> _value,
-      $Res Function(_$HomePageLoadingImpl<T>) _then)
+class __$$UserInfoLoadingImplCopyWithImpl<T, $Res>
+    extends _$HomePageStateCopyWithImpl<T, $Res, _$UserInfoLoadingImpl<T>>
+    implements _$$UserInfoLoadingImplCopyWith<T, $Res> {
+  __$$UserInfoLoadingImplCopyWithImpl(_$UserInfoLoadingImpl<T> _value,
+      $Res Function(_$UserInfoLoadingImpl<T>) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$HomePageLoadingImpl<T> implements HomePageLoading<T> {
-  const _$HomePageLoadingImpl();
+class _$UserInfoLoadingImpl<T> implements UserInfoLoading<T> {
+  const _$UserInfoLoadingImpl();
 
   @override
   String toString() {
-    return 'HomePageState<$T>.homePageLoading()';
+    return 'HomePageState<$T>.userInfoLoading()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$HomePageLoadingImpl<T>);
+        (other.runtimeType == runtimeType && other is _$UserInfoLoadingImpl<T>);
   }
 
   @override
@@ -329,9 +365,12 @@ class _$HomePageLoadingImpl<T> implements HomePageLoading<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() homePageLoading,
-    required TResult Function(T data) homePageSuccess,
-    required TResult Function(String error) homePageError,
+    required TResult Function() userInfoLoading,
+    required TResult Function(T data) userInfoSuccess,
+    required TResult Function(String error) userInfoError,
+    required TResult Function() doctorsLoading,
+    required TResult Function(T data) doctorsSuccess,
+    required TResult Function(String error) doctorsError,
     required TResult Function() remindersLoading,
     required TResult Function(T data) remindersSuccess,
     required TResult Function(String error) remindersError,
@@ -339,16 +378,19 @@ class _$HomePageLoadingImpl<T> implements HomePageLoading<T> {
     required TResult Function() makeReminderCheckedSuccess,
     required TResult Function(String error) makeReminderCheckedError,
   }) {
-    return homePageLoading();
+    return userInfoLoading();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? homePageLoading,
-    TResult? Function(T data)? homePageSuccess,
-    TResult? Function(String error)? homePageError,
+    TResult? Function()? userInfoLoading,
+    TResult? Function(T data)? userInfoSuccess,
+    TResult? Function(String error)? userInfoError,
+    TResult? Function()? doctorsLoading,
+    TResult? Function(T data)? doctorsSuccess,
+    TResult? Function(String error)? doctorsError,
     TResult? Function()? remindersLoading,
     TResult? Function(T data)? remindersSuccess,
     TResult? Function(String error)? remindersError,
@@ -356,16 +398,19 @@ class _$HomePageLoadingImpl<T> implements HomePageLoading<T> {
     TResult? Function()? makeReminderCheckedSuccess,
     TResult? Function(String error)? makeReminderCheckedError,
   }) {
-    return homePageLoading?.call();
+    return userInfoLoading?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? homePageLoading,
-    TResult Function(T data)? homePageSuccess,
-    TResult Function(String error)? homePageError,
+    TResult Function()? userInfoLoading,
+    TResult Function(T data)? userInfoSuccess,
+    TResult Function(String error)? userInfoError,
+    TResult Function()? doctorsLoading,
+    TResult Function(T data)? doctorsSuccess,
+    TResult Function(String error)? doctorsError,
     TResult Function()? remindersLoading,
     TResult Function(T data)? remindersSuccess,
     TResult Function(String error)? remindersError,
@@ -374,8 +419,8 @@ class _$HomePageLoadingImpl<T> implements HomePageLoading<T> {
     TResult Function(String error)? makeReminderCheckedError,
     required TResult orElse(),
   }) {
-    if (homePageLoading != null) {
-      return homePageLoading();
+    if (userInfoLoading != null) {
+      return userInfoLoading();
     }
     return orElse();
   }
@@ -384,9 +429,12 @@ class _$HomePageLoadingImpl<T> implements HomePageLoading<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial<T> value) initial,
-    required TResult Function(HomePageLoading<T> value) homePageLoading,
-    required TResult Function(HomePageSuccess<T> value) homePageSuccess,
-    required TResult Function(HomePageError<T> value) homePageError,
+    required TResult Function(UserInfoLoading<T> value) userInfoLoading,
+    required TResult Function(UserInfoSuccess<T> value) userInfoSuccess,
+    required TResult Function(UserInfoError<T> value) userInfoError,
+    required TResult Function(DoctorsLoading<T> value) doctorsLoading,
+    required TResult Function(DoctorsSuccess<T> value) doctorsSuccess,
+    required TResult Function(DoctorsError<T> value) doctorsError,
     required TResult Function(RemindersLoading<T> value) remindersLoading,
     required TResult Function(RemindersSuccess<T> value) remindersSuccess,
     required TResult Function(RemindersError<T> value) remindersError,
@@ -397,16 +445,19 @@ class _$HomePageLoadingImpl<T> implements HomePageLoading<T> {
     required TResult Function(MakeReminderCheckedError<T> value)
         makeReminderCheckedError,
   }) {
-    return homePageLoading(this);
+    return userInfoLoading(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(HomePageLoading<T> value)? homePageLoading,
-    TResult? Function(HomePageSuccess<T> value)? homePageSuccess,
-    TResult? Function(HomePageError<T> value)? homePageError,
+    TResult? Function(UserInfoLoading<T> value)? userInfoLoading,
+    TResult? Function(UserInfoSuccess<T> value)? userInfoSuccess,
+    TResult? Function(UserInfoError<T> value)? userInfoError,
+    TResult? Function(DoctorsLoading<T> value)? doctorsLoading,
+    TResult? Function(DoctorsSuccess<T> value)? doctorsSuccess,
+    TResult? Function(DoctorsError<T> value)? doctorsError,
     TResult? Function(RemindersLoading<T> value)? remindersLoading,
     TResult? Function(RemindersSuccess<T> value)? remindersSuccess,
     TResult? Function(RemindersError<T> value)? remindersError,
@@ -417,16 +468,19 @@ class _$HomePageLoadingImpl<T> implements HomePageLoading<T> {
     TResult? Function(MakeReminderCheckedError<T> value)?
         makeReminderCheckedError,
   }) {
-    return homePageLoading?.call(this);
+    return userInfoLoading?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial<T> value)? initial,
-    TResult Function(HomePageLoading<T> value)? homePageLoading,
-    TResult Function(HomePageSuccess<T> value)? homePageSuccess,
-    TResult Function(HomePageError<T> value)? homePageError,
+    TResult Function(UserInfoLoading<T> value)? userInfoLoading,
+    TResult Function(UserInfoSuccess<T> value)? userInfoSuccess,
+    TResult Function(UserInfoError<T> value)? userInfoError,
+    TResult Function(DoctorsLoading<T> value)? doctorsLoading,
+    TResult Function(DoctorsSuccess<T> value)? doctorsSuccess,
+    TResult Function(DoctorsError<T> value)? doctorsError,
     TResult Function(RemindersLoading<T> value)? remindersLoading,
     TResult Function(RemindersSuccess<T> value)? remindersSuccess,
     TResult Function(RemindersError<T> value)? remindersError,
@@ -438,32 +492,32 @@ class _$HomePageLoadingImpl<T> implements HomePageLoading<T> {
         makeReminderCheckedError,
     required TResult orElse(),
   }) {
-    if (homePageLoading != null) {
-      return homePageLoading(this);
+    if (userInfoLoading != null) {
+      return userInfoLoading(this);
     }
     return orElse();
   }
 }
 
-abstract class HomePageLoading<T> implements HomePageState<T> {
-  const factory HomePageLoading() = _$HomePageLoadingImpl<T>;
+abstract class UserInfoLoading<T> implements HomePageState<T> {
+  const factory UserInfoLoading() = _$UserInfoLoadingImpl<T>;
 }
 
 /// @nodoc
-abstract class _$$HomePageSuccessImplCopyWith<T, $Res> {
-  factory _$$HomePageSuccessImplCopyWith(_$HomePageSuccessImpl<T> value,
-          $Res Function(_$HomePageSuccessImpl<T>) then) =
-      __$$HomePageSuccessImplCopyWithImpl<T, $Res>;
+abstract class _$$UserInfoSuccessImplCopyWith<T, $Res> {
+  factory _$$UserInfoSuccessImplCopyWith(_$UserInfoSuccessImpl<T> value,
+          $Res Function(_$UserInfoSuccessImpl<T>) then) =
+      __$$UserInfoSuccessImplCopyWithImpl<T, $Res>;
   @useResult
   $Res call({T data});
 }
 
 /// @nodoc
-class __$$HomePageSuccessImplCopyWithImpl<T, $Res>
-    extends _$HomePageStateCopyWithImpl<T, $Res, _$HomePageSuccessImpl<T>>
-    implements _$$HomePageSuccessImplCopyWith<T, $Res> {
-  __$$HomePageSuccessImplCopyWithImpl(_$HomePageSuccessImpl<T> _value,
-      $Res Function(_$HomePageSuccessImpl<T>) _then)
+class __$$UserInfoSuccessImplCopyWithImpl<T, $Res>
+    extends _$HomePageStateCopyWithImpl<T, $Res, _$UserInfoSuccessImpl<T>>
+    implements _$$UserInfoSuccessImplCopyWith<T, $Res> {
+  __$$UserInfoSuccessImplCopyWithImpl(_$UserInfoSuccessImpl<T> _value,
+      $Res Function(_$UserInfoSuccessImpl<T>) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -471,7 +525,7 @@ class __$$HomePageSuccessImplCopyWithImpl<T, $Res>
   $Res call({
     Object? data = freezed,
   }) {
-    return _then(_$HomePageSuccessImpl<T>(
+    return _then(_$UserInfoSuccessImpl<T>(
       freezed == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -482,22 +536,22 @@ class __$$HomePageSuccessImplCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$HomePageSuccessImpl<T> implements HomePageSuccess<T> {
-  const _$HomePageSuccessImpl(this.data);
+class _$UserInfoSuccessImpl<T> implements UserInfoSuccess<T> {
+  const _$UserInfoSuccessImpl(this.data);
 
   @override
   final T data;
 
   @override
   String toString() {
-    return 'HomePageState<$T>.homePageSuccess(data: $data)';
+    return 'HomePageState<$T>.userInfoSuccess(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$HomePageSuccessImpl<T> &&
+            other is _$UserInfoSuccessImpl<T> &&
             const DeepCollectionEquality().equals(other.data, data));
   }
 
@@ -508,17 +562,20 @@ class _$HomePageSuccessImpl<T> implements HomePageSuccess<T> {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$HomePageSuccessImplCopyWith<T, _$HomePageSuccessImpl<T>> get copyWith =>
-      __$$HomePageSuccessImplCopyWithImpl<T, _$HomePageSuccessImpl<T>>(
+  _$$UserInfoSuccessImplCopyWith<T, _$UserInfoSuccessImpl<T>> get copyWith =>
+      __$$UserInfoSuccessImplCopyWithImpl<T, _$UserInfoSuccessImpl<T>>(
           this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() homePageLoading,
-    required TResult Function(T data) homePageSuccess,
-    required TResult Function(String error) homePageError,
+    required TResult Function() userInfoLoading,
+    required TResult Function(T data) userInfoSuccess,
+    required TResult Function(String error) userInfoError,
+    required TResult Function() doctorsLoading,
+    required TResult Function(T data) doctorsSuccess,
+    required TResult Function(String error) doctorsError,
     required TResult Function() remindersLoading,
     required TResult Function(T data) remindersSuccess,
     required TResult Function(String error) remindersError,
@@ -526,16 +583,19 @@ class _$HomePageSuccessImpl<T> implements HomePageSuccess<T> {
     required TResult Function() makeReminderCheckedSuccess,
     required TResult Function(String error) makeReminderCheckedError,
   }) {
-    return homePageSuccess(data);
+    return userInfoSuccess(data);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? homePageLoading,
-    TResult? Function(T data)? homePageSuccess,
-    TResult? Function(String error)? homePageError,
+    TResult? Function()? userInfoLoading,
+    TResult? Function(T data)? userInfoSuccess,
+    TResult? Function(String error)? userInfoError,
+    TResult? Function()? doctorsLoading,
+    TResult? Function(T data)? doctorsSuccess,
+    TResult? Function(String error)? doctorsError,
     TResult? Function()? remindersLoading,
     TResult? Function(T data)? remindersSuccess,
     TResult? Function(String error)? remindersError,
@@ -543,16 +603,19 @@ class _$HomePageSuccessImpl<T> implements HomePageSuccess<T> {
     TResult? Function()? makeReminderCheckedSuccess,
     TResult? Function(String error)? makeReminderCheckedError,
   }) {
-    return homePageSuccess?.call(data);
+    return userInfoSuccess?.call(data);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? homePageLoading,
-    TResult Function(T data)? homePageSuccess,
-    TResult Function(String error)? homePageError,
+    TResult Function()? userInfoLoading,
+    TResult Function(T data)? userInfoSuccess,
+    TResult Function(String error)? userInfoError,
+    TResult Function()? doctorsLoading,
+    TResult Function(T data)? doctorsSuccess,
+    TResult Function(String error)? doctorsError,
     TResult Function()? remindersLoading,
     TResult Function(T data)? remindersSuccess,
     TResult Function(String error)? remindersError,
@@ -561,8 +624,8 @@ class _$HomePageSuccessImpl<T> implements HomePageSuccess<T> {
     TResult Function(String error)? makeReminderCheckedError,
     required TResult orElse(),
   }) {
-    if (homePageSuccess != null) {
-      return homePageSuccess(data);
+    if (userInfoSuccess != null) {
+      return userInfoSuccess(data);
     }
     return orElse();
   }
@@ -571,9 +634,12 @@ class _$HomePageSuccessImpl<T> implements HomePageSuccess<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial<T> value) initial,
-    required TResult Function(HomePageLoading<T> value) homePageLoading,
-    required TResult Function(HomePageSuccess<T> value) homePageSuccess,
-    required TResult Function(HomePageError<T> value) homePageError,
+    required TResult Function(UserInfoLoading<T> value) userInfoLoading,
+    required TResult Function(UserInfoSuccess<T> value) userInfoSuccess,
+    required TResult Function(UserInfoError<T> value) userInfoError,
+    required TResult Function(DoctorsLoading<T> value) doctorsLoading,
+    required TResult Function(DoctorsSuccess<T> value) doctorsSuccess,
+    required TResult Function(DoctorsError<T> value) doctorsError,
     required TResult Function(RemindersLoading<T> value) remindersLoading,
     required TResult Function(RemindersSuccess<T> value) remindersSuccess,
     required TResult Function(RemindersError<T> value) remindersError,
@@ -584,16 +650,19 @@ class _$HomePageSuccessImpl<T> implements HomePageSuccess<T> {
     required TResult Function(MakeReminderCheckedError<T> value)
         makeReminderCheckedError,
   }) {
-    return homePageSuccess(this);
+    return userInfoSuccess(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(HomePageLoading<T> value)? homePageLoading,
-    TResult? Function(HomePageSuccess<T> value)? homePageSuccess,
-    TResult? Function(HomePageError<T> value)? homePageError,
+    TResult? Function(UserInfoLoading<T> value)? userInfoLoading,
+    TResult? Function(UserInfoSuccess<T> value)? userInfoSuccess,
+    TResult? Function(UserInfoError<T> value)? userInfoError,
+    TResult? Function(DoctorsLoading<T> value)? doctorsLoading,
+    TResult? Function(DoctorsSuccess<T> value)? doctorsSuccess,
+    TResult? Function(DoctorsError<T> value)? doctorsError,
     TResult? Function(RemindersLoading<T> value)? remindersLoading,
     TResult? Function(RemindersSuccess<T> value)? remindersSuccess,
     TResult? Function(RemindersError<T> value)? remindersError,
@@ -604,16 +673,19 @@ class _$HomePageSuccessImpl<T> implements HomePageSuccess<T> {
     TResult? Function(MakeReminderCheckedError<T> value)?
         makeReminderCheckedError,
   }) {
-    return homePageSuccess?.call(this);
+    return userInfoSuccess?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial<T> value)? initial,
-    TResult Function(HomePageLoading<T> value)? homePageLoading,
-    TResult Function(HomePageSuccess<T> value)? homePageSuccess,
-    TResult Function(HomePageError<T> value)? homePageError,
+    TResult Function(UserInfoLoading<T> value)? userInfoLoading,
+    TResult Function(UserInfoSuccess<T> value)? userInfoSuccess,
+    TResult Function(UserInfoError<T> value)? userInfoError,
+    TResult Function(DoctorsLoading<T> value)? doctorsLoading,
+    TResult Function(DoctorsSuccess<T> value)? doctorsSuccess,
+    TResult Function(DoctorsError<T> value)? doctorsError,
     TResult Function(RemindersLoading<T> value)? remindersLoading,
     TResult Function(RemindersSuccess<T> value)? remindersSuccess,
     TResult Function(RemindersError<T> value)? remindersError,
@@ -625,37 +697,37 @@ class _$HomePageSuccessImpl<T> implements HomePageSuccess<T> {
         makeReminderCheckedError,
     required TResult orElse(),
   }) {
-    if (homePageSuccess != null) {
-      return homePageSuccess(this);
+    if (userInfoSuccess != null) {
+      return userInfoSuccess(this);
     }
     return orElse();
   }
 }
 
-abstract class HomePageSuccess<T> implements HomePageState<T> {
-  const factory HomePageSuccess(final T data) = _$HomePageSuccessImpl<T>;
+abstract class UserInfoSuccess<T> implements HomePageState<T> {
+  const factory UserInfoSuccess(final T data) = _$UserInfoSuccessImpl<T>;
 
   T get data;
   @JsonKey(ignore: true)
-  _$$HomePageSuccessImplCopyWith<T, _$HomePageSuccessImpl<T>> get copyWith =>
+  _$$UserInfoSuccessImplCopyWith<T, _$UserInfoSuccessImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$HomePageErrorImplCopyWith<T, $Res> {
-  factory _$$HomePageErrorImplCopyWith(_$HomePageErrorImpl<T> value,
-          $Res Function(_$HomePageErrorImpl<T>) then) =
-      __$$HomePageErrorImplCopyWithImpl<T, $Res>;
+abstract class _$$UserInfoErrorImplCopyWith<T, $Res> {
+  factory _$$UserInfoErrorImplCopyWith(_$UserInfoErrorImpl<T> value,
+          $Res Function(_$UserInfoErrorImpl<T>) then) =
+      __$$UserInfoErrorImplCopyWithImpl<T, $Res>;
   @useResult
   $Res call({String error});
 }
 
 /// @nodoc
-class __$$HomePageErrorImplCopyWithImpl<T, $Res>
-    extends _$HomePageStateCopyWithImpl<T, $Res, _$HomePageErrorImpl<T>>
-    implements _$$HomePageErrorImplCopyWith<T, $Res> {
-  __$$HomePageErrorImplCopyWithImpl(_$HomePageErrorImpl<T> _value,
-      $Res Function(_$HomePageErrorImpl<T>) _then)
+class __$$UserInfoErrorImplCopyWithImpl<T, $Res>
+    extends _$HomePageStateCopyWithImpl<T, $Res, _$UserInfoErrorImpl<T>>
+    implements _$$UserInfoErrorImplCopyWith<T, $Res> {
+  __$$UserInfoErrorImplCopyWithImpl(_$UserInfoErrorImpl<T> _value,
+      $Res Function(_$UserInfoErrorImpl<T>) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -663,7 +735,7 @@ class __$$HomePageErrorImplCopyWithImpl<T, $Res>
   $Res call({
     Object? error = null,
   }) {
-    return _then(_$HomePageErrorImpl<T>(
+    return _then(_$UserInfoErrorImpl<T>(
       error: null == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
@@ -674,22 +746,22 @@ class __$$HomePageErrorImplCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$HomePageErrorImpl<T> implements HomePageError<T> {
-  const _$HomePageErrorImpl({required this.error});
+class _$UserInfoErrorImpl<T> implements UserInfoError<T> {
+  const _$UserInfoErrorImpl({required this.error});
 
   @override
   final String error;
 
   @override
   String toString() {
-    return 'HomePageState<$T>.homePageError(error: $error)';
+    return 'HomePageState<$T>.userInfoError(error: $error)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$HomePageErrorImpl<T> &&
+            other is _$UserInfoErrorImpl<T> &&
             (identical(other.error, error) || other.error == error));
   }
 
@@ -699,17 +771,20 @@ class _$HomePageErrorImpl<T> implements HomePageError<T> {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$HomePageErrorImplCopyWith<T, _$HomePageErrorImpl<T>> get copyWith =>
-      __$$HomePageErrorImplCopyWithImpl<T, _$HomePageErrorImpl<T>>(
+  _$$UserInfoErrorImplCopyWith<T, _$UserInfoErrorImpl<T>> get copyWith =>
+      __$$UserInfoErrorImplCopyWithImpl<T, _$UserInfoErrorImpl<T>>(
           this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() homePageLoading,
-    required TResult Function(T data) homePageSuccess,
-    required TResult Function(String error) homePageError,
+    required TResult Function() userInfoLoading,
+    required TResult Function(T data) userInfoSuccess,
+    required TResult Function(String error) userInfoError,
+    required TResult Function() doctorsLoading,
+    required TResult Function(T data) doctorsSuccess,
+    required TResult Function(String error) doctorsError,
     required TResult Function() remindersLoading,
     required TResult Function(T data) remindersSuccess,
     required TResult Function(String error) remindersError,
@@ -717,16 +792,19 @@ class _$HomePageErrorImpl<T> implements HomePageError<T> {
     required TResult Function() makeReminderCheckedSuccess,
     required TResult Function(String error) makeReminderCheckedError,
   }) {
-    return homePageError(error);
+    return userInfoError(error);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? homePageLoading,
-    TResult? Function(T data)? homePageSuccess,
-    TResult? Function(String error)? homePageError,
+    TResult? Function()? userInfoLoading,
+    TResult? Function(T data)? userInfoSuccess,
+    TResult? Function(String error)? userInfoError,
+    TResult? Function()? doctorsLoading,
+    TResult? Function(T data)? doctorsSuccess,
+    TResult? Function(String error)? doctorsError,
     TResult? Function()? remindersLoading,
     TResult? Function(T data)? remindersSuccess,
     TResult? Function(String error)? remindersError,
@@ -734,16 +812,19 @@ class _$HomePageErrorImpl<T> implements HomePageError<T> {
     TResult? Function()? makeReminderCheckedSuccess,
     TResult? Function(String error)? makeReminderCheckedError,
   }) {
-    return homePageError?.call(error);
+    return userInfoError?.call(error);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? homePageLoading,
-    TResult Function(T data)? homePageSuccess,
-    TResult Function(String error)? homePageError,
+    TResult Function()? userInfoLoading,
+    TResult Function(T data)? userInfoSuccess,
+    TResult Function(String error)? userInfoError,
+    TResult Function()? doctorsLoading,
+    TResult Function(T data)? doctorsSuccess,
+    TResult Function(String error)? doctorsError,
     TResult Function()? remindersLoading,
     TResult Function(T data)? remindersSuccess,
     TResult Function(String error)? remindersError,
@@ -752,8 +833,8 @@ class _$HomePageErrorImpl<T> implements HomePageError<T> {
     TResult Function(String error)? makeReminderCheckedError,
     required TResult orElse(),
   }) {
-    if (homePageError != null) {
-      return homePageError(error);
+    if (userInfoError != null) {
+      return userInfoError(error);
     }
     return orElse();
   }
@@ -762,9 +843,12 @@ class _$HomePageErrorImpl<T> implements HomePageError<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial<T> value) initial,
-    required TResult Function(HomePageLoading<T> value) homePageLoading,
-    required TResult Function(HomePageSuccess<T> value) homePageSuccess,
-    required TResult Function(HomePageError<T> value) homePageError,
+    required TResult Function(UserInfoLoading<T> value) userInfoLoading,
+    required TResult Function(UserInfoSuccess<T> value) userInfoSuccess,
+    required TResult Function(UserInfoError<T> value) userInfoError,
+    required TResult Function(DoctorsLoading<T> value) doctorsLoading,
+    required TResult Function(DoctorsSuccess<T> value) doctorsSuccess,
+    required TResult Function(DoctorsError<T> value) doctorsError,
     required TResult Function(RemindersLoading<T> value) remindersLoading,
     required TResult Function(RemindersSuccess<T> value) remindersSuccess,
     required TResult Function(RemindersError<T> value) remindersError,
@@ -775,16 +859,19 @@ class _$HomePageErrorImpl<T> implements HomePageError<T> {
     required TResult Function(MakeReminderCheckedError<T> value)
         makeReminderCheckedError,
   }) {
-    return homePageError(this);
+    return userInfoError(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(HomePageLoading<T> value)? homePageLoading,
-    TResult? Function(HomePageSuccess<T> value)? homePageSuccess,
-    TResult? Function(HomePageError<T> value)? homePageError,
+    TResult? Function(UserInfoLoading<T> value)? userInfoLoading,
+    TResult? Function(UserInfoSuccess<T> value)? userInfoSuccess,
+    TResult? Function(UserInfoError<T> value)? userInfoError,
+    TResult? Function(DoctorsLoading<T> value)? doctorsLoading,
+    TResult? Function(DoctorsSuccess<T> value)? doctorsSuccess,
+    TResult? Function(DoctorsError<T> value)? doctorsError,
     TResult? Function(RemindersLoading<T> value)? remindersLoading,
     TResult? Function(RemindersSuccess<T> value)? remindersSuccess,
     TResult? Function(RemindersError<T> value)? remindersError,
@@ -795,16 +882,19 @@ class _$HomePageErrorImpl<T> implements HomePageError<T> {
     TResult? Function(MakeReminderCheckedError<T> value)?
         makeReminderCheckedError,
   }) {
-    return homePageError?.call(this);
+    return userInfoError?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial<T> value)? initial,
-    TResult Function(HomePageLoading<T> value)? homePageLoading,
-    TResult Function(HomePageSuccess<T> value)? homePageSuccess,
-    TResult Function(HomePageError<T> value)? homePageError,
+    TResult Function(UserInfoLoading<T> value)? userInfoLoading,
+    TResult Function(UserInfoSuccess<T> value)? userInfoSuccess,
+    TResult Function(UserInfoError<T> value)? userInfoError,
+    TResult Function(DoctorsLoading<T> value)? doctorsLoading,
+    TResult Function(DoctorsSuccess<T> value)? doctorsSuccess,
+    TResult Function(DoctorsError<T> value)? doctorsError,
     TResult Function(RemindersLoading<T> value)? remindersLoading,
     TResult Function(RemindersSuccess<T> value)? remindersSuccess,
     TResult Function(RemindersError<T> value)? remindersError,
@@ -816,20 +906,617 @@ class _$HomePageErrorImpl<T> implements HomePageError<T> {
         makeReminderCheckedError,
     required TResult orElse(),
   }) {
-    if (homePageError != null) {
-      return homePageError(this);
+    if (userInfoError != null) {
+      return userInfoError(this);
     }
     return orElse();
   }
 }
 
-abstract class HomePageError<T> implements HomePageState<T> {
-  const factory HomePageError({required final String error}) =
-      _$HomePageErrorImpl<T>;
+abstract class UserInfoError<T> implements HomePageState<T> {
+  const factory UserInfoError({required final String error}) =
+      _$UserInfoErrorImpl<T>;
 
   String get error;
   @JsonKey(ignore: true)
-  _$$HomePageErrorImplCopyWith<T, _$HomePageErrorImpl<T>> get copyWith =>
+  _$$UserInfoErrorImplCopyWith<T, _$UserInfoErrorImpl<T>> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$DoctorsLoadingImplCopyWith<T, $Res> {
+  factory _$$DoctorsLoadingImplCopyWith(_$DoctorsLoadingImpl<T> value,
+          $Res Function(_$DoctorsLoadingImpl<T>) then) =
+      __$$DoctorsLoadingImplCopyWithImpl<T, $Res>;
+}
+
+/// @nodoc
+class __$$DoctorsLoadingImplCopyWithImpl<T, $Res>
+    extends _$HomePageStateCopyWithImpl<T, $Res, _$DoctorsLoadingImpl<T>>
+    implements _$$DoctorsLoadingImplCopyWith<T, $Res> {
+  __$$DoctorsLoadingImplCopyWithImpl(_$DoctorsLoadingImpl<T> _value,
+      $Res Function(_$DoctorsLoadingImpl<T>) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$DoctorsLoadingImpl<T> implements DoctorsLoading<T> {
+  const _$DoctorsLoadingImpl();
+
+  @override
+  String toString() {
+    return 'HomePageState<$T>.doctorsLoading()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$DoctorsLoadingImpl<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() userInfoLoading,
+    required TResult Function(T data) userInfoSuccess,
+    required TResult Function(String error) userInfoError,
+    required TResult Function() doctorsLoading,
+    required TResult Function(T data) doctorsSuccess,
+    required TResult Function(String error) doctorsError,
+    required TResult Function() remindersLoading,
+    required TResult Function(T data) remindersSuccess,
+    required TResult Function(String error) remindersError,
+    required TResult Function() makeReminderCheckedLoading,
+    required TResult Function() makeReminderCheckedSuccess,
+    required TResult Function(String error) makeReminderCheckedError,
+  }) {
+    return doctorsLoading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? userInfoLoading,
+    TResult? Function(T data)? userInfoSuccess,
+    TResult? Function(String error)? userInfoError,
+    TResult? Function()? doctorsLoading,
+    TResult? Function(T data)? doctorsSuccess,
+    TResult? Function(String error)? doctorsError,
+    TResult? Function()? remindersLoading,
+    TResult? Function(T data)? remindersSuccess,
+    TResult? Function(String error)? remindersError,
+    TResult? Function()? makeReminderCheckedLoading,
+    TResult? Function()? makeReminderCheckedSuccess,
+    TResult? Function(String error)? makeReminderCheckedError,
+  }) {
+    return doctorsLoading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? userInfoLoading,
+    TResult Function(T data)? userInfoSuccess,
+    TResult Function(String error)? userInfoError,
+    TResult Function()? doctorsLoading,
+    TResult Function(T data)? doctorsSuccess,
+    TResult Function(String error)? doctorsError,
+    TResult Function()? remindersLoading,
+    TResult Function(T data)? remindersSuccess,
+    TResult Function(String error)? remindersError,
+    TResult Function()? makeReminderCheckedLoading,
+    TResult Function()? makeReminderCheckedSuccess,
+    TResult Function(String error)? makeReminderCheckedError,
+    required TResult orElse(),
+  }) {
+    if (doctorsLoading != null) {
+      return doctorsLoading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(UserInfoLoading<T> value) userInfoLoading,
+    required TResult Function(UserInfoSuccess<T> value) userInfoSuccess,
+    required TResult Function(UserInfoError<T> value) userInfoError,
+    required TResult Function(DoctorsLoading<T> value) doctorsLoading,
+    required TResult Function(DoctorsSuccess<T> value) doctorsSuccess,
+    required TResult Function(DoctorsError<T> value) doctorsError,
+    required TResult Function(RemindersLoading<T> value) remindersLoading,
+    required TResult Function(RemindersSuccess<T> value) remindersSuccess,
+    required TResult Function(RemindersError<T> value) remindersError,
+    required TResult Function(MakeReminderCheckedLoading<T> value)
+        makeReminderCheckedLoading,
+    required TResult Function(MakeReminderCheckedSuccess<T> value)
+        makeReminderCheckedSuccess,
+    required TResult Function(MakeReminderCheckedError<T> value)
+        makeReminderCheckedError,
+  }) {
+    return doctorsLoading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(UserInfoLoading<T> value)? userInfoLoading,
+    TResult? Function(UserInfoSuccess<T> value)? userInfoSuccess,
+    TResult? Function(UserInfoError<T> value)? userInfoError,
+    TResult? Function(DoctorsLoading<T> value)? doctorsLoading,
+    TResult? Function(DoctorsSuccess<T> value)? doctorsSuccess,
+    TResult? Function(DoctorsError<T> value)? doctorsError,
+    TResult? Function(RemindersLoading<T> value)? remindersLoading,
+    TResult? Function(RemindersSuccess<T> value)? remindersSuccess,
+    TResult? Function(RemindersError<T> value)? remindersError,
+    TResult? Function(MakeReminderCheckedLoading<T> value)?
+        makeReminderCheckedLoading,
+    TResult? Function(MakeReminderCheckedSuccess<T> value)?
+        makeReminderCheckedSuccess,
+    TResult? Function(MakeReminderCheckedError<T> value)?
+        makeReminderCheckedError,
+  }) {
+    return doctorsLoading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(UserInfoLoading<T> value)? userInfoLoading,
+    TResult Function(UserInfoSuccess<T> value)? userInfoSuccess,
+    TResult Function(UserInfoError<T> value)? userInfoError,
+    TResult Function(DoctorsLoading<T> value)? doctorsLoading,
+    TResult Function(DoctorsSuccess<T> value)? doctorsSuccess,
+    TResult Function(DoctorsError<T> value)? doctorsError,
+    TResult Function(RemindersLoading<T> value)? remindersLoading,
+    TResult Function(RemindersSuccess<T> value)? remindersSuccess,
+    TResult Function(RemindersError<T> value)? remindersError,
+    TResult Function(MakeReminderCheckedLoading<T> value)?
+        makeReminderCheckedLoading,
+    TResult Function(MakeReminderCheckedSuccess<T> value)?
+        makeReminderCheckedSuccess,
+    TResult Function(MakeReminderCheckedError<T> value)?
+        makeReminderCheckedError,
+    required TResult orElse(),
+  }) {
+    if (doctorsLoading != null) {
+      return doctorsLoading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class DoctorsLoading<T> implements HomePageState<T> {
+  const factory DoctorsLoading() = _$DoctorsLoadingImpl<T>;
+}
+
+/// @nodoc
+abstract class _$$DoctorsSuccessImplCopyWith<T, $Res> {
+  factory _$$DoctorsSuccessImplCopyWith(_$DoctorsSuccessImpl<T> value,
+          $Res Function(_$DoctorsSuccessImpl<T>) then) =
+      __$$DoctorsSuccessImplCopyWithImpl<T, $Res>;
+  @useResult
+  $Res call({T data});
+}
+
+/// @nodoc
+class __$$DoctorsSuccessImplCopyWithImpl<T, $Res>
+    extends _$HomePageStateCopyWithImpl<T, $Res, _$DoctorsSuccessImpl<T>>
+    implements _$$DoctorsSuccessImplCopyWith<T, $Res> {
+  __$$DoctorsSuccessImplCopyWithImpl(_$DoctorsSuccessImpl<T> _value,
+      $Res Function(_$DoctorsSuccessImpl<T>) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = freezed,
+  }) {
+    return _then(_$DoctorsSuccessImpl<T>(
+      freezed == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as T,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$DoctorsSuccessImpl<T> implements DoctorsSuccess<T> {
+  const _$DoctorsSuccessImpl(this.data);
+
+  @override
+  final T data;
+
+  @override
+  String toString() {
+    return 'HomePageState<$T>.doctorsSuccess(data: $data)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DoctorsSuccessImpl<T> &&
+            const DeepCollectionEquality().equals(other.data, data));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DoctorsSuccessImplCopyWith<T, _$DoctorsSuccessImpl<T>> get copyWith =>
+      __$$DoctorsSuccessImplCopyWithImpl<T, _$DoctorsSuccessImpl<T>>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() userInfoLoading,
+    required TResult Function(T data) userInfoSuccess,
+    required TResult Function(String error) userInfoError,
+    required TResult Function() doctorsLoading,
+    required TResult Function(T data) doctorsSuccess,
+    required TResult Function(String error) doctorsError,
+    required TResult Function() remindersLoading,
+    required TResult Function(T data) remindersSuccess,
+    required TResult Function(String error) remindersError,
+    required TResult Function() makeReminderCheckedLoading,
+    required TResult Function() makeReminderCheckedSuccess,
+    required TResult Function(String error) makeReminderCheckedError,
+  }) {
+    return doctorsSuccess(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? userInfoLoading,
+    TResult? Function(T data)? userInfoSuccess,
+    TResult? Function(String error)? userInfoError,
+    TResult? Function()? doctorsLoading,
+    TResult? Function(T data)? doctorsSuccess,
+    TResult? Function(String error)? doctorsError,
+    TResult? Function()? remindersLoading,
+    TResult? Function(T data)? remindersSuccess,
+    TResult? Function(String error)? remindersError,
+    TResult? Function()? makeReminderCheckedLoading,
+    TResult? Function()? makeReminderCheckedSuccess,
+    TResult? Function(String error)? makeReminderCheckedError,
+  }) {
+    return doctorsSuccess?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? userInfoLoading,
+    TResult Function(T data)? userInfoSuccess,
+    TResult Function(String error)? userInfoError,
+    TResult Function()? doctorsLoading,
+    TResult Function(T data)? doctorsSuccess,
+    TResult Function(String error)? doctorsError,
+    TResult Function()? remindersLoading,
+    TResult Function(T data)? remindersSuccess,
+    TResult Function(String error)? remindersError,
+    TResult Function()? makeReminderCheckedLoading,
+    TResult Function()? makeReminderCheckedSuccess,
+    TResult Function(String error)? makeReminderCheckedError,
+    required TResult orElse(),
+  }) {
+    if (doctorsSuccess != null) {
+      return doctorsSuccess(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(UserInfoLoading<T> value) userInfoLoading,
+    required TResult Function(UserInfoSuccess<T> value) userInfoSuccess,
+    required TResult Function(UserInfoError<T> value) userInfoError,
+    required TResult Function(DoctorsLoading<T> value) doctorsLoading,
+    required TResult Function(DoctorsSuccess<T> value) doctorsSuccess,
+    required TResult Function(DoctorsError<T> value) doctorsError,
+    required TResult Function(RemindersLoading<T> value) remindersLoading,
+    required TResult Function(RemindersSuccess<T> value) remindersSuccess,
+    required TResult Function(RemindersError<T> value) remindersError,
+    required TResult Function(MakeReminderCheckedLoading<T> value)
+        makeReminderCheckedLoading,
+    required TResult Function(MakeReminderCheckedSuccess<T> value)
+        makeReminderCheckedSuccess,
+    required TResult Function(MakeReminderCheckedError<T> value)
+        makeReminderCheckedError,
+  }) {
+    return doctorsSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(UserInfoLoading<T> value)? userInfoLoading,
+    TResult? Function(UserInfoSuccess<T> value)? userInfoSuccess,
+    TResult? Function(UserInfoError<T> value)? userInfoError,
+    TResult? Function(DoctorsLoading<T> value)? doctorsLoading,
+    TResult? Function(DoctorsSuccess<T> value)? doctorsSuccess,
+    TResult? Function(DoctorsError<T> value)? doctorsError,
+    TResult? Function(RemindersLoading<T> value)? remindersLoading,
+    TResult? Function(RemindersSuccess<T> value)? remindersSuccess,
+    TResult? Function(RemindersError<T> value)? remindersError,
+    TResult? Function(MakeReminderCheckedLoading<T> value)?
+        makeReminderCheckedLoading,
+    TResult? Function(MakeReminderCheckedSuccess<T> value)?
+        makeReminderCheckedSuccess,
+    TResult? Function(MakeReminderCheckedError<T> value)?
+        makeReminderCheckedError,
+  }) {
+    return doctorsSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(UserInfoLoading<T> value)? userInfoLoading,
+    TResult Function(UserInfoSuccess<T> value)? userInfoSuccess,
+    TResult Function(UserInfoError<T> value)? userInfoError,
+    TResult Function(DoctorsLoading<T> value)? doctorsLoading,
+    TResult Function(DoctorsSuccess<T> value)? doctorsSuccess,
+    TResult Function(DoctorsError<T> value)? doctorsError,
+    TResult Function(RemindersLoading<T> value)? remindersLoading,
+    TResult Function(RemindersSuccess<T> value)? remindersSuccess,
+    TResult Function(RemindersError<T> value)? remindersError,
+    TResult Function(MakeReminderCheckedLoading<T> value)?
+        makeReminderCheckedLoading,
+    TResult Function(MakeReminderCheckedSuccess<T> value)?
+        makeReminderCheckedSuccess,
+    TResult Function(MakeReminderCheckedError<T> value)?
+        makeReminderCheckedError,
+    required TResult orElse(),
+  }) {
+    if (doctorsSuccess != null) {
+      return doctorsSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class DoctorsSuccess<T> implements HomePageState<T> {
+  const factory DoctorsSuccess(final T data) = _$DoctorsSuccessImpl<T>;
+
+  T get data;
+  @JsonKey(ignore: true)
+  _$$DoctorsSuccessImplCopyWith<T, _$DoctorsSuccessImpl<T>> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$DoctorsErrorImplCopyWith<T, $Res> {
+  factory _$$DoctorsErrorImplCopyWith(_$DoctorsErrorImpl<T> value,
+          $Res Function(_$DoctorsErrorImpl<T>) then) =
+      __$$DoctorsErrorImplCopyWithImpl<T, $Res>;
+  @useResult
+  $Res call({String error});
+}
+
+/// @nodoc
+class __$$DoctorsErrorImplCopyWithImpl<T, $Res>
+    extends _$HomePageStateCopyWithImpl<T, $Res, _$DoctorsErrorImpl<T>>
+    implements _$$DoctorsErrorImplCopyWith<T, $Res> {
+  __$$DoctorsErrorImplCopyWithImpl(
+      _$DoctorsErrorImpl<T> _value, $Res Function(_$DoctorsErrorImpl<T>) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? error = null,
+  }) {
+    return _then(_$DoctorsErrorImpl<T>(
+      error: null == error
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$DoctorsErrorImpl<T> implements DoctorsError<T> {
+  const _$DoctorsErrorImpl({required this.error});
+
+  @override
+  final String error;
+
+  @override
+  String toString() {
+    return 'HomePageState<$T>.doctorsError(error: $error)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DoctorsErrorImpl<T> &&
+            (identical(other.error, error) || other.error == error));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, error);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DoctorsErrorImplCopyWith<T, _$DoctorsErrorImpl<T>> get copyWith =>
+      __$$DoctorsErrorImplCopyWithImpl<T, _$DoctorsErrorImpl<T>>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() userInfoLoading,
+    required TResult Function(T data) userInfoSuccess,
+    required TResult Function(String error) userInfoError,
+    required TResult Function() doctorsLoading,
+    required TResult Function(T data) doctorsSuccess,
+    required TResult Function(String error) doctorsError,
+    required TResult Function() remindersLoading,
+    required TResult Function(T data) remindersSuccess,
+    required TResult Function(String error) remindersError,
+    required TResult Function() makeReminderCheckedLoading,
+    required TResult Function() makeReminderCheckedSuccess,
+    required TResult Function(String error) makeReminderCheckedError,
+  }) {
+    return doctorsError(error);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? userInfoLoading,
+    TResult? Function(T data)? userInfoSuccess,
+    TResult? Function(String error)? userInfoError,
+    TResult? Function()? doctorsLoading,
+    TResult? Function(T data)? doctorsSuccess,
+    TResult? Function(String error)? doctorsError,
+    TResult? Function()? remindersLoading,
+    TResult? Function(T data)? remindersSuccess,
+    TResult? Function(String error)? remindersError,
+    TResult? Function()? makeReminderCheckedLoading,
+    TResult? Function()? makeReminderCheckedSuccess,
+    TResult? Function(String error)? makeReminderCheckedError,
+  }) {
+    return doctorsError?.call(error);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? userInfoLoading,
+    TResult Function(T data)? userInfoSuccess,
+    TResult Function(String error)? userInfoError,
+    TResult Function()? doctorsLoading,
+    TResult Function(T data)? doctorsSuccess,
+    TResult Function(String error)? doctorsError,
+    TResult Function()? remindersLoading,
+    TResult Function(T data)? remindersSuccess,
+    TResult Function(String error)? remindersError,
+    TResult Function()? makeReminderCheckedLoading,
+    TResult Function()? makeReminderCheckedSuccess,
+    TResult Function(String error)? makeReminderCheckedError,
+    required TResult orElse(),
+  }) {
+    if (doctorsError != null) {
+      return doctorsError(error);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(UserInfoLoading<T> value) userInfoLoading,
+    required TResult Function(UserInfoSuccess<T> value) userInfoSuccess,
+    required TResult Function(UserInfoError<T> value) userInfoError,
+    required TResult Function(DoctorsLoading<T> value) doctorsLoading,
+    required TResult Function(DoctorsSuccess<T> value) doctorsSuccess,
+    required TResult Function(DoctorsError<T> value) doctorsError,
+    required TResult Function(RemindersLoading<T> value) remindersLoading,
+    required TResult Function(RemindersSuccess<T> value) remindersSuccess,
+    required TResult Function(RemindersError<T> value) remindersError,
+    required TResult Function(MakeReminderCheckedLoading<T> value)
+        makeReminderCheckedLoading,
+    required TResult Function(MakeReminderCheckedSuccess<T> value)
+        makeReminderCheckedSuccess,
+    required TResult Function(MakeReminderCheckedError<T> value)
+        makeReminderCheckedError,
+  }) {
+    return doctorsError(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(UserInfoLoading<T> value)? userInfoLoading,
+    TResult? Function(UserInfoSuccess<T> value)? userInfoSuccess,
+    TResult? Function(UserInfoError<T> value)? userInfoError,
+    TResult? Function(DoctorsLoading<T> value)? doctorsLoading,
+    TResult? Function(DoctorsSuccess<T> value)? doctorsSuccess,
+    TResult? Function(DoctorsError<T> value)? doctorsError,
+    TResult? Function(RemindersLoading<T> value)? remindersLoading,
+    TResult? Function(RemindersSuccess<T> value)? remindersSuccess,
+    TResult? Function(RemindersError<T> value)? remindersError,
+    TResult? Function(MakeReminderCheckedLoading<T> value)?
+        makeReminderCheckedLoading,
+    TResult? Function(MakeReminderCheckedSuccess<T> value)?
+        makeReminderCheckedSuccess,
+    TResult? Function(MakeReminderCheckedError<T> value)?
+        makeReminderCheckedError,
+  }) {
+    return doctorsError?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(UserInfoLoading<T> value)? userInfoLoading,
+    TResult Function(UserInfoSuccess<T> value)? userInfoSuccess,
+    TResult Function(UserInfoError<T> value)? userInfoError,
+    TResult Function(DoctorsLoading<T> value)? doctorsLoading,
+    TResult Function(DoctorsSuccess<T> value)? doctorsSuccess,
+    TResult Function(DoctorsError<T> value)? doctorsError,
+    TResult Function(RemindersLoading<T> value)? remindersLoading,
+    TResult Function(RemindersSuccess<T> value)? remindersSuccess,
+    TResult Function(RemindersError<T> value)? remindersError,
+    TResult Function(MakeReminderCheckedLoading<T> value)?
+        makeReminderCheckedLoading,
+    TResult Function(MakeReminderCheckedSuccess<T> value)?
+        makeReminderCheckedSuccess,
+    TResult Function(MakeReminderCheckedError<T> value)?
+        makeReminderCheckedError,
+    required TResult orElse(),
+  }) {
+    if (doctorsError != null) {
+      return doctorsError(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class DoctorsError<T> implements HomePageState<T> {
+  const factory DoctorsError({required final String error}) =
+      _$DoctorsErrorImpl<T>;
+
+  String get error;
+  @JsonKey(ignore: true)
+  _$$DoctorsErrorImplCopyWith<T, _$DoctorsErrorImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -873,9 +1560,12 @@ class _$RemindersLoadingImpl<T> implements RemindersLoading<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() homePageLoading,
-    required TResult Function(T data) homePageSuccess,
-    required TResult Function(String error) homePageError,
+    required TResult Function() userInfoLoading,
+    required TResult Function(T data) userInfoSuccess,
+    required TResult Function(String error) userInfoError,
+    required TResult Function() doctorsLoading,
+    required TResult Function(T data) doctorsSuccess,
+    required TResult Function(String error) doctorsError,
     required TResult Function() remindersLoading,
     required TResult Function(T data) remindersSuccess,
     required TResult Function(String error) remindersError,
@@ -890,9 +1580,12 @@ class _$RemindersLoadingImpl<T> implements RemindersLoading<T> {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? homePageLoading,
-    TResult? Function(T data)? homePageSuccess,
-    TResult? Function(String error)? homePageError,
+    TResult? Function()? userInfoLoading,
+    TResult? Function(T data)? userInfoSuccess,
+    TResult? Function(String error)? userInfoError,
+    TResult? Function()? doctorsLoading,
+    TResult? Function(T data)? doctorsSuccess,
+    TResult? Function(String error)? doctorsError,
     TResult? Function()? remindersLoading,
     TResult? Function(T data)? remindersSuccess,
     TResult? Function(String error)? remindersError,
@@ -907,9 +1600,12 @@ class _$RemindersLoadingImpl<T> implements RemindersLoading<T> {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? homePageLoading,
-    TResult Function(T data)? homePageSuccess,
-    TResult Function(String error)? homePageError,
+    TResult Function()? userInfoLoading,
+    TResult Function(T data)? userInfoSuccess,
+    TResult Function(String error)? userInfoError,
+    TResult Function()? doctorsLoading,
+    TResult Function(T data)? doctorsSuccess,
+    TResult Function(String error)? doctorsError,
     TResult Function()? remindersLoading,
     TResult Function(T data)? remindersSuccess,
     TResult Function(String error)? remindersError,
@@ -928,9 +1624,12 @@ class _$RemindersLoadingImpl<T> implements RemindersLoading<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial<T> value) initial,
-    required TResult Function(HomePageLoading<T> value) homePageLoading,
-    required TResult Function(HomePageSuccess<T> value) homePageSuccess,
-    required TResult Function(HomePageError<T> value) homePageError,
+    required TResult Function(UserInfoLoading<T> value) userInfoLoading,
+    required TResult Function(UserInfoSuccess<T> value) userInfoSuccess,
+    required TResult Function(UserInfoError<T> value) userInfoError,
+    required TResult Function(DoctorsLoading<T> value) doctorsLoading,
+    required TResult Function(DoctorsSuccess<T> value) doctorsSuccess,
+    required TResult Function(DoctorsError<T> value) doctorsError,
     required TResult Function(RemindersLoading<T> value) remindersLoading,
     required TResult Function(RemindersSuccess<T> value) remindersSuccess,
     required TResult Function(RemindersError<T> value) remindersError,
@@ -948,9 +1647,12 @@ class _$RemindersLoadingImpl<T> implements RemindersLoading<T> {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(HomePageLoading<T> value)? homePageLoading,
-    TResult? Function(HomePageSuccess<T> value)? homePageSuccess,
-    TResult? Function(HomePageError<T> value)? homePageError,
+    TResult? Function(UserInfoLoading<T> value)? userInfoLoading,
+    TResult? Function(UserInfoSuccess<T> value)? userInfoSuccess,
+    TResult? Function(UserInfoError<T> value)? userInfoError,
+    TResult? Function(DoctorsLoading<T> value)? doctorsLoading,
+    TResult? Function(DoctorsSuccess<T> value)? doctorsSuccess,
+    TResult? Function(DoctorsError<T> value)? doctorsError,
     TResult? Function(RemindersLoading<T> value)? remindersLoading,
     TResult? Function(RemindersSuccess<T> value)? remindersSuccess,
     TResult? Function(RemindersError<T> value)? remindersError,
@@ -968,9 +1670,12 @@ class _$RemindersLoadingImpl<T> implements RemindersLoading<T> {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial<T> value)? initial,
-    TResult Function(HomePageLoading<T> value)? homePageLoading,
-    TResult Function(HomePageSuccess<T> value)? homePageSuccess,
-    TResult Function(HomePageError<T> value)? homePageError,
+    TResult Function(UserInfoLoading<T> value)? userInfoLoading,
+    TResult Function(UserInfoSuccess<T> value)? userInfoSuccess,
+    TResult Function(UserInfoError<T> value)? userInfoError,
+    TResult Function(DoctorsLoading<T> value)? doctorsLoading,
+    TResult Function(DoctorsSuccess<T> value)? doctorsSuccess,
+    TResult Function(DoctorsError<T> value)? doctorsError,
     TResult Function(RemindersLoading<T> value)? remindersLoading,
     TResult Function(RemindersSuccess<T> value)? remindersSuccess,
     TResult Function(RemindersError<T> value)? remindersError,
@@ -1060,9 +1765,12 @@ class _$RemindersSuccessImpl<T> implements RemindersSuccess<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() homePageLoading,
-    required TResult Function(T data) homePageSuccess,
-    required TResult Function(String error) homePageError,
+    required TResult Function() userInfoLoading,
+    required TResult Function(T data) userInfoSuccess,
+    required TResult Function(String error) userInfoError,
+    required TResult Function() doctorsLoading,
+    required TResult Function(T data) doctorsSuccess,
+    required TResult Function(String error) doctorsError,
     required TResult Function() remindersLoading,
     required TResult Function(T data) remindersSuccess,
     required TResult Function(String error) remindersError,
@@ -1077,9 +1785,12 @@ class _$RemindersSuccessImpl<T> implements RemindersSuccess<T> {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? homePageLoading,
-    TResult? Function(T data)? homePageSuccess,
-    TResult? Function(String error)? homePageError,
+    TResult? Function()? userInfoLoading,
+    TResult? Function(T data)? userInfoSuccess,
+    TResult? Function(String error)? userInfoError,
+    TResult? Function()? doctorsLoading,
+    TResult? Function(T data)? doctorsSuccess,
+    TResult? Function(String error)? doctorsError,
     TResult? Function()? remindersLoading,
     TResult? Function(T data)? remindersSuccess,
     TResult? Function(String error)? remindersError,
@@ -1094,9 +1805,12 @@ class _$RemindersSuccessImpl<T> implements RemindersSuccess<T> {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? homePageLoading,
-    TResult Function(T data)? homePageSuccess,
-    TResult Function(String error)? homePageError,
+    TResult Function()? userInfoLoading,
+    TResult Function(T data)? userInfoSuccess,
+    TResult Function(String error)? userInfoError,
+    TResult Function()? doctorsLoading,
+    TResult Function(T data)? doctorsSuccess,
+    TResult Function(String error)? doctorsError,
     TResult Function()? remindersLoading,
     TResult Function(T data)? remindersSuccess,
     TResult Function(String error)? remindersError,
@@ -1115,9 +1829,12 @@ class _$RemindersSuccessImpl<T> implements RemindersSuccess<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial<T> value) initial,
-    required TResult Function(HomePageLoading<T> value) homePageLoading,
-    required TResult Function(HomePageSuccess<T> value) homePageSuccess,
-    required TResult Function(HomePageError<T> value) homePageError,
+    required TResult Function(UserInfoLoading<T> value) userInfoLoading,
+    required TResult Function(UserInfoSuccess<T> value) userInfoSuccess,
+    required TResult Function(UserInfoError<T> value) userInfoError,
+    required TResult Function(DoctorsLoading<T> value) doctorsLoading,
+    required TResult Function(DoctorsSuccess<T> value) doctorsSuccess,
+    required TResult Function(DoctorsError<T> value) doctorsError,
     required TResult Function(RemindersLoading<T> value) remindersLoading,
     required TResult Function(RemindersSuccess<T> value) remindersSuccess,
     required TResult Function(RemindersError<T> value) remindersError,
@@ -1135,9 +1852,12 @@ class _$RemindersSuccessImpl<T> implements RemindersSuccess<T> {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(HomePageLoading<T> value)? homePageLoading,
-    TResult? Function(HomePageSuccess<T> value)? homePageSuccess,
-    TResult? Function(HomePageError<T> value)? homePageError,
+    TResult? Function(UserInfoLoading<T> value)? userInfoLoading,
+    TResult? Function(UserInfoSuccess<T> value)? userInfoSuccess,
+    TResult? Function(UserInfoError<T> value)? userInfoError,
+    TResult? Function(DoctorsLoading<T> value)? doctorsLoading,
+    TResult? Function(DoctorsSuccess<T> value)? doctorsSuccess,
+    TResult? Function(DoctorsError<T> value)? doctorsError,
     TResult? Function(RemindersLoading<T> value)? remindersLoading,
     TResult? Function(RemindersSuccess<T> value)? remindersSuccess,
     TResult? Function(RemindersError<T> value)? remindersError,
@@ -1155,9 +1875,12 @@ class _$RemindersSuccessImpl<T> implements RemindersSuccess<T> {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial<T> value)? initial,
-    TResult Function(HomePageLoading<T> value)? homePageLoading,
-    TResult Function(HomePageSuccess<T> value)? homePageSuccess,
-    TResult Function(HomePageError<T> value)? homePageError,
+    TResult Function(UserInfoLoading<T> value)? userInfoLoading,
+    TResult Function(UserInfoSuccess<T> value)? userInfoSuccess,
+    TResult Function(UserInfoError<T> value)? userInfoError,
+    TResult Function(DoctorsLoading<T> value)? doctorsLoading,
+    TResult Function(DoctorsSuccess<T> value)? doctorsSuccess,
+    TResult Function(DoctorsError<T> value)? doctorsError,
     TResult Function(RemindersLoading<T> value)? remindersLoading,
     TResult Function(RemindersSuccess<T> value)? remindersSuccess,
     TResult Function(RemindersError<T> value)? remindersError,
@@ -1251,9 +1974,12 @@ class _$RemindersErrorImpl<T> implements RemindersError<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() homePageLoading,
-    required TResult Function(T data) homePageSuccess,
-    required TResult Function(String error) homePageError,
+    required TResult Function() userInfoLoading,
+    required TResult Function(T data) userInfoSuccess,
+    required TResult Function(String error) userInfoError,
+    required TResult Function() doctorsLoading,
+    required TResult Function(T data) doctorsSuccess,
+    required TResult Function(String error) doctorsError,
     required TResult Function() remindersLoading,
     required TResult Function(T data) remindersSuccess,
     required TResult Function(String error) remindersError,
@@ -1268,9 +1994,12 @@ class _$RemindersErrorImpl<T> implements RemindersError<T> {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? homePageLoading,
-    TResult? Function(T data)? homePageSuccess,
-    TResult? Function(String error)? homePageError,
+    TResult? Function()? userInfoLoading,
+    TResult? Function(T data)? userInfoSuccess,
+    TResult? Function(String error)? userInfoError,
+    TResult? Function()? doctorsLoading,
+    TResult? Function(T data)? doctorsSuccess,
+    TResult? Function(String error)? doctorsError,
     TResult? Function()? remindersLoading,
     TResult? Function(T data)? remindersSuccess,
     TResult? Function(String error)? remindersError,
@@ -1285,9 +2014,12 @@ class _$RemindersErrorImpl<T> implements RemindersError<T> {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? homePageLoading,
-    TResult Function(T data)? homePageSuccess,
-    TResult Function(String error)? homePageError,
+    TResult Function()? userInfoLoading,
+    TResult Function(T data)? userInfoSuccess,
+    TResult Function(String error)? userInfoError,
+    TResult Function()? doctorsLoading,
+    TResult Function(T data)? doctorsSuccess,
+    TResult Function(String error)? doctorsError,
     TResult Function()? remindersLoading,
     TResult Function(T data)? remindersSuccess,
     TResult Function(String error)? remindersError,
@@ -1306,9 +2038,12 @@ class _$RemindersErrorImpl<T> implements RemindersError<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial<T> value) initial,
-    required TResult Function(HomePageLoading<T> value) homePageLoading,
-    required TResult Function(HomePageSuccess<T> value) homePageSuccess,
-    required TResult Function(HomePageError<T> value) homePageError,
+    required TResult Function(UserInfoLoading<T> value) userInfoLoading,
+    required TResult Function(UserInfoSuccess<T> value) userInfoSuccess,
+    required TResult Function(UserInfoError<T> value) userInfoError,
+    required TResult Function(DoctorsLoading<T> value) doctorsLoading,
+    required TResult Function(DoctorsSuccess<T> value) doctorsSuccess,
+    required TResult Function(DoctorsError<T> value) doctorsError,
     required TResult Function(RemindersLoading<T> value) remindersLoading,
     required TResult Function(RemindersSuccess<T> value) remindersSuccess,
     required TResult Function(RemindersError<T> value) remindersError,
@@ -1326,9 +2061,12 @@ class _$RemindersErrorImpl<T> implements RemindersError<T> {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(HomePageLoading<T> value)? homePageLoading,
-    TResult? Function(HomePageSuccess<T> value)? homePageSuccess,
-    TResult? Function(HomePageError<T> value)? homePageError,
+    TResult? Function(UserInfoLoading<T> value)? userInfoLoading,
+    TResult? Function(UserInfoSuccess<T> value)? userInfoSuccess,
+    TResult? Function(UserInfoError<T> value)? userInfoError,
+    TResult? Function(DoctorsLoading<T> value)? doctorsLoading,
+    TResult? Function(DoctorsSuccess<T> value)? doctorsSuccess,
+    TResult? Function(DoctorsError<T> value)? doctorsError,
     TResult? Function(RemindersLoading<T> value)? remindersLoading,
     TResult? Function(RemindersSuccess<T> value)? remindersSuccess,
     TResult? Function(RemindersError<T> value)? remindersError,
@@ -1346,9 +2084,12 @@ class _$RemindersErrorImpl<T> implements RemindersError<T> {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial<T> value)? initial,
-    TResult Function(HomePageLoading<T> value)? homePageLoading,
-    TResult Function(HomePageSuccess<T> value)? homePageSuccess,
-    TResult Function(HomePageError<T> value)? homePageError,
+    TResult Function(UserInfoLoading<T> value)? userInfoLoading,
+    TResult Function(UserInfoSuccess<T> value)? userInfoSuccess,
+    TResult Function(UserInfoError<T> value)? userInfoError,
+    TResult Function(DoctorsLoading<T> value)? doctorsLoading,
+    TResult Function(DoctorsSuccess<T> value)? doctorsSuccess,
+    TResult Function(DoctorsError<T> value)? doctorsError,
     TResult Function(RemindersLoading<T> value)? remindersLoading,
     TResult Function(RemindersSuccess<T> value)? remindersSuccess,
     TResult Function(RemindersError<T> value)? remindersError,
@@ -1421,9 +2162,12 @@ class _$MakeReminderCheckedLoadingImpl<T>
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() homePageLoading,
-    required TResult Function(T data) homePageSuccess,
-    required TResult Function(String error) homePageError,
+    required TResult Function() userInfoLoading,
+    required TResult Function(T data) userInfoSuccess,
+    required TResult Function(String error) userInfoError,
+    required TResult Function() doctorsLoading,
+    required TResult Function(T data) doctorsSuccess,
+    required TResult Function(String error) doctorsError,
     required TResult Function() remindersLoading,
     required TResult Function(T data) remindersSuccess,
     required TResult Function(String error) remindersError,
@@ -1438,9 +2182,12 @@ class _$MakeReminderCheckedLoadingImpl<T>
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? homePageLoading,
-    TResult? Function(T data)? homePageSuccess,
-    TResult? Function(String error)? homePageError,
+    TResult? Function()? userInfoLoading,
+    TResult? Function(T data)? userInfoSuccess,
+    TResult? Function(String error)? userInfoError,
+    TResult? Function()? doctorsLoading,
+    TResult? Function(T data)? doctorsSuccess,
+    TResult? Function(String error)? doctorsError,
     TResult? Function()? remindersLoading,
     TResult? Function(T data)? remindersSuccess,
     TResult? Function(String error)? remindersError,
@@ -1455,9 +2202,12 @@ class _$MakeReminderCheckedLoadingImpl<T>
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? homePageLoading,
-    TResult Function(T data)? homePageSuccess,
-    TResult Function(String error)? homePageError,
+    TResult Function()? userInfoLoading,
+    TResult Function(T data)? userInfoSuccess,
+    TResult Function(String error)? userInfoError,
+    TResult Function()? doctorsLoading,
+    TResult Function(T data)? doctorsSuccess,
+    TResult Function(String error)? doctorsError,
     TResult Function()? remindersLoading,
     TResult Function(T data)? remindersSuccess,
     TResult Function(String error)? remindersError,
@@ -1476,9 +2226,12 @@ class _$MakeReminderCheckedLoadingImpl<T>
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial<T> value) initial,
-    required TResult Function(HomePageLoading<T> value) homePageLoading,
-    required TResult Function(HomePageSuccess<T> value) homePageSuccess,
-    required TResult Function(HomePageError<T> value) homePageError,
+    required TResult Function(UserInfoLoading<T> value) userInfoLoading,
+    required TResult Function(UserInfoSuccess<T> value) userInfoSuccess,
+    required TResult Function(UserInfoError<T> value) userInfoError,
+    required TResult Function(DoctorsLoading<T> value) doctorsLoading,
+    required TResult Function(DoctorsSuccess<T> value) doctorsSuccess,
+    required TResult Function(DoctorsError<T> value) doctorsError,
     required TResult Function(RemindersLoading<T> value) remindersLoading,
     required TResult Function(RemindersSuccess<T> value) remindersSuccess,
     required TResult Function(RemindersError<T> value) remindersError,
@@ -1496,9 +2249,12 @@ class _$MakeReminderCheckedLoadingImpl<T>
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(HomePageLoading<T> value)? homePageLoading,
-    TResult? Function(HomePageSuccess<T> value)? homePageSuccess,
-    TResult? Function(HomePageError<T> value)? homePageError,
+    TResult? Function(UserInfoLoading<T> value)? userInfoLoading,
+    TResult? Function(UserInfoSuccess<T> value)? userInfoSuccess,
+    TResult? Function(UserInfoError<T> value)? userInfoError,
+    TResult? Function(DoctorsLoading<T> value)? doctorsLoading,
+    TResult? Function(DoctorsSuccess<T> value)? doctorsSuccess,
+    TResult? Function(DoctorsError<T> value)? doctorsError,
     TResult? Function(RemindersLoading<T> value)? remindersLoading,
     TResult? Function(RemindersSuccess<T> value)? remindersSuccess,
     TResult? Function(RemindersError<T> value)? remindersError,
@@ -1516,9 +2272,12 @@ class _$MakeReminderCheckedLoadingImpl<T>
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial<T> value)? initial,
-    TResult Function(HomePageLoading<T> value)? homePageLoading,
-    TResult Function(HomePageSuccess<T> value)? homePageSuccess,
-    TResult Function(HomePageError<T> value)? homePageError,
+    TResult Function(UserInfoLoading<T> value)? userInfoLoading,
+    TResult Function(UserInfoSuccess<T> value)? userInfoSuccess,
+    TResult Function(UserInfoError<T> value)? userInfoError,
+    TResult Function(DoctorsLoading<T> value)? doctorsLoading,
+    TResult Function(DoctorsSuccess<T> value)? doctorsSuccess,
+    TResult Function(DoctorsError<T> value)? doctorsError,
     TResult Function(RemindersLoading<T> value)? remindersLoading,
     TResult Function(RemindersSuccess<T> value)? remindersSuccess,
     TResult Function(RemindersError<T> value)? remindersError,
@@ -1586,9 +2345,12 @@ class _$MakeReminderCheckedSuccessImpl<T>
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() homePageLoading,
-    required TResult Function(T data) homePageSuccess,
-    required TResult Function(String error) homePageError,
+    required TResult Function() userInfoLoading,
+    required TResult Function(T data) userInfoSuccess,
+    required TResult Function(String error) userInfoError,
+    required TResult Function() doctorsLoading,
+    required TResult Function(T data) doctorsSuccess,
+    required TResult Function(String error) doctorsError,
     required TResult Function() remindersLoading,
     required TResult Function(T data) remindersSuccess,
     required TResult Function(String error) remindersError,
@@ -1603,9 +2365,12 @@ class _$MakeReminderCheckedSuccessImpl<T>
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? homePageLoading,
-    TResult? Function(T data)? homePageSuccess,
-    TResult? Function(String error)? homePageError,
+    TResult? Function()? userInfoLoading,
+    TResult? Function(T data)? userInfoSuccess,
+    TResult? Function(String error)? userInfoError,
+    TResult? Function()? doctorsLoading,
+    TResult? Function(T data)? doctorsSuccess,
+    TResult? Function(String error)? doctorsError,
     TResult? Function()? remindersLoading,
     TResult? Function(T data)? remindersSuccess,
     TResult? Function(String error)? remindersError,
@@ -1620,9 +2385,12 @@ class _$MakeReminderCheckedSuccessImpl<T>
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? homePageLoading,
-    TResult Function(T data)? homePageSuccess,
-    TResult Function(String error)? homePageError,
+    TResult Function()? userInfoLoading,
+    TResult Function(T data)? userInfoSuccess,
+    TResult Function(String error)? userInfoError,
+    TResult Function()? doctorsLoading,
+    TResult Function(T data)? doctorsSuccess,
+    TResult Function(String error)? doctorsError,
     TResult Function()? remindersLoading,
     TResult Function(T data)? remindersSuccess,
     TResult Function(String error)? remindersError,
@@ -1641,9 +2409,12 @@ class _$MakeReminderCheckedSuccessImpl<T>
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial<T> value) initial,
-    required TResult Function(HomePageLoading<T> value) homePageLoading,
-    required TResult Function(HomePageSuccess<T> value) homePageSuccess,
-    required TResult Function(HomePageError<T> value) homePageError,
+    required TResult Function(UserInfoLoading<T> value) userInfoLoading,
+    required TResult Function(UserInfoSuccess<T> value) userInfoSuccess,
+    required TResult Function(UserInfoError<T> value) userInfoError,
+    required TResult Function(DoctorsLoading<T> value) doctorsLoading,
+    required TResult Function(DoctorsSuccess<T> value) doctorsSuccess,
+    required TResult Function(DoctorsError<T> value) doctorsError,
     required TResult Function(RemindersLoading<T> value) remindersLoading,
     required TResult Function(RemindersSuccess<T> value) remindersSuccess,
     required TResult Function(RemindersError<T> value) remindersError,
@@ -1661,9 +2432,12 @@ class _$MakeReminderCheckedSuccessImpl<T>
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(HomePageLoading<T> value)? homePageLoading,
-    TResult? Function(HomePageSuccess<T> value)? homePageSuccess,
-    TResult? Function(HomePageError<T> value)? homePageError,
+    TResult? Function(UserInfoLoading<T> value)? userInfoLoading,
+    TResult? Function(UserInfoSuccess<T> value)? userInfoSuccess,
+    TResult? Function(UserInfoError<T> value)? userInfoError,
+    TResult? Function(DoctorsLoading<T> value)? doctorsLoading,
+    TResult? Function(DoctorsSuccess<T> value)? doctorsSuccess,
+    TResult? Function(DoctorsError<T> value)? doctorsError,
     TResult? Function(RemindersLoading<T> value)? remindersLoading,
     TResult? Function(RemindersSuccess<T> value)? remindersSuccess,
     TResult? Function(RemindersError<T> value)? remindersError,
@@ -1681,9 +2455,12 @@ class _$MakeReminderCheckedSuccessImpl<T>
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial<T> value)? initial,
-    TResult Function(HomePageLoading<T> value)? homePageLoading,
-    TResult Function(HomePageSuccess<T> value)? homePageSuccess,
-    TResult Function(HomePageError<T> value)? homePageError,
+    TResult Function(UserInfoLoading<T> value)? userInfoLoading,
+    TResult Function(UserInfoSuccess<T> value)? userInfoSuccess,
+    TResult Function(UserInfoError<T> value)? userInfoError,
+    TResult Function(DoctorsLoading<T> value)? doctorsLoading,
+    TResult Function(DoctorsSuccess<T> value)? doctorsSuccess,
+    TResult Function(DoctorsError<T> value)? doctorsError,
     TResult Function(RemindersLoading<T> value)? remindersLoading,
     TResult Function(RemindersSuccess<T> value)? remindersSuccess,
     TResult Function(RemindersError<T> value)? remindersError,
@@ -1776,9 +2553,12 @@ class _$MakeReminderCheckedErrorImpl<T> implements MakeReminderCheckedError<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() homePageLoading,
-    required TResult Function(T data) homePageSuccess,
-    required TResult Function(String error) homePageError,
+    required TResult Function() userInfoLoading,
+    required TResult Function(T data) userInfoSuccess,
+    required TResult Function(String error) userInfoError,
+    required TResult Function() doctorsLoading,
+    required TResult Function(T data) doctorsSuccess,
+    required TResult Function(String error) doctorsError,
     required TResult Function() remindersLoading,
     required TResult Function(T data) remindersSuccess,
     required TResult Function(String error) remindersError,
@@ -1793,9 +2573,12 @@ class _$MakeReminderCheckedErrorImpl<T> implements MakeReminderCheckedError<T> {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? homePageLoading,
-    TResult? Function(T data)? homePageSuccess,
-    TResult? Function(String error)? homePageError,
+    TResult? Function()? userInfoLoading,
+    TResult? Function(T data)? userInfoSuccess,
+    TResult? Function(String error)? userInfoError,
+    TResult? Function()? doctorsLoading,
+    TResult? Function(T data)? doctorsSuccess,
+    TResult? Function(String error)? doctorsError,
     TResult? Function()? remindersLoading,
     TResult? Function(T data)? remindersSuccess,
     TResult? Function(String error)? remindersError,
@@ -1810,9 +2593,12 @@ class _$MakeReminderCheckedErrorImpl<T> implements MakeReminderCheckedError<T> {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? homePageLoading,
-    TResult Function(T data)? homePageSuccess,
-    TResult Function(String error)? homePageError,
+    TResult Function()? userInfoLoading,
+    TResult Function(T data)? userInfoSuccess,
+    TResult Function(String error)? userInfoError,
+    TResult Function()? doctorsLoading,
+    TResult Function(T data)? doctorsSuccess,
+    TResult Function(String error)? doctorsError,
     TResult Function()? remindersLoading,
     TResult Function(T data)? remindersSuccess,
     TResult Function(String error)? remindersError,
@@ -1831,9 +2617,12 @@ class _$MakeReminderCheckedErrorImpl<T> implements MakeReminderCheckedError<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial<T> value) initial,
-    required TResult Function(HomePageLoading<T> value) homePageLoading,
-    required TResult Function(HomePageSuccess<T> value) homePageSuccess,
-    required TResult Function(HomePageError<T> value) homePageError,
+    required TResult Function(UserInfoLoading<T> value) userInfoLoading,
+    required TResult Function(UserInfoSuccess<T> value) userInfoSuccess,
+    required TResult Function(UserInfoError<T> value) userInfoError,
+    required TResult Function(DoctorsLoading<T> value) doctorsLoading,
+    required TResult Function(DoctorsSuccess<T> value) doctorsSuccess,
+    required TResult Function(DoctorsError<T> value) doctorsError,
     required TResult Function(RemindersLoading<T> value) remindersLoading,
     required TResult Function(RemindersSuccess<T> value) remindersSuccess,
     required TResult Function(RemindersError<T> value) remindersError,
@@ -1851,9 +2640,12 @@ class _$MakeReminderCheckedErrorImpl<T> implements MakeReminderCheckedError<T> {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(HomePageLoading<T> value)? homePageLoading,
-    TResult? Function(HomePageSuccess<T> value)? homePageSuccess,
-    TResult? Function(HomePageError<T> value)? homePageError,
+    TResult? Function(UserInfoLoading<T> value)? userInfoLoading,
+    TResult? Function(UserInfoSuccess<T> value)? userInfoSuccess,
+    TResult? Function(UserInfoError<T> value)? userInfoError,
+    TResult? Function(DoctorsLoading<T> value)? doctorsLoading,
+    TResult? Function(DoctorsSuccess<T> value)? doctorsSuccess,
+    TResult? Function(DoctorsError<T> value)? doctorsError,
     TResult? Function(RemindersLoading<T> value)? remindersLoading,
     TResult? Function(RemindersSuccess<T> value)? remindersSuccess,
     TResult? Function(RemindersError<T> value)? remindersError,
@@ -1871,9 +2663,12 @@ class _$MakeReminderCheckedErrorImpl<T> implements MakeReminderCheckedError<T> {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial<T> value)? initial,
-    TResult Function(HomePageLoading<T> value)? homePageLoading,
-    TResult Function(HomePageSuccess<T> value)? homePageSuccess,
-    TResult Function(HomePageError<T> value)? homePageError,
+    TResult Function(UserInfoLoading<T> value)? userInfoLoading,
+    TResult Function(UserInfoSuccess<T> value)? userInfoSuccess,
+    TResult Function(UserInfoError<T> value)? userInfoError,
+    TResult Function(DoctorsLoading<T> value)? doctorsLoading,
+    TResult Function(DoctorsSuccess<T> value)? doctorsSuccess,
+    TResult Function(DoctorsError<T> value)? doctorsError,
     TResult Function(RemindersLoading<T> value)? remindersLoading,
     TResult Function(RemindersSuccess<T> value)? remindersSuccess,
     TResult Function(RemindersError<T> value)? remindersError,

@@ -6,11 +6,17 @@ part 'home_page_state.freezed.dart';
 class HomePageState<T> with _$HomePageState<T> {
   const factory HomePageState.initial() = _Initial;
 
-  // Home Page
-  const factory HomePageState.homePageLoading() = HomePageLoading;
-  const factory HomePageState.homePageSuccess(T data) =
-      HomePageSuccess<T>;
-  const factory HomePageState.homePageError({required String error}) = HomePageError;
+  // user information
+  const factory HomePageState.userInfoLoading() = UserInfoLoading;
+  const factory HomePageState.userInfoSuccess(T data) =
+      UserInfoSuccess<T>;
+  const factory HomePageState.userInfoError({required String error}) = UserInfoError;
+
+  // Doctors
+  const factory HomePageState.doctorsLoading() = DoctorsLoading;
+  const factory HomePageState.doctorsSuccess(T data) =
+      DoctorsSuccess<T>;
+  const factory HomePageState.doctorsError({required String error}) = DoctorsError;
 
   // Reminders
   const factory HomePageState.remindersLoading() = RemindersLoading;

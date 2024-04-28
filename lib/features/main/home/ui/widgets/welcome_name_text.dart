@@ -11,7 +11,7 @@ class WelcomeNameText extends StatelessWidget {
 
   const WelcomeNameText({
     super.key,
-    required this.name,
+    this.name = "",
   });
 
   @override

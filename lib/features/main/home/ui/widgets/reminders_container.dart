@@ -10,10 +10,9 @@ class RemindersContainer extends StatelessWidget {
   final List<Reminder> reminders;
   const RemindersContainer({
     super.key,
-    required this.reminders,
+    this.reminders = const [],
   });
 
-  // Todo: Delete the height of the SizedBox
   Widget buildLoadedListWidgets() {
     return ListView.builder(
       scrollDirection: Axis.vertical,

@@ -8,7 +8,6 @@ import 'package:pharmalink/features/main/home/ui/builders/reminders_builder.dart
 
 import 'builders/doctors_builder.dart';
 
-
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -21,10 +20,14 @@ class _HomeScreenState extends State<HomeScreen> {
   void initState() {
     super.initState();
 
-    // Get home page data
-    BlocProvider.of<HomePageCubit>(context).getHomePageData();
+    // Get user data
+    BlocProvider.of<HomePageCubit>(context).getUserInformation();
+    
+    // Get doctors list
+    BlocProvider.of<HomePageCubit>(context).getDoctorsList();
+
     // Get reminders list
-    BlocProvider.of<HomePageCubit>(context).getReminderList();
+    BlocProvider.of<HomePageCubit>(context).getRemindersList();
   }
 
   @override

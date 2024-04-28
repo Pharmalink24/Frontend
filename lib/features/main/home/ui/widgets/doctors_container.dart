@@ -12,7 +12,7 @@ class DoctorsContainer extends StatelessWidget {
   final List<Doctor> doctors;
   const DoctorsContainer({
     super.key,
-    required this.doctors,
+    this.doctors = const [],
   });
 
   Widget buildLoadedListWidgets() {
