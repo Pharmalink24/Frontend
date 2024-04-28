@@ -4,14 +4,14 @@ part 'drug_interaction_request_body.g.dart';
 
 @JsonSerializable()
 class DrugInteractionRequestBody {
-  @JsonKey(name: 'trade_name1')
-  final String tradename1;
-  @JsonKey(name: 'trade_name2')
-  final String tradename2;
+  @JsonKey(name: 'drug1_name')
+  final String activeIngredient1;
+  @JsonKey(name: 'drug2_name')
+  final String activeIngredient2;
 
   DrugInteractionRequestBody({
-    required this.tradename1,
-    required this.tradename2,
+    required this.activeIngredient1,
+    required this.activeIngredient2,
   });
 
   factory DrugInteractionRequestBody.fromJson(Map<String, dynamic> json) =>

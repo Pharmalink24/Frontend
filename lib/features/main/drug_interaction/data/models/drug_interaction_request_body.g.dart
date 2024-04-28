@@ -9,13 +9,13 @@ part of 'drug_interaction_request_body.dart';
 DrugInteractionRequestBody _$DrugInteractionRequestBodyFromJson(
         Map<String, dynamic> json) =>
     DrugInteractionRequestBody(
-      tradename1: json['trade_name1'] as String,
-      tradename2: json['trade_name2'] as String,
+      activeIngredient1: json['drug1_name'] as String,
+      activeIngredient2: json['drug2_name'] as String,
     );
 
 Map<String, dynamic> _$DrugInteractionRequestBodyToJson(
         DrugInteractionRequestBody instance) =>
     <String, dynamic>{
-      'trade_name1': instance.tradename1,
-      'trade_name2': instance.tradename2,
+      'drug1_name': instance.activeIngredient1,
+      'drug2_name': instance.activeIngredient2,
     };

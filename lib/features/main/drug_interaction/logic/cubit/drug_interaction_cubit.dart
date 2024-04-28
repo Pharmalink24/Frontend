@@ -16,6 +16,8 @@ class DrugInteractionCubit extends Cubit<DrugInteractionState> {
 
   TextEditingController drugController1 = TextEditingController();
   TextEditingController drugController2 = TextEditingController();
+  String activeIngredient1 = '';
+  String activeIngredient2 = '';
   final formKey = GlobalKey<FormState>();
 
   Future<List<Drug>?> getDrugSearchSuggestion({required int drugId}) async {
@@ -48,19 +50,32 @@ class DrugInteractionCubit extends Cubit<DrugInteractionState> {
   void emitDrugInteractionStates() async {
     emit(const DrugInteractionState.loading());
 
-    final response = await _drugInteractionRepo
-        .drugInteractionCheck(DrugInteractionRequestBody(
-      tradename1: drugController1.text,
-      tradename2: drugController2.text,
-    ));
+    final response = await _drugInteractionRepo.drugInteractionCheck(
+      DrugInteractionRequestBody(
+        activeIngredient1: activeIngredient1,
+        activeIngredient2: activeIngredient2,
+      ),
+    );
 
-    response.when(success: (drugInteractionResponse) {
-      emit(DrugInteractionState.drugInteractionSuccess(drugInteractionResponse));
-    }, failure: (error) {
-      emit(
-        DrugInteractionState.error(
-            error: error.apiErrorModel.message ?? ERR.UNEXPECTED),
-      );
-    });
+    response.when(
+      success: (drugInteractionResponse) {
+        emit(DrugInteractionState.drugInteractionSuccess(
+            drugInteractionResponse));
+      },
+      failure: (error) {
+        emit(
+          DrugInteractionState.error(
+              error: error.apiErrorModel.message ?? ERR.UNEXPECTED),
+        );
+      },
+    );
+  }
+
+  void setActiveIngredients(Drug drug, int drugId) {
+    if (drugId == 1) {
+      activeIngredient1 = drug.activeIngredient;
+    } else {
+      activeIngredient2 = drug.activeIngredient;
+    }
   }
 }
