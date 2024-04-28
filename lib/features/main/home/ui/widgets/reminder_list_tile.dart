@@ -27,8 +27,8 @@ class _ReminderListTileState extends State<ReminderListTile> {
         isChecked = value ?? false;
         // Make reminder checked
         BlocProvider.of<HomePageCubit>(context).makeReminderChecked(widget.reminder.id);
-        // Get reminders list
-        BlocProvider.of<HomePageCubit>(context).getReminderList();
+        // // Get reminders list
+        // BlocProvider.of<HomePageCubit>(context).getReminderList();
       }),
       checkboxShape:
           RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),

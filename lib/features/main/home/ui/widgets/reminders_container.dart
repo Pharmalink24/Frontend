@@ -38,6 +38,7 @@ class RemindersContainer extends StatelessWidget {
         Center(
           child: Text(
             'Your reminders list is empty.',
+            textAlign: TextAlign.center,
             style: AppTextStyle.headlineSmall.copyWith(
               color: Colors.grey,
             ),
@@ -53,8 +54,8 @@ class RemindersContainer extends StatelessWidget {
       title: "Your Reminders",
       flex: 6,
       iconButton: const TextWithIcon(
-        icon: Icons.playlist_add_check_circle_rounded,
-        text: 'Check All',
+        icon: Icons.calendar_today_outlined,
+        text: '',
       ),
       child: reminders.isEmpty ? buildNoDataWidget() : buildLoadedListWidgets(),
     );
