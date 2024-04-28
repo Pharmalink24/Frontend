@@ -3,14 +3,14 @@ import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/theme/styles.dart';
 import 'package:pharmalink/core/widgets/card_container_with_title.dart';
 import 'package:pharmalink/core/widgets/text_with_icon.dart';
-import 'package:pharmalink/features/main/home/data/models/drug.dart';
-import 'drug_list_tile.dart';
+import '../../data/models/reminder.dart';
+import 'reminder_list_tile.dart';
 
 class RemindersContainer extends StatelessWidget {
-  final List<Drug> drugs;
+  final List<Reminder> reminders;
   const RemindersContainer({
     super.key,
-    required this.drugs,
+    required this.reminders,
   });
 
   // Todo: Delete the height of the SizedBox
@@ -18,10 +18,10 @@ class RemindersContainer extends StatelessWidget {
     return ListView.builder(
       scrollDirection: Axis.vertical,
       padding: EdgeInsets.zero,
-      itemCount: drugs.length,
+      itemCount: reminders.length,
       itemBuilder: (context, index) {
-        return drugs[index].isToday()
-            ? DrugListTile(drugs[index])
+        return reminders[index].isToday()
+            ? ReminderListTile(reminders[index])
             : const SizedBox.shrink();
       },
     );
@@ -56,7 +56,7 @@ class RemindersContainer extends StatelessWidget {
         icon: Icons.playlist_add_check_circle_rounded,
         text: 'Check All',
       ),
-      child: drugs.isEmpty ? buildNoDataWidget() : buildLoadedListWidgets(),
+      child: reminders.isEmpty ? buildNoDataWidget() : buildLoadedListWidgets(),
     );
   }
 }

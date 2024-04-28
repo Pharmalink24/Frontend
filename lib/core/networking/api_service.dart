@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:pharmalink/core/models/doctor.dart';
 import 'package:pharmalink/features/access/auth/data/models/refresh_token_response.dart';
+import 'package:pharmalink/features/main/home/data/models/reminder.dart';
 import 'package:pharmalink/features/main/settings/change_password/data/models/change_password_request_body.dart';
 import 'package:pharmalink/features/main/settings/change_password/data/models/change_password_response.dart';
 import 'package:retrofit/http.dart';
@@ -95,6 +96,19 @@ abstract class ApiService {
   // Get Doctors List
   @GET(ApiConstants.doctorsList)
   Future<List<Doctor>> getDoctorList(
+    @Header('Authorization') String? auth,
+  );
+
+  // Get Reminder List
+  @GET(ApiConstants.reminderList)
+  Future<List<Reminder>> getReminderList(
+    @Header('Authorization') String? auth,
+  );
+
+  // Make Reminder Done
+  @PUT(ApiConstants.makeReminderDone)
+  Future<void> makeReminderDone(
+    @Path('reminder_id') int reminderId,
     @Header('Authorization') String? auth,
   );
 }

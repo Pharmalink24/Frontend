@@ -25,6 +25,12 @@ class ApiConstants {
   static const changePassword = "user/password/change/";
   // Doctors List API
   static const doctorsList = "Prescription/user/Doctors/list/"; 
+
+  // Get Reminder List
+  static const reminderList = "Reminder/list/";
+
+  // Add Reminder
+  static const makeReminderDone = "Reminder/check/{reminder_id}/";
 }
 
 class ApiErrors {

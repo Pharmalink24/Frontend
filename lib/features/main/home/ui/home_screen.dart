@@ -2,14 +2,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pharmalink/core/theme/colors.dart';
-import 'package:pharmalink/core/theme/styles.dart';
-import 'package:pharmalink/features/main/home/data/models/home_page_response.dart';
 import 'package:pharmalink/features/main/home/logic/cubit/home_page_cubit.dart';
-import 'package:pharmalink/features/main/home/logic/cubit/home_page_state.dart';
-import 'package:pharmalink/features/main/home/ui/widgets/doctors_container.dart';
-import 'package:pharmalink/core/widgets/loading_indicator.dart';
-import 'widgets/reminders_container.dart';
-import 'widgets/welcome_name_text.dart';
+import 'package:pharmalink/features/main/home/ui/builders/header_builder.dart';
+import 'package:pharmalink/features/main/home/ui/builders/reminders_builder.dart';
+
+import 'builders/doctors_builder.dart';
+
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -25,63 +23,27 @@ class _HomeScreenState extends State<HomeScreen> {
 
     // Get home page data
     BlocProvider.of<HomePageCubit>(context).getHomePageData();
-  }
-
-  Widget buildBlocWidget() {
-    return BlocBuilder<HomePageCubit, HomePageState>(
-      builder: (context, state) {
-        if (state is success) {
-          var homePageData = state.data;
-          return buildLoadedListWidgets(homePageData);
-        } else if (state is Loading) {
-          return const LoadingIndicator();
-        } else {
-          var error = (state as Error).error;
-          return showError(error);
-        }
-      },
-    );
-  }
-
-  Widget buildLoadedListWidgets(HomePageResponse homePageData) {
-    return Padding(
-      padding: const EdgeInsets.all(16.0),
-      child: Expanded(
-        child: Column(
-          children: [
-            Expanded(
-              flex: 1,
-              child: WelcomeNameText(name: homePageData.firstName),
-            ),
-            Expanded(
-              flex: 4,
-              child: DoctorsContainer(doctors: homePageData.doctors),
-            ),
-            Expanded(
-              flex: 6,
-              child: RemindersContainer(drugs: homePageData.drugs),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget showError(String error) {
-    return Center(
-      child: Text(
-        error,
-        style: AppTextStyle.headlineMedium,
-      ),
-    );
+    // Get reminders list
+    BlocProvider.of<HomePageCubit>(context).getReminderList();
   }
 
   @override
   Widget build(BuildContext context) {
     return Container(
       color: AppColors.secondaryBackground,
-      child: SafeArea(
-        child: buildBlocWidget(),
+      child: const SafeArea(
+        child: Padding(
+          padding: EdgeInsets.all(16.0),
+          child: Expanded(
+            child: Column(
+              children: [
+                HeaderBuilder(),
+                DoctorsBuilder(),
+                RemindersBuilder(),
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }

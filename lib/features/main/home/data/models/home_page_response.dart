@@ -10,12 +10,10 @@ class HomePageResponse {
   @JsonKey(name: "first_name")
   final String firstName;
   final List<Doctor> doctors;
-  final List<Drug> drugs;
 
   const HomePageResponse({
     required this.firstName,
     required this.doctors,
-    required this.drugs,
   });
 
   factory HomePageResponse.fromJson(Map<String, dynamic> json) =>

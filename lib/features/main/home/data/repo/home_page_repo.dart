@@ -6,6 +6,7 @@ import 'package:pharmalink/core/networking/api_service.dart';
 import 'package:pharmalink/core/shared_preferences/auth_prefs.dart';
 import 'package:pharmalink/core/models/state_request_body.dart';
 import 'package:pharmalink/features/main/home/data/models/home_page_response.dart';
+import 'package:pharmalink/features/main/home/data/models/reminder.dart';
 
 class HomePageRepo {
   final ApiService _apiService;
@@ -17,6 +18,30 @@ class HomePageRepo {
     try {
       final response = await _apiService.homePage(
           stateRequestBody, AuthSharedPrefs.getAccessToken());
+      return ApiResult.success(response);
+    } catch (error) {
+      getIt<Logger>().e(error);
+      return ApiResult.failure(ErrorHandler.handle(error));
+    }
+  }
+
+  Future<ApiResult<List<Reminder>>> getRemindersList() async {
+    try {
+      final response =
+          await _apiService.getReminderList(AuthSharedPrefs.getAccessToken());
+      return ApiResult.success(response);
+    } catch (error) {
+      getIt<Logger>().e(error);
+      return ApiResult.failure(ErrorHandler.handle(error));
+    }
+  }
+
+  Future<ApiResult<void>> makeReminderChecked(int reminderId) async {
+    try {
+      final response = await _apiService.makeReminderDone(
+        reminderId,
+        AuthSharedPrefs.getAccessToken(),
+      );
       return ApiResult.success(response);
     } catch (error) {
       getIt<Logger>().e(error);

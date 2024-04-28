@@ -11,19 +11,59 @@ class HomePageCubit extends Cubit<HomePageState> {
 
   void getHomePageData() async {
     // Loading until get data
-    emit(const HomePageState.loading());
+    emit(const HomePageState.homePageLoading());
 
     // Get data
     final response = await _homePageRepo.getHomePageData(
-      StateRequestBody(state: State.NEW),
+      StateRequestBody(state: State.ACTIVE),
     );
     response.when(
       success: (data) {
-        emit(HomePageState.success(data));
+        emit(HomePageState.homePageSuccess(data));
       },
       failure: (error) {
         emit(
-          HomePageState.error(
+          HomePageState.homePageError(
+            error: error.apiErrorModel.message ?? ERR.UNEXPECTED,
+          ),
+        );
+      },
+    );
+  }
+
+  void getReminderList() async {
+    // Loading until get data
+    emit(const HomePageState.remindersLoading());
+
+    // Get data
+    final response = await _homePageRepo.getRemindersList();
+    response.when(
+      success: (data) {
+        emit(HomePageState.remindersSuccess(data));
+      },
+      failure: (error) {
+        emit(
+          HomePageState.remindersError(
+            error: error.apiErrorModel.message ?? ERR.UNEXPECTED,
+          ),
+        );
+      },
+    );
+  }
+
+  void makeReminderChecked(int reminderId) async {
+    // Loading until get data
+    emit(const HomePageState.makeReminderCheckedLoading());
+
+    // Get data
+    final response = await _homePageRepo.makeReminderChecked(reminderId);
+    response.when(
+      success: (_) {
+        emit(const HomePageState.makeReminderCheckedSuccess());
+      },
+      failure: (error) {
+        emit(
+          HomePageState.makeReminderCheckedError(
             error: error.apiErrorModel.message ?? ERR.UNEXPECTED,
           ),
         );

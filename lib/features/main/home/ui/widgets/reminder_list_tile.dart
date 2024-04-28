@@ -1,39 +1,41 @@
 import 'package:flutter/material.dart';
-import 'package:pharmalink/features/main/home/data/models/drug.dart';
-import '../../../../../core/helpers/extensions.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pharmalink/features/main/home/logic/cubit/home_page_cubit.dart';
 import '../../../../../core/theme/colors.dart';
 import '../../../../../core/theme/styles.dart';
+import '../../data/models/reminder.dart';
 
-class DrugListTile extends StatefulWidget {
-  final Drug drug;
+class ReminderListTile extends StatefulWidget {
+  final Reminder reminder;
 
-  const DrugListTile(
-    this.drug, {
+  const ReminderListTile(
+    this.reminder, {
     super.key,
   });
 
   @override
-  State<DrugListTile> createState() => _DrugListTileState();
+  State<ReminderListTile> createState() => _ReminderListTileState();
 }
 
-class _DrugListTileState extends State<DrugListTile> {
+class _ReminderListTileState extends State<ReminderListTile> {
   bool isChecked = false;
   @override
   Widget build(BuildContext context) {
-    String timeInString =
-        "${widget.drug.calcReminderTime().hourIn12hour()}:${widget.drug.calcReminderTime().minutes()}\n${widget.drug.calcReminderTime().getPeriod()}";
-
     return CheckboxListTile(
       value: isChecked,
       onChanged: (value) => setState(() {
         isChecked = value ?? false;
+        // Make reminder checked
+        BlocProvider.of<HomePageCubit>(context).makeReminderChecked(widget.reminder.id);
+        // Get reminders list
+        BlocProvider.of<HomePageCubit>(context).getReminderList();
       }),
       checkboxShape:
           RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
       checkColor: AppColors.alternate,
       activeColor: AppColors.secondary,
       secondary: Text(
-        timeInString,
+        "${widget.reminder.hours} : ${widget.reminder.minute}\n${widget.reminder.period}",
         textAlign: TextAlign.center,
         style: AppTextStyle.labelLarge.copyWith(
           decoration:
@@ -41,7 +43,7 @@ class _DrugListTileState extends State<DrugListTile> {
         ),
       ),
       title: Text(
-        widget.drug.commercialName,
+        widget.reminder.drugName,
         style: AppTextStyle.titleMedium.copyWith(
           color: AppColors.primaryText,
           decoration:
@@ -49,7 +51,7 @@ class _DrugListTileState extends State<DrugListTile> {
         ),
       ),
       subtitle: Text(
-        "${widget.drug.dosage} ${widget.drug.dosageUnit}",
+        "${widget.reminder.dosage} ${widget.reminder.dosageUnit}",
         style: AppTextStyle.labelMedium.copyWith(
           decoration:
               isChecked ? TextDecoration.lineThrough : TextDecoration.none,

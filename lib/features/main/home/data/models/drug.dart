@@ -29,15 +29,6 @@ class Drug {
     required this.dosageUnit,
   });
 
-  // Todo: Complete Implementing the isToday method
-  bool isToday() {
-    return true;
-  }
-
-  // Todo: Complete Implementing the reminder time calculation
-  TimeOfDay calcReminderTime() {
-    return const TimeOfDay(hour: 2, minute: 10);
-  }
 
   factory Drug.fromJson(Map<String, dynamic> json) => _$DrugFromJson(json);
 
