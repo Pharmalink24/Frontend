@@ -71,6 +71,7 @@ class _DrugSearchFieldState extends State<DrugSearchField> {
 
   void selectDrug(TextEditingController? controller, Drug drug) {
     controller?.text = drug.tradeName;
+    context.read<DrugInteractionCubit>().setActiveIngredients(drug, widget.drugFieldId);
   }
 }
 
