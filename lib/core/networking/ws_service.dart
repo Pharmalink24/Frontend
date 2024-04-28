@@ -10,33 +10,34 @@ class WsService {
   );
   final WsFactory ws;
 
-  // ==================== Send Message ==================== //
-  Future<Stream<dynamic>> sendMessage(Message message, String auth) async {
+  // ==================== Connect to Retrieve Messages ==================== //
+  Future<dynamic> connectRetrieveMessages(String auth) async {
     // Connect to the server
     final headers = {
       'Authorization': auth,
     };
-    ws.connect(ApiConstants.sendMessage, headers);
 
+    final stream = ws.connect(ApiConstants.retrieveMessages, headers);
+
+    return stream;
+  }
+
+  // ==================== Connect to Chat ==================== //
+  Future<Stream<dynamic>?> connectChat(String auth) async {
+    // Connect to the server
+    final headers = {
+      'Authorization': auth,
+    };
+    final stream = ws.connect(ApiConstants.sendMessage, headers);
+
+    return stream;
+  }
+
+  // ==================== Send Message ==================== //
+  Future<void> sendChat(Message message) async {
     // Convert the message object to a JSON string
     final payload = jsonEncode(message.toJson());
     Logger().i(payload);
-    ws.send(payload);
-    
-    return ws.receive();
-  }
-
-  // ==================== Retrieve Messages ==================== //
-  // Todo: Edit the retrieveMessages arguments
-  void retrieveMessages(Message message, String auth) async {
-    // Connect to the server
-    final headers = {
-      'Authorization': auth,
-    };
-    ws.connect(ApiConstants.retrieveMessages, headers);
-
-    // Convert the message object to a JSON string
-    final payload = jsonEncode(message.toJson());
     ws.send(payload);
   }
 }

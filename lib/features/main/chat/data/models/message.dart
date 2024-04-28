@@ -23,7 +23,7 @@ part "message.g.dart";
 
 @JsonSerializable()
 class Message {
-  final int id;
+  final int? id;
   @JsonKey(name: "sender_user_id")
   final int? senderUserId;
   @JsonKey(name: "sender_doctor_id")
@@ -37,10 +37,11 @@ class Message {
   final String? file;
   @JsonKey(name: "voice_message")
   final String? voiceMessage;
-  final Timestamp timestamp;
+  final Timestamp? timestamp;
+  final bool success;
 
   Message({
-    required this.id,
+    this.id,
     this.senderUserId,
     this.senderDoctorId,
     this.receiverUserId,
@@ -49,7 +50,8 @@ class Message {
     this.image,
     this.file,
     this.voiceMessage,
-    required this.timestamp,
+    this.timestamp,
+    this.success = true,
   });
 
   factory Message.fromJson(Map<String, dynamic> json) =>

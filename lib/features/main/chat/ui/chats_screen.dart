@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pharmalink/core/theme/colors.dart';
+import 'package:pharmalink/features/main/chat/logic/cubit/chat_cubit.dart';
 import 'package:pharmalink/features/main/chat/ui/widgets/chats_header.dart';
 
 import '../data/models/chat.dart';
@@ -124,8 +126,20 @@ List<Chat> chats = [
   ),
 ];
 
-class ChatsScreen extends StatelessWidget {
+class ChatsScreen extends StatefulWidget {
   const ChatsScreen({super.key});
+
+  @override
+  State<ChatsScreen> createState() => _ChatsScreenState();
+}
+
+class _ChatsScreenState extends State<ChatsScreen> {
+
+  @override
+  void initState() {
+    super.initState();
+
+  }
 
   Widget buildChats(List<Chat> chats) {
     return Expanded(

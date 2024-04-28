@@ -5,16 +5,21 @@ import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/features/main/chat/data/models/message.dart';
 
 class MessageCard extends StatelessWidget {
-  final Message message;
+  final Message? message;
+  final bool isErrorMessage;
   const MessageCard(
     this.message, {
     super.key,
+    this.isErrorMessage = false,
   });
 
   bool isMeSender() {
-    Logger().i(AuthSharedPrefs.getUserId());
-    Logger().i(message.senderUserId);
-    return message.senderUserId == AuthSharedPrefs.getUserId();
+    if (message == null) {
+      Logger().e('Message is null');
+      return false;
+    } else {
+      return message?.senderUserId == AuthSharedPrefs.getUserId();
+    }
   }
 
   @override
@@ -56,7 +61,7 @@ class MessageCard extends StatelessWidget {
           Flexible(
             flex: 5,
             child: Text(
-              message.message ?? "",
+              isErrorMessage ? message!.message ?? "" : "Error sending message",
               style: const TextStyle(
                 fontSize: 16,
                 color: Colors.black,
@@ -66,7 +71,7 @@ class MessageCard extends StatelessWidget {
           const SizedBox(height: 4),
           Flexible(
             child: Text(
-              message.timestamp.date,
+              isErrorMessage ? message!.timestamp!.date : "",
               style: const TextStyle(
                 fontSize: 12,
                 color: AppColors.secondaryText,

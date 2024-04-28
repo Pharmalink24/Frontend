@@ -86,7 +86,7 @@ class AppRouter {
           ),
         );
 
-      case Routes.messageScreen:
+      case Routes.messagesScreen:
         final chat = settings.arguments as Chat;
         return MaterialPageRoute(
           builder: (_) => BlocProvider(

@@ -7,7 +7,7 @@ part of 'message.dart';
 // **************************************************************************
 
 Message _$MessageFromJson(Map<String, dynamic> json) => Message(
-      id: json['id'] as int,
+      id: json['id'] as int?,
       senderUserId: json['sender_user_id'] as int?,
       senderDoctorId: json['sender_doctor_id'] as int?,
       receiverUserId: json['receiver_user_id'] as int?,
@@ -16,7 +16,9 @@ Message _$MessageFromJson(Map<String, dynamic> json) => Message(
       image: json['image'] as String?,
       file: json['file'] as String?,
       voiceMessage: json['voice_message'] as String?,
-      timestamp: Timestamp.fromJson(json['timestamp'] as Map<String, dynamic>),
+      timestamp: json['timestamp'] == null
+          ? null
+          : Timestamp.fromJson(json['timestamp'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$MessageToJson(Message instance) => <String, dynamic>{

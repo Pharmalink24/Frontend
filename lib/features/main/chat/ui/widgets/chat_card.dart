@@ -74,7 +74,7 @@ class ChatCard extends StatelessWidget {
         subtitle: Text(chat.lastMessage),
         onTap: () {
           context.pushNamed(
-            Routes.messageScreen,
+            Routes.messagesScreen,
             argument: chat,
           );
         },

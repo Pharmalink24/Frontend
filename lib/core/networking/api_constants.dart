@@ -5,7 +5,7 @@ class ApiConstants {
   static const httpsProtocol = "https://";
   static const wsProtocol = "ws://";
 
-  static const String baseUrl = "pharmalink.tech/";
+  static const String domain = "pharmalink.tech/";
   static const String tokenKey = "patientCustomToken";
   // User API
   static const signIn = "user/login/";

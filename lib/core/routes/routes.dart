@@ -22,5 +22,5 @@ class Routes {
   static const String changePasswordScreen = '/changePasswordScreen';
 
   // Chat
-  static const String messageScreen = '/messageScreen';
+  static const String messagesScreen = '/messageScreen';
 }

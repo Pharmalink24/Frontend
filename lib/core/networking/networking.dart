@@ -24,7 +24,7 @@ class API {
         : null;
 
     http.Response response = await http.get(
-      Uri.parse('${ApiConstants.baseUrl}$path'),
+      Uri.parse('${ApiConstants.httpsProtocol}${ApiConstants.domain}$path'),
       headers: headers,
     );
 
@@ -47,7 +47,7 @@ class API {
         : AuthSharedPrefs.getAccessToken();
 
     http.Response response = await http.post(
-      Uri.parse('${ApiConstants.baseUrl}$path'),
+      Uri.parse('${ApiConstants.httpsProtocol}${ApiConstants.domain}$path'),
       body: jsonEncode(body),
       headers: headers,
     );
@@ -71,7 +71,7 @@ class API {
         : AuthSharedPrefs.getAccessToken();
 
     http.Response response = await http.patch(
-      Uri.parse('${ApiConstants.baseUrl}$path'),
+      Uri.parse('${ApiConstants.httpsProtocol}${ApiConstants.domain}$path'),
       body: jsonEncode(body),
       headers: headers,
     );
@@ -94,7 +94,7 @@ class API {
         : AuthSharedPrefs.getAccessToken();
 
     http.Response response = await http.put(
-      Uri.parse('${ApiConstants.baseUrl}$path'),
+      Uri.parse('${ApiConstants.httpsProtocol}${ApiConstants.domain}$path'),
       body: jsonEncode(body),
       headers: headers,
     );
@@ -117,7 +117,7 @@ class API {
         : AuthSharedPrefs.getAccessToken();
 
     http.Response response = await http.delete(
-      Uri.parse('${ApiConstants.baseUrl}$path'),
+      Uri.parse('${ApiConstants.httpsProtocol}${ApiConstants.domain}$path'),
       body: jsonEncode(body),
       headers: headers,
     );

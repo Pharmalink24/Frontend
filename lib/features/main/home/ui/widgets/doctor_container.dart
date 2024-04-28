@@ -81,7 +81,7 @@ class DoctorContainer extends StatelessWidget {
                 alignment: const AlignmentDirectional(1, 1),
                 child: Image.network(
                   doctor.image != null
-                      ? "${ApiConstants.baseUrl}${doctor.image}"
+                      ? "${ApiConstants.httpsProtocol}${ApiConstants.domain}${doctor.image}"
                       : '${AppPaths.images}/doctor_placeholder.png',
                   width: 100,
                   fit: BoxFit.scaleDown,

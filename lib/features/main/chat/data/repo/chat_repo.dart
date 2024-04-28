@@ -1,5 +1,5 @@
 import 'package:logger/logger.dart';
-import 'package:pharmalink/core/networking/api_constants.dart';
+import 'package:pharmalink/core/models/timestamp.dart';
 import 'package:pharmalink/core/networking/api_service.dart';
 import 'package:pharmalink/core/networking/ws_service.dart';
 import 'package:pharmalink/core/shared_preferences/auth_prefs.dart';
@@ -12,10 +12,9 @@ class ChatRepo {
 
   const ChatRepo(this._wsService, this._apiService);
 
-  Future<Stream<dynamic>?> sendMessage(Message message) async {
+  Future<Stream<dynamic>?> connectChat() async {
     try {
-      var messagesStream = await _wsService.sendMessage(
-        message,
+      var messagesStream = await _wsService.connectChat(
         AuthSharedPrefs.getAccessToken() ?? '',
       );
 
@@ -26,14 +25,31 @@ class ChatRepo {
     }
   }
 
-  Future<void> retrieveMessage(Message message) async {
+  Future<void> sendMessage(
+      {required int doctorId, required String message}) async {
     try {
-      _wsService.retrieveMessages(
-        message,
-        AuthSharedPrefs.getAccessToken() ?? '',
+      await _wsService.sendChat(
+        Message(
+          senderUserId: AuthSharedPrefs.getUserId()!,
+          receiverDoctorId: doctorId,
+          message: message,
+        ),
       );
     } catch (error) {
       Logger().e(error);
+    }
+  }
+
+  Future<Stream<dynamic>?> retrieveMessages(int doctorId) async {
+    try {
+      final messagesListStream = await _wsService.connectRetrieveMessages(
+        AuthSharedPrefs.getAccessToken() ?? '',
+      );
+      
+      return messagesListStream;
+    } catch (error) {
+      Logger().e(error);
+      return null;
     }
   }
 }

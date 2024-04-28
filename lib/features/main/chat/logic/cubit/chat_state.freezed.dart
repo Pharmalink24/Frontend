@@ -25,6 +25,9 @@ mixin _$ChatState<T> {
     required TResult Function() chatMessagesLoading,
     required TResult Function(T data) chatMessagesRetrieved,
     required TResult Function(String error) chatMessagesError,
+    required TResult Function(T data) messageReceived,
+    required TResult Function(T data) messageSent,
+    required TResult Function(String error) messageFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -36,6 +39,9 @@ mixin _$ChatState<T> {
     TResult? Function()? chatMessagesLoading,
     TResult? Function(T data)? chatMessagesRetrieved,
     TResult? Function(String error)? chatMessagesError,
+    TResult? Function(T data)? messageReceived,
+    TResult? Function(T data)? messageSent,
+    TResult? Function(String error)? messageFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -47,6 +53,9 @@ mixin _$ChatState<T> {
     TResult Function()? chatMessagesLoading,
     TResult Function(T data)? chatMessagesRetrieved,
     TResult Function(String error)? chatMessagesError,
+    TResult Function(T data)? messageReceived,
+    TResult Function(T data)? messageSent,
+    TResult Function(String error)? messageFailed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -61,6 +70,9 @@ mixin _$ChatState<T> {
     required TResult Function(ChatMessagesRetrieved<T> value)
         chatMessagesRetrieved,
     required TResult Function(ChatMessagesError<T> value) chatMessagesError,
+    required TResult Function(MessageReceived<T> value) messageReceived,
+    required TResult Function(MessageSent<T> value) messageSent,
+    required TResult Function(MessageFailed<T> value) messageFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -72,6 +84,9 @@ mixin _$ChatState<T> {
     TResult? Function(ChatMessagesLoading<T> value)? chatMessagesLoading,
     TResult? Function(ChatMessagesRetrieved<T> value)? chatMessagesRetrieved,
     TResult? Function(ChatMessagesError<T> value)? chatMessagesError,
+    TResult? Function(MessageReceived<T> value)? messageReceived,
+    TResult? Function(MessageSent<T> value)? messageSent,
+    TResult? Function(MessageFailed<T> value)? messageFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -83,6 +98,9 @@ mixin _$ChatState<T> {
     TResult Function(ChatMessagesLoading<T> value)? chatMessagesLoading,
     TResult Function(ChatMessagesRetrieved<T> value)? chatMessagesRetrieved,
     TResult Function(ChatMessagesError<T> value)? chatMessagesError,
+    TResult Function(MessageReceived<T> value)? messageReceived,
+    TResult Function(MessageSent<T> value)? messageSent,
+    TResult Function(MessageFailed<T> value)? messageFailed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -151,6 +169,9 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function() chatMessagesLoading,
     required TResult Function(T data) chatMessagesRetrieved,
     required TResult Function(String error) chatMessagesError,
+    required TResult Function(T data) messageReceived,
+    required TResult Function(T data) messageSent,
+    required TResult Function(String error) messageFailed,
   }) {
     return initial();
   }
@@ -165,6 +186,9 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function()? chatMessagesLoading,
     TResult? Function(T data)? chatMessagesRetrieved,
     TResult? Function(String error)? chatMessagesError,
+    TResult? Function(T data)? messageReceived,
+    TResult? Function(T data)? messageSent,
+    TResult? Function(String error)? messageFailed,
   }) {
     return initial?.call();
   }
@@ -179,6 +203,9 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function()? chatMessagesLoading,
     TResult Function(T data)? chatMessagesRetrieved,
     TResult Function(String error)? chatMessagesError,
+    TResult Function(T data)? messageReceived,
+    TResult Function(T data)? messageSent,
+    TResult Function(String error)? messageFailed,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -199,6 +226,9 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function(ChatMessagesRetrieved<T> value)
         chatMessagesRetrieved,
     required TResult Function(ChatMessagesError<T> value) chatMessagesError,
+    required TResult Function(MessageReceived<T> value) messageReceived,
+    required TResult Function(MessageSent<T> value) messageSent,
+    required TResult Function(MessageFailed<T> value) messageFailed,
   }) {
     return initial(this);
   }
@@ -213,6 +243,9 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function(ChatMessagesLoading<T> value)? chatMessagesLoading,
     TResult? Function(ChatMessagesRetrieved<T> value)? chatMessagesRetrieved,
     TResult? Function(ChatMessagesError<T> value)? chatMessagesError,
+    TResult? Function(MessageReceived<T> value)? messageReceived,
+    TResult? Function(MessageSent<T> value)? messageSent,
+    TResult? Function(MessageFailed<T> value)? messageFailed,
   }) {
     return initial?.call(this);
   }
@@ -227,6 +260,9 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function(ChatMessagesLoading<T> value)? chatMessagesLoading,
     TResult Function(ChatMessagesRetrieved<T> value)? chatMessagesRetrieved,
     TResult Function(ChatMessagesError<T> value)? chatMessagesError,
+    TResult Function(MessageReceived<T> value)? messageReceived,
+    TResult Function(MessageSent<T> value)? messageSent,
+    TResult Function(MessageFailed<T> value)? messageFailed,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -288,6 +324,9 @@ class _$ChatsRetrievedLoadingImpl<T> implements ChatsRetrievedLoading<T> {
     required TResult Function() chatMessagesLoading,
     required TResult Function(T data) chatMessagesRetrieved,
     required TResult Function(String error) chatMessagesError,
+    required TResult Function(T data) messageReceived,
+    required TResult Function(T data) messageSent,
+    required TResult Function(String error) messageFailed,
   }) {
     return chatsRetrievedLoading();
   }
@@ -302,6 +341,9 @@ class _$ChatsRetrievedLoadingImpl<T> implements ChatsRetrievedLoading<T> {
     TResult? Function()? chatMessagesLoading,
     TResult? Function(T data)? chatMessagesRetrieved,
     TResult? Function(String error)? chatMessagesError,
+    TResult? Function(T data)? messageReceived,
+    TResult? Function(T data)? messageSent,
+    TResult? Function(String error)? messageFailed,
   }) {
     return chatsRetrievedLoading?.call();
   }
@@ -316,6 +358,9 @@ class _$ChatsRetrievedLoadingImpl<T> implements ChatsRetrievedLoading<T> {
     TResult Function()? chatMessagesLoading,
     TResult Function(T data)? chatMessagesRetrieved,
     TResult Function(String error)? chatMessagesError,
+    TResult Function(T data)? messageReceived,
+    TResult Function(T data)? messageSent,
+    TResult Function(String error)? messageFailed,
     required TResult orElse(),
   }) {
     if (chatsRetrievedLoading != null) {
@@ -336,6 +381,9 @@ class _$ChatsRetrievedLoadingImpl<T> implements ChatsRetrievedLoading<T> {
     required TResult Function(ChatMessagesRetrieved<T> value)
         chatMessagesRetrieved,
     required TResult Function(ChatMessagesError<T> value) chatMessagesError,
+    required TResult Function(MessageReceived<T> value) messageReceived,
+    required TResult Function(MessageSent<T> value) messageSent,
+    required TResult Function(MessageFailed<T> value) messageFailed,
   }) {
     return chatsRetrievedLoading(this);
   }
@@ -350,6 +398,9 @@ class _$ChatsRetrievedLoadingImpl<T> implements ChatsRetrievedLoading<T> {
     TResult? Function(ChatMessagesLoading<T> value)? chatMessagesLoading,
     TResult? Function(ChatMessagesRetrieved<T> value)? chatMessagesRetrieved,
     TResult? Function(ChatMessagesError<T> value)? chatMessagesError,
+    TResult? Function(MessageReceived<T> value)? messageReceived,
+    TResult? Function(MessageSent<T> value)? messageSent,
+    TResult? Function(MessageFailed<T> value)? messageFailed,
   }) {
     return chatsRetrievedLoading?.call(this);
   }
@@ -364,6 +415,9 @@ class _$ChatsRetrievedLoadingImpl<T> implements ChatsRetrievedLoading<T> {
     TResult Function(ChatMessagesLoading<T> value)? chatMessagesLoading,
     TResult Function(ChatMessagesRetrieved<T> value)? chatMessagesRetrieved,
     TResult Function(ChatMessagesError<T> value)? chatMessagesError,
+    TResult Function(MessageReceived<T> value)? messageReceived,
+    TResult Function(MessageSent<T> value)? messageSent,
+    TResult Function(MessageFailed<T> value)? messageFailed,
     required TResult orElse(),
   }) {
     if (chatsRetrievedLoading != null) {
@@ -450,6 +504,9 @@ class _$ChatsRetrievedImpl<T> implements ChatsRetrieved<T> {
     required TResult Function() chatMessagesLoading,
     required TResult Function(T data) chatMessagesRetrieved,
     required TResult Function(String error) chatMessagesError,
+    required TResult Function(T data) messageReceived,
+    required TResult Function(T data) messageSent,
+    required TResult Function(String error) messageFailed,
   }) {
     return chatsRetrieved(data);
   }
@@ -464,6 +521,9 @@ class _$ChatsRetrievedImpl<T> implements ChatsRetrieved<T> {
     TResult? Function()? chatMessagesLoading,
     TResult? Function(T data)? chatMessagesRetrieved,
     TResult? Function(String error)? chatMessagesError,
+    TResult? Function(T data)? messageReceived,
+    TResult? Function(T data)? messageSent,
+    TResult? Function(String error)? messageFailed,
   }) {
     return chatsRetrieved?.call(data);
   }
@@ -478,6 +538,9 @@ class _$ChatsRetrievedImpl<T> implements ChatsRetrieved<T> {
     TResult Function()? chatMessagesLoading,
     TResult Function(T data)? chatMessagesRetrieved,
     TResult Function(String error)? chatMessagesError,
+    TResult Function(T data)? messageReceived,
+    TResult Function(T data)? messageSent,
+    TResult Function(String error)? messageFailed,
     required TResult orElse(),
   }) {
     if (chatsRetrieved != null) {
@@ -498,6 +561,9 @@ class _$ChatsRetrievedImpl<T> implements ChatsRetrieved<T> {
     required TResult Function(ChatMessagesRetrieved<T> value)
         chatMessagesRetrieved,
     required TResult Function(ChatMessagesError<T> value) chatMessagesError,
+    required TResult Function(MessageReceived<T> value) messageReceived,
+    required TResult Function(MessageSent<T> value) messageSent,
+    required TResult Function(MessageFailed<T> value) messageFailed,
   }) {
     return chatsRetrieved(this);
   }
@@ -512,6 +578,9 @@ class _$ChatsRetrievedImpl<T> implements ChatsRetrieved<T> {
     TResult? Function(ChatMessagesLoading<T> value)? chatMessagesLoading,
     TResult? Function(ChatMessagesRetrieved<T> value)? chatMessagesRetrieved,
     TResult? Function(ChatMessagesError<T> value)? chatMessagesError,
+    TResult? Function(MessageReceived<T> value)? messageReceived,
+    TResult? Function(MessageSent<T> value)? messageSent,
+    TResult? Function(MessageFailed<T> value)? messageFailed,
   }) {
     return chatsRetrieved?.call(this);
   }
@@ -526,6 +595,9 @@ class _$ChatsRetrievedImpl<T> implements ChatsRetrieved<T> {
     TResult Function(ChatMessagesLoading<T> value)? chatMessagesLoading,
     TResult Function(ChatMessagesRetrieved<T> value)? chatMessagesRetrieved,
     TResult Function(ChatMessagesError<T> value)? chatMessagesError,
+    TResult Function(MessageReceived<T> value)? messageReceived,
+    TResult Function(MessageSent<T> value)? messageSent,
+    TResult Function(MessageFailed<T> value)? messageFailed,
     required TResult orElse(),
   }) {
     if (chatsRetrieved != null) {
@@ -616,6 +688,9 @@ class _$ChatsRetrievedErrorImpl<T> implements ChatsRetrievedError<T> {
     required TResult Function() chatMessagesLoading,
     required TResult Function(T data) chatMessagesRetrieved,
     required TResult Function(String error) chatMessagesError,
+    required TResult Function(T data) messageReceived,
+    required TResult Function(T data) messageSent,
+    required TResult Function(String error) messageFailed,
   }) {
     return chatsRetrievedError(error);
   }
@@ -630,6 +705,9 @@ class _$ChatsRetrievedErrorImpl<T> implements ChatsRetrievedError<T> {
     TResult? Function()? chatMessagesLoading,
     TResult? Function(T data)? chatMessagesRetrieved,
     TResult? Function(String error)? chatMessagesError,
+    TResult? Function(T data)? messageReceived,
+    TResult? Function(T data)? messageSent,
+    TResult? Function(String error)? messageFailed,
   }) {
     return chatsRetrievedError?.call(error);
   }
@@ -644,6 +722,9 @@ class _$ChatsRetrievedErrorImpl<T> implements ChatsRetrievedError<T> {
     TResult Function()? chatMessagesLoading,
     TResult Function(T data)? chatMessagesRetrieved,
     TResult Function(String error)? chatMessagesError,
+    TResult Function(T data)? messageReceived,
+    TResult Function(T data)? messageSent,
+    TResult Function(String error)? messageFailed,
     required TResult orElse(),
   }) {
     if (chatsRetrievedError != null) {
@@ -664,6 +745,9 @@ class _$ChatsRetrievedErrorImpl<T> implements ChatsRetrievedError<T> {
     required TResult Function(ChatMessagesRetrieved<T> value)
         chatMessagesRetrieved,
     required TResult Function(ChatMessagesError<T> value) chatMessagesError,
+    required TResult Function(MessageReceived<T> value) messageReceived,
+    required TResult Function(MessageSent<T> value) messageSent,
+    required TResult Function(MessageFailed<T> value) messageFailed,
   }) {
     return chatsRetrievedError(this);
   }
@@ -678,6 +762,9 @@ class _$ChatsRetrievedErrorImpl<T> implements ChatsRetrievedError<T> {
     TResult? Function(ChatMessagesLoading<T> value)? chatMessagesLoading,
     TResult? Function(ChatMessagesRetrieved<T> value)? chatMessagesRetrieved,
     TResult? Function(ChatMessagesError<T> value)? chatMessagesError,
+    TResult? Function(MessageReceived<T> value)? messageReceived,
+    TResult? Function(MessageSent<T> value)? messageSent,
+    TResult? Function(MessageFailed<T> value)? messageFailed,
   }) {
     return chatsRetrievedError?.call(this);
   }
@@ -692,6 +779,9 @@ class _$ChatsRetrievedErrorImpl<T> implements ChatsRetrievedError<T> {
     TResult Function(ChatMessagesLoading<T> value)? chatMessagesLoading,
     TResult Function(ChatMessagesRetrieved<T> value)? chatMessagesRetrieved,
     TResult Function(ChatMessagesError<T> value)? chatMessagesError,
+    TResult Function(MessageReceived<T> value)? messageReceived,
+    TResult Function(MessageSent<T> value)? messageSent,
+    TResult Function(MessageFailed<T> value)? messageFailed,
     required TResult orElse(),
   }) {
     if (chatsRetrievedError != null) {
@@ -757,6 +847,9 @@ class _$ChatMessagesLoadingImpl<T> implements ChatMessagesLoading<T> {
     required TResult Function() chatMessagesLoading,
     required TResult Function(T data) chatMessagesRetrieved,
     required TResult Function(String error) chatMessagesError,
+    required TResult Function(T data) messageReceived,
+    required TResult Function(T data) messageSent,
+    required TResult Function(String error) messageFailed,
   }) {
     return chatMessagesLoading();
   }
@@ -771,6 +864,9 @@ class _$ChatMessagesLoadingImpl<T> implements ChatMessagesLoading<T> {
     TResult? Function()? chatMessagesLoading,
     TResult? Function(T data)? chatMessagesRetrieved,
     TResult? Function(String error)? chatMessagesError,
+    TResult? Function(T data)? messageReceived,
+    TResult? Function(T data)? messageSent,
+    TResult? Function(String error)? messageFailed,
   }) {
     return chatMessagesLoading?.call();
   }
@@ -785,6 +881,9 @@ class _$ChatMessagesLoadingImpl<T> implements ChatMessagesLoading<T> {
     TResult Function()? chatMessagesLoading,
     TResult Function(T data)? chatMessagesRetrieved,
     TResult Function(String error)? chatMessagesError,
+    TResult Function(T data)? messageReceived,
+    TResult Function(T data)? messageSent,
+    TResult Function(String error)? messageFailed,
     required TResult orElse(),
   }) {
     if (chatMessagesLoading != null) {
@@ -805,6 +904,9 @@ class _$ChatMessagesLoadingImpl<T> implements ChatMessagesLoading<T> {
     required TResult Function(ChatMessagesRetrieved<T> value)
         chatMessagesRetrieved,
     required TResult Function(ChatMessagesError<T> value) chatMessagesError,
+    required TResult Function(MessageReceived<T> value) messageReceived,
+    required TResult Function(MessageSent<T> value) messageSent,
+    required TResult Function(MessageFailed<T> value) messageFailed,
   }) {
     return chatMessagesLoading(this);
   }
@@ -819,6 +921,9 @@ class _$ChatMessagesLoadingImpl<T> implements ChatMessagesLoading<T> {
     TResult? Function(ChatMessagesLoading<T> value)? chatMessagesLoading,
     TResult? Function(ChatMessagesRetrieved<T> value)? chatMessagesRetrieved,
     TResult? Function(ChatMessagesError<T> value)? chatMessagesError,
+    TResult? Function(MessageReceived<T> value)? messageReceived,
+    TResult? Function(MessageSent<T> value)? messageSent,
+    TResult? Function(MessageFailed<T> value)? messageFailed,
   }) {
     return chatMessagesLoading?.call(this);
   }
@@ -833,6 +938,9 @@ class _$ChatMessagesLoadingImpl<T> implements ChatMessagesLoading<T> {
     TResult Function(ChatMessagesLoading<T> value)? chatMessagesLoading,
     TResult Function(ChatMessagesRetrieved<T> value)? chatMessagesRetrieved,
     TResult Function(ChatMessagesError<T> value)? chatMessagesError,
+    TResult Function(MessageReceived<T> value)? messageReceived,
+    TResult Function(MessageSent<T> value)? messageSent,
+    TResult Function(MessageFailed<T> value)? messageFailed,
     required TResult orElse(),
   }) {
     if (chatMessagesLoading != null) {
@@ -921,6 +1029,9 @@ class _$ChatMessagesRetrievedImpl<T> implements ChatMessagesRetrieved<T> {
     required TResult Function() chatMessagesLoading,
     required TResult Function(T data) chatMessagesRetrieved,
     required TResult Function(String error) chatMessagesError,
+    required TResult Function(T data) messageReceived,
+    required TResult Function(T data) messageSent,
+    required TResult Function(String error) messageFailed,
   }) {
     return chatMessagesRetrieved(data);
   }
@@ -935,6 +1046,9 @@ class _$ChatMessagesRetrievedImpl<T> implements ChatMessagesRetrieved<T> {
     TResult? Function()? chatMessagesLoading,
     TResult? Function(T data)? chatMessagesRetrieved,
     TResult? Function(String error)? chatMessagesError,
+    TResult? Function(T data)? messageReceived,
+    TResult? Function(T data)? messageSent,
+    TResult? Function(String error)? messageFailed,
   }) {
     return chatMessagesRetrieved?.call(data);
   }
@@ -949,6 +1063,9 @@ class _$ChatMessagesRetrievedImpl<T> implements ChatMessagesRetrieved<T> {
     TResult Function()? chatMessagesLoading,
     TResult Function(T data)? chatMessagesRetrieved,
     TResult Function(String error)? chatMessagesError,
+    TResult Function(T data)? messageReceived,
+    TResult Function(T data)? messageSent,
+    TResult Function(String error)? messageFailed,
     required TResult orElse(),
   }) {
     if (chatMessagesRetrieved != null) {
@@ -969,6 +1086,9 @@ class _$ChatMessagesRetrievedImpl<T> implements ChatMessagesRetrieved<T> {
     required TResult Function(ChatMessagesRetrieved<T> value)
         chatMessagesRetrieved,
     required TResult Function(ChatMessagesError<T> value) chatMessagesError,
+    required TResult Function(MessageReceived<T> value) messageReceived,
+    required TResult Function(MessageSent<T> value) messageSent,
+    required TResult Function(MessageFailed<T> value) messageFailed,
   }) {
     return chatMessagesRetrieved(this);
   }
@@ -983,6 +1103,9 @@ class _$ChatMessagesRetrievedImpl<T> implements ChatMessagesRetrieved<T> {
     TResult? Function(ChatMessagesLoading<T> value)? chatMessagesLoading,
     TResult? Function(ChatMessagesRetrieved<T> value)? chatMessagesRetrieved,
     TResult? Function(ChatMessagesError<T> value)? chatMessagesError,
+    TResult? Function(MessageReceived<T> value)? messageReceived,
+    TResult? Function(MessageSent<T> value)? messageSent,
+    TResult? Function(MessageFailed<T> value)? messageFailed,
   }) {
     return chatMessagesRetrieved?.call(this);
   }
@@ -997,6 +1120,9 @@ class _$ChatMessagesRetrievedImpl<T> implements ChatMessagesRetrieved<T> {
     TResult Function(ChatMessagesLoading<T> value)? chatMessagesLoading,
     TResult Function(ChatMessagesRetrieved<T> value)? chatMessagesRetrieved,
     TResult Function(ChatMessagesError<T> value)? chatMessagesError,
+    TResult Function(MessageReceived<T> value)? messageReceived,
+    TResult Function(MessageSent<T> value)? messageSent,
+    TResult Function(MessageFailed<T> value)? messageFailed,
     required TResult orElse(),
   }) {
     if (chatMessagesRetrieved != null) {
@@ -1089,6 +1215,9 @@ class _$ChatMessagesErrorImpl<T> implements ChatMessagesError<T> {
     required TResult Function() chatMessagesLoading,
     required TResult Function(T data) chatMessagesRetrieved,
     required TResult Function(String error) chatMessagesError,
+    required TResult Function(T data) messageReceived,
+    required TResult Function(T data) messageSent,
+    required TResult Function(String error) messageFailed,
   }) {
     return chatMessagesError(error);
   }
@@ -1103,6 +1232,9 @@ class _$ChatMessagesErrorImpl<T> implements ChatMessagesError<T> {
     TResult? Function()? chatMessagesLoading,
     TResult? Function(T data)? chatMessagesRetrieved,
     TResult? Function(String error)? chatMessagesError,
+    TResult? Function(T data)? messageReceived,
+    TResult? Function(T data)? messageSent,
+    TResult? Function(String error)? messageFailed,
   }) {
     return chatMessagesError?.call(error);
   }
@@ -1117,6 +1249,9 @@ class _$ChatMessagesErrorImpl<T> implements ChatMessagesError<T> {
     TResult Function()? chatMessagesLoading,
     TResult Function(T data)? chatMessagesRetrieved,
     TResult Function(String error)? chatMessagesError,
+    TResult Function(T data)? messageReceived,
+    TResult Function(T data)? messageSent,
+    TResult Function(String error)? messageFailed,
     required TResult orElse(),
   }) {
     if (chatMessagesError != null) {
@@ -1137,6 +1272,9 @@ class _$ChatMessagesErrorImpl<T> implements ChatMessagesError<T> {
     required TResult Function(ChatMessagesRetrieved<T> value)
         chatMessagesRetrieved,
     required TResult Function(ChatMessagesError<T> value) chatMessagesError,
+    required TResult Function(MessageReceived<T> value) messageReceived,
+    required TResult Function(MessageSent<T> value) messageSent,
+    required TResult Function(MessageFailed<T> value) messageFailed,
   }) {
     return chatMessagesError(this);
   }
@@ -1151,6 +1289,9 @@ class _$ChatMessagesErrorImpl<T> implements ChatMessagesError<T> {
     TResult? Function(ChatMessagesLoading<T> value)? chatMessagesLoading,
     TResult? Function(ChatMessagesRetrieved<T> value)? chatMessagesRetrieved,
     TResult? Function(ChatMessagesError<T> value)? chatMessagesError,
+    TResult? Function(MessageReceived<T> value)? messageReceived,
+    TResult? Function(MessageSent<T> value)? messageSent,
+    TResult? Function(MessageFailed<T> value)? messageFailed,
   }) {
     return chatMessagesError?.call(this);
   }
@@ -1165,6 +1306,9 @@ class _$ChatMessagesErrorImpl<T> implements ChatMessagesError<T> {
     TResult Function(ChatMessagesLoading<T> value)? chatMessagesLoading,
     TResult Function(ChatMessagesRetrieved<T> value)? chatMessagesRetrieved,
     TResult Function(ChatMessagesError<T> value)? chatMessagesError,
+    TResult Function(MessageReceived<T> value)? messageReceived,
+    TResult Function(MessageSent<T> value)? messageSent,
+    TResult Function(MessageFailed<T> value)? messageFailed,
     required TResult orElse(),
   }) {
     if (chatMessagesError != null) {
@@ -1182,4 +1326,559 @@ abstract class ChatMessagesError<T> implements ChatState<T> {
   @JsonKey(ignore: true)
   _$$ChatMessagesErrorImplCopyWith<T, _$ChatMessagesErrorImpl<T>>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$MessageReceivedImplCopyWith<T, $Res> {
+  factory _$$MessageReceivedImplCopyWith(_$MessageReceivedImpl<T> value,
+          $Res Function(_$MessageReceivedImpl<T>) then) =
+      __$$MessageReceivedImplCopyWithImpl<T, $Res>;
+  @useResult
+  $Res call({T data});
+}
+
+/// @nodoc
+class __$$MessageReceivedImplCopyWithImpl<T, $Res>
+    extends _$ChatStateCopyWithImpl<T, $Res, _$MessageReceivedImpl<T>>
+    implements _$$MessageReceivedImplCopyWith<T, $Res> {
+  __$$MessageReceivedImplCopyWithImpl(_$MessageReceivedImpl<T> _value,
+      $Res Function(_$MessageReceivedImpl<T>) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = freezed,
+  }) {
+    return _then(_$MessageReceivedImpl<T>(
+      freezed == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as T,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$MessageReceivedImpl<T> implements MessageReceived<T> {
+  const _$MessageReceivedImpl(this.data);
+
+  @override
+  final T data;
+
+  @override
+  String toString() {
+    return 'ChatState<$T>.messageReceived(data: $data)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$MessageReceivedImpl<T> &&
+            const DeepCollectionEquality().equals(other.data, data));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$MessageReceivedImplCopyWith<T, _$MessageReceivedImpl<T>> get copyWith =>
+      __$$MessageReceivedImplCopyWithImpl<T, _$MessageReceivedImpl<T>>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() chatsRetrievedLoading,
+    required TResult Function(T data) chatsRetrieved,
+    required TResult Function(String error) chatsRetrievedError,
+    required TResult Function() chatMessagesLoading,
+    required TResult Function(T data) chatMessagesRetrieved,
+    required TResult Function(String error) chatMessagesError,
+    required TResult Function(T data) messageReceived,
+    required TResult Function(T data) messageSent,
+    required TResult Function(String error) messageFailed,
+  }) {
+    return messageReceived(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? chatsRetrievedLoading,
+    TResult? Function(T data)? chatsRetrieved,
+    TResult? Function(String error)? chatsRetrievedError,
+    TResult? Function()? chatMessagesLoading,
+    TResult? Function(T data)? chatMessagesRetrieved,
+    TResult? Function(String error)? chatMessagesError,
+    TResult? Function(T data)? messageReceived,
+    TResult? Function(T data)? messageSent,
+    TResult? Function(String error)? messageFailed,
+  }) {
+    return messageReceived?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? chatsRetrievedLoading,
+    TResult Function(T data)? chatsRetrieved,
+    TResult Function(String error)? chatsRetrievedError,
+    TResult Function()? chatMessagesLoading,
+    TResult Function(T data)? chatMessagesRetrieved,
+    TResult Function(String error)? chatMessagesError,
+    TResult Function(T data)? messageReceived,
+    TResult Function(T data)? messageSent,
+    TResult Function(String error)? messageFailed,
+    required TResult orElse(),
+  }) {
+    if (messageReceived != null) {
+      return messageReceived(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(ChatsRetrievedLoading<T> value)
+        chatsRetrievedLoading,
+    required TResult Function(ChatsRetrieved<T> value) chatsRetrieved,
+    required TResult Function(ChatsRetrievedError<T> value) chatsRetrievedError,
+    required TResult Function(ChatMessagesLoading<T> value) chatMessagesLoading,
+    required TResult Function(ChatMessagesRetrieved<T> value)
+        chatMessagesRetrieved,
+    required TResult Function(ChatMessagesError<T> value) chatMessagesError,
+    required TResult Function(MessageReceived<T> value) messageReceived,
+    required TResult Function(MessageSent<T> value) messageSent,
+    required TResult Function(MessageFailed<T> value) messageFailed,
+  }) {
+    return messageReceived(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(ChatsRetrievedLoading<T> value)? chatsRetrievedLoading,
+    TResult? Function(ChatsRetrieved<T> value)? chatsRetrieved,
+    TResult? Function(ChatsRetrievedError<T> value)? chatsRetrievedError,
+    TResult? Function(ChatMessagesLoading<T> value)? chatMessagesLoading,
+    TResult? Function(ChatMessagesRetrieved<T> value)? chatMessagesRetrieved,
+    TResult? Function(ChatMessagesError<T> value)? chatMessagesError,
+    TResult? Function(MessageReceived<T> value)? messageReceived,
+    TResult? Function(MessageSent<T> value)? messageSent,
+    TResult? Function(MessageFailed<T> value)? messageFailed,
+  }) {
+    return messageReceived?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(ChatsRetrievedLoading<T> value)? chatsRetrievedLoading,
+    TResult Function(ChatsRetrieved<T> value)? chatsRetrieved,
+    TResult Function(ChatsRetrievedError<T> value)? chatsRetrievedError,
+    TResult Function(ChatMessagesLoading<T> value)? chatMessagesLoading,
+    TResult Function(ChatMessagesRetrieved<T> value)? chatMessagesRetrieved,
+    TResult Function(ChatMessagesError<T> value)? chatMessagesError,
+    TResult Function(MessageReceived<T> value)? messageReceived,
+    TResult Function(MessageSent<T> value)? messageSent,
+    TResult Function(MessageFailed<T> value)? messageFailed,
+    required TResult orElse(),
+  }) {
+    if (messageReceived != null) {
+      return messageReceived(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class MessageReceived<T> implements ChatState<T> {
+  const factory MessageReceived(final T data) = _$MessageReceivedImpl<T>;
+
+  T get data;
+  @JsonKey(ignore: true)
+  _$$MessageReceivedImplCopyWith<T, _$MessageReceivedImpl<T>> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$MessageSentImplCopyWith<T, $Res> {
+  factory _$$MessageSentImplCopyWith(_$MessageSentImpl<T> value,
+          $Res Function(_$MessageSentImpl<T>) then) =
+      __$$MessageSentImplCopyWithImpl<T, $Res>;
+  @useResult
+  $Res call({T data});
+}
+
+/// @nodoc
+class __$$MessageSentImplCopyWithImpl<T, $Res>
+    extends _$ChatStateCopyWithImpl<T, $Res, _$MessageSentImpl<T>>
+    implements _$$MessageSentImplCopyWith<T, $Res> {
+  __$$MessageSentImplCopyWithImpl(
+      _$MessageSentImpl<T> _value, $Res Function(_$MessageSentImpl<T>) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = freezed,
+  }) {
+    return _then(_$MessageSentImpl<T>(
+      freezed == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as T,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$MessageSentImpl<T> implements MessageSent<T> {
+  const _$MessageSentImpl(this.data);
+
+  @override
+  final T data;
+
+  @override
+  String toString() {
+    return 'ChatState<$T>.messageSent(data: $data)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$MessageSentImpl<T> &&
+            const DeepCollectionEquality().equals(other.data, data));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$MessageSentImplCopyWith<T, _$MessageSentImpl<T>> get copyWith =>
+      __$$MessageSentImplCopyWithImpl<T, _$MessageSentImpl<T>>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() chatsRetrievedLoading,
+    required TResult Function(T data) chatsRetrieved,
+    required TResult Function(String error) chatsRetrievedError,
+    required TResult Function() chatMessagesLoading,
+    required TResult Function(T data) chatMessagesRetrieved,
+    required TResult Function(String error) chatMessagesError,
+    required TResult Function(T data) messageReceived,
+    required TResult Function(T data) messageSent,
+    required TResult Function(String error) messageFailed,
+  }) {
+    return messageSent(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? chatsRetrievedLoading,
+    TResult? Function(T data)? chatsRetrieved,
+    TResult? Function(String error)? chatsRetrievedError,
+    TResult? Function()? chatMessagesLoading,
+    TResult? Function(T data)? chatMessagesRetrieved,
+    TResult? Function(String error)? chatMessagesError,
+    TResult? Function(T data)? messageReceived,
+    TResult? Function(T data)? messageSent,
+    TResult? Function(String error)? messageFailed,
+  }) {
+    return messageSent?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? chatsRetrievedLoading,
+    TResult Function(T data)? chatsRetrieved,
+    TResult Function(String error)? chatsRetrievedError,
+    TResult Function()? chatMessagesLoading,
+    TResult Function(T data)? chatMessagesRetrieved,
+    TResult Function(String error)? chatMessagesError,
+    TResult Function(T data)? messageReceived,
+    TResult Function(T data)? messageSent,
+    TResult Function(String error)? messageFailed,
+    required TResult orElse(),
+  }) {
+    if (messageSent != null) {
+      return messageSent(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(ChatsRetrievedLoading<T> value)
+        chatsRetrievedLoading,
+    required TResult Function(ChatsRetrieved<T> value) chatsRetrieved,
+    required TResult Function(ChatsRetrievedError<T> value) chatsRetrievedError,
+    required TResult Function(ChatMessagesLoading<T> value) chatMessagesLoading,
+    required TResult Function(ChatMessagesRetrieved<T> value)
+        chatMessagesRetrieved,
+    required TResult Function(ChatMessagesError<T> value) chatMessagesError,
+    required TResult Function(MessageReceived<T> value) messageReceived,
+    required TResult Function(MessageSent<T> value) messageSent,
+    required TResult Function(MessageFailed<T> value) messageFailed,
+  }) {
+    return messageSent(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(ChatsRetrievedLoading<T> value)? chatsRetrievedLoading,
+    TResult? Function(ChatsRetrieved<T> value)? chatsRetrieved,
+    TResult? Function(ChatsRetrievedError<T> value)? chatsRetrievedError,
+    TResult? Function(ChatMessagesLoading<T> value)? chatMessagesLoading,
+    TResult? Function(ChatMessagesRetrieved<T> value)? chatMessagesRetrieved,
+    TResult? Function(ChatMessagesError<T> value)? chatMessagesError,
+    TResult? Function(MessageReceived<T> value)? messageReceived,
+    TResult? Function(MessageSent<T> value)? messageSent,
+    TResult? Function(MessageFailed<T> value)? messageFailed,
+  }) {
+    return messageSent?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(ChatsRetrievedLoading<T> value)? chatsRetrievedLoading,
+    TResult Function(ChatsRetrieved<T> value)? chatsRetrieved,
+    TResult Function(ChatsRetrievedError<T> value)? chatsRetrievedError,
+    TResult Function(ChatMessagesLoading<T> value)? chatMessagesLoading,
+    TResult Function(ChatMessagesRetrieved<T> value)? chatMessagesRetrieved,
+    TResult Function(ChatMessagesError<T> value)? chatMessagesError,
+    TResult Function(MessageReceived<T> value)? messageReceived,
+    TResult Function(MessageSent<T> value)? messageSent,
+    TResult Function(MessageFailed<T> value)? messageFailed,
+    required TResult orElse(),
+  }) {
+    if (messageSent != null) {
+      return messageSent(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class MessageSent<T> implements ChatState<T> {
+  const factory MessageSent(final T data) = _$MessageSentImpl<T>;
+
+  T get data;
+  @JsonKey(ignore: true)
+  _$$MessageSentImplCopyWith<T, _$MessageSentImpl<T>> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$MessageFailedImplCopyWith<T, $Res> {
+  factory _$$MessageFailedImplCopyWith(_$MessageFailedImpl<T> value,
+          $Res Function(_$MessageFailedImpl<T>) then) =
+      __$$MessageFailedImplCopyWithImpl<T, $Res>;
+  @useResult
+  $Res call({String error});
+}
+
+/// @nodoc
+class __$$MessageFailedImplCopyWithImpl<T, $Res>
+    extends _$ChatStateCopyWithImpl<T, $Res, _$MessageFailedImpl<T>>
+    implements _$$MessageFailedImplCopyWith<T, $Res> {
+  __$$MessageFailedImplCopyWithImpl(_$MessageFailedImpl<T> _value,
+      $Res Function(_$MessageFailedImpl<T>) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? error = null,
+  }) {
+    return _then(_$MessageFailedImpl<T>(
+      error: null == error
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$MessageFailedImpl<T> implements MessageFailed<T> {
+  const _$MessageFailedImpl({required this.error});
+
+  @override
+  final String error;
+
+  @override
+  String toString() {
+    return 'ChatState<$T>.messageFailed(error: $error)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$MessageFailedImpl<T> &&
+            (identical(other.error, error) || other.error == error));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, error);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$MessageFailedImplCopyWith<T, _$MessageFailedImpl<T>> get copyWith =>
+      __$$MessageFailedImplCopyWithImpl<T, _$MessageFailedImpl<T>>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() chatsRetrievedLoading,
+    required TResult Function(T data) chatsRetrieved,
+    required TResult Function(String error) chatsRetrievedError,
+    required TResult Function() chatMessagesLoading,
+    required TResult Function(T data) chatMessagesRetrieved,
+    required TResult Function(String error) chatMessagesError,
+    required TResult Function(T data) messageReceived,
+    required TResult Function(T data) messageSent,
+    required TResult Function(String error) messageFailed,
+  }) {
+    return messageFailed(error);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? chatsRetrievedLoading,
+    TResult? Function(T data)? chatsRetrieved,
+    TResult? Function(String error)? chatsRetrievedError,
+    TResult? Function()? chatMessagesLoading,
+    TResult? Function(T data)? chatMessagesRetrieved,
+    TResult? Function(String error)? chatMessagesError,
+    TResult? Function(T data)? messageReceived,
+    TResult? Function(T data)? messageSent,
+    TResult? Function(String error)? messageFailed,
+  }) {
+    return messageFailed?.call(error);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? chatsRetrievedLoading,
+    TResult Function(T data)? chatsRetrieved,
+    TResult Function(String error)? chatsRetrievedError,
+    TResult Function()? chatMessagesLoading,
+    TResult Function(T data)? chatMessagesRetrieved,
+    TResult Function(String error)? chatMessagesError,
+    TResult Function(T data)? messageReceived,
+    TResult Function(T data)? messageSent,
+    TResult Function(String error)? messageFailed,
+    required TResult orElse(),
+  }) {
+    if (messageFailed != null) {
+      return messageFailed(error);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(ChatsRetrievedLoading<T> value)
+        chatsRetrievedLoading,
+    required TResult Function(ChatsRetrieved<T> value) chatsRetrieved,
+    required TResult Function(ChatsRetrievedError<T> value) chatsRetrievedError,
+    required TResult Function(ChatMessagesLoading<T> value) chatMessagesLoading,
+    required TResult Function(ChatMessagesRetrieved<T> value)
+        chatMessagesRetrieved,
+    required TResult Function(ChatMessagesError<T> value) chatMessagesError,
+    required TResult Function(MessageReceived<T> value) messageReceived,
+    required TResult Function(MessageSent<T> value) messageSent,
+    required TResult Function(MessageFailed<T> value) messageFailed,
+  }) {
+    return messageFailed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(ChatsRetrievedLoading<T> value)? chatsRetrievedLoading,
+    TResult? Function(ChatsRetrieved<T> value)? chatsRetrieved,
+    TResult? Function(ChatsRetrievedError<T> value)? chatsRetrievedError,
+    TResult? Function(ChatMessagesLoading<T> value)? chatMessagesLoading,
+    TResult? Function(ChatMessagesRetrieved<T> value)? chatMessagesRetrieved,
+    TResult? Function(ChatMessagesError<T> value)? chatMessagesError,
+    TResult? Function(MessageReceived<T> value)? messageReceived,
+    TResult? Function(MessageSent<T> value)? messageSent,
+    TResult? Function(MessageFailed<T> value)? messageFailed,
+  }) {
+    return messageFailed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(ChatsRetrievedLoading<T> value)? chatsRetrievedLoading,
+    TResult Function(ChatsRetrieved<T> value)? chatsRetrieved,
+    TResult Function(ChatsRetrievedError<T> value)? chatsRetrievedError,
+    TResult Function(ChatMessagesLoading<T> value)? chatMessagesLoading,
+    TResult Function(ChatMessagesRetrieved<T> value)? chatMessagesRetrieved,
+    TResult Function(ChatMessagesError<T> value)? chatMessagesError,
+    TResult Function(MessageReceived<T> value)? messageReceived,
+    TResult Function(MessageSent<T> value)? messageSent,
+    TResult Function(MessageFailed<T> value)? messageFailed,
+    required TResult orElse(),
+  }) {
+    if (messageFailed != null) {
+      return messageFailed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class MessageFailed<T> implements ChatState<T> {
+  const factory MessageFailed({required final String error}) =
+      _$MessageFailedImpl<T>;
+
+  String get error;
+  @JsonKey(ignore: true)
+  _$$MessageFailedImplCopyWith<T, _$MessageFailedImpl<T>> get copyWith =>
+      throw _privateConstructorUsedError;
 }

@@ -22,7 +22,7 @@ import '../../features/access/signin/data/models/signin_response.dart';
 
 part 'api_service.g.dart';
 
-@RestApi(baseUrl: "${ApiConstants.httpsProtocol}${ApiConstants.baseUrl}")
+@RestApi(baseUrl: "${ApiConstants.httpsProtocol}${ApiConstants.domain}")
 abstract class ApiService {
   factory ApiService(Dio dio, {String baseUrl}) = _ApiService;
 
