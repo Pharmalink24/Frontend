@@ -1,25 +1,29 @@
-
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:pharmalink/core/helpers/extensions.dart';
-import 'ff_button_widget.dart';
+import 'package:provider/provider.dart';
 import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/theme/styles.dart';
+import 'ff_button_widget.dart';
 import 'package:pharmalink/core/networking/networking.dart';
 
-class DeactivateBoxWidget extends StatefulWidget {
+
+
+class ActivateBoxWidget extends StatefulWidget {
+
   final String id;
 
-  const DeactivateBoxWidget({
+  const ActivateBoxWidget({
     super.key,
     required this.id,
   });
 
   @override
-  State<DeactivateBoxWidget> createState() => _DeactivateBoxWidgetState();
+  State<ActivateBoxWidget> createState() => _ActivateBoxWidgetState();
 }
 
-class _DeactivateBoxWidgetState extends State<DeactivateBoxWidget> {
+class _ActivateBoxWidgetState extends State<ActivateBoxWidget> {
 
   @override
   void setState(VoidCallback callback) {
@@ -30,7 +34,7 @@ class _DeactivateBoxWidgetState extends State<DeactivateBoxWidget> {
   void initState() {
     super.initState();
   }
-  void deactivatePrescription() async {
+  void activatePrescription() async {
     try {
       API api = API();
       var doctorInfo = await api.POST(
@@ -52,8 +56,6 @@ class _DeactivateBoxWidgetState extends State<DeactivateBoxWidget> {
       // getIt<Logger>().e(e);
     }
   }
-
-
 
 
   @override
@@ -96,7 +98,7 @@ class _DeactivateBoxWidgetState extends State<DeactivateBoxWidget> {
             Padding(
               padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 16),
               child: Text(
-                'Why do you want to deactivate your prescription?',
+                'Are you sure ?',
                 textAlign: TextAlign.center,
                 style: AppTextStyle.bodyMedium.copyWith(
                   fontFamily: 'Readex Pro',
@@ -109,35 +111,9 @@ class _DeactivateBoxWidgetState extends State<DeactivateBoxWidget> {
               padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
               child: FFButtonWidget(
                 onPressed: () {
-                  deactivatePrescription();
+                  activatePrescription();
                 },
-                text: 'I activated it by mistake.',
-                options: FFButtonOptions(
-                  width: double.infinity,
-                  height: 60,
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                  iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                  color: AppColors.primary,
-                  textStyle: AppTextStyle.bodyLarge.copyWith(
-                    fontFamily: 'Readex Pro',
-                    fontSize: 20,
-                    letterSpacing: 0,
-                  ),
-                  elevation: 2,
-                  borderSide: BorderSide(
-                    color: Colors.transparent,
-                    width: 1,
-                  ),
-                ),
-              ),
-            ),
-            Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
-              child: FFButtonWidget(
-                onPressed: () {
-                  deactivatePrescription();
-                },
-                text: 'Doctor\'s orders.',
+                text: 'Active !',
                 options: FFButtonOptions(
                   width: double.infinity,
                   height: 60,

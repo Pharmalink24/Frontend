@@ -16,12 +16,16 @@ class DoctorPrescriptionCard extends StatelessWidget {
     required this.date,
     required this.doctorImage,
     required this.prescriptionId,
+    required this.category,
+
   });
   final String firstName;
   final String lastName;
   final String date;
   final String doctorImage;
   final int prescriptionId;
+  final String category;
+
 
   @override
   Widget build(BuildContext context) {
@@ -38,6 +42,7 @@ class DoctorPrescriptionCard extends StatelessWidget {
                       id: prescriptionId.toString(),
                       image: doctorImage,
                       lName: lastName,
+                      category: category,
 
                 )),
           );

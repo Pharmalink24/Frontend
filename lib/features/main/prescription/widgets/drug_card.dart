@@ -6,6 +6,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:pharmalink/core/networking/networking.dart';
 
 
+
 class DrugCard extends StatelessWidget {
   const DrugCard({
     super.key,
@@ -21,9 +22,9 @@ class DrugCard extends StatelessWidget {
   final String tradeName;
   final String startDate;
   final String endDate;
-  final String quantity;
+  final int quantity;
   final String quantityUnit;
-  final String rate;
+  final double rate;
   final String rateUnit;
 
 

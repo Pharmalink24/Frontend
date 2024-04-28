@@ -69,6 +69,7 @@ class _AllPrescriptionScreenState extends State<AllPrescriptionScreen> {
                     ? '${ApiConstants.baseUrl}${doctorInfo[i]['doctorInfo']['image']}'
                     : 'https://drive.google.com/file/d/1KdhhjQ-zhDq2AAkJ7YgBujT5ykGMebg3/view',
                 prescriptionId: doctorInfo[i]['id'],
+                category: widget.category,
               ));
             }
           });
