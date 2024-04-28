@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pharmalink/features/main/home/logic/cubit/home_page_cubit.dart';
+import 'package:pharmalink/features/main/reminders/logic/cubit/reminders_cubit.dart';
+import 'package:pharmalink/features/main/reminders/models/reminder.dart';
 import '../../../../../core/theme/colors.dart';
 import '../../../../../core/theme/styles.dart';
-import '../../data/models/reminder.dart';
 
 class ReminderListTile extends StatefulWidget {
   final Reminder reminder;
@@ -26,7 +26,8 @@ class _ReminderListTileState extends State<ReminderListTile> {
       onChanged: (value) => setState(() {
         isChecked = value ?? false;
         // Make reminder checked
-        BlocProvider.of<HomePageCubit>(context).makeReminderChecked(widget.reminder.id);
+        BlocProvider.of<RemindersCubit>(context)
+            .makeReminderChecked(widget.reminder.id);
         // // Get reminders list
         // BlocProvider.of<HomePageCubit>(context).getReminderList();
       }),

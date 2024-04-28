@@ -3,7 +3,7 @@ import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/theme/styles.dart';
 import 'package:pharmalink/core/widgets/card_container_with_title.dart';
 import 'package:pharmalink/core/widgets/text_with_icon.dart';
-import '../../data/models/reminder.dart';
+import 'package:pharmalink/features/main/reminders/models/reminder.dart';
 import 'reminder_list_tile.dart';
 
 class RemindersContainer extends StatelessWidget {

@@ -2,9 +2,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pharmalink/core/theme/colors.dart';
-import 'package:pharmalink/features/main/home/logic/cubit/home_page_cubit.dart';
+import 'package:pharmalink/features/main/doctors/logic/cubit/doctors_cubit.dart';
 import 'package:pharmalink/features/main/home/ui/builders/header_builder.dart';
 import 'package:pharmalink/features/main/home/ui/builders/reminders_builder.dart';
+import 'package:pharmalink/features/main/profile/logic/cubit/profile_cubit.dart';
+import 'package:pharmalink/features/main/reminders/logic/cubit/reminders_cubit.dart';
 
 import 'builders/doctors_builder.dart';
 
@@ -21,13 +23,13 @@ class _HomeScreenState extends State<HomeScreen> {
     super.initState();
 
     // Get user data
-    BlocProvider.of<HomePageCubit>(context).getUserInformation();
-    
+    BlocProvider.of<ProfileCubit>(context).getUserProfile();
+
     // Get doctors list
-    BlocProvider.of<HomePageCubit>(context).getDoctorsList();
+    BlocProvider.of<DoctorsCubit>(context).emitDoctorsList();
 
     // Get reminders list
-    BlocProvider.of<HomePageCubit>(context).getRemindersList();
+    BlocProvider.of<RemindersCubit>(context).getRemindersList();
   }
 
   @override
@@ -37,14 +39,12 @@ class _HomeScreenState extends State<HomeScreen> {
       child: const SafeArea(
         child: Padding(
           padding: EdgeInsets.all(16.0),
-          child: Expanded(
-            child: Column(
-              children: [
-                HeaderBuilder(),
-                DoctorsBuilder(),
-                RemindersBuilder(),
-              ],
-            ),
+          child: Column(
+            children: [
+              HeaderBuilder(),
+              DoctorsBuilder(),
+              RemindersBuilder(),
+            ],
           ),
         ),
       ),

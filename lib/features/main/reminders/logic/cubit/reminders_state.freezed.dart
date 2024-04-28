@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'home_page_state.dart';
+part of 'reminders_state.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$HomePageState<T> {
+mixin _$RemindersState<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
@@ -132,16 +132,16 @@ mixin _$HomePageState<T> {
 }
 
 /// @nodoc
-abstract class $HomePageStateCopyWith<T, $Res> {
-  factory $HomePageStateCopyWith(
-          HomePageState<T> value, $Res Function(HomePageState<T>) then) =
-      _$HomePageStateCopyWithImpl<T, $Res, HomePageState<T>>;
+abstract class $RemindersStateCopyWith<T, $Res> {
+  factory $RemindersStateCopyWith(
+          RemindersState<T> value, $Res Function(RemindersState<T>) then) =
+      _$RemindersStateCopyWithImpl<T, $Res, RemindersState<T>>;
 }
 
 /// @nodoc
-class _$HomePageStateCopyWithImpl<T, $Res, $Val extends HomePageState<T>>
-    implements $HomePageStateCopyWith<T, $Res> {
-  _$HomePageStateCopyWithImpl(this._value, this._then);
+class _$RemindersStateCopyWithImpl<T, $Res, $Val extends RemindersState<T>>
+    implements $RemindersStateCopyWith<T, $Res> {
+  _$RemindersStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -158,7 +158,7 @@ abstract class _$$InitialImplCopyWith<T, $Res> {
 
 /// @nodoc
 class __$$InitialImplCopyWithImpl<T, $Res>
-    extends _$HomePageStateCopyWithImpl<T, $Res, _$InitialImpl<T>>
+    extends _$RemindersStateCopyWithImpl<T, $Res, _$InitialImpl<T>>
     implements _$$InitialImplCopyWith<T, $Res> {
   __$$InitialImplCopyWithImpl(
       _$InitialImpl<T> _value, $Res Function(_$InitialImpl<T>) _then)
@@ -172,7 +172,7 @@ class _$InitialImpl<T> implements _Initial<T> {
 
   @override
   String toString() {
-    return 'HomePageState<$T>.initial()';
+    return 'RemindersState<$T>.initial()';
   }
 
   @override
@@ -322,7 +322,7 @@ class _$InitialImpl<T> implements _Initial<T> {
   }
 }
 
-abstract class _Initial<T> implements HomePageState<T> {
+abstract class _Initial<T> implements RemindersState<T> {
   const factory _Initial() = _$InitialImpl<T>;
 }
 
@@ -335,7 +335,7 @@ abstract class _$$UserInfoLoadingImplCopyWith<T, $Res> {
 
 /// @nodoc
 class __$$UserInfoLoadingImplCopyWithImpl<T, $Res>
-    extends _$HomePageStateCopyWithImpl<T, $Res, _$UserInfoLoadingImpl<T>>
+    extends _$RemindersStateCopyWithImpl<T, $Res, _$UserInfoLoadingImpl<T>>
     implements _$$UserInfoLoadingImplCopyWith<T, $Res> {
   __$$UserInfoLoadingImplCopyWithImpl(_$UserInfoLoadingImpl<T> _value,
       $Res Function(_$UserInfoLoadingImpl<T>) _then)
@@ -349,7 +349,7 @@ class _$UserInfoLoadingImpl<T> implements UserInfoLoading<T> {
 
   @override
   String toString() {
-    return 'HomePageState<$T>.userInfoLoading()';
+    return 'RemindersState<$T>.userInfoLoading()';
   }
 
   @override
@@ -499,7 +499,7 @@ class _$UserInfoLoadingImpl<T> implements UserInfoLoading<T> {
   }
 }
 
-abstract class UserInfoLoading<T> implements HomePageState<T> {
+abstract class UserInfoLoading<T> implements RemindersState<T> {
   const factory UserInfoLoading() = _$UserInfoLoadingImpl<T>;
 }
 
@@ -514,7 +514,7 @@ abstract class _$$UserInfoSuccessImplCopyWith<T, $Res> {
 
 /// @nodoc
 class __$$UserInfoSuccessImplCopyWithImpl<T, $Res>
-    extends _$HomePageStateCopyWithImpl<T, $Res, _$UserInfoSuccessImpl<T>>
+    extends _$RemindersStateCopyWithImpl<T, $Res, _$UserInfoSuccessImpl<T>>
     implements _$$UserInfoSuccessImplCopyWith<T, $Res> {
   __$$UserInfoSuccessImplCopyWithImpl(_$UserInfoSuccessImpl<T> _value,
       $Res Function(_$UserInfoSuccessImpl<T>) _then)
@@ -544,7 +544,7 @@ class _$UserInfoSuccessImpl<T> implements UserInfoSuccess<T> {
 
   @override
   String toString() {
-    return 'HomePageState<$T>.userInfoSuccess(data: $data)';
+    return 'RemindersState<$T>.userInfoSuccess(data: $data)';
   }
 
   @override
@@ -704,7 +704,7 @@ class _$UserInfoSuccessImpl<T> implements UserInfoSuccess<T> {
   }
 }
 
-abstract class UserInfoSuccess<T> implements HomePageState<T> {
+abstract class UserInfoSuccess<T> implements RemindersState<T> {
   const factory UserInfoSuccess(final T data) = _$UserInfoSuccessImpl<T>;
 
   T get data;
@@ -724,7 +724,7 @@ abstract class _$$UserInfoErrorImplCopyWith<T, $Res> {
 
 /// @nodoc
 class __$$UserInfoErrorImplCopyWithImpl<T, $Res>
-    extends _$HomePageStateCopyWithImpl<T, $Res, _$UserInfoErrorImpl<T>>
+    extends _$RemindersStateCopyWithImpl<T, $Res, _$UserInfoErrorImpl<T>>
     implements _$$UserInfoErrorImplCopyWith<T, $Res> {
   __$$UserInfoErrorImplCopyWithImpl(_$UserInfoErrorImpl<T> _value,
       $Res Function(_$UserInfoErrorImpl<T>) _then)
@@ -754,7 +754,7 @@ class _$UserInfoErrorImpl<T> implements UserInfoError<T> {
 
   @override
   String toString() {
-    return 'HomePageState<$T>.userInfoError(error: $error)';
+    return 'RemindersState<$T>.userInfoError(error: $error)';
   }
 
   @override
@@ -913,7 +913,7 @@ class _$UserInfoErrorImpl<T> implements UserInfoError<T> {
   }
 }
 
-abstract class UserInfoError<T> implements HomePageState<T> {
+abstract class UserInfoError<T> implements RemindersState<T> {
   const factory UserInfoError({required final String error}) =
       _$UserInfoErrorImpl<T>;
 
@@ -932,7 +932,7 @@ abstract class _$$DoctorsLoadingImplCopyWith<T, $Res> {
 
 /// @nodoc
 class __$$DoctorsLoadingImplCopyWithImpl<T, $Res>
-    extends _$HomePageStateCopyWithImpl<T, $Res, _$DoctorsLoadingImpl<T>>
+    extends _$RemindersStateCopyWithImpl<T, $Res, _$DoctorsLoadingImpl<T>>
     implements _$$DoctorsLoadingImplCopyWith<T, $Res> {
   __$$DoctorsLoadingImplCopyWithImpl(_$DoctorsLoadingImpl<T> _value,
       $Res Function(_$DoctorsLoadingImpl<T>) _then)
@@ -946,7 +946,7 @@ class _$DoctorsLoadingImpl<T> implements DoctorsLoading<T> {
 
   @override
   String toString() {
-    return 'HomePageState<$T>.doctorsLoading()';
+    return 'RemindersState<$T>.doctorsLoading()';
   }
 
   @override
@@ -1096,7 +1096,7 @@ class _$DoctorsLoadingImpl<T> implements DoctorsLoading<T> {
   }
 }
 
-abstract class DoctorsLoading<T> implements HomePageState<T> {
+abstract class DoctorsLoading<T> implements RemindersState<T> {
   const factory DoctorsLoading() = _$DoctorsLoadingImpl<T>;
 }
 
@@ -1111,7 +1111,7 @@ abstract class _$$DoctorsSuccessImplCopyWith<T, $Res> {
 
 /// @nodoc
 class __$$DoctorsSuccessImplCopyWithImpl<T, $Res>
-    extends _$HomePageStateCopyWithImpl<T, $Res, _$DoctorsSuccessImpl<T>>
+    extends _$RemindersStateCopyWithImpl<T, $Res, _$DoctorsSuccessImpl<T>>
     implements _$$DoctorsSuccessImplCopyWith<T, $Res> {
   __$$DoctorsSuccessImplCopyWithImpl(_$DoctorsSuccessImpl<T> _value,
       $Res Function(_$DoctorsSuccessImpl<T>) _then)
@@ -1141,7 +1141,7 @@ class _$DoctorsSuccessImpl<T> implements DoctorsSuccess<T> {
 
   @override
   String toString() {
-    return 'HomePageState<$T>.doctorsSuccess(data: $data)';
+    return 'RemindersState<$T>.doctorsSuccess(data: $data)';
   }
 
   @override
@@ -1301,7 +1301,7 @@ class _$DoctorsSuccessImpl<T> implements DoctorsSuccess<T> {
   }
 }
 
-abstract class DoctorsSuccess<T> implements HomePageState<T> {
+abstract class DoctorsSuccess<T> implements RemindersState<T> {
   const factory DoctorsSuccess(final T data) = _$DoctorsSuccessImpl<T>;
 
   T get data;
@@ -1321,7 +1321,7 @@ abstract class _$$DoctorsErrorImplCopyWith<T, $Res> {
 
 /// @nodoc
 class __$$DoctorsErrorImplCopyWithImpl<T, $Res>
-    extends _$HomePageStateCopyWithImpl<T, $Res, _$DoctorsErrorImpl<T>>
+    extends _$RemindersStateCopyWithImpl<T, $Res, _$DoctorsErrorImpl<T>>
     implements _$$DoctorsErrorImplCopyWith<T, $Res> {
   __$$DoctorsErrorImplCopyWithImpl(
       _$DoctorsErrorImpl<T> _value, $Res Function(_$DoctorsErrorImpl<T>) _then)
@@ -1351,7 +1351,7 @@ class _$DoctorsErrorImpl<T> implements DoctorsError<T> {
 
   @override
   String toString() {
-    return 'HomePageState<$T>.doctorsError(error: $error)';
+    return 'RemindersState<$T>.doctorsError(error: $error)';
   }
 
   @override
@@ -1510,7 +1510,7 @@ class _$DoctorsErrorImpl<T> implements DoctorsError<T> {
   }
 }
 
-abstract class DoctorsError<T> implements HomePageState<T> {
+abstract class DoctorsError<T> implements RemindersState<T> {
   const factory DoctorsError({required final String error}) =
       _$DoctorsErrorImpl<T>;
 
@@ -1529,7 +1529,7 @@ abstract class _$$RemindersLoadingImplCopyWith<T, $Res> {
 
 /// @nodoc
 class __$$RemindersLoadingImplCopyWithImpl<T, $Res>
-    extends _$HomePageStateCopyWithImpl<T, $Res, _$RemindersLoadingImpl<T>>
+    extends _$RemindersStateCopyWithImpl<T, $Res, _$RemindersLoadingImpl<T>>
     implements _$$RemindersLoadingImplCopyWith<T, $Res> {
   __$$RemindersLoadingImplCopyWithImpl(_$RemindersLoadingImpl<T> _value,
       $Res Function(_$RemindersLoadingImpl<T>) _then)
@@ -1543,7 +1543,7 @@ class _$RemindersLoadingImpl<T> implements RemindersLoading<T> {
 
   @override
   String toString() {
-    return 'HomePageState<$T>.remindersLoading()';
+    return 'RemindersState<$T>.remindersLoading()';
   }
 
   @override
@@ -1694,7 +1694,7 @@ class _$RemindersLoadingImpl<T> implements RemindersLoading<T> {
   }
 }
 
-abstract class RemindersLoading<T> implements HomePageState<T> {
+abstract class RemindersLoading<T> implements RemindersState<T> {
   const factory RemindersLoading() = _$RemindersLoadingImpl<T>;
 }
 
@@ -1709,7 +1709,7 @@ abstract class _$$RemindersSuccessImplCopyWith<T, $Res> {
 
 /// @nodoc
 class __$$RemindersSuccessImplCopyWithImpl<T, $Res>
-    extends _$HomePageStateCopyWithImpl<T, $Res, _$RemindersSuccessImpl<T>>
+    extends _$RemindersStateCopyWithImpl<T, $Res, _$RemindersSuccessImpl<T>>
     implements _$$RemindersSuccessImplCopyWith<T, $Res> {
   __$$RemindersSuccessImplCopyWithImpl(_$RemindersSuccessImpl<T> _value,
       $Res Function(_$RemindersSuccessImpl<T>) _then)
@@ -1739,7 +1739,7 @@ class _$RemindersSuccessImpl<T> implements RemindersSuccess<T> {
 
   @override
   String toString() {
-    return 'HomePageState<$T>.remindersSuccess(data: $data)';
+    return 'RemindersState<$T>.remindersSuccess(data: $data)';
   }
 
   @override
@@ -1899,7 +1899,7 @@ class _$RemindersSuccessImpl<T> implements RemindersSuccess<T> {
   }
 }
 
-abstract class RemindersSuccess<T> implements HomePageState<T> {
+abstract class RemindersSuccess<T> implements RemindersState<T> {
   const factory RemindersSuccess(final T data) = _$RemindersSuccessImpl<T>;
 
   T get data;
@@ -1919,7 +1919,7 @@ abstract class _$$RemindersErrorImplCopyWith<T, $Res> {
 
 /// @nodoc
 class __$$RemindersErrorImplCopyWithImpl<T, $Res>
-    extends _$HomePageStateCopyWithImpl<T, $Res, _$RemindersErrorImpl<T>>
+    extends _$RemindersStateCopyWithImpl<T, $Res, _$RemindersErrorImpl<T>>
     implements _$$RemindersErrorImplCopyWith<T, $Res> {
   __$$RemindersErrorImplCopyWithImpl(_$RemindersErrorImpl<T> _value,
       $Res Function(_$RemindersErrorImpl<T>) _then)
@@ -1949,7 +1949,7 @@ class _$RemindersErrorImpl<T> implements RemindersError<T> {
 
   @override
   String toString() {
-    return 'HomePageState<$T>.remindersError(error: $error)';
+    return 'RemindersState<$T>.remindersError(error: $error)';
   }
 
   @override
@@ -2108,7 +2108,7 @@ class _$RemindersErrorImpl<T> implements RemindersError<T> {
   }
 }
 
-abstract class RemindersError<T> implements HomePageState<T> {
+abstract class RemindersError<T> implements RemindersState<T> {
   const factory RemindersError({required final String error}) =
       _$RemindersErrorImpl<T>;
 
@@ -2128,7 +2128,7 @@ abstract class _$$MakeReminderCheckedLoadingImplCopyWith<T, $Res> {
 
 /// @nodoc
 class __$$MakeReminderCheckedLoadingImplCopyWithImpl<T, $Res>
-    extends _$HomePageStateCopyWithImpl<T, $Res,
+    extends _$RemindersStateCopyWithImpl<T, $Res,
         _$MakeReminderCheckedLoadingImpl<T>>
     implements _$$MakeReminderCheckedLoadingImplCopyWith<T, $Res> {
   __$$MakeReminderCheckedLoadingImplCopyWithImpl(
@@ -2145,7 +2145,7 @@ class _$MakeReminderCheckedLoadingImpl<T>
 
   @override
   String toString() {
-    return 'HomePageState<$T>.makeReminderCheckedLoading()';
+    return 'RemindersState<$T>.makeReminderCheckedLoading()';
   }
 
   @override
@@ -2296,7 +2296,7 @@ class _$MakeReminderCheckedLoadingImpl<T>
   }
 }
 
-abstract class MakeReminderCheckedLoading<T> implements HomePageState<T> {
+abstract class MakeReminderCheckedLoading<T> implements RemindersState<T> {
   const factory MakeReminderCheckedLoading() =
       _$MakeReminderCheckedLoadingImpl<T>;
 }
@@ -2311,7 +2311,7 @@ abstract class _$$MakeReminderCheckedSuccessImplCopyWith<T, $Res> {
 
 /// @nodoc
 class __$$MakeReminderCheckedSuccessImplCopyWithImpl<T, $Res>
-    extends _$HomePageStateCopyWithImpl<T, $Res,
+    extends _$RemindersStateCopyWithImpl<T, $Res,
         _$MakeReminderCheckedSuccessImpl<T>>
     implements _$$MakeReminderCheckedSuccessImplCopyWith<T, $Res> {
   __$$MakeReminderCheckedSuccessImplCopyWithImpl(
@@ -2328,7 +2328,7 @@ class _$MakeReminderCheckedSuccessImpl<T>
 
   @override
   String toString() {
-    return 'HomePageState<$T>.makeReminderCheckedSuccess()';
+    return 'RemindersState<$T>.makeReminderCheckedSuccess()';
   }
 
   @override
@@ -2479,7 +2479,7 @@ class _$MakeReminderCheckedSuccessImpl<T>
   }
 }
 
-abstract class MakeReminderCheckedSuccess<T> implements HomePageState<T> {
+abstract class MakeReminderCheckedSuccess<T> implements RemindersState<T> {
   const factory MakeReminderCheckedSuccess() =
       _$MakeReminderCheckedSuccessImpl<T>;
 }
@@ -2496,7 +2496,7 @@ abstract class _$$MakeReminderCheckedErrorImplCopyWith<T, $Res> {
 
 /// @nodoc
 class __$$MakeReminderCheckedErrorImplCopyWithImpl<T, $Res>
-    extends _$HomePageStateCopyWithImpl<T, $Res,
+    extends _$RemindersStateCopyWithImpl<T, $Res,
         _$MakeReminderCheckedErrorImpl<T>>
     implements _$$MakeReminderCheckedErrorImplCopyWith<T, $Res> {
   __$$MakeReminderCheckedErrorImplCopyWithImpl(
@@ -2528,7 +2528,7 @@ class _$MakeReminderCheckedErrorImpl<T> implements MakeReminderCheckedError<T> {
 
   @override
   String toString() {
-    return 'HomePageState<$T>.makeReminderCheckedError(error: $error)';
+    return 'RemindersState<$T>.makeReminderCheckedError(error: $error)';
   }
 
   @override
@@ -2687,7 +2687,7 @@ class _$MakeReminderCheckedErrorImpl<T> implements MakeReminderCheckedError<T> {
   }
 }
 
-abstract class MakeReminderCheckedError<T> implements HomePageState<T> {
+abstract class MakeReminderCheckedError<T> implements RemindersState<T> {
   const factory MakeReminderCheckedError({required final String error}) =
       _$MakeReminderCheckedErrorImpl<T>;
 

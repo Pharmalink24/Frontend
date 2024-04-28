@@ -6,35 +6,13 @@ import 'package:pharmalink/core/networking/api_error_handler.dart';
 import 'package:pharmalink/core/networking/api_result.dart';
 import 'package:pharmalink/core/networking/api_service.dart';
 import 'package:pharmalink/core/shared_preferences/auth_prefs.dart';
-import 'package:pharmalink/features/main/home/data/models/reminder.dart';
 
-class HomePageRepo {
+import '../models/reminder.dart';
+
+class RemindersRepo {
   final ApiService _apiService;
 
-  HomePageRepo(this._apiService);
-
-  Future<ApiResult<User>> getUserInformation() async {
-    try {
-      final response = await _apiService
-          .getUserInformation(AuthSharedPrefs.getAccessToken());
-      return ApiResult.success(response);
-    } catch (error) {
-      getIt<Logger>().e(error);
-      return ApiResult.failure(ErrorHandler.handle(error));
-    }
-  }
-
-  Future<ApiResult<List<Doctor>>> getDoctors() async {
-    try {
-      final response = await _apiService.getDoctorList(
-        AuthSharedPrefs.getAccessToken(),
-      );
-      return ApiResult.success(response);
-    } catch (error) {
-      getIt<Logger>().e(error);
-      return ApiResult.failure(ErrorHandler.handle(error));
-    }
-  }
+  RemindersRepo(this._apiService);
 
   Future<ApiResult<List<Reminder>>> getRemindersList() async {
     try {

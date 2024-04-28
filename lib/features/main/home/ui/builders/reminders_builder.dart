@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pharmalink/core/widgets/app_shimmer.dart';
 import 'package:pharmalink/core/widgets/error_card.dart';
-import '../../data/models/reminder.dart';
-import '../../logic/cubit/home_page_cubit.dart';
-import '../../logic/cubit/home_page_state.dart';
+import 'package:pharmalink/features/main/reminders/logic/cubit/reminders_state.dart';
+import 'package:pharmalink/features/main/reminders/models/reminder.dart';
+import '../../../reminders/logic/cubit/reminders_cubit.dart';
 import '../widgets/reminders_container.dart';
 
 const kFlex = 6;
@@ -35,14 +35,14 @@ class RemindersBuilder extends StatelessWidget {
     return ErrorCard(
       message: error,
       onRetry: () {
-        BlocProvider.of<HomePageCubit>(context).getRemindersList();
+        BlocProvider.of<RemindersCubit>(context).getRemindersList();
       },
     );
   }
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<HomePageCubit, HomePageState>(
+    return BlocBuilder<RemindersCubit, RemindersState>(
       buildWhen: (previous, current) =>
           current is RemindersLoading ||
           current is RemindersSuccess ||
@@ -57,7 +57,7 @@ class RemindersBuilder extends StatelessWidget {
           var error = (state).error;
           return buildErrorWidget(context, error);
         } else {
-          return const SizedBox.shrink();
+          return buildLoadingWidget();
         }
       },
     );

@@ -5,10 +5,10 @@ import 'package:pharmalink/features/main/doctors/data/repo/doctors_repo.dart';
 import 'package:pharmalink/features/main/doctors/logic/cubit/doctors_cubit.dart';
 import 'package:pharmalink/features/main/drug_interaction/data/repo/drug_interaction_repo.dart';
 import 'package:pharmalink/features/main/drug_interaction/logic/cubit/drug_interaction_cubit.dart';
-import 'package:pharmalink/features/main/home/data/repo/home_page_repo.dart';
-import 'package:pharmalink/features/main/home/logic/cubit/home_page_cubit.dart';
 import 'package:pharmalink/features/main/profile/data/repo/profile_repo.dart';
 import 'package:pharmalink/features/main/profile/logic/cubit/profile_cubit.dart';
+import 'package:pharmalink/features/main/reminders/logic/cubit/reminders_cubit.dart';
+import 'package:pharmalink/features/main/reminders/repo/reminders_repo.dart';
 import 'package:pharmalink/features/main/settings/edit_profile/data/repo/edit_profile_repo.dart';
 import 'package:pharmalink/features/main/settings/edit_profile/logic/cubit/edit_profile_cubit.dart';
 import 'package:pharmalink/features/main/settings/change_password/data/repo/change_password_repo.dart';
@@ -49,8 +49,8 @@ Future<void> setupGetIt() async {
   getIt.registerFactory<VerificationCubit>(() => VerificationCubit(getIt()));
 
   // Home Page
-  getIt.registerLazySingleton<HomePageRepo>(() => HomePageRepo(getIt()));
-  getIt.registerFactory<HomePageCubit>(() => HomePageCubit(getIt()));
+  getIt.registerLazySingleton<RemindersRepo>(() => RemindersRepo(getIt()));
+  getIt.registerFactory<RemindersCubit>(() => RemindersCubit(getIt()));
 
   // Drug Interaction
   getIt.registerLazySingleton<DrugInteractionRepo>(
@@ -65,13 +65,13 @@ Future<void> setupGetIt() async {
   // Edit Profile
   getIt.registerLazySingleton<EditProfileRepo>(() => EditProfileRepo(getIt()));
   getIt.registerFactory<EditProfileCubit>(() => EditProfileCubit(getIt()));
-  
+
   // Change Password
   getIt.registerLazySingleton<ChangePasswordRepo>(
       () => ChangePasswordRepo(getIt()));
-  getIt.registerFactory<ChangePasswordCubit>(
-      () => ChangePasswordCubit(getIt()));
-  // Doctors 
+  getIt
+      .registerFactory<ChangePasswordCubit>(() => ChangePasswordCubit(getIt()));
+  // Doctors
   getIt.registerLazySingleton<DoctorsRepo>(() => DoctorsRepo(getIt()));
   getIt.registerFactory<DoctorsCubit>(() => DoctorsCubit(getIt()));
 

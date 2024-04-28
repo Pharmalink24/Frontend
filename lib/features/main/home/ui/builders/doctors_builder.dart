@@ -5,9 +5,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pharmalink/core/models/doctor.dart';
 import 'package:pharmalink/core/widgets/app_shimmer.dart';
 import 'package:pharmalink/core/widgets/error_card.dart';
-import 'package:pharmalink/features/main/home/data/models/home_page_response.dart';
-import 'package:pharmalink/features/main/home/logic/cubit/home_page_cubit.dart';
-import 'package:pharmalink/features/main/home/logic/cubit/home_page_state.dart';
+import 'package:pharmalink/features/main/doctors/logic/cubit/doctors_cubit.dart';
+import 'package:pharmalink/features/main/doctors/logic/cubit/doctors_state.dart';
 import '../widgets/doctors_container.dart';
 
 const kFlex = 4;
@@ -38,25 +37,25 @@ class DoctorsBuilder extends StatelessWidget {
     return ErrorCard(
       message: error,
       onRetry: () {
-        BlocProvider.of<HomePageCubit>(context).getDoctorsList();
+        BlocProvider.of<DoctorsCubit>(context).emitDoctorsList();
       },
     );
   }
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<HomePageCubit, HomePageState>(
+    return BlocBuilder<DoctorsCubit, DoctorsState>(
       buildWhen: (previous, current) =>
-          current is DoctorsLoading ||
-          current is DoctorsSuccess ||
-          current is DoctorsError,
+          current is Loading ||
+          current is Success ||
+          current is Error,
       builder: (context, state) {
-        if (state is DoctorsSuccess) {
-          var homePageData = state.data;
-          return buildSuccessWidget(homePageData);
-        } else if (state is DoctorsLoading) {
+        if (state is Success) {
+          var doctors = state.data;
+          return buildSuccessWidget(doctors);
+        } else if (state is Loading) {
           return buildLoadingWidget();
-        } else if (state is DoctorsError) {
+        } else if (state is Error) {
           var error = (state).error;
           return buildErrorWidget(context, error);
         } else {

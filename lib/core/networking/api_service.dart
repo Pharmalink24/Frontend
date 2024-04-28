@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:pharmalink/core/models/doctor.dart';
 import 'package:pharmalink/features/access/auth/data/models/refresh_token_response.dart';
-import 'package:pharmalink/features/main/home/data/models/reminder.dart';
+import 'package:pharmalink/features/main/reminders/models/reminder.dart';
 import 'package:pharmalink/features/main/settings/change_password/data/models/change_password_request_body.dart';
 import 'package:pharmalink/features/main/settings/change_password/data/models/change_password_response.dart';
 import 'package:retrofit/http.dart';
