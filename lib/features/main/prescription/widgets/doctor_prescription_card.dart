@@ -44,7 +44,8 @@ class DoctorPrescriptionCard extends StatelessWidget {
                       lName: lastName,
                       category: category,
 
-                )),
+                ),
+            ),
           );
         },
         child: Container(

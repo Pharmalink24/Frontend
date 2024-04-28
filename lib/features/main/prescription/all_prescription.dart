@@ -53,7 +53,7 @@ class _AllPrescriptionScreenState extends State<AllPrescriptionScreen> {
       try {
         API api = API();
         var doctorInfo = await api.GET(
-          'Prescription/user/prescriptions/Doctorinfo/?state=${widget.category}',
+          'Prescription/user/state-prescriptions/Doctorinfo/?state=${widget.category}',
           200,
           auth: true,
         );

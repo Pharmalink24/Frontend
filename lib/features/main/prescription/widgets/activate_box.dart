@@ -43,8 +43,10 @@ class _ActivateBoxWidgetState extends State<ActivateBoxWidget> {
         200,
         auth: true,
       );
+      print("tamam");
 
       if (doctorInfo != null) {
+        print(doctorInfo);
         setState(() {
           Navigator.pop(context, 'Activated');
         });

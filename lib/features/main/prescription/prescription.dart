@@ -1,11 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:pharmalink/core/helpers/extensions.dart';
 import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/theme/styles.dart';
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:pharmalink/core/networking/networking.dart';
 import 'package:pharmalink/features/main/prescription/doctor_info.dart';
 import 'package:logger/logger.dart';
@@ -14,7 +11,6 @@ import 'package:pharmalink/features/main/prescription/widgets/activate_box.dart'
 import 'widgets/drug_card.dart';
 import 'widgets/ff_button_widget.dart';
 import 'widgets/deactivate_box.dart';
-import 'widgets/widget_size.dart';
 
 class PrescriptionScreen extends StatefulWidget {
   static String url = "/prescription";
@@ -79,7 +75,7 @@ class _PrescriptionScreenState extends State<PrescriptionScreen> {
         throw "Exception";
       }
     } catch (e) {
-      // getIt<Logger>().e(e);
+       getIt<Logger>().e(e);
     }
   }
 
@@ -279,7 +275,7 @@ class _PrescriptionScreenState extends State<PrescriptionScreen> {
           ],
         ),
       ),
-      bottomNavigationBar: widget.category != "Inactive"
+      bottomNavigationBar: widget.category != "inactive"
         ? Padding(
         padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 16),
         child: FFButtonWidget(
@@ -290,15 +286,14 @@ class _PrescriptionScreenState extends State<PrescriptionScreen> {
               enableDrag: false,
               context: context,
               builder: (context) {
-                print(widget.category);
                 return Padding(
                   padding: MediaQuery.viewInsetsOf(context),
-                  child: widget.category == "Active" ? DeactivateBoxWidget(id: widget.id): ActivateBoxWidget(id: widget.id),
+                  child: widget.category == "active" ? DeactivateBoxWidget(id: widget.id): ActivateBoxWidget(id: widget.id),
                 );
               },
             ).then((value) => setState(() {}));
           },
-          text:   widget.category == "Active" ? 'Deactivate' : 'Activate',
+          text:   widget.category == "active" ? 'Deactivate' : 'Activate',
           options: FFButtonOptions(
             width: double.infinity,
             height: 40,
