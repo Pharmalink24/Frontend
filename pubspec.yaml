@@ -106,7 +106,3 @@ flutter:
         - asset: assets/fonts/ar/Cairo/Cairo-Medium.ttf
         - asset: assets/fonts/ar/Cairo/Cairo-Regular.ttf
         - asset: assets/fonts/ar/Cairo/Cairo-SemiBold.ttf
-
-
-flutter_intl:
-  enabled: true

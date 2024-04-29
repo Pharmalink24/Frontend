@@ -95,6 +95,15 @@
     "confirmChangeProfile": "Are you sure you want to change your profile?",
     "confirmSignOut": "Are you sure you want to sign out?",
 
-    "language": "Language"
+    "language": "Language",
+    "appName": "PharmaLink",
+    "retry": "Retry",
+
+    "informationChangedSuccessfully":"Information changed successfully",
+    "editYourProfile": "Edit your profile",
+    "saveChanges": "Save changes",
+
+    "changeYourPassword": "Change your password",
+    "changeYourPasswordDesc": "Please Enter your current password and new password to update your password."
 
 }

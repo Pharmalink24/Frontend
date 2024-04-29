@@ -8,6 +8,7 @@ import 'package:pharmalink/core/theme/styles.dart';
 import 'package:pharmalink/core/widgets/loading_overlay.dart';
 import 'package:pharmalink/features/main/settings/edit_profile/logic/cubit/edit_profile_cubit.dart';
 import 'package:pharmalink/features/main/settings/edit_profile/logic/cubit/edit_profile_state.dart';
+import 'package:pharmalink/generated/l10n.dart';
 
 class EditProfileBlocListener extends StatelessWidget {
   EditProfileBlocListener({super.key});
@@ -38,7 +39,7 @@ class EditProfileBlocListener extends StatelessWidget {
           TextButton(
             onPressed: () => context.pop(),
             child: Text(
-              "Got it",
+              S.of(context).gotIt,
               style: AppTextStyle.labelLarge.copyWith(
                 color: AppColors.alternateText,
               ),
@@ -61,7 +62,7 @@ class EditProfileBlocListener extends StatelessWidget {
           size: 32,
         ),
         content: Text(
-          "Information changed successfully",
+          S.of(context).informationChangedSuccessfully,
           style: AppTextStyle.titleLarge,
           textAlign: TextAlign.center,
         ),
@@ -69,7 +70,7 @@ class EditProfileBlocListener extends StatelessWidget {
           TextButton(
             onPressed: () => context.pushReplacementNamed(Routes.mainScreen),
             child: Text(
-              "Got it",
+              S.of(context).gotIt,
               style: AppTextStyle.labelLarge.copyWith(
                 color: AppColors.alternateText,
               ),

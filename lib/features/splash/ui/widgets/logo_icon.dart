@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pharmalink/generated/l10n.dart';
 import '../../../../core/helpers/constants/paths.dart';
 import '../../../../core/theme/colors.dart';
 import '../../../../core/theme/fonts.dart';
@@ -19,7 +20,7 @@ class LogoIcon extends StatelessWidget {
           color: AppColors.primary,
         ),
         Text(
-          "PharmaLink",
+          S.of(context).appName,
           textAlign: TextAlign.center,
           style: AppTextStyle.displayMedium.copyWith(
             color: AppColors.secondary,

@@ -5,6 +5,7 @@ import 'package:pharmalink/core/theme/styles.dart';
 import 'package:pharmalink/core/widgets/form/form_button.dart';
 import 'package:pharmalink/core/widgets/form/form_view.dart';
 import 'package:pharmalink/features/main/settings/change_password/ui/widgets/change_password_bloc_listener.dart';
+import 'package:pharmalink/generated/l10n.dart';
 
 import '../data/models/change_password_fields.dart';
 import '../logic/cubit/change_password_cubit.dart';
@@ -40,7 +41,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
         ),
         backgroundColor: AppColors.primaryBackground,
         title: Text(
-          'Change Password',
+          S.of(context).changePassword,
           style: AppTextStyle.displayMedium.copyWith(
             fontSize: 28,
           ),
@@ -52,7 +53,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
           padding: const EdgeInsets.symmetric(vertical: 32.0, horizontal: 22.0),
           children: [
             Text(
-              "Please Enter your current password and new password to update your password.",
+              S.of(context).changeYourPasswordDesc,
               style: AppTextStyle.bodyLarge.copyWith(
                 color: AppColors.secondaryText,
               ),
@@ -63,7 +64,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
               decorationType: DecorationType.secondary,
             ),
             FormButton(
-              text: "Update password",
+              text: S.of(context).update,
               onPressed: () => changePassword(context),
               color: AppColors.primary,
               borderRadius: 12.0,

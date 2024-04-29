@@ -8,6 +8,7 @@ import 'package:pharmalink/core/widgets/loading_overlay.dart';
 import 'package:pharmalink/features/main/settings/change_password/data/models/change_password_response.dart';
 import 'package:pharmalink/features/main/settings/change_password/logic/cubit/change_password_cubit.dart';
 import 'package:pharmalink/features/main/settings/change_password/logic/cubit/change_password_state.dart';
+import 'package:pharmalink/generated/l10n.dart';
 
 class ChangePasswordBlocListener extends StatelessWidget {
   ChangePasswordBlocListener({super.key});
@@ -38,7 +39,7 @@ class ChangePasswordBlocListener extends StatelessWidget {
           TextButton(
             onPressed: () => context.pop(),
             child: Text(
-              "Got it",
+              S.of(context).gotIt,
               style: AppTextStyle.labelLarge.copyWith(
                 color: AppColors.alternateText,
               ),
@@ -69,7 +70,7 @@ class ChangePasswordBlocListener extends StatelessWidget {
           TextButton(
             onPressed: () => context.pushReplacementNamed(Routes.mainScreen),
             child: Text(
-              "Got it",
+              S.of(context).gotIt,
               style: AppTextStyle.labelLarge.copyWith(
                 color: AppColors.alternateText,
               ),

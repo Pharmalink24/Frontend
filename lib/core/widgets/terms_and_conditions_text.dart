@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pharmalink/generated/l10n.dart';
-import '../theme/colors.dart';
+ import '../theme/colors.dart';
 import '../theme/styles.dart';
 
 class TermsAndConditionsText extends StatelessWidget {

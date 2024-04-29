@@ -95,5 +95,15 @@
     "confirmChangeProfile": "هل أنت متأكد أنك تريد تغيير ملفك الشخصي؟",
     "confirmSignOut": "هل أنت متأكد أنك تريد تسجيل الخروج؟",
 
-    "language": "اللغة"
+    "language": "اللغة",
+    "appName": "فارمالينك",
+    "retry": "أعد المحاولة",
+
+    "informationChangedSuccessfully": "تم تغيير المعلومات بنجاح",
+    "editYourProfile": "تعديل ملفك الشخصي",
+    "saveChanges": "حفظ التغييرات",
+
+    "changeYourPassword": "تغيير كلمة المرور",
+    "changeYourPasswordDesc": "لتغيير كلمة المرور، يجب عليك إدخال كلمة المرور الحالية وكلمة المرور الجديدة."
+
 }

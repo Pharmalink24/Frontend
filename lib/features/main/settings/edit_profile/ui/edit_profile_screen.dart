@@ -3,12 +3,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/theme/styles.dart';
 import 'package:pharmalink/core/widgets/form/form_button.dart';
-import 'package:pharmalink/core/widgets/form/form_view.dart';
 import 'package:pharmalink/features/main/settings/edit_profile/data/models/edit_profile_fields.dart';
 import 'package:pharmalink/features/main/settings/edit_profile/logic/cubit/edit_profile_cubit.dart';
-
+import 'package:pharmalink/generated/l10n.dart';
 import 'widgets/edit_profile_bloc_listener.dart';
-import 'widgets/retreive_profile_bloc_builder.dart';
+import 'widgets/retrieve_profile_bloc_builder.dart';
 
 class EditProfileScreen extends StatefulWidget {
   const EditProfileScreen({super.key});
@@ -50,7 +49,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
         ),
         backgroundColor: AppColors.primaryBackground,
         title: Text(
-          'Edit Profile',
+          S.of(context).editProfile,
           style: AppTextStyle.displayMedium.copyWith(
             fontSize: 28,
           ),
@@ -62,14 +61,14 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
           padding: const EdgeInsets.symmetric(vertical: 32.0, horizontal: 22.0),
           children: [
             Text(
-              "Edit your profile",
+              S.of(context).editYourProfile,
               style: AppTextStyle.headlineLarge.copyWith(
                 color: AppColors.secondaryText,
               ),
             ),
             const RetrieveProfileBlocBuilder(),
             FormButton(
-              text: "Update Profile",
+              text: S.of(context).saveChanges,
               onPressed: () => changePassword(context),
               color: AppColors.primary,
               borderRadius: 12.0,

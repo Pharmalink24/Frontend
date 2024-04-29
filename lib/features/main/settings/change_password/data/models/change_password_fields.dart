@@ -4,6 +4,7 @@ import "package:pharmalink/core/helpers/classes/field_type.dart";
 Map<String, Field> changePasswordFields = {
   "currentPassword": Field(
     "Current Password",
+    arabicName: "كلمة المرور الحالية",
     inputType: FieldType.password,
     dbName: "old_password",
     regex:
@@ -11,6 +12,7 @@ Map<String, Field> changePasswordFields = {
   ),
   "newPassword": Field(
     "New Password",
+    arabicName: "كلمة المرور الجديدة",
     inputType: FieldType.password,
     dbName: "new_password",
     regex:
@@ -18,6 +20,7 @@ Map<String, Field> changePasswordFields = {
   ),
   "confirmPassword": Field(
     "Confirm Password",
+    arabicName: "تأكيد كلمة المرور",
     inputType: FieldType.password,
     dbName: null,
     confirmationValue: "newPassword",
