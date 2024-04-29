@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../core/theme/colors.dart';
 import '../../../core/theme/styles.dart';
-import 'active_prescription.dart';
+import 'all_prescription.dart';
 import 'inactive_prescription.dart';
 import 'new_prescription.dart';
 import 'widgets/category_widget.dart';
@@ -13,35 +13,38 @@ class LandingPrescriptionScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Column(
-        children: [
-          Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(16, 32, 16, 16),
-            child: Text('Prescriptions',
-                style: AppTextStyle.displayMedium.copyWith(
-                  fontSize: 45,
-                )),
-          ),
-          PrescriptionCategoryWidget(
-            titleText: 'New',
-            descriptionText: 'View or activate new prescriptions.',
-            backgroundColor: AppColors.primary,
-            followingScreen: NewPrescriptionScreen(),
-          ),
-          PrescriptionCategoryWidget(
-            titleText: 'Active',
-            descriptionText: 'View or deactivate new prescriptions.',
-            backgroundColor: AppColors.secondary,
-            followingScreen: ActivePrescriptionScreen(),
-          ),
-          PrescriptionCategoryWidget(
-            titleText: 'Inactive',
-            descriptionText: 'View or reactivate past prescriptions.',
-            backgroundColor: AppColors.alternate,
-            followingScreen: InactivePrescriptionScreen(),
-          ),
-        ],
+    return Scaffold(
+      backgroundColor: AppColors.primaryBackground,
+      body: SafeArea(
+        child: ListView(
+          children: [
+            Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(16, 32, 16, 16),
+              child: Text('Prescriptions',
+                  style: AppTextStyle.displayMedium.copyWith(
+                    fontSize: 45,
+                  )),
+            ),
+            PrescriptionCategoryWidget(
+              titleText: 'New',
+              descriptionText: 'View or activate new prescriptions.',
+              backgroundColor: AppColors.primary,
+              followingScreen: AllPrescriptionScreen(category:'new'),
+            ),
+            PrescriptionCategoryWidget(
+              titleText: 'Active',
+              descriptionText: 'View or deactivate new prescriptions.',
+              backgroundColor: AppColors.secondary,
+              followingScreen: AllPrescriptionScreen(category:'active'),
+            ),
+            PrescriptionCategoryWidget(
+              titleText: 'Inactive',
+              descriptionText: 'View or reactivate past prescriptions.',
+              backgroundColor: AppColors.alternate,
+              followingScreen: AllPrescriptionScreen(category:'inactive'),
+            ),
+          ],
+        ),
       ),
     );
   }
