@@ -38,3 +38,9 @@ extension StringTime on TimeOfDay {
     return hour >= 12 ? "pm" : "am";
   }
 }
+
+extension StringExtension on String {
+  String capitalize() {
+    return "${this[0].toUpperCase()}${this.substring(1).toLowerCase()}";
+  }
+}

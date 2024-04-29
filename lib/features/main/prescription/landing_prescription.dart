@@ -25,19 +25,19 @@ class LandingPrescriptionScreen extends StatelessWidget {
             ),
             const PrescriptionCategoryWidget(
               titleText: 'New',
-              descriptionText: 'View or activate new prescriptions.',
+              descriptionText: 'View or activate new drugs.',
               backgroundColor: AppColors.primary,
               followingScreen: AllPrescriptionScreen(category: 'new'),
             ),
             const PrescriptionCategoryWidget(
               titleText: 'Active',
-              descriptionText: 'View or deactivate new prescriptions.',
+              descriptionText: 'View or deactivate new drugs.',
               backgroundColor: AppColors.secondary,
               followingScreen: AllPrescriptionScreen(category: 'active'),
             ),
             const PrescriptionCategoryWidget(
               titleText: 'Inactive',
-              descriptionText: 'View or reactivate past prescriptions.',
+              descriptionText: 'View or reactivate past drugs.',
               backgroundColor: AppColors.alternate,
               followingScreen: AllPrescriptionScreen(category: 'inactive'),
             ),

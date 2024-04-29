@@ -28,7 +28,7 @@ class PrescriptionCategoryWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 0),
+      padding: const EdgeInsetsDirectional.fromSTEB(10, 10, 10, 0),
       child: GestureDetector(
         onTap: () {
           Navigator.push(

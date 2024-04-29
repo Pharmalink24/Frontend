@@ -1,7 +1,6 @@
 // Flutter Packages
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
+import 'package:pharmalink/core/helpers/extensions.dart';
 // Components Packages
 import 'package:pharmalink/features/main/prescription/widgets/doctor_prescription_card.dart';
 // Utilities Packages
@@ -24,7 +23,6 @@ String formatDateTime(String dateTimeString) {
   return formattedDate;
 }
 
-
 class AllPrescriptionScreen extends StatefulWidget {
   static String url = "/active_prescription";
   final String category;
@@ -34,10 +32,8 @@ class AllPrescriptionScreen extends StatefulWidget {
     required this.category,
   });
 
-
-@override
-  _AllPrescriptionScreenState createState() =>
-      _AllPrescriptionScreenState();
+  @override
+  _AllPrescriptionScreenState createState() => _AllPrescriptionScreenState();
 }
 
 class _AllPrescriptionScreenState extends State<AllPrescriptionScreen> {
@@ -50,36 +46,35 @@ class _AllPrescriptionScreenState extends State<AllPrescriptionScreen> {
   }
 
   void getData() async {
-      try {
-        API api = API();
-        var doctorInfo = await api.GET(
-          'Prescription/user/state-prescriptions/Doctorinfo/?state=${widget.category}',
-          200,
-          auth: true,
-        );
+    try {
+      API api = API();
+      var doctorInfo = await api.GET(
+        'Prescription/user/state-prescriptions/Doctorinfo/?state=${widget.category}',
+        200,
+        auth: true,
+      );
 
-        if (doctorInfo != null) {
-          setState(() {
-            for (var i = 0; i < doctorInfo.length; i++) {
-              doctorCards.add(DoctorPrescriptionCard(
-                firstName: doctorInfo[i]['doctorInfo']['fname'],
-                lastName: doctorInfo[i]['doctorInfo']['lname'],
-                date: formatDateTime(doctorInfo[i]['created_at']),
-                doctorImage: doctorInfo[i]['doctorInfo']['image'] != null
-                    ? '${ApiConstants.baseUrl}${doctorInfo[i]['doctorInfo']['image']}'
-                    : 'https://drive.google.com/file/d/1KdhhjQ-zhDq2AAkJ7YgBujT5ykGMebg3/view',
-                prescriptionId: doctorInfo[i]['id'],
-                category: widget.category,
-              ));
-            }
-          });
-        } else {
-          throw "Exception";
-        }
+      if (doctorInfo != null) {
+        setState(() {
+          for (var i = 0; i < doctorInfo.length; i++) {
+            doctorCards.add(DoctorPrescriptionCard(
+              firstName: doctorInfo[i]['doctorInfo']['fname'],
+              lastName: doctorInfo[i]['doctorInfo']['lname'],
+              date: formatDateTime(doctorInfo[i]['created_at']),
+              doctorImage: doctorInfo[i]['doctorInfo']['image'] != null
+                  ? '${ApiConstants.baseUrl}${doctorInfo[i]['doctorInfo']['image']}'
+                  : 'https://drive.google.com/file/d/1KdhhjQ-zhDq2AAkJ7YgBujT5ykGMebg3/view',
+              prescriptionId: doctorInfo[i]['id'],
+              category: widget.category,
+            ));
+          }
+        });
+      } else {
+        throw "Exception";
       }
-      catch (e) {
-        // getIt<Logger>().e(e);
-      }
+    } catch (e) {
+      // getIt<Logger>().e(e);
+    }
   }
 
   @override
@@ -90,7 +85,7 @@ class _AllPrescriptionScreenState extends State<AllPrescriptionScreen> {
         iconTheme: const IconThemeData(color: AppColors.secondaryText),
         backgroundColor: AppColors.primaryBackground,
         title: Text(
-          '${widget.category} Prescriptions',
+          '${widget.category.capitalize()} Drugs',
           style: AppTextStyle.displayMedium.copyWith(
             fontSize: 28,
           ),
