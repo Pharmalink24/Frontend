@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:date_time_picker/date_time_picker.dart';
 import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/theme/styles.dart';
+import 'package:date_field/date_field.dart';
 
 class DatePicker extends StatelessWidget {
   final String hintText;
   final void Function(String)? onChanged;
-  final bool enableSuggestions;
-  final bool autocorrect;
   final InputDecoration decoration;
   final Icon? icon;
   final TextEditingController? controller;
@@ -20,35 +18,43 @@ class DatePicker extends StatelessWidget {
     required this.decoration,
     this.onChanged,
     this.controller,
-    this.enableSuggestions = true,
-    this.autocorrect = true,
     this.icon = const Icon(Icons.event),
   });
+
+  String dateFormatter(DateTime? date) {
+    if (date == null) {
+      return '';
+    }
+    return '${date.year}-${date.month}-${date.day}';
+  }
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsetsDirectional.fromSTEB(0, 8, 0, 16),
-      child: DateTimePicker(
-        controller: controller,
-        autofocus: false,
-        autocorrect: autocorrect,
-        enableSuggestions: enableSuggestions,
+      child: DateTimeFormField(
+        mode: DateTimeFieldPickerMode.date,
         decoration: decoration.copyWith(
           hintText: hintText,
           labelText: hintText,
+          helperText: 'yyyy-MM-dd',
         ),
+        autofocus: false,
         style: AppTextStyle.labelSmall.copyWith(
           color: AppColors.secondary,
         ),
-        type: DateTimePickerType.date,
-        dateMask: 'yyyy-MM-dd',
         firstDate: DateTime(1900),
         lastDate: DateTime.now(),
-        icon: icon,
-        dateLabelText: hintText,
-        onChanged: onChanged,
-        validator: (value) => validator(value),
+        onChanged: (value) {
+          var date = dateFormatter(value);
+
+          controller?.text = date;
+          if (onChanged != null) onChanged!(date);
+        },
+        validator: (value) {
+          var date = dateFormatter(value);
+          return validator(date);
+        },
       ),
     );
   }
