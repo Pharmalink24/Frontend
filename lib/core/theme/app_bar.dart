@@ -10,11 +10,11 @@ class MyAppBar {
 
   static AppBar withLogoAndLabel = AppBar(
     automaticallyImplyLeading: false,
-    title: const Row(
+    title: Row(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        ImageIcon(
+        const ImageIcon(
           AssetImage("${AppPaths.images}/logo.png"),
           size: kAppBarLogoSize,
           color: AppColors.alternateText,
@@ -33,7 +33,7 @@ class MyAppBar {
 
   static AppBar withoutLogo = AppBar(
     automaticallyImplyLeading: false,
-    title: const Row(
+    title: Row(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [

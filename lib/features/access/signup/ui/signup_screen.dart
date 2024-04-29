@@ -10,6 +10,7 @@ import 'package:pharmalink/features/access/signup/data/models/signup_fields.dart
 import 'package:pharmalink/core/theme/app_bar.dart';
 import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/features/access/signup/ui/widgets/signup_tab.dart';
+import 'package:pharmalink/generated/l10n.dart';
 
 import '../../../../core/widgets/form/form_button.dart';
 import 'widgets/signup_bloc_listener.dart';
@@ -63,7 +64,7 @@ class _SignupScreenState extends State<SignupScreen> {
               model: signUpFields,
             ),
             FormButton(
-              text: "Create an account",
+              text: S.of(context).signUp,
               onPressed: () => validationThenSignup(context),
             ),
             const TermsAndConditionsText(),

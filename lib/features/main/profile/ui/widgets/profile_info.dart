@@ -5,6 +5,7 @@ import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/theme/styles.dart';
 import 'package:pharmalink/core/widgets/card_container_with_title.dart';
 import 'package:pharmalink/core/models/user.dart';
+import 'package:pharmalink/generated/l10n.dart';
 
 import 'dark_mode_switch.dart';
 
@@ -33,7 +34,7 @@ class _ProfileInfoState extends State<ProfileInfo> {
     );
 
     return CardContainerWithTitle(
-      title: 'Profile',
+      title: S.of(context).profile,
       flex: 4,
       textStyle: AppTextStyle.displaySmall,
       padding: const EdgeInsets.only(left: 16.0, right: 16.0, top: 16.0),

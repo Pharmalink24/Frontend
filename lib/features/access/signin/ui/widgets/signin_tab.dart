@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:pharmalink/core/localization/localization.dart';
+import 'package:pharmalink/generated/l10n.dart';
 import '../../../../../core/routes/routes.dart';
 import '../../../../../core/theme/colors.dart';
 import '../../../../../core/theme/fonts.dart';
@@ -12,9 +14,13 @@ class SigninTab extends StatelessWidget {
     return Row(
       children: [
         Padding(
-          padding: const EdgeInsets.only(right: 16.0, bottom: 12.0),
+          padding: EdgeInsets.only(
+            left: isArabic() ? 16.0 : 0.0,
+            right: isArabic() ? 0.0 : 16.0,
+            bottom: 12.0,
+          ),
           child: Text(
-            "Sign In",
+            S.of(context).signIn,
             style: AppTextStyle.displaySmall.copyWith(
               fontFamily: AppFonts.tertiary,
               color: AppColors.primaryText,
@@ -22,13 +28,17 @@ class SigninTab extends StatelessWidget {
           ),
         ),
         Padding(
-          padding: const EdgeInsets.only(left: 16.0, bottom: 12.0),
+          padding: EdgeInsets.only(
+            left: isArabic() ? 0.0 : 16.0,
+            right: isArabic() ? 16.0 : 0.0,
+            bottom: 12.0,
+          ),
           child: GestureDetector(
             onTap: () {
               Navigator.pushNamed(context, Routes.signUpScreen);
             },
             child: Text(
-              "Sign Up",
+              S.of(context).signUp,
               style: AppTextStyle.displaySmall.copyWith(
                 fontFamily: AppFonts.tertiary,
                 color: AppColors.secondaryText,

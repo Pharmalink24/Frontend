@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:pharmalink/core/theme/styles.dart';
+import 'package:pharmalink/generated/l10n.dart';
 
 class AccountSettingsHeader extends StatelessWidget {
   const AccountSettingsHeader({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Row(
+    return Row(
       children: [
         Padding(
-          padding: EdgeInsets.symmetric(vertical: 4.0),
+          padding: const EdgeInsets.symmetric(vertical: 4.0),
           child: Text(
-            'Account Settings',
+            S.of(context).accountSettings,
             style: AppTextStyle.labelMedium,
           ),
         ),

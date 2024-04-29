@@ -1,109 +1,110 @@
 // Flutter Packages
 import 'package:flutter/material.dart';
+import 'package:pharmalink/core/localization/localization.dart';
 import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/theme/fonts.dart';
 
 // Text Styles
 class AppTextStyle {
-  static const TextStyle displayLarge = TextStyle(
+  static TextStyle displayLarge = TextStyle(
     fontFamily: AppFonts.primary,
     color: AppColors.primaryText,
     fontWeight: FontWeight.normal,
     fontSize: 64.0,
   );
 
-  static const TextStyle displayMedium = TextStyle(
+  static TextStyle displayMedium = TextStyle(
     fontFamily: AppFonts.primary,
     color: AppColors.primaryText,
     fontWeight: FontWeight.normal,
     fontSize: 44.0,
   );
 
-  static const TextStyle displaySmall = TextStyle(
+  static TextStyle displaySmall = TextStyle(
     fontFamily: AppFonts.primary,
     color: AppColors.primaryText,
     fontWeight: FontWeight.w600,
-    fontSize: 36.0,
+    fontSize: isArabic() ? 28.0 : 36.0,
   );
 
-  static const TextStyle headlineLarge = TextStyle(
+  static TextStyle headlineLarge = TextStyle(
     fontFamily: AppFonts.primary,
     color: AppColors.primaryText,
     fontWeight: FontWeight.w600,
     fontSize: 32.0,
   );
 
-  static const TextStyle headlineMedium = TextStyle(
+  static TextStyle headlineMedium = TextStyle(
     fontFamily: AppFonts.primary,
     color: AppColors.primaryText,
     fontWeight: FontWeight.normal,
     fontSize: 24.0,
   );
 
-  static const TextStyle headlineSmall = TextStyle(
+  static TextStyle headlineSmall = TextStyle(
     fontFamily: AppFonts.primary,
     color: AppColors.primaryText,
     fontWeight: FontWeight.w500,
     fontSize: 24.0,
   );
 
-  static const TextStyle titleLarge = TextStyle(
+  static TextStyle titleLarge = TextStyle(
     fontFamily: AppFonts.primary,
     color: AppColors.primaryText,
     fontWeight: FontWeight.w500,
     fontSize: 22.0,
   );
 
-  static const TextStyle titleMedium = TextStyle(
+  static TextStyle titleMedium = TextStyle(
     fontFamily: AppFonts.secondary,
     color: AppColors.info,
     fontWeight: FontWeight.normal,
     fontSize: 18.0,
   );
 
-  static const TextStyle titleSmall = TextStyle(
+  static TextStyle titleSmall = TextStyle(
     fontFamily: AppFonts.secondary,
     color: AppColors.info,
     fontWeight: FontWeight.w500,
     fontSize: 16.0,
   );
 
-  static const TextStyle labelLarge = TextStyle(
+  static TextStyle labelLarge = TextStyle(
     fontFamily: AppFonts.secondary,
     color: AppColors.secondaryText,
     fontWeight: FontWeight.normal,
     fontSize: 16.0,
   );
 
-  static const TextStyle labelMedium = TextStyle(
+  static TextStyle labelMedium = TextStyle(
     fontFamily: AppFonts.secondary,
     color: AppColors.secondaryText,
     fontWeight: FontWeight.normal,
     fontSize: 14.0,
   );
 
-  static const TextStyle labelSmall = TextStyle(
+  static TextStyle labelSmall = TextStyle(
     fontFamily: AppFonts.secondary,
     color: AppColors.secondaryText,
     fontWeight: FontWeight.normal,
     fontSize: 12.0,
   );
 
-  static const TextStyle bodyLarge = TextStyle(
+  static TextStyle bodyLarge = TextStyle(
     fontFamily: AppFonts.secondary,
     color: AppColors.primaryText,
     fontWeight: FontWeight.normal,
     fontSize: 16.0,
   );
 
-  static const TextStyle bodyMedium = TextStyle(
+  static TextStyle bodyMedium = TextStyle(
     fontFamily: AppFonts.secondary,
     color: AppColors.primaryText,
     fontWeight: FontWeight.normal,
     fontSize: 14.0,
   );
 
-  static const TextStyle bodySmall = TextStyle(
+  static TextStyle bodySmall = TextStyle(
     fontFamily: AppFonts.secondary,
     color: AppColors.primaryText,
     fontWeight: FontWeight.normal,
@@ -121,34 +122,34 @@ class AppTextFieldDecoration {
   static const _kSearchBorderRadius = 8.0;
 
   // Input Decoration for text field
-  static const InputDecoration _generalInputDecoration = InputDecoration(
+  static final InputDecoration _generalInputDecoration = InputDecoration(
     isDense: true,
     labelStyle: AppTextStyle.labelMedium,
-    enabledBorder: OutlineInputBorder(
+    enabledBorder: const OutlineInputBorder(
       borderSide: BorderSide(
         width: _kBorderWidth,
       ),
     ),
-    focusedBorder: OutlineInputBorder(
+    focusedBorder: const OutlineInputBorder(
       borderSide: BorderSide(
         color: AppColors.secondary,
         width: _kBorderWidth,
       ),
     ),
-    errorBorder: OutlineInputBorder(
+    errorBorder: const OutlineInputBorder(
       borderSide: BorderSide(
         color: AppColors.error,
         width: _kBorderWidth,
       ),
     ),
-    focusedErrorBorder: OutlineInputBorder(
+    focusedErrorBorder: const OutlineInputBorder(
       borderSide: BorderSide(
         color: AppColors.error,
         width: _kBorderWidth,
       ),
     ),
     filled: true,
-    contentPadding: EdgeInsets.all(_kPadding),
+    contentPadding: const EdgeInsets.all(_kPadding),
   );
 
   static InputDecoration primaryInputDecoration =

@@ -1,8 +1,10 @@
 // ignore_for_file: constant_identifier_names
 
 import 'package:flutter/material.dart';
+import 'package:pharmalink/core/helpers/classes/field_item.dart';
 import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/widgets/form/form_drop_down_button.dart';
+import 'package:pharmalink/generated/l10n.dart';
 
 enum Language { English, Arabic }
 
@@ -23,6 +25,15 @@ extension LanguageExtension on Language {
         return "en";
       case Language.Arabic:
         return "ar";
+    }
+  }
+
+  String get valueInArabic {
+    switch (this) {
+      case Language.English:
+        return "الإنجليزية";
+      case Language.Arabic:
+        return "العربية";
     }
   }
 }
@@ -49,12 +60,20 @@ class _LanguageDropDownState extends State<LanguageDropDown> {
           borderRadius: BorderRadius.circular(8.0),
           color: AppColors.primaryBackground,
         ),
-        hintText: "Language",
+        hintText: S.of(context).language,
         value: _language.key,
-        items: {
-          Language.English.key: Language.English.value,
-          Language.Arabic.key: Language.Arabic.value,
-        },
+        items: [
+          DropDownFieldItem(
+            key: Language.English.key,
+            value: Language.English.value,
+            valueInArabic: Language.English.valueInArabic,
+          ),
+          DropDownFieldItem(
+            key: Language.Arabic.key,
+            value: Language.Arabic.value,
+            valueInArabic: Language.Arabic.valueInArabic,
+          ),
+        ],
         onChanged: (value) {
           setState(() {
             if (value == Language.English.key) {

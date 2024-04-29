@@ -1,5 +1,6 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
+import 'package:pharmalink/generated/l10n.dart';
 import '../../../../../core/theme/colors.dart';
 import '../../../../../core/theme/fonts.dart';
 import '../../../../../core/theme/styles.dart';
@@ -19,11 +20,6 @@ class WelcomeNameText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const colorizeTextStyle = TextStyle(
-      fontSize: 50.0,
-      fontFamily: 'Horizon',
-    );
-
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.end,
@@ -32,7 +28,7 @@ class WelcomeNameText extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "Hello, ",
+              S.of(context).welcomeBack,
               style: AppTextStyle.bodyMedium.copyWith(
                 color: AppColors.secondary,
                 fontSize: kFontSize,

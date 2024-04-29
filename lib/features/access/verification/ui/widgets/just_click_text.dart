@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pharmalink/generated/l10n.dart';
 import '../../../../../core/theme/styles.dart';
 
 class JustClickText extends StatelessWidget {
@@ -6,10 +7,10 @@ class JustClickText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.symmetric(vertical: 32.0),
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 32.0),
       child: Text(
-        "Just click on the link in that email to complete your signup. if you don't see it, you may need to check your spam folder.",
+        S.of(context).justClickOnTheLink,
         style: AppTextStyle.bodyMedium,
       ),
     );

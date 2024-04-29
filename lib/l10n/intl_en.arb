@@ -1,1 +1,100 @@
-{}
+{
+    "signUp": "Sign Up",
+    "signIn": "Sign In",
+    "signOut": "Sign Out",
+    
+    "welcomeToPharmalink": "Welcome to PharmaLink, where you manage your prescriptions !",
+    "forgetPassword" :"Forget Password?",
+
+    "termsAndConditionsP1": "By signing up, you agree to our",
+    "termsAndConditionsP2": "Terms and Conditions",
+    "termsAndConditionsP3": "and",
+    "termsAndConditionsP4": "Privacy Policy",
+    
+    "pleaseVerifyEmail": "Please verify your email address",
+    "almostThere": "Almost there! We've sent a verification email to",
+    "stillCantFindEmail": "Still can't find the email? No problem.",
+    "justClickOnTheLink": "Just click on the link in that email address to complete your signup. if you don't see it, you may need to check your spam folder.",
+    "resendVerificationEmail": "Resend Verification Email",
+
+    "gotIt": "Got it",
+
+    "hello": "Hello, ",
+    "welcomeBack": "Welcome back, ",
+    "welcome": "Welcome, ",
+
+    "doctor": "Doctor",
+    "yourDoctors": "Your Doctors",
+    "addDoctor": "Add Doctor",
+    "noDoctors": "No Doctors",
+    "noDoctorsMessage": "You don't have any doctors yet.",
+
+    "reminder": "Reminder",
+    "yourReminders": "Your Reminders",
+    "addReminder": "Add Reminder",
+    "noRemindersToday": "No Reminders Today",
+
+    "prescription": "Prescription",
+    "yourPrescriptions": "Your Prescriptions",
+    "addPrescription": "Add Prescription",
+    "noPrescriptions": "No Prescriptions",
+    "noPrescriptionsMessage": "You don't have any prescriptions yet. Add a prescription to get started.",
+
+    "New": "New",
+    "viewOrActivateNew": "View or Activate New",
+    "Active": "Active",
+    "viewOrDeactivateActive": "View or Deactivate Active",
+    "Inactive": "Inactive",
+    "viewOrActivateInactive": "View or reactivate Inactive",
+
+    "viewAll": "View All",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "update": "Update",
+    "add": "Add",
+    "close": "Close",
+    "back": "Back",
+    "yes": "Yes",
+    "no": "No",
+    "ok": "OK",
+        
+    "drugInteractionTitle": "Interactions",
+    "firstDrug": "First Drug",
+    "secondDrug": "Second Drug",
+    "checkInteractions": "Check Interactions",
+    "interactionsFound": "Interactions Found",
+    "noInteractions": "No Interactions",
+    "pleaseSelectDrugs": "Please select two drugs..",
+    "enter2drugs": "Please enter two drugs to check for interactions.",
+
+    "profile": "Profile",
+    "accountSettings": "Account Settings",
+    "editProfile": "Edit Profile",
+    "changePassword": "Change Password",
+
+    "switchToDarkMode": "Switch to Dark Mode",
+
+    "confirm": "Confirm",
+    "confirmDelete": "Are you sure you want to delete this?",
+    "confirmDeactivate": "Are you sure you want to deactivate this?",
+    "confirmActivate": "Are you sure you want to activate this?",
+    "confirmReactivate": "Are you sure you want to reactivate this?",
+    "confirmCancel": "Are you sure you want to cancel this?",
+    "confirmSave": "Are you sure you want to save this?",
+    "confirmUpdate": "Are you sure you want to update this?",
+    "confirmClose": "Are you sure you want to close this?",
+    "confirmBack": "Are you sure you want to go back?",
+    "confirmYes": "Are you sure you want to confirm this?",
+    "confirmNo": "Are you sure you want to decline this?",
+    "confirmOk": "Are you sure you want to proceed?",
+    "confirmConfirm": "Are you sure you want to confirm this?",
+    "confirmResend": "Are you sure you want to resend this?",
+    "confirmChange": "Are you sure you want to change this?",
+    "confirmChangeProfile": "Are you sure you want to change your profile?",
+    "confirmSignOut": "Are you sure you want to sign out?",
+
+    "language": "Language"
+
+}

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pharmalink/generated/l10n.dart';
 import '../../../../../core/theme/colors.dart';
 import '../../../../../core/theme/styles.dart';
 
@@ -14,7 +15,7 @@ class ForgetPasswordText extends StatelessWidget {
         child: GestureDetector(
           onTap: () {},
           child: Text(
-            "Forget Password?",
+            S.of(context).forgetPassword,
             style: AppTextStyle.labelMedium.copyWith(
               color: AppColors.secondary,
             ),

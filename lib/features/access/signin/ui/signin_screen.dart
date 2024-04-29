@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pharmalink/generated/l10n.dart';
 import '../../../../core/widgets/form/form_button.dart';
 import '../../../../core/widgets/form/form_view.dart';
 import '../data/models/signin_fields.dart';
@@ -52,7 +53,7 @@ class _SigninScreenState extends State<SigninScreen> {
                 ),
                 const ForgetPasswordText(),
                 FormButton(
-                  text: "Sign In",
+                  text: S.of(context).signIn,
                   onPressed: () => validationThenSignin(context),
                 ),
                 const TermsAndConditionsText(),

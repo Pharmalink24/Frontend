@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import "package:pharmalink/core/helpers/classes/field_item.dart";
 import "package:pharmalink/core/helpers/classes/field_type.dart";
 
 import "../core/helpers/classes/field.dart";
@@ -136,8 +137,14 @@ List<Field> doctorSignUpFields = [
     inputType: FieldType.date,
     dbName: "birthdate",
   ),
-  Field("Gender", inputType: FieldType.dropdown, dbName: "gender", items: {
-    "Male": "M",
-    "Female": "F",
-  }),
+  Field(
+    "Gender",
+    arabicName: "الجنس",
+    inputType: FieldType.dropdown,
+    dbName: "gender",
+    items: [
+      DropDownFieldItem(key: "M", value: "Male", valueInArabic: "ذكر"),
+      DropDownFieldItem(key: "F", value: "Female", valueInArabic: "أنثى"),
+    ],
+  ),
 ];

@@ -4,6 +4,7 @@ import 'package:pharmalink/core/theme/styles.dart';
 import 'package:pharmalink/core/widgets/card_container_with_title.dart';
 import 'package:pharmalink/core/widgets/text_with_icon.dart';
 import 'package:pharmalink/features/main/reminders/models/reminder.dart';
+import 'package:pharmalink/generated/l10n.dart';
 import 'reminder_list_tile.dart';
 
 class RemindersContainer extends StatelessWidget {
@@ -26,7 +27,7 @@ class RemindersContainer extends StatelessWidget {
     );
   }
 
-  Widget buildNoDataWidget() {
+  Widget buildNoDataWidget(BuildContext context) {
     return Column(
       children: [
         const Icon(
@@ -36,7 +37,7 @@ class RemindersContainer extends StatelessWidget {
         ),
         Center(
           child: Text(
-            'Your reminders list is empty.',
+            S.of(context).noRemindersToday,
             textAlign: TextAlign.center,
             style: AppTextStyle.headlineSmall.copyWith(
               color: Colors.grey,
@@ -50,13 +51,13 @@ class RemindersContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CardContainerWithTitle(
-      title: "Your Reminders",
+      title: S.of(context).yourReminders,
       flex: 6,
       iconButton: const TextWithIcon(
         icon: Icons.calendar_today_outlined,
         text: '',
       ),
-      child: reminders.isEmpty ? buildNoDataWidget() : buildLoadedListWidgets(),
+      child: reminders.isEmpty ? buildNoDataWidget(context) : buildLoadedListWidgets(),
     );
   }
 }

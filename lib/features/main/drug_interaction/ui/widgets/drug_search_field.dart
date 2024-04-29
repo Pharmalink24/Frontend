@@ -3,28 +3,24 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_typeahead/flutter_typeahead.dart';
 import 'package:pharmalink/core/theme/styles.dart';
 import 'package:pharmalink/core/widgets/loading_indicator.dart';
+import 'package:pharmalink/generated/l10n.dart';
 
 import '../../data/models/drug.dart';
 import '../../logic/cubit/drug_interaction_cubit.dart';
 
-class DrugSearchField extends StatefulWidget {
+class DrugSearchField extends StatelessWidget {
   final int drugFieldId;
   final TextEditingController? controller;
   const DrugSearchField(
       {super.key, required this.drugFieldId, this.controller});
 
   @override
-  State<DrugSearchField> createState() => _DrugSearchFieldState();
-}
-
-class _DrugSearchFieldState extends State<DrugSearchField> {
-  @override
   Widget build(BuildContext context) {
     return TypeAheadField<Drug>(
       hideWithKeyboard: false,
-      controller: widget.controller,
+      controller: controller,
       suggestionsCallback: (search) async =>
-          await getSearchedDrugs(drugId: widget.drugFieldId, search: search),
+          await getSearchedDrugs(context, drugId: drugFieldId, search: search),
       itemBuilder: (context, drug) {
         return drugListTile(drug);
       },
@@ -33,16 +29,16 @@ class _DrugSearchFieldState extends State<DrugSearchField> {
           controller: controller,
           focusNode: focusNode,
           decoration: AppTextFieldDecoration.searchInputDecoration.copyWith(
-            labelText: "Please Select...",
+            labelText: S.of(context).pleaseSelectDrugs,
           ),
         );
       },
       onSelected: (drug) {
-        selectDrug(widget.controller, drug);
+        selectDrug(context, controller, drug);
       },
       loadingBuilder: (context) => const LoadingIndicator(),
       errorBuilder: (context, error) => const Text('Error!'),
-      emptyBuilder: (context) => noDrugFoundWidget(),
+      emptyBuilder: (context) => noDrugFoundWidget(context),
     );
   }
 
@@ -53,14 +49,15 @@ class _DrugSearchFieldState extends State<DrugSearchField> {
     );
   }
 
-  Widget noDrugFoundWidget() {
-    return const ListTile(
+  Widget noDrugFoundWidget(BuildContext context) {
+    return ListTile(
         title: Text(
-      'No Items Found',
+      S.of(context).noInteractions,
     ));
   }
 
-  Future<List<Drug>?> getSearchedDrugs({required int drugId, required String search}) async {
+  Future<List<Drug>?> getSearchedDrugs(BuildContext context,
+      {required int drugId, required String search}) async {
     if (search.length > 2) {
       return await context
           .read<DrugInteractionCubit>()
@@ -69,9 +66,11 @@ class _DrugSearchFieldState extends State<DrugSearchField> {
     return null;
   }
 
-  void selectDrug(TextEditingController? controller, Drug drug) {
+  void selectDrug(
+      BuildContext context, TextEditingController? controller, Drug drug) {
     controller?.text = drug.tradeName;
-    context.read<DrugInteractionCubit>().setActiveIngredients(drug, widget.drugFieldId);
+    context
+        .read<DrugInteractionCubit>()
+        .setActiveIngredients(drug, drugFieldId);
   }
 }
-

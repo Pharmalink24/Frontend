@@ -54,37 +54,59 @@ flutter:
     # Outfit Font
     - family: Outfit
       fonts:
-        - asset: assets/fonts/Outfit/Outfit-Black.ttf
-        - asset: assets/fonts/Outfit/Outfit-ExtraBold.ttf
-        - asset: assets/fonts/Outfit/Outfit-ExtraLight.ttf
-        - asset: assets/fonts/Outfit/Outfit-Light.ttf
-        - asset: assets/fonts/Outfit/Outfit-Medium.ttf
-        - asset: assets/fonts/Outfit/Outfit-Regular.ttf
-        - asset: assets/fonts/Outfit/Outfit-SemiBold.ttf
-        - asset: assets/fonts/Outfit/Outfit-Thin.ttf
+        - asset: assets/fonts/en/Outfit/Outfit-Black.ttf
+        - asset: assets/fonts/en/Outfit/Outfit-ExtraBold.ttf
+        - asset: assets/fonts/en/Outfit/Outfit-ExtraLight.ttf
+        - asset: assets/fonts/en/Outfit/Outfit-Light.ttf
+        - asset: assets/fonts/en/Outfit/Outfit-Medium.ttf
+        - asset: assets/fonts/en/Outfit/Outfit-Regular.ttf
+        - asset: assets/fonts/en/Outfit/Outfit-SemiBold.ttf
+        - asset: assets/fonts/en/Outfit/Outfit-Thin.ttf
 
     # Plus Jakarta Sans Font
     - family: Plus Jakarta Sans
       fonts:
-        - asset: assets/fonts/Plus Jakarta Sans/PlusJakartaSans-Bold.ttf
-        - asset: assets/fonts/Plus Jakarta Sans/PlusJakartaSans-BoldItalic.ttf
-        - asset: assets/fonts/Plus Jakarta Sans/PlusJakartaSans-ExtraBold.ttf
-        - asset: assets/fonts/Plus Jakarta Sans/PlusJakartaSans-ExtraBoldItalic.ttf
-        - asset: assets/fonts/Plus Jakarta Sans/PlusJakartaSans-ExtraLight.ttf
-        - asset: assets/fonts/Plus Jakarta Sans/PlusJakartaSans-ExtraLightItalic.ttf
-        - asset: assets/fonts/Plus Jakarta Sans/PlusJakartaSans-Italic.ttf
-        - asset: assets/fonts/Plus Jakarta Sans/PlusJakartaSans-Light.ttf
-        - asset: assets/fonts/Plus Jakarta Sans/PlusJakartaSans-LightItalic.ttf
-        - asset: assets/fonts/Plus Jakarta Sans/PlusJakartaSans-Medium.ttf
-        - asset: assets/fonts/Plus Jakarta Sans/PlusJakartaSans-MediumItalic.ttf
-        - asset: assets/fonts/Plus Jakarta Sans/PlusJakartaSans-Regular.ttf
-        - asset: assets/fonts/Plus Jakarta Sans/PlusJakartaSans-SemiBold.ttf
-        - asset: assets/fonts/Plus Jakarta Sans/PlusJakartaSans-SemiBoldItalic.ttf
+        - asset: assets/fonts/en/Plus Jakarta Sans/PlusJakartaSans-Bold.ttf
+        - asset: assets/fonts/en/Plus Jakarta Sans/PlusJakartaSans-BoldItalic.ttf
+        - asset: assets/fonts/en/Plus Jakarta Sans/PlusJakartaSans-ExtraBold.ttf
+        - asset: assets/fonts/en/Plus Jakarta Sans/PlusJakartaSans-ExtraBoldItalic.ttf
+        - asset: assets/fonts/en/Plus Jakarta Sans/PlusJakartaSans-ExtraLight.ttf
+        - asset: assets/fonts/en/Plus Jakarta Sans/PlusJakartaSans-ExtraLightItalic.ttf
+        - asset: assets/fonts/en/Plus Jakarta Sans/PlusJakartaSans-Italic.ttf
+        - asset: assets/fonts/en/Plus Jakarta Sans/PlusJakartaSans-Light.ttf
+        - asset: assets/fonts/en/Plus Jakarta Sans/PlusJakartaSans-LightItalic.ttf
+        - asset: assets/fonts/en/Plus Jakarta Sans/PlusJakartaSans-Medium.ttf
+        - asset: assets/fonts/en/Plus Jakarta Sans/PlusJakartaSans-MediumItalic.ttf
+        - asset: assets/fonts/en/Plus Jakarta Sans/PlusJakartaSans-Regular.ttf
+        - asset: assets/fonts/en/Plus Jakarta Sans/PlusJakartaSans-SemiBold.ttf
+        - asset: assets/fonts/en/Plus Jakarta Sans/PlusJakartaSans-SemiBoldItalic.ttf
 
     # Readex Pro Font
     - family: Readex Pro
       fonts:
-        - asset: assets/fonts/ReadexPro.ttf
+        - asset: assets/fonts/en/Readex/ReadexPro.ttf
+
+
+    # Amiri
+    - family: Amiri
+      fonts:
+        - asset: assets/fonts/ar/Amiri/Amiri-Bold.ttf
+        - asset: assets/fonts/ar/Amiri/Amiri-BoldItalic.ttf
+        - asset: assets/fonts/ar/Amiri/Amiri-Regular.ttf
+        - asset: assets/fonts/ar/Amiri/Amiri-Italic.ttf
+
+    # Cairo
+    - family: Cairo
+      fonts:
+        - asset: assets/fonts/ar/Cairo/Cairo-Black.ttf
+        - asset: assets/fonts/ar/Cairo/Cairo-Bold.ttf
+        - asset: assets/fonts/ar/Cairo/Cairo-ExtraBold.ttf
+        - asset: assets/fonts/ar/Cairo/Cairo-ExtraLight.ttf
+        - asset: assets/fonts/ar/Cairo/Cairo-Light.ttf
+        - asset: assets/fonts/ar/Cairo/Cairo-Medium.ttf
+        - asset: assets/fonts/ar/Cairo/Cairo-Regular.ttf
+        - asset: assets/fonts/ar/Cairo/Cairo-SemiBold.ttf
+
 
 flutter_intl:
   enabled: true

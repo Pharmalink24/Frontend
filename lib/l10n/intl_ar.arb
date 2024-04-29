@@ -1,1 +1,99 @@
-{}
+{
+    "signUp": "إنشاء حساب",
+    "signIn": "تسجيل الدخول",
+    "signOut": "تسجيل الخروج",
+    
+    "welcomeToPharmalink": "مرحبًا بكم في فارمالينك، حيث يمكنك إدارة وصفاتك الطبية!",
+    "forgetPassword": "هل نسيت كلمة المرور؟",
+
+    "termsAndConditionsP1": "بتسجيلك، أنت توافق على",
+    "termsAndConditionsP2": "الشروط والأحكام",
+    "termsAndConditionsP3": "و",
+    "termsAndConditionsP4": "سياسة الخصوصية",
+    
+    "pleaseVerifyEmail": "يرجى التحقق من عنوان بريدك الإلكتروني",
+    "almostThere": "لقد اقتربت! لقد أرسلنا رسالة تحقق إلى بريدك الإلكتروني",
+    "stillCantFindEmail": "لا تزال لا تجد البريد الإلكتروني؟ لا مشكلة.",
+    "justClickOnTheLink": "فقط انقر على الرابط في ذلك البريد الإلكتروني لإكمال تسجيلك. إذا لم تراه، قد تحتاج إلى التحقق من مجلد البريد العشوائي.",
+    "resendVerificationEmail": "إعادة إرسال بريد التحقق",
+
+    "gotIt": "فهمت",
+
+    "hello": "مرحباً، ",
+    "welcomeBack": "مرحباً بعودتك، ",
+    "welcome": "مرحباً، ",
+
+    "doctor": "طبيب",
+    "yourDoctors": "أطباؤك",
+    "addDoctor": "إضافة طبيب",
+    "noDoctors": "لا يوجد أطباء",
+    "noDoctorsMessage": "ليس لديك أطباء بعد.",
+
+    "reminder": "تذكير",
+    "yourReminders": "تذكيراتك",
+    "addReminder": "إضافة تذكير",
+    "noRemindersToday": "لا تذكيرات اليوم",
+
+    "prescription": "وصفة طبية",
+    "yourPrescriptions": "وصفاتك الطبية",
+    "addPrescription": "إضافة وصفة طبية",
+    "noPrescriptions": "لا وصفات طبية",
+    "noPrescriptionsMessage": "ليس لديك وصفات طبية بعد. أضف وصفة لتبدأ.",
+
+    "New": "جديد",
+    "viewOrActivateNew": "عرض أو تفعيل جديد",
+    "Active": "نشط",
+    "viewOrDeactivateActive": "عرض أو إلغاء تفعيل نشط",
+    "Inactive": "غير نشط",
+    "viewOrActivateInactive": "عرض أو إعادة تفعيل غير نشط",
+
+    "viewAll": "عرض الكل",
+    "cancel": "إلغاء",
+    "save": "حفظ",
+    "delete": "حذف",
+    "edit": "تعديل",
+    "update": "تحديث",
+    "add": "إضافة",
+    "close": "إغلاق",
+    "back": "عودة",
+    "yes": "نعم",
+    "no": "لا",
+    "ok": "موافق",
+        
+    "drugInteractionTitle": "تفاعلات",
+    "firstDrug": "الدواء الأول",
+    "secondDrug": "الدواء الثاني",
+    "checkInteractions": "فحص التفاعلات",
+    "interactionsFound": "تم العثور على تفاعلات",
+    "noInteractions": "لا تفاعلات",
+    "pleaseSelectDrugs": "يرجى اختيار دواء.",
+    "enter2drugs": "يرجى إدخال دوائين لفحص التفاعلات بينهما.",
+
+    "profile": "الملف الشخصي",
+    "accountSettings": "إعدادات الحساب",
+    "editProfile": "تعديل الملف الشخصي",
+    "changePassword": "تغيير كلمة المرور",
+
+    "switchToDarkMode": "التبديل إلى الوضع الداكن",
+
+    "confirm": "تأكيد",
+    "confirmDelete": "هل أنت متأكد أنك تريد حذف هذا؟",
+    "confirmDeactivate": "هل أنت متأكد أنك تريد إلغاء تفعيل هذا؟",
+    "confirmActivate": "هل أنت متأكد أنك تريد تفعيل هذا؟",
+    "confirmReactivate": "هل أنت متأكد أنك تريد إعادة تفعيل هذا؟",
+    "confirmCancel": "هل أنت متأكد أنك تريد إلغاء هذا؟",
+    "confirmSave": "هل أنت متأكد أنك تريد حفظ هذا؟",
+    "confirmUpdate": "هل أنت متأكد أنك تريد تحديث هذا؟",
+    "confirmClose": "هل أنت متأكد أنك تريد إغلاق هذا؟",
+    "confirmBack": "هل أنت متأكد أنك تريد العودة؟",
+    "confirmYes": "هل أنت متأكد أنك تريد تأكيد هذا؟",
+    "confirmNo": "هل أنت متأكد أنك تريد رفض هذا؟",
+    "confirmOk": "هل أنت متأكد أنك تريد المتابعة؟",
+    "confirmConfirm": "هل أنت متأكد أنك تريد تأكيد هذا؟",
+    "confirmResend": "هل أنت متأكد أنك تريد إعادة إرسال هذا؟",
+    "confirmChange": "هل أنت متأكد أنك تريد تغيير هذا؟",
+    "confirmChangeProfile": "هل أنت متأكد أنك تريد تغيير ملفك الشخصي؟",
+    "confirmSignOut": "هل أنت متأكد أنك تريد تسجيل الخروج؟",
+
+    "language": "اللغة"
+}

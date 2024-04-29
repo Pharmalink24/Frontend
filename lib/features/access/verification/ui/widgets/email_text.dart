@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pharmalink/generated/l10n.dart';
 import '../../../../../core/theme/styles.dart';
 
 class EmailText extends StatelessWidget {
@@ -10,7 +11,7 @@ class EmailText extends StatelessWidget {
     return Column(
       children: [
         Text(
-          "You're almost there! We sent an email to",
+          S.of(context).almostThere,
           style: AppTextStyle.displayMedium.copyWith(fontSize: 16.0),
         ),
         Text(

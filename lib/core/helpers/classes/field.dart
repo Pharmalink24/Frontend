@@ -1,11 +1,13 @@
 import "package:flutter/material.dart";
+import "package:pharmalink/core/helpers/classes/field_item.dart";
+import "package:pharmalink/core/localization/localization.dart";
 
 import "field_type.dart";
 
 class Field {
-  final String name;
+  late String name;
   final FieldType inputType;
-  final Map<String, String>? items;
+  final List<DropDownFieldItem>? items;
   final String? dbName;
   String? value;
   TextEditingController? controller;
@@ -14,6 +16,7 @@ class Field {
   TextInputType? textInputType;
   String? confirmationValue;
   String? confirmationErrorMessage;
+  String? arabicName;
 
   Field(
     this.name, {
@@ -26,7 +29,11 @@ class Field {
     this.errorMessage,
     this.confirmationValue,
     this.confirmationErrorMessage,
+    this.arabicName,
   }) {
+    // Set the name based on the current locale
+    name = isArabic() ? arabicName ?? name : name;
+    // Set the text input type based on the field type
     switch (inputType) {
       case FieldType.text:
         textInputType = TextInputType.text;

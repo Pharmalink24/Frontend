@@ -5,6 +5,7 @@ import 'package:pharmalink/core/helpers/extensions.dart';
 import 'package:pharmalink/core/routes/routes.dart';
 import 'package:pharmalink/core/theme/styles.dart';
 import 'package:pharmalink/core/widgets/text_with_icon.dart';
+import 'package:pharmalink/generated/l10n.dart';
 import '../../../../../core/models/doctor.dart';
 import '../../../../../core/widgets/doctor_card.dart';
 
@@ -29,7 +30,7 @@ class DoctorsContainer extends StatelessWidget {
     );
   }
 
-  Widget buildNoDataWidget() {
+  Widget buildNoDataWidget(BuildContext context) {
     return Column(
       children: [
         const Icon(
@@ -39,7 +40,7 @@ class DoctorsContainer extends StatelessWidget {
         ),
         Center(
           child: Text(
-            'Your doctors list is empty.',
+            S.of(context).noDoctorsMessage,
             style: AppTextStyle.headlineSmall.copyWith(
               color: Colors.grey,
             ),
@@ -52,13 +53,13 @@ class DoctorsContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CardContainerWithTitle(
-      title: "Your Doctors",
+      title: S.of(context).yourDoctors,
       iconButton: TextWithIcon(
         onTap: () => context.pushNamed(Routes.doctorsScreen),
         icon: Icons.arrow_circle_right_sharp,
-        text: 'View All',
+        text: S.of(context).viewAll,
       ),
-      child: doctors.isEmpty ? buildNoDataWidget() : buildLoadedListWidgets(),
+      child: doctors.isEmpty ? buildNoDataWidget(context) : buildLoadedListWidgets(),
     );
   }
 }

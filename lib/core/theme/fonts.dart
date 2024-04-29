@@ -1,6 +1,8 @@
 // Typography
+import 'package:pharmalink/core/localization/localization.dart';
+
 class AppFonts {
-  static const String primary = 'Outfit';
-  static const String secondary = 'Readex Pro';
-  static const String tertiary = 'Plus Jakarta Sans';
+  static String primary = !isArabic() ? 'Outfit' : 'Amiri';
+  static String secondary = !isArabic() ? 'Readex Pro' : 'Cairo';
+  static String tertiary = !isArabic() ? 'Plus Jakarta Sans' : 'Cairo';
 }

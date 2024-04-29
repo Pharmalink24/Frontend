@@ -6,6 +6,7 @@ import 'package:pharmalink/core/shared_preferences/auth_prefs.dart';
 import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/theme/styles.dart';
 import 'package:pharmalink/features/access/auth/logic/cubit/auth_cubit.dart';
+import 'package:pharmalink/generated/l10n.dart';
 
 class LogoutButton extends StatelessWidget {
   const LogoutButton({
@@ -17,7 +18,6 @@ class LogoutButton extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(20.0),
       child: SizedBox(
-        width: 90,
         height: 40,
         child: TextButton(
           onPressed: () {
@@ -25,12 +25,12 @@ class LogoutButton extends StatelessWidget {
             showDialog(
               context: context,
               builder: (context) => AlertDialog(
-                title: const Text(
-                  'Log Out',
+                title: Text(
+                  S.of(context).signOut,
                   style: AppTextStyle.headlineSmall,
                 ),
                 content: Text(
-                  'Are you sure you want to log out?',
+                  S.of(context).confirmSignOut,
                   style: AppTextStyle.bodyLarge.copyWith(fontSize: 20.0),
                 ),
                 actions: [
@@ -52,7 +52,7 @@ class LogoutButton extends StatelessWidget {
                         ),
                         onPressed: () => Navigator.of(context).pop(),
                         child: Text(
-                          'Cancel',
+                          S.of(context).cancel,
                           style: AppTextStyle.titleSmall.copyWith(
                             color: AppColors.primaryText,
                           ),
@@ -80,8 +80,8 @@ class LogoutButton extends StatelessWidget {
                           Navigator.of(context)
                               .pushReplacementNamed(Routes.signInScreen);
                         },
-                        child: const Text(
-                          'Log Out',
+                        child: Text(
+                          S.of(context).signOut,
                           style: AppTextStyle.titleSmall,
                         ),
                       ),
@@ -103,7 +103,7 @@ class LogoutButton extends StatelessWidget {
             elevation: const MaterialStatePropertyAll(5.0),
           ),
           child: Text(
-            'Log Out',
+            S.of(context).signOut,
             style: AppTextStyle.labelMedium.copyWith(
               color: AppColors.primaryText,
             ),

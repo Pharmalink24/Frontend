@@ -60,7 +60,7 @@ class EditProfileBlocListener extends StatelessWidget {
           color: Colors.green,
           size: 32,
         ),
-        content: const Text(
+        content: Text(
           "Information changed successfully",
           style: AppTextStyle.titleLarge,
           textAlign: TextAlign.center,

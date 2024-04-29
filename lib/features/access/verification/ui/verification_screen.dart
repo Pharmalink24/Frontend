@@ -13,6 +13,7 @@ import 'package:pharmalink/features/access/verification/ui/widgets/just_click_te
 import 'package:pharmalink/features/access/verification/ui/widgets/please_verify_text.dart';
 import 'package:pharmalink/features/access/verification/ui/widgets/still_cant_find_text.dart';
 import 'package:pharmalink/features/access/verification/ui/widgets/verification_bloc_listener.dart';
+import 'package:pharmalink/generated/l10n.dart';
 
 class VerificationScreen extends StatelessWidget {
   final String email;
@@ -41,12 +42,12 @@ class VerificationScreen extends StatelessWidget {
               const JustClickText(),
               const StillCantFindText(),
               FormButton(
-                text: "Resend Verification Email",
+                text: S.of(context).resendVerificationEmail,
                 padding: const EdgeInsets.only(top: 8.0, bottom: 16.0),
                 onPressed: () => sendVerification(context),
               ),
               FormButton(
-                text: "Sign in",
+                text: S.of(context).signIn,
                 padding: EdgeInsets.zero,
                 onPressed: () => context.pushNamed(Routes.signInScreen),
               ),

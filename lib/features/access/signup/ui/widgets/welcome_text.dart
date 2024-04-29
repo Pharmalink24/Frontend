@@ -10,8 +10,8 @@ class WelcomeText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.symmetric(vertical: kPadding, horizontal: 0.0),
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: kPadding, horizontal: 0.0),
       child: Text(
         'Welcome to PharmaLink, where you manage your prescriptions !',
         style: AppTextStyle.labelMedium,

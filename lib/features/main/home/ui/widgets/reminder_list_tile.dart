@@ -28,7 +28,7 @@ class _ReminderListTileState extends State<ReminderListTile> {
         // Make reminder checked
         BlocProvider.of<RemindersCubit>(context)
             .makeReminderChecked(widget.reminder.id);
-        // // Get reminders list
+        // Todo: Get reminders list
         // BlocProvider.of<HomePageCubit>(context).getReminderList();
       }),
       checkboxShape:
