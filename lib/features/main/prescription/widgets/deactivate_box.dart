@@ -34,7 +34,7 @@ class _DeactivateBoxWidgetState extends State<DeactivateBoxWidget> {
     try {
       API api = API();
       var doctorInfo = await api.POST(
-        'Prescription/user/activate-prescription/${widget.id}/',
+        'Prescription/user/deactivate-prescription/${widget.id}/',
         {},
         200,
         auth: true,
@@ -61,7 +61,7 @@ class _DeactivateBoxWidgetState extends State<DeactivateBoxWidget> {
     return Container(
       width: double.infinity,
       height: 449,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: AppColors.secondaryBackground,
         boxShadow: [
           BoxShadow(
@@ -81,11 +81,11 @@ class _DeactivateBoxWidgetState extends State<DeactivateBoxWidget> {
         ),
       ),
       child: Padding(
-        padding: EdgeInsets.all(20),
+        padding: const EdgeInsets.all(20),
         child: Column(
           mainAxisSize: MainAxisSize.max,
           children: [
-            Padding(
+            const Padding(
               padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 16),
               child: FaIcon(
                 FontAwesomeIcons.question,
@@ -94,7 +94,7 @@ class _DeactivateBoxWidgetState extends State<DeactivateBoxWidget> {
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 16),
+              padding: const EdgeInsetsDirectional.fromSTEB(0, 16, 0, 16),
               child: Text(
                 'Why do you want to deactivate your prescription?',
                 textAlign: TextAlign.center,
@@ -106,7 +106,7 @@ class _DeactivateBoxWidgetState extends State<DeactivateBoxWidget> {
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
+              padding: const EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
               child: FFButtonWidget(
                 onPressed: () {
                   deactivatePrescription();
@@ -115,8 +115,8 @@ class _DeactivateBoxWidgetState extends State<DeactivateBoxWidget> {
                 options: FFButtonOptions(
                   width: double.infinity,
                   height: 60,
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                  iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                  iconPadding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                   color: AppColors.primary,
                   textStyle: AppTextStyle.bodyLarge.copyWith(
                     fontFamily: 'Readex Pro',
@@ -124,7 +124,7 @@ class _DeactivateBoxWidgetState extends State<DeactivateBoxWidget> {
                     letterSpacing: 0,
                   ),
                   elevation: 2,
-                  borderSide: BorderSide(
+                  borderSide: const BorderSide(
                     color: Colors.transparent,
                     width: 1,
                   ),
@@ -132,7 +132,7 @@ class _DeactivateBoxWidgetState extends State<DeactivateBoxWidget> {
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
+              padding: const EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
               child: FFButtonWidget(
                 onPressed: () {
                   deactivatePrescription();
@@ -141,8 +141,8 @@ class _DeactivateBoxWidgetState extends State<DeactivateBoxWidget> {
                 options: FFButtonOptions(
                   width: double.infinity,
                   height: 60,
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                  iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                  iconPadding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                   color: AppColors.primary,
                   textStyle: AppTextStyle.bodyLarge.copyWith(
                     fontFamily: 'Readex Pro',
@@ -150,7 +150,7 @@ class _DeactivateBoxWidgetState extends State<DeactivateBoxWidget> {
                     letterSpacing: 0,
                   ),
                   elevation: 2,
-                  borderSide: BorderSide(
+                  borderSide: const BorderSide(
                     color: Colors.transparent,
                     width: 1,
                   ),
@@ -158,7 +158,7 @@ class _DeactivateBoxWidgetState extends State<DeactivateBoxWidget> {
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
+              padding: const EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
               child: FFButtonWidget(
                 onPressed: () async {
                   context.pop();
@@ -167,8 +167,8 @@ class _DeactivateBoxWidgetState extends State<DeactivateBoxWidget> {
                 options: FFButtonOptions(
                   width: double.infinity,
                   height: 60,
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                  iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                  iconPadding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                   color: AppColors.secondaryBackground,
                   textStyle: AppTextStyle.titleSmall.copyWith(
                     fontFamily: 'Lexend Deca',
@@ -178,7 +178,7 @@ class _DeactivateBoxWidgetState extends State<DeactivateBoxWidget> {
                     fontWeight: FontWeight.normal,
                   ),
                   elevation: 0,
-                  borderSide: BorderSide(
+                  borderSide: const BorderSide(
                     color: Colors.transparent,
                     width: 0,
                   ),

@@ -31,7 +31,7 @@ class DoctorInfoScreen extends StatefulWidget {
   static String url = "/doctor_info";
   final String id;
   final String name;
-  final String image;
+  final String? image;
 
   const DoctorInfoScreen({
     super.key,
@@ -110,9 +110,9 @@ class _DoctorInfoScreenState extends State<DoctorInfoScreen> {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Align(
-            alignment: AlignmentDirectional(0, 0),
+            alignment: const AlignmentDirectional(0, 0),
             child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0, 60, 0, 0),
+              padding: const EdgeInsetsDirectional.fromSTEB(0, 60, 0, 0),
               child: Text(
                 'Dr. ${widget.name} ',
                 style: AppTextStyle.headlineMedium.copyWith(
@@ -126,12 +126,12 @@ class _DoctorInfoScreenState extends State<DoctorInfoScreen> {
           ),
           Flexible(
             child: Align(
-              alignment: AlignmentDirectional(0, 0),
+              alignment: const AlignmentDirectional(0, 0),
               child: Container(
                 width: 330,
                 height: 274,
                 decoration: BoxDecoration(
-                  boxShadow: [
+                  boxShadow: const [
                     BoxShadow(
                       blurRadius: 4,
                       color: Color(0x33000000),
@@ -142,7 +142,7 @@ class _DoctorInfoScreenState extends State<DoctorInfoScreen> {
                       spreadRadius: 2,
                     )
                   ],
-                  gradient: LinearGradient(
+                  gradient: const LinearGradient(
                     colors: [
                       AppColors.primary,
                       AppColors.secondary
@@ -153,17 +153,17 @@ class _DoctorInfoScreenState extends State<DoctorInfoScreen> {
                   ),
                   borderRadius: BorderRadius.circular(16),
                 ),
-                alignment: AlignmentDirectional(0, 0),
+                alignment: const AlignmentDirectional(0, 0),
                 child: Align(
-                  alignment: AlignmentDirectional(0, 0),
+                  alignment: const AlignmentDirectional(0, 0),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(24),
                     child: Image.network(
-                      widget.image,
+                      widget.image ?? '',
                       width: double.infinity,
                       height: double.infinity,
                       fit: BoxFit.contain,
-                      alignment: Alignment(0, 0),
+                      alignment: const Alignment(0, 0),
                     ),
                   ),
                 ),
@@ -171,12 +171,12 @@ class _DoctorInfoScreenState extends State<DoctorInfoScreen> {
             ),
           ),
           Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(8, 0, 8, 8),
+            padding: const EdgeInsetsDirectional.fromSTEB(8, 0, 8, 8),
             child: Container(
               width: double.infinity,
               decoration: BoxDecoration(
                 color: AppColors.primaryBackground,
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
                     blurRadius: 4,
                     color: Color(0x33000000),
@@ -190,14 +190,14 @@ class _DoctorInfoScreenState extends State<DoctorInfoScreen> {
                 borderRadius: BorderRadius.circular(24),
               ),
               child: Padding(
-                padding: EdgeInsets.all(12),
+                padding: const EdgeInsets.all(12),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Align(
-                      alignment: AlignmentDirectional(-1, 0),
+                      alignment: const AlignmentDirectional(-1, 0),
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 8),
+                        padding: const EdgeInsetsDirectional.fromSTEB(0, 8, 0, 8),
                         child: Text(
                           'About',
                           style: AppTextStyle.bodyLarge.copyWith(
@@ -210,7 +210,7 @@ class _DoctorInfoScreenState extends State<DoctorInfoScreen> {
                       ),
                     ),
                     Align(
-                      alignment: AlignmentDirectional(-1, 0),
+                      alignment: const AlignmentDirectional(-1, 0),
                       child: Text(
                         'General Practiotioner',
                         style: AppTextStyle.bodyMedium.copyWith(
@@ -220,7 +220,7 @@ class _DoctorInfoScreenState extends State<DoctorInfoScreen> {
                       ),
                     ),
                     Align(
-                      alignment: AlignmentDirectional(-1, 0),
+                      alignment: const AlignmentDirectional(-1, 0),
                       child: Text(
                         'M.D. $university',
                         style: AppTextStyle.bodyMedium.copyWith(
@@ -230,9 +230,9 @@ class _DoctorInfoScreenState extends State<DoctorInfoScreen> {
                       ),
                     ),
                     Align(
-                      alignment: AlignmentDirectional(-1, 0),
+                      alignment: const AlignmentDirectional(-1, 0),
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 12),
+                        padding: const EdgeInsetsDirectional.fromSTEB(0, 8, 0, 12),
                         child: Text(
                           about,
                           style: AppTextStyle.labelMedium.copyWith(
@@ -243,20 +243,20 @@ class _DoctorInfoScreenState extends State<DoctorInfoScreen> {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 12),
+                      padding: const EdgeInsetsDirectional.fromSTEB(0, 12, 0, 12),
                       child: GestureDetector(
                         onTap: () {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => LandingPrescriptionScreen()),
+                                builder: (context) => const LandingPrescriptionScreen()),
                           );
                         },
                         child: Container(
                           width: double.infinity,
                           height: 60,
                           decoration: BoxDecoration(
-                            boxShadow: [
+                            boxShadow: const [
                               BoxShadow(
                                 blurRadius: 4,
                                 color: Color(0x33000000),
@@ -267,7 +267,7 @@ class _DoctorInfoScreenState extends State<DoctorInfoScreen> {
                                 spreadRadius: 2,
                               )
                             ],
-                            gradient: LinearGradient(
+                            gradient: const LinearGradient(
                               colors: [
                                 AppColors.primary,
                                 AppColors.secondary
@@ -291,7 +291,7 @@ class _DoctorInfoScreenState extends State<DoctorInfoScreen> {
                                   mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
-                                    Padding(
+                                    const Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0, 12, 0, 12),
                                       child: Icon(
@@ -303,7 +303,7 @@ class _DoctorInfoScreenState extends State<DoctorInfoScreen> {
                                     ),
                                     Padding(
                                       padding:
-                                      EdgeInsetsDirectional.fromSTEB(8, 0, 12, 0),
+                                      const EdgeInsetsDirectional.fromSTEB(8, 0, 12, 0),
                                       child: Text(
                                         'Chat',
                                         style: AppTextStyle
