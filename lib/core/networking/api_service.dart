@@ -1,17 +1,19 @@
 import 'package:dio/dio.dart';
 import 'package:pharmalink/core/models/doctor.dart';
+import 'package:pharmalink/core/models/prescription.dart';
+import 'package:pharmalink/core/models/prescription_info.dart';
 import 'package:pharmalink/features/access/auth/data/models/refresh_token_response.dart';
 import 'package:pharmalink/features/main/reminders/models/reminder.dart';
 import 'package:pharmalink/features/main/settings/change_password/data/models/change_password_request_body.dart';
 import 'package:pharmalink/features/main/settings/change_password/data/models/change_password_response.dart';
 import 'package:retrofit/http.dart';
 import 'package:pharmalink/features/main/drug_interaction/data/models/drug_eye_search_request_params.dart';
-import 'package:pharmalink/features/main/drug_interaction/data/models/drug.dart';
+import 'package:pharmalink/core/models/drug_search.dart';
 import 'package:pharmalink/features/main/drug_interaction/data/models/drug_interaction_request_body.dart';
 import 'package:pharmalink/features/main/drug_interaction/data/models/drug_interaction_response.dart';
 import 'package:pharmalink/core/models/state_request_body.dart';
-import 'package:pharmalink/features/main/home/data/models/home_page_response.dart';
 import 'package:pharmalink/core/models/user.dart';
+import '../models/doctor_info.dart';
 import 'api_constants.dart';
 import '../../features/access/auth/data/models/refresh_token_request_body.dart';
 import '../../features/access/signup/data/models/signup_request_body.dart';
@@ -27,6 +29,8 @@ part 'api_service.g.dart';
 @RestApi(baseUrl: ApiConstants.baseUrl)
 abstract class ApiService {
   factory ApiService(Dio dio, {String baseUrl}) = _ApiService;
+
+  //-------------------- AUTHENTICATION --------------------//
 
   // Sign in
   @POST(ApiConstants.signIn)
@@ -52,9 +56,42 @@ abstract class ApiService {
     @Queries() VerificationRequestParams verificationRequestParams,
   );
 
+  //-------------------- Reminder --------------------//
+
+  // Get Reminder List
+  @GET(ApiConstants.reminderList)
+  Future<List<Reminder>> getReminderList(
+    @Header('Authorization') String? auth,
+  );
+
+  // Make Reminder Done
+  @PUT(ApiConstants.makeReminderDone)
+  Future<void> makeReminderDone(
+    @Path('reminder_id') int reminderId,
+    @Header('Authorization') String? auth,
+  );
+
+  //-------------------- Prescription --------------------//
+
+  // Prescription
+  @GET(ApiConstants.prescriptionsList)
+  Future<List<Prescription>> getPrescriptions(
+    @Queries() StateRequestBody stateRequestBody,
+    @Header('Authorization') String? auth,
+  );
+
+  // Prescription Detail
+  @GET(ApiConstants.prescriptionInfo)
+  Future<PrescriptionInfo> getPrescriptionInfo(
+    @Path('prescription_id') int prescriptionId,
+    @Header('Authorization') String? auth,
+  );
+
+  //-------------------- DRUG INTERACTION --------------------//
+
   // Search Drug from drug eye
   @GET(ApiConstants.searchDrugFromDrugEye)
-  Future<List<Drug>> searchDrugFromDrugEye(
+  Future<List<DrugSearch>> searchDrugFromDrugEye(
     @Queries() DrugEyeSearchRequestParams drugEyeSearchRequestParams,
     @Header("Authorization") String? auth,
   );
@@ -67,12 +104,7 @@ abstract class ApiService {
     @Header("Authorization") String? auth,
   );
 
-  // Home Page
-  @GET(ApiConstants.homePage)
-  Future<HomePageResponse> homePage(
-    @Queries() StateRequestBody stateRequestBody,
-    @Header("Authorization") String? auth,
-  );
+  //-------------------- User Profile --------------------//
 
   // User Profile Data
   @GET(ApiConstants.userInformation)
@@ -93,22 +125,18 @@ abstract class ApiService {
     @Body() ChangePasswordRequestBody changePasswordRequestBody,
     @Header('Authorization') String? auth,
   );
+
+  //-------------------- Doctor --------------------//
+
   // Get Doctors List
   @GET(ApiConstants.doctorsList)
   Future<List<Doctor>> getDoctorList(
     @Header('Authorization') String? auth,
   );
 
-  // Get Reminder List
-  @GET(ApiConstants.reminderList)
-  Future<List<Reminder>> getReminderList(
-    @Header('Authorization') String? auth,
-  );
-
-  // Make Reminder Done
-  @PUT(ApiConstants.makeReminderDone)
-  Future<void> makeReminderDone(
-    @Path('reminder_id') int reminderId,
+  @GET(ApiConstants.doctorProfile)
+  Future<DoctorInfo> getDoctorProfile(
+    @Path('doctor_id') int doctorId,
     @Header('Authorization') String? auth,
   );
 }

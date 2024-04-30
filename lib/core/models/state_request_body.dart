@@ -1,21 +1,13 @@
 // ignore_for_file: constant_identifier_names
 
 import 'package:json_annotation/json_annotation.dart';
+import 'package:pharmalink/core/enums/drug_state.dart';
 
 part 'state_request_body.g.dart';
 
-enum State {
-  @JsonValue("new")
-  NEW,
-  @JsonValue("active")
-  ACTIVE,
-  @JsonValue("inactive")
-  INACTIVE,
-}
-
 @JsonSerializable()
 class StateRequestBody {
-  State state;
+  DrugState state;
 
   StateRequestBody({
     required this.state,

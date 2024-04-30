@@ -31,6 +31,15 @@ class ApiConstants {
 
   // Add Reminder
   static const makeReminderDone = "Reminder/check/{reminder_id}/";
+
+  // Prescription 
+  static const prescriptionsList = "Prescription/user/state-prescriptions/Doctorinfo/";
+
+  // Prescription Detail
+  static const prescriptionInfo = "Prescription/get-prescription/{prescription_id}/";
+
+  // Doctor Profile
+  static const doctorProfile = "doctor/doctors/{doctor_id}/";
 }
 
 class ApiErrors {

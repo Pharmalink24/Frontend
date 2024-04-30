@@ -8,16 +8,16 @@ part of 'state_request_body.dart';
 
 StateRequestBody _$StateRequestBodyFromJson(Map<String, dynamic> json) =>
     StateRequestBody(
-      state: $enumDecode(_$StateEnumMap, json['state']),
+      state: $enumDecode(_$DrugStateEnumMap, json['state']),
     );
 
 Map<String, dynamic> _$StateRequestBodyToJson(StateRequestBody instance) =>
     <String, dynamic>{
-      'state': _$StateEnumMap[instance.state]!,
+      'state': _$DrugStateEnumMap[instance.state]!,
     };
 
-const _$StateEnumMap = {
-  State.NEW: 'new',
-  State.ACTIVE: 'active',
-  State.INACTIVE: 'inactive',
+const _$DrugStateEnumMap = {
+  DrugState.NEW: 'new',
+  DrugState.ACTIVE: 'active',
+  DrugState.INACTIVE: 'inactive',
 };

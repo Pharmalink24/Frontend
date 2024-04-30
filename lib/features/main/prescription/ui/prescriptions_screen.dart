@@ -1,0 +1,141 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:logger/logger.dart';
+import 'package:pharmalink/core/enums/drug_state.dart';
+import 'package:pharmalink/core/helpers/extensions.dart';
+import 'package:pharmalink/core/models/prescription.dart';
+import 'package:pharmalink/features/main/prescription/logic/cubit/prescription_state.dart';
+import 'package:pharmalink/features/main/prescription/ui/widgets/doctor_prescription_card.dart';
+import 'package:pharmalink/core/theme/colors.dart';
+import 'package:pharmalink/core/theme/styles.dart';
+import 'package:intl/intl.dart';
+
+import '../logic/cubit/prescription_cubit.dart';
+
+String formatDateTime(String dateTimeString) {
+  // Parse the date string to DateTime object
+  DateTime dateTime = DateTime.parse(dateTimeString);
+
+  // Define the date format you want
+  DateFormat dateFormat = DateFormat('on yyyy-MM-dd');
+
+  // Format the DateTime object using the defined format
+  String formattedDate = dateFormat.format(dateTime);
+
+  return formattedDate;
+}
+
+class PrescriptionsScreen extends StatefulWidget {
+  final DrugState state;
+
+  const PrescriptionsScreen({
+    super.key,
+    required this.state,
+  });
+
+  @override
+  _PrescriptionsScreenState createState() => _PrescriptionsScreenState();
+}
+
+class _PrescriptionsScreenState extends State<PrescriptionsScreen> {
+
+  @override
+  void initState() {
+    super.initState();
+
+    BlocProvider.of<PrescriptionCubit>(context).loadPrescriptions(widget.state);
+  }
+
+  // This method is used to build the no prescriptions found widget
+  Widget _buildNoPrescriptionsFound() {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        const Icon(
+          Icons.featured_play_list_rounded,
+          size: 80,
+          color: AppColors.accent5,
+        ),
+        Center(
+          child: Text(
+            'No Prescriptions Found.',
+            textAlign: TextAlign.center,
+            style: AppTextStyle.headlineSmall.copyWith(
+              color: Colors.grey,
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  // This method is used to build the list of prescriptions
+  Widget _buildPrescriptionsList(List<Prescription> prescriptions) {
+    return ListView.builder(
+      scrollDirection: Axis.vertical,
+      padding: EdgeInsets.zero,
+      itemCount: prescriptions.length,
+      itemBuilder: (context, index) {
+        return DoctorPrescriptionCard(
+          prescription: prescriptions[index],
+          state: widget.state,
+        );
+      },
+    );
+  }
+
+  // This method is used to build the success widget
+  Widget _buildSuccessWidget(List<Prescription> prescriptions) {
+    return prescriptions.isEmpty
+        ? _buildNoPrescriptionsFound()
+        : _buildPrescriptionsList(prescriptions);
+  }
+
+  // This method is used to build the error widget
+  Widget _buildErrorWidget(String message) {
+    return Center(
+      child: Text(message),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: AppColors.primaryBackground,
+      appBar: AppBar(
+        iconTheme: const IconThemeData(color: AppColors.secondaryText),
+        backgroundColor: AppColors.primaryBackground,
+        title: Text(
+          '${widget.state.value.toString().capitalize()} Drugs',
+          style: AppTextStyle.displayMedium.copyWith(
+            fontSize: 28,
+          ),
+        ),
+        elevation: 2,
+      ),
+      body: SafeArea(
+        child: BlocBuilder<PrescriptionCubit, PrescriptionState>(
+          buildWhen: (previous, current) =>
+              current is Loading ||
+              current is PrescriptionsLoaded ||
+              current is Error,
+          builder: (context, state) {
+            if (state is Loading) {
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            } else if (state is PrescriptionsLoaded) {
+              var prescriptions = state.data;
+              return _buildSuccessWidget(prescriptions);
+            } else if (state is Error) {
+              return _buildErrorWidget(state.message);
+            } else {
+              return const SizedBox();
+            }
+          },
+        ),
+      ),
+    );
+  }
+}

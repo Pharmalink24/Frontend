@@ -2,13 +2,14 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:pharmalink/core/helpers/extensions.dart';
+import 'package:pharmalink/core/theme/fonts.dart';
 import 'ff_button_widget.dart';
 import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/theme/styles.dart';
 import 'package:pharmalink/core/networking/networking.dart';
 
 class DeactivateBoxWidget extends StatefulWidget {
-  final String id;
+  final int id;
 
   const DeactivateBoxWidget({
     super.key,
@@ -99,7 +100,7 @@ class _DeactivateBoxWidgetState extends State<DeactivateBoxWidget> {
                 'Why do you want to deactivate your prescription?',
                 textAlign: TextAlign.center,
                 style: AppTextStyle.bodyMedium.copyWith(
-                  fontFamily: 'Readex Pro',
+                  fontFamily: AppFonts.secondary,
                   fontSize: 25,
                   letterSpacing: 0,
                 ),
@@ -119,7 +120,7 @@ class _DeactivateBoxWidgetState extends State<DeactivateBoxWidget> {
                   iconPadding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                   color: AppColors.primary,
                   textStyle: AppTextStyle.bodyLarge.copyWith(
-                    fontFamily: 'Readex Pro',
+                    fontFamily: AppFonts.secondary,
                     fontSize: 20,
                     letterSpacing: 0,
                   ),
@@ -145,7 +146,7 @@ class _DeactivateBoxWidgetState extends State<DeactivateBoxWidget> {
                   iconPadding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                   color: AppColors.primary,
                   textStyle: AppTextStyle.bodyLarge.copyWith(
-                    fontFamily: 'Readex Pro',
+                    fontFamily: AppFonts.secondary,
                     fontSize: 20,
                     letterSpacing: 0,
                   ),

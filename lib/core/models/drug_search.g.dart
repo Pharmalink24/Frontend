@@ -1,12 +1,12 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'drug.dart';
+part of 'drug_search.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-Drug _$DrugFromJson(Map<String, dynamic> json) => Drug(
+DrugSearch _$DrugSearchFromJson(Map<String, dynamic> json) => DrugSearch(
       id: json['id'] as int,
       tradeName: json['TradeName'] as String,
       drugEyeId: json['ID'] as String,
@@ -16,7 +16,8 @@ Drug _$DrugFromJson(Map<String, dynamic> json) => Drug(
       classification: json['CLASSIFICATION'] as String,
     );
 
-Map<String, dynamic> _$DrugToJson(Drug instance) => <String, dynamic>{
+Map<String, dynamic> _$DrugSearchToJson(DrugSearch instance) =>
+    <String, dynamic>{
       'id': instance.id,
       'TradeName': instance.tradeName,
       'ID': instance.drugEyeId,

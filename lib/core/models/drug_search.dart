@@ -1,10 +1,10 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:json_annotation/json_annotation.dart';
 
-part "drug.g.dart";
+part "drug_search.g.dart";
 
 @JsonSerializable()
-class Drug {
+class DrugSearch {
   final int id;
   @JsonKey(name: "TradeName")
   final String tradeName;
@@ -19,7 +19,7 @@ class Drug {
   @JsonKey(name: "CLASSIFICATION")
   final String classification;
 
-  Drug({
+  DrugSearch({
     required this.id,
     required this.tradeName,
     required this.drugEyeId,
@@ -29,8 +29,8 @@ class Drug {
     required this.classification,
   });
 
-  factory Drug.fromJson(Map<String, dynamic> json) =>
-      _$DrugFromJson(json);
+  factory DrugSearch.fromJson(Map<String, dynamic> json) =>
+      _$DrugSearchFromJson(json);
 
-  Map<String, dynamic> toJson() => _$DrugToJson(this);
+  Map<String, dynamic> toJson() => _$DrugSearchToJson(this);
 }

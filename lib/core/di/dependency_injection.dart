@@ -5,6 +5,8 @@ import 'package:pharmalink/features/main/doctors/data/repo/doctors_repo.dart';
 import 'package:pharmalink/features/main/doctors/logic/cubit/doctors_cubit.dart';
 import 'package:pharmalink/features/main/drug_interaction/data/repo/drug_interaction_repo.dart';
 import 'package:pharmalink/features/main/drug_interaction/logic/cubit/drug_interaction_cubit.dart';
+import 'package:pharmalink/features/main/prescription/data/repo/prescription_repo.dart';
+import 'package:pharmalink/features/main/prescription/logic/cubit/prescription_cubit.dart';
 import 'package:pharmalink/features/main/profile/data/repo/profile_repo.dart';
 import 'package:pharmalink/features/main/profile/logic/cubit/profile_cubit.dart';
 import 'package:pharmalink/features/main/reminders/logic/cubit/reminders_cubit.dart';
@@ -31,6 +33,9 @@ Future<void> setupGetIt() async {
   Dio dio = DioFactory.getDio();
   getIt.registerLazySingleton<ApiService>(() => ApiService(dio));
 
+
+  //-------------------- AUTHENTICATION --------------------//
+
   // Auth
   getIt.registerLazySingleton<AuthRepo>(() => AuthRepo(getIt()));
   getIt.registerFactory<AuthCubit>(() => AuthCubit(getIt()));
@@ -48,16 +53,20 @@ Future<void> setupGetIt() async {
       .registerLazySingleton<VerificationRepo>(() => VerificationRepo(getIt()));
   getIt.registerFactory<VerificationCubit>(() => VerificationCubit(getIt()));
 
+  //-------------------- MAIN --------------------//
+
   // Home Page
   getIt.registerLazySingleton<RemindersRepo>(() => RemindersRepo(getIt()));
   getIt.registerFactory<RemindersCubit>(() => RemindersCubit(getIt()));
 
+  //-------------------- INTERACTION --------------------//
   // Drug Interaction
   getIt.registerLazySingleton<DrugInteractionRepo>(
       () => DrugInteractionRepo(getIt()));
   getIt.registerFactory<DrugInteractionCubit>(
       () => DrugInteractionCubit(getIt()));
 
+  //-------------------- SETTINGS & PROFILE --------------------//
   // Profile Information
   getIt.registerLazySingleton<ProfileRepo>(() => ProfileRepo(getIt()));
   getIt.registerFactory<ProfileCubit>(() => ProfileCubit(getIt()));
@@ -71,9 +80,15 @@ Future<void> setupGetIt() async {
       () => ChangePasswordRepo(getIt()));
   getIt
       .registerFactory<ChangePasswordCubit>(() => ChangePasswordCubit(getIt()));
+
+  //-------------------- DOCTORS --------------------//
   // Doctors
   getIt.registerLazySingleton<DoctorsRepo>(() => DoctorsRepo(getIt()));
   getIt.registerFactory<DoctorsCubit>(() => DoctorsCubit(getIt()));
+
+  //-------------------- PRESCRIPTION --------------------//
+  getIt.registerLazySingleton<PrescriptionRepo>(() => PrescriptionRepo(getIt()));
+  getIt.registerFactory<PrescriptionCubit>(() => PrescriptionCubit(getIt()));
 
   // Logger
   getIt.registerLazySingleton<Logger>(() => Logger());

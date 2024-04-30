@@ -29,6 +29,26 @@ class DoctorsCubit extends Cubit<DoctorsState> {
     );
   }
 
+  void emitDoctorProfile(int doctorId) async {
+    // Loading until get data
+    emit(const DoctorsState.loading());
+
+    // Get data
+    final response = await _doctorsRepo.getDoctorProfile(doctorId);
+    response.when(
+      success: (data) {
+        emit(DoctorsState.success(data));
+      },
+      failure: (error) {
+        emit(
+          DoctorsState.error(
+            error: error.apiErrorModel.message ?? ERR.UNEXPECTED,
+          ),
+        );
+      },
+    );
+  }
+
   // void emitNewDoctorsList() async {
   //   // Loading until get data
   //   emit(const DoctorsState.loading());

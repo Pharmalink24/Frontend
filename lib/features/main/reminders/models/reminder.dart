@@ -1,14 +1,3 @@
-// "id": 1,
-// "drug_name": "UVAMINE RETARD 100mg caps.",
-// "dosage": 10.0,
-// "dosage_unit": "capsule",
-// "next_dose_time": "2024-04-29T00:00:00",
-// "is_checked": false,
-// "state": "active",
-// "user": 27,
-// "prescription": 6
-
-import 'package:flutter/material.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'reminder.g.dart';

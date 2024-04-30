@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:pharmalink/core/enums/drug_state.dart';
 
-import '../../../core/theme/colors.dart';
-import '../../../core/theme/styles.dart';
-import 'all_prescription.dart';
+import '../../../../core/theme/colors.dart';
+import '../../../../core/theme/styles.dart';
 import 'widgets/category_widget.dart';
 
 class LandingPrescriptionScreen extends StatelessWidget {
-  static String url = "/landing_prescription";
   const LandingPrescriptionScreen({super.key});
 
   @override
@@ -24,22 +23,22 @@ class LandingPrescriptionScreen extends StatelessWidget {
                   )),
             ),
             const PrescriptionCategoryWidget(
-              titleText: 'New',
-              descriptionText: 'View or activate new drugs.',
+              title: 'New Drugs',
+              description: 'View or activate new drugs.',
               backgroundColor: AppColors.primary,
-              followingScreen: AllPrescriptionScreen(category: 'new'),
+              category: DrugState.NEW,
             ),
             const PrescriptionCategoryWidget(
-              titleText: 'Active',
-              descriptionText: 'View or deactivate new drugs.',
+              title: 'Active Drugs',
+              description: 'View or deactivate new drugs.',
               backgroundColor: AppColors.secondary,
-              followingScreen: AllPrescriptionScreen(category: 'active'),
+              category: DrugState.ACTIVE,
             ),
             const PrescriptionCategoryWidget(
-              titleText: 'Inactive',
-              descriptionText: 'View or reactivate past drugs.',
+              title: 'Inactive Drugs',
+              description: 'View or reactivate past drugs.',
               backgroundColor: AppColors.alternate,
-              followingScreen: AllPrescriptionScreen(category: 'inactive'),
+              category: DrugState.INACTIVE,
             ),
           ],
         ),

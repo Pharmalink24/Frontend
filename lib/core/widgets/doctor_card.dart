@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:pharmalink/core/helpers/constants/paths.dart';
+import 'package:pharmalink/core/helpers/extensions.dart';
 import 'package:pharmalink/core/networking/api_constants.dart';
-import 'package:pharmalink/features/main/prescription/doctor_info.dart';
-
+import 'package:pharmalink/core/routes/routes.dart';
 import '../theme/colors.dart';
 import '../theme/fonts.dart';
 import '../theme/styles.dart';
@@ -37,18 +37,8 @@ class DoctorCard extends StatelessWidget {
     return Padding(
       padding: outerPadding,
       child: GestureDetector(
-        onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => DoctorInfoScreen(
-                name: '${doctor.firstName} ${doctor.lastName}',
-                image: "${ApiConstants.baseUrl}${doctor.image}",
-                id: "${doctor.id}",
-              ),
-            ),
-          );
-        },
+        onTap: () =>
+            context.pushNamed(Routes.doctorScreen, argument: doctor.id),
         child: Container(
           width: width,
           height: height,

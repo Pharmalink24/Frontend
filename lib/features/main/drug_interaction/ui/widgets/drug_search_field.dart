@@ -4,7 +4,7 @@ import 'package:flutter_typeahead/flutter_typeahead.dart';
 import 'package:pharmalink/core/theme/styles.dart';
 import 'package:pharmalink/core/widgets/loading_indicator.dart';
 
-import '../../data/models/drug.dart';
+import '../../../../../core/models/drug_search.dart';
 import '../../logic/cubit/drug_interaction_cubit.dart';
 
 class DrugSearchField extends StatefulWidget {
@@ -20,7 +20,7 @@ class DrugSearchField extends StatefulWidget {
 class _DrugSearchFieldState extends State<DrugSearchField> {
   @override
   Widget build(BuildContext context) {
-    return TypeAheadField<Drug>(
+    return TypeAheadField<DrugSearch>(
       hideWithKeyboard: false,
       controller: widget.controller,
       suggestionsCallback: (search) async =>
@@ -46,7 +46,7 @@ class _DrugSearchFieldState extends State<DrugSearchField> {
     );
   }
 
-  Widget drugListTile(Drug drug) {
+  Widget drugListTile(DrugSearch drug) {
     return ListTile(
       title: Text(drug.tradeName),
       subtitle: Text('${drug.quantity} ${drug.unit}'),
@@ -60,7 +60,8 @@ class _DrugSearchFieldState extends State<DrugSearchField> {
     ));
   }
 
-  Future<List<Drug>?> getSearchedDrugs({required int drugId, required String search}) async {
+  Future<List<DrugSearch>?> getSearchedDrugs(
+      {required int drugId, required String search}) async {
     if (search.length > 2) {
       return await context
           .read<DrugInteractionCubit>()
@@ -69,9 +70,10 @@ class _DrugSearchFieldState extends State<DrugSearchField> {
     return null;
   }
 
-  void selectDrug(TextEditingController? controller, Drug drug) {
+  void selectDrug(TextEditingController? controller, DrugSearch drug) {
     controller?.text = drug.tradeName;
-    context.read<DrugInteractionCubit>().setActiveIngredients(drug, widget.drugFieldId);
+    context
+        .read<DrugInteractionCubit>()
+        .setActiveIngredients(drug, widget.drugFieldId);
   }
 }
-

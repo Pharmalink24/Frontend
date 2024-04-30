@@ -4,7 +4,6 @@ import 'package:pharmalink/core/models/doctor.dart';
 import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/theme/styles.dart';
 import 'package:pharmalink/core/widgets/card_container.dart';
-import 'package:pharmalink/core/widgets/card_container_with_title.dart';
 import 'package:pharmalink/core/widgets/doctor_card.dart';
 import 'package:pharmalink/core/widgets/loading_indicator.dart';
 import 'package:pharmalink/features/main/profile/logic/cubit/profile_cubit.dart';
@@ -33,7 +32,6 @@ class _DoctorsScreenState extends State<DoctorsScreen> {
   Widget buildListOfDoctorsWidget(BuildContext context, List<Doctor> doctors) {
     return Expanded(
       child: SizedBox(
-        height: 500,
         child: ListView.builder(
           scrollDirection: Axis.vertical,
           padding: EdgeInsets.zero,
@@ -146,6 +144,7 @@ class _DoctorsScreenState extends State<DoctorsScreen> {
       ),
       body: SafeArea(
         child: BlocBuilder<DoctorsCubit, DoctorsState>(
+          buildWhen: (previous, current) => current is Loading || current is Success || current is Error,
           builder: (context, state) {
             if (state is Loading) {
               return const LoadingIndicator();

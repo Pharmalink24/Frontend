@@ -13,11 +13,17 @@ class Routes {
   static const String mainScreen = '/mainScreen';
   static const String homeScreen = '/homeScreen';
 
+  // Doctor
   static const String doctorsScreen = '/doctorsScreen';
+  static const String doctorScreen = '/doctorScreen';
 
   // Edit Profile Settings
   static const String editProfileScreen = '/editProfileScreen';
   
   // Change Password
   static const String changePasswordScreen = '/changePasswordScreen';
+
+  // Prescription
+  static const String prescriptionScreen = '/prescriptionScreen';
+  static const String prescriptionsScreen = '/prescriptionsScreen';
 }

@@ -1,11 +1,18 @@
 import "package:flutter/material.dart";
+import 'package:pharmalink/core/enums/drug_state.dart';
 import 'package:pharmalink/features/access/auth/logic/cubit/auth_cubit.dart';
+import 'package:pharmalink/features/main/doctors/ui/doctor_screen.dart';
+import 'package:pharmalink/core/models/drug_search.dart';
+import 'package:pharmalink/features/main/prescription/logic/cubit/prescription_cubit.dart';
+import 'package:pharmalink/features/main/prescription/ui/prescription_screen.dart';
+import 'package:pharmalink/features/main/prescription/ui/prescriptions_screen.dart';
+import 'package:pharmalink/features/main/prescription/ui/widgets/category_widget.dart';
 import 'package:pharmalink/features/main/settings/edit_profile/logic/cubit/edit_profile_cubit.dart';
 import 'package:pharmalink/features/main/settings/edit_profile/ui/edit_profile_screen.dart';
 import 'package:pharmalink/features/main/settings/change_password/logic/cubit/change_password_cubit.dart';
 import 'package:pharmalink/features/main/settings/change_password/ui/change_password_screen.dart';
 import 'package:pharmalink/features/main/doctors/logic/cubit/doctors_cubit.dart';
-import 'package:pharmalink/features/main/doctors/ui/doctors_page.dart';
+import 'package:pharmalink/features/main/doctors/ui/doctors_screen.dart';
 import '../di/dependency_injection.dart';
 import 'routes.dart';
 import '../../features/404/error_404_screen.dart';
@@ -33,6 +40,7 @@ class AppRouter {
       case Routes.onBoardingScreen:
         return MaterialPageRoute(builder: (_) => const OnBoardingScreen());
 
+      // ----------------- Access (Authorization) ----------------- //
       case Routes.signInScreen:
         return MaterialPageRoute(
           builder: (_) => BlocProvider(
@@ -61,6 +69,7 @@ class AppRouter {
           ),
         );
 
+      // ----------------- Main ----------------- //
       case Routes.mainScreen:
         return MaterialPageRoute(
           builder: (_) => BlocProvider(
@@ -74,7 +83,7 @@ class AppRouter {
           builder: (_) => BlocProvider(
             create: (context) => getIt<EditProfileCubit>(),
             child: const EditProfileScreen(),
-                      ),
+          ),
         );
 
       case Routes.changePasswordScreen:
@@ -85,6 +94,7 @@ class AppRouter {
           ),
         );
 
+      // ----------------- Doctor ----------------- //
       case Routes.doctorsScreen:
         return MaterialPageRoute(
           builder: (_) => BlocProvider(
@@ -92,7 +102,43 @@ class AppRouter {
             child: const DoctorsScreen(),
           ),
         );
-      
+
+      case Routes.doctorScreen:
+        final doctorId = settings.arguments as int;
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<DoctorsCubit>(),
+            child: DoctorScreen(
+              id: doctorId,
+            ),
+          ),
+        );
+
+      // ----------------- Prescription ----------------- //
+      case Routes.prescriptionsScreen:
+        final category = settings.arguments as DrugState;
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<PrescriptionCubit>(),
+            child: PrescriptionsScreen(
+              state: category,
+            ),
+          ),
+        );
+
+      case Routes.prescriptionScreen:
+        final prescription = settings.arguments as Map<String, dynamic>;
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<PrescriptionCubit>(),
+            child: PrescriptionScreen(
+              id: prescription['id'],
+              doctor: prescription['doctor'],
+              drugState: prescription['state'],
+            ),
+          ),
+        );
+
       default:
         return MaterialPageRoute(builder: (_) => const Error404Screen());
     }

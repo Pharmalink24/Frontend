@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:pharmalink/features/main/drug_interaction/data/models/drug.dart';
+import 'package:pharmalink/core/models/drug_search.dart';
 import 'package:pharmalink/features/main/drug_interaction/data/models/drug_eye_search_request_params.dart';
 import 'package:pharmalink/features/main/drug_interaction/data/models/drug_interaction_request_body.dart';
 import 'package:pharmalink/features/main/drug_interaction/data/repo/drug_interaction_repo.dart';
@@ -9,7 +9,7 @@ import 'drug_interaction_state.dart';
 
 class DrugInteractionCubit extends Cubit<DrugInteractionState> {
   final DrugInteractionRepo _drugInteractionRepo;
-  List<Drug>? drugs;
+  List<DrugSearch>? drugs;
 
   DrugInteractionCubit(this._drugInteractionRepo)
       : super(const DrugInteractionState.initial());
@@ -20,7 +20,8 @@ class DrugInteractionCubit extends Cubit<DrugInteractionState> {
   String activeIngredient2 = '';
   final formKey = GlobalKey<FormState>();
 
-  Future<List<Drug>?> getDrugSearchSuggestion({required int drugId}) async {
+  Future<List<DrugSearch>?> getDrugSearchSuggestion(
+      {required int drugId}) async {
     await _drugInteractionRepo
         .searchDrugFromDrugEye(
           DrugEyeSearchRequestParams(
@@ -71,7 +72,7 @@ class DrugInteractionCubit extends Cubit<DrugInteractionState> {
     );
   }
 
-  void setActiveIngredients(Drug drug, int drugId) {
+  void setActiveIngredients(DrugSearch drug, int drugId) {
     if (drugId == 1) {
       activeIngredient1 = drug.activeIngredient;
     } else {

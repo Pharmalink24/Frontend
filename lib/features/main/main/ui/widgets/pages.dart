@@ -6,7 +6,7 @@ import 'package:pharmalink/features/main/doctors/logic/cubit/doctors_cubit.dart'
 import 'package:pharmalink/features/main/drug_interaction/logic/cubit/drug_interaction_cubit.dart';
 import 'package:pharmalink/features/main/drug_interaction/ui/drug_interaction_screen.dart';
 import 'package:pharmalink/features/main/home/ui/home_screen.dart';
-import 'package:pharmalink/features/main/prescription/landing_prescription.dart';
+import 'package:pharmalink/features/main/prescription/ui/landing_prescription_screen.dart';
 import 'package:pharmalink/features/main/profile/logic/cubit/profile_cubit.dart';
 import 'package:pharmalink/features/main/profile/ui/profile_screen.dart';
 import 'package:pharmalink/features/main/reminders/logic/cubit/reminders_cubit.dart';
