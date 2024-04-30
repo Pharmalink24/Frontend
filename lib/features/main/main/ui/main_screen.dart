@@ -39,7 +39,6 @@ class _MainScreenState extends State<MainScreen> {
             RefreshTokenBlocListener(activeIndex: activeIndex),
           ],
         ),
-        backgroundColor: AppColors.secondaryBackground,
         bottomNavigationBar: AppBottomNavigationBar(
           currentIndex: activeIndex,
           onTap: (i) {

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pharmalink/core/Blocs/theme/theme_cubit.dart';
 import 'package:pharmalink/core/di/dependency_injection.dart';
 import 'package:pharmalink/features/access/auth/logic/cubit/auth_cubit.dart';
 import 'package:pharmalink/features/main/doctors/logic/cubit/doctors_cubit.dart';
@@ -23,7 +24,6 @@ List<Widget> pages = [
       BlocProvider(
         create: (context) => getIt<RemindersCubit>(),
       ),
-
     ],
     child: const HomeScreen(),
   ),
@@ -39,6 +39,9 @@ List<Widget> pages = [
       ),
       BlocProvider(
         create: (context) => getIt<AuthCubit>(),
+      ),
+      BlocProvider(
+        create: (context) => getIt<ThemeCubit>(),
       ),
     ],
     child: const ProfileScreen(),

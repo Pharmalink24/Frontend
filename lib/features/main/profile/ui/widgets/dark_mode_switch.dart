@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pharmalink/core/Blocs/theme/theme_cubit.dart';
 import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/theme/styles.dart';
 import 'package:pharmalink/core/localization/app_localizations.dart';
@@ -11,7 +13,12 @@ class DarkModeSwitch extends StatefulWidget {
 }
 
 class _DarkModeSwitchState extends State<DarkModeSwitch> {
-  bool isDarkMode = false;
+  bool _isDarkTheme = false;
+
+  @override
+  void initState() {
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -28,21 +35,11 @@ class _DarkModeSwitchState extends State<DarkModeSwitch> {
             style: AppTextStyle.bodyMedium(context),
           ),
           Switch(
-            value: isDarkMode,
-            onChanged: (value) {
-              setState(() {
-                isDarkMode = value;
-              });
-            },
-            // trackColor: const MaterialStatePropertyAll(
-            //   AppColors.primaryBackground,
-            // ),
-            // trackOutlineColor:
-            //     MaterialStatePropertyAll(AppColors.primary),
-            // thumbColor:
-            //     const MaterialStatePropertyAll(AppColors.secondary),
-            // overlayColor:
-            //     const MaterialStatePropertyAll(AppColors.secondary),
+            value: _isDarkTheme,
+            onChanged: (value) => _onChanged(value),
+            trackOutlineColor:
+                const MaterialStatePropertyAll(AppColors.tertiary),
+            thumbColor: const MaterialStatePropertyAll(AppColors.primary),
             activeTrackColor: AppColors.secondary,
             activeColor: AppColors.primaryBackground,
             inactiveTrackColor: AppColors.primaryBackground,
@@ -51,5 +48,16 @@ class _DarkModeSwitchState extends State<DarkModeSwitch> {
         ],
       ),
     );
+  }
+
+  void _onChanged(bool value) {
+    setState(() {
+      _isDarkTheme = value;
+
+      // Change the theme based on the switch value
+      value
+          ? context.read<ThemeCubit>().toggleDarkTheme()
+          : context.read<ThemeCubit>().toggleLightTheme();
+    });
   }
 }

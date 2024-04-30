@@ -34,11 +34,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Expanded(
-            flex: 4,
+            flex: 11,
             child: ProfileInfo(user: user),
           ),
           const Expanded(
-            flex: 9,
+            flex: 20,
             child: AccountSettings(),
           ),
         ],

@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pharmalink/core/Blocs/cubit/locale_cubit.dart';
+import 'package:pharmalink/core/Blocs/locale/locale_cubit.dart';
 import 'package:pharmalink/core/helpers/classes/field_item.dart';
 import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/widgets/form/form_drop_down_button.dart';

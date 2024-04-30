@@ -10,41 +10,38 @@ class LandingPrescriptionScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: AppColors.primaryBackground,
-      body: SafeArea(
-        child: ListView(
-          children: [
-            Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(16, 32, 16, 16),
-              child: Text(
-                AppLocalizations.of(context).translate('prescriptions'),
-                style: AppTextStyle.displayMedium(context),
-              ),
+    return SafeArea(
+      child: ListView(
+        children: [
+          Padding(
+            padding: const EdgeInsetsDirectional.fromSTEB(16, 32, 16, 16),
+            child: Text(
+              AppLocalizations.of(context).translate('prescriptions'),
+              style: AppTextStyle.displayMedium(context),
             ),
-            PrescriptionCategoryWidget(
-              title: AppLocalizations.of(context).translate('newDrugs'),
-              description:
-                  AppLocalizations.of(context).translate('newDrugsDescription'),
-              backgroundColor: AppColors.primary,
-              category: DrugState.NEW,
-            ),
-            PrescriptionCategoryWidget(
-              title: AppLocalizations.of(context).translate('activeDrugs'),
-              description: AppLocalizations.of(context)
-                  .translate('activeDrugsDescription'),
-              backgroundColor: AppColors.secondary,
-              category: DrugState.ACTIVE,
-            ),
-            PrescriptionCategoryWidget(
-              title: AppLocalizations.of(context).translate('inactiveDrugs'),
-              description: AppLocalizations.of(context)
-                  .translate('inactiveDrugsDescription'),
-              backgroundColor: AppColors.alternate,
-              category: DrugState.INACTIVE,
-            ),
-          ],
-        ),
+          ),
+          PrescriptionCategoryWidget(
+            title: AppLocalizations.of(context).translate('newDrugs'),
+            description:
+                AppLocalizations.of(context).translate('newDrugsDescription'),
+            backgroundColor: AppColors.primary,
+            category: DrugState.NEW,
+          ),
+          PrescriptionCategoryWidget(
+            title: AppLocalizations.of(context).translate('activeDrugs'),
+            description: AppLocalizations.of(context)
+                .translate('activeDrugsDescription'),
+            backgroundColor: AppColors.secondary,
+            category: DrugState.ACTIVE,
+          ),
+          PrescriptionCategoryWidget(
+            title: AppLocalizations.of(context).translate('inactiveDrugs'),
+            description: AppLocalizations.of(context)
+                .translate('inactiveDrugsDescription'),
+            backgroundColor: AppColors.alternate,
+            category: DrugState.INACTIVE,
+          ),
+        ],
       ),
     );
   }

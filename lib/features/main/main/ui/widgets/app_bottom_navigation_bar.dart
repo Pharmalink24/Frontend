@@ -28,7 +28,7 @@ class _AppBottomNavigationBarState extends State<AppBottomNavigationBar> {
       backgroundColor: AppColors.secondaryBackground,
       selectedItemColor: AppColors.primary,
       unselectedItemColor: AppColors.secondaryText,
-      type: BottomNavigationBarType.fixed,
+      type: BottomNavigationBarType.shifting,
       showSelectedLabels: false,
       showUnselectedLabels: false,
       items: widget.items,

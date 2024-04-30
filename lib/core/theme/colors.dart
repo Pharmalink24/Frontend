@@ -16,6 +16,27 @@ class AppColors {
   static const Color primaryBackground = Color(0xFFffffff);
   static const Color secondaryBackground = Color(0XFFf1f4f8);
 
+  // Gradients
+  // static const LinearGradient primaryGradient = LinearGradient(
+  //   colors: [Color(0xFF00F0B5), Color(0xFF00B5F0)],
+  //   begin: Alignment.topLeft,
+  //   end: Alignment.bottomRight,
+  // );
+
+  // Dark Mode Colors 
+  static const Color darkPrimary = Color(0xFF011936);
+  static const Color darkSecondary = Color(0xFF00F0B5);
+  static const Color darkTertiary = Color(0xFFF9F9F9);
+  static const Color darkAlternate = Color(0xFF101010);
+  static const Color darkTransparent = Colors.transparent;
+
+  static const Color darkPrimaryText = Color(0xFFF9F9F9);
+  static const Color darkSecondaryText = Color(0xFF57636C);
+  static const Color darkAlternateText = Color(0xFF14181B);
+
+  static const Color darkPrimaryBackground = Color(0xFF011936);
+  static const Color darkSecondaryBackground = Color(0xFF101010);
+
   static const Color accent1 = Color(0x4C4B39EF);
   static const Color accent2 = Color(0x4D39D2C0);
   static const Color accent3 = Color(0x4DEE8B60);

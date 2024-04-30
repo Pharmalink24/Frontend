@@ -15,23 +15,20 @@ class DrugInteractionScreen extends StatefulWidget {
 class _DrugInteractionScreenState extends State<DrugInteractionScreen> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: AppColors.secondaryBackground,
-      child: SafeArea(
-        child: Padding(
-          padding: const EdgeInsetsDirectional.all(16),
-          child: Column(
-            children: [
-              Expanded(
-                flex: 2,
-                child: DrugInteractionForm(),
-              ),
-              Expanded(
-                flex: 1,
-                child: InteractionResultContainer(),
-              ),
-            ],
-          ),
+    return SafeArea(
+      child: Padding(
+        padding: const EdgeInsetsDirectional.all(16),
+        child: Column(
+          children: [
+            Expanded(
+              flex: 2,
+              child: DrugInteractionForm(),
+            ),
+            Expanded(
+              flex: 1,
+              child: InteractionResultContainer(),
+            ),
+          ],
         ),
       ),
     );
