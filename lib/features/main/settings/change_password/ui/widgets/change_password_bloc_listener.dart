@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pharmalink/core/helpers/extensions.dart';
+import 'package:pharmalink/core/localization/app_localizations.dart';
 import 'package:pharmalink/core/routes/routes.dart';
 import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/theme/styles.dart';
@@ -8,7 +9,6 @@ import 'package:pharmalink/core/widgets/loading_overlay.dart';
 import 'package:pharmalink/features/main/settings/change_password/data/models/change_password_response.dart';
 import 'package:pharmalink/features/main/settings/change_password/logic/cubit/change_password_cubit.dart';
 import 'package:pharmalink/features/main/settings/change_password/logic/cubit/change_password_state.dart';
-import 'package:pharmalink/generated/l10n.dart';
 
 class ChangePasswordBlocListener extends StatelessWidget {
   ChangePasswordBlocListener({super.key});
@@ -32,15 +32,15 @@ class ChangePasswordBlocListener extends StatelessWidget {
         ),
         content: Text(
           error,
-          style: AppTextStyle.titleLarge,
+          style: AppTextStyle.titleLarge(context),
           textAlign: TextAlign.center,
         ),
         actions: [
           TextButton(
             onPressed: () => context.pop(),
             child: Text(
-              S.of(context).gotIt,
-              style: AppTextStyle.labelLarge.copyWith(
+              AppLocalizations.of(context).translate('gotIt'),
+              style: AppTextStyle.labelLarge(context).copyWith(
                 color: AppColors.alternateText,
               ),
             ),
@@ -51,9 +51,10 @@ class ChangePasswordBlocListener extends StatelessWidget {
   }
 
   // Show success indicator dialog
-  void showSuccess(BuildContext context, ChangePasswordResponse changePasswordResponse) {
+  void showSuccess(
+      BuildContext context, ChangePasswordResponse changePasswordResponse) {
     _loadingOverlay.hide();
-        showDialog(
+    showDialog(
       context: context,
       builder: (context) => AlertDialog(
         icon: const Icon(
@@ -63,15 +64,15 @@ class ChangePasswordBlocListener extends StatelessWidget {
         ),
         content: Text(
           changePasswordResponse.message ?? "Password changed successfully",
-          style: AppTextStyle.titleLarge,
+          style: AppTextStyle.titleLarge(context),
           textAlign: TextAlign.center,
         ),
         actions: [
           TextButton(
             onPressed: () => context.pushReplacementNamed(Routes.mainScreen),
             child: Text(
-              S.of(context).gotIt,
-              style: AppTextStyle.labelLarge.copyWith(
+              AppLocalizations.of(context).translate('gotIt'),
+              style: AppTextStyle.labelLarge(context).copyWith(
                 color: AppColors.alternateText,
               ),
             ),
@@ -79,7 +80,6 @@ class ChangePasswordBlocListener extends StatelessWidget {
         ],
       ),
     );
-
   }
 
   @override
@@ -90,7 +90,8 @@ class ChangePasswordBlocListener extends StatelessWidget {
       listener: (context, state) {
         state.whenOrNull(
           loading: () => showLoading(context),
-          success: (changePasswordResponse) => showSuccess(context, changePasswordResponse),
+          success: (changePasswordResponse) =>
+              showSuccess(context, changePasswordResponse),
           error: (error) => showError(context, error),
         );
       },

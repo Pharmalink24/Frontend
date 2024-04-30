@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pharmalink/generated/l10n.dart';
+import 'package:pharmalink/core/localization/app_localizations.dart';
+
 import '../../../../../core/theme/styles.dart';
 
 class JustClickText extends StatelessWidget {
@@ -10,8 +11,8 @@ class JustClickText extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 32.0),
       child: Text(
-        S.of(context).justClickOnTheLink,
-        style: AppTextStyle.bodyMedium,
+        AppLocalizations.of(context).translate('justClickOnTheLink'),
+        style: AppTextStyle.bodyMedium(context),
       ),
     );
   }

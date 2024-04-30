@@ -3,8 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_typeahead/flutter_typeahead.dart';
 import 'package:pharmalink/core/theme/styles.dart';
 import 'package:pharmalink/core/widgets/loading_indicator.dart';
-import 'package:pharmalink/generated/l10n.dart';
-
+import 'package:pharmalink/core/localization/app_localizations.dart';
 import '../../data/models/drug.dart';
 import '../../logic/cubit/drug_interaction_cubit.dart';
 
@@ -28,8 +27,10 @@ class DrugSearchField extends StatelessWidget {
         return TextField(
           controller: controller,
           focusNode: focusNode,
-          decoration: AppTextFieldDecoration.searchInputDecoration.copyWith(
-            labelText: S.of(context).pleaseSelectDrugs,
+          decoration:
+              AppTextFieldDecoration.searchInputDecoration(context).copyWith(
+            labelText:
+                AppLocalizations.of(context).translate('pleaseSelectDrugs'),
           ),
         );
       },
@@ -52,7 +53,7 @@ class DrugSearchField extends StatelessWidget {
   Widget noDrugFoundWidget(BuildContext context) {
     return ListTile(
         title: Text(
-      S.of(context).noInteractions,
+      AppLocalizations.of(context).translate('noInteractions'),
     ));
   }
 

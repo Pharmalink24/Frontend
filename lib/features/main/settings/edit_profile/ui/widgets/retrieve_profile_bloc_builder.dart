@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pharmalink/core/localization/app_localizations.dart';
 import 'package:pharmalink/core/models/user.dart';
 import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/theme/styles.dart';
@@ -8,7 +9,6 @@ import 'package:pharmalink/core/widgets/loading_indicator.dart';
 import 'package:pharmalink/features/main/settings/edit_profile/data/models/edit_profile_fields.dart';
 import 'package:pharmalink/features/main/settings/edit_profile/logic/cubit/edit_profile_cubit.dart';
 import 'package:pharmalink/features/main/settings/edit_profile/logic/cubit/edit_profile_state.dart';
-import 'package:pharmalink/generated/l10n.dart';
 
 class RetrieveProfileBlocBuilder extends StatelessWidget {
   const RetrieveProfileBlocBuilder({super.key});
@@ -48,7 +48,7 @@ class RetrieveProfileBlocBuilder extends StatelessWidget {
             const SizedBox(height: 20),
             Text(
               error,
-              style: AppTextStyle.bodyMedium,
+              style: AppTextStyle.bodyMedium(context),
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 20),
@@ -60,8 +60,8 @@ class RetrieveProfileBlocBuilder extends StatelessWidget {
                 backgroundColor: AppColors.secondary,
               ),
               child: Text(
-                S.of(context).retry,
-                style: AppTextStyle.bodySmall.copyWith(
+                AppLocalizations.of(context).translate('retry'),
+                style: AppTextStyle.bodySmall(context).copyWith(
                   color: AppColors.accent5,
                 ),
               ),

@@ -1,6 +1,5 @@
 import "package:flutter/material.dart";
 import "package:pharmalink/core/helpers/classes/field_item.dart";
-import "package:pharmalink/core/localization/localization.dart";
 
 import "field_type.dart";
 
@@ -31,8 +30,6 @@ class Field {
     this.confirmationErrorMessage,
     this.arabicName,
   }) {
-    // Set the name based on the current locale
-    name = isArabic() ? arabicName ?? name : name;
     // Set the text input type based on the field type
     switch (inputType) {
       case FieldType.text:

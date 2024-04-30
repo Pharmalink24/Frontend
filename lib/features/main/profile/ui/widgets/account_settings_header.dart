@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pharmalink/core/theme/styles.dart';
-import 'package:pharmalink/generated/l10n.dart';
+import 'package:pharmalink/core/localization/app_localizations.dart';
 
 class AccountSettingsHeader extends StatelessWidget {
   const AccountSettingsHeader({super.key});
@@ -12,8 +12,8 @@ class AccountSettingsHeader extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 4.0),
           child: Text(
-            S.of(context).accountSettings,
-            style: AppTextStyle.labelMedium,
+            AppLocalizations.of(context).translate('accountSettings'),
+            style: AppTextStyle.labelMedium(context),
           ),
         ),
       ],

@@ -35,7 +35,7 @@ class IconContent extends StatelessWidget {
         ),
         Text(
           label,
-          style: AppTextStyle.bodyMedium.copyWith(
+          style: AppTextStyle.bodyMedium(context).copyWith(
             color: labelColor,
           ),
         ),

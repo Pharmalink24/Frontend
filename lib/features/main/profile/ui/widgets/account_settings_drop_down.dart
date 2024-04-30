@@ -1,10 +1,12 @@
 // ignore_for_file: constant_identifier_names
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pharmalink/core/Blocs/cubit/locale_cubit.dart';
 import 'package:pharmalink/core/helpers/classes/field_item.dart';
 import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/widgets/form/form_drop_down_button.dart';
-import 'package:pharmalink/generated/l10n.dart';
+import 'package:pharmalink/core/localization/app_localizations.dart';
 
 enum Language { English, Arabic }
 
@@ -48,8 +50,6 @@ class LanguageDropDown extends StatefulWidget {
 }
 
 class _LanguageDropDownState extends State<LanguageDropDown> {
-  Language _language = Language.English;
-
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -60,8 +60,10 @@ class _LanguageDropDownState extends State<LanguageDropDown> {
           borderRadius: BorderRadius.circular(8.0),
           color: AppColors.primaryBackground,
         ),
-        hintText: S.of(context).language,
-        value: _language.key,
+        hintText: AppLocalizations.of(context).translate('language'),
+        value: AppLocalizations.of(context).isEnLocale
+            ? Language.English.key
+            : Language.Arabic.key,
         items: [
           DropDownFieldItem(
             key: Language.English.key,
@@ -74,16 +76,18 @@ class _LanguageDropDownState extends State<LanguageDropDown> {
             valueInArabic: Language.Arabic.valueInArabic,
           ),
         ],
-        onChanged: (value) {
-          setState(() {
-            if (value == Language.English.key) {
-              _language = Language.English;
-            } else if (value == Language.Arabic.key) {
-              _language = Language.Arabic;
-            }
-          });
-        },
+        onChanged: (value) => changeLanguage(value),
       ),
     );
+  }
+
+  void changeLanguage(String value) {
+    setState(() {
+      if (value == Language.English.key) {
+        BlocProvider.of<LocaleCubit>(context).toEnglish();
+      } else if (value == Language.Arabic.key) {
+        BlocProvider.of<LocaleCubit>(context).toArabic();
+      }
+    });
   }
 }

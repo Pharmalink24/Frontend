@@ -49,7 +49,7 @@ class FormTextField extends StatelessWidget {
             suffixIcon: suffixIcon,
             labelText: hintText,
           ),
-          style: AppTextStyle.labelSmall.copyWith(
+          style: AppTextStyle.labelSmall(context).copyWith(
             color: AppColors.secondary,
           ),
           keyboardType: keyboardType,

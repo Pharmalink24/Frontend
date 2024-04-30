@@ -1,7 +1,6 @@
 // Flutter Packages
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:pharmalink/core/Blocs/cubit/locale_cubit.dart';
 import 'package:pharmalink/core/di/dependency_injection.dart';
 import 'package:pharmalink/core/helpers/constants/strings.dart';
@@ -29,9 +28,8 @@ class PharmalinkApp extends StatelessWidget {
                 AppLocalizationsSetup.localizationsDelegates,
             localeResolutionCallback:
                 AppLocalizationsSetup.localeResolutionCallback,
-            // Each time a new state emitted, the app will be rebuilt with the new
-            // locale.
-            locale: localeState.locale, title: appTitle,
+            locale: localeState.locale,
+            title: appTitle,
             theme: AppTheme.generalTheme,
             initialRoute: Routes.initialRoute,
             onGenerateRoute: appRouter.generateRoute,

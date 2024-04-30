@@ -19,7 +19,7 @@ class LandingPrescriptionScreen extends StatelessWidget {
           Padding(
             padding: EdgeInsetsDirectional.fromSTEB(16, 32, 16, 16),
             child: Text('Prescriptions',
-                style: AppTextStyle.displayMedium.copyWith(
+                style: AppTextStyle.displayMedium(context).copyWith(
                   fontSize: 45,
                 )),
           ),

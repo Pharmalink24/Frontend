@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:pharmalink/generated/l10n.dart';
+
 import '../../../../../core/theme/styles.dart';
+import 'package:pharmalink/core/localization/app_localizations.dart';
 
 const kPadding = 8.0;
 
@@ -14,8 +15,8 @@ class WelcomeText extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: kPadding, horizontal: 0.0),
       child: Text(
-        S.of(context).welcomeToPharmalink,
-        style: AppTextStyle.labelMedium,
+        AppLocalizations.of(context).translate('welcomeToPharmalink'),
+        style: AppTextStyle.labelMedium(context),
       ),
     );
   }

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pharmalink/generated/l10n.dart';
+import 'package:pharmalink/core/localization/app_localizations.dart';
 import '../../../../../core/theme/styles.dart';
 
 class PleaseVerifyText extends StatelessWidget {
@@ -10,8 +10,8 @@ class PleaseVerifyText extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 32.0),
       child: Text(
-        S.of(context).pleaseVerifyEmail,
-        style: AppTextStyle.displayMedium.copyWith(fontSize: 28.0),
+        AppLocalizations.of(context).translate('pleaseVerifyEmail'),
+        style: AppTextStyle.displayMedium(context).copyWith(fontSize: 28.0),
       ),
     );
   }

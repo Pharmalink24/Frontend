@@ -7,7 +7,7 @@ import 'package:pharmalink/core/widgets/loading_indicator.dart';
 import 'package:pharmalink/features/main/drug_interaction/data/models/drug_interaction_response.dart';
 import 'package:pharmalink/features/main/drug_interaction/logic/cubit/drug_interaction_cubit.dart';
 import 'package:pharmalink/features/main/drug_interaction/logic/cubit/drug_interaction_state.dart';
-import 'package:pharmalink/generated/l10n.dart';
+import 'package:pharmalink/core/localization/app_localizations.dart';
 
 class InteractionResultContainer extends StatelessWidget {
   const InteractionResultContainer({
@@ -22,7 +22,7 @@ class InteractionResultContainer extends StatelessWidget {
           var interactionResult = (state).data;
           return showSuccess(context, interactionResult);
         } else if (state is Error) {
-          return showError((state).error);
+          return showError(context, (state).error);
         } else if (state is Loading) {
           return loadingWidget();
         } else {
@@ -51,15 +51,15 @@ class InteractionResultContainer extends StatelessWidget {
   Widget getInteractionResult(BuildContext context, List<String> messages) {
     return messages.isEmpty
         ? Text(
-            S.of(context).noInteractions,
-            style: AppTextStyle.headlineMedium,
+            AppLocalizations.of(context).translate('noInteractions'),
+            style: AppTextStyle.headlineMedium(context),
             textAlign: TextAlign.center,
           )
         : ListView.builder(
             itemBuilder: (context, index) {
               return Text(
                 messages[index],
-                style: AppTextStyle.headlineMedium,
+                style: AppTextStyle.headlineMedium(context),
                 textAlign: TextAlign.center,
               );
             },
@@ -84,7 +84,7 @@ class InteractionResultContainer extends StatelessWidget {
     );
   }
 
-  Widget showError(String error) {
+  Widget showError(BuildContext context, String error) {
     // Show success dialog
     return CardContainer(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -97,7 +97,9 @@ class InteractionResultContainer extends StatelessWidget {
         ),
         Text(
           error,
-          style: AppTextStyle.displaySmall,
+          style: AppLocalizations.of(context).isEnLocale
+              ? AppTextStyle.displaySmall(context)
+              : AppTextStyle.headlineLarge(context),
           textAlign: TextAlign.center,
         ),
       ],
@@ -111,8 +113,8 @@ class InteractionResultContainer extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Text(
-          S.of(context).enter2drugs,
-          style: AppTextStyle.headlineLarge,
+          AppLocalizations.of(context).translate('enter2drugs'),
+          style: AppTextStyle.headlineLarge(context),
           textAlign: TextAlign.center,
         ),
       ],

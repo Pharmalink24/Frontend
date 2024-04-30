@@ -15,7 +15,7 @@ class FormInputLabel extends StatelessWidget {
       child: Text(
         text,
         textAlign: TextAlign.start,
-        style: AppTextStyle.bodyMedium.copyWith(
+        style: AppTextStyle.bodyMedium(context).copyWith(
           fontSize: 24,
         ),
       ),

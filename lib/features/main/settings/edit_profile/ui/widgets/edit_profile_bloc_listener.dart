@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pharmalink/core/helpers/extensions.dart';
+import 'package:pharmalink/core/localization/app_localizations.dart';
 import 'package:pharmalink/core/models/user.dart';
 import 'package:pharmalink/core/routes/routes.dart';
 import 'package:pharmalink/core/theme/colors.dart';
@@ -8,7 +9,6 @@ import 'package:pharmalink/core/theme/styles.dart';
 import 'package:pharmalink/core/widgets/loading_overlay.dart';
 import 'package:pharmalink/features/main/settings/edit_profile/logic/cubit/edit_profile_cubit.dart';
 import 'package:pharmalink/features/main/settings/edit_profile/logic/cubit/edit_profile_state.dart';
-import 'package:pharmalink/generated/l10n.dart';
 
 class EditProfileBlocListener extends StatelessWidget {
   EditProfileBlocListener({super.key});
@@ -32,15 +32,15 @@ class EditProfileBlocListener extends StatelessWidget {
         ),
         content: Text(
           error,
-          style: AppTextStyle.titleLarge,
+          style: AppTextStyle.titleLarge(context),
           textAlign: TextAlign.center,
         ),
         actions: [
           TextButton(
             onPressed: () => context.pop(),
             child: Text(
-              S.of(context).gotIt,
-              style: AppTextStyle.labelLarge.copyWith(
+              AppLocalizations.of(context).translate('gotIt'),
+              style: AppTextStyle.labelLarge(context).copyWith(
                 color: AppColors.alternateText,
               ),
             ),
@@ -62,16 +62,17 @@ class EditProfileBlocListener extends StatelessWidget {
           size: 32,
         ),
         content: Text(
-          S.of(context).informationChangedSuccessfully,
-          style: AppTextStyle.titleLarge,
+          AppLocalizations.of(context)
+              .translate('informationChangedSuccessfully'),
+          style: AppTextStyle.titleLarge(context),
           textAlign: TextAlign.center,
         ),
         actions: [
           TextButton(
             onPressed: () => context.pushReplacementNamed(Routes.mainScreen),
             child: Text(
-              S.of(context).gotIt,
-              style: AppTextStyle.labelLarge.copyWith(
+              AppLocalizations.of(context).translate('gotIt'),
+              style: AppTextStyle.labelLarge(context).copyWith(
                 color: AppColors.alternateText,
               ),
             ),
@@ -93,7 +94,6 @@ class EditProfileBlocListener extends StatelessWidget {
           editUserInformationLoading: () => showLoading(context),
           userInformationEdited: (user) => showSuccess(context, user),
           userInformationEditedError: (error) => showError(context, error),
-          
         );
       },
       child: const SizedBox.shrink(),

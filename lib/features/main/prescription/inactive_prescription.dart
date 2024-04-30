@@ -64,7 +64,7 @@ class _InactivePrescriptionScreenState
         backgroundColor: AppColors.primaryBackground,
         title: Text(
           'Inactive Prescriptions',
-          style: AppTextStyle.displayMedium.copyWith(
+          style: AppTextStyle.displayMedium(context).copyWith(
             fontSize: 28,
           ),
         ),

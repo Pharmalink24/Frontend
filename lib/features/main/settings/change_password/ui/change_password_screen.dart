@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pharmalink/core/localization/app_localizations.dart';
 import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/theme/styles.dart';
 import 'package:pharmalink/core/widgets/form/form_button.dart';
 import 'package:pharmalink/core/widgets/form/form_view.dart';
 import 'package:pharmalink/features/main/settings/change_password/ui/widgets/change_password_bloc_listener.dart';
-import 'package:pharmalink/generated/l10n.dart';
 
 import '../data/models/change_password_fields.dart';
 import '../logic/cubit/change_password_cubit.dart';
@@ -41,8 +41,8 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
         ),
         backgroundColor: AppColors.primaryBackground,
         title: Text(
-          S.of(context).changePassword,
-          style: AppTextStyle.displayMedium.copyWith(
+          AppLocalizations.of(context).translate('changePassword'),
+          style: AppTextStyle.displayMedium(context).copyWith(
             fontSize: 28,
           ),
         ),
@@ -53,8 +53,8 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
           padding: const EdgeInsets.symmetric(vertical: 32.0, horizontal: 22.0),
           children: [
             Text(
-              S.of(context).changeYourPasswordDesc,
-              style: AppTextStyle.bodyLarge.copyWith(
+              AppLocalizations.of(context).translate('changeYourPasswordDesc'),
+              style: AppTextStyle.bodyLarge(context).copyWith(
                 color: AppColors.secondaryText,
               ),
             ),
@@ -64,7 +64,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
               decorationType: DecorationType.secondary,
             ),
             FormButton(
-              text: S.of(context).update,
+              text: AppLocalizations.of(context).translate('update'),
               onPressed: () => changePassword(context),
               color: AppColors.primary,
               borderRadius: 12.0,

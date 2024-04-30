@@ -59,7 +59,7 @@ class _NewPrescriptionScreenState extends State<NewPrescriptionScreen> {
         backgroundColor: AppColors.primaryBackground,
         title: Text(
           'New Prescriptions',
-          style: AppTextStyle.displayMedium.copyWith(
+          style: AppTextStyle.displayMedium(context).copyWith(
             fontSize: 28,
           ),
         ),

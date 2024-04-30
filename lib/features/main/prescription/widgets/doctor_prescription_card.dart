@@ -59,16 +59,17 @@ class DoctorPrescriptionCard extends StatelessWidget {
                   children: [
                     Text(
                       'Dr. $firstName $lastName',
-                      style: AppTextStyle.displayMedium.copyWith(
+                      style: AppTextStyle.displayMedium(context).copyWith(
                         fontSize: 18,
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
                       child: Text(
                         date,
                         // random_data.randomDate().toString(),
-                        style: AppTextStyle.displayMedium.copyWith(
+                        style: AppTextStyle.displayMedium(context).copyWith(
                           fontSize: 16,
                           color: Colors.grey,
                         ),

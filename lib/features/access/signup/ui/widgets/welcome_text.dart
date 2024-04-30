@@ -14,7 +14,7 @@ class WelcomeText extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: kPadding, horizontal: 0.0),
       child: Text(
         'Welcome to PharmaLink, where you manage your prescriptions !',
-        style: AppTextStyle.labelMedium,
+        style: AppTextStyle.labelMedium(context),
       ),
     );
   }

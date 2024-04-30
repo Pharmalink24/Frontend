@@ -1,8 +1,7 @@
-
 import 'package:flutter/material.dart';
 import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/theme/styles.dart';
-import 'package:pharmalink/generated/l10n.dart';
+import 'package:pharmalink/core/localization/app_localizations.dart';
 
 class DarkModeSwitch extends StatefulWidget {
   const DarkModeSwitch({super.key});
@@ -25,8 +24,8 @@ class _DarkModeSwitchState extends State<DarkModeSwitch> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
-            S.of(context).switchToDarkMode,
-            style: AppTextStyle.bodyMedium,
+            AppLocalizations.of(context).translate('switchToDarkMode'),
+            style: AppTextStyle.bodyMedium(context),
           ),
           Switch(
             value: isDarkMode,

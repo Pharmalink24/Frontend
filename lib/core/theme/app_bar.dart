@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pharmalink/core/theme/styles.dart';
 
 import 'colors.dart';
 import 'fonts.dart';
@@ -8,61 +9,59 @@ import '../helpers/constants/paths.dart';
 class MyAppBar {
   static const kAppBarLogoSize = 45.0;
 
-  static AppBar withLogoAndLabel = AppBar(
-    automaticallyImplyLeading: false,
-    title: Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        const ImageIcon(
-          AssetImage("${AppPaths.images}/logo.png"),
-          size: kAppBarLogoSize,
-          color: AppColors.alternateText,
-        ),
-        Text(
-          "PharmaLink",
-          style: TextStyle(
-            fontWeight: FontWeight.w600,
-            fontFamily: AppFonts.primary,
+  static AppBar withLogoAndLabel(BuildContext context) {
+    return AppBar(
+      automaticallyImplyLeading: false,
+      title: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          const ImageIcon(
+            AssetImage("${AppPaths.images}/logo.png"),
+            size: kAppBarLogoSize,
             color: AppColors.alternateText,
           ),
-        ),
-      ],
-    ),
-  );
+          Text(
+            "PharmaLink",
+            style: AppTextStyle.bodyLarge(context),
+          ),
+        ],
+      ),
+    );
+  }
 
-  static AppBar withoutLogo = AppBar(
-    automaticallyImplyLeading: false,
-    title: Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Text(
-          "PharmaLink",
-          style: TextStyle(
-            fontWeight: FontWeight.w600,
-            fontFamily: AppFonts.primary,
+  static AppBar withoutLogo(BuildContext context) {
+    return AppBar(
+      automaticallyImplyLeading: false,
+      title: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Text(
+            "PharmaLink",
+            style: AppTextStyle.bodyLarge(context),
+          ),
+        ],
+      ),
+    );
+  }
+
+  static AppBar withoutLabel(BuildContext context) {
+    return AppBar(
+      automaticallyImplyLeading: false,
+      title: const Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          ImageIcon(
+            AssetImage(
+              "${AppPaths.images}/logo.png",
+            ),
+            size: kAppBarLogoSize,
             color: AppColors.alternateText,
           ),
-        ),
-      ],
-    ),
-  );
-
-  static AppBar withoutLabel = AppBar(
-    automaticallyImplyLeading: false,
-    title: const Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        ImageIcon(
-          AssetImage(
-            "${AppPaths.images}/logo.png",
-          ),
-          size: kAppBarLogoSize,
-          color: AppColors.alternateText,
-        ),
-      ],
-    ),
-  );
+        ],
+      ),
+    );
+  }
 }

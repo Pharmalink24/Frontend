@@ -5,7 +5,7 @@ import 'package:pharmalink/core/helpers/extensions.dart';
 import 'package:pharmalink/core/routes/routes.dart';
 import 'package:pharmalink/core/theme/styles.dart';
 import 'package:pharmalink/core/widgets/text_with_icon.dart';
-import 'package:pharmalink/generated/l10n.dart';
+import 'package:pharmalink/core/localization/app_localizations.dart';
 import '../../../../../core/models/doctor.dart';
 import '../../../../../core/widgets/doctor_card.dart';
 
@@ -40,8 +40,8 @@ class DoctorsContainer extends StatelessWidget {
         ),
         Center(
           child: Text(
-            S.of(context).noDoctorsMessage,
-            style: AppTextStyle.headlineSmall.copyWith(
+            AppLocalizations.of(context).translate('noDoctorsMessage'),
+            style: AppTextStyle.headlineSmall(context).copyWith(
               color: Colors.grey,
             ),
           ),
@@ -53,13 +53,15 @@ class DoctorsContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CardContainerWithTitle(
-      title: S.of(context).yourDoctors,
+      title: AppLocalizations.of(context).translate('yourDoctors'),
       iconButton: TextWithIcon(
         onTap: () => context.pushNamed(Routes.doctorsScreen),
         icon: Icons.arrow_circle_right_sharp,
-        text: S.of(context).viewAll,
+        text: AppLocalizations.of(context).translate('viewAll'),
       ),
-      child: doctors.isEmpty ? buildNoDataWidget(context) : buildLoadedListWidgets(),
+      child: doctors.isEmpty
+          ? buildNoDataWidget(context)
+          : buildLoadedListWidgets(),
     );
   }
 }

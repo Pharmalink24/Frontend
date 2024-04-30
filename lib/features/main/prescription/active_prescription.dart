@@ -63,7 +63,7 @@ class _ActivePrescriptionScreenState extends State<ActivePrescriptionScreen> {
         backgroundColor: AppColors.primaryBackground,
         title: Text(
           'Active Prescriptions',
-          style: AppTextStyle.displayMedium.copyWith(
+          style: AppTextStyle.displayMedium(context).copyWith(
             fontSize: 28,
           ),
         ),

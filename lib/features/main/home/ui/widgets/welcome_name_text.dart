@@ -1,10 +1,10 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
-import 'package:pharmalink/generated/l10n.dart';
+
 import '../../../../../core/theme/colors.dart';
 import '../../../../../core/theme/fonts.dart';
 import '../../../../../core/theme/styles.dart';
-import 'package:simple_gradient_text/simple_gradient_text.dart';
+import 'package:pharmalink/core/localization/app_localizations.dart';
 
 const kFontSize = 30.0;
 
@@ -28,12 +28,10 @@ class WelcomeNameText extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              S.of(context).welcomeBack,
-              style: AppTextStyle.bodyMedium.copyWith(
+              AppLocalizations.of(context).translate('hello'),
+              style: AppTextStyle.bodyMedium(context).copyWith(
                 color: AppColors.secondary,
                 fontSize: kFontSize,
-                fontFamily: AppFonts.secondary,
-                fontWeight: FontWeight.w400,
               ),
             ),
             AnimatedTextKit(
@@ -41,8 +39,7 @@ class WelcomeNameText extends StatelessWidget {
               animatedTexts: [
                 ColorizeAnimatedText(
                   fname,
-                  textStyle: AppTextStyle.bodyMedium.copyWith(
-                    fontFamily: AppFonts.secondary,
+                  textStyle: AppTextStyle.bodyMedium(context).copyWith(
                     color: AppColors.primary,
                     fontSize: kFontSize,
                     fontWeight: FontWeight.w600,
@@ -57,8 +54,7 @@ class WelcomeNameText extends StatelessWidget {
                 ),
                 ColorizeAnimatedText(
                   lname,
-                  textStyle: AppTextStyle.bodyMedium.copyWith(
-                    fontFamily: AppFonts.secondary,
+                  textStyle: AppTextStyle.bodyMedium(context).copyWith(
                     color: AppColors.primary,
                     fontSize: kFontSize,
                     fontWeight: FontWeight.w600,

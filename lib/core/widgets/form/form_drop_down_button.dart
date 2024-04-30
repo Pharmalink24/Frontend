@@ -3,6 +3,7 @@
 // Flutter Packages
 import "package:flutter/material.dart";
 import 'package:pharmalink/core/helpers/classes/field_item.dart';
+import 'package:pharmalink/core/localization/app_localizations.dart';
 // Utilities
 import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/theme/styles.dart';
@@ -27,12 +28,17 @@ class FormDropDownButton extends StatelessWidget {
     this.controller,
   });
 
-  List<DropdownMenuItem<String>> buildItemsWidget(List<DropDownFieldItem> items) {
+  List<DropdownMenuItem<String>> buildItemsWidget(
+      BuildContext context, List<DropDownFieldItem> items) {
     return items
         .map(
           (entry) => DropdownMenuItem(
             value: entry.key,
-            child: Text(entry.value),
+            child: Text(
+              AppLocalizations.of(context).isEnLocale
+                  ? entry.value
+                  : entry.valueInArabic ?? entry.value,
+            ),
           ),
         )
         .toList();
@@ -61,8 +67,8 @@ class FormDropDownButton extends StatelessWidget {
             onChanged(value);
           },
           //
-          items: buildItemsWidget(items),
-          style: AppTextStyle.bodyMedium.copyWith(
+          items: buildItemsWidget(context, items),
+          style: AppTextStyle.bodyMedium(context).copyWith(
             color: AppColors.secondary,
           ),
           underline: SizedBox(),

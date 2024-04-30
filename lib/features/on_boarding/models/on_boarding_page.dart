@@ -1,5 +1,3 @@
-import 'package:pharmalink/core/localization/localization.dart';
-
 class OnBoardingPageModel {
   late String title;
   late String body;
@@ -13,8 +11,5 @@ class OnBoardingPageModel {
     required this.image,
     required this.titleInArabic,
     required this.bodyInArabic,
-  }){
-    title = isArabic() ? titleInArabic : title;
-    body = isArabic() ? bodyInArabic : body;
-  }
+  });
 }

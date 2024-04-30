@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
- import '../theme/colors.dart';
+import 'package:pharmalink/core/localization/app_localizations.dart';
+import '../theme/colors.dart';
 import '../theme/styles.dart';
 
 class TermsAndConditionsText extends StatelessWidget {
@@ -14,23 +15,27 @@ class TermsAndConditionsText extends StatelessWidget {
         text: TextSpan(
           children: [
             TextSpan(
-              text: S.of(context).termsAndConditionsP1,
-              style: AppTextStyle.labelSmall,
+              text: AppLocalizations.of(context)
+                  .translate('termsAndConditionsP1'),
+              style: AppTextStyle.labelSmall(context),
             ),
             TextSpan(
-              text: S.of(context).termsAndConditionsP2,
-              style: AppTextStyle.labelSmall.copyWith(
+              text: AppLocalizations.of(context)
+                  .translate('termsAndConditionsP2'),
+              style: AppTextStyle.labelSmall(context).copyWith(
                 color: AppColors.secondary,
                 fontWeight: FontWeight.bold,
               ),
             ),
             TextSpan(
-              text: S.of(context).termsAndConditionsP3,
-              style: AppTextStyle.labelSmall.copyWith(height: 1.5),
+              text: AppLocalizations.of(context)
+                  .translate('termsAndConditionsP3'),
+              style: AppTextStyle.labelSmall(context).copyWith(height: 1.5),
             ),
             TextSpan(
-              text: S.of(context).termsAndConditionsP4,
-              style: AppTextStyle.labelSmall.copyWith(
+              text: AppLocalizations.of(context)
+                  .translate('termsAndConditionsP4'),
+              style: AppTextStyle.labelSmall(context).copyWith(
                 color: AppColors.secondary,
                 fontWeight: FontWeight.bold,
               ),

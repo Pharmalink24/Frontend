@@ -4,7 +4,6 @@ import 'package:pharmalink/core/models/doctor.dart';
 import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/theme/styles.dart';
 import 'package:pharmalink/core/widgets/card_container.dart';
-import 'package:pharmalink/core/widgets/card_container_with_title.dart';
 import 'package:pharmalink/core/widgets/doctor_card.dart';
 import 'package:pharmalink/core/widgets/loading_indicator.dart';
 import 'package:pharmalink/features/main/profile/logic/cubit/profile_cubit.dart';
@@ -70,7 +69,7 @@ class _DoctorsScreenState extends State<DoctorsScreen> {
         Center(
           child: Text(
             'Your doctors list is empty.',
-            style: AppTextStyle.headlineSmall.copyWith(
+            style: AppTextStyle.headlineSmall(context).copyWith(
               color: Colors.grey,
             ),
           ),
@@ -105,7 +104,7 @@ class _DoctorsScreenState extends State<DoctorsScreen> {
             const SizedBox(height: 20),
             Text(
               error,
-              style: AppTextStyle.bodyMedium,
+              style: AppTextStyle.bodyMedium(context),
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 20),
@@ -118,7 +117,7 @@ class _DoctorsScreenState extends State<DoctorsScreen> {
               ),
               child: Text(
                 'Retry',
-                style: AppTextStyle.bodySmall.copyWith(
+                style: AppTextStyle.bodySmall(context).copyWith(
                   color: AppColors.accent5,
                 ),
               ),
@@ -138,7 +137,7 @@ class _DoctorsScreenState extends State<DoctorsScreen> {
         backgroundColor: AppColors.primaryBackground,
         title: Text(
           'Your Doctors',
-          style: AppTextStyle.displayMedium.copyWith(
+          style: AppTextStyle.displayMedium(context).copyWith(
             fontSize: 28,
           ),
         ),

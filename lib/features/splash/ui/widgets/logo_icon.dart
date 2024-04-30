@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pharmalink/generated/l10n.dart';
+import 'package:pharmalink/core/localization/app_localizations.dart';
 import '../../../../core/helpers/constants/paths.dart';
 import '../../../../core/theme/colors.dart';
 import '../../../../core/theme/fonts.dart';
@@ -20,12 +20,9 @@ class LogoIcon extends StatelessWidget {
           color: AppColors.primary,
         ),
         Text(
-          S.of(context).appName,
+          AppLocalizations.of(context).translate('appName'),
           textAlign: TextAlign.center,
-          style: AppTextStyle.displayMedium.copyWith(
-            color: AppColors.secondary,
-            fontFamily: AppFonts.primary,
-          ),
+          style: AppTextStyle.displayMedium(context),
         ),
       ],
     );

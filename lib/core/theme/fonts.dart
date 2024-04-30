@@ -1,8 +1,27 @@
-// Typography
-import 'package:pharmalink/core/localization/localization.dart';
+
+import 'package:flutter/material.dart';
+import 'package:pharmalink/core/localization/app_localizations.dart';
+
+enum Font {
+  primary,
+  secondary,
+  tertiary,
+}
 
 class AppFonts {
-  static String primary = !isArabic() ? 'Outfit' : 'Amiri';
-  static String secondary = !isArabic() ? 'Readex Pro' : 'Cairo';
-  static String tertiary = !isArabic() ? 'Plus Jakarta Sans' : 'Cairo';
+    static String getFont (BuildContext context, Font fontType) {
+    switch (fontType) {
+      case Font.primary:
+        return AppLocalizations.of(context).isEnLocale ? 'Outfit' : 'Cairo';
+      case Font.secondary:
+        return AppLocalizations.of(context).isEnLocale? 'Readex Pro' : 'Cairo';
+      case Font.tertiary:
+        return AppLocalizations.of(context).isEnLocale ? 'Plus Jakarta Sans' : 'Cairo';
+      default:
+        return  AppLocalizations.of(context).isEnLocale? 'Outfit' : 'Cairo';
+    }
+
+  }
 }
+
+

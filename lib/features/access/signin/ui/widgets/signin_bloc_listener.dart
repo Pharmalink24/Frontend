@@ -32,7 +32,7 @@ class SigninBlocListener extends StatelessWidget {
         ),
         content: Text(
           error,
-          style: AppTextStyle.titleLarge,
+          style: AppTextStyle.titleLarge(context),
           textAlign: TextAlign.center,
         ),
         actions: [
@@ -40,7 +40,7 @@ class SigninBlocListener extends StatelessWidget {
             onPressed: () => context.pop(),
             child: Text(
               "Got it",
-              style: AppTextStyle.labelLarge.copyWith(
+              style: AppTextStyle.labelLarge(context).copyWith(
                 color: AppColors.alternateText,
               ),
             ),
