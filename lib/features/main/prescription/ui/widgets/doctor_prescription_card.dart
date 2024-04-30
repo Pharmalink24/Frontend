@@ -95,10 +95,8 @@ class DoctorPrescriptionCard extends StatelessWidget {
                   children: [
                     Text(
                       'Dr. ${prescription.doctorInfo.firstName} ${prescription.doctorInfo.lastName}',
-                      style: AppTextStyle.titleMedium.copyWith(
-                        fontFamily: AppFonts.secondary,
+                      style: AppTextStyle.titleMedium(context).copyWith(
                         fontSize: 20,
-                        letterSpacing: 0,
                       ),
                     ),
                     Padding(
@@ -106,9 +104,7 @@ class DoctorPrescriptionCard extends StatelessWidget {
                           const EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
                       child: Text(
                         prescription.date,
-                        style: AppTextStyle.titleSmall.copyWith(
-                          fontFamily: AppFonts.secondary,
-                        ),
+                        style: AppTextStyle.titleSmall(context),
                       ),
                     ),
                   ],

@@ -4,7 +4,6 @@ import 'package:pharmalink/core/models/drug_info.dart';
 import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/theme/styles.dart';
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:pharmalink/core/networking/networking.dart';
 
 class DrugCard extends StatelessWidget {
   final String tradeName;
@@ -50,24 +49,23 @@ class DrugCard extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(tradeName, style: AppTextStyle.titleLarge
-                            //     .override(
-                            //   fontFamily:
-                            //   'Outfit',
-                            //   letterSpacing: 0,
-                            // ),
-                            ),
+                        Text(
+                          tradeName,
+                          style: AppTextStyle.titleLarge(context),
+                        ),
                         Padding(
                           padding:
                               const EdgeInsetsDirectional.fromSTEB(0, 4, 0, 0),
                           child: RichText(
                             textScaler: MediaQuery.of(context).textScaler,
-                            text: const TextSpan(children: [
-                              TextSpan(
-                                text: '1 g',
-                                style: TextStyle(),
-                              )
-                            ], style: AppTextStyle.labelSmall),
+                            text: TextSpan(
+                              children: const [
+                                TextSpan(
+                                  text: '1 g',
+                                )
+                              ],
+                              style: AppTextStyle.labelSmall(context),
+                            ),
                           ),
                         ),
                       ],
@@ -77,10 +75,13 @@ class DrugCard extends StatelessWidget {
               ],
             ),
           ),
-          const Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(0, 4, 8, 12),
-            child: AutoSizeText('Course: 2 weeks\nDose: 2 tablet/day',
-                textAlign: TextAlign.start, style: AppTextStyle.labelMedium),
+          Padding(
+            padding: const EdgeInsetsDirectional.fromSTEB(0, 4, 8, 12),
+            child: AutoSizeText(
+              'Course: 2 weeks\nDose: 2 tablet/day',
+              textAlign: TextAlign.start,
+              style: AppTextStyle.labelMedium(context),
+            ),
           ),
         ],
       ),

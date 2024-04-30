@@ -12,22 +12,9 @@ import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/theme/styles.dart';
 import 'package:pharmalink/core/networking/api_constants.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:intl/intl.dart';
-
 import '../logic/cubit/doctors_state.dart';
 
-String formatDateTime(String dateTimeString) {
-  // Parse the date string to DateTime object
-  DateTime dateTime = DateTime.parse(dateTimeString);
 
-  // Define the date format you want
-  DateFormat dateFormat = DateFormat('on yyyy-MM-dd');
-
-  // Format the DateTime object using the defined format
-  String formattedDate = dateFormat.format(dateTime);
-
-  return formattedDate;
-}
 
 class DoctorScreen extends StatefulWidget {
   final int id;
@@ -61,8 +48,8 @@ class _DoctorScreenState extends State<DoctorScreen> {
             padding: const EdgeInsetsDirectional.fromSTEB(0, 60, 0, 0),
             child: Text(
               'Dr. ${doctor.firstName} ${doctor.lastName}',
-              style: AppTextStyle.headlineLarge.copyWith(
-                fontFamily: AppFonts.secondary,
+              style: AppTextStyle.headlineLarge(context).copyWith(
+                fontFamily: AppFonts.getFont(context, Font.secondary),
               ),
             ),
           ),
@@ -154,10 +141,8 @@ class _DoctorScreenState extends State<DoctorScreen> {
                       padding: const EdgeInsetsDirectional.fromSTEB(0, 8, 0, 8),
                       child: Text(
                         'About',
-                        style: AppTextStyle.bodyLarge.copyWith(
-                          fontFamily: AppFonts.secondary,
+                        style: AppTextStyle.bodyLarge(context).copyWith(
                           fontSize: 24,
-                          letterSpacing: 0,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -167,18 +152,14 @@ class _DoctorScreenState extends State<DoctorScreen> {
                     alignment: const AlignmentDirectional(-1, 0),
                     child: Text(
                       doctor.degree!,
-                      style: AppTextStyle.bodyMedium.copyWith(
-                        fontFamily: AppFonts.secondary,
-                      ),
+                      style: AppTextStyle.bodyMedium(context),
                     ),
                   ),
                   Align(
                     alignment: const AlignmentDirectional(-1, 0),
                     child: Text(
                       'M.D. ${doctor.university}',
-                      style: AppTextStyle.bodyMedium.copyWith(
-                        fontFamily: AppFonts.secondary,
-                      ),
+                      style: AppTextStyle.bodyMedium(context),
                     ),
                   ),
                   Align(
@@ -188,10 +169,7 @@ class _DoctorScreenState extends State<DoctorScreen> {
                           const EdgeInsetsDirectional.fromSTEB(0, 8, 0, 12),
                       child: Text(
                         doctor.brief ?? 'No brief available',
-                        style: AppTextStyle.labelMedium.copyWith(
-                          fontFamily: AppFonts.secondary,
-                          letterSpacing: 0,
-                        ),
+                        style: AppTextStyle.labelMedium(context),
                       ),
                     ),
                   ),
@@ -257,10 +235,8 @@ class _DoctorScreenState extends State<DoctorScreen> {
                                             8, 0, 12, 0),
                                     child: Text(
                                       'Chat',
-                                      style: AppTextStyle.bodyMedium.copyWith(
-                                        fontFamily: AppFonts.secondary,
+                                      style: AppTextStyle.bodyMedium(context).copyWith(
                                         color: AppColors.secondaryBackground,
-                                        letterSpacing: 0,
                                       ),
                                     ),
                                   ),
@@ -285,7 +261,7 @@ class _DoctorScreenState extends State<DoctorScreen> {
     return Center(
       child: Text(
         error,
-        style: AppTextStyle.bodyMedium.copyWith(
+        style: AppTextStyle.bodyMedium(context).copyWith(
           color: AppColors.error,
         ),
       ),
@@ -319,7 +295,7 @@ class _DoctorScreenState extends State<DoctorScreen> {
         backgroundColor: AppColors.primaryBackground,
         title: Text(
           'Doctor Profile',
-          style: AppTextStyle.displayMedium.copyWith(
+          style: AppTextStyle.displayMedium(context).copyWith(
             fontSize: 28,
           ),
         ),

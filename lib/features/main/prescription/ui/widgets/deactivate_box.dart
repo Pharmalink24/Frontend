@@ -99,10 +99,8 @@ class _DeactivateBoxWidgetState extends State<DeactivateBoxWidget> {
               child: Text(
                 'Why do you want to deactivate your prescription?',
                 textAlign: TextAlign.center,
-                style: AppTextStyle.bodyMedium.copyWith(
-                  fontFamily: AppFonts.secondary,
+                style: AppTextStyle.bodyMedium(context).copyWith(
                   fontSize: 25,
-                  letterSpacing: 0,
                 ),
               ),
             ),
@@ -119,10 +117,8 @@ class _DeactivateBoxWidgetState extends State<DeactivateBoxWidget> {
                   padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                   iconPadding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                   color: AppColors.primary,
-                  textStyle: AppTextStyle.bodyLarge.copyWith(
-                    fontFamily: AppFonts.secondary,
+                  textStyle: AppTextStyle.bodyLarge(context).copyWith(
                     fontSize: 20,
-                    letterSpacing: 0,
                   ),
                   elevation: 2,
                   borderSide: const BorderSide(
@@ -145,10 +141,8 @@ class _DeactivateBoxWidgetState extends State<DeactivateBoxWidget> {
                   padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                   iconPadding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                   color: AppColors.primary,
-                  textStyle: AppTextStyle.bodyLarge.copyWith(
-                    fontFamily: AppFonts.secondary,
+                  textStyle: AppTextStyle.bodyLarge(context).copyWith(
                     fontSize: 20,
-                    letterSpacing: 0,
                   ),
                   elevation: 2,
                   borderSide: const BorderSide(
@@ -171,11 +165,8 @@ class _DeactivateBoxWidgetState extends State<DeactivateBoxWidget> {
                   padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                   iconPadding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                   color: AppColors.secondaryBackground,
-                  textStyle: AppTextStyle.titleSmall.copyWith(
-                    fontFamily: 'Lexend Deca',
+                  textStyle: AppTextStyle.titleSmall(context).copyWith(
                     color: AppColors.secondaryText,
-                    fontSize: 16,
-                    letterSpacing: 0,
                     fontWeight: FontWeight.normal,
                   ),
                   elevation: 0,

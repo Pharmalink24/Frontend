@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:pharmalink/core/helpers/extensions.dart';
 import 'package:pharmalink/core/theme/fonts.dart';
-import 'package:provider/provider.dart';
 import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/theme/styles.dart';
 import 'ff_button_widget.dart';
@@ -94,10 +92,8 @@ class _ActivateBoxWidgetState extends State<ActivateBoxWidget> {
               child: Text(
                 'Are you sure ?',
                 textAlign: TextAlign.center,
-                style: AppTextStyle.bodyMedium.copyWith(
-                  fontFamily: AppFonts.secondary,
+                style: AppTextStyle.bodyMedium(context).copyWith(
                   fontSize: 25,
-                  letterSpacing: 0,
                 ),
               ),
             ),
@@ -114,10 +110,8 @@ class _ActivateBoxWidgetState extends State<ActivateBoxWidget> {
                   padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                   iconPadding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                   color: AppColors.primary,
-                  textStyle: AppTextStyle.bodyLarge.copyWith(
-                    fontFamily: AppFonts.secondary,
+                  textStyle: AppTextStyle.bodyLarge(context).copyWith(
                     fontSize: 20,
-                    letterSpacing: 0,
                   ),
                   elevation: 2,
                   borderSide: const BorderSide(
@@ -140,11 +134,8 @@ class _ActivateBoxWidgetState extends State<ActivateBoxWidget> {
                   padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                   iconPadding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                   color: AppColors.secondaryBackground,
-                  textStyle: AppTextStyle.titleSmall.copyWith(
-                    fontFamily: 'Lexend Deca',
+                  textStyle: AppTextStyle.titleSmall(context).copyWith(
                     color: AppColors.secondaryText,
-                    fontSize: 16,
-                    letterSpacing: 0,
                     fontWeight: FontWeight.normal,
                   ),
                   elevation: 0,

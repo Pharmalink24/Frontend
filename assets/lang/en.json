@@ -35,17 +35,25 @@
     "noRemindersToday": "No Reminders Today",
 
     "prescription": "Prescription",
+    "prescriptions": "Prescriptions",
     "yourPrescriptions": "Your Prescriptions",
-    "addPrescription": "Add Prescription",
-    "noPrescriptions": "No Prescriptions",
     "noPrescriptionsMessage": "You don't have any prescriptions yet. Add a prescription to get started.",
+    "noPrescriptionsFound": "No Prescriptions Found.",
+    "deactivate": "Deactivate", 
+    "activate": "Activate",
+    "reactivate": "Reactivate",
 
     "New": "New",
-    "viewOrActivateNew": "View or Activate New",
+    "newDrugs": "New Drugs",
+    "newDrugsDescription": "View or activate new drugs.",
     "Active": "Active",
-    "viewOrDeactivateActive": "View or Deactivate Active",
+    "activeDrugs": "Active Drugs",
+    "activeDrugsDescription": "View or deactivate new drugs.",
     "Inactive": "Inactive",
-    "viewOrActivateInactive": "View or reactivate Inactive",
+    "inactiveDrugs": "Inactive Drugs",
+    "inactiveDrugsDescription": "View or reactivate past drugs.",
+
+    "drugs": "Drugs",
 
     "viewAll": "View All",
     "cancel": "Cancel",
@@ -104,6 +112,8 @@
     "saveChanges": "Save changes",
 
     "changeYourPassword": "Change your password",
-    "changeYourPasswordDesc": "Please Enter your current password and new password to update your password."
+    "changeYourPasswordDesc": "Please Enter your current password and new password to update your password.",
+
+    "dr": "Dr."
 
 }

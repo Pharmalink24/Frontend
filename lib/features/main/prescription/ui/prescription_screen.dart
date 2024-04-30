@@ -3,12 +3,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pharmalink/core/enums/drug_state.dart';
 import 'package:pharmalink/core/helpers/constants/paths.dart';
 import 'package:pharmalink/core/helpers/extensions.dart';
+import 'package:pharmalink/core/localization/app_localizations.dart';
 import 'package:pharmalink/core/models/doctor_info.dart';
 import 'package:pharmalink/core/models/prescription_info.dart';
 import 'package:pharmalink/core/networking/api_constants.dart';
 import 'package:pharmalink/core/routes/routes.dart';
 import 'package:pharmalink/core/theme/colors.dart';
-import 'package:pharmalink/core/theme/fonts.dart';
 import 'package:pharmalink/core/theme/styles.dart';
 import 'package:pharmalink/features/main/prescription/logic/cubit/prescription_cubit.dart';
 import 'package:pharmalink/features/main/prescription/ui/widgets/activate_box.dart';
@@ -64,8 +64,8 @@ class _PrescriptionScreenState extends State<PrescriptionScreen> {
         iconTheme: const IconThemeData(color: AppColors.secondaryText),
         backgroundColor: AppColors.primaryBackground,
         title: Text(
-          'Prescription',
-          style: AppTextStyle.displayMedium.copyWith(
+          AppLocalizations.of(context).translate('prescription'),
+          style: AppTextStyle.displayMedium(context).copyWith(
             fontSize: 28,
           ),
         ),
@@ -148,8 +148,9 @@ class _PrescriptionScreenState extends State<PrescriptionScreen> {
                                           alignment:
                                               const AlignmentDirectional(-1, 0),
                                           child: Text(
-                                            'Dr. ${widget.doctor.firstName} ${widget.doctor.lastName}',
-                                            style: AppTextStyle.titleLarge,
+                                            '${AppLocalizations.of(context).translate("dr")} ${widget.doctor.firstName} ${widget.doctor.lastName}',
+                                            style: AppTextStyle.titleLarge(
+                                                context),
                                           ),
                                         ),
                                         Padding(
@@ -157,7 +158,8 @@ class _PrescriptionScreenState extends State<PrescriptionScreen> {
                                               .fromSTEB(0, 4, 0, 12),
                                           child: Text(
                                             "${prescription.date} - ${prescription.time}",
-                                            style: AppTextStyle.labelMedium,
+                                            style: AppTextStyle.labelMedium(
+                                                context),
                                           ),
                                         ),
                                       ],
@@ -246,18 +248,16 @@ class _PrescriptionScreenState extends State<PrescriptionScreen> {
               },
             ).then((value) => setState(() {}));
           },
-          text: drugState == DrugState.ACTIVE ? 'Deactivate' : 'Activate',
+          text: drugState == DrugState.ACTIVE
+              ? AppLocalizations.of(context).translate('deactivate')
+              : AppLocalizations.of(context).translate('activate'),
           options: FFButtonOptions(
             width: double.infinity,
             height: 40,
             padding: const EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
             iconPadding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
             color: AppColors.primary,
-            textStyle: AppTextStyle.titleSmall.copyWith(
-              fontFamily: AppFonts.secondary,
-              color: Colors.white,
-              letterSpacing: 0,
-            ),
+            textStyle: AppTextStyle.titleSmall(context),
             elevation: 3,
             borderSide: const BorderSide(
               color: Colors.transparent,
@@ -275,7 +275,7 @@ class _PrescriptionScreenState extends State<PrescriptionScreen> {
       body: Center(
         child: Text(
           error,
-          style: AppTextStyle.titleLarge.copyWith(
+          style: AppTextStyle.titleLarge(context).copyWith(
             color: AppColors.error,
           ),
         ),

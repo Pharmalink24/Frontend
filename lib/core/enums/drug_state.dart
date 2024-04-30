@@ -22,4 +22,15 @@ extension DrugStateExtension on DrugState {
         return "inactive";
     }
   }
+
+  String get valueInArabic {
+    switch (this) {
+      case DrugState.NEW:
+        return "جديدة";
+      case DrugState.ACTIVE:
+        return "نشطة";
+      case DrugState.INACTIVE:
+        return "غير نشطة";
+    }
+  }
 }

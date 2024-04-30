@@ -1,29 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:logger/logger.dart';
 import 'package:pharmalink/core/enums/drug_state.dart';
 import 'package:pharmalink/core/helpers/extensions.dart';
+import 'package:pharmalink/core/localization/app_localizations.dart';
 import 'package:pharmalink/core/models/prescription.dart';
 import 'package:pharmalink/features/main/prescription/logic/cubit/prescription_state.dart';
 import 'package:pharmalink/features/main/prescription/ui/widgets/doctor_prescription_card.dart';
 import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/theme/styles.dart';
-import 'package:intl/intl.dart';
-
 import '../logic/cubit/prescription_cubit.dart';
-
-String formatDateTime(String dateTimeString) {
-  // Parse the date string to DateTime object
-  DateTime dateTime = DateTime.parse(dateTimeString);
-
-  // Define the date format you want
-  DateFormat dateFormat = DateFormat('on yyyy-MM-dd');
-
-  // Format the DateTime object using the defined format
-  String formattedDate = dateFormat.format(dateTime);
-
-  return formattedDate;
-}
 
 class PrescriptionsScreen extends StatefulWidget {
   final DrugState state;
@@ -38,7 +23,6 @@ class PrescriptionsScreen extends StatefulWidget {
 }
 
 class _PrescriptionsScreenState extends State<PrescriptionsScreen> {
-
   @override
   void initState() {
     super.initState();
@@ -59,10 +43,10 @@ class _PrescriptionsScreenState extends State<PrescriptionsScreen> {
         ),
         Center(
           child: Text(
-            'No Prescriptions Found.',
+            AppLocalizations.of(context).translate('noPrescriptionsFound'),
             textAlign: TextAlign.center,
-            style: AppTextStyle.headlineSmall.copyWith(
-              color: Colors.grey,
+            style: AppTextStyle.headlineSmall(context).copyWith(
+              color: AppColors.secondaryText,
             ),
           ),
         ),
@@ -107,8 +91,10 @@ class _PrescriptionsScreenState extends State<PrescriptionsScreen> {
         iconTheme: const IconThemeData(color: AppColors.secondaryText),
         backgroundColor: AppColors.primaryBackground,
         title: Text(
-          '${widget.state.value.toString().capitalize()} Drugs',
-          style: AppTextStyle.displayMedium.copyWith(
+          AppLocalizations.of(context).isEnLocale
+              ? '${widget.state.value.toString().capitalize()} Drugs'
+              : 'الأدوية ال${widget.state.valueInArabic}',
+          style: AppTextStyle.displayMedium(context).copyWith(
             fontSize: 28,
           ),
         ),
