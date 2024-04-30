@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:pharmalink/core/helpers/extensions.dart';
@@ -21,7 +20,6 @@ class DeactivateBoxWidget extends StatefulWidget {
 }
 
 class _DeactivateBoxWidgetState extends State<DeactivateBoxWidget> {
-
   @override
   void setState(VoidCallback callback) {
     super.setState(callback);
@@ -31,6 +29,7 @@ class _DeactivateBoxWidgetState extends State<DeactivateBoxWidget> {
   void initState() {
     super.initState();
   }
+
   void deactivatePrescription() async {
     try {
       API api = API();
@@ -48,14 +47,10 @@ class _DeactivateBoxWidgetState extends State<DeactivateBoxWidget> {
       } else {
         throw "Exception";
       }
-    }
-    catch (e) {
+    } catch (e) {
       // getIt<Logger>().e(e);
     }
   }
-
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -99,9 +94,7 @@ class _DeactivateBoxWidgetState extends State<DeactivateBoxWidget> {
               child: Text(
                 'Why do you want to deactivate your prescription?',
                 textAlign: TextAlign.center,
-                style: AppTextStyle.bodyMedium(context).copyWith(
-                  fontSize: 25,
-                ),
+                style: AppTextStyle.headlineSmall(context),
               ),
             ),
             Padding(
@@ -113,7 +106,7 @@ class _DeactivateBoxWidgetState extends State<DeactivateBoxWidget> {
                 text: 'I activated it by mistake.',
                 options: FFButtonOptions(
                   width: double.infinity,
-                  height: 60,
+                  height: 45,
                   padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                   iconPadding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                   color: AppColors.primary,
@@ -137,7 +130,7 @@ class _DeactivateBoxWidgetState extends State<DeactivateBoxWidget> {
                 text: 'Doctor\'s orders.',
                 options: FFButtonOptions(
                   width: double.infinity,
-                  height: 60,
+                  height: 45,
                   padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                   iconPadding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                   color: AppColors.primary,
