@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+
 import '../../../../../core/theme/colors.dart';
 import '../../../../../core/theme/styles.dart';
+import 'package:pharmalink/core/localization/app_localizations.dart';
 
 class ForgetPasswordText extends StatelessWidget {
   const ForgetPasswordText({super.key});
@@ -14,8 +16,8 @@ class ForgetPasswordText extends StatelessWidget {
         child: GestureDetector(
           onTap: () {},
           child: Text(
-            "Forget Password?",
-            style: AppTextStyle.labelMedium.copyWith(
+            AppLocalizations.of(context).translate('forgetPassword'),
+            style: AppTextStyle.labelMedium(context).copyWith(
               color: AppColors.secondary,
             ),
           ),

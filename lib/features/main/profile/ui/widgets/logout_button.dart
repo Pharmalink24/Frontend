@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pharmalink/core/di/dependency_injection.dart';
+import 'package:pharmalink/core/localization/app_localizations.dart';
 import 'package:pharmalink/core/routes/routes.dart';
 import 'package:pharmalink/core/shared_preferences/auth_prefs.dart';
 import 'package:pharmalink/core/theme/colors.dart';
@@ -17,7 +18,6 @@ class LogoutButton extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(20.0),
       child: SizedBox(
-        width: 90,
         height: 40,
         child: TextButton(
           onPressed: () {
@@ -25,13 +25,14 @@ class LogoutButton extends StatelessWidget {
             showDialog(
               context: context,
               builder: (context) => AlertDialog(
-                title: const Text(
-                  'Log Out',
-                  style: AppTextStyle.headlineSmall,
+                title: Text(
+                  AppLocalizations.of(context).translate('signOut'),
+                  style: AppTextStyle.headlineSmall(context),
                 ),
                 content: Text(
-                  'Are you sure you want to log out?',
-                  style: AppTextStyle.bodyLarge.copyWith(fontSize: 20.0),
+                  AppLocalizations.of(context).translate('confirmSignOut'),
+                  style:
+                      AppTextStyle.bodyLarge(context).copyWith(fontSize: 20.0),
                 ),
                 actions: [
                   Row(
@@ -52,8 +53,8 @@ class LogoutButton extends StatelessWidget {
                         ),
                         onPressed: () => Navigator.of(context).pop(),
                         child: Text(
-                          'Cancel',
-                          style: AppTextStyle.titleSmall.copyWith(
+                          AppLocalizations.of(context).translate('cancel'),
+                          style: AppTextStyle.titleSmall(context).copyWith(
                             color: AppColors.primaryText,
                           ),
                         ),
@@ -80,9 +81,9 @@ class LogoutButton extends StatelessWidget {
                           Navigator.of(context)
                               .pushReplacementNamed(Routes.signInScreen);
                         },
-                        child: const Text(
-                          'Log Out',
-                          style: AppTextStyle.titleSmall,
+                        child: Text(
+                          AppLocalizations.of(context).translate('signOut'),
+                          style: AppTextStyle.titleSmall(context),
                         ),
                       ),
                     ],
@@ -103,8 +104,8 @@ class LogoutButton extends StatelessWidget {
             elevation: const MaterialStatePropertyAll(5.0),
           ),
           child: Text(
-            'Log Out',
-            style: AppTextStyle.labelMedium.copyWith(
+            AppLocalizations.of(context).translate('signOut'),
+            style: AppTextStyle.labelMedium(context).copyWith(
               color: AppColors.primaryText,
             ),
           ),

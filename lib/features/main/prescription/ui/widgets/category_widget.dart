@@ -50,8 +50,10 @@ class PrescriptionCategoryWidget extends StatelessWidget {
                   padding: const EdgeInsetsDirectional.fromSTEB(16, 16, 16, 16),
                   child: Text(
                     title,
-                    style: AppTextStyle.displayMedium.copyWith(
-                        fontSize: 45, color: checkFontColor(backgroundColor)),
+                    style: AppTextStyle.displayMedium(context).copyWith(
+                      fontSize: 45,
+                      color: checkFontColor(backgroundColor),
+                    ),
                   ),
                 ),
               ),
@@ -61,8 +63,10 @@ class PrescriptionCategoryWidget extends StatelessWidget {
                   padding: const EdgeInsetsDirectional.fromSTEB(16, 0, 16, 20),
                   child: Text(
                     description,
-                    style: AppTextStyle.displayMedium.copyWith(
-                        fontSize: 20, color: checkFontColor(backgroundColor)),
+                    style: AppTextStyle.displayMedium(context).copyWith(
+                      fontSize: 20,
+                      color: checkFontColor(backgroundColor),
+                    ),
                   ),
                 ),
               ),

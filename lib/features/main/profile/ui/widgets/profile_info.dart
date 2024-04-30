@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pharmalink/core/helpers/constants/paths.dart';
+import 'package:pharmalink/core/localization/app_localizations.dart';
 import 'package:pharmalink/core/networking/api_constants.dart';
 import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/theme/styles.dart';
@@ -33,9 +34,9 @@ class _ProfileInfoState extends State<ProfileInfo> {
     );
 
     return CardContainerWithTitle(
-      title: 'Profile',
+      title: AppLocalizations.of(context).translate('profile'),
       flex: 4,
-      textStyle: AppTextStyle.displaySmall,
+      textStyle: AppTextStyle.displaySmall(context),
       padding: const EdgeInsets.only(left: 16.0, right: 16.0, top: 16.0),
       margin: const EdgeInsets.all(0.0),
       child: Column(
@@ -62,11 +63,11 @@ class _ProfileInfoState extends State<ProfileInfo> {
                       Text(
                         cropperName("${widget.user.fname} ${widget.user.lname}",
                             length: 14),
-                        style: AppTextStyle.headlineSmall,
+                        style: AppTextStyle.headlineSmall(context),
                       ),
                       Text(
                         cropperName(widget.user.email!, length: 30),
-                        style: AppTextStyle.bodySmall.copyWith(
+                        style: AppTextStyle.bodySmall(context).copyWith(
                           color: AppColors.primary,
                         ),
                       ),

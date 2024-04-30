@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:pharmalink/core/localization/app_localizations.dart';
+
 import '../../../../../core/routes/routes.dart';
 import '../../../../../core/theme/colors.dart';
 import '../../../../../core/theme/fonts.dart';
@@ -12,26 +14,36 @@ class SigninTab extends StatelessWidget {
     return Row(
       children: [
         Padding(
-          padding: const EdgeInsets.only(right: 16.0, bottom: 12.0),
+          padding: EdgeInsets.only(
+            left: AppLocalizations.of(context).isEnLocale ? 0.0 : 16.0,
+            right: AppLocalizations.of(context).isEnLocale ? 16.0 : 0.0,
+            bottom: 12.0,
+          ),
           child: Text(
-            "Sign In",
-            style: AppTextStyle.displaySmall.copyWith(
-              fontFamily: AppFonts.tertiary,
+            AppLocalizations.of(context).translate('signIn'),
+            style: AppTextStyle.displaySmall(context).copyWith(
+              fontFamily: AppFonts.getFont(context, Font.tertiary),
               color: AppColors.primaryText,
+              fontSize: AppLocalizations.of(context).isEnLocale ? 36.0 : 26.0,
             ),
           ),
         ),
         Padding(
-          padding: const EdgeInsets.only(left: 16.0, bottom: 12.0),
+          padding: EdgeInsets.only(
+            left: AppLocalizations.of(context).isEnLocale ? 16.0 : 0.0,
+            right: AppLocalizations.of(context).isEnLocale ? 0.0 : 16.0,
+            bottom: 12.0,
+          ),
           child: GestureDetector(
             onTap: () {
               Navigator.pushNamed(context, Routes.signUpScreen);
             },
             child: Text(
-              "Sign Up",
-              style: AppTextStyle.displaySmall.copyWith(
-                fontFamily: AppFonts.tertiary,
+              AppLocalizations.of(context).translate('signUp'),
+              style: AppTextStyle.displaySmall(context).copyWith(
+                fontFamily: AppFonts.getFont(context, Font.tertiary),
                 color: AppColors.secondaryText,
+                fontSize: AppLocalizations.of(context).isEnLocale ? 36.0 : 28.0,
               ),
             ),
           ),

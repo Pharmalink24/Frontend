@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pharmalink/core/localization/app_localizations.dart';
 import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/theme/styles.dart';
 import 'package:pharmalink/core/widgets/form/form_button.dart';
@@ -40,8 +41,8 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
         ),
         backgroundColor: AppColors.primaryBackground,
         title: Text(
-          'Change Password',
-          style: AppTextStyle.displayMedium.copyWith(
+          AppLocalizations.of(context).translate('changePassword'),
+          style: AppTextStyle.displayMedium(context).copyWith(
             fontSize: 28,
           ),
         ),
@@ -52,8 +53,8 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
           padding: const EdgeInsets.symmetric(vertical: 32.0, horizontal: 22.0),
           children: [
             Text(
-              "Please Enter your current password and new password to update your password.",
-              style: AppTextStyle.bodyLarge.copyWith(
+              AppLocalizations.of(context).translate('changeYourPasswordDesc'),
+              style: AppTextStyle.bodyLarge(context).copyWith(
                 color: AppColors.secondaryText,
               ),
             ),
@@ -63,7 +64,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
               decorationType: DecorationType.secondary,
             ),
             FormButton(
-              text: "Update password",
+              text: AppLocalizations.of(context).translate('update'),
               onPressed: () => changePassword(context),
               color: AppColors.primary,
               borderRadius: 12.0,

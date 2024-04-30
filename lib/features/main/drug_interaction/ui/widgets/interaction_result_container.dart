@@ -7,6 +7,7 @@ import 'package:pharmalink/core/widgets/loading_indicator.dart';
 import 'package:pharmalink/features/main/drug_interaction/data/models/drug_interaction_response.dart';
 import 'package:pharmalink/features/main/drug_interaction/logic/cubit/drug_interaction_cubit.dart';
 import 'package:pharmalink/features/main/drug_interaction/logic/cubit/drug_interaction_state.dart';
+import 'package:pharmalink/core/localization/app_localizations.dart';
 
 class InteractionResultContainer extends StatelessWidget {
   const InteractionResultContainer({
@@ -18,13 +19,14 @@ class InteractionResultContainer extends StatelessWidget {
     return BlocBuilder<DrugInteractionCubit, DrugInteractionState>(
       builder: (context, state) {
         if (state is DrugInteractionSuccess) {
-          return showSuccess((state).data);
+          var interactionResult = (state).data;
+          return showSuccess(context, interactionResult);
         } else if (state is Error) {
-          return showError((state).error);
+          return showError(context, (state).error);
         } else if (state is Loading) {
           return loadingWidget();
         } else {
-          return defaultWidget();
+          return defaultWidget(context);
         }
       },
     );
@@ -46,18 +48,18 @@ class InteractionResultContainer extends StatelessWidget {
   }
 
   // Get interaction result
-  Widget getInteractionResult(List<String> messages) {
+  Widget getInteractionResult(BuildContext context, List<String> messages) {
     return messages.isEmpty
-        ? const Text(
-            'No Interaction Found',
-            style: AppTextStyle.headlineMedium,
+        ? Text(
+            AppLocalizations.of(context).translate('noInteractions'),
+            style: AppTextStyle.headlineMedium(context),
             textAlign: TextAlign.center,
           )
         : ListView.builder(
             itemBuilder: (context, index) {
               return Text(
                 messages[index],
-                style: AppTextStyle.headlineMedium,
+                style: AppTextStyle.headlineMedium(context),
                 textAlign: TextAlign.center,
               );
             },
@@ -66,7 +68,8 @@ class InteractionResultContainer extends StatelessWidget {
           );
   }
 
-  Widget showSuccess(DrugInteractionResponse interactionResult) {
+  Widget showSuccess(
+      BuildContext context, DrugInteractionResponse interactionResult) {
     // Show success dialog
     return CardContainer(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -76,40 +79,42 @@ class InteractionResultContainer extends StatelessWidget {
         const SizedBox(
           height: 16.0,
         ),
-        getInteractionResult(interactionResult.messages),
+        getInteractionResult(context, interactionResult.messages),
       ],
     );
   }
 
-  Widget showError(String error) {
+  Widget showError(BuildContext context, String error) {
     // Show success dialog
-    return const CardContainer(
+    return CardContainer(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Icon(
+        const Icon(
           Icons.error_outline_sharp,
           size: 40,
           color: AppColors.error,
         ),
         Text(
-          'There is Error',
-          style: AppTextStyle.displaySmall,
+          error,
+          style: AppLocalizations.of(context).isEnLocale
+              ? AppTextStyle.displaySmall(context)
+              : AppTextStyle.headlineLarge(context),
           textAlign: TextAlign.center,
         ),
       ],
     );
   }
 
-  Widget defaultWidget() {
+  Widget defaultWidget(BuildContext context) {
     // Show success dialog
-    return const CardContainer(
+    return CardContainer(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Text(
-          'Enter 2 Drugs to check interaction',
-          style: AppTextStyle.headlineLarge,
+          AppLocalizations.of(context).translate('enter2drugs'),
+          style: AppTextStyle.headlineLarge(context),
           textAlign: TextAlign.center,
         ),
       ],

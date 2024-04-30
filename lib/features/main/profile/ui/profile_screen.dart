@@ -1,7 +1,7 @@
 // Flutter Packages
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pharmalink/core/localization/app_localizations.dart';
 import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/theme/styles.dart';
 import '../../../../core/models/user.dart';
@@ -34,11 +34,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Expanded(
-            flex: 2,
+            flex: 4,
             child: ProfileInfo(user: user),
           ),
           const Expanded(
-            flex: 4,
+            flex: 9,
             child: AccountSettings(),
           ),
         ],
@@ -61,7 +61,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             const SizedBox(height: 20),
             Text(
               error,
-              style: AppTextStyle.bodyMedium,
+              style: AppTextStyle.bodyMedium(context),
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 20),
@@ -73,8 +73,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 backgroundColor: AppColors.secondary,
               ),
               child: Text(
-                'Retry',
-                style: AppTextStyle.bodySmall.copyWith(
+                AppLocalizations.of(context).translate('retry'),
+                style: AppTextStyle.bodySmall(context).copyWith(
                   color: AppColors.accent5,
                 ),
               ),

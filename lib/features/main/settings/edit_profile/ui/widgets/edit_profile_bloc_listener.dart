@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pharmalink/core/helpers/extensions.dart';
+import 'package:pharmalink/core/localization/app_localizations.dart';
 import 'package:pharmalink/core/models/user.dart';
 import 'package:pharmalink/core/routes/routes.dart';
 import 'package:pharmalink/core/theme/colors.dart';
@@ -31,15 +32,15 @@ class EditProfileBlocListener extends StatelessWidget {
         ),
         content: Text(
           error,
-          style: AppTextStyle.titleLarge,
+          style: AppTextStyle.titleLarge(context),
           textAlign: TextAlign.center,
         ),
         actions: [
           TextButton(
             onPressed: () => context.pop(),
             child: Text(
-              "Got it",
-              style: AppTextStyle.labelLarge.copyWith(
+              AppLocalizations.of(context).translate('gotIt'),
+              style: AppTextStyle.labelLarge(context).copyWith(
                 color: AppColors.alternateText,
               ),
             ),
@@ -60,17 +61,18 @@ class EditProfileBlocListener extends StatelessWidget {
           color: Colors.green,
           size: 32,
         ),
-        content: const Text(
-          "Information changed successfully",
-          style: AppTextStyle.titleLarge,
+        content: Text(
+          AppLocalizations.of(context)
+              .translate('informationChangedSuccessfully'),
+          style: AppTextStyle.titleLarge(context),
           textAlign: TextAlign.center,
         ),
         actions: [
           TextButton(
             onPressed: () => context.pushReplacementNamed(Routes.mainScreen),
             child: Text(
-              "Got it",
-              style: AppTextStyle.labelLarge.copyWith(
+              AppLocalizations.of(context).translate('gotIt'),
+              style: AppTextStyle.labelLarge(context).copyWith(
                 color: AppColors.alternateText,
               ),
             ),
@@ -92,7 +94,6 @@ class EditProfileBlocListener extends StatelessWidget {
           editUserInformationLoading: () => showLoading(context),
           userInformationEdited: (user) => showSuccess(context, user),
           userInformationEditedError: (error) => showError(context, error),
-          
         );
       },
       child: const SizedBox.shrink(),

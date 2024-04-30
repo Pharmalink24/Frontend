@@ -28,7 +28,7 @@ class _ReminderListTileState extends State<ReminderListTile> {
         // Make reminder checked
         BlocProvider.of<RemindersCubit>(context)
             .makeReminderChecked(widget.reminder.id);
-        // // Get reminders list
+        // Todo: Get reminders list
         // BlocProvider.of<HomePageCubit>(context).getReminderList();
       }),
       checkboxShape:
@@ -38,14 +38,14 @@ class _ReminderListTileState extends State<ReminderListTile> {
       secondary: Text(
         "${widget.reminder.hours} : ${widget.reminder.minute}\n${widget.reminder.period}",
         textAlign: TextAlign.center,
-        style: AppTextStyle.labelLarge.copyWith(
+        style: AppTextStyle.labelLarge(context).copyWith(
           decoration:
               isChecked ? TextDecoration.lineThrough : TextDecoration.none,
         ),
       ),
       title: Text(
         widget.reminder.drugName,
-        style: AppTextStyle.titleMedium.copyWith(
+        style: AppTextStyle.titleMedium(context).copyWith(
           color: AppColors.primaryText,
           decoration:
               isChecked ? TextDecoration.lineThrough : TextDecoration.none,
@@ -53,7 +53,7 @@ class _ReminderListTileState extends State<ReminderListTile> {
       ),
       subtitle: Text(
         "${widget.reminder.dosage} ${widget.reminder.dosageUnit}",
-        style: AppTextStyle.labelMedium.copyWith(
+        style: AppTextStyle.labelMedium(context).copyWith(
           decoration:
               isChecked ? TextDecoration.lineThrough : TextDecoration.none,
         ),

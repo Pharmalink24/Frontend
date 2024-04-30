@@ -1,5 +1,7 @@
 import "package:flutter/material.dart";
 import 'package:pharmalink/core/helpers/classes/field_type.dart';
+import 'package:pharmalink/core/helpers/mixins.dart';
+import 'package:pharmalink/core/localization/app_localizations.dart';
 
 import '../../theme/styles.dart';
 import '../../helpers/classes/field.dart';
@@ -28,16 +30,20 @@ class FormView extends StatefulWidget {
   State<FormView> createState() => _FormViewState();
 }
 
-class _FormViewState extends State<FormView> {
+class _FormViewState extends State<FormView> with PostFrameMixin {
   late InputDecoration inputDecoration;
   late BoxDecoration boxDecoration;
   final Map<String, bool> _isVisible = {};
 
+  String fieldName(BuildContext context, Field field) {
+    return AppLocalizations.of(context).isEnLocale
+        ? field.name
+        : field.arabicName ?? field.name;
+  }
+
   @override
   void initState() {
     super.initState();
-    setupDecoration();
-
     widget.model.forEach((key, field) {
       if (isPasswordField(field)) {
         _isVisible[key] = false;
@@ -48,11 +54,11 @@ class _FormViewState extends State<FormView> {
   // Setup the decoration of fields
   void setupDecoration() {
     inputDecoration = widget.decorationType == DecorationType.primary
-        ? AppTextFieldDecoration.primaryInputDecoration
-        : AppTextFieldDecoration.secondaryInputDecoration;
+        ? AppTextFieldDecoration.primaryInputDecoration(context)
+        : AppTextFieldDecoration.secondaryInputDecoration(context);
     boxDecoration = widget.decorationType == DecorationType.primary
-        ? AppTextFieldDecoration.primaryBoxDecoration
-        : AppTextFieldDecoration.secondaryBoxDecoration;
+        ? AppTextFieldDecoration.primaryBoxDecoration(context)
+        : AppTextFieldDecoration.secondaryBoxDecoration(context);
   }
 
   // Check if field is confirm ?
@@ -79,7 +85,7 @@ class _FormViewState extends State<FormView> {
   FormTextField generateFormTextField(String key, Field field) {
     return FormTextField(
       decoration: inputDecoration,
-      hintText: field.name,
+      hintText: fieldName(context, field),
       keyboardType: field.textInputType ?? TextInputType.text,
       suffixIcon: isPasswordField(field)
           ? IconButton(
@@ -104,7 +110,8 @@ class _FormViewState extends State<FormView> {
       validator: (value) {
         if (field.regex != null) {
           if (!field.regex!.hasMatch(value!)) {
-            return field.errorMessage ?? "Invalid ${field.name}.";
+            return field.errorMessage ??
+                "Invalid ${fieldName(context, field)}.";
           } else if (isConfirm(field)) {
             if (value !=
                 widget.model[field.confirmationValue!]!.controller!.text) {
@@ -131,7 +138,7 @@ class _FormViewState extends State<FormView> {
     return FormDropDownButton(
       padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 2.0),
       decoration: boxDecoration,
-      hintText: field.name,
+      hintText: fieldName(context, field),
       value: field.value,
       items: field.items!,
       controller: field.controller,
@@ -147,12 +154,12 @@ class _FormViewState extends State<FormView> {
   DatePicker generateDatePicker(Field field) {
     return DatePicker(
       decoration: inputDecoration,
-      hintText: field.name,
+      hintText: fieldName(context, field),
       controller: field.controller,
       validator: (value) {
         return field.regex != null
             ? !field.regex!.hasMatch(value!)
-                ? field.errorMessage ?? "Invalid ${field.name}."
+                ? field.errorMessage ?? "Invalid ${fieldName(context, field)}"
                 : null
             : null;
       },
@@ -164,6 +171,7 @@ class _FormViewState extends State<FormView> {
 
   @override
   Widget build(BuildContext context) {
+    setupDecoration();
     return Form(
       key: widget.formKey,
       autovalidateMode: AutovalidateMode.always,

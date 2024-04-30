@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pharmalink/core/localization/app_localizations.dart';
 import '../../../../../core/theme/styles.dart';
 
 class EmailText extends StatelessWidget {
@@ -10,12 +11,12 @@ class EmailText extends StatelessWidget {
     return Column(
       children: [
         Text(
-          "You're almost there! We sent an email to",
-          style: AppTextStyle.displayMedium.copyWith(fontSize: 16.0),
+          AppLocalizations.of(context).translate('almostThere'),
+          style: AppTextStyle.displayMedium(context).copyWith(fontSize: 16.0),
         ),
         Text(
           email,
-          style: AppTextStyle.displayMedium.copyWith(fontSize: 20.0),
+          style: AppTextStyle.displayMedium(context).copyWith(fontSize: 20.0),
         ),
       ],
     );

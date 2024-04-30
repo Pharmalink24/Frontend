@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pharmalink/core/helpers/extensions.dart';
+import 'package:pharmalink/core/localization/app_localizations.dart';
 import 'package:pharmalink/core/models/user.dart';
 import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/theme/styles.dart';
@@ -48,7 +48,7 @@ class RetrieveProfileBlocBuilder extends StatelessWidget {
             const SizedBox(height: 20),
             Text(
               error,
-              style: AppTextStyle.bodyMedium,
+              style: AppTextStyle.bodyMedium(context),
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 20),
@@ -60,8 +60,8 @@ class RetrieveProfileBlocBuilder extends StatelessWidget {
                 backgroundColor: AppColors.secondary,
               ),
               child: Text(
-                'Retry',
-                style: AppTextStyle.bodySmall.copyWith(
+                AppLocalizations.of(context).translate('retry'),
+                style: AppTextStyle.bodySmall(context).copyWith(
                   color: AppColors.accent5,
                 ),
               ),

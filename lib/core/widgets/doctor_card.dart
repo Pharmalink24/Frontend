@@ -69,16 +69,14 @@ class DoctorCard extends StatelessWidget {
                     Text(
                       'Dr. ${cropperName(doctor.firstName, length: 8)}\n${cropperName(doctor.lastName, length: 8)}',
                       textAlign: TextAlign.start,
-                      style: AppTextStyle.titleMedium.copyWith(
-                        fontFamily: AppFonts.secondary,
-                        fontSize: titleFontSize,
-                      ),
+                    style: AppTextStyle.titleMedium(context).copyWith(
+                      fontSize: titleFontSize,
+                    ),
                     ),
                     Text(
                       cropperName(doctor.specialty, length: 14),
-                      style: AppTextStyle.bodyMedium.copyWith(
-                        fontFamily: AppFonts.secondary,
-                        fontSize: subTitleFontSize,
+                      style: AppTextStyle.bodyMedium(context).copyWith(
+                      fontSize: subTitleFontSize,
                       ),
                     ),
                   ],

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pharmalink/core/localization/app_localizations.dart';
 import '../../../../core/widgets/form/form_button.dart';
 import '../../../../core/widgets/form/form_view.dart';
 import '../data/models/signin_fields.dart';
@@ -34,7 +35,7 @@ class _SigninScreenState extends State<SigninScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MyAppBar.withoutLabel,
+      appBar: MyAppBar.withoutLabel(context),
       backgroundColor: AppColors.secondaryBackground,
       body: SafeArea(
         child: Padding(
@@ -52,7 +53,7 @@ class _SigninScreenState extends State<SigninScreen> {
                 ),
                 const ForgetPasswordText(),
                 FormButton(
-                  text: "Sign In",
+                  text: AppLocalizations.of(context).translate('signIn'),
                   onPressed: () => validationThenSignin(context),
                 ),
                 const TermsAndConditionsText(),

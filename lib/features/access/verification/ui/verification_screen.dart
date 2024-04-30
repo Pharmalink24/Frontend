@@ -13,6 +13,7 @@ import 'package:pharmalink/features/access/verification/ui/widgets/just_click_te
 import 'package:pharmalink/features/access/verification/ui/widgets/please_verify_text.dart';
 import 'package:pharmalink/features/access/verification/ui/widgets/still_cant_find_text.dart';
 import 'package:pharmalink/features/access/verification/ui/widgets/verification_bloc_listener.dart';
+import 'package:pharmalink/core/localization/app_localizations.dart';
 
 class VerificationScreen extends StatelessWidget {
   final String email;
@@ -27,7 +28,7 @@ class VerificationScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MyAppBar.withoutLabel,
+      appBar: MyAppBar.withoutLabel(context),
       backgroundColor: AppColors.secondaryBackground,
       body: SafeArea(
         child: Padding(
@@ -41,12 +42,12 @@ class VerificationScreen extends StatelessWidget {
               const JustClickText(),
               const StillCantFindText(),
               FormButton(
-                text: "Resend Verification Email",
+                text: AppLocalizations.of(context).translate('resendVerificationEmail'),
                 padding: const EdgeInsets.only(top: 8.0, bottom: 16.0),
                 onPressed: () => sendVerification(context),
               ),
               FormButton(
-                text: "Sign in",
+                text: AppLocalizations.of(context).translate('signIn'),
                 padding: EdgeInsets.zero,
                 onPressed: () => context.pushNamed(Routes.signInScreen),
               ),

@@ -6,11 +6,10 @@ import 'package:pharmalink/core/widgets/terms_and_conditions_text.dart';
 import 'package:pharmalink/features/access/signin/ui/widgets/welcome_text.dart';
 import 'package:pharmalink/features/access/signup/logic/cubit/signup_cubit.dart';
 import 'package:pharmalink/features/access/signup/data/models/signup_fields.dart';
-// Screens Packages
+import 'package:pharmalink/core/localization/app_localizations.dart';
 import 'package:pharmalink/core/theme/app_bar.dart';
 import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/features/access/signup/ui/widgets/signup_tab.dart';
-
 import '../../../../core/widgets/form/form_button.dart';
 import 'widgets/signup_bloc_listener.dart';
 
@@ -50,7 +49,7 @@ class _SignupScreenState extends State<SignupScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MyAppBar.withoutLabel,
+      appBar: MyAppBar.withoutLabel(context),
       backgroundColor: AppColors.secondaryBackground,
       body: SafeArea(
         child: ListView(
@@ -63,7 +62,7 @@ class _SignupScreenState extends State<SignupScreen> {
               model: signUpFields,
             ),
             FormButton(
-              text: "Create an account",
+              text: AppLocalizations.of(context).translate('signUp'),
               onPressed: () => validationThenSignup(context),
             ),
             const TermsAndConditionsText(),

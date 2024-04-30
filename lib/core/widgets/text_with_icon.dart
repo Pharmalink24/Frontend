@@ -7,7 +7,7 @@ class TextWithIcon extends StatelessWidget {
   final void Function()? onTap;
   final String text;
   final IconData icon;
-  
+
   const TextWithIcon({
     super.key,
     this.onTap,
@@ -23,7 +23,7 @@ class TextWithIcon extends StatelessWidget {
         children: [
           Text(
             text,
-            style: AppTextStyle.bodyMedium,
+            style: AppTextStyle.bodyMedium(context),
           ),
           const SizedBox(width: 4.0), // SizedBox(
           Icon(

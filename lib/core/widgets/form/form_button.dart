@@ -4,6 +4,7 @@
 import "package:flutter/material.dart";
 // Utilities
 import 'package:pharmalink/core/theme/fonts.dart';
+import 'package:pharmalink/core/theme/styles.dart';
 
 import '../../theme/colors.dart';
 
@@ -54,11 +55,8 @@ class FormButton extends StatelessWidget {
           },
           child: Text(
             text,
-            style: TextStyle(
-              fontFamily: AppFonts.tertiary,
-              color: Colors.white,
-              fontSize: 16,
-              fontWeight: FontWeight.w500,
+            style: AppTextStyle.titleSmall(context).copyWith(
+              fontFamily: AppFonts.getFont(context, Font.tertiary),
             ),
           ),
         ),

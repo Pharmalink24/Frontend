@@ -15,6 +15,7 @@ import 'package:pharmalink/features/main/settings/edit_profile/data/repo/edit_pr
 import 'package:pharmalink/features/main/settings/edit_profile/logic/cubit/edit_profile_cubit.dart';
 import 'package:pharmalink/features/main/settings/change_password/data/repo/change_password_repo.dart';
 import 'package:pharmalink/features/main/settings/change_password/logic/cubit/change_password_cubit.dart';
+import '../Blocs/cubit/locale_cubit.dart';
 import '../networking/api_service.dart';
 import '../networking/dio_factory.dart';
 import '../../features/access/auth/logic/cubit/auth_cubit.dart';
@@ -90,6 +91,9 @@ Future<void> setupGetIt() async {
   getIt.registerLazySingleton<PrescriptionRepo>(() => PrescriptionRepo(getIt()));
   getIt.registerFactory<PrescriptionCubit>(() => PrescriptionCubit(getIt()));
 
+  // Localization
+  getIt.registerLazySingleton<LocaleCubit>(() => LocaleCubit());
+  
   // Logger
   getIt.registerLazySingleton<Logger>(() => Logger());
 }

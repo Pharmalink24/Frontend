@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pharmalink/core/localization/app_localizations.dart';
 import '../theme/colors.dart';
 import '../theme/styles.dart';
 
@@ -13,24 +14,28 @@ class TermsAndConditionsText extends StatelessWidget {
         textAlign: TextAlign.center,
         text: TextSpan(
           children: [
-            const TextSpan(
-              text: 'By logging, you agree to our',
-              style: AppTextStyle.labelSmall,
+            TextSpan(
+              text: AppLocalizations.of(context)
+                  .translate('termsAndConditionsP1'),
+              style: AppTextStyle.labelSmall(context),
             ),
             TextSpan(
-              text: ' Terms & Conditions',
-              style: AppTextStyle.labelSmall.copyWith(
+              text: AppLocalizations.of(context)
+                  .translate('termsAndConditionsP2'),
+              style: AppTextStyle.labelSmall(context).copyWith(
                 color: AppColors.secondary,
                 fontWeight: FontWeight.bold,
               ),
             ),
             TextSpan(
-              text: ' and ',
-              style: AppTextStyle.labelSmall.copyWith(height: 1.5),
+              text: AppLocalizations.of(context)
+                  .translate('termsAndConditionsP3'),
+              style: AppTextStyle.labelSmall(context).copyWith(height: 1.5),
             ),
             TextSpan(
-              text: 'Privacy Policy',
-              style: AppTextStyle.labelSmall.copyWith(
+              text: AppLocalizations.of(context)
+                  .translate('termsAndConditionsP4'),
+              style: AppTextStyle.labelSmall(context).copyWith(
                 color: AppColors.secondary,
                 fontWeight: FontWeight.bold,
               ),

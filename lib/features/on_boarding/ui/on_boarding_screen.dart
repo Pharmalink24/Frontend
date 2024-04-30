@@ -1,6 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
+import 'package:pharmalink/core/localization/app_localizations.dart';
+
 import '../../../core/routes/routes.dart';
 import '../models/on_boarding_pages.dart';
 import '../../../core/theme/colors.dart';
@@ -23,22 +25,30 @@ class OnBoardingScreenState extends State<OnBoardingScreen> {
   @override
   void initState() {
     for (OnBoardingPageModel pageModel in onBoardingPages) {
-      listPagesViewModel.add(PageViewModel(
-        title: pageModel.title,
-        body: pageModel.body,
-        image: IntroImage(path: '${AppPaths.introductions}/${pageModel.image}'),
-        decoration: PageDecoration(
-          titleTextStyle:
-              AppTextStyle.headlineLarge.copyWith(fontWeight: FontWeight.w700),
-          bodyTextStyle: AppTextStyle.labelSmall
-              .copyWith(fontSize: 16.0, fontWeight: FontWeight.w700),
-          pageColor: AppColors.primaryBackground,
-          imagePadding: const EdgeInsets.all(0.0),
-          imageFlex: 7,
-          bodyFlex: 5,
-          footerFlex: 1,
+      listPagesViewModel.add(
+        PageViewModel(
+          title: AppLocalizations.of(context).isEnLocale
+              ? pageModel.title
+              : pageModel.titleInArabic,
+          body: AppLocalizations.of(context).isEnLocale
+              ? pageModel.body
+              : pageModel.bodyInArabic,
+          image:
+              IntroImage(path: '${AppPaths.introductions}/${pageModel.image}'),
+          decoration: PageDecoration(
+            titleTextStyle: AppTextStyle.headlineLarge(context).copyWith(
+              fontWeight: FontWeight.w700,
+            ),
+            bodyTextStyle: AppTextStyle.labelSmall(context)
+                .copyWith(fontSize: 16.0, fontWeight: FontWeight.w700),
+            pageColor: AppColors.primaryBackground,
+            imagePadding: const EdgeInsets.all(0.0),
+            imageFlex: 7,
+            bodyFlex: 5,
+            footerFlex: 1,
+          ),
         ),
-      ));
+      );
     }
     super.initState();
   }
@@ -67,8 +77,8 @@ class OnBoardingScreenState extends State<OnBoardingScreen> {
         color: AppColors.alternate,
       ),
       done: Text(
-        'Sign in',
-        style: AppTextStyle.labelMedium.copyWith(
+        AppLocalizations.of(context).translate('signIn'),
+        style: AppTextStyle.labelMedium(context).copyWith(
           color: AppColors.alternate,
           // fontSize: 15.0,
         ),

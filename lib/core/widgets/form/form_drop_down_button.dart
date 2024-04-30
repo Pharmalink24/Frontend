@@ -2,6 +2,8 @@
 
 // Flutter Packages
 import "package:flutter/material.dart";
+import 'package:pharmalink/core/helpers/classes/field_item.dart';
+import 'package:pharmalink/core/localization/app_localizations.dart';
 // Utilities
 import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/theme/styles.dart';
@@ -9,7 +11,7 @@ import 'package:pharmalink/core/theme/styles.dart';
 class FormDropDownButton extends StatelessWidget {
   final String? hintText;
   final String? value;
-  final Map<String, String> items;
+  final List<DropDownFieldItem> items;
   final Function onChanged;
   final BoxDecoration decoration;
   final EdgeInsetsGeometry? padding;
@@ -26,12 +28,17 @@ class FormDropDownButton extends StatelessWidget {
     this.controller,
   });
 
-  List<DropdownMenuItem<String>> buildItemsWidget(Map<String, String> items) {
-    return items.entries
+  List<DropdownMenuItem<String>> buildItemsWidget(
+      BuildContext context, List<DropDownFieldItem> items) {
+    return items
         .map(
           (entry) => DropdownMenuItem(
             value: entry.key,
-            child: Text(entry.value),
+            child: Text(
+              AppLocalizations.of(context).isEnLocale
+                  ? entry.value
+                  : entry.valueInArabic ?? entry.value,
+            ),
           ),
         )
         .toList();
@@ -39,7 +46,7 @@ class FormDropDownButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    controller?.text = value ?? items.keys.elementAt(0);
+    controller?.text = value ?? items.elementAt(0).key;
 
     return Padding(
       padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
@@ -54,14 +61,14 @@ class FormDropDownButton extends StatelessWidget {
           ),
           hint: Text(hintText ?? ""),
           padding: padding,
-          value: value ?? items.keys.elementAt(0),
+          value: value ?? items.elementAt(0).key,
           onChanged: (value) {
             controller?.text = value!;
             onChanged(value);
           },
           //
-          items: buildItemsWidget(items),
-          style: AppTextStyle.bodyMedium.copyWith(
+          items: buildItemsWidget(context, items),
+          style: AppTextStyle.bodyMedium(context).copyWith(
             color: AppColors.secondary,
           ),
           underline: SizedBox(),

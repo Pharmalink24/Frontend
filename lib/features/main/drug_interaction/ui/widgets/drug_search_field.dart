@@ -3,28 +3,23 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_typeahead/flutter_typeahead.dart';
 import 'package:pharmalink/core/theme/styles.dart';
 import 'package:pharmalink/core/widgets/loading_indicator.dart';
-
+import 'package:pharmalink/features/main/drug_interaction/logic/cubit/drug_interaction_cubit.dart';
 import '../../../../../core/models/drug_search.dart';
-import '../../logic/cubit/drug_interaction_cubit.dart';
+import 'package:pharmalink/core/localization/app_localizations.dart';
 
-class DrugSearchField extends StatefulWidget {
+class DrugSearchField extends StatelessWidget {
   final int drugFieldId;
   final TextEditingController? controller;
   const DrugSearchField(
       {super.key, required this.drugFieldId, this.controller});
 
   @override
-  State<DrugSearchField> createState() => _DrugSearchFieldState();
-}
-
-class _DrugSearchFieldState extends State<DrugSearchField> {
-  @override
   Widget build(BuildContext context) {
     return TypeAheadField<DrugSearch>(
       hideWithKeyboard: false,
-      controller: widget.controller,
+      controller: controller,
       suggestionsCallback: (search) async =>
-          await getSearchedDrugs(drugId: widget.drugFieldId, search: search),
+          await getSearchedDrugs(context, drugId: drugFieldId, search: search),
       itemBuilder: (context, drug) {
         return drugListTile(drug);
       },
@@ -32,17 +27,19 @@ class _DrugSearchFieldState extends State<DrugSearchField> {
         return TextField(
           controller: controller,
           focusNode: focusNode,
-          decoration: AppTextFieldDecoration.searchInputDecoration.copyWith(
-            labelText: "Please Select...",
+          decoration:
+              AppTextFieldDecoration.searchInputDecoration(context).copyWith(
+            labelText:
+                AppLocalizations.of(context).translate('pleaseSelectDrugs'),
           ),
         );
       },
       onSelected: (drug) {
-        selectDrug(widget.controller, drug);
+        selectDrug(context, controller, drug);
       },
       loadingBuilder: (context) => const LoadingIndicator(),
       errorBuilder: (context, error) => const Text('Error!'),
-      emptyBuilder: (context) => noDrugFoundWidget(),
+      emptyBuilder: (context) => noDrugFoundWidget(context),
     );
   }
 
@@ -53,14 +50,14 @@ class _DrugSearchFieldState extends State<DrugSearchField> {
     );
   }
 
-  Widget noDrugFoundWidget() {
-    return const ListTile(
+  Widget noDrugFoundWidget(BuildContext context) {
+    return ListTile(
         title: Text(
-      'No Items Found',
+      AppLocalizations.of(context).translate('noInteractions'),
     ));
   }
 
-  Future<List<DrugSearch>?> getSearchedDrugs(
+  Future<List<DrugSearch>?> getSearchedDrugs(BuildContext context,
       {required int drugId, required String search}) async {
     if (search.length > 2) {
       return await context
@@ -70,10 +67,11 @@ class _DrugSearchFieldState extends State<DrugSearchField> {
     return null;
   }
 
-  void selectDrug(TextEditingController? controller, DrugSearch drug) {
+  void selectDrug(
+      BuildContext context, TextEditingController? controller, DrugSearch drug) {
     controller?.text = drug.tradeName;
     context
         .read<DrugInteractionCubit>()
-        .setActiveIngredients(drug, widget.drugFieldId);
+        .setActiveIngredients(drug, drugFieldId);
   }
 }
