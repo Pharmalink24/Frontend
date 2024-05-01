@@ -12,16 +12,13 @@ class AccountSettings extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(right: 20.0, left: 20.0, top: 8.0),
-      child: Container(
-        color: AppColors.secondaryBackground,
-        child: const Column(
-          children: [
-            AccountSettingsHeader(),
-            AccountSettingsButtons(),
-          ],
-        ),
+    return const Padding(
+      padding: EdgeInsets.only(right: 20.0, left: 20.0, top: 8.0),
+      child: Column(
+        children: [
+          AccountSettingsHeader(),
+          AccountSettingsButtons(),
+        ],
       ),
     );
   }

@@ -1,6 +1,5 @@
 // Flutter Packages
 import 'package:flutter/material.dart';
-import 'package:pharmalink/core/theme/colors.dart';
 
 class CardContainer extends StatelessWidget {
   final MainAxisAlignment mainAxisAlignment;
@@ -25,8 +24,8 @@ class CardContainer extends StatelessWidget {
       padding: padding,
       margin: margin,
       decoration: BoxDecoration(
-        color: AppColors.primaryBackground,
         borderRadius: BorderRadius.circular(16.0),
+        color: Theme.of(context).colorScheme.primaryContainer,
       ),
       child: Column(
         mainAxisAlignment: mainAxisAlignment,

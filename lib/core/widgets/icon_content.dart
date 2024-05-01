@@ -8,16 +8,16 @@ const kContentMargin = 10.0;
 
 class IconContent extends StatelessWidget {
   final IconData? icon;
-  final Color iconColor;
+  final Color? iconColor;
   final String label;
-  final Color labelColor;
+  final Color? labelColor;
 
   const IconContent({
     super.key,
     required this.icon,
-    this.iconColor = AppColors.alternate,
+    this.iconColor,
     required this.label,
-    this.labelColor = AppColors.alternate,
+    this.labelColor,
   });
 
   @override
@@ -27,7 +27,7 @@ class IconContent extends StatelessWidget {
       children: [
         Icon(
           icon,
-          color: iconColor,
+          color: iconColor ?? Theme.of(context).colorScheme.onSecondary,
           size: kIconSize,
         ),
         const SizedBox(
@@ -35,8 +35,8 @@ class IconContent extends StatelessWidget {
         ),
         Text(
           label,
-          style: AppTextStyle.bodyMedium(context).copyWith(
-            color: labelColor,
+          style: AppTextStyle.titleSmall(context).copyWith(
+            color: labelColor ?? Theme.of(context).colorScheme.onSecondary,
           ),
         ),
       ],

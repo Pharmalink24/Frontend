@@ -55,9 +55,7 @@ class FormButton extends StatelessWidget {
           },
           child: Text(
             text,
-            style: AppTextStyle.titleSmall(context).copyWith(
-              fontFamily: AppFonts.getFont(context, Font.tertiary),
-            ),
+            style: AppTextStyle.titleSmall(context),
           ),
         ),
       ),

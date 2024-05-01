@@ -69,14 +69,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
               onPressed: () {
                 context.read<ProfileCubit>().getUserProfile();
               },
-              style: ElevatedButton.styleFrom(
-                backgroundColor: AppColors.secondary,
-              ),
               child: Text(
                 AppLocalizations.of(context).translate('retry'),
-                style: AppTextStyle.bodySmall(context).copyWith(
-                  color: AppColors.accent5,
-                ),
+                style: AppTextStyle.bodySmall(context),
               ),
             ),
           ],

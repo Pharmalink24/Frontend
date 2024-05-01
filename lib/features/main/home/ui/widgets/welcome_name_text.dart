@@ -30,7 +30,6 @@ class WelcomeNameText extends StatelessWidget {
             Text(
               AppLocalizations.of(context).translate('hello'),
               style: AppTextStyle.bodyMedium(context).copyWith(
-                color: AppColors.secondary,
                 fontSize: kFontSize,
               ),
             ),

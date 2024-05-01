@@ -5,27 +5,20 @@ import 'package:pharmalink/core/theme/fonts.dart';
 
 class AppTextStyle {
   static TextStyle displayLarge(BuildContext context) {
-    return TextStyle(
+    return Theme.of(context).textTheme.displayLarge!.copyWith(
       fontFamily: AppFonts.getFont(context, Font.primary),
-      color: AppColors.primaryText,
-      fontWeight: FontWeight.normal,
-      fontSize: 64.0,
     );
   }
 
   static TextStyle displayMedium(BuildContext context) {
-    return TextStyle(
+    return Theme.of(context).textTheme.displayMedium!.copyWith(
       fontFamily: AppFonts.getFont(context, Font.primary),
-      color: AppColors.primaryText,
-      fontWeight: FontWeight.normal,
-      fontSize: 44.0,
     );
   }
 
   static TextStyle displaySmall(BuildContext context) {
-    return TextStyle(
+    return Theme.of(context).textTheme.displaySmall!.copyWith(
       fontFamily: AppFonts.getFont(context, Font.primary),
-      color: AppColors.primaryText,
       fontWeight: AppLocalizations.of(context).isEnLocale
           ? FontWeight.w600
           : FontWeight.bold,
@@ -34,110 +27,74 @@ class AppTextStyle {
   }
 
   static TextStyle headlineLarge(BuildContext context) {
-    return TextStyle(
+    return Theme.of(context).textTheme.headlineLarge!.copyWith(
       fontFamily: AppFonts.getFont(context, Font.primary),
-      color: AppColors.primaryText,
-      fontWeight: FontWeight.w600,
-      fontSize: 32.0,
     );
   }
 
   static TextStyle headlineMedium(BuildContext context) {
-    return TextStyle(
+    return Theme.of(context).textTheme.headlineMedium!.copyWith(
       fontFamily: AppFonts.getFont(context, Font.primary),
-      color: AppColors.primaryText,
-      fontWeight: FontWeight.normal,
-      fontSize: 24.0,
     );
   }
 
   static TextStyle headlineSmall(BuildContext context) {
-    return TextStyle(
+    return Theme.of(context).textTheme.headlineSmall!.copyWith(
       fontFamily: AppFonts.getFont(context, Font.primary),
-      color: AppColors.primaryText,
-      fontWeight: FontWeight.w500,
-      fontSize: 24.0,
     );
   }
 
   static TextStyle titleLarge(BuildContext context) {
-    return TextStyle(
+    return Theme.of(context).textTheme.titleLarge!.copyWith(
       fontFamily: AppFonts.getFont(context, Font.primary),
-      color: AppColors.primaryText,
-      fontWeight: FontWeight.w500,
-      fontSize: 22.0,
     );
   }
 
   static TextStyle titleMedium(BuildContext context) {
-    return TextStyle(
+    return Theme.of(context).textTheme.titleMedium!.copyWith(
       fontFamily: AppFonts.getFont(context, Font.secondary),
-      color: AppColors.info,
-      fontWeight: FontWeight.normal,
-      fontSize: 18.0,
     );
   }
 
   static TextStyle titleSmall(BuildContext context) {
-    return TextStyle(
+    return Theme.of(context).textTheme.titleSmall!.copyWith(
       fontFamily: AppFonts.getFont(context, Font.secondary),
-      color: AppColors.info,
-      fontWeight: FontWeight.w500,
-      fontSize: 16.0,
     );
   }
 
   static TextStyle labelLarge(BuildContext context) {
-    return TextStyle(
+    return Theme.of(context).textTheme.labelLarge!.copyWith(
       fontFamily: AppFonts.getFont(context, Font.secondary),
-      color: AppColors.secondaryText,
-      fontWeight: FontWeight.normal,
-      fontSize: 16.0,
     );
   }
 
   static TextStyle labelMedium(BuildContext context) {
-    return TextStyle(
+    return Theme.of(context).textTheme.labelMedium!.copyWith(
       fontFamily: AppFonts.getFont(context, Font.secondary),
-      color: AppColors.secondaryText,
-      fontWeight: FontWeight.normal,
-      fontSize: 14.0,
     );
   }
 
   static TextStyle labelSmall(BuildContext context) {
-    return TextStyle(
+    return Theme.of(context).textTheme.labelSmall!.copyWith(
       fontFamily: AppFonts.getFont(context, Font.secondary),
-      color: AppColors.secondaryText,
-      fontWeight: FontWeight.normal,
-      fontSize: 12.0,
     );
   }
 
   static TextStyle bodyLarge(BuildContext context) {
-    return TextStyle(
+    return Theme.of(context).textTheme.bodyLarge!.copyWith(
       fontFamily: AppFonts.getFont(context, Font.secondary),
-      color: AppColors.primaryText,
-      fontWeight: FontWeight.normal,
-      fontSize: 16.0,
     );
   }
 
   static TextStyle bodyMedium(BuildContext context) {
-    return TextStyle(
+    return Theme.of(context).textTheme.bodyMedium!.copyWith(
       fontFamily: AppFonts.getFont(context, Font.secondary),
-      color: AppColors.primaryText,
-      fontWeight: FontWeight.normal,
-      fontSize: 14.0,
     );
   }
 
   static TextStyle bodySmall(BuildContext context) {
-    return TextStyle(
+    return Theme.of(context).textTheme.bodySmall!.copyWith(
       fontFamily: AppFonts.getFont(context, Font.secondary),
-      color: AppColors.primaryText,
-      fontWeight: FontWeight.normal,
-      fontSize: 12.0,
     );
   }
 }
@@ -201,7 +158,7 @@ class AppTextFieldDecoration {
       errorBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(_kPrimaryBorderRadius),
       ),
-      fillColor: AppColors.primaryBackground,
+      fillColor: AppColors.secondaryBackground,
     );
   }
 
@@ -222,13 +179,12 @@ class AppTextFieldDecoration {
       errorBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(_kSecondaryBorderRadius),
       ),
-      fillColor: AppColors.secondaryBackground,
+      fillColor: AppColors.primaryBackground,
     );
   }
 
   static InputDecoration searchInputDecoration(BuildContext context) {
     return _generalInputDecoration(context).copyWith(
-      fillColor: AppColors.primaryBackground,
       contentPadding: const EdgeInsets.all(14.0),
       suffixIcon: const Icon(
         Icons.keyboard_arrow_down_rounded,
@@ -255,6 +211,7 @@ class AppTextFieldDecoration {
       errorBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(_kSearchBorderRadius),
       ),
+      fillColor: AppColors.secondaryBackground,
     );
   }
 
@@ -269,7 +226,7 @@ class AppTextFieldDecoration {
 
   static BoxDecoration primaryBoxDecoration(BuildContext context) {
     return _generalBoxDecoration(context).copyWith(
-      color: AppColors.primaryBackground,
+      color: AppColors.secondaryBackground,
       border: Border.all(
         color: AppColors.accent5,
       ),
@@ -279,7 +236,7 @@ class AppTextFieldDecoration {
 
   static BoxDecoration secondaryBoxDecoration(BuildContext context) {
     return _generalBoxDecoration(context).copyWith(
-      color: AppColors.secondaryBackground,
+      color: AppColors.primaryBackground,
       border: Border.all(
         color: AppColors.secondaryBackground,
       ),

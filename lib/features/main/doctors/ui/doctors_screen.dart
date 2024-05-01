@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pharmalink/core/localization/app_localizations.dart';
 import 'package:pharmalink/core/models/doctor.dart';
 import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/theme/styles.dart';
@@ -67,7 +68,7 @@ class _DoctorsScreenState extends State<DoctorsScreen> {
         ),
         Center(
           child: Text(
-            'Your doctors list is empty.',
+            AppLocalizations.of(context).translate('noDoctorsMessage'),
             style: AppTextStyle.headlineSmall(context).copyWith(
               color: Colors.grey,
             ),
@@ -111,14 +112,10 @@ class _DoctorsScreenState extends State<DoctorsScreen> {
               onPressed: () {
                 context.read<ProfileCubit>().getUserProfile();
               },
-              style: ElevatedButton.styleFrom(
-                backgroundColor: AppColors.secondary,
-              ),
+             
               child: Text(
-                'Retry',
-                style: AppTextStyle.bodySmall(context).copyWith(
-                  color: AppColors.accent5,
-                ),
+                AppLocalizations.of(context).translate('retry'),
+                style: AppTextStyle.bodySmall(context),
               ),
             ),
           ],
@@ -130,12 +127,11 @@ class _DoctorsScreenState extends State<DoctorsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.primaryBackground,
       appBar: AppBar(
         iconTheme: const IconThemeData(color: AppColors.secondaryText),
         backgroundColor: AppColors.primaryBackground,
         title: Text(
-          'Your Doctors',
+          AppLocalizations.of(context).translate('yourDoctors'),
           style: AppTextStyle.displayMedium(context).copyWith(
             fontSize: 28,
           ),
@@ -144,7 +140,8 @@ class _DoctorsScreenState extends State<DoctorsScreen> {
       ),
       body: SafeArea(
         child: BlocBuilder<DoctorsCubit, DoctorsState>(
-          buildWhen: (previous, current) => current is Loading || current is Success || current is Error,
+          buildWhen: (previous, current) =>
+              current is Loading || current is Success || current is Error,
           builder: (context, state) {
             if (state is Loading) {
               return const LoadingIndicator();

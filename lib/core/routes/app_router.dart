@@ -139,6 +139,9 @@ class AppRouter {
           ),
         );
 
+      case Routes.unknownRoute:
+        return MaterialPageRoute(builder: (_) => const Error404Screen());
+
       default:
         return MaterialPageRoute(builder: (_) => const Error404Screen());
     }

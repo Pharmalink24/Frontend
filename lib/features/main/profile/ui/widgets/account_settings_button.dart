@@ -22,7 +22,7 @@ class AccountSettingsButton extends StatelessWidget {
             elevation: 0.25,
             padding:
                 const EdgeInsets.symmetric(horizontal: 24.0, vertical: 18.0),
-            backgroundColor: AppColors.primaryBackground,
+            backgroundColor: AppColors.secondaryBackground,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(8.0),
             ),

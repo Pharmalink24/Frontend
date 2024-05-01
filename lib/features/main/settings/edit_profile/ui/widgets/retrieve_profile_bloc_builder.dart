@@ -61,9 +61,7 @@ class RetrieveProfileBlocBuilder extends StatelessWidget {
               ),
               child: Text(
                 AppLocalizations.of(context).translate('retry'),
-                style: AppTextStyle.bodySmall(context).copyWith(
-                  color: AppColors.accent5,
-                ),
+                style: AppTextStyle.bodySmall(context),
               ),
             ),
           ],

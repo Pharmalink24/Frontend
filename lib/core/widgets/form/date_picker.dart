@@ -40,9 +40,7 @@ class DatePicker extends StatelessWidget {
           helperText: 'yyyy-MM-dd',
         ),
         autofocus: false,
-        style: AppTextStyle.labelSmall(context).copyWith(
-          color: AppColors.secondary,
-        ),
+        style: AppTextStyle.bodySmall(context),
         firstDate: DateTime(1900),
         lastDate: DateTime.now(),
         onChanged: (value) {

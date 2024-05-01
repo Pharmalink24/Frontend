@@ -39,7 +39,10 @@ class PharmalinkApp extends StatelessWidget {
                     AppLocalizationsSetup.localeResolutionCallback,
                 locale: localeState.locale,
                 title: appTitle,
+                themeMode: ThemeMode.system,
                 theme: themeState,
+                darkTheme: themeState,
+
                 initialRoute: Routes.initialRoute,
                 onGenerateRoute: appRouter.generateRoute,
                 debugShowCheckedModeBanner: false,

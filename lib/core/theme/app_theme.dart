@@ -1,8 +1,12 @@
-// Flutter Packages
 import 'package:flutter/material.dart';
+import 'package:pharmalink/core/theme/app_bar.dart';
 import 'package:pharmalink/core/theme/colors.dart';
 
+import 'buttons.dart';
+import 'texts.dart';
+
 class AppTheme {
+  // Light theme
   static ThemeData lightTheme() {
     return ThemeData.light().copyWith(
       appBarTheme: appBarTheme(),
@@ -15,12 +19,12 @@ class AppTheme {
         unselectedItemColor: AppColors.secondaryText,
       ),
       primaryColor: AppColors.primary,
-      textTheme: const TextTheme(
-        bodyLarge: TextStyle()
-      ),
+      textTheme: appTextTheme,
+      colorScheme: AppColorScheme.light,
     );
   }
 
+  // Dark theme
   static ThemeData darkTheme() {
     return ThemeData.dark().copyWith(
       appBarTheme: appBarTheme(isDarkTheme: true),
@@ -29,38 +33,11 @@ class AppTheme {
       scaffoldBackgroundColor: AppColors.darkPrimaryBackground,
       bottomNavigationBarTheme: const BottomNavigationBarThemeData(
         backgroundColor: AppColors.darkSecondaryBackground,
-        selectedItemColor: AppColors.darkPrimary,
+        selectedItemColor: AppColors.darkSecondary,
         unselectedItemColor: AppColors.darkPrimaryText,
       ),
+      textTheme: darkAppTextTheme,
+      colorScheme: AppColorScheme.dark,
     );
   }
-}
-
-const kAppBarBorderRadius = 16.0;
-
-// App bar
-AppBarTheme appBarTheme({bool isDarkTheme = false}) {
-  return AppBarTheme(
-    centerTitle: true,
-    backgroundColor: isDarkTheme ? AppColors.primary : AppColors.darkPrimary,
-    shape: const RoundedRectangleBorder(
-      borderRadius: BorderRadius.vertical(
-        bottom: Radius.circular(kAppBarBorderRadius),
-      ),
-    ),
-    elevation: 2,
-    foregroundColor: AppColors.alternate,
-  );
-}
-
-// Text Button
-TextButtonThemeData textButtonThemeData({bool isDarkTheme = false}) {
-  return TextButtonThemeData(
-    style: ButtonStyle(
-      alignment: Alignment.center,
-      backgroundColor: MaterialStatePropertyAll(
-          isDarkTheme ? AppColors.primary : AppColors.darkPrimary),
-      elevation: const MaterialStatePropertyAll(3.0),
-    ),
-  );
 }

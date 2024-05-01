@@ -67,7 +67,7 @@ class _ProfileInfoState extends State<ProfileInfo> {
                       Text(
                         cropperName(widget.user.email!, length: 30),
                         style: AppTextStyle.bodySmall(context).copyWith(
-                          color: AppColors.primary,
+                          color: AppColors.primary, // !! Change to primary
                         ),
                       ),
                     ],

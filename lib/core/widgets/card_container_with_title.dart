@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pharmalink/core/theme/styles.dart';
 
-import '../theme/fonts.dart';
 import 'card_container.dart';
 
 class CardContainerWithTitle extends StatelessWidget {
@@ -24,6 +23,26 @@ class CardContainerWithTitle extends StatelessWidget {
     this.flex = 4,
   });
 
+  Widget _buildTitle(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text(
+          title,
+          style: textStyle ?? AppTextStyle.headlineMedium(context),
+        ),
+        iconButton
+      ],
+    );
+  }
+
+  Widget _buildContent(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 12.0),
+      child: child,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return CardContainer(
@@ -33,26 +52,11 @@ class CardContainerWithTitle extends StatelessWidget {
       children: [
         Expanded(
           flex: 1,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                title,
-                style: textStyle ??
-                    AppTextStyle.bodyMedium(context).copyWith(
-                      fontSize: 24,
-                    ),
-              ),
-              iconButton
-            ],
-          ),
+          child: _buildTitle(context),
         ),
         Expanded(
           flex: flex,
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 12.0),
-            child: child,
-          ),
+          child: _buildContent(context),
         ),
       ],
     );

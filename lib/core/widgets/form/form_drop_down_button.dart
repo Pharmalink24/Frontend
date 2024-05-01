@@ -68,9 +68,7 @@ class FormDropDownButton extends StatelessWidget {
           },
           //
           items: buildItemsWidget(context, items),
-          style: AppTextStyle.bodyMedium(context).copyWith(
-            color: AppColors.secondary,
-          ),
+          style: AppTextStyle.bodyMedium(context),
           underline: SizedBox(),
           elevation: 5,
           isExpanded: true,

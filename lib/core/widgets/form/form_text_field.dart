@@ -49,9 +49,7 @@ class FormTextField extends StatelessWidget {
             suffixIcon: suffixIcon,
             labelText: hintText,
           ),
-          style: AppTextStyle.labelSmall(context).copyWith(
-            color: AppColors.secondary,
-          ),
+          style: AppTextStyle.bodySmall(context),
           keyboardType: keyboardType,
           validator: (value) => validator(value),
         ),

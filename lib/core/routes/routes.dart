@@ -26,4 +26,7 @@ class Routes {
   // Prescription
   static const String prescriptionScreen = '/prescriptionScreen';
   static const String prescriptionsScreen = '/prescriptionsScreen';
+
+  // End
+  static const String unknownRoute = '/unknown';
 }

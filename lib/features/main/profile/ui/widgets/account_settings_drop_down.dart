@@ -58,7 +58,7 @@ class _LanguageDropDownState extends State<LanguageDropDown> {
         padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 6.0),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(8.0),
-          color: AppColors.primaryBackground,
+          color: AppColors.secondaryBackground,
         ),
         hintText: AppLocalizations.of(context).translate('language'),
         value: AppLocalizations.of(context).isEnLocale
