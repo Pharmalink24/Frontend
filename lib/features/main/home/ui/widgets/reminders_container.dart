@@ -20,9 +20,7 @@ class RemindersContainer extends StatelessWidget {
       padding: EdgeInsets.zero,
       itemCount: reminders.length,
       itemBuilder: (context, index) {
-        return reminders[index].isToday()
-            ? ReminderListTile(reminders[index])
-            : const SizedBox.shrink();
+        return ReminderListTile(reminders[index]);
       },
     );
   }

@@ -42,6 +42,34 @@ class DrugCard extends StatelessWidget {
     );
   }
 
+  Widget _buildButtonBar(BuildContext context) {
+    final ButtonStyle flatButtonStyle = TextButton.styleFrom(
+      backgroundColor: Colors.transparent,
+      iconColor: Theme.of(context).colorScheme.secondary,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(Radius.circular(65.0)),
+      ),
+    );
+
+    return ButtonBar(
+      alignment: MainAxisAlignment.spaceAround,
+      buttonHeight: 52.0,
+      buttonMinWidth: 90.0,
+      children: <Widget>[
+        TextButton(
+          style: flatButtonStyle,
+          onPressed: () {},
+          child: Icon(Icons.task_alt_rounded),
+        ),
+        TextButton(
+          style: flatButtonStyle,
+          onPressed: () {},
+          child: Icon(Icons.cancel),
+        ),
+      ],
+    );
+  }
+
   List<Widget> _buildInstructions(BuildContext context) {
     return [
       Text(
@@ -57,6 +85,7 @@ class DrugCard extends StatelessWidget {
         style: AppTextStyle.labelMedium(context),
       ),
       const SizedBox(height: 10.0),
+      _buildButtonBar(context),
     ];
   }
 

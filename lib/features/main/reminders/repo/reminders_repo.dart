@@ -1,7 +1,5 @@
 import 'package:logger/logger.dart';
 import 'package:pharmalink/core/di/dependency_injection.dart';
-import 'package:pharmalink/core/models/doctor.dart';
-import 'package:pharmalink/core/models/user.dart';
 import 'package:pharmalink/core/networking/api_error_handler.dart';
 import 'package:pharmalink/core/networking/api_result.dart';
 import 'package:pharmalink/core/networking/api_service.dart';
@@ -16,9 +14,14 @@ class RemindersRepo {
 
   Future<ApiResult<List<Reminder>>> getRemindersList() async {
     try {
-      final response =
+      final reminders =
           await _apiService.getReminderList(AuthSharedPrefs.getAccessToken());
-      return ApiResult.success(response);
+
+      List<Reminder> showedReminders = [];
+      for (var reminder in reminders) {
+        reminder.isToday() ? showedReminders.add(reminder) : null;
+      }
+      return ApiResult.success(showedReminders);
     } catch (error) {
       getIt<Logger>().e(error);
       return ApiResult.failure(ErrorHandler.handle(error));
