@@ -24,6 +24,7 @@
     "welcome": "Welcome, ",
 
     "doctor": "Doctor",
+    "doctor_profile": "Doctor Profile",
     "yourDoctors": "Your Doctors",
     "addDoctor": "Add Doctor",
     "noDoctors": "No Doctors",
@@ -114,6 +115,9 @@
     "changeYourPassword": "Change your password",
     "changeYourPasswordDesc": "Please Enter your current password and new password to update your password.",
 
-    "dr": "Dr."
+    "dr": "Dr.",
+    "about": "About",
+    "no_info": "No information available",
+    "chat": "Chat"
 
 }

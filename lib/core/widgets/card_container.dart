@@ -7,6 +7,7 @@ class CardContainer extends StatelessWidget {
   final EdgeInsets padding;
   final EdgeInsets margin;
   final List<Widget> children;
+  final Function()? onPressed;
 
   const CardContainer({
     super.key,
@@ -15,22 +16,26 @@ class CardContainer extends StatelessWidget {
     this.crossAxisAlignment = CrossAxisAlignment.start,
     this.padding = const EdgeInsets.all(12.0),
     this.margin = const EdgeInsets.symmetric(vertical: 8.0),
+    this.onPressed,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      padding: padding,
-      margin: margin,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(16.0),
-        color: Theme.of(context).colorScheme.primaryContainer,
-      ),
-      child: Column(
-        mainAxisAlignment: mainAxisAlignment,
-        crossAxisAlignment: crossAxisAlignment,
-        children: children,
+    return GestureDetector(
+      onTap: onPressed,
+      child: Container(
+        width: double.infinity,
+        padding: padding,
+        margin: margin,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(16.0),
+          color: Theme.of(context).colorScheme.primaryContainer,
+        ),
+        child: Column(
+          mainAxisAlignment: mainAxisAlignment,
+          crossAxisAlignment: crossAxisAlignment,
+          children: children,
+        ),
       ),
     );
   }

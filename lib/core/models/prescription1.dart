@@ -1,16 +1,16 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:pharmalink/core/models/doctor_info.dart';
 
-part 'prescription.g.dart';
+part 'prescription1.g.dart';
 
 @JsonSerializable()
-class Prescription {
+class Prescription1 {
   final int id;
   final DoctorInfo doctorInfo;
   @JsonKey(name: 'created_at')
   final String createdAt;
 
-  const Prescription({
+  const Prescription1({
     required this.id,
     required this.doctorInfo,
     required this.createdAt,
@@ -28,8 +28,8 @@ class Prescription {
 
   get time => "$hours:$minute $period";
 
-  factory Prescription.fromJson(Map<String, dynamic> json) =>
-      _$PrescriptionFromJson(json);
+  factory Prescription1.fromJson(Map<String, dynamic> json) =>
+      _$Prescription1FromJson(json);
 
-  Map<String, dynamic> toJson() => _$PrescriptionToJson(this);
+  Map<String, dynamic> toJson() => _$Prescription1ToJson(this);
 }

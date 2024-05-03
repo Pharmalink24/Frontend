@@ -49,7 +49,7 @@ class _DoctorsScreenState extends State<DoctorsScreen> {
               ),
               innerPadding: const EdgeInsetsDirectional.only(
                 start: 20,
-                end: 10,
+                end: 0,
               ),
             );
           },
@@ -69,6 +69,7 @@ class _DoctorsScreenState extends State<DoctorsScreen> {
         Center(
           child: Text(
             AppLocalizations.of(context).translate('noDoctorsMessage'),
+            textAlign: TextAlign.center,
             style: AppTextStyle.headlineSmall(context).copyWith(
               color: Colors.grey,
             ),
@@ -112,7 +113,6 @@ class _DoctorsScreenState extends State<DoctorsScreen> {
               onPressed: () {
                 context.read<ProfileCubit>().getUserProfile();
               },
-             
               child: Text(
                 AppLocalizations.of(context).translate('retry'),
                 style: AppTextStyle.bodySmall(context),

@@ -6,96 +6,111 @@ import 'package:pharmalink/core/theme/fonts.dart';
 class AppTextStyle {
   static TextStyle displayLarge(BuildContext context) {
     return Theme.of(context).textTheme.displayLarge!.copyWith(
-      fontFamily: AppFonts.getFont(context, Font.primary),
-    );
+          fontFamily: AppFonts.getFont(context, Font.primary),
+          color: Theme.of(context).colorScheme.onPrimary,
+        );
   }
 
   static TextStyle displayMedium(BuildContext context) {
     return Theme.of(context).textTheme.displayMedium!.copyWith(
-      fontFamily: AppFonts.getFont(context, Font.primary),
-    );
+          fontFamily: AppFonts.getFont(context, Font.primary),
+          color: Theme.of(context).colorScheme.onPrimary,
+        );
   }
 
   static TextStyle displaySmall(BuildContext context) {
     return Theme.of(context).textTheme.displaySmall!.copyWith(
-      fontFamily: AppFonts.getFont(context, Font.primary),
-      fontWeight: AppLocalizations.of(context).isEnLocale
-          ? FontWeight.w600
-          : FontWeight.bold,
-      fontSize: AppLocalizations.of(context).isEnLocale ? 36.0 : 24.0,
-    );
+          fontFamily: AppFonts.getFont(context, Font.primary),
+          fontWeight: AppLocalizations.of(context).isEnLocale
+              ? FontWeight.w600
+              : FontWeight.bold,
+          fontSize: AppLocalizations.of(context).isEnLocale ? 36.0 : 24.0,
+          color: Theme.of(context).colorScheme.onPrimary,
+        );
   }
 
   static TextStyle headlineLarge(BuildContext context) {
     return Theme.of(context).textTheme.headlineLarge!.copyWith(
-      fontFamily: AppFonts.getFont(context, Font.primary),
-    );
+          fontFamily: AppFonts.getFont(context, Font.primary),
+          color: Theme.of(context).colorScheme.onPrimary,
+        );
   }
 
   static TextStyle headlineMedium(BuildContext context) {
     return Theme.of(context).textTheme.headlineMedium!.copyWith(
-      fontFamily: AppFonts.getFont(context, Font.primary),
-    );
+          fontFamily: AppFonts.getFont(context, Font.primary),
+          color: Theme.of(context).colorScheme.onPrimary,
+        );
   }
 
   static TextStyle headlineSmall(BuildContext context) {
     return Theme.of(context).textTheme.headlineSmall!.copyWith(
-      fontFamily: AppFonts.getFont(context, Font.primary),
-    );
+          fontFamily: AppFonts.getFont(context, Font.primary),
+          color: Theme.of(context).colorScheme.onPrimary,
+        );
   }
 
   static TextStyle titleLarge(BuildContext context) {
     return Theme.of(context).textTheme.titleLarge!.copyWith(
-      fontFamily: AppFonts.getFont(context, Font.primary),
-    );
+          fontFamily: AppFonts.getFont(context, Font.primary),
+          color: Theme.of(context).colorScheme.onPrimary,
+        );
   }
 
   static TextStyle titleMedium(BuildContext context) {
     return Theme.of(context).textTheme.titleMedium!.copyWith(
-      fontFamily: AppFonts.getFont(context, Font.secondary),
-    );
+          fontFamily: AppFonts.getFont(context, Font.secondary),
+          color: Theme.of(context).colorScheme.onTertiary,
+        );
   }
 
   static TextStyle titleSmall(BuildContext context) {
     return Theme.of(context).textTheme.titleSmall!.copyWith(
-      fontFamily: AppFonts.getFont(context, Font.secondary),
-    );
+          fontFamily: AppFonts.getFont(context, Font.secondary),
+          color: Theme.of(context).colorScheme.onTertiary,
+        );
   }
 
   static TextStyle labelLarge(BuildContext context) {
     return Theme.of(context).textTheme.labelLarge!.copyWith(
-      fontFamily: AppFonts.getFont(context, Font.secondary),
-    );
+          fontFamily: AppFonts.getFont(context, Font.secondary),
+          color: Theme.of(context).colorScheme.onSecondary,
+        );
   }
 
   static TextStyle labelMedium(BuildContext context) {
     return Theme.of(context).textTheme.labelMedium!.copyWith(
-      fontFamily: AppFonts.getFont(context, Font.secondary),
-    );
+          fontFamily: AppFonts.getFont(context, Font.secondary),
+          color: Theme.of(context).colorScheme.onSecondary,
+        );
   }
 
   static TextStyle labelSmall(BuildContext context) {
     return Theme.of(context).textTheme.labelSmall!.copyWith(
-      fontFamily: AppFonts.getFont(context, Font.secondary),
-    );
+          fontFamily: AppFonts.getFont(context, Font.secondary),
+          color: Theme.of(context).colorScheme.onSecondary,
+        );
   }
 
   static TextStyle bodyLarge(BuildContext context) {
     return Theme.of(context).textTheme.bodyLarge!.copyWith(
-      fontFamily: AppFonts.getFont(context, Font.secondary),
-    );
+          fontFamily: AppFonts.getFont(context, Font.secondary),
+          color: Theme.of(context).colorScheme.onPrimary,
+        );
   }
 
   static TextStyle bodyMedium(BuildContext context) {
     return Theme.of(context).textTheme.bodyMedium!.copyWith(
-      fontFamily: AppFonts.getFont(context, Font.secondary),
-    );
+          fontFamily: AppFonts.getFont(context, Font.secondary),
+          color: Theme.of(context).colorScheme.onPrimary,
+        );
   }
 
   static TextStyle bodySmall(BuildContext context) {
     return Theme.of(context).textTheme.bodySmall!.copyWith(
-      fontFamily: AppFonts.getFont(context, Font.secondary),
-    );
+          fontFamily: AppFonts.getFont(context, Font.secondary),
+          color: Theme.of(context).colorScheme.onPrimary,
+        );
   }
 }
 

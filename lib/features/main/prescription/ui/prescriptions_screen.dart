@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pharmalink/core/enums/drug_state.dart';
 import 'package:pharmalink/core/helpers/extensions.dart';
 import 'package:pharmalink/core/localization/app_localizations.dart';
-import 'package:pharmalink/core/models/prescription.dart';
+import 'package:pharmalink/core/models/prescription1.dart';
 import 'package:pharmalink/features/main/prescription/logic/cubit/prescription_state.dart';
 import 'package:pharmalink/features/main/prescription/ui/widgets/doctor_prescription_card.dart';
 import 'package:pharmalink/core/theme/colors.dart';
@@ -19,7 +19,7 @@ class PrescriptionsScreen extends StatefulWidget {
   });
 
   @override
-  _PrescriptionsScreenState createState() => _PrescriptionsScreenState();
+  State<PrescriptionsScreen> createState() => _PrescriptionsScreenState();
 }
 
 class _PrescriptionsScreenState extends State<PrescriptionsScreen> {
@@ -55,7 +55,7 @@ class _PrescriptionsScreenState extends State<PrescriptionsScreen> {
   }
 
   // This method is used to build the list of prescriptions
-  Widget _buildPrescriptionsList(List<Prescription> prescriptions) {
+  Widget _buildPrescriptionsList(List<Prescription1> prescriptions) {
     return ListView.builder(
       scrollDirection: Axis.vertical,
       padding: EdgeInsets.zero,
@@ -70,7 +70,7 @@ class _PrescriptionsScreenState extends State<PrescriptionsScreen> {
   }
 
   // This method is used to build the success widget
-  Widget _buildSuccessWidget(List<Prescription> prescriptions) {
+  Widget _buildSuccessWidget(List<Prescription1> prescriptions) {
     return prescriptions.isEmpty
         ? _buildNoPrescriptionsFound()
         : _buildPrescriptionsList(prescriptions);

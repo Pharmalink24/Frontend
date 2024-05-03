@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pharmalink/core/theme/colors.dart';
+import 'package:pharmalink/core/localization/app_localizations.dart';
 import 'package:shimmer/shimmer.dart';
 
 class AppShimmer extends StatelessWidget {
@@ -12,8 +12,11 @@ class AppShimmer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Shimmer.fromColors(
-      baseColor: AppColors.primary,
-      highlightColor: AppColors.accent4,
+      direction: AppLocalizations.of(context).isEnLocale
+          ? ShimmerDirection.ltr
+          : ShimmerDirection.rtl,
+      baseColor: Theme.of(context).colorScheme.secondary.withOpacity(0.1),
+      highlightColor: Theme.of(context).colorScheme.secondary.withOpacity(0.2),
       enabled: true,
       child: child,
     );

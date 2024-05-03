@@ -7,50 +7,41 @@ TextTheme appTextTheme = const TextTheme(
   displayLarge: TextStyle(
     fontWeight: FontWeight.normal,
     fontSize: 64.0,
-    color: AppColors.primaryText,
   ),
   displayMedium: TextStyle(
     fontWeight: FontWeight.normal,
     fontSize: 44.0,
-    color: AppColors.primaryText,
   ),
   displaySmall: TextStyle(
     fontSize: 36.0,
     fontWeight: FontWeight.w600,
-    color: AppColors.primaryText,
   ),
   //------- Headline -------//
   headlineLarge: TextStyle(
     fontWeight: FontWeight.w600,
     fontSize: 32.0,
-    color: AppColors.primaryText,
   ),
   headlineMedium: TextStyle(
     fontWeight: FontWeight.w600,
     fontSize: 24.0,
-    color: AppColors.primaryText,
   ),
   headlineSmall: TextStyle(
     fontWeight: FontWeight.normal,
     fontSize: 24.0,
-    color: AppColors.primaryText,
   ),
 
   //------- Title -------//
   titleLarge: TextStyle(
     fontWeight: FontWeight.w500,
     fontSize: 22.0,
-    color: AppColors.primaryText,
   ),
   titleMedium: TextStyle(
     fontWeight: FontWeight.normal,
     fontSize: 18.0,
-    color: AppColors.info,
   ),
   titleSmall: TextStyle(
     fontWeight: FontWeight.w500,
     fontSize: 16.0,
-    color: AppColors.info,
   ),
   //------- Body -------//
   bodyLarge: TextStyle(

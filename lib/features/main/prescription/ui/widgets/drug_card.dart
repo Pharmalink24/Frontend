@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:pharmalink/core/models/drug_info.dart';
-import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/theme/styles.dart';
-import 'package:auto_size_text/auto_size_text.dart';
+import 'package:expansion_tile_card/expansion_tile_card.dart';
 
 class DrugCard extends StatelessWidget {
   final String tradeName;
@@ -15,76 +14,66 @@ class DrugCard extends StatelessWidget {
     required this.drugInfo,
   });
 
+  Widget _buildDrugIcon(BuildContext context) {
+    return drugInfo.dosageUnit == 'capsule'
+        ? Icon(
+            size: 40.0,
+            FontAwesomeIcons.capsules,
+            color: Theme.of(context).colorScheme.primary,
+          )
+        : Icon(
+            size: 40.0,
+            FontAwesomeIcons.syringe,
+            color: Theme.of(context).colorScheme.primary,
+          );
+  }
+
+  Widget _buildTradeName(BuildContext context) {
+    return Text(
+      tradeName,
+      style: AppTextStyle.bodyLarge(context),
+    );
+  }
+
+  Widget _buildScName(BuildContext context) {
+    return Text(
+      drugInfo.scName,
+      style: AppTextStyle.labelMedium(context),
+    );
+  }
+
+  List<Widget> _buildInstructions(BuildContext context) {
+    return [
+      Text(
+        'Course: ${drugInfo.course} weeks',
+        style: AppTextStyle.labelMedium(context),
+      ),
+      Text(
+        'Dose: ${drugInfo.dosage} ${drugInfo.dosageUnit}/day',
+        style: AppTextStyle.labelMedium(context),
+      ),
+      Text(
+        'Period: ${drugInfo.startDate} - ${drugInfo.endDate}',
+        style: AppTextStyle.labelMedium(context),
+      ),
+      const SizedBox(height: 10.0),
+    ];
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: MediaQuery.sizeOf(context).width,
-      decoration: BoxDecoration(
-        color: AppColors.primaryBackground,
-        borderRadius: BorderRadius.circular(12),
-      ),
-      child: Column(
-        mainAxisSize: MainAxisSize.max,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(0, 4, 0, 12),
-            child: Row(
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                const Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 1, 1, 1),
-                  child: Icon(
-                    FontAwesomeIcons.capsules,
-                    size: 50,
-                    color: AppColors.primary,
-                  ),
-                ),
-                Expanded(
-                  flex: 3,
-                  child: Padding(
-                    padding: const EdgeInsetsDirectional.fromSTEB(13, 0, 4, 0),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          tradeName,
-                          style: AppTextStyle.titleLarge(context),
-                        ),
-                        Padding(
-                          padding:
-                              const EdgeInsetsDirectional.fromSTEB(0, 4, 0, 0),
-                          child: RichText(
-                            textScaler: MediaQuery.of(context).textScaler,
-                            text: TextSpan(
-                              children: const [
-                                TextSpan(
-                                  text: '1 g',
-                                )
-                              ],
-                              style: AppTextStyle.labelSmall(context),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(0, 4, 8, 12),
-            child: AutoSizeText(
-              'Course: 2 weeks\nDose: 2 tablet/day',
-              textAlign: TextAlign.start,
-              style: AppTextStyle.labelMedium(context),
-            ),
-          ),
-        ],
-      ),
+    return ExpansionTileCard(
+      baseColor: Theme.of(context).colorScheme.secondaryContainer,
+      expandedColor: Theme.of(context).colorScheme.secondaryContainer,
+      elevation: 5.0,
+      initialElevation: 1.0,
+      shadowColor: Theme.of(context).colorScheme.shadow,
+      initialPadding: const EdgeInsets.symmetric(vertical: 12.0),
+      leading: _buildDrugIcon(context),
+      title: _buildTradeName(context),
+      animateTrailing: true,
+      subtitle: _buildScName(context),
+      children: _buildInstructions(context),
     );
   }
 }

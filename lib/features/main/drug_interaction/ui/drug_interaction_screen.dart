@@ -1,7 +1,6 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
-import 'package:pharmalink/core/theme/colors.dart';
 import 'widgets/drug_interaction_form.dart';
 import 'widgets/interaction_result_container.dart';
 

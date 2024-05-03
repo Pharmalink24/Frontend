@@ -24,22 +24,21 @@ class AppColors {
   // );
 
   // Dark Mode Colors
-  static const Color darkPrimary = Color(0xFF011936);
-  static const Color darkSecondary = Color(0xFF00F0B5);
+  static const Color darkPrimary = Color(0xce00f0b5);
+  static const Color darkSecondary = Color(0xFF39d2c0);
   static const Color darkTertiary = Color(0xFFF9F9F9);
   static const Color darkAlternate = Color(0xFF101010);
-  static const Color darkTransparent = Colors.transparent;
 
   static const Color darkPrimaryText = Color(0xFFF9F9F9);
-  static const Color darkSecondaryText = Color(0xFF57636C);
+  static const Color darkSecondaryText = Color(0xFF95a1ac);
   static const Color darkAlternateText = Color(0xFF14181B);
 
-  static const Color darkPrimaryBackground = Color(0xFF101010);
-  static const Color darkSecondaryBackground = Color(0xFF011936);
+  static const Color darkPrimaryBackground = Color(0xFF14181b);
+  static const Color darkSecondaryBackground = Color(0xFF1D2428);
 
-  static const Color accent1 = Color(0x4C4B39EF);
-  static const Color accent2 = Color(0x4D39D2C0);
-  static const Color accent3 = Color(0x4DEE8B60);
+  static const Color accent1 = Color(0x4c4b39ef);
+  static const Color accent2 = Color(0x4d39d2c0);
+  static const Color accent3 = Color(0x4dee8b60);
   static const Color accent4 = Color(0xFF006951);
   static const Color accent5 = Color(0xFFE0E3E7);
 
@@ -50,7 +49,6 @@ class AppColors {
 }
 
 class AppColorScheme {
-
   static ColorScheme light = ColorScheme.fromSeed(
     seedColor: AppColors.primary,
     brightness: Brightness.light,
@@ -70,7 +68,7 @@ class AppColorScheme {
     // Text
     onPrimary: AppColors.primaryText,
     onSecondary: AppColors.secondaryText,
-    onTertiary: AppColors.primaryText,
+    onTertiary: AppColors.info,
     onSurface: AppColors.primaryText,
     onPrimaryContainer: AppColors.primaryText,
     onSecondaryContainer: AppColors.secondaryText,
@@ -99,7 +97,7 @@ class AppColorScheme {
     // Text
     onPrimary: AppColors.darkPrimaryText,
     onSecondary: AppColors.darkSecondaryText,
-    onTertiary: AppColors.darkPrimaryText,
+    onTertiary: AppColors.info,
     onSurface: AppColors.darkPrimaryText,
     onPrimaryContainer: AppColors.darkPrimaryText,
     onSecondaryContainer: AppColors.darkSecondaryText,
@@ -108,5 +106,4 @@ class AppColorScheme {
     onErrorContainer: AppColors.error,
     onInverseSurface: AppColors.darkPrimaryText,
   );
-
 }

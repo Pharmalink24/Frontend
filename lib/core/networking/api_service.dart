@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:pharmalink/core/models/doctor.dart';
-import 'package:pharmalink/core/models/prescription.dart';
+import 'package:pharmalink/core/models/prescription1.dart';
+import 'package:pharmalink/core/models/prescription2.dart';
 import 'package:pharmalink/core/models/prescription_info.dart';
 import 'package:pharmalink/features/access/auth/data/models/refresh_token_response.dart';
 import 'package:pharmalink/features/main/reminders/models/reminder.dart';
@@ -74,8 +75,16 @@ abstract class ApiService {
   //-------------------- Prescription --------------------//
 
   // Prescription
-  @GET(ApiConstants.prescriptionsList)
-  Future<List<Prescription>> getPrescriptions(
+  @GET(ApiConstants.prescriptionsList1)
+  Future<List<Prescription1>> getPrescriptions1(
+    @Queries() StateRequestBody stateRequestBody,
+    @Header('Authorization') String? auth,
+  );
+
+
+  // Prescription
+  @GET(ApiConstants.prescriptionsList2)
+  Future<List<Prescription2>> getPrescriptions2(
     @Queries() StateRequestBody stateRequestBody,
     @Header('Authorization') String? auth,
   );

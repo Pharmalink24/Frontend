@@ -29,7 +29,7 @@ class PharmalinkApp extends StatelessWidget {
         buildWhen: (previousState, currentState) =>
             previousState != currentState,
         builder: (context, localeState) {
-          return BlocBuilder<ThemeCubit, ThemeData>(
+          return BlocBuilder<ThemeCubit, ThemeData?>(
             builder: (context, themeState) {
               return MaterialApp(
                 supportedLocales: AppLocalizationsSetup.supportedLocales,
@@ -42,7 +42,6 @@ class PharmalinkApp extends StatelessWidget {
                 themeMode: ThemeMode.system,
                 theme: themeState,
                 darkTheme: themeState,
-
                 initialRoute: Routes.initialRoute,
                 onGenerateRoute: appRouter.generateRoute,
                 debugShowCheckedModeBanner: false,

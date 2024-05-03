@@ -41,6 +41,7 @@ class DoctorsContainer extends StatelessWidget {
         Center(
           child: Text(
             AppLocalizations.of(context).translate('noDoctorsMessage'),
+            textAlign: TextAlign.center,
             style: AppTextStyle.headlineSmall(context).copyWith(
               color: Colors.grey,
             ),
@@ -54,9 +55,12 @@ class DoctorsContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return CardContainerWithTitle(
       title: AppLocalizations.of(context).translate('yourDoctors'),
+      isScrollable: false,
       iconButton: TextWithIcon(
         onTap: () => context.pushNamed(Routes.doctorsScreen),
-        icon: Icons.arrow_circle_right_sharp,
+        icon: AppLocalizations.of(context).isEnLocale
+            ? Icons.arrow_circle_right_sharp
+            : Icons.arrow_circle_left_sharp,
         text: AppLocalizations.of(context).translate('viewAll'),
       ),
       child: doctors.isEmpty

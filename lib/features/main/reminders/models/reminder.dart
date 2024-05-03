@@ -33,7 +33,7 @@ class Reminder {
   });
 
   bool isToday() {
-    return DateTime.now().isBefore(DateTime.parse(nextDoseTime));
+    return DateTime.now().day == getNextDoseTime().day;
   }
 
   DateTime getNextDoseTime() {

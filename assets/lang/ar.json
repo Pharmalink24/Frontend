@@ -24,6 +24,7 @@
     "welcome": "مرحباً،",
 
     "doctor": "طبيب",
+    "doctor_profile": "ملف الطبيب",
     "yourDoctors": "أطباؤك",
     "addDoctor": "إضافة طبيب",
     "noDoctors": "لا يوجد أطباء",
@@ -74,7 +75,7 @@
     "checkInteractions": "فحص التفاعلات",
     "interactionsFound": "تم العثور على تفاعلات",
     "noInteractions": "لا تفاعلات",
-    "pleaseSelectDrugs": "يرجى اختيار دوائين..",
+    "pleaseSelectDrugs": "يرجى اختيار دواء..",
     "enter2drugs": "يرجى إدخال دوائين لفحص التفاعلات بينهما.",
 
     "profile": "الملف الشخصي",
@@ -114,5 +115,9 @@
     "changeYourPassword": "غير كلمة مرورك",
     "changeYourPasswordDesc": "يرجى إدخال كلمة المرور الحالية والجديدة لتحديث كلمة مرورك.",
 
-    "dr": "د."
+    "dr": "د.",
+    "about": "حول",
+    "no_info": "لا توجد معلومات",
+    "chat": "الدردشة"
+
 }

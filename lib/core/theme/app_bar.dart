@@ -15,10 +15,10 @@ class MyAppBar {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          const ImageIcon(
-            AssetImage("${AppPaths.images}/logo.png"),
+          ImageIcon(
+            const AssetImage("${AppPaths.images}/logo.png"),
             size: kAppBarLogoSize,
-            color: AppColors.alternateText,
+            color: Theme.of(context).colorScheme.secondary,
           ),
           Text(
             "PharmaLink",
@@ -48,16 +48,16 @@ class MyAppBar {
   static AppBar withoutLabel(BuildContext context) {
     return AppBar(
       automaticallyImplyLeading: false,
-      title: const Row(
+      title: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           ImageIcon(
-            AssetImage(
+            const AssetImage(
               "${AppPaths.images}/logo.png",
             ),
             size: kAppBarLogoSize,
-            color: AppColors.alternateText,
+            color: Theme.of(context).colorScheme.secondary,
           ),
         ],
       ),
@@ -81,4 +81,3 @@ AppBarTheme appBarTheme({bool isDarkTheme = false}) {
     foregroundColor: AppColors.alternate,
   );
 }
-
