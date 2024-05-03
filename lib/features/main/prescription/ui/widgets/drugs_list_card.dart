@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:pharmalink/core/localization/app_localizations.dart';
-import 'package:pharmalink/core/models/drug_info.dart';
-import 'package:pharmalink/core/widgets/card_container_with_title.dart';
+import '../../../../../core/localization/app_localizations.dart';
+import '../../../../../core/models/drug_info.dart';
+import '../../../../../core/widgets/card_container_with_title.dart';
 
 import 'drug_card.dart';
 

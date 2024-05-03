@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pharmalink/core/di/dependency_injection.dart';
-import 'package:pharmalink/core/localization/app_localizations.dart';
-import 'package:pharmalink/core/routes/routes.dart';
-import 'package:pharmalink/core/shared_preferences/auth_prefs.dart';
-import 'package:pharmalink/core/theme/colors.dart';
-import 'package:pharmalink/core/theme/styles.dart';
-import 'package:pharmalink/features/access/auth/logic/cubit/auth_cubit.dart';
+import '../../../../../core/di/dependency_injection.dart';
+import '../../../../../core/localization/app_localizations.dart';
+import '../../../../../core/routes/routes.dart';
+import '../../../../../core/shared_preferences/auth_prefs.dart';
+import '../../../../../core/theme/colors.dart';
+import '../../../../../core/theme/styles.dart';
+import '../../../../access/auth/logic/cubit/auth_cubit.dart';
 
 class LogoutButton extends StatelessWidget {
   const LogoutButton({

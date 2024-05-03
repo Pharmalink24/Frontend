@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pharmalink/core/theme/colors.dart';
-import 'package:pharmalink/features/main/drug_interaction/logic/cubit/drug_interaction_cubit.dart';
-import 'package:pharmalink/features/main/drug_interaction/ui/widgets/drug_search_field.dart';
-import 'package:pharmalink/core/localization/app_localizations.dart';
+import '../../../../../core/theme/colors.dart';
+import '../../logic/cubit/drug_interaction_cubit.dart';
+import 'drug_search_field.dart';
+import '../../../../../core/localization/app_localizations.dart';
 
 import 'form_input_label.dart';
 

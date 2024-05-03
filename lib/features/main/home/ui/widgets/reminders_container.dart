@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:pharmalink/core/theme/colors.dart';
-import 'package:pharmalink/core/theme/styles.dart';
-import 'package:pharmalink/core/widgets/card_container_with_title.dart';
-import 'package:pharmalink/core/widgets/text_with_icon.dart';
-import 'package:pharmalink/features/main/reminders/models/reminder.dart';
-import 'package:pharmalink/core/localization/app_localizations.dart';
+import '../../../../../core/theme/colors.dart';
+import '../../../../../core/theme/styles.dart';
+import '../../../../../core/widgets/card_container_with_title.dart';
+import '../../../../../core/widgets/text_with_icon.dart';
+import '../../../reminders/models/reminder.dart';
+import '../../../../../core/localization/app_localizations.dart';
 import 'reminder_list_tile.dart';
 
 class RemindersContainer extends StatelessWidget {

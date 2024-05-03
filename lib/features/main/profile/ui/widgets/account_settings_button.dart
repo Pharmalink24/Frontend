@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pharmalink/core/theme/colors.dart';
-import 'package:pharmalink/core/theme/styles.dart';
+import '../../../../../core/theme/colors.dart';
+import '../../../../../core/theme/styles.dart';
 
 class AccountSettingsButton extends StatelessWidget {
   final String text;

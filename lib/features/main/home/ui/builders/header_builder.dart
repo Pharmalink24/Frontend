@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pharmalink/core/models/user.dart';
-import 'package:pharmalink/core/widgets/app_shimmer.dart';
-import 'package:pharmalink/core/widgets/error_card.dart';
-import 'package:pharmalink/features/main/profile/logic/cubit/profile_cubit.dart';
-import 'package:pharmalink/features/main/profile/logic/cubit/profile_state.dart';
+import '../../../../../core/models/user.dart';
+import '../../../../../core/widgets/app_shimmer.dart';
+import '../../../../../core/widgets/error_card.dart';
+import '../../../profile/logic/cubit/profile_cubit.dart';
+import '../../../profile/logic/cubit/profile_state.dart';
 import '../widgets/welcome_name_text.dart';
 
 const kFlex = 1;

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pharmalink/core/theme/fonts.dart';
-import 'package:pharmalink/core/theme/styles.dart';
+import '../../../../../core/theme/fonts.dart';
+import '../../../../../core/theme/styles.dart';
 
 class DoctorName extends StatelessWidget {
   final String firstName;

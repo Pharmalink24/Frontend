@@ -1,4 +1,4 @@
-import "package:pharmalink/core/helpers/classes/field_type.dart";
+import "../../../../../core/helpers/classes/field_type.dart";
 
 import "../../../../../core/helpers/classes/field.dart";
 

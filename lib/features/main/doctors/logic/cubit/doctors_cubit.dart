@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
-import 'package:pharmalink/core/helpers/errors.dart';
-import 'package:pharmalink/features/main/doctors/logic/cubit/doctors_state.dart';
-import 'package:pharmalink/core/models/state_request_body.dart';
+import '../../../../../core/helpers/errors.dart';
+import 'doctors_state.dart';
+import '../../../../../core/models/state_request_body.dart';
 
 import '../../data/repo/doctors_repo.dart';
 

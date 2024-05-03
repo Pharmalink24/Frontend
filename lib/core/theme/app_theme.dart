@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pharmalink/core/theme/app_bar.dart';
-import 'package:pharmalink/core/theme/colors.dart';
+import 'app_bar.dart';
+import 'colors.dart';
 
 import 'buttons.dart';
 import 'texts.dart';

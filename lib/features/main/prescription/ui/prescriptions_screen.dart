@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pharmalink/core/enums/drug_state.dart';
-import 'package:pharmalink/core/helpers/extensions.dart';
-import 'package:pharmalink/core/localization/app_localizations.dart';
-import 'package:pharmalink/core/models/prescription1.dart';
-import 'package:pharmalink/features/main/prescription/logic/cubit/prescription_state.dart';
-import 'package:pharmalink/features/main/prescription/ui/widgets/doctor_prescription_card.dart';
-import 'package:pharmalink/core/theme/colors.dart';
-import 'package:pharmalink/core/theme/styles.dart';
+import '../../../../core/enums/drug_state.dart';
+import '../../../../core/helpers/extensions.dart';
+import '../../../../core/localization/app_localizations.dart';
+import '../../../../core/models/prescription1.dart';
+import '../logic/cubit/prescription_state.dart';
+import 'widgets/doctor_prescription_card.dart';
+import '../../../../core/theme/colors.dart';
+import '../../../../core/theme/styles.dart';
 import '../logic/cubit/prescription_cubit.dart';
 
 class PrescriptionsScreen extends StatefulWidget {

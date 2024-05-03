@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pharmalink/core/helpers/errors.dart';
-import 'package:pharmalink/features/main/profile/data/repo/profile_repo.dart';
+import '../../../../../core/helpers/errors.dart';
+import '../../data/repo/profile_repo.dart';
 import 'profile_state.dart';
 
 class ProfileCubit extends Cubit<ProfileState> {

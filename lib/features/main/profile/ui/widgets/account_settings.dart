@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:pharmalink/core/theme/colors.dart';
+import '../../../../../core/theme/colors.dart';
 import 'account_settings_buttons.dart';
 import 'account_settings_header.dart';
 

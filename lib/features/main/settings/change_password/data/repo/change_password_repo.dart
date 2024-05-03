@@ -1,8 +1,8 @@
-import 'package:pharmalink/core/networking/api_error_handler.dart';
-import 'package:pharmalink/core/networking/api_result.dart';
-import 'package:pharmalink/core/networking/api_service.dart';
-import 'package:pharmalink/core/shared_preferences/auth_prefs.dart';
-import 'package:pharmalink/features/main/settings/change_password/data/models/change_password_response.dart';
+import '../../../../../../core/networking/api_error_handler.dart';
+import '../../../../../../core/networking/api_result.dart';
+import '../../../../../../core/networking/api_service.dart';
+import '../../../../../../core/shared_preferences/auth_prefs.dart';
+import '../models/change_password_response.dart';
 
 import '../models/change_password_request_body.dart';
 

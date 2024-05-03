@@ -1,13 +1,13 @@
 import 'package:logger/logger.dart';
-import 'package:pharmalink/core/di/dependency_injection.dart';
-import 'package:pharmalink/core/networking/api_error_handler.dart';
-import 'package:pharmalink/core/networking/api_result.dart';
-import 'package:pharmalink/core/networking/api_service.dart';
-import 'package:pharmalink/core/shared_preferences/auth_prefs.dart';
-import 'package:pharmalink/features/main/drug_interaction/data/models/drug_eye_search_request_params.dart';
-import 'package:pharmalink/core/models/drug_search.dart';
-import 'package:pharmalink/features/main/drug_interaction/data/models/drug_interaction_request_body.dart';
-import 'package:pharmalink/features/main/drug_interaction/data/models/drug_interaction_response.dart';
+import '../../../../../core/di/dependency_injection.dart';
+import '../../../../../core/networking/api_error_handler.dart';
+import '../../../../../core/networking/api_result.dart';
+import '../../../../../core/networking/api_service.dart';
+import '../../../../../core/shared_preferences/auth_prefs.dart';
+import '../models/drug_eye_search_request_params.dart';
+import '../../../../../core/models/drug_search.dart';
+import '../models/drug_interaction_request_body.dart';
+import '../models/drug_interaction_response.dart';
 
 class DrugInteractionRepo {
   final ApiService _apiService;

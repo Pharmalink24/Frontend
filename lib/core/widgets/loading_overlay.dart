@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pharmalink/core/theme/colors.dart';
+import '../theme/colors.dart';
 
 class LoadingOverlay {
   OverlayEntry? _overlay;

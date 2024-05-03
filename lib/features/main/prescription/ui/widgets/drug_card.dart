@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:pharmalink/core/models/drug_info.dart';
-import 'package:pharmalink/core/theme/styles.dart';
+import '../../../../../core/models/drug_info.dart';
+import '../../../../../core/theme/styles.dart';
 import 'package:expansion_tile_card/expansion_tile_card.dart';
 
 class DrugCard extends StatelessWidget {

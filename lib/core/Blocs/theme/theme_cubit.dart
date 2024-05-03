@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pharmalink/core/shared_preferences/settings_prefs.dart';
-import 'package:pharmalink/core/theme/app_theme.dart';
+import '../../shared_preferences/settings_prefs.dart';
+import '../../theme/app_theme.dart';
 
 class ThemeCubit extends Cubit<ThemeData?> {
   ThemeCubit()

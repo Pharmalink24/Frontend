@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:pharmalink/core/localization/app_localizations.dart';
+import '../localization/app_localizations.dart';
 
 enum Font {
   primary,

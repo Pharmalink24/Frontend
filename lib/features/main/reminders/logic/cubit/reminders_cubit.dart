@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:pharmalink/core/helpers/errors.dart';
+import '../../../../../core/helpers/errors.dart';
 import '../../repo/reminders_repo.dart';
 import 'reminders_state.dart';
 

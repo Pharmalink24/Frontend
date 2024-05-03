@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:pharmalink/core/localization/app_localizations.dart';
-import 'package:pharmalink/core/theme/colors.dart';
-import 'package:pharmalink/core/theme/fonts.dart';
+import '../localization/app_localizations.dart';
+import 'colors.dart';
+import 'fonts.dart';
 
 class AppTextStyle {
   static TextStyle displayLarge(BuildContext context) {

@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pharmalink/core/helpers/extensions.dart';
-import 'package:pharmalink/core/routes/routes.dart';
-import 'package:pharmalink/core/theme/colors.dart';
-import 'package:pharmalink/core/theme/styles.dart';
-import 'package:pharmalink/core/widgets/loading_overlay.dart';
-import 'package:pharmalink/features/access/auth/logic/cubit/auth_cubit.dart';
-import 'package:pharmalink/features/access/auth/logic/cubit/auth_state.dart';
-import 'package:pharmalink/features/access/auth/data/models/refresh_token_response.dart';
-import 'package:pharmalink/features/main/main/ui/widgets/pages.dart';
+import '../../../../../core/helpers/extensions.dart';
+import '../../../../../core/routes/routes.dart';
+import '../../../../../core/theme/colors.dart';
+import '../../../../../core/theme/styles.dart';
+import '../../../../../core/widgets/loading_overlay.dart';
+import '../../../../access/auth/logic/cubit/auth_cubit.dart';
+import '../../../../access/auth/logic/cubit/auth_state.dart';
+import '../../../../access/auth/data/models/refresh_token_response.dart';
+import 'pages.dart';
 
 class RefreshTokenBlocListener extends StatefulWidget {
   final int activeIndex;

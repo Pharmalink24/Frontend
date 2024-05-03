@@ -1,11 +1,11 @@
 import 'package:logger/logger.dart';
-import 'package:pharmalink/core/di/dependency_injection.dart';
-import 'package:pharmalink/core/models/doctor.dart';
-import 'package:pharmalink/core/models/doctor_info.dart';
-import 'package:pharmalink/core/networking/api_error_handler.dart';
-import 'package:pharmalink/core/networking/api_result.dart';
-import 'package:pharmalink/core/networking/api_service.dart';
-import 'package:pharmalink/core/shared_preferences/auth_prefs.dart';
+import '../../../../../core/di/dependency_injection.dart';
+import '../../../../../core/models/doctor.dart';
+import '../../../../../core/models/doctor_info.dart';
+import '../../../../../core/networking/api_error_handler.dart';
+import '../../../../../core/networking/api_result.dart';
+import '../../../../../core/networking/api_service.dart';
+import '../../../../../core/shared_preferences/auth_prefs.dart';
 
 class DoctorsRepo {
   final ApiService _apiService;

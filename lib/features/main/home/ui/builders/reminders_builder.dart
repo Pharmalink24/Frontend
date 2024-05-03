@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pharmalink/core/widgets/app_shimmer.dart';
-import 'package:pharmalink/core/widgets/error_card.dart';
-import 'package:pharmalink/features/main/reminders/logic/cubit/reminders_state.dart';
-import 'package:pharmalink/features/main/reminders/models/reminder.dart';
+import '../../../../../core/widgets/app_shimmer.dart';
+import '../../../../../core/widgets/error_card.dart';
+import '../../../reminders/logic/cubit/reminders_state.dart';
+import '../../../reminders/models/reminder.dart';
 import '../../../reminders/logic/cubit/reminders_cubit.dart';
 import '../widgets/reminders_container.dart';
 

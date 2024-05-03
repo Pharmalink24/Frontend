@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pharmalink/core/enums/drug_state.dart';
-import 'package:pharmalink/core/localization/app_localizations.dart';
+import '../../../../core/enums/drug_state.dart';
+import '../../../../core/localization/app_localizations.dart';
 import '../../../../core/theme/colors.dart';
 import '../../../../core/theme/styles.dart';
 import 'widgets/category_widget.dart';

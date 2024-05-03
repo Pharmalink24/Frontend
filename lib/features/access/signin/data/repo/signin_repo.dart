@@ -1,5 +1,5 @@
 import 'package:logger/logger.dart';
-import 'package:pharmalink/core/di/dependency_injection.dart';
+import '../../../../../core/di/dependency_injection.dart';
 
 import '../../../../../core/networking/api_error_handler.dart';
 import '../../../../../core/networking/api_result.dart';

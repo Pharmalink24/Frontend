@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pharmalink/core/localization/app_localizations.dart';
-import 'package:pharmalink/core/models/doctor.dart';
-import 'package:pharmalink/core/theme/colors.dart';
-import 'package:pharmalink/core/theme/styles.dart';
-import 'package:pharmalink/core/widgets/card_container.dart';
-import 'package:pharmalink/core/widgets/doctor_card.dart';
-import 'package:pharmalink/core/widgets/loading_indicator.dart';
-import 'package:pharmalink/features/main/profile/logic/cubit/profile_cubit.dart';
+import '../../../../core/localization/app_localizations.dart';
+import '../../../../core/models/doctor.dart';
+import '../../../../core/theme/colors.dart';
+import '../../../../core/theme/styles.dart';
+import '../../../../core/widgets/card_container.dart';
+import '../../../../core/widgets/doctor_card.dart';
+import '../../../../core/widgets/loading_indicator.dart';
+import '../../profile/logic/cubit/profile_cubit.dart';
 
 import '../logic/cubit/doctors_cubit.dart';
 import '../logic/cubit/doctors_state.dart';

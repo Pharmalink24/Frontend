@@ -1,5 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pharmalink/core/helpers/errors.dart';
+import '../../../../../core/helpers/errors.dart';
 import '../../data/repo/auth_repo.dart';
 
 import 'auth_state.dart';

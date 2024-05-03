@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pharmalink/core/helpers/extensions.dart';
-import 'package:pharmalink/core/localization/app_localizations.dart';
-import 'package:pharmalink/core/models/user.dart';
-import 'package:pharmalink/core/routes/routes.dart';
-import 'package:pharmalink/core/theme/colors.dart';
-import 'package:pharmalink/core/theme/styles.dart';
-import 'package:pharmalink/core/widgets/loading_overlay.dart';
-import 'package:pharmalink/features/main/settings/edit_profile/logic/cubit/edit_profile_cubit.dart';
-import 'package:pharmalink/features/main/settings/edit_profile/logic/cubit/edit_profile_state.dart';
+import '../../../../../../core/helpers/extensions.dart';
+import '../../../../../../core/localization/app_localizations.dart';
+import '../../../../../../core/models/user.dart';
+import '../../../../../../core/routes/routes.dart';
+import '../../../../../../core/theme/colors.dart';
+import '../../../../../../core/theme/styles.dart';
+import '../../../../../../core/widgets/loading_overlay.dart';
+import '../../logic/cubit/edit_profile_cubit.dart';
+import '../../logic/cubit/edit_profile_state.dart';
 
 class EditProfileBlocListener extends StatelessWidget {
   EditProfileBlocListener({super.key});

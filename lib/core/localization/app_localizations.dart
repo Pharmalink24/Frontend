@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'dart:convert' show json;
 import 'app_localizations_delegate.dart';
-import 'package:pharmalink/core/helpers/constants/paths.dart';
+import '../helpers/constants/paths.dart';
 
 class AppLocalizations {
   final Locale locale;

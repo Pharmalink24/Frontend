@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pharmalink/core/theme/colors.dart';
-import 'package:pharmalink/core/theme/styles.dart';
-import 'package:pharmalink/core/widgets/card_container_with_title.dart';
-import 'package:pharmalink/core/widgets/form/form_button.dart';
-import 'package:pharmalink/core/localization/app_localizations.dart';
+import '../../../../../core/theme/colors.dart';
+import '../../../../../core/theme/styles.dart';
+import '../../../../../core/widgets/card_container_with_title.dart';
+import '../../../../../core/widgets/form/form_button.dart';
+import '../../../../../core/localization/app_localizations.dart';
 import '../../logic/cubit/drug_interaction_cubit.dart';
 import 'drug_interaction_inputs.dart';
 

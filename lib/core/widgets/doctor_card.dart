@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:pharmalink/core/helpers/constants/paths.dart';
-import 'package:pharmalink/core/helpers/extensions.dart';
-import 'package:pharmalink/core/networking/api_constants.dart';
-import 'package:pharmalink/core/routes/routes.dart';
+import '../helpers/constants/paths.dart';
+import '../helpers/extensions.dart';
+import '../networking/api_constants.dart';
+import '../routes/routes.dart';
 import '../theme/colors.dart';
 import '../theme/styles.dart';
 import '../models/doctor.dart';

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pharmalink/core/localization/app_localizations.dart';
-import 'package:pharmalink/core/theme/colors.dart';
-import 'package:pharmalink/core/theme/styles.dart';
-import 'package:pharmalink/core/widgets/form/form_button.dart';
-import 'package:pharmalink/features/main/settings/edit_profile/data/models/edit_profile_fields.dart';
-import 'package:pharmalink/features/main/settings/edit_profile/logic/cubit/edit_profile_cubit.dart';
-import 'package:pharmalink/core/helpers/mixins.dart';
+import '../../../../../core/localization/app_localizations.dart';
+import '../../../../../core/theme/colors.dart';
+import '../../../../../core/theme/styles.dart';
+import '../../../../../core/widgets/form/form_button.dart';
+import '../data/models/edit_profile_fields.dart';
+import '../logic/cubit/edit_profile_cubit.dart';
+import '../../../../../core/helpers/mixins.dart';
 import 'widgets/edit_profile_bloc_listener.dart';
 import 'widgets/retrieve_profile_bloc_builder.dart';
 

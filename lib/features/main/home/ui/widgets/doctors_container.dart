@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:pharmalink/core/theme/colors.dart';
-import 'package:pharmalink/core/widgets/card_container_with_title.dart';
-import 'package:pharmalink/core/helpers/extensions.dart';
-import 'package:pharmalink/core/routes/routes.dart';
-import 'package:pharmalink/core/theme/styles.dart';
-import 'package:pharmalink/core/widgets/text_with_icon.dart';
-import 'package:pharmalink/core/localization/app_localizations.dart';
+import '../../../../../core/theme/colors.dart';
+import '../../../../../core/widgets/card_container_with_title.dart';
+import '../../../../../core/helpers/extensions.dart';
+import '../../../../../core/routes/routes.dart';
+import '../../../../../core/theme/styles.dart';
+import '../../../../../core/widgets/text_with_icon.dart';
+import '../../../../../core/localization/app_localizations.dart';
 import '../../../../../core/models/doctor.dart';
 import '../../../../../core/widgets/doctor_card.dart';
 

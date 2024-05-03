@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:pharmalink/core/helpers/constants/paths.dart';
-import 'package:pharmalink/core/helpers/extensions.dart';
-import 'package:pharmalink/core/localization/app_localizations.dart';
-import 'package:pharmalink/core/networking/api_constants.dart';
-import 'package:pharmalink/core/routes/routes.dart';
-import 'package:pharmalink/core/theme/colors.dart';
-import 'package:pharmalink/core/theme/styles.dart';
-import 'package:pharmalink/core/widgets/card_container.dart';
+import '../../../../../core/helpers/constants/paths.dart';
+import '../../../../../core/helpers/extensions.dart';
+import '../../../../../core/localization/app_localizations.dart';
+import '../../../../../core/networking/api_constants.dart';
+import '../../../../../core/routes/routes.dart';
+import '../../../../../core/theme/colors.dart';
+import '../../../../../core/theme/styles.dart';
+import '../../../../../core/widgets/card_container.dart';
 
 class PrescriptionHeaderCard extends StatelessWidget {
   final int? id;

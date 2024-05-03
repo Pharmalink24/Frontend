@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pharmalink/core/localization/app_localizations.dart';
+import '../localization/app_localizations.dart';
 import 'package:shimmer/shimmer.dart';
 
 class AppShimmer extends StatelessWidget {

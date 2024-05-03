@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pharmalink/core/theme/colors.dart';
-import 'package:pharmalink/core/theme/styles.dart';
-import 'package:pharmalink/core/widgets/card_container.dart';
-import 'package:pharmalink/core/widgets/loading_indicator.dart';
-import 'package:pharmalink/features/main/drug_interaction/data/models/drug_interaction_response.dart';
-import 'package:pharmalink/features/main/drug_interaction/logic/cubit/drug_interaction_cubit.dart';
-import 'package:pharmalink/features/main/drug_interaction/logic/cubit/drug_interaction_state.dart';
-import 'package:pharmalink/core/localization/app_localizations.dart';
+import '../../../../../core/theme/colors.dart';
+import '../../../../../core/theme/styles.dart';
+import '../../../../../core/widgets/card_container.dart';
+import '../../../../../core/widgets/loading_indicator.dart';
+import '../../data/models/drug_interaction_response.dart';
+import '../../logic/cubit/drug_interaction_cubit.dart';
+import '../../logic/cubit/drug_interaction_state.dart';
+import '../../../../../core/localization/app_localizations.dart';
 
 class InteractionResultContainer extends StatelessWidget {
   const InteractionResultContainer({

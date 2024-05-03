@@ -1,9 +1,9 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:pharmalink/core/models/drug_search.dart';
-import 'package:pharmalink/features/main/drug_interaction/data/models/drug_eye_search_request_params.dart';
-import 'package:pharmalink/features/main/drug_interaction/data/models/drug_interaction_request_body.dart';
-import 'package:pharmalink/features/main/drug_interaction/data/repo/drug_interaction_repo.dart';
+import '../../../../../core/models/drug_search.dart';
+import '../../data/models/drug_eye_search_request_params.dart';
+import '../../data/models/drug_interaction_request_body.dart';
+import '../../data/repo/drug_interaction_repo.dart';
 import '../../../../../core/helpers/errors.dart';
 import 'drug_interaction_state.dart';
 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../../core/theme/styles.dart';
-import 'package:pharmalink/core/localization/app_localizations.dart';
+import '../../../../../core/localization/app_localizations.dart';
 
 const kPadding = 8.0;
 

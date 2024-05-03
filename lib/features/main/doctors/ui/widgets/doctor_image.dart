@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:pharmalink/core/helpers/constants/paths.dart';
-import 'package:pharmalink/core/networking/api_constants.dart';
-import 'package:pharmalink/core/theme/colors.dart';
+import '../../../../../core/helpers/constants/paths.dart';
+import '../../../../../core/networking/api_constants.dart';
+import '../../../../../core/theme/colors.dart';
 
 class DoctorImage extends StatelessWidget {
   final String? image;

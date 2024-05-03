@@ -1,5 +1,5 @@
 import "package:flutter/material.dart";
-import "package:pharmalink/core/helpers/classes/field_item.dart";
+import "field_item.dart";
 
 import "field_type.dart";
 

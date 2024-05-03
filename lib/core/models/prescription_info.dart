@@ -1,5 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:pharmalink/core/models/drug_info.dart';
+import 'drug_info.dart';
 
 part 'prescription_info.g.dart';
 

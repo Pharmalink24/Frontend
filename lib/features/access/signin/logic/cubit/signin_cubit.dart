@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../core/helpers/errors.dart';
-import 'package:pharmalink/features/access/signin/data/models/signin_request_body.dart';
-import 'package:pharmalink/features/access/auth/data/repo/auth_repo.dart';
-import 'package:pharmalink/features/access/signin/data/repo/signin_repo.dart';
-import 'package:pharmalink/features/access/signin/logic/cubit/signin_state.dart';
+import '../../data/models/signin_request_body.dart';
+import '../../../auth/data/repo/auth_repo.dart';
+import '../../data/repo/signin_repo.dart';
+import 'signin_state.dart';
 
 class SigninCubit extends Cubit<SigninState> {
   final SigninRepo _signinRepo;

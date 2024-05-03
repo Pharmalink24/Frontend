@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pharmalink/core/localization/app_localizations.dart';
+import '../../../../../core/localization/app_localizations.dart';
 import '../../../../../core/theme/styles.dart';
 
 class PleaseVerifyText extends StatelessWidget {

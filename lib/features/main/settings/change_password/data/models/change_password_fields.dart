@@ -1,5 +1,5 @@
-import "package:pharmalink/core/helpers/classes/field.dart";
-import "package:pharmalink/core/helpers/classes/field_type.dart";
+import "../../../../../../core/helpers/classes/field.dart";
+import "../../../../../../core/helpers/classes/field_type.dart";
 
 Map<String, Field> changePasswordFields = {
   "currentPassword": Field(

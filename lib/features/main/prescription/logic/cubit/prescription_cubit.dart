@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
-import 'package:pharmalink/core/enums/drug_state.dart';
-import 'package:pharmalink/core/helpers/errors.dart';
+import '../../../../../core/enums/drug_state.dart';
+import '../../../../../core/helpers/errors.dart';
 import '../../data/repo/prescription_repo.dart';
 import 'prescription_state.dart';
 

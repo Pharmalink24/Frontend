@@ -1,9 +1,9 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:pharmalink/core/helpers/errors.dart';
-import 'package:pharmalink/core/models/user.dart';
-import 'package:pharmalink/core/shared_preferences/auth_prefs.dart';
-import 'package:pharmalink/features/main/settings/edit_profile/data/repo/edit_profile_repo.dart';
+import '../../../../../../core/helpers/errors.dart';
+import '../../../../../../core/models/user.dart';
+import '../../../../../../core/shared_preferences/auth_prefs.dart';
+import '../../data/repo/edit_profile_repo.dart';
 import 'edit_profile_state.dart';
 
 class EditProfileCubit extends Cubit<EditProfileState> {

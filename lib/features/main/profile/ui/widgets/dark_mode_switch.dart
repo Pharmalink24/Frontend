@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pharmalink/core/Blocs/theme/theme_cubit.dart';
-import 'package:pharmalink/core/shared_preferences/settings_prefs.dart';
-import 'package:pharmalink/core/theme/colors.dart';
-import 'package:pharmalink/core/theme/styles.dart';
-import 'package:pharmalink/core/localization/app_localizations.dart';
+import '../../../../../core/Blocs/theme/theme_cubit.dart';
+import '../../../../../core/shared_preferences/settings_prefs.dart';
+import '../../../../../core/theme/colors.dart';
+import '../../../../../core/theme/styles.dart';
+import '../../../../../core/localization/app_localizations.dart';
 
 class DarkModeSwitch extends StatelessWidget {
   const DarkModeSwitch({super.key});

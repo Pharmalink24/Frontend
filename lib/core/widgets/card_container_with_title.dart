@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pharmalink/core/theme/styles.dart';
+import '../theme/styles.dart';
 
 import 'card_container.dart';
 

@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart' show Locale;
 import 'package:meta/meta.dart';
-import 'package:pharmalink/core/enums/language.dart';
+import '../../enums/language.dart';
 
 import '../../shared_preferences/settings_prefs.dart';
 

@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
-import 'package:pharmalink/core/localization/app_localizations.dart';
+import '../../../core/localization/app_localizations.dart';
 
 import '../../../core/routes/routes.dart';
 import '../models/on_boarding_pages.dart';

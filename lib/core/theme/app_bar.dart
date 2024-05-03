@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pharmalink/core/theme/styles.dart';
+import 'styles.dart';
 
 import 'colors.dart';
 import '../helpers/constants/paths.dart';

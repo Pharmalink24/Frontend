@@ -1,14 +1,14 @@
 import 'package:logger/logger.dart';
-import 'package:pharmalink/core/di/dependency_injection.dart';
-import 'package:pharmalink/core/enums/drug_state.dart';
-import 'package:pharmalink/core/models/prescription1.dart';
-import 'package:pharmalink/core/models/prescription2.dart';
-import 'package:pharmalink/core/models/prescription_info.dart';
-import 'package:pharmalink/core/models/state_request_body.dart';
-import 'package:pharmalink/core/networking/api_error_handler.dart';
-import 'package:pharmalink/core/networking/api_result.dart';
-import 'package:pharmalink/core/networking/api_service.dart';
-import 'package:pharmalink/core/shared_preferences/auth_prefs.dart';
+import '../../../../../core/di/dependency_injection.dart';
+import '../../../../../core/enums/drug_state.dart';
+import '../../../../../core/models/prescription1.dart';
+import '../../../../../core/models/prescription2.dart';
+import '../../../../../core/models/prescription_info.dart';
+import '../../../../../core/models/state_request_body.dart';
+import '../../../../../core/networking/api_error_handler.dart';
+import '../../../../../core/networking/api_result.dart';
+import '../../../../../core/networking/api_service.dart';
+import '../../../../../core/shared_preferences/auth_prefs.dart';
 
 class PrescriptionRepo {
   final ApiService _apiService;

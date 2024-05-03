@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pharmalink/core/theme/colors.dart';
-import 'package:pharmalink/core/theme/styles.dart';
+import '../../theme/colors.dart';
+import '../../theme/styles.dart';
 import 'package:date_field/date_field.dart';
 
 class DatePicker extends StatelessWidget {

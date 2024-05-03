@@ -1,7 +1,7 @@
 import "package:flutter/material.dart";
-import 'package:pharmalink/core/helpers/classes/field_type.dart';
-import 'package:pharmalink/core/helpers/mixins.dart';
-import 'package:pharmalink/core/localization/app_localizations.dart';
+import '../../helpers/classes/field_type.dart';
+import '../../helpers/mixins.dart';
+import '../../localization/app_localizations.dart';
 
 import '../../theme/styles.dart';
 import '../../helpers/classes/field.dart';

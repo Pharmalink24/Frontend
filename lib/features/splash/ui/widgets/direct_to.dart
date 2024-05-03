@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:pharmalink/core/helpers/extensions.dart';
-import 'package:pharmalink/core/routes/routes.dart';
-import 'package:pharmalink/core/shared_preferences/auth_prefs.dart';
-import 'package:pharmalink/core/shared_preferences/entry_prefs.dart';
-import 'package:pharmalink/core/theme/colors.dart';
+import '../../../../core/helpers/extensions.dart';
+import '../../../../core/routes/routes.dart';
+import '../../../../core/shared_preferences/auth_prefs.dart';
+import '../../../../core/shared_preferences/entry_prefs.dart';
+import '../../../../core/theme/colors.dart';
 
 class DirectTo extends StatefulWidget {
   const DirectTo({super.key});

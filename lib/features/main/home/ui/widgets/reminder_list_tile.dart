@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pharmalink/features/main/reminders/logic/cubit/reminders_cubit.dart';
-import 'package:pharmalink/features/main/reminders/models/reminder.dart';
+import '../../../reminders/logic/cubit/reminders_cubit.dart';
+import '../../../reminders/models/reminder.dart';
 import '../../../../../core/theme/colors.dart';
 import '../../../../../core/theme/styles.dart';
 
