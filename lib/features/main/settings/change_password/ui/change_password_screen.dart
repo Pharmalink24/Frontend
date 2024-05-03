@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../core/localization/app_localizations.dart';
-import '../../../../../core/theme/colors.dart';
 import '../../../../../core/theme/styles.dart';
 import '../../../../../core/widgets/form/form_button.dart';
 import '../../../../../core/widgets/form/form_view.dart';
@@ -34,12 +33,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.primaryBackground,
       appBar: AppBar(
-        iconTheme: const IconThemeData(
-          color: AppColors.secondaryText,
-        ),
-        backgroundColor: AppColors.primaryBackground,
         title: Text(
           AppLocalizations.of(context).translate('changePassword'),
           style: AppTextStyle.displayMedium(context).copyWith(
@@ -53,11 +47,9 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
           padding: const EdgeInsets.symmetric(vertical: 32.0, horizontal: 22.0),
           children: [
             Text(
-              AppLocalizations.of(context).translate('changeYourPasswordDesc'),
-              style: AppTextStyle.bodyLarge(context).copyWith(
-                color: AppColors.secondaryText,
-              ),
-            ),
+                AppLocalizations.of(context)
+                    .translate('changeYourPasswordDesc'),
+                style: AppTextStyle.bodyLarge(context)),
             FormView(
               model: changePasswordFields,
               formKey: context.read<ChangePasswordCubit>().formKey,
@@ -66,7 +58,6 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
             FormButton(
               text: AppLocalizations.of(context).translate('update'),
               onPressed: () => changePassword(context),
-              color: AppColors.primary,
               borderRadius: 12.0,
             ),
             ChangePasswordBlocListener(),

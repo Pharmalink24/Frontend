@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../access/auth/logic/cubit/auth_cubit.dart';
 import 'widgets/app_bottom_navigation_bar.dart';
-import '../../../../core/theme/colors.dart';
 import '../data/models/navigation_items.dart';
 import 'widgets/refresh_token_bloc_listener.dart';
 

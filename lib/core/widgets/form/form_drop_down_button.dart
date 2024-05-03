@@ -1,11 +1,6 @@
-// ignore_for_file: prefer_const_constructors
-
-// Flutter Packages
 import "package:flutter/material.dart";
 import 'package:pharmalink/core/helpers/classes/field_item.dart';
 import 'package:pharmalink/core/localization/app_localizations.dart';
-// Utilities
-import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/theme/styles.dart';
 
 class FormDropDownButton extends StatelessWidget {
@@ -49,14 +44,14 @@ class FormDropDownButton extends StatelessWidget {
     controller?.text = value ?? items.elementAt(0).key;
 
     return Padding(
-      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
+      padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
       child: Container(
         decoration: decoration,
         width: double.infinity,
         child: DropdownButton(
           icon: Icon(
             Icons.keyboard_arrow_down_rounded,
-            color: AppColors.secondary,
+            color: Theme.of(context).colorScheme.secondary,
             size: 24,
           ),
           hint: Text(hintText ?? ""),
@@ -69,7 +64,7 @@ class FormDropDownButton extends StatelessWidget {
           //
           items: buildItemsWidget(context, items),
           style: AppTextStyle.bodyMedium(context),
-          underline: SizedBox(),
+          underline: const SizedBox(),
           elevation: 5,
           isExpanded: true,
         ),

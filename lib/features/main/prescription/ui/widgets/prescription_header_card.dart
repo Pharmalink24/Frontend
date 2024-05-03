@@ -4,7 +4,6 @@ import '../../../../../core/helpers/extensions.dart';
 import '../../../../../core/localization/app_localizations.dart';
 import '../../../../../core/networking/api_constants.dart';
 import '../../../../../core/routes/routes.dart';
-import '../../../../../core/theme/colors.dart';
 import '../../../../../core/theme/styles.dart';
 import '../../../../../core/widgets/card_container.dart';
 
@@ -25,10 +24,10 @@ class PrescriptionHeaderCard extends StatelessWidget {
     this.time = "",
   });
 
-  Center getLoadingIndicator(ImageChunkEvent loadingProgress) {
+  Center getLoadingIndicator(BuildContext context,ImageChunkEvent loadingProgress) {
     return Center(
       child: CircularProgressIndicator(
-        color: AppColors.secondary,
+        color:Theme.of(context).colorScheme.secondary,
         value: loadingProgress.expectedTotalBytes != null
             ? loadingProgress.cumulativeBytesLoaded /
                 loadingProgress.expectedTotalBytes!
@@ -56,7 +55,7 @@ class PrescriptionHeaderCard extends StatelessWidget {
                 loadingBuilder: (BuildContext context, Widget child,
                     ImageChunkEvent? loadingProgress) {
                   if (loadingProgress == null) return child;
-                  return getLoadingIndicator(loadingProgress);
+                  return getLoadingIndicator(context, loadingProgress);
                 },
                 errorBuilder: (BuildContext context, Object error,
                     StackTrace? stackTrace) {

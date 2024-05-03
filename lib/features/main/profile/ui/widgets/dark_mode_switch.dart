@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../core/Blocs/theme/theme_cubit.dart';
 import '../../../../../core/shared_preferences/settings_prefs.dart';
-import '../../../../../core/theme/colors.dart';
 import '../../../../../core/theme/styles.dart';
 import '../../../../../core/localization/app_localizations.dart';
 
@@ -26,13 +25,16 @@ class DarkModeSwitch extends StatelessWidget {
           Switch(
             value: SettingsSharedPrefs.getTheme() == 1,
             onChanged: (value) => _onChanged(context, value),
-            trackOutlineColor:
-                const MaterialStatePropertyAll(AppColors.tertiary),
-            thumbColor: const MaterialStatePropertyAll(AppColors.primary),
-            activeTrackColor: AppColors.secondary,
-            activeColor: AppColors.primaryBackground,
-            inactiveTrackColor: AppColors.primaryBackground,
-            inactiveThumbColor: AppColors.tertiary,
+            trackOutlineColor: MaterialStatePropertyAll(
+              Theme.of(context).colorScheme.primary,
+            ),
+            thumbColor: MaterialStatePropertyAll(
+              Theme.of(context).colorScheme.primary,
+            ),
+            activeTrackColor: Theme.of(context).colorScheme.primaryContainer,
+            activeColor: Theme.of(context).colorScheme.primaryContainer,
+            inactiveTrackColor: Theme.of(context).colorScheme.primaryContainer,
+            inactiveThumbColor: Theme.of(context).colorScheme.tertiary,
           ),
         ],
       ),

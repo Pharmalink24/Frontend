@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../theme/colors.dart';
 
 class LoadingOverlay {
   OverlayEntry? _overlay;
@@ -14,10 +13,12 @@ class LoadingOverlay {
       _overlay = OverlayEntry(
         // replace with your own layout
         builder: (context) => ColoredBox(
-          color: AppColors.secondary.withOpacity(0.5),
-          child: const Center(
+          color: Theme.of(context).colorScheme.primaryContainer.withOpacity(0.5),
+          child: Center(
             child: CircularProgressIndicator(
-              valueColor: AlwaysStoppedAnimation(Colors.white),
+              valueColor: AlwaysStoppedAnimation(
+                Theme.of(context).colorScheme.primaryContainer,
+              ),
             ),
           ),
         ),

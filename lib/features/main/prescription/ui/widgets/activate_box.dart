@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../../../../core/helpers/extensions.dart';
-import '../../../../../core/theme/colors.dart';
 import '../../../../../core/theme/styles.dart';
 import 'ff_button_widget.dart';
 import '../../../../../core/networking/networking.dart';
@@ -56,9 +55,9 @@ class _ActivateBoxWidgetState extends State<ActivateBoxWidget> {
     return Container(
       width: double.infinity,
       height: 449,
-      decoration: const BoxDecoration(
-        color: AppColors.secondaryBackground,
-        boxShadow: [
+      decoration: BoxDecoration(
+        color: Theme.of(context).colorScheme.primaryContainer,
+        boxShadow: const [
           BoxShadow(
             blurRadius: 5,
             color: Color(0x3B1D2429),
@@ -68,7 +67,7 @@ class _ActivateBoxWidgetState extends State<ActivateBoxWidget> {
             ),
           )
         ],
-        borderRadius: BorderRadius.only(
+        borderRadius: const BorderRadius.only(
           topLeft: Radius.circular(16),
           topRight: Radius.circular(16),
         ),
@@ -78,11 +77,11 @@ class _ActivateBoxWidgetState extends State<ActivateBoxWidget> {
         child: Column(
           mainAxisSize: MainAxisSize.max,
           children: [
-            const Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 16),
+            Padding(
+              padding: const EdgeInsetsDirectional.fromSTEB(0, 16, 0, 16),
               child: FaIcon(
                 FontAwesomeIcons.question,
-                color: AppColors.secondaryText,
+                color: Theme.of(context).colorScheme.onSecondary,
                 size: 32,
               ),
             ),
@@ -108,7 +107,7 @@ class _ActivateBoxWidgetState extends State<ActivateBoxWidget> {
                   height: 60,
                   padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                   iconPadding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                  color: AppColors.primary,
+                  color: Theme.of(context).colorScheme.primary,
                   textStyle: AppTextStyle.bodyLarge(context).copyWith(
                     fontSize: 20,
                   ),
@@ -132,9 +131,9 @@ class _ActivateBoxWidgetState extends State<ActivateBoxWidget> {
                   height: 60,
                   padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                   iconPadding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                  color: AppColors.secondaryBackground,
+                  color: Theme.of(context).colorScheme.primaryContainer,
                   textStyle: AppTextStyle.titleSmall(context).copyWith(
-                    color: AppColors.secondaryText,
+                    color: Theme.of(context).colorScheme.onSecondary,
                     fontWeight: FontWeight.normal,
                   ),
                   elevation: 0,

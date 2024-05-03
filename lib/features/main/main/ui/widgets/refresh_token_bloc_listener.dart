@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../core/helpers/extensions.dart';
 import '../../../../../core/routes/routes.dart';
-import '../../../../../core/theme/colors.dart';
 import '../../../../../core/theme/styles.dart';
 import '../../../../../core/widgets/loading_overlay.dart';
 import '../../../../access/auth/logic/cubit/auth_cubit.dart';
@@ -40,9 +39,9 @@ class _RefreshTokenBlocListenerState extends State<RefreshTokenBlocListener> {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        icon: const Icon(
+        icon: Icon(
           Icons.error,
-          color: Colors.red,
+          color: Theme.of(context).colorScheme.error,
           size: 32,
         ),
         content: Text(
@@ -56,7 +55,7 @@ class _RefreshTokenBlocListenerState extends State<RefreshTokenBlocListener> {
             child: Text(
               "Got it",
               style: AppTextStyle.labelLarge(context).copyWith(
-                color: AppColors.alternateText,
+                color: Theme.of(context).colorScheme.onTertiary,
               ),
             ),
           ),

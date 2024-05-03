@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../../core/localization/app_localizations.dart';
 import '../../../../../../core/models/user.dart';
-import '../../../../../../core/theme/colors.dart';
 import '../../../../../../core/theme/styles.dart';
 import '../../../../../../core/widgets/form/form_view.dart';
 import '../../../../../../core/widgets/loading_indicator.dart';
@@ -41,10 +40,10 @@ class RetrieveProfileBlocBuilder extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Icon(
+            Icon(
               Icons.error,
               size: 50,
-              color: AppColors.error,
+              color: Theme.of(context).colorScheme.error,
             ),
             const SizedBox(height: 20),
             Text(
@@ -58,7 +57,7 @@ class RetrieveProfileBlocBuilder extends StatelessWidget {
                 context.read<EditProfileCubit>().retrieveUserInformation();
               },
               style: ElevatedButton.styleFrom(
-                backgroundColor: AppColors.secondary,
+                backgroundColor: Theme.of(context).colorScheme.secondary,
               ),
               child: Text(
                 AppLocalizations.of(context).translate('retry'),

@@ -2,7 +2,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pharmalink/core/localization/app_localizations.dart';
-import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/theme/styles.dart';
 import '../../../../core/models/user.dart';
 import '../logic/cubit/profile_cubit.dart';
@@ -53,10 +52,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Icon(
+            Icon(
               Icons.error,
               size: 50,
-              color: AppColors.error,
+              color: Theme.of(context).colorScheme.error,
             ),
             const SizedBox(height: 20),
             Text(

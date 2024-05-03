@@ -1,22 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/enums/drug_state.dart';
-import '../../../../core/helpers/constants/paths.dart';
-import '../../../../core/helpers/extensions.dart';
+
 import '../../../../core/localization/app_localizations.dart';
 import '../../../../core/models/doctor_info.dart';
 import '../../../../core/models/prescription_info.dart';
-import '../../../../core/networking/api_constants.dart';
-import '../../../../core/routes/routes.dart';
-import '../../../../core/theme/colors.dart';
 import '../../../../core/theme/styles.dart';
-import '../../../../core/widgets/card_container.dart';
-import '../../../../core/widgets/card_container_with_title.dart';
 import '../logic/cubit/prescription_cubit.dart';
 import 'widgets/activate_box.dart';
 import 'widgets/prescription_header_card.dart';
 import '../logic/cubit/prescription_state.dart';
-import 'widgets/drug_card.dart';
 import 'widgets/drugs_list_card.dart';
 import 'widgets/ff_button_widget.dart';
 import 'widgets/deactivate_box.dart';
@@ -102,7 +95,7 @@ class _PrescriptionScreenState extends State<PrescriptionScreen> {
             height: 40,
             padding: const EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
             iconPadding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-            color: AppColors.primary,
+            color: Theme.of(context).colorScheme.primary,
             textStyle: AppTextStyle.titleSmall(context),
             elevation: 3,
             borderSide: const BorderSide(
@@ -122,7 +115,7 @@ class _PrescriptionScreenState extends State<PrescriptionScreen> {
         child: Text(
           error,
           style: AppTextStyle.titleLarge(context).copyWith(
-            color: AppColors.error,
+            color: Theme.of(context).colorScheme.error,
           ),
         ),
       ),

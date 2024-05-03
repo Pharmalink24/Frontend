@@ -133,21 +133,21 @@ class AppTextFieldDecoration {
           width: _kBorderWidth,
         ),
       ),
-      focusedBorder: const OutlineInputBorder(
+      focusedBorder: OutlineInputBorder(
         borderSide: BorderSide(
-          color: AppColors.secondary,
+          color: Theme.of(context).colorScheme.secondary,
           width: _kBorderWidth,
         ),
       ),
-      errorBorder: const OutlineInputBorder(
+      errorBorder: OutlineInputBorder(
         borderSide: BorderSide(
-          color: AppColors.error,
+          color: Theme.of(context).colorScheme.error,
           width: _kBorderWidth,
         ),
       ),
-      focusedErrorBorder: const OutlineInputBorder(
+      focusedErrorBorder: OutlineInputBorder(
         borderSide: BorderSide(
-          color: AppColors.error,
+          color: Theme.of(context).colorScheme.error,
           width: _kBorderWidth,
         ),
       ),
@@ -173,7 +173,7 @@ class AppTextFieldDecoration {
       errorBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(_kPrimaryBorderRadius),
       ),
-      fillColor: AppColors.secondaryBackground,
+      fillColor: Theme.of(context).colorScheme.primaryContainer,
     );
   }
 
@@ -183,8 +183,8 @@ class AppTextFieldDecoration {
         borderRadius: BorderRadius.circular(_kSecondaryBorderRadius),
       ),
       enabledBorder: OutlineInputBorder(
-        borderSide: const BorderSide(
-          color: AppColors.secondaryBackground,
+        borderSide: BorderSide(
+          color: Theme.of(context).colorScheme.secondary,
         ),
         borderRadius: BorderRadius.circular(_kSecondaryBorderRadius),
       ),
@@ -194,16 +194,16 @@ class AppTextFieldDecoration {
       errorBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(_kSecondaryBorderRadius),
       ),
-      fillColor: AppColors.primaryBackground,
+      fillColor: Theme.of(context).colorScheme.primaryContainer,
     );
   }
 
   static InputDecoration searchInputDecoration(BuildContext context) {
     return _generalInputDecoration(context).copyWith(
       contentPadding: const EdgeInsets.all(14.0),
-      suffixIcon: const Icon(
+      suffixIcon: Icon(
         Icons.keyboard_arrow_down_rounded,
-        color: AppColors.secondary,
+        color: Theme.of(context).colorScheme.secondary,
       ),
       hintStyle: AppTextStyle.labelMedium(context),
       labelStyle: AppTextStyle.bodyMedium(context),
@@ -217,16 +217,16 @@ class AppTextFieldDecoration {
         ),
         borderRadius: BorderRadius.circular(_kSearchBorderRadius),
       ),
-      focusedBorder: const OutlineInputBorder(
+      focusedBorder: OutlineInputBorder(
         borderSide: BorderSide(
           width: _kBorderWidth,
-          color: AppColors.secondary,
+          color: Theme.of(context).colorScheme.secondary,
         ),
       ),
       errorBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(_kSearchBorderRadius),
       ),
-      fillColor: AppColors.secondaryBackground,
+      fillColor: Theme.of(context).colorScheme.primaryContainer,
     );
   }
 
@@ -241,7 +241,7 @@ class AppTextFieldDecoration {
 
   static BoxDecoration primaryBoxDecoration(BuildContext context) {
     return _generalBoxDecoration(context).copyWith(
-      color: AppColors.secondaryBackground,
+      color: Theme.of(context).colorScheme.primaryContainer,
       border: Border.all(
         color: AppColors.accent5,
       ),
@@ -251,9 +251,9 @@ class AppTextFieldDecoration {
 
   static BoxDecoration secondaryBoxDecoration(BuildContext context) {
     return _generalBoxDecoration(context).copyWith(
-      color: AppColors.primaryBackground,
+      color: Theme.of(context).colorScheme.primaryContainer,
       border: Border.all(
-        color: AppColors.secondaryBackground,
+        color: Theme.of(context).colorScheme.primaryContainer,
       ),
       borderRadius: BorderRadius.circular(_kSecondaryBorderRadius),
     );

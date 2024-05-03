@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../../../../core/helpers/extensions.dart';
-import '../../../../../core/theme/fonts.dart';
 import 'ff_button_widget.dart';
 import '../../../../../core/theme/colors.dart';
 import '../../../../../core/theme/styles.dart';

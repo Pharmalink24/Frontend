@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:pharmalink/core/enums/drug_state.dart';
 import 'package:pharmalink/core/helpers/extensions.dart';
 import 'package:pharmalink/core/routes/routes.dart';
-import '../../../../../core/theme/colors.dart';
 import '../../../../../core/theme/styles.dart';
 
 class PrescriptionCategoryWidget extends StatelessWidget {
@@ -23,10 +22,10 @@ class PrescriptionCategoryWidget extends StatelessWidget {
 
   /// this function checks that color difference between background color and
   /// text color and returns different color for text
-  Color checkFontColor(Color backgroundColor) {
-    return (backgroundColor == AppColors.secondary)
-        ? AppColors.alternate
-        : AppColors.primaryText;
+  Color checkFontColor(BuildContext context, Color backgroundColor) {
+    return (backgroundColor == Theme.of(context).colorScheme.secondary)
+        ? Theme.of(context).colorScheme.onTertiary
+        : Theme.of(context).colorScheme.onPrimary;
   }
 
   @override
@@ -52,7 +51,7 @@ class PrescriptionCategoryWidget extends StatelessWidget {
                     title,
                     style: AppTextStyle.displayMedium(context).copyWith(
                       fontSize: 45,
-                      color: checkFontColor(backgroundColor),
+                      color: checkFontColor(context, backgroundColor),
                     ),
                   ),
                 ),
@@ -65,7 +64,7 @@ class PrescriptionCategoryWidget extends StatelessWidget {
                     description,
                     style: AppTextStyle.displayMedium(context).copyWith(
                       fontSize: 20,
-                      color: checkFontColor(backgroundColor),
+                      color: checkFontColor(context, backgroundColor),
                     ),
                   ),
                 ),

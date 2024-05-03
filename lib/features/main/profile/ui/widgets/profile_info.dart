@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import '../../../../../core/helpers/constants/paths.dart';
 import '../../../../../core/localization/app_localizations.dart';
 import '../../../../../core/networking/api_constants.dart';
-import '../../../../../core/theme/colors.dart';
 import '../../../../../core/theme/styles.dart';
 import '../../../../../core/widgets/card_container_with_title.dart';
 import '../../../../../core/models/user.dart';
@@ -26,48 +25,48 @@ class _ProfileInfoState extends State<ProfileInfo> {
     return name.length > length ? '${name.substring(0, length - 1)}..' : name;
   }
 
-  @override
-  Widget build(BuildContext context) {
+  Widget _buildUserInfo() {
     ImageProvider<Object>? image = NetworkImage(
       '${ApiConstants.baseUrl}${widget.user.image}',
     );
 
-    Widget _buildUserInfo() {
-      return Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 8.0),
-        child: Row(
-          children: [
-            CircleAvatar(
-              radius: 30,
-              backgroundImage: widget.user.image != null
-                  ? image
-                  : const AssetImage(kPlaceholderImage),
-            ),
-            const SizedBox(
-              width: 10,
-            ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  cropperName("${widget.user.fname} ${widget.user.lname}",
-                      length: 14),
-                  style: AppTextStyle.headlineSmall(context),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+      child: Row(
+        children: [
+          CircleAvatar(
+            radius: 30,
+            backgroundImage: widget.user.image != null
+                ? image
+                : const AssetImage(kPlaceholderImage),
+          ),
+          const SizedBox(
+            width: 10,
+          ),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                cropperName("${widget.user.fname} ${widget.user.lname}",
+                    length: 14),
+                style: AppTextStyle.headlineSmall(context),
+              ),
+              Text(
+                cropperName(widget.user.email!, length: 30),
+                style: AppTextStyle.bodySmall(context).copyWith(
+                  color: Theme.of(context).colorScheme.primary,
                 ),
-                Text(
-                  cropperName(widget.user.email!, length: 30),
-                  style: AppTextStyle.bodySmall(context).copyWith(
-                    color: AppColors.primary, // !! Change to primary
-                  ),
-                ),
-              ],
-            ),
-          ],
-        ),
-      );
-    }
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
 
+  @override
+  Widget build(BuildContext context) {
     return CardContainerWithTitle(
       title: AppLocalizations.of(context).translate('profile'),
       flex: 4,
@@ -81,7 +80,9 @@ class _ProfileInfoState extends State<ProfileInfo> {
             flex: 4,
             child: _buildUserInfo(),
           ),
-          const Divider(color: AppColors.secondaryBackground),
+          Divider(
+            color: Theme.of(context).colorScheme.background,
+          ),
           const Expanded(
             flex: 2,
             child: DarkModeSwitch(),

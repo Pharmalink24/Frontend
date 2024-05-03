@@ -1,6 +1,5 @@
 // Flutter Packages
 import 'package:flutter/material.dart';
-import 'package:pharmalink/core/theme/colors.dart';
 
 class CircleImage extends StatelessWidget {
   final String url;
@@ -27,17 +26,17 @@ class CircleImage extends StatelessWidget {
           loadingBuilder: (BuildContext context, Widget child,
               ImageChunkEvent? loadingProgress) {
             if (loadingProgress == null) return child;
-            return getLoadingIndicator(loadingProgress);
+            return getLoadingIndicator(context, loadingProgress);
           },
         ),
       ),
     );
   }
 
-  Center getLoadingIndicator(ImageChunkEvent loadingProgress) {
+  Center getLoadingIndicator(BuildContext context,ImageChunkEvent loadingProgress) {
     return Center(
       child: CircularProgressIndicator(
-        color: AppColors.secondary,
+        color: Theme.of(context).colorScheme.secondary,
         value: loadingProgress.expectedTotalBytes != null
             ? loadingProgress.cumulativeBytesLoaded /
                 loadingProgress.expectedTotalBytes!

@@ -57,7 +57,7 @@ class _DoctorScreenState extends State<DoctorScreen> {
       child: Text(
         error,
         style: AppTextStyle.bodyMedium(context).copyWith(
-          color: AppColors.error,
+          color: Theme.of(context).colorScheme.error,
         ),
       ),
     );
@@ -80,10 +80,7 @@ class _DoctorScreenState extends State<DoctorScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.secondaryBackground,
       appBar: AppBar(
-        iconTheme: const IconThemeData(color: AppColors.secondaryText),
-        backgroundColor: AppColors.primaryBackground,
         title: Text(
           AppLocalizations.of(context).translate('doctor_profile'),
           style: AppTextStyle.displayMedium(context).copyWith(

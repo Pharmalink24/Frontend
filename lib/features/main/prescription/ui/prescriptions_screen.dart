@@ -86,10 +86,7 @@ class _PrescriptionsScreenState extends State<PrescriptionsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.primaryBackground,
       appBar: AppBar(
-        iconTheme: const IconThemeData(color: AppColors.secondaryText),
-        backgroundColor: AppColors.primaryBackground,
         title: Text(
           AppLocalizations.of(context).isEnLocale
               ? '${widget.state.value.toString().capitalize()} Drugs'

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:pharmalink/core/theme/colors.dart';
 import '../../../../../core/helpers/constants/paths.dart';
 import '../../../../../core/networking/api_constants.dart';
-import '../../../../../core/theme/colors.dart';
 
 class DoctorImage extends StatelessWidget {
   final String? image;
@@ -10,10 +10,10 @@ class DoctorImage extends StatelessWidget {
     this.image,
   });
 
-  Center _getLoadingIndicator(ImageChunkEvent loadingProgress) {
+  Center _getLoadingIndicator(BuildContext context,ImageChunkEvent loadingProgress) {
     return Center(
       child: CircularProgressIndicator(
-        color: AppColors.secondary,
+        color: Theme.of(context).colorScheme.secondary,
         value: loadingProgress.expectedTotalBytes != null
             ? loadingProgress.cumulativeBytesLoaded /
                 loadingProgress.expectedTotalBytes!
@@ -32,11 +32,14 @@ class DoctorImage extends StatelessWidget {
         ),
         child: Container(
           decoration: BoxDecoration(
-            gradient: const LinearGradient(
-              colors: [AppColors.primary, AppColors.accent4],
-              stops: [0, 1],
-              begin: AlignmentDirectional(0, -1),
-              end: AlignmentDirectional(0, 1),
+            gradient: LinearGradient(
+              colors: [
+                Theme.of(context).colorScheme.primary,
+                AppColors.accent4,
+              ],
+              stops: const [0, 1],
+              begin: const AlignmentDirectional(0, -1),
+              end: const AlignmentDirectional(0, 1),
             ),
             borderRadius: BorderRadius.circular(16),
           ),
@@ -55,7 +58,7 @@ class DoctorImage extends StatelessWidget {
                 loadingBuilder: (BuildContext context, Widget child,
                     ImageChunkEvent? loadingProgress) {
                   if (loadingProgress == null) return child;
-                  return _getLoadingIndicator(loadingProgress);
+                  return _getLoadingIndicator(context, loadingProgress);
                 },
                 errorBuilder: (BuildContext context, Object error,
                     StackTrace? stackTrace) {

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../reminders/logic/cubit/reminders_cubit.dart';
 import '../../../reminders/models/reminder.dart';
-import '../../../../../core/theme/colors.dart';
 import '../../../../../core/theme/styles.dart';
 
 class ReminderListTile extends StatefulWidget {
@@ -33,8 +32,8 @@ class _ReminderListTileState extends State<ReminderListTile> {
       }),
       checkboxShape:
           RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
-      checkColor: AppColors.alternate,
-      activeColor: AppColors.secondary,
+      checkColor: Theme.of(context).colorScheme.tertiary,
+      activeColor: Theme.of(context).colorScheme.secondary,
       secondary: Text(
         "${widget.reminder.hours} : ${widget.reminder.minute}\n${widget.reminder.period}",
         textAlign: TextAlign.center,
@@ -46,7 +45,7 @@ class _ReminderListTileState extends State<ReminderListTile> {
       title: Text(
         widget.reminder.drugName,
         style: AppTextStyle.titleMedium(context).copyWith(
-          color: AppColors.primaryText,
+          color: Theme.of(context).colorScheme.onPrimary,
           decoration:
               isChecked ? TextDecoration.lineThrough : TextDecoration.none,
         ),

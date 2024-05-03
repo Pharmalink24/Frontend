@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:pharmalink/core/theme/colors.dart'; // Todo: Remove this line
 import '../../../../../core/helpers/extensions.dart';
 import '../../../../../core/localization/app_localizations.dart';
 import '../../../../../core/routes/routes.dart';
-import '../../../../../core/theme/colors.dart';
 import '../../../../../core/theme/styles.dart';
 
 class AboutContainer extends StatelessWidget {
@@ -30,12 +30,12 @@ class AboutContainer extends StatelessWidget {
       child: Container(
         width: double.infinity,
         decoration: BoxDecoration(
-          color: AppColors.primaryBackground,
-          boxShadow: const [
+          color: Theme.of(context).colorScheme.primaryContainer,
+          boxShadow: [
             BoxShadow(
               blurRadius: 4,
-              color: Color(0x33000000),
-              offset: Offset(
+              color: Theme.of(context).colorScheme.shadow,
+              offset: const Offset(
                 0,
                 2,
               ),
@@ -97,17 +97,16 @@ class AboutContainer extends StatelessWidget {
                   child: Container(
                     width: double.infinity,
                     decoration: BoxDecoration(
-                      gradient: const LinearGradient(
-                        colors: [AppColors.primary, AppColors.accent4],
+                      gradient: LinearGradient(
+                        colors: [
+                          Theme.of(context).colorScheme.primary,
+                          AppColors.accent4,
+                        ],
                         stops: [0, 1],
-                        begin: AlignmentDirectional(0, -1),
-                        end: AlignmentDirectional(0, 1),
+                        begin: const AlignmentDirectional(0, -1),
+                        end: const AlignmentDirectional(0, 1),
                       ),
                       borderRadius: BorderRadius.circular(12),
-                      border: Border.all(
-                        color: Colors.transparent,
-                        width: 2,
-                      ),
                     ),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
@@ -118,8 +117,8 @@ class AboutContainer extends StatelessWidget {
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              const Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                              Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                   0,
                                   12,
                                   0,
@@ -127,7 +126,9 @@ class AboutContainer extends StatelessWidget {
                                 ),
                                 child: Icon(
                                   FontAwesomeIcons.whatsapp,
-                                  color: AppColors.secondaryBackground,
+                                  color: Theme.of(context)
+                                      .colorScheme
+                                      .primaryContainer,
                                   size: 24,
                                 ),
                               ),
@@ -143,7 +144,9 @@ class AboutContainer extends StatelessWidget {
                                       .translate('chat'),
                                   style:
                                       AppTextStyle.bodyMedium(context).copyWith(
-                                    color: AppColors.secondaryBackground,
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .primaryContainer,
                                   ),
                                 ),
                               ),

@@ -22,9 +22,9 @@ class VerificationBlocListener extends StatelessWidget {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        icon: const Icon(
+        icon: Icon(
           Icons.error,
-          color: Colors.red,
+          color: Theme.of(context).colorScheme.error,
           size: 32,
         ),
         content: Text(

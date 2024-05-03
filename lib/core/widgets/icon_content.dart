@@ -1,6 +1,5 @@
 // Flutter Packages
 import 'package:flutter/material.dart';
-import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/theme/styles.dart';
 
 const kIconSize = 45.0;

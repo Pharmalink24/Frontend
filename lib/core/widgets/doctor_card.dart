@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:pharmalink/core/theme/colors.dart';
 import '../helpers/constants/paths.dart';
 import '../helpers/extensions.dart';
 import '../networking/api_constants.dart';
 import '../routes/routes.dart';
-import '../theme/colors.dart';
 import '../theme/styles.dart';
 import '../models/doctor.dart';
 
@@ -46,7 +45,7 @@ class DoctorCard extends StatelessWidget {
             gradient: LinearGradient(
               colors: [
                 Theme.of(context).colorScheme.primary,
-                AppColors.accent4,
+                AppColors.accent4, // TODO: Add this color to the theme
               ],
               stops: const [0, 1],
               begin: const AlignmentDirectional(1, 1),
@@ -98,7 +97,7 @@ class DoctorCard extends StatelessWidget {
                         loadingBuilder: (BuildContext context, Widget child,
                             ImageChunkEvent? loadingProgress) {
                           if (loadingProgress == null) return child;
-                          return getLoadingIndicator(loadingProgress);
+                          return getLoadingIndicator(context, loadingProgress);
                         },
                         errorBuilder: (BuildContext context, Object error,
                             StackTrace? stackTrace) {
@@ -118,10 +117,11 @@ class DoctorCard extends StatelessWidget {
     );
   }
 
-  Center getLoadingIndicator(ImageChunkEvent loadingProgress) {
+  Center getLoadingIndicator(
+      BuildContext context, ImageChunkEvent loadingProgress) {
     return Center(
       child: CircularProgressIndicator(
-        color: AppColors.secondary,
+        color: Theme.of(context).colorScheme.secondary,
         value: loadingProgress.expectedTotalBytes != null
             ? loadingProgress.cumulativeBytesLoaded /
                 loadingProgress.expectedTotalBytes!

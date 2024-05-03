@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '../localization/app_localizations.dart';
-import '../theme/colors.dart';
 import '../theme/styles.dart';
 
 class TermsAndConditionsText extends StatelessWidget {
@@ -23,7 +22,7 @@ class TermsAndConditionsText extends StatelessWidget {
               text: AppLocalizations.of(context)
                   .translate('termsAndConditionsP2'),
               style: AppTextStyle.labelSmall(context).copyWith(
-                color: AppColors.secondary,
+                color: Theme.of(context).colorScheme.secondary,
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -36,7 +35,7 @@ class TermsAndConditionsText extends StatelessWidget {
               text: AppLocalizations.of(context)
                   .translate('termsAndConditionsP4'),
               style: AppTextStyle.labelSmall(context).copyWith(
-                color: AppColors.secondary,
+                color: Theme.of(context).colorScheme.secondary,
                 fontWeight: FontWeight.bold,
               ),
             ),

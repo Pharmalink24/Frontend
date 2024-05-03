@@ -97,10 +97,10 @@ class _DoctorsScreenState extends State<DoctorsScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Icon(
+            Icon(
               Icons.error,
               size: 50,
-              color: AppColors.error,
+              color: Theme.of(context).colorScheme.error,
             ),
             const SizedBox(height: 20),
             Text(

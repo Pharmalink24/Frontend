@@ -4,7 +4,6 @@ import '../../../../../../core/helpers/extensions.dart';
 import '../../../../../../core/localization/app_localizations.dart';
 import '../../../../../../core/models/user.dart';
 import '../../../../../../core/routes/routes.dart';
-import '../../../../../../core/theme/colors.dart';
 import '../../../../../../core/theme/styles.dart';
 import '../../../../../../core/widgets/loading_overlay.dart';
 import '../../logic/cubit/edit_profile_cubit.dart';
@@ -25,9 +24,9 @@ class EditProfileBlocListener extends StatelessWidget {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        icon: const Icon(
+        icon: Icon(
           Icons.error,
-          color: Colors.red,
+          color: Theme.of(context).colorScheme.error,
           size: 32,
         ),
         content: Text(
@@ -41,7 +40,7 @@ class EditProfileBlocListener extends StatelessWidget {
             child: Text(
               AppLocalizations.of(context).translate('gotIt'),
               style: AppTextStyle.labelLarge(context).copyWith(
-                color: AppColors.alternateText,
+                color: Theme.of(context).colorScheme.onTertiary,
               ),
             ),
           ),
@@ -56,9 +55,9 @@ class EditProfileBlocListener extends StatelessWidget {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        icon: const Icon(
+        icon: Icon(
           Icons.check_circle,
-          color: Colors.green,
+          color: Theme.of(context).colorScheme.primary,
           size: 32,
         ),
         content: Text(
@@ -73,7 +72,7 @@ class EditProfileBlocListener extends StatelessWidget {
             child: Text(
               AppLocalizations.of(context).translate('gotIt'),
               style: AppTextStyle.labelLarge(context).copyWith(
-                color: AppColors.alternateText,
+                color: Theme.of(context).colorScheme.onTertiary,
               ),
             ),
           ),

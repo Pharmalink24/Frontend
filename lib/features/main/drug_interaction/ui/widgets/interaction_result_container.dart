@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../../../core/theme/colors.dart';
 import '../../../../../core/theme/styles.dart';
 import '../../../../../core/widgets/card_container.dart';
 import '../../../../../core/widgets/loading_indicator.dart';
@@ -33,17 +32,17 @@ class InteractionResultContainer extends StatelessWidget {
   }
 
   // Get icon status
-  Widget getIconStatus(bool isEmpty) {
+  Widget getIconStatus(BuildContext context, bool isEmpty) {
     return isEmpty
-        ? const Icon(
+        ? Icon(
             Icons.info,
             size: 40,
-            color: AppColors.success,
+            color: Theme.of(context).colorScheme.primary,
           )
-        : const Icon(
+        : Icon(
             Icons.error_outline_sharp,
             size: 40,
-            color: AppColors.error,
+            color: Theme.of(context).colorScheme.error,
           );
   }
 
@@ -75,7 +74,7 @@ class InteractionResultContainer extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        getIconStatus(interactionResult.messages.isEmpty),
+        getIconStatus(context, interactionResult.messages.isEmpty),
         const SizedBox(
           height: 16.0,
         ),
@@ -90,10 +89,10 @@ class InteractionResultContainer extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        const Icon(
+        Icon(
           Icons.error_outline_sharp,
           size: 40,
-          color: AppColors.error,
+          color: Theme.of(context).colorScheme.error,
         ),
         Text(
           error,

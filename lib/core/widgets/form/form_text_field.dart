@@ -1,9 +1,4 @@
-// ignore_for_file: prefer_const_constructors
-
-// Flutter Packages
 import "package:flutter/material.dart";
-// Utilities
-import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/theme/styles.dart';
 
 class FormTextField extends StatelessWidget {

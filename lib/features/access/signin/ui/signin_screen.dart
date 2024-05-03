@@ -5,7 +5,6 @@ import '../../../../core/widgets/form/form_button.dart';
 import '../../../../core/widgets/form/form_view.dart';
 import '../data/models/signin_fields.dart';
 import '../../../../core/theme/app_bar.dart';
-import '../../../../core/theme/colors.dart';
 import '../logic/cubit/signin_cubit.dart';
 import 'widgets/signin_bloc_listener.dart';
 import '../../../../core/widgets/terms_and_conditions_text.dart';
@@ -36,7 +35,6 @@ class _SigninScreenState extends State<SigninScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: MyAppBar.withoutLabel(context),
-      backgroundColor: AppColors.secondaryBackground,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 32.0, horizontal: 22.0),

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../../../core/theme/colors.dart';
 import '../../logic/cubit/drug_interaction_cubit.dart';
 import 'drug_search_field.dart';
 import '../../../../../core/localization/app_localizations.dart';
@@ -18,16 +17,16 @@ class DrugInteractionInputs extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          FormInputLabel(text: AppLocalizations.of(context).translate('firstDrug'),),
+          FormInputLabel(
+            text: AppLocalizations.of(context).translate('firstDrug'),
+          ),
           DrugSearchField(
             drugFieldId: 1,
             controller: context.read<DrugInteractionCubit>().drugController1,
           ),
-          const Divider(
-            thickness: 1,
-            color: AppColors.transparent,
+          FormInputLabel(
+            text: AppLocalizations.of(context).translate('secondDrug'),
           ),
-          FormInputLabel(text: AppLocalizations.of(context).translate('secondDrug'),),
           DrugSearchField(
             drugFieldId: 2,
             controller: context.read<DrugInteractionCubit>().drugController2,

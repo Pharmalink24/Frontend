@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../../../../../core/theme/colors.dart';
 import '../../../../../core/theme/styles.dart';
 
 class AccountSettingsButton extends StatelessWidget {
@@ -22,7 +21,6 @@ class AccountSettingsButton extends StatelessWidget {
             elevation: 0.25,
             padding:
                 const EdgeInsets.symmetric(horizontal: 24.0, vertical: 18.0),
-            backgroundColor: AppColors.secondaryBackground,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(8.0),
             ),
@@ -35,9 +33,9 @@ class AccountSettingsButton extends StatelessWidget {
                 text,
                 style: AppTextStyle.labelMedium(context),
               ),
-              const Icon(
+              Icon(
                 Icons.arrow_forward_ios,
-                color: AppColors.secondaryText,
+                color: Theme.of(context).colorScheme.onSecondary,
                 size: 18,
               ),
             ],

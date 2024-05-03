@@ -1,8 +1,6 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
-
-import '../../../../../core/theme/colors.dart';
-import '../../../../../core/theme/fonts.dart';
+import 'package:pharmalink/core/theme/colors.dart'; // Todo: Remove this line
 import '../../../../../core/theme/styles.dart';
 import '../../../../../core/localization/app_localizations.dart';
 
@@ -39,12 +37,12 @@ class WelcomeNameText extends StatelessWidget {
                 ColorizeAnimatedText(
                   fname,
                   textStyle: AppTextStyle.bodyMedium(context).copyWith(
-                    color: AppColors.primary,
+                    color: Theme.of(context).colorScheme.primary,
                     fontSize: kFontSize,
                     fontWeight: FontWeight.w600,
                   ),
                   colors: [
-                    AppColors.primary,
+                    Theme.of(context).colorScheme.primary,
                     AppColors.accent4,
                   ],
                   textAlign: TextAlign.start,
@@ -54,12 +52,12 @@ class WelcomeNameText extends StatelessWidget {
                 ColorizeAnimatedText(
                   lname,
                   textStyle: AppTextStyle.bodyMedium(context).copyWith(
-                    color: AppColors.primary,
+                    color: Theme.of(context).colorScheme.primary,
                     fontSize: kFontSize,
                     fontWeight: FontWeight.w600,
                   ),
                   colors: [
-                    AppColors.primary,
+                    Theme.of(context).colorScheme.primary,
                     AppColors.accent4,
                   ],
                   textAlign: TextAlign.start,
@@ -71,13 +69,13 @@ class WelcomeNameText extends StatelessWidget {
             ),
           ],
         ),
-        // IconButton(
-        //   onPressed: () {},
-        //   icon: const Icon(
-        //     Icons.notifications,
-        //     color: AppColors.primaryText,
-        //   ),
-        // ),
+        IconButton(
+          onPressed: () {},
+          icon: const Icon(
+            Icons.notifications,
+            color: AppColors.primaryText,
+          ),
+        ),
       ],
     );
   }

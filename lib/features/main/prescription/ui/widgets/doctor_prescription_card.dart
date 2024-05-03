@@ -19,10 +19,11 @@ class DoctorPrescriptionCard extends StatelessWidget {
     required this.state,
   });
 
-  Center getLoadingIndicator(ImageChunkEvent loadingProgress) {
+  Center getLoadingIndicator(
+      BuildContext context, ImageChunkEvent loadingProgress) {
     return Center(
       child: CircularProgressIndicator(
-        color: AppColors.secondary,
+        color: Theme.of(context).colorScheme.secondary,
         value: loadingProgress.expectedTotalBytes != null
             ? loadingProgress.cumulativeBytesLoaded /
                 loadingProgress.expectedTotalBytes!
@@ -48,11 +49,14 @@ class DoctorPrescriptionCard extends StatelessWidget {
           width: double.infinity,
           height: 110,
           decoration: BoxDecoration(
-            gradient: const LinearGradient(
-              colors: [AppColors.primary, AppColors.accent4],
-              stops: [0, 1],
-              begin: AlignmentDirectional(1, 1),
-              end: AlignmentDirectional(-1, -1),
+            gradient: LinearGradient(
+              colors: [
+                Theme.of(context).colorScheme.primary,
+                AppColors.accent4,
+              ],
+              stops: const [0, 1],
+              begin: const AlignmentDirectional(1, 1),
+              end: const AlignmentDirectional(-1, -1),
             ),
             borderRadius: BorderRadius.circular(16),
           ),
@@ -64,7 +68,6 @@ class DoctorPrescriptionCard extends StatelessWidget {
                 padding: const EdgeInsetsDirectional.fromSTEB(10, 16, 0, 16),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(8),
-                  // todo: add image
                   child: Image.network(
                     prescription.doctorInfo.image != null
                         ? "${ApiConstants.baseUrl}${prescription.doctorInfo.image}"
@@ -74,7 +77,7 @@ class DoctorPrescriptionCard extends StatelessWidget {
                     loadingBuilder: (BuildContext context, Widget child,
                         ImageChunkEvent? loadingProgress) {
                       if (loadingProgress == null) return child;
-                      return getLoadingIndicator(loadingProgress);
+                      return getLoadingIndicator(context, loadingProgress);
                     },
                     errorBuilder: (BuildContext context, Object error,
                         StackTrace? stackTrace) {

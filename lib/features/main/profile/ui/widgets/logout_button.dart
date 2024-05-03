@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../../../core/di/dependency_injection.dart';
 import '../../../../../core/localization/app_localizations.dart';
 import '../../../../../core/routes/routes.dart';
 import '../../../../../core/shared_preferences/auth_prefs.dart';
-import '../../../../../core/theme/colors.dart';
 import '../../../../../core/theme/styles.dart';
-import '../../../../access/auth/logic/cubit/auth_cubit.dart';
 
 class LogoutButton extends StatelessWidget {
   const LogoutButton({
@@ -32,38 +28,14 @@ class LogoutButton extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               TextButton(
-                style: ButtonStyle(
-                  backgroundColor: const MaterialStatePropertyAll(
-                    AppColors.primary,
-                  ),
-                  shape: MaterialStatePropertyAll(
-                    RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8.0),
-                    ),
-                  ),
-                  elevation: const MaterialStatePropertyAll(5.0),
-                ),
                 onPressed: () => Navigator.of(context).pop(),
                 child: Text(
                   AppLocalizations.of(context).translate('cancel'),
-                  style: AppTextStyle.titleSmall(context).copyWith(
-                    color: AppColors.primaryText,
-                  ),
+                  style: AppTextStyle.titleSmall(context),
                 ),
               ),
               // Todo: Implement log out with AuthCubit
               TextButton(
-                style: ButtonStyle(
-                  backgroundColor: const MaterialStatePropertyAll(
-                    AppColors.secondary,
-                  ),
-                  shape: MaterialStatePropertyAll(
-                    RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8.0),
-                    ),
-                  ),
-                  elevation: const MaterialStatePropertyAll(5.0),
-                ),
                 onPressed: () async {
                   // Close dialog
                   Navigator.of(context).pop();

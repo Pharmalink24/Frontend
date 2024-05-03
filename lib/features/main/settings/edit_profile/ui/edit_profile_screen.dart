@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../core/localization/app_localizations.dart';
-import '../../../../../core/theme/colors.dart';
 import '../../../../../core/theme/styles.dart';
 import '../../../../../core/widgets/form/form_button.dart';
 import '../data/models/edit_profile_fields.dart';
@@ -54,12 +53,10 @@ class _EditProfileScreenState extends State<EditProfileScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.primaryBackground,
       appBar: AppBar(
-        iconTheme: const IconThemeData(
-          color: AppColors.secondaryText,
+        iconTheme: IconThemeData(
+          color: Theme.of(context).colorScheme.onPrimary,
         ),
-        backgroundColor: AppColors.primaryBackground,
         title: Text(
           AppLocalizations.of(context).translate('editProfile'),
           style: AppTextStyle.displayMedium(context).copyWith(
@@ -72,17 +69,12 @@ class _EditProfileScreenState extends State<EditProfileScreen>
         child: ListView(
           padding: const EdgeInsets.symmetric(vertical: 32.0, horizontal: 22.0),
           children: [
-            Text(
-              AppLocalizations.of(context).translate('editYourProfile'),
-              style: AppTextStyle.headlineLarge(context).copyWith(
-                color: AppColors.secondaryText,
-              ),
-            ),
+            Text(AppLocalizations.of(context).translate('editYourProfile'),
+                style: AppTextStyle.headlineLarge(context)),
             const RetrieveProfileBlocBuilder(),
             FormButton(
               text: AppLocalizations.of(context).translate('saveChanges'),
               onPressed: () => changePassword(context),
-              color: AppColors.primary,
               borderRadius: 12.0,
             ),
             EditProfileBlocListener(),

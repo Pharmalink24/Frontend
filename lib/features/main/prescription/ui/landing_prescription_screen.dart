@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../../core/enums/drug_state.dart';
 import '../../../../core/localization/app_localizations.dart';
-import '../../../../core/theme/colors.dart';
 import '../../../../core/theme/styles.dart';
 import 'widgets/category_widget.dart';
 
@@ -24,21 +23,21 @@ class LandingPrescriptionScreen extends StatelessWidget {
             title: AppLocalizations.of(context).translate('newDrugs'),
             description:
                 AppLocalizations.of(context).translate('newDrugsDescription'),
-            backgroundColor: AppColors.primary,
+            backgroundColor: Theme.of(context).colorScheme.primary,
             category: DrugState.NEW,
           ),
           PrescriptionCategoryWidget(
             title: AppLocalizations.of(context).translate('activeDrugs'),
             description: AppLocalizations.of(context)
                 .translate('activeDrugsDescription'),
-            backgroundColor: AppColors.secondary,
+            backgroundColor: Theme.of(context).colorScheme.secondary,
             category: DrugState.ACTIVE,
           ),
           PrescriptionCategoryWidget(
             title: AppLocalizations.of(context).translate('inactiveDrugs'),
             description: AppLocalizations.of(context)
                 .translate('inactiveDrugsDescription'),
-            backgroundColor: AppColors.alternate,
+            backgroundColor: Theme.of(context).colorScheme.primaryContainer,
             category: DrugState.INACTIVE,
           ),
         ],

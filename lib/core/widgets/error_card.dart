@@ -16,7 +16,11 @@ class ErrorCard extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          const Icon(Icons.error_outline, color: Colors.red, size: 60),
+          Icon(
+            Icons.error_outline,
+            color: Theme.of(context).colorScheme.error,
+            size: 60,
+          ),
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: Text(message, style: const TextStyle(fontSize: 18)),

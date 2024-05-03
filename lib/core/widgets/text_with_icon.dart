@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-
-import '../theme/colors.dart';
 import '../theme/styles.dart';
 
 class TextWithIcon extends StatelessWidget {
