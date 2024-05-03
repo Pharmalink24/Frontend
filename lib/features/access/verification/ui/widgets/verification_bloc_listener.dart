@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../core/widgets/loading_overlay.dart';
 import '../../../../../core/helpers/extensions.dart';
-import '../../../../../core/theme/colors.dart';
 import '../../../../../core/theme/styles.dart';
 import '../../logic/cubit/verification_cubit.dart';
 import '../../logic/cubit/verification_state.dart';
@@ -38,7 +37,7 @@ class VerificationBlocListener extends StatelessWidget {
             child: Text(
               "Got it",
               style: AppTextStyle.labelLarge(context).copyWith(
-                color: AppColors.alternateText,
+                color: Theme.of(context).colorScheme.onTertiary,
               ),
             ),
           ),

@@ -35,6 +35,7 @@ class _SigninScreenState extends State<SigninScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: MyAppBar.withoutLabel(context),
+      backgroundColor: Theme.of(context).colorScheme.primaryContainer,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 32.0, horizontal: 22.0),

@@ -8,7 +8,6 @@ import 'package:pharmalink/features/access/signup/logic/cubit/signup_cubit.dart'
 import 'package:pharmalink/features/access/signup/data/models/signup_fields.dart';
 import 'package:pharmalink/core/localization/app_localizations.dart';
 import 'package:pharmalink/core/theme/app_bar.dart';
-import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/features/access/signup/ui/widgets/signup_tab.dart';
 import '../../../../core/widgets/form/form_button.dart';
 import 'widgets/signup_bloc_listener.dart';
@@ -50,7 +49,7 @@ class _SignupScreenState extends State<SignupScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: MyAppBar.withoutLabel(context),
-      backgroundColor: AppColors.secondaryBackground,
+      backgroundColor: Theme.of(context).colorScheme.primaryContainer,
       body: SafeArea(
         child: ListView(
           padding: const EdgeInsets.symmetric(vertical: 32.0, horizontal: 22.0),

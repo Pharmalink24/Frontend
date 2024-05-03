@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../core/theme/colors.dart';
 import '../../../../../core/theme/styles.dart';
 import '../../../../../core/localization/app_localizations.dart';
 
@@ -18,7 +17,7 @@ class ForgetPasswordText extends StatelessWidget {
           child: Text(
             AppLocalizations.of(context).translate('forgetPassword'),
             style: AppTextStyle.labelMedium(context).copyWith(
-              color: AppColors.secondary,
+              color: Theme.of(context).colorScheme.secondary,
             ),
           ),
         ),

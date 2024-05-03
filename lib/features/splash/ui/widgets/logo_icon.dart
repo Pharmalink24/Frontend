@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../../core/localization/app_localizations.dart';
 import '../../../../core/helpers/constants/paths.dart';
-import '../../../../core/theme/colors.dart';
-import '../../../../core/theme/fonts.dart';
 import '../../../../core/theme/styles.dart';
 
 const kLogoSize = 150.0;
@@ -14,10 +12,10 @@ class LogoIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const ImageIcon(
-          AssetImage("${AppPaths.images}/logo.png"),
+        ImageIcon(
+          const AssetImage("${AppPaths.images}/logo.png"),
           size: kLogoSize,
-          color: AppColors.primary,
+          color: Theme.of(context).colorScheme.primary,
         ),
         Text(
           AppLocalizations.of(context).translate('appName'),

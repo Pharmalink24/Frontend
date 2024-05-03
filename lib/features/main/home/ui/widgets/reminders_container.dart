@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../../../../../core/theme/colors.dart';
 import '../../../../../core/theme/styles.dart';
 import '../../../../../core/widgets/card_container_with_title.dart';
 import '../../../../../core/widgets/text_with_icon.dart';
@@ -28,10 +27,10 @@ class RemindersContainer extends StatelessWidget {
   Widget buildNoDataWidget(BuildContext context) {
     return Column(
       children: [
-        const Icon(
+        Icon(
           Icons.playlist_add_check_circle_rounded,
           size: 80,
-          color: AppColors.accent5,
+          color: Theme.of(context).colorScheme.onTertiary,
         ),
         Center(
           child: Text(

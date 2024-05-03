@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../../../core/theme/colors.dart';
 import '../../../../../core/theme/styles.dart';
 import '../../../../../core/widgets/card_container_with_title.dart';
 import '../../../../../core/widgets/form/form_button.dart';
@@ -25,7 +24,7 @@ class DrugInteractionForm extends StatelessWidget {
           FormButton(
             onPressed: () => drugInteraction(context),
             text: AppLocalizations.of(context).translate('checkInteractions'),
-            color: AppColors.secondary,
+            color: Theme.of(context).colorScheme.secondary,
             padding: const EdgeInsets.symmetric(vertical: 12.0),
             borderRadius: 8.0,
             elevation: 5.0,

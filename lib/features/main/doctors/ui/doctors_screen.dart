@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/localization/app_localizations.dart';
 import '../../../../core/models/doctor.dart';
-import '../../../../core/theme/colors.dart';
 import '../../../../core/theme/styles.dart';
 import '../../../../core/widgets/card_container.dart';
 import '../../../../core/widgets/doctor_card.dart';
@@ -61,10 +60,10 @@ class _DoctorsScreenState extends State<DoctorsScreen> {
   Widget buildNoDataWidget() {
     return Column(
       children: [
-        const Icon(
+        Icon(
           Icons.person_add_alt_1_rounded,
           size: 80,
-          color: AppColors.accent5,
+          color: Theme.of(context).colorScheme.onTertiary,
         ),
         Center(
           child: Text(
@@ -128,15 +127,12 @@ class _DoctorsScreenState extends State<DoctorsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        iconTheme: const IconThemeData(color: AppColors.secondaryText),
-        backgroundColor: AppColors.primaryBackground,
         title: Text(
           AppLocalizations.of(context).translate('yourDoctors'),
           style: AppTextStyle.displayMedium(context).copyWith(
             fontSize: 28,
           ),
         ),
-        elevation: 2,
       ),
       body: SafeArea(
         child: BlocBuilder<DoctorsCubit, DoctorsState>(

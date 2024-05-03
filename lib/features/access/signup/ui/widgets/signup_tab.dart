@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import '../../../../../core/localization/app_localizations.dart';
-
-import '../../../../../core/theme/colors.dart';
 import '../../../../../core/theme/fonts.dart';
 import '../../../../../core/theme/styles.dart';
 
@@ -25,7 +23,7 @@ class SignupTab extends StatelessWidget {
             child: Text(
               AppLocalizations.of(context).translate('signIn'),
               style: AppTextStyle.displaySmall(context).copyWith(
-                color: AppColors.secondaryText,
+                color: Theme.of(context).colorScheme.onSecondary,
                 fontFamily: AppFonts.getFont(context, Font.tertiary),
                 fontSize: AppLocalizations.of(context).isEnLocale ? 36.0 : 26.0,
               ),
@@ -45,7 +43,7 @@ class SignupTab extends StatelessWidget {
             child: Text(
               AppLocalizations.of(context).translate('signUp'),
               style: AppTextStyle.displaySmall(context).copyWith(
-                color: AppColors.primaryText,
+                color: Theme.of(context).colorScheme.onPrimary,
                 fontFamily: AppFonts.getFont(context, Font.tertiary),
                 fontSize: AppLocalizations.of(context).isEnLocale ? 36.0 : 26.0,
               ),

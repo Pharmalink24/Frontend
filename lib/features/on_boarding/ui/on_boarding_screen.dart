@@ -5,7 +5,6 @@ import '../../../core/localization/app_localizations.dart';
 
 import '../../../core/routes/routes.dart';
 import '../models/on_boarding_pages.dart';
-import '../../../core/theme/colors.dart';
 import '../../../core/helpers/constants/paths.dart';
 import '../../../core/theme/styles.dart';
 import 'widgets/intro_image.dart';
@@ -41,7 +40,7 @@ class OnBoardingScreenState extends State<OnBoardingScreen> {
             ),
             bodyTextStyle: AppTextStyle.labelSmall(context)
                 .copyWith(fontSize: 16.0, fontWeight: FontWeight.w700),
-            pageColor: AppColors.primaryBackground,
+            pageColor: Theme.of(context).colorScheme.background,
             imagePadding: const EdgeInsets.all(0.0),
             imageFlex: 7,
             bodyFlex: 5,
@@ -61,25 +60,25 @@ class OnBoardingScreenState extends State<OnBoardingScreen> {
   Widget build(BuildContext context) {
     return IntroductionScreen(
       pages: listPagesViewModel,
-      globalBackgroundColor: AppColors.primaryBackground,
+      globalBackgroundColor: Theme.of(context).colorScheme.background,
       allowImplicitScrolling: true,
       onDone: () => _onIntroEnd(context),
       onSkip: () => _onIntroEnd(context), // You can override onSkip callback
       showBackButton: true,
       skipOrBackFlex: 0,
       nextFlex: 0,
-      back: const Icon(
+      back: Icon(
         Icons.arrow_back,
-        color: AppColors.alternate,
+        color: Theme.of(context).colorScheme.tertiary,
       ),
-      next: const Icon(
+      next: Icon(
         Icons.arrow_forward,
-        color: AppColors.alternate,
+        color: Theme.of(context).colorScheme.tertiary,
       ),
       done: Text(
         AppLocalizations.of(context).translate('signIn'),
         style: AppTextStyle.labelMedium(context).copyWith(
-          color: AppColors.alternate,
+          color: Theme.of(context).colorScheme.tertiary,
           // fontSize: 15.0,
         ),
       ),
@@ -87,17 +86,17 @@ class OnBoardingScreenState extends State<OnBoardingScreen> {
       controlsPadding: kIsWeb
           ? const EdgeInsets.all(12.0)
           : const EdgeInsets.fromLTRB(8.0, 4.0, 8.0, 4.0),
-      dotsDecorator: const DotsDecorator(
-        size: Size(12.0, 12.0),
-        activeSize: Size(22.0, 10.0),
-        activeShape: RoundedRectangleBorder(
+      dotsDecorator: DotsDecorator(
+        size: const Size(12.0, 12.0),
+        activeSize: const Size(22.0, 10.0),
+        activeShape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(25.0)),
         ),
-        activeColor: AppColors.primary,
+        activeColor: Theme.of(context).colorScheme.primary,
       ),
-      dotsContainerDecorator: const ShapeDecoration(
-        color: AppColors.secondary,
-        shape: RoundedRectangleBorder(
+      dotsContainerDecorator: ShapeDecoration(
+        color: Theme.of(context).colorScheme.secondary,
+        shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(16.0)),
         ),
       ),

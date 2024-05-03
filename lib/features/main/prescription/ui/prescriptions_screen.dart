@@ -6,7 +6,6 @@ import '../../../../core/localization/app_localizations.dart';
 import '../../../../core/models/prescription1.dart';
 import '../logic/cubit/prescription_state.dart';
 import 'widgets/doctor_prescription_card.dart';
-import '../../../../core/theme/colors.dart';
 import '../../../../core/theme/styles.dart';
 import '../logic/cubit/prescription_cubit.dart';
 
@@ -36,17 +35,17 @@ class _PrescriptionsScreenState extends State<PrescriptionsScreen> {
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        const Icon(
+        Icon(
           Icons.featured_play_list_rounded,
           size: 80,
-          color: AppColors.accent5,
+          color: Theme.of(context).colorScheme.onTertiary,
         ),
         Center(
           child: Text(
             AppLocalizations.of(context).translate('noPrescriptionsFound'),
             textAlign: TextAlign.center,
             style: AppTextStyle.headlineSmall(context).copyWith(
-              color: AppColors.secondaryText,
+              color: Theme.of(context).colorScheme.onSecondary,
             ),
           ),
         ),

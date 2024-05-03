@@ -40,7 +40,7 @@ class SignupBlocListener extends StatelessWidget {
             child: Text(
               "Got it",
               style: AppTextStyle.labelLarge(context).copyWith(
-                color: AppColors.alternateText,
+                color: Theme.of(context).colorScheme.onTertiary,
               ),
             ),
           ),

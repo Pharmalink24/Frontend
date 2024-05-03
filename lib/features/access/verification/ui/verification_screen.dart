@@ -4,7 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pharmalink/core/helpers/extensions.dart';
 import 'package:pharmalink/core/routes/routes.dart';
 import 'package:pharmalink/core/theme/app_bar.dart';
-import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/widgets/form/form_button.dart';
 import 'package:pharmalink/features/access/verification/data/models/verification_request_params.dart';
 import 'package:pharmalink/features/access/verification/logic/cubit/verification_cubit.dart';
@@ -29,7 +28,6 @@ class VerificationScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: MyAppBar.withoutLabel(context),
-      backgroundColor: AppColors.secondaryBackground,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(32.0),

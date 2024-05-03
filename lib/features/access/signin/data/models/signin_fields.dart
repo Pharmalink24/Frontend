@@ -12,7 +12,7 @@ Map<String, Field> signInFields = {
   "password": Field(
     "Password",
     arabicName: "كلمة المرور",
-    inputType: FieldType.text,
+    inputType: FieldType.password,
     dbName: "password",
   ),
 };

@@ -6,7 +6,7 @@ import 'package:pharmalink/core/helpers/extensions.dart';
 import 'package:pharmalink/core/models/prescription1.dart';
 import 'package:pharmalink/core/networking/api_constants.dart';
 import 'package:pharmalink/core/routes/routes.dart';
-import 'package:pharmalink/core/theme/colors.dart';
+import 'package:pharmalink/core/theme/colors.dart'; // todo: remove this import
 import 'package:pharmalink/core/theme/styles.dart';
 
 class DoctorPrescriptionCard extends StatelessWidget {

@@ -3,7 +3,6 @@ import '../../../../core/helpers/extensions.dart';
 import '../../../../core/routes/routes.dart';
 import '../../../../core/shared_preferences/auth_prefs.dart';
 import '../../../../core/shared_preferences/entry_prefs.dart';
-import '../../../../core/theme/colors.dart';
 
 class DirectTo extends StatefulWidget {
   const DirectTo({super.key});
@@ -44,10 +43,10 @@ class _DirectToState extends State<DirectTo> {
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.all(32.0),
+    return Padding(
+      padding: const EdgeInsets.all(32.0),
       child: LinearProgressIndicator(
-        color: AppColors.secondary,
+        color: Theme.of(context).colorScheme.secondary,
       ),
     );
   }

@@ -5,7 +5,6 @@ import 'package:pharmalink/core/localization/app_localizations.dart';
 import 'package:pharmalink/core/models/doctor_info.dart';
 import 'package:pharmalink/core/widgets/app_shimmer.dart';
 import 'package:pharmalink/features/main/doctors/logic/cubit/doctors_cubit.dart';
-import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/theme/styles.dart';
 import 'package:pharmalink/features/main/doctors/ui/widgets/about_container.dart';
 import '../logic/cubit/doctors_state.dart';
