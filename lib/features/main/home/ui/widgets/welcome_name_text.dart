@@ -71,9 +71,9 @@ class WelcomeNameText extends StatelessWidget {
         ),
         IconButton(
           onPressed: () {},
-          icon: const Icon(
+          icon: Icon(
             Icons.notifications,
-            color: AppColors.primaryText,
+            color: Theme.of(context).colorScheme.secondary,
           ),
         ),
       ],

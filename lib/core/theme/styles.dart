@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '../localization/app_localizations.dart';
-import 'colors.dart';
 import 'fonts.dart';
 
 class AppTextStyle {
