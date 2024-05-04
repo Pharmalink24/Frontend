@@ -37,7 +37,7 @@ class LandingPrescriptionScreen extends StatelessWidget {
             title: AppLocalizations.of(context).translate('inactiveDrugs'),
             description: AppLocalizations.of(context)
                 .translate('inactiveDrugsDescription'),
-            backgroundColor: Theme.of(context).colorScheme.primaryContainer,
+            backgroundColor: Theme.of(context).colorScheme.tertiary,
             category: DrugState.INACTIVE,
           ),
         ],

@@ -60,18 +60,19 @@ class _DoctorsScreenState extends State<DoctorsScreen> {
 
   Widget buildNoDataWidget() {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Icon(
           Icons.person_add_alt_1_rounded,
           size: 80,
-          color: Theme.of(context).colorScheme.onTertiary,
+          color: Theme.of(context).colorScheme.onSecondary,
         ),
         Center(
           child: Text(
             AppLocalizations.of(context).translate('noDoctorsMessage'),
             textAlign: TextAlign.center,
             style: AppTextStyle.headlineSmall(context).copyWith(
-          color: Theme.of(context).colorScheme.onSecondary,
+              color: Theme.of(context).colorScheme.onSecondary,
             ),
           ),
         ),
@@ -80,13 +81,11 @@ class _DoctorsScreenState extends State<DoctorsScreen> {
   }
 
   Widget buildSuccessWidget(BuildContext context, List<Doctor> doctors) {
-    return CardContainer(
-      mainAxisAlignment: MainAxisAlignment.start,
-      children: [
-        doctors.isEmpty
-            ? buildNoDataWidget()
-            : buildListOfDoctorsWidget(context, doctors),
-      ],
+    return Padding(
+      padding: const EdgeInsets.all(12.0),
+      child: doctors.isEmpty
+          ? buildNoDataWidget()
+          : buildListOfDoctorsWidget(context, doctors),
     );
   }
 

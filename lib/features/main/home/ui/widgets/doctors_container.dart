@@ -33,17 +33,17 @@ class DoctorsContainer extends StatelessWidget {
   Widget buildNoDataWidget(BuildContext context) {
     return Column(
       children: [
-        const Icon(
+        Icon(
           Icons.person_add_alt_1_rounded,
           size: 80,
-          color: AppColors.accent5,
+          color: Theme.of(context).colorScheme.onSecondary,
         ),
         Center(
           child: Text(
             AppLocalizations.of(context).translate('noDoctorsMessage'),
             textAlign: TextAlign.center,
             style: AppTextStyle.headlineSmall(context).copyWith(
-          color: Theme.of(context).colorScheme.onSecondary,
+              color: Theme.of(context).colorScheme.onSecondary,
             ),
           ),
         ),
@@ -55,7 +55,7 @@ class DoctorsContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return CardContainerWithTitle(
       title: AppLocalizations.of(context).translate('yourDoctors'),
-      isScrollable: doctors.isEmpty? true:false,
+      isScrollable: doctors.isEmpty ? true : false,
       iconButton: TextWithIcon(
         onTap: () => context.pushNamed(Routes.doctorsScreen),
         icon: AppLocalizations.of(context).isEnLocale

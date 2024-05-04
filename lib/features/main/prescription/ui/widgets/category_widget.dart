@@ -23,9 +23,11 @@ class PrescriptionCategoryWidget extends StatelessWidget {
   /// this function checks that color difference between background color and
   /// text color and returns different color for text
   Color checkFontColor(BuildContext context, Color backgroundColor) {
-    return (backgroundColor == Theme.of(context).colorScheme.secondary)
-        ? Theme.of(context).colorScheme.onTertiary
-        : Theme.of(context).colorScheme.onPrimary;
+    if (backgroundColor == Theme.of(context).colorScheme.primary) {
+      return Theme.of(context).colorScheme.onPrimary;
+    } else {
+      return Theme.of(context).colorScheme.primaryContainer;
+    }
   }
 
   @override
