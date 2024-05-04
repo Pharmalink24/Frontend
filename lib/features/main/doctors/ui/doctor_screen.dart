@@ -7,6 +7,7 @@ import 'package:pharmalink/core/widgets/app_shimmer.dart';
 import 'package:pharmalink/features/main/doctors/logic/cubit/doctors_cubit.dart';
 import 'package:pharmalink/core/theme/styles.dart';
 import 'package:pharmalink/features/main/doctors/ui/widgets/about_container.dart';
+import '../../../../core/theme/app_bar.dart';
 import '../logic/cubit/doctors_state.dart';
 import 'widgets/doctor_image.dart';
 import 'widgets/doctor_name.dart';
@@ -79,15 +80,10 @@ class _DoctorScreenState extends State<DoctorScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          AppLocalizations.of(context).translate('doctor_profile'),
-          style: AppTextStyle.displayMedium(context).copyWith(
-            fontSize: 28,
-          ),
-        ),
-        elevation: 2,
-      ),
+      appBar: AppBarWidget(
+        type: AppBarType.withLogoAndTitle,
+        title: AppLocalizations.of(context).translate('doctor_profile'),
+      ).build(context),
       body: BlocBuilder<DoctorsCubit, DoctorsState>(
         builder: (context, state) {
           if (state is Loading) {

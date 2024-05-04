@@ -5,6 +5,7 @@ import '../../../../core/enums/drug_state.dart';
 import '../../../../core/localization/app_localizations.dart';
 import '../../../../core/models/doctor_info.dart';
 import '../../../../core/models/prescription_info.dart';
+import '../../../../core/theme/app_bar.dart';
 import '../../../../core/theme/styles.dart';
 import '../logic/cubit/prescription_cubit.dart';
 import 'widgets/activate_box.dart';
@@ -125,14 +126,10 @@ class _PrescriptionScreenState extends State<PrescriptionScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          AppLocalizations.of(context).translate('prescription'),
-          style: AppTextStyle.displayMedium(context).copyWith(
-            fontSize: 28,
-          ),
-        ),
-      ),
+      appBar: AppBarWidget(
+        type: AppBarType.withLogoAndTitle,
+        title: AppLocalizations.of(context).translate('prescription'),
+      ).build(context),
       body: SafeArea(
         child: BlocBuilder<PrescriptionCubit, PrescriptionState>(
           buildWhen: (previous, current) =>

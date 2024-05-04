@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/localization/app_localizations.dart';
 import '../../../../core/models/doctor.dart';
+import '../../../../core/theme/app_bar.dart';
 import '../../../../core/theme/styles.dart';
 import '../../../../core/widgets/card_container.dart';
 import '../../../../core/widgets/doctor_card.dart';
@@ -126,14 +127,10 @@ class _DoctorsScreenState extends State<DoctorsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          AppLocalizations.of(context).translate('yourDoctors'),
-          style: AppTextStyle.displayMedium(context).copyWith(
-            fontSize: 28,
-          ),
-        ),
-      ),
+      appBar: AppBarWidget(
+        type: AppBarType.withLogoAndTitle,
+        title: AppLocalizations.of(context).translate('yourDoctors'),
+      ).build(context),
       body: SafeArea(
         child: BlocBuilder<DoctorsCubit, DoctorsState>(
           buildWhen: (previous, current) =>

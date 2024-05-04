@@ -9,7 +9,7 @@ class AppTheme {
   // Light theme
   static ThemeData lightTheme() {
     return ThemeData.light().copyWith(
-      appBarTheme: appBarTheme(),
+      appBarTheme: AppBarWidgetTheme.appBarTheme(),
       textButtonTheme: textButtonThemeData(),
       brightness: Brightness.light,
       scaffoldBackgroundColor: AppColors.primaryBackground,
@@ -17,6 +17,8 @@ class AppTheme {
         backgroundColor: AppColors.secondaryBackground,
         selectedItemColor: AppColors.primary,
         unselectedItemColor: AppColors.secondaryText,
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
       ),
       primaryColor: AppColors.primary,
       textTheme: appTextTheme,
@@ -27,14 +29,18 @@ class AppTheme {
   // Dark theme
   static ThemeData darkTheme() {
     return ThemeData.dark().copyWith(
-      appBarTheme: appBarTheme(isDarkTheme: true),
+      appBarTheme: AppBarWidgetTheme.appBarTheme(isDark: true),
       textButtonTheme: textButtonThemeData(isDarkTheme: true),
       brightness: Brightness.dark,
       scaffoldBackgroundColor: AppColors.darkPrimaryBackground,
       bottomNavigationBarTheme: const BottomNavigationBarThemeData(
         backgroundColor: AppColors.darkSecondaryBackground,
+        type: BottomNavigationBarType.shifting,
         selectedItemColor: AppColors.darkSecondary,
         unselectedItemColor: AppColors.darkPrimaryText,
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
+        elevation: 0.0,
       ),
       textTheme: darkAppTextTheme,
       colorScheme: AppColorScheme.dark,

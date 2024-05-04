@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pharmalink/core/widgets/form/form_button.dart';
 import '../../../../../core/localization/app_localizations.dart';
 import '../../../../../core/routes/routes.dart';
 import '../../../../../core/shared_preferences/auth_prefs.dart';
@@ -58,18 +59,14 @@ class LogoutButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(20.0),
-      child: SizedBox(
-        height: 40,
-        child: TextButton(
-          onPressed: () {
-            // Popup confirmation dialog
-            _logoutDialog(context);
-          },
-          child: Text(AppLocalizations.of(context).translate('signOut')),
-        ),
-      ),
+    return FormButton(
+      onPressed: () {
+        // Popup confirmation dialog
+        _logoutDialog(context);
+      },
+      text: AppLocalizations.of(context).translate('signOut'),
+      width: null,
+      height: null,
     );
   }
 }

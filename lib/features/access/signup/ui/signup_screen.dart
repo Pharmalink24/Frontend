@@ -48,11 +48,12 @@ class _SignupScreenState extends State<SignupScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MyAppBar.withoutLabel(context),
-      backgroundColor: Theme.of(context).colorScheme.primaryContainer,
+      appBar: const AppBarWidget(
+        type: AppBarType.withoutTitle,
+      ).build(context),
       body: SafeArea(
         child: ListView(
-          padding: const EdgeInsets.symmetric(vertical: 32.0, horizontal: 22.0),
+          padding: const EdgeInsets.symmetric(vertical: 0.0, horizontal: 24.0),
           children: [
             const SignupTab(),
             const WelcomeText(),
@@ -63,6 +64,7 @@ class _SignupScreenState extends State<SignupScreen> {
             FormButton(
               text: AppLocalizations.of(context).translate('signUp'),
               onPressed: () => validationThenSignup(context),
+              padding: const EdgeInsets.symmetric(vertical: 16.0),
             ),
             const TermsAndConditionsText(),
             SignupBlocListener(),

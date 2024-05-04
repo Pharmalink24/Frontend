@@ -27,7 +27,9 @@ class VerificationScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MyAppBar.withoutLabel(context),
+      appBar: const AppBarWidget(
+        type: AppBarType.withoutTitle,
+      ).build(context),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(32.0),
@@ -40,7 +42,8 @@ class VerificationScreen extends StatelessWidget {
               const JustClickText(),
               const StillCantFindText(),
               FormButton(
-                text: AppLocalizations.of(context).translate('resendVerificationEmail'),
+                text: AppLocalizations.of(context)
+                    .translate('resendVerificationEmail'),
                 padding: const EdgeInsets.only(top: 8.0, bottom: 16.0),
                 onPressed: () => sendVerification(context),
               ),

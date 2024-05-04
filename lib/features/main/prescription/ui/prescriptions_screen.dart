@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pharmalink/core/theme/app_bar.dart';
 import '../../../../core/enums/drug_state.dart';
 import '../../../../core/helpers/extensions.dart';
 import '../../../../core/localization/app_localizations.dart';
@@ -85,17 +86,12 @@ class _PrescriptionsScreenState extends State<PrescriptionsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          AppLocalizations.of(context).isEnLocale
-              ? '${widget.state.value.toString().capitalize()} Drugs'
-              : 'الأدوية ال${widget.state.valueInArabic}',
-          style: AppTextStyle.displayMedium(context).copyWith(
-            fontSize: 28,
-          ),
-        ),
-        elevation: 2,
-      ),
+      appBar: AppBarWidget(
+        type: AppBarType.withLogoAndTitle,
+        title: AppLocalizations.of(context).isEnLocale
+            ? '${widget.state.value.toString().capitalize()} Drugs'
+            : 'الأدوية ال${widget.state.valueInArabic}',
+      ).build(context),
       body: SafeArea(
         child: BlocBuilder<PrescriptionCubit, PrescriptionState>(
           buildWhen: (previous, current) =>

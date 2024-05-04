@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import "package:logger/logger.dart";
 
 class AppBottomNavigationBar extends StatefulWidget {
   final int currentIndex;
@@ -21,13 +22,19 @@ class _AppBottomNavigationBarState extends State<AppBottomNavigationBar> {
   Widget build(BuildContext context) {
     return BottomNavigationBar(
       currentIndex: widget.currentIndex,
-      onTap: (i) {
-        widget.onTap(i);
-      },
-      type: BottomNavigationBarType.shifting,
-      showSelectedLabels: false,
-      showUnselectedLabels: false,
+      onTap: (i) => widget.onTap(i),
       items: widget.items,
+      backgroundColor:
+          Theme.of(context).bottomNavigationBarTheme.backgroundColor,
+      selectedItemColor:
+          Theme.of(context).bottomNavigationBarTheme.selectedItemColor,
+      unselectedItemColor:
+          Theme.of(context).bottomNavigationBarTheme.unselectedItemColor,
+      selectedLabelStyle:
+          Theme.of(context).bottomNavigationBarTheme.selectedLabelStyle,
+      unselectedLabelStyle:
+          Theme.of(context).bottomNavigationBarTheme.unselectedLabelStyle,
+      elevation: Theme.of(context).bottomNavigationBarTheme.elevation,
     );
   }
 }

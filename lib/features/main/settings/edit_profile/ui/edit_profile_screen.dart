@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../core/localization/app_localizations.dart';
+import '../../../../../core/theme/app_bar.dart';
 import '../../../../../core/theme/styles.dart';
 import '../../../../../core/widgets/form/form_button.dart';
 import '../data/models/edit_profile_fields.dart';
@@ -53,18 +54,10 @@ class _EditProfileScreenState extends State<EditProfileScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        iconTheme: IconThemeData(
-          color: Theme.of(context).colorScheme.onPrimary,
-        ),
-        title: Text(
-          AppLocalizations.of(context).translate('editProfile'),
-          style: AppTextStyle.displayMedium(context).copyWith(
-            fontSize: 28,
-          ),
-        ),
-        elevation: 2,
-      ),
+      appBar: AppBarWidget(
+        type: AppBarType.withLogoAndTitle,
+        title: AppLocalizations.of(context).translate('editProfile'),
+      ).build(context),
       body: SafeArea(
         child: ListView(
           padding: const EdgeInsets.symmetric(vertical: 32.0, horizontal: 22.0),

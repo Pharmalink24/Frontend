@@ -21,13 +21,14 @@ class DrugInteractionForm extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const DrugInteractionInputs(),
+          const SizedBox(height: 16.0),
           FormButton(
             onPressed: () => drugInteraction(context),
             text: AppLocalizations.of(context).translate('checkInteractions'),
-            color: Theme.of(context).colorScheme.secondary,
             padding: const EdgeInsets.symmetric(vertical: 12.0),
             borderRadius: 8.0,
-            elevation: 5.0,
+            height: null,
+            width: double.infinity,
           ),
         ],
       ),

@@ -9,6 +9,8 @@ class FormButton extends StatelessWidget {
   final double? elevation;
   final double? borderRadius;
   final bool hideKeyboardWhenClicked;
+  final double? width;
+  final double? height;
 
   const FormButton({
     super.key,
@@ -19,6 +21,8 @@ class FormButton extends StatelessWidget {
     this.elevation,
     this.borderRadius,
     this.hideKeyboardWhenClicked = true,
+    this.width = double.infinity,
+    this.height = 50.0,
   });
 
   @override
@@ -26,8 +30,8 @@ class FormButton extends StatelessWidget {
     return Padding(
       padding: padding,
       child: SizedBox(
-        width: double.infinity,
-        height: 50,
+        width: width,
+        height: height,
         child: TextButton(
           style: ButtonStyle(
             backgroundColor:
@@ -49,7 +53,9 @@ class FormButton extends StatelessWidget {
           },
           child: Text(
             text,
-            style: AppTextStyle.titleSmall(context),
+            style: AppTextStyle.titleSmall(context).copyWith(
+                  color: Theme.of(context).colorScheme.primaryContainer,
+                ),
           ),
         ),
       ),
