@@ -30,14 +30,14 @@ class RemindersContainer extends StatelessWidget {
         Icon(
           Icons.playlist_add_check_circle_rounded,
           size: 80,
-          color: Theme.of(context).colorScheme.onTertiary,
+          color: Theme.of(context).colorScheme.onSecondary,
         ),
         Center(
           child: Text(
             AppLocalizations.of(context).translate('noRemindersToday'),
             textAlign: TextAlign.center,
             style: AppTextStyle.headlineSmall(context).copyWith(
-              color: Colors.grey,
+              color: Theme.of(context).colorScheme.onSecondary,
             ),
           ),
         ),

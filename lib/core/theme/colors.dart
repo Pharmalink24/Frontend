@@ -67,7 +67,7 @@ class AppColorScheme {
     error: AppColors.error,
     // Text
     onPrimary: AppColors.primaryText,
-    onSecondary: AppColors.secondaryText,
+    onSecondary: AppColors.secondaryText.withOpacity(0.5),
     onTertiary: AppColors.info,
     onSurface: AppColors.primaryText,
     onPrimaryContainer: AppColors.primaryText,
@@ -76,6 +76,8 @@ class AppColorScheme {
     onError: AppColors.error,
     onErrorContainer: AppColors.error,
     onInverseSurface: AppColors.primaryText,
+    // Shadows
+    shadow: AppColors.secondary.withOpacity(0.1),
   );
 
   static ColorScheme dark = ColorScheme.fromSeed(
@@ -105,5 +107,7 @@ class AppColorScheme {
     onError: AppColors.error,
     onErrorContainer: AppColors.error,
     onInverseSurface: AppColors.darkPrimaryText,
+    // Shadows
+    shadow: AppColors.darkAlternate.withOpacity(0.1),
   );
 }

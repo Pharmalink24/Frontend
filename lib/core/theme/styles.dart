@@ -162,12 +162,15 @@ class AppTextFieldDecoration {
         borderRadius: BorderRadius.circular(_kPrimaryBorderRadius),
       ),
       enabledBorder: OutlineInputBorder(
-        borderSide: const BorderSide(
-          color: AppColors.accent5,
+        borderSide: BorderSide(
+          color: Theme.of(context).colorScheme.tertiary,
         ),
         borderRadius: BorderRadius.circular(_kPrimaryBorderRadius),
       ),
       focusedBorder: OutlineInputBorder(
+        borderSide: BorderSide(
+          color: Theme.of(context).colorScheme.primary,
+        ),
         borderRadius: BorderRadius.circular(_kPrimaryBorderRadius),
       ),
       errorBorder: OutlineInputBorder(
@@ -184,11 +187,14 @@ class AppTextFieldDecoration {
       ),
       enabledBorder: OutlineInputBorder(
         borderSide: BorderSide(
-          color: Theme.of(context).colorScheme.secondary,
+          color: Theme.of(context).colorScheme.tertiary,
         ),
         borderRadius: BorderRadius.circular(_kSecondaryBorderRadius),
       ),
       focusedBorder: OutlineInputBorder(
+        borderSide: BorderSide(
+          color: Theme.of(context).colorScheme.primary,
+        ),
         borderRadius: BorderRadius.circular(_kSecondaryBorderRadius),
       ),
       errorBorder: OutlineInputBorder(
@@ -211,16 +217,16 @@ class AppTextFieldDecoration {
         borderRadius: BorderRadius.circular(_kSearchBorderRadius),
       ),
       enabledBorder: OutlineInputBorder(
-        borderSide: const BorderSide(
+        borderSide: BorderSide(
           width: _kBorderWidth,
-          color: AppColors.accent5,
+          color: Theme.of(context).colorScheme.tertiary,
         ),
         borderRadius: BorderRadius.circular(_kSearchBorderRadius),
       ),
       focusedBorder: OutlineInputBorder(
         borderSide: BorderSide(
           width: _kBorderWidth,
-          color: Theme.of(context).colorScheme.secondary,
+          color: Theme.of(context).colorScheme.primary,
         ),
       ),
       errorBorder: OutlineInputBorder(
@@ -243,7 +249,7 @@ class AppTextFieldDecoration {
     return _generalBoxDecoration(context).copyWith(
       color: Theme.of(context).colorScheme.primaryContainer,
       border: Border.all(
-        color: AppColors.accent5,
+        color: Theme.of(context).colorScheme.tertiary,
       ),
       borderRadius: BorderRadius.circular(_kPrimaryBorderRadius),
     );
@@ -253,7 +259,7 @@ class AppTextFieldDecoration {
     return _generalBoxDecoration(context).copyWith(
       color: Theme.of(context).colorScheme.primaryContainer,
       border: Border.all(
-        color: Theme.of(context).colorScheme.primaryContainer,
+        color: Theme.of(context).colorScheme.tertiary,
       ),
       borderRadius: BorderRadius.circular(_kSecondaryBorderRadius),
     );

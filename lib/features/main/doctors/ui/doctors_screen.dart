@@ -71,7 +71,7 @@ class _DoctorsScreenState extends State<DoctorsScreen> {
             AppLocalizations.of(context).translate('noDoctorsMessage'),
             textAlign: TextAlign.center,
             style: AppTextStyle.headlineSmall(context).copyWith(
-              color: Colors.grey,
+          color: Theme.of(context).colorScheme.onSecondary,
             ),
           ),
         ),
@@ -128,8 +128,9 @@ class _DoctorsScreenState extends State<DoctorsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBarWidget(
-        type: AppBarType.withLogoAndTitle,
+        type: AppBarType.withoutLogo,
         title: AppLocalizations.of(context).translate('yourDoctors'),
+        automaticallyImplyLeading: true,
       ).build(context),
       body: SafeArea(
         child: BlocBuilder<DoctorsCubit, DoctorsState>(

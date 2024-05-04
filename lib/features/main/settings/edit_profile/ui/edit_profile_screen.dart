@@ -55,8 +55,9 @@ class _EditProfileScreenState extends State<EditProfileScreen>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBarWidget(
-        type: AppBarType.withLogoAndTitle,
+        type: AppBarType.withoutLogo,
         title: AppLocalizations.of(context).translate('editProfile'),
+        automaticallyImplyLeading: true,
       ).build(context),
       body: SafeArea(
         child: ListView(

@@ -39,7 +39,7 @@ class _PrescriptionsScreenState extends State<PrescriptionsScreen> {
         Icon(
           Icons.featured_play_list_rounded,
           size: 80,
-          color: Theme.of(context).colorScheme.onTertiary,
+          color: Theme.of(context).colorScheme.onSecondary,
         ),
         Center(
           child: Text(
@@ -87,10 +87,11 @@ class _PrescriptionsScreenState extends State<PrescriptionsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBarWidget(
-        type: AppBarType.withLogoAndTitle,
+        type: AppBarType.withoutLogo,
         title: AppLocalizations.of(context).isEnLocale
             ? '${widget.state.value.toString().capitalize()} Drugs'
             : 'الأدوية ال${widget.state.valueInArabic}',
+        automaticallyImplyLeading: true,
       ).build(context),
       body: SafeArea(
         child: BlocBuilder<PrescriptionCubit, PrescriptionState>(

@@ -33,32 +33,37 @@ class _SigninScreenState extends State<SigninScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: const AppBarWidget(
-        type: AppBarType.withoutTitle,
-      ).build(context),
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 32.0, horizontal: 22.0),
-          child: SingleChildScrollView(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const SigninTab(),
-                const WelcomeText(),
-                FormView(
-                  formKey: context.read<SigninCubit>().formKey,
-                  model: signInFields,
-                ),
-                const ForgetPasswordText(),
-                FormButton(
-                  text: AppLocalizations.of(context).translate('signIn'),
-                  onPressed: () => validationThenSignin(context),
-                ),
-                const TermsAndConditionsText(),
-                SigninBlocListener(),
-              ],
+    return PopScope(
+      canPop: false,
+      child: Scaffold(
+        appBar: const AppBarWidget(
+          type: AppBarType.withoutTitle,
+        ).build(context),
+        body: SafeArea(
+          child: Padding(
+            padding:
+                const EdgeInsets.symmetric(vertical: 32.0, horizontal: 22.0),
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const SigninTab(),
+                  const WelcomeText(),
+                  FormView(
+                    formKey: context.read<SigninCubit>().formKey,
+                    model: signInFields,
+                  ),
+                  const ForgetPasswordText(),
+                  FormButton(
+                    text: AppLocalizations.of(context).translate('signIn'),
+                    onPressed: () => validationThenSignin(context),
+                    padding: const EdgeInsets.symmetric(vertical: 12.0),
+                  ),
+                  const TermsAndConditionsText(),
+                  SigninBlocListener(),
+                ],
+              ),
             ),
           ),
         ),

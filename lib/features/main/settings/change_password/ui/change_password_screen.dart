@@ -35,8 +35,9 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBarWidget(
-        type: AppBarType.withLogoAndTitle,
+        type: AppBarType.withoutLogo,
         title: AppLocalizations.of(context).translate('changePassword'),
+        automaticallyImplyLeading: true,
       ).build(context),
       body: SafeArea(
         child: ListView(

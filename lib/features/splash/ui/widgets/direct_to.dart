@@ -35,10 +35,10 @@ class _DirectToState extends State<DirectTo> {
 
   void direct(BuildContext context) {
     _isLoggedIn
-        ? context.pushNamed(Routes.mainScreen)
+        ? context.pushReplacementNamed(Routes.mainScreen)
         : _isFirstEntry
-            ? context.pushNamed(Routes.onBoardingScreen)
-            : context.pushNamed(Routes.signInScreen);
+            ? context.pushReplacementNamed(Routes.onBoardingScreen)
+            : context.pushReplacementNamed(Routes.signInScreen);
   }
 
   @override

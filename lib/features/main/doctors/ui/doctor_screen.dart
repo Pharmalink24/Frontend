@@ -81,8 +81,9 @@ class _DoctorScreenState extends State<DoctorScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBarWidget(
-        type: AppBarType.withLogoAndTitle,
+        type: AppBarType.withoutLogo,
         title: AppLocalizations.of(context).translate('doctor_profile'),
+        automaticallyImplyLeading: true,
       ).build(context),
       body: BlocBuilder<DoctorsCubit, DoctorsState>(
         builder: (context, state) {

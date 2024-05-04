@@ -43,7 +43,7 @@ class DoctorsContainer extends StatelessWidget {
             AppLocalizations.of(context).translate('noDoctorsMessage'),
             textAlign: TextAlign.center,
             style: AppTextStyle.headlineSmall(context).copyWith(
-              color: Colors.grey,
+          color: Theme.of(context).colorScheme.onSecondary,
             ),
           ),
         ),

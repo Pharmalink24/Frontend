@@ -57,11 +57,11 @@ class _ActivateBoxWidgetState extends State<ActivateBoxWidget> {
       height: 449,
       decoration: BoxDecoration(
         color: Theme.of(context).colorScheme.primaryContainer,
-        boxShadow: const [
+        boxShadow: [
           BoxShadow(
             blurRadius: 5,
-            color: Color(0x3B1D2429),
-            offset: Offset(
+            color: Theme.of(context).colorScheme.shadow,
+            offset: const Offset(
               0.0,
               -3,
             ),

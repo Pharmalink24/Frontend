@@ -127,8 +127,9 @@ class _PrescriptionScreenState extends State<PrescriptionScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBarWidget(
-        type: AppBarType.withLogoAndTitle,
+        type: AppBarType.withoutLogo,
         title: AppLocalizations.of(context).translate('prescription'),
+        automaticallyImplyLeading: true,
       ).build(context),
       body: SafeArea(
         child: BlocBuilder<PrescriptionCubit, PrescriptionState>(

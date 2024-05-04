@@ -9,7 +9,9 @@ class ForgetPasswordText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 0, bottom: 12.0),
+      padding: const EdgeInsets.symmetric(
+        vertical: 4.0,
+      ),
       child: Align(
         alignment: AlignmentDirectional.bottomEnd,
         child: GestureDetector(
