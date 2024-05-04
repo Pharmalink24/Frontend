@@ -27,11 +27,20 @@ class DatePicker extends StatelessWidget {
     return '${date.year}-${date.month}-${date.day}';
   }
 
+  DateTime? setInitialValue() {
+    return controller != null
+        ? controller!.text.isEmpty
+            ? null
+            : DateTime.parse(controller?.text ?? DateTime.now().toString())
+        : null;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsetsDirectional.fromSTEB(0, 8, 0, 16),
       child: DateTimeFormField(
+        initialValue: setInitialValue(),
         mode: DateTimeFieldPickerMode.date,
         decoration: decoration.copyWith(
           hintText: hintText,

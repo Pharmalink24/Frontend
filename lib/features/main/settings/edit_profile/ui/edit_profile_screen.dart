@@ -63,13 +63,19 @@ class _EditProfileScreenState extends State<EditProfileScreen>
         child: ListView(
           padding: const EdgeInsets.symmetric(vertical: 32.0, horizontal: 22.0),
           children: [
-            Text(AppLocalizations.of(context).translate('editYourProfile'),
-                style: AppTextStyle.headlineLarge(context)),
+            Text(
+              AppLocalizations.of(context).translate('editYourProfile'),
+              style: AppTextStyle.headlineLarge(context),
+            ),
+            const SizedBox(height: 16.0),
             const RetrieveProfileBlocBuilder(),
             FormButton(
               text: AppLocalizations.of(context).translate('saveChanges'),
               onPressed: () => changePassword(context),
               borderRadius: 12.0,
+              padding: const EdgeInsets.symmetric(
+                vertical: 8.0,
+              ),
             ),
             EditProfileBlocListener(),
           ],

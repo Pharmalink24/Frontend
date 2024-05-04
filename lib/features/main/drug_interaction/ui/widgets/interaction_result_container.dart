@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../../../../core/theme/styles.dart';
 import '../../../../../core/widgets/card_container.dart';
 import '../../../../../core/widgets/loading/loading_indicator.dart';
@@ -111,11 +112,26 @@ class InteractionResultContainer extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Text(
-          AppLocalizations.of(context).translate('enter2drugs'),
-          style: AppTextStyle.headlineLarge(context),
-          textAlign: TextAlign.center,
-        ),
+        Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            FaIcon(
+              FontAwesomeIcons.flask,
+              size: 50,
+              color: Theme.of(context).colorScheme.onSecondary,
+            ),
+            const SizedBox(height: 16.0),
+            Center(
+              child: Text(
+                AppLocalizations.of(context).translate('enter2drugs'),
+                textAlign: TextAlign.center,
+                style: AppTextStyle.headlineSmall(context).copyWith(
+                  color: Theme.of(context).colorScheme.onSecondary,
+                ),
+              ),
+            ),
+          ],
+        )
       ],
     );
   }

@@ -30,6 +30,13 @@ class CardContainer extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16.0),
           color: Theme.of(context).colorScheme.primaryContainer,
+          boxShadow: [
+            BoxShadow(
+              color: Theme.of(context).colorScheme.shadow,
+              blurRadius: 5.0,
+              offset: Offset(0, 1),
+            ),
+          ],
         ),
         child: Column(
           mainAxisAlignment: mainAxisAlignment,

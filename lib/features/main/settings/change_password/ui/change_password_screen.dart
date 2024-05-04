@@ -44,9 +44,10 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
           padding: const EdgeInsets.symmetric(vertical: 32.0, horizontal: 22.0),
           children: [
             Text(
-                AppLocalizations.of(context)
-                    .translate('changeYourPasswordDesc'),
-                style: AppTextStyle.bodyLarge(context)),
+              AppLocalizations.of(context).translate('changeYourPasswordDesc'),
+              style: AppTextStyle.bodyLarge(context),
+            ),
+            const SizedBox(height: 24.0),
             FormView(
               model: changePasswordFields,
               formKey: context.read<ChangePasswordCubit>().formKey,
