@@ -5,7 +5,7 @@ import '../../../../../../core/localization/app_localizations.dart';
 import '../../../../../../core/models/user.dart';
 import '../../../../../../core/routes/routes.dart';
 import '../../../../../../core/theme/styles.dart';
-import '../../../../../../core/widgets/loading_overlay.dart';
+import '../../../../../../core/widgets/loading/loading_overlay.dart';
 import '../../logic/cubit/edit_profile_cubit.dart';
 import '../../logic/cubit/edit_profile_state.dart';
 

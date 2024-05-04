@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../../../core/widgets/loading_overlay.dart';
+import '../../../../../core/widgets/loading/loading_overlay.dart';
 import '../../../../../core/helpers/extensions.dart';
 import '../../../../../core/routes/routes.dart';
 import '../../../../../core/theme/colors.dart';

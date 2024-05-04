@@ -8,7 +8,7 @@ import '../logic/cubit/profile_cubit.dart';
 import '../logic/cubit/profile_state.dart';
 import 'widgets/account_settings.dart';
 import 'widgets/profile_info.dart';
-import 'package:pharmalink/core/widgets/loading_indicator.dart';
+import 'package:pharmalink/core/widgets/loading/loading_indicator.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});

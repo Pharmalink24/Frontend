@@ -4,7 +4,7 @@ import '../../../../../../core/helpers/extensions.dart';
 import '../../../../../../core/localization/app_localizations.dart';
 import '../../../../../../core/routes/routes.dart';
 import '../../../../../../core/theme/styles.dart';
-import '../../../../../../core/widgets/loading_overlay.dart';
+import '../../../../../../core/widgets/loading/loading_overlay.dart';
 import '../../data/models/change_password_response.dart';
 import '../../logic/cubit/change_password_cubit.dart';
 import '../../logic/cubit/change_password_state.dart';

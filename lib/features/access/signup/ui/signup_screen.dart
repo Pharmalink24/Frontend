@@ -53,7 +53,11 @@ class _SignupScreenState extends State<SignupScreen> {
       ).build(context),
       body: SafeArea(
         child: ListView(
-          padding: const EdgeInsets.symmetric(vertical: 0.0, horizontal: 24.0),
+          padding: const EdgeInsets.only(
+            top: 32.0,
+            right: 24.0,
+            left: 24.0,
+          ),
           children: [
             const SignupTab(),
             const WelcomeText(),

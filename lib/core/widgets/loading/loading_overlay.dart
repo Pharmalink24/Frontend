@@ -17,7 +17,7 @@ class LoadingOverlay {
           child: Center(
             child: CircularProgressIndicator(
               valueColor: AlwaysStoppedAnimation(
-                Theme.of(context).colorScheme.primaryContainer,
+                Theme.of(context).colorScheme.secondary,
               ),
             ),
           ),

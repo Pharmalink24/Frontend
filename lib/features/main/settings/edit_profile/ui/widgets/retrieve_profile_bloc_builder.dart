@@ -5,7 +5,7 @@ import '../../../../../../core/localization/app_localizations.dart';
 import '../../../../../../core/models/user.dart';
 import '../../../../../../core/theme/styles.dart';
 import '../../../../../../core/widgets/form/form_view.dart';
-import '../../../../../../core/widgets/loading_indicator.dart';
+import '../../../../../../core/widgets/loading/loading_indicator.dart';
 import '../../data/models/edit_profile_fields.dart';
 import '../../logic/cubit/edit_profile_cubit.dart';
 import '../../logic/cubit/edit_profile_state.dart';

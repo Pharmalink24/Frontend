@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../core/theme/styles.dart';
 import '../../../../../core/widgets/card_container.dart';
-import '../../../../../core/widgets/loading_indicator.dart';
+import '../../../../../core/widgets/loading/loading_indicator.dart';
 import '../../data/models/drug_interaction_response.dart';
 import '../../logic/cubit/drug_interaction_cubit.dart';
 import '../../logic/cubit/drug_interaction_state.dart';

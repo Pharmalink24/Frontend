@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../core/helpers/extensions.dart';
 import '../../../../../core/routes/routes.dart';
 import '../../../../../core/theme/styles.dart';
-import '../../../../../core/widgets/loading_overlay.dart';
+import '../../../../../core/widgets/loading/loading_overlay.dart';
 import '../../../../access/auth/logic/cubit/auth_cubit.dart';
 import '../../../../access/auth/logic/cubit/auth_state.dart';
 import '../../../../access/auth/data/models/refresh_token_response.dart';

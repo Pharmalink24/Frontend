@@ -42,15 +42,16 @@ class AppBarWidget extends StatelessWidget {
         "${AppPaths.images}/logo.png",
       ),
       size: kAppBarLogoSize,
-      color: Theme.of(context).colorScheme.primary,
+      color: Theme.of(context).colorScheme.secondary,
     );
   }
 
   Text _buildTitle(BuildContext context) {
     return Text(
       title ?? AppLocalizations.of(context).translate("pharmalink"),
-      style: AppTextStyle.displayMedium(context).copyWith(
+      style: AppTextStyle.titleMedium(context).copyWith(
         fontSize: titleSize,
+        color: Theme.of(context).colorScheme.secondary,
       ),
     );
   }
@@ -118,9 +119,11 @@ class AppBarWidgetTheme {
       backgroundColor: isDark
           ? AppColors.darkPrimaryBackground
           : AppColors.primaryBackground,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(
-          bottom: Radius.circular(kAppBarBorderRadius),
+      shape: Border(
+        bottom: BorderSide(
+          color: isDark ? AppColors.darkSecondary : AppColors.secondary,
+          width: 2.0,
+          style: BorderStyle.solid,
         ),
       ),
       elevation: kAppBarElevation,
