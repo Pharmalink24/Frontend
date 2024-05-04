@@ -31,7 +31,7 @@ class AccountSettingsButton extends StatelessWidget {
             children: [
               Text(
                 text,
-                style: AppTextStyle.labelMedium(context),
+                style: AppTextStyle.bodyMedium(context),
               ),
               Icon(
                 Icons.arrow_forward_ios,

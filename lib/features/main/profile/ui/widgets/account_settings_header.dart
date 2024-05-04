@@ -10,10 +10,12 @@ class AccountSettingsHeader extends StatelessWidget {
     return Row(
       children: [
         Padding(
-          padding: const EdgeInsets.symmetric(vertical: 4.0),
+          padding: const EdgeInsets.symmetric(vertical: 2.0),
           child: Text(
             AppLocalizations.of(context).translate('accountSettings'),
-            style: AppTextStyle.labelMedium(context),
+            style: AppTextStyle.bodyMedium(context).copyWith(
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ),
       ],

@@ -55,7 +55,7 @@ class DoctorsContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return CardContainerWithTitle(
       title: AppLocalizations.of(context).translate('yourDoctors'),
-      isScrollable: false,
+      isScrollable: doctors.isEmpty? true:false,
       iconButton: TextWithIcon(
         onTap: () => context.pushNamed(Routes.doctorsScreen),
         icon: AppLocalizations.of(context).isEnLocale
