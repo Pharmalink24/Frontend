@@ -40,9 +40,6 @@ List<Widget> pages = [
       BlocProvider(
         create: (context) => getIt<AuthCubit>(),
       ),
-      BlocProvider(
-        create: (context) => getIt<ThemeCubit>(),
-      ),
     ],
     child: const ProfileScreen(),
   ),

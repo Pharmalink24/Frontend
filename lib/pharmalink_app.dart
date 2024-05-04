@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pharmalink/core/Blocs/locale/locale_cubit.dart';
 import 'package:pharmalink/core/Blocs/theme/theme_cubit.dart';
+import 'package:pharmalink/core/Blocs/theme/theme_state.dart';
 import 'package:pharmalink/core/di/dependency_injection.dart';
 import 'package:pharmalink/core/helpers/constants/strings.dart';
 import 'package:pharmalink/core/localization/app_localizations_setup.dart';
@@ -29,7 +30,9 @@ class PharmalinkApp extends StatelessWidget {
         buildWhen: (previousState, currentState) =>
             previousState != currentState,
         builder: (context, localeState) {
-          return BlocBuilder<ThemeCubit, ThemeData?>(
+          return BlocBuilder<ThemeCubit, ThemeState>(
+            buildWhen: (previousState, currentState) =>
+                previousState != currentState,
             builder: (context, themeState) {
               return MaterialApp(
                 supportedLocales: AppLocalizationsSetup.supportedLocales,
@@ -40,8 +43,14 @@ class PharmalinkApp extends StatelessWidget {
                 locale: localeState.locale,
                 title: appTitle,
                 themeMode: ThemeMode.system,
-                theme: themeState,
-                darkTheme: themeState,
+                theme: themeState.whenOrNull(
+                  light: (theme) => theme,
+                  dark: (theme) => theme,
+                ),
+                darkTheme: themeState.whenOrNull(
+                  light: (theme) => theme,
+                  dark: (theme) => theme,
+                ),
                 initialRoute: Routes.initialRoute,
                 onGenerateRoute: appRouter.generateRoute,
                 debugShowCheckedModeBanner: false,

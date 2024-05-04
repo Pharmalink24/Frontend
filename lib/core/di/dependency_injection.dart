@@ -92,6 +92,8 @@ Future<void> setupGetIt() async {
       .registerLazySingleton<PrescriptionRepo>(() => PrescriptionRepo(getIt()));
   getIt.registerFactory<PrescriptionCubit>(() => PrescriptionCubit(getIt()));
 
+  //-------------------- CORE --------------------//
+
   // Localization
   getIt.registerLazySingleton<LocaleCubit>(() => LocaleCubit());
 
