@@ -42,6 +42,13 @@ class DoctorCard extends StatelessWidget {
           width: width,
           height: height,
           decoration: BoxDecoration(
+            boxShadow: [
+              BoxShadow(
+                color: Theme.of(context).colorScheme.shadow,
+                blurRadius: 5.0,
+                offset: Offset(0, 1),
+              ),
+            ],
             gradient: LinearGradient(
               colors: [
                 Theme.of(context).colorScheme.primary,
