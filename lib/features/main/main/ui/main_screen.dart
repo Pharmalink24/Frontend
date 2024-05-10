@@ -35,7 +35,7 @@ class _MainScreenState extends State<MainScreen> {
         resizeToAvoidBottomInset: false,
         body: Column(
           children: [
-            RefreshTokenBlocListener(activeIndex: activeIndex),
+            RefreshTokenBlocListener(activeIndex: activeIndex), // Todo: Delete Column
           ],
         ),
         bottomNavigationBar: AppBottomNavigationBar(

@@ -21,7 +21,7 @@ class RefreshTokenBlocListener extends StatefulWidget {
 class _RefreshTokenBlocListenerState extends State<RefreshTokenBlocListener> {
   @override
   void initState() {
-    super.initState();
+    super.initState(); // Todo: Make the screen stateless
   }
 
   final LoadingOverlay _loadingOverlay = LoadingOverlay();
@@ -53,7 +53,7 @@ class _RefreshTokenBlocListenerState extends State<RefreshTokenBlocListener> {
           TextButton(
             onPressed: () => context.pop(),
             child: Text(
-              "Got it",
+              "Got it", // Todo: Add to language strings
               style: AppTextStyle.labelLarge(context).copyWith(
                 color: Theme.of(context).colorScheme.onTertiary,
               ),
