@@ -3,7 +3,7 @@
     "signIn": "تسجيل الدخول",
     "signOut": "تسجيل الخروج",
     
-    "welcomeToPharmalink": "مرحبًا بكم في فارمالينك، حيث يمكنك إدارة وصفاتك الطبية!",
+    "welcomeToPharmalink": "مرحبًا بكم في فارما لينك، حيث يمكنك إدارة روشتاتك!",
     "forgetPassword": "هل نسيت كلمة المرور؟",
 
     "termsAndConditionsP1": "بتسجيلك، أنت توافق على ",
@@ -11,10 +11,10 @@
     "termsAndConditionsP3": "و ",
     "termsAndConditionsP4": "سياسة الخصوصية",
     
-    "pleaseVerifyEmail": "يرجى التحقق من عنوان بريدك الإلكتروني",
+    "pleaseVerifyEmail": "يرجى التحقق من بريدك الإلكتروني",
     "almostThere": "لقد اقتربت! لقد أرسلنا رسالة تحقق إلى بريدك الإلكتروني",
-    "stillCantFindEmail": "لا تزال لا تجد البريد الإلكتروني؟ لا مشكلة.",
-    "justClickOnTheLink": "فقط انقر على الرابط في ذلك البريد الإلكتروني لإكمال تسجيلك. إذا لم تراه، قد تحتاج إلى التحقق من مجلد البريد العشوائي.",
+    "stillCantFindEmail": "لم يصلك البريد الإلكتروني؟ لا مشكلة.",
+    "justClickOnTheLink": "فقط انقر على الرابط في ذلك البريد الإلكتروني لإكمال تسجيلك. إذا لم تجده، قد تحتاج إلى التحقق من البريد العشوائي.",
     "resendVerificationEmail": "إعادة إرسال بريد التحقق",
 
     "gotIt": "فهمت",
@@ -35,11 +35,11 @@
     "addReminder": "إضافة تذكير",
     "noRemindersToday": "لا تذكيرات اليوم",
 
-    "prescription": "وصفة طبية",
-    "prescriptions": "وصفات طبية",
-    "yourPrescriptions": "وصفاتك الطبية",
-    "noPrescriptionsMessage": "ليس لديك وصفات طبية بعد. أضف وصفة لتبدأ.",
-    "noPrescriptionsFound": "لم يتم العثور على وصفات.",
+    "prescription": " روشتة",
+    "prescriptions": " روشتات",
+    "yourPrescriptions": " روشتاتك",
+    "noPrescriptionsMessage": "ليس لديك روشتات بعد. أضف وصفة لتبدأ.",
+    "noPrescriptionsFound": "لم يتم العثور على روشتات.",
     "deactivate": "إلغاء التفعيل", 
     "activate": "تفعيل",
     "reactivate": "إعادة التفعيل",
@@ -49,7 +49,7 @@
     "newDrugsDescription": "عرض أو تفعيل أدوية جديدة.",
     "Active": "نشط",
     "activeDrugs": "أدوية نشطة",
-    "activeDrugsDescription": "عرض أو إلغاء تفعيل أدوية جديدة.",
+    "activeDrugsDescription": "عرض أو إلغاء تفعيل أدوية نشطة.",
     "Inactive": "غير نشط",
     "inactiveDrugs": "أدوية غير نشطة",
     "inactiveDrugsDescription": "عرض أو إعادة تفعيل أدوية سابقة.",
@@ -60,7 +60,7 @@
     "cancel": "إلغاء",
     "save": "حفظ",
     "delete": "حذف",
-    "edit": "تحرير",
+    "edit": "تعديل",
     "update": "تحديث",
     "add": "إضافة",
     "close": "إغلاق",
@@ -105,7 +105,7 @@
     "confirmSignOut": "هل أنت متأكد من أنك تريد تسجيل الخروج؟",
 
     "language": "اللغة",
-    "appName": "فارمالينك",
+    "appName": "فارما لينك",
     "retry": "أعد المحاولة",
 
     "informationChangedSuccessfully": "تم تغيير المعلومات بنجاح",
@@ -116,7 +116,7 @@
     "changeYourPasswordDesc": "يرجى إدخال كلمة المرور الحالية والجديدة لتحديث كلمة مرورك.",
 
     "dr": "د.",
-    "about": "حول",
+    "about": "عن",
     "no_info": "لا توجد معلومات",
     "chat": "الدردشة"
 
