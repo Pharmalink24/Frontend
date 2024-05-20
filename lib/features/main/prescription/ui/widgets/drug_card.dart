@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:pharmalink/features/main/prescription/logic/prescription_cubit.dart';
 import '../../../../../core/models/drug_info.dart';
 import '../../../../../core/theme/styles.dart';
 import 'package:expansion_tile_card/expansion_tile_card.dart';
@@ -7,9 +9,11 @@ import 'package:expansion_tile_card/expansion_tile_card.dart';
 class DrugCard extends StatelessWidget {
   final String tradeName;
   final DrugInfo drugInfo;
+  final int prescriptionId;
 
   const DrugCard({
     super.key,
+    required this.prescriptionId,
     required this.tradeName,
     required this.drugInfo,
   });
@@ -58,13 +62,17 @@ class DrugCard extends StatelessWidget {
       children: <Widget>[
         TextButton(
           style: flatButtonStyle,
-          onPressed: () {},
-          child: Icon(Icons.task_alt_rounded),
+          onPressed: () => context
+              .read<PrescriptionCubit>()
+              .activateDrug(prescriptionId, tradeName),
+          child: const Icon(Icons.task_alt_rounded),
         ),
         TextButton(
           style: flatButtonStyle,
-          onPressed: () {},
-          child: Icon(Icons.cancel),
+          onPressed: () => context
+              .read<PrescriptionCubit>()
+              .deactivateDrug(prescriptionId, tradeName),
+          child: const Icon(Icons.cancel),
         ),
       ],
     );

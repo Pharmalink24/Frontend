@@ -6,8 +6,14 @@ import '../../../../../core/widgets/card_container_with_title.dart';
 import 'drug_card.dart';
 
 class DrugsListCard extends StatelessWidget {
+  final int prescriptionId;
   final Map<String, DrugInfo> drugs;
-  const DrugsListCard({super.key, required this.drugs});
+
+  const DrugsListCard({
+    super.key,
+    required this.prescriptionId,
+    required this.drugs,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +30,7 @@ class DrugsListCard extends StatelessWidget {
               children: drugs.entries
                   .map(
                     (drug) => DrugCard(
+                      prescriptionId: prescriptionId,
                       tradeName: drug.key,
                       drugInfo: drug.value,
                     ),

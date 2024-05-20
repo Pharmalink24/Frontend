@@ -11,7 +11,7 @@ import 'widgets/drugs_list_card.dart';
 import 'widgets/ff_button_widget.dart';
 import 'widgets/deactivate_box.dart';
 
-class PrescriptionScreen extends StatefulWidget {
+class PrescriptionScreen extends StatelessWidget {
   final int id;
   final DoctorInfo doctor;
   final PrescriptionDrugs drugs;
@@ -25,25 +25,21 @@ class PrescriptionScreen extends StatefulWidget {
     required this.drugState,
   });
 
-  @override
-  State<PrescriptionScreen> createState() => _PrescriptionScreenState();
-}
-
-class _PrescriptionScreenState extends State<PrescriptionScreen> {
   Widget buildPrescriptionLayout(PrescriptionDrugs prescription) {
     return Padding(
       padding: const EdgeInsetsDirectional.symmetric(horizontal: 12.0),
       child: Column(
         children: [
           PrescriptionHeaderCard(
-            id: widget.doctor.id,
-            doctorImage: widget.doctor.image,
-            doctorFirstName: widget.doctor.firstName,
-            doctorLastName: widget.doctor.lastName,
+            id: doctor.id,
+            doctorImage: doctor.image,
+            doctorFirstName: doctor.firstName,
+            doctorLastName: doctor.lastName,
             date: prescription.date,
             time: prescription.time,
           ),
           DrugsListCard(
+            prescriptionId: id,
             drugs: prescription.drugs,
           ),
         ],
@@ -51,7 +47,7 @@ class _PrescriptionScreenState extends State<PrescriptionScreen> {
     );
   }
 
-  Widget? _buildNavigationBar(DrugState drugState) {
+  Widget? _buildNavigationBar(BuildContext context,DrugState drugState) {
     // Check if the drug is inactive
     if (drugState == DrugState.INACTIVE) {
       return null;
@@ -69,11 +65,11 @@ class _PrescriptionScreenState extends State<PrescriptionScreen> {
                 return Padding(
                   padding: MediaQuery.viewInsetsOf(context),
                   child: drugState == DrugState.ACTIVE
-                      ? DeactivateBoxWidget(id: widget.id)
-                      : ActivateBoxWidget(id: widget.id),
+                      ? DeactivateBoxWidget(id: id)
+                      : ActivateBoxWidget(id: id),
                 );
               },
-            ).then((value) => setState(() {}));
+            );
           },
           text: drugState == DrugState.ACTIVE
               ? AppLocalizations.of(context).translate('deactivate')
@@ -97,19 +93,6 @@ class _PrescriptionScreenState extends State<PrescriptionScreen> {
     }
   }
 
-  Widget buildErrorWidget(error) {
-    return Scaffold(
-      body: Center(
-        child: Text(
-          error,
-          style: AppTextStyle.titleLarge(context).copyWith(
-            color: Theme.of(context).colorScheme.error,
-          ),
-        ),
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -119,9 +102,9 @@ class _PrescriptionScreenState extends State<PrescriptionScreen> {
         automaticallyImplyLeading: true,
       ).build(context),
       body: SafeArea(
-        child: buildPrescriptionLayout(widget.drugs),
+        child: buildPrescriptionLayout(drugs),
       ),
-      bottomNavigationBar: _buildNavigationBar(widget.drugState),
+      bottomNavigationBar: _buildNavigationBar(context, drugState),
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:logger/logger.dart';
+import 'package:pharmalink/core/models/message.dart';
 import '../../../../../core/di/dependency_injection.dart';
 import '../../../../../core/enums/drug_state.dart';
 import '../models/prescription_doctor.dart';
@@ -51,6 +52,36 @@ class PrescriptionRepo {
         AuthSharedPrefs.getAccessToken(),
       );
       return ApiResult.success(prescriptions);
+    } catch (error) {
+      getIt<Logger>().e(error);
+      return ApiResult.failure(ErrorHandler.handle(error));
+    }
+  }
+
+  Future<ApiResult<Message>> activateDrug(
+      int prescriptionId, String drugName) async {
+    try {
+      final message= await _apiService.activateDrug(
+        prescriptionId,
+        drugName,
+        AuthSharedPrefs.getAccessToken(),
+      );
+      return ApiResult.success(message);
+    } catch (error) {
+      getIt<Logger>().e(error);
+      return ApiResult.failure(ErrorHandler.handle(error));
+    }
+  }
+
+  Future<ApiResult<Message>> deactivateDrug(
+      int prescriptionId, String drugName) async {
+    try {
+      final message = await _apiService.deactivateDrug(
+        prescriptionId,
+        drugName,
+        AuthSharedPrefs.getAccessToken(),
+      );
+      return ApiResult.success(message);
     } catch (error) {
       getIt<Logger>().e(error);
       return ApiResult.failure(ErrorHandler.handle(error));

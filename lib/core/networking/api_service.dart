@@ -1,4 +1,5 @@
-import 'package:dio/dio.dart';
+import 'package:dio/dio.dart' hide Headers;
+import 'package:pharmalink/core/models/profile_image.dart';
 import '../../features/access/sign/data/models/signin/signin_request_body.dart';
 import '../../features/access/sign/data/models/signin/signin_response.dart';
 import '../../features/main/doctors/data/models/doctor.dart';
@@ -14,6 +15,7 @@ import '../../features/main/drug_interaction/data/models/drug_eye_search_request
 import '../models/drug_search.dart';
 import '../../features/main/drug_interaction/data/models/drug_interaction_request_body.dart';
 import '../../features/main/drug_interaction/data/models/drug_interaction_response.dart';
+import '../models/message.dart';
 import '../models/state_request_body.dart';
 import '../models/user.dart';
 import '../../features/main/doctors/data/models/doctor_info.dart';
@@ -95,6 +97,22 @@ abstract class ApiService {
     @Header('Authorization') String? auth,
   );
 
+  // Activate Drug
+  @POST(ApiConstants.activateDrug)
+  Future<Message> activateDrug(
+    @Path('prescription_id') int prescriptionId,
+    @Query('drug_name') String drugName,
+    @Header('Authorization') String? auth,
+  );
+
+  // Deactivate Drug
+  @POST(ApiConstants.deactivateDrug)
+  Future<Message> deactivateDrug(
+    @Path('prescription_id') int prescriptionId,
+    @Query('drug_name') String drugName,
+    @Header('Authorization') String? auth,
+  );
+
   //-------------------- DRUG INTERACTION --------------------//
 
   // Search Drug from drug eye
@@ -124,6 +142,16 @@ abstract class ApiService {
   @PATCH(ApiConstants.updateUserInformation)
   Future<User> updateUserInformation(
     @Body() User user,
+    @Header('Authorization') String? auth,
+  );
+
+  // Update User Image
+  @PATCH(ApiConstants.updateUserInformation)
+  @Headers(<String, dynamic>{
+    'Content-Type': 'application/json',
+  })
+  Future<User> updateUserImage(
+    @Body() ProfileImage image,
     @Header('Authorization') String? auth,
   );
 

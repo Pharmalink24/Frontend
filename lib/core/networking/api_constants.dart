@@ -41,6 +41,10 @@ class ApiConstants {
 
   // Doctor Profile
   static const doctorProfile = "doctor/doctors/{doctor_id}/";
+
+  // Activate & Deactivate Drug
+  static const activateDrug = "Prescription/user/{prescription_id}/activate/";
+  static const deactivateDrug = "Prescription/user/{prescription_id}/deactivate/";
 }
 
 class ApiErrors {

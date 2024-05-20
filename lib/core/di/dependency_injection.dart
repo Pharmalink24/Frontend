@@ -70,7 +70,7 @@ Future<void> setupGetIt() async {
   //-------------------- SETTINGS & PROFILE --------------------//
   // Profile Information
   getIt.registerLazySingleton<ProfileRepo>(() => ProfileRepo(getIt()));
-  getIt.registerFactory<ProfileCubit>(() => ProfileCubit(getIt()));
+  getIt.registerFactory<ProfileCubit>(() => ProfileCubit(getIt(), getIt()));
 
   // Edit Profile
   getIt.registerLazySingleton<EditProfileRepo>(() => EditProfileRepo(getIt()));

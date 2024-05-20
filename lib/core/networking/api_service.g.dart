@@ -299,6 +299,72 @@ class _ApiService implements ApiService {
   }
 
   @override
+  Future<Message> activateDrug(
+    int prescriptionId,
+    String drugName,
+    String? auth,
+  ) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{r'drug_name': drugName};
+    queryParameters.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{r'Authorization': auth};
+    _headers.removeWhere((k, v) => v == null);
+    const Map<String, dynamic>? _data = null;
+    final _result =
+        await _dio.fetch<Map<String, dynamic>>(_setStreamType<Message>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'Prescription/user/${prescriptionId}/activate/',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    final value = Message.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<Message> deactivateDrug(
+    int prescriptionId,
+    String drugName,
+    String? auth,
+  ) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{r'drug_name': drugName};
+    queryParameters.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{r'Authorization': auth};
+    _headers.removeWhere((k, v) => v == null);
+    const Map<String, dynamic>? _data = null;
+    final _result =
+        await _dio.fetch<Map<String, dynamic>>(_setStreamType<Message>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'Prescription/user/${prescriptionId}/deactivate/',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    final value = Message.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
   Future<List<DrugSearch>> searchDrugFromDrugEye(
     DrugEyeSearchRequestParams drugEyeSearchRequestParams,
     String? auth,
@@ -412,6 +478,43 @@ class _ApiService implements ApiService {
       method: 'PATCH',
       headers: _headers,
       extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'user/update/',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    final value = User.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<User> updateUserImage(
+    ProfileImage image,
+    String? auth,
+  ) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{
+      r'Content-Type': 'application/json',
+      r'Authorization': auth,
+    };
+    _headers.removeWhere((k, v) => v == null);
+    final _data = <String, dynamic>{};
+    _data.addAll(image.toJson());
+    final _result =
+        await _dio.fetch<Map<String, dynamic>>(_setStreamType<User>(Options(
+      method: 'PATCH',
+      headers: _headers,
+      extra: _extra,
+      contentType: 'application/json',
     )
             .compose(
               _dio.options,

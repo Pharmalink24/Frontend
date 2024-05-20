@@ -1,6 +1,7 @@
 // import 'package:pharmalink/core/models/user.dart';
 import 'package:logger/logger.dart';
 import 'package:pharmalink/core/di/dependency_injection.dart';
+import 'package:pharmalink/core/models/profile_image.dart';
 import 'package:pharmalink/core/models/user.dart';
 import 'package:pharmalink/core/networking/api_error_handler.dart';
 import 'package:pharmalink/core/networking/api_result.dart';
@@ -28,6 +29,19 @@ class EditProfileRepo {
     try {
       final response = await _apiService.updateUserInformation(
         user,
+        AuthSharedPrefs.getAccessToken(),
+      );
+      return ApiResult.success(response);
+    } catch (error) {
+      getIt<Logger>().e(error);
+      return ApiResult.failure(ErrorHandler.handle(error));
+    }
+  }
+
+  Future<ApiResult<User>> editProfileImage(ProfileImage image) async {
+    try {
+      final response = await _apiService.updateUserImage(
+        image,
         AuthSharedPrefs.getAccessToken(),
       );
       return ApiResult.success(response);

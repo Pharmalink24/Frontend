@@ -6,10 +6,32 @@ part 'prescription_state.freezed.dart';
 class PrescriptionState<T> with _$PrescriptionState<T> {
   const factory PrescriptionState.initial() = _Initial;
 
-  const factory PrescriptionState.loading() = Loading;
-  const factory PrescriptionState.prescriptionLoaded(T data) =
-      PrescriptionLoaded<T>;
-  const factory PrescriptionState.prescriptionsLoaded(T doctors, T drugs) =
-      PrescriptionsLoaded<T>;
-  const factory PrescriptionState.error(String message) = Error;
+  // Prescription
+  const factory PrescriptionState.prescriptionLoading() = PrescriptionLoading;
+  const factory PrescriptionState.prescriptionSuccess(T data) =
+      PrescriptionSuccess<T>;
+  const factory PrescriptionState.prescriptionError(String message) =
+      PrescriptionError;
+
+  // Prescriptions
+  const factory PrescriptionState.prescriptionsLoading() = PrescriptionsLoading;
+  const factory PrescriptionState.prescriptionsSuccess(T doctors, T drugs) =
+      PrescriptionsSuccess<T>;
+  const factory PrescriptionState.prescriptionsError(String message) =
+      PrescriptionsError;
+
+  // Activate Drug
+  const factory PrescriptionState.activateDrugLoading() = ActivateDrugLoading;
+  const factory PrescriptionState.activateDrugSuccess(T message) =
+      ActivateDrugSuccess<T>;
+  const factory PrescriptionState.activateDrugError(String message) =
+      ActivateDrugError;
+
+  // Deactivate Drug
+  const factory PrescriptionState.deactivateDrugLoading() =
+      DeactivateDrugLoading;
+  const factory PrescriptionState.deactivateDrugSuccess(T message) =
+      DeactivateDrugSuccess<T>;
+  const factory PrescriptionState.deactivateDrugError(String message) =
+      DeactivateDrugError;
 }

@@ -11,17 +11,17 @@ class PrescriptionCubit extends Cubit<PrescriptionState> {
       : super(const PrescriptionState.initial());
 
   void loadPrescriptionById(int prescriptionId) async {
-    emit(const PrescriptionState.loading());
+    emit(const PrescriptionState.prescriptionLoading());
     // Load the prescription data
     final response = await _prescriptionRepo.getPrescription(prescriptionId);
 
     response.when(
       success: (prescription) {
-        emit(PrescriptionState.prescriptionLoaded(prescription));
+        emit(PrescriptionState.prescriptionSuccess(prescription));
       },
       failure: (error) {
         emit(
-          PrescriptionState.error(
+          PrescriptionState.prescriptionsError(
               error.apiErrorModel.message ?? ERR.UNEXPECTED),
         );
       },
@@ -29,7 +29,7 @@ class PrescriptionCubit extends Cubit<PrescriptionState> {
   }
 
   void loadPrescriptions(DrugState drugState) async {
-    emit(const PrescriptionState.loading());
+    emit(const PrescriptionState.prescriptionsLoading());
 
     // Load the prescriptions data
     final prescriptionsDrugs =
@@ -41,11 +41,11 @@ class PrescriptionCubit extends Cubit<PrescriptionState> {
       success: (prescriptionsDoctors) async {
         prescriptionsDrugs.when(
           success: (prescriptionsDrugs) async {
-            emit(PrescriptionState.prescriptionsLoaded(prescriptionsDoctors, prescriptionsDrugs));
+            emit(PrescriptionState.prescriptionsSuccess(prescriptionsDoctors, prescriptionsDrugs));
           },
           failure: (error) {
             emit(
-              PrescriptionState.error(
+              PrescriptionState.prescriptionsError(
                   error.apiErrorModel.message ?? ERR.UNEXPECTED),
             );
           },
@@ -53,7 +53,43 @@ class PrescriptionCubit extends Cubit<PrescriptionState> {
       },
       failure: (error) {
         emit(
-          PrescriptionState.error(
+          PrescriptionState.prescriptionsError(
+              error.apiErrorModel.message ?? ERR.UNEXPECTED),
+        );
+      },
+    );
+  }
+
+  void activateDrug(int prescriptionId, String drugName) async {
+    emit(const PrescriptionState.activateDrugLoading());
+
+    final response = await _prescriptionRepo.activateDrug(prescriptionId, drugName);
+
+    response.when(
+      success: (message) {
+        emit(PrescriptionState.activateDrugSuccess(message));
+      },
+      failure: (error) {
+        emit(
+          PrescriptionState.activateDrugError(
+              error.apiErrorModel.message ?? ERR.UNEXPECTED),
+        );
+      },
+    );
+  }
+
+  void deactivateDrug(int prescriptionId, String drugName) async {
+    emit(const PrescriptionState.deactivateDrugLoading());
+
+    final response = await _prescriptionRepo.deactivateDrug(prescriptionId, drugName);
+
+    response.when(
+      success: (message) {
+        emit(PrescriptionState.deactivateDrugSuccess(message));
+      },
+      failure: (error) {
+        emit(
+          PrescriptionState.deactivateDrugError(
               error.apiErrorModel.message ?? ERR.UNEXPECTED),
         );
       },
