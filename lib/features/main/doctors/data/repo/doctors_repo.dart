@@ -1,7 +1,7 @@
 import 'package:logger/logger.dart';
 import '../../../../../core/di/dependency_injection.dart';
-import '../../../../../core/models/doctor.dart';
-import '../../../../../core/models/doctor_info.dart';
+import '../models/doctor.dart';
+import '../models/doctor_info.dart';
 import '../../../../../core/networking/api_error_handler.dart';
 import '../../../../../core/networking/api_result.dart';
 import '../../../../../core/networking/api_service.dart';

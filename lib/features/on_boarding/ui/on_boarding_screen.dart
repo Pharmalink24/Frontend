@@ -53,7 +53,7 @@ class OnBoardingScreenState extends State<OnBoardingScreen> {
   }
 
   void _onIntroEnd(BuildContext context) {
-    context.pushNamed(Routes.signInScreen);
+    context.pushNamed(Routes.signScreen);
   }
 
   @override

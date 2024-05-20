@@ -20,11 +20,11 @@ class _DrugInteractionScreenState extends State<DrugInteractionScreen> {
         child: Column(
           children: [
             Expanded(
-              flex: 2,
+              flex: 3,
               child: DrugInteractionForm(),
             ),
             Expanded(
-              flex: 1,
+              flex: 2,
               child: InteractionResultContainer(),
             ),
           ],

@@ -1,9 +1,9 @@
 import 'package:logger/logger.dart';
 import '../../../../../core/di/dependency_injection.dart';
 import '../../../../../core/enums/drug_state.dart';
-import '../../../../../core/models/prescription1.dart';
-import '../../../../../core/models/prescription2.dart';
-import '../../../../../core/models/prescription_info.dart';
+import '../models/prescription_doctor.dart';
+import '../models/prescription_drugs.dart';
+import '../models/prescription_info.dart';
 import '../../../../../core/models/state_request_body.dart';
 import '../../../../../core/networking/api_error_handler.dart';
 import '../../../../../core/networking/api_result.dart';
@@ -29,10 +29,10 @@ class PrescriptionRepo {
     }
   }
 
-  Future<ApiResult<List<Prescription1>>> getPrescriptions1(
+  Future<ApiResult<List<PrescriptionDoctor>>> getPrescriptionsDoctors(
       DrugState drugState) async {
     try {
-      final prescriptions = await _apiService.getPrescriptions1(
+      final prescriptions = await _apiService.getPrescriptionsDoctors(
         StateRequestBody(state: drugState),
         AuthSharedPrefs.getAccessToken(),
       );
@@ -43,38 +43,14 @@ class PrescriptionRepo {
     }
   }
 
-  Future<ApiResult<List<Prescription2>>> getPrescriptions2(
+  Future<ApiResult<List<PrescriptionDrugs>>> getPrescriptionsDrugs(
       DrugState drugState) async {
     try {
-      final prescriptions = await _apiService.getPrescriptions2(
+      final prescriptions = await _apiService.getPrescriptionsDrugs(
         StateRequestBody(state: drugState),
         AuthSharedPrefs.getAccessToken(),
       );
       return ApiResult.success(prescriptions);
-    } catch (error) {
-      getIt<Logger>().e(error);
-      return ApiResult.failure(ErrorHandler.handle(error));
-    }
-  }
-
-  Future<ApiResult<List<Prescription1>>> prescription2TransformToPrescription1(
-      List<Prescription2> prescriptions) async {
-    try {
-      List<Prescription1> prescriptionsListEdited = [];
-      for (var prescription in prescriptions) {
-        final doctor = await _apiService.getDoctorProfile(
-          prescription.doctorId,
-          AuthSharedPrefs.getAccessToken(),
-        );
-
-        Prescription1 prescriptionEdited = Prescription1(
-          id: prescription.id,
-          createdAt: prescription.createdAt,
-          doctorInfo: doctor,
-        );
-        prescriptionsListEdited.add(prescriptionEdited);
-      }
-      return ApiResult.success(prescriptionsListEdited);
     } catch (error) {
       getIt<Logger>().e(error);
       return ApiResult.failure(ErrorHandler.handle(error));

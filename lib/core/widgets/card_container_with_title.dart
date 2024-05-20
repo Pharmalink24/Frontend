@@ -10,7 +10,6 @@ class CardContainerWithTitle extends StatelessWidget {
   final TextStyle? textStyle;
   final EdgeInsets padding;
   final EdgeInsets margin;
-  final int flex;
   final bool isScrollable;
 
   const CardContainerWithTitle({
@@ -21,7 +20,6 @@ class CardContainerWithTitle extends StatelessWidget {
     this.padding = const EdgeInsets.all(12.0),
     this.margin = const EdgeInsets.symmetric(vertical: 8.0),
     this.textStyle,
-    this.flex = 4,
     this.isScrollable = true,
   });
 
@@ -58,12 +56,8 @@ class CardContainerWithTitle extends StatelessWidget {
       padding: padding,
       margin: margin,
       children: [
+        _buildTitle(context),
         Expanded(
-          flex: 1,
-          child: _buildTitle(context),
-        ),
-        Expanded(
-          flex: flex,
           child: _buildContent(context),
         ),
       ],

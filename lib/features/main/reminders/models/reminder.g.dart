@@ -9,11 +9,14 @@ part of 'reminder.dart';
 Reminder _$ReminderFromJson(Map<String, dynamic> json) => Reminder(
       id: json['id'] as int,
       drugName: json['drug_name'] as String,
-      dosage: (json['dosage'] as num).toDouble(),
-      dosageUnit: json['dosage_unit'] as String,
-      nextDoseTime: json['next_dose_time'] as String,
+      dosage: (json['dosage'] as num?)?.toDouble(),
+      dosageUnit: json['dosage_unit'] as String?,
+      nextDoseTime: json['next_dose_time'] as String?,
+      startDateActivate: json['start_date_activate'] as String?,
       isChecked: json['is_checked'] as bool,
-      state: json['state'] as String,
+      state: $enumDecode(_$DrugStateEnumMap, json['state']),
+      eatingState:
+          $enumDecodeNullable(_$EatingStateEnumMap, json['eating_state']),
       userId: json['user'] as int,
       prescriptionId: json['prescription'] as int,
     );
@@ -24,8 +27,22 @@ Map<String, dynamic> _$ReminderToJson(Reminder instance) => <String, dynamic>{
       'dosage': instance.dosage,
       'dosage_unit': instance.dosageUnit,
       'next_dose_time': instance.nextDoseTime,
+      'start_date_activate': instance.startDateActivate,
       'is_checked': instance.isChecked,
-      'state': instance.state,
+      'state': _$DrugStateEnumMap[instance.state]!,
+      'eating_state': _$EatingStateEnumMap[instance.eatingState],
       'user': instance.userId,
       'prescription': instance.prescriptionId,
     };
+
+const _$DrugStateEnumMap = {
+  DrugState.NEW: 'new',
+  DrugState.ACTIVE: 'active',
+  DrugState.INACTIVE: 'inactive',
+};
+
+const _$EatingStateEnumMap = {
+  EatingState.beforeMeal: 'Before meal',
+  EatingState.afterMeal: 'After meal',
+  EatingState.none: 'None',
+};

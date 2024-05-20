@@ -73,11 +73,11 @@ class DrugCard extends StatelessWidget {
   List<Widget> _buildInstructions(BuildContext context) {
     return [
       Text(
-        'Course: ${drugInfo.course} weeks',
+        'Course: ${drugInfo.course} days',
         style: AppTextStyle.labelMedium(context),
       ),
       Text(
-        'Dose: ${drugInfo.dosage} ${drugInfo.dosageUnit}/day',
+        'Dose: ${drugInfo.dosage} ${drugInfo.dosageUnit}/${drugInfo.per} days',
         style: AppTextStyle.labelMedium(context),
       ),
       Text(

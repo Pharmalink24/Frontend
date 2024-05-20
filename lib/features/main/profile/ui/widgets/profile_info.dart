@@ -7,7 +7,7 @@ import '../../../../../core/widgets/card_container_with_title.dart';
 import '../../../../../core/models/user.dart';
 import 'dark_mode_switch.dart';
 
-const String kPlaceholderImage = '${AppPaths.images}/user_placeholder.jpg';
+const String kPlaceholderImage = '${AppPaths.placeholder}/user_placeholder.jpg';
 
 class ProfileInfo extends StatefulWidget {
   final User user;
@@ -58,6 +58,13 @@ class _ProfileInfoState extends State<ProfileInfo> {
                   color: Theme.of(context).colorScheme.primary,
                 ),
               ),
+              Text(
+                '@${cropperName(widget.user.username ?? '', length: 28)}',
+                style: AppTextStyle.bodySmall(context).copyWith(
+                  color: Theme.of(context).colorScheme.onSecondary,
+                  fontSize: 12.0,
+                ),
+              ),
             ],
           ),
         ],
@@ -69,7 +76,6 @@ class _ProfileInfoState extends State<ProfileInfo> {
   Widget build(BuildContext context) {
     return CardContainerWithTitle(
       title: AppLocalizations.of(context).translate('profile'),
-      flex: 4,
       textStyle: AppTextStyle.displaySmall(context),
       padding: const EdgeInsets.only(left: 16.0, right: 16.0, top: 16.0),
       margin: const EdgeInsets.all(0.0),

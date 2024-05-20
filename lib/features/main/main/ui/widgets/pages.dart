@@ -10,7 +10,7 @@ import '../../../home/ui/home_screen.dart';
 import '../../../prescription/ui/landing_prescription_screen.dart';
 import '../../../profile/logic/cubit/profile_cubit.dart';
 import '../../../profile/ui/profile_screen.dart';
-import '../../../reminders/logic/cubit/reminders_cubit.dart';
+import '../../../reminders/logic/reminders_cubit.dart';
 
 List<Widget> pages = [
   MultiBlocProvider(

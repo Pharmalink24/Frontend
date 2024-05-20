@@ -1,8 +1,10 @@
 import 'package:dio/dio.dart';
-import '../models/doctor.dart';
-import '../models/prescription1.dart';
-import '../models/prescription2.dart';
-import '../models/prescription_info.dart';
+import '../../features/access/sign/data/models/signin/signin_request_body.dart';
+import '../../features/access/sign/data/models/signin/signin_response.dart';
+import '../../features/main/doctors/data/models/doctor.dart';
+import '../../features/main/prescription/data/models/prescription_doctor.dart';
+import '../../features/main/prescription/data/models/prescription_drugs.dart';
+import '../../features/main/prescription/data/models/prescription_info.dart';
 import '../../features/access/auth/data/models/refresh_token_response.dart';
 import '../../features/main/reminders/models/reminder.dart';
 import '../../features/main/settings/change_password/data/models/change_password_request_body.dart';
@@ -14,16 +16,14 @@ import '../../features/main/drug_interaction/data/models/drug_interaction_reques
 import '../../features/main/drug_interaction/data/models/drug_interaction_response.dart';
 import '../models/state_request_body.dart';
 import '../models/user.dart';
-import '../models/doctor_info.dart';
+import '../../features/main/doctors/data/models/doctor_info.dart';
 import 'api_constants.dart';
 import '../../features/access/auth/data/models/refresh_token_request_body.dart';
-import '../../features/access/signup/data/models/signup_request_body.dart';
-import '../../features/access/signup/data/models/signup_response.dart';
+import '../../features/access/sign/data/models/signup/signup_request_body.dart';
+import '../../features/access/sign/data/models/signup/signup_response.dart';
 import '../../features/access/verification/data/models/verification_request_params.dart';
 import '../../features/access/verification/data/models/verification_response.dart';
 import 'package:retrofit/retrofit.dart';
-import '../../features/access/signin/data/models/signin_request_body.dart';
-import '../../features/access/signin/data/models/signin_response.dart';
 
 part 'api_service.g.dart';
 
@@ -76,15 +76,14 @@ abstract class ApiService {
 
   // Prescription
   @GET(ApiConstants.prescriptionsList1)
-  Future<List<Prescription1>> getPrescriptions1(
+  Future<List<PrescriptionDoctor>> getPrescriptionsDoctors(
     @Queries() StateRequestBody stateRequestBody,
     @Header('Authorization') String? auth,
   );
 
-
   // Prescription
   @GET(ApiConstants.prescriptionsList2)
-  Future<List<Prescription2>> getPrescriptions2(
+  Future<List<PrescriptionDrugs>> getPrescriptionsDrugs(
     @Queries() StateRequestBody stateRequestBody,
     @Header('Authorization') String? auth,
   );

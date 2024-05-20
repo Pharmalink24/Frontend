@@ -5,8 +5,7 @@ class Routes {
   static const String onBoardingScreen = '/onBoardingScreen';
 
   // Auth
-  static const String signInScreen = '/signInScreen';
-  static const String signUpScreen = '/signUpScreen';
+  static const String signScreen = '/signScreen';
   static const String verificationScreen = '/verificationScreen';
 
   // Patient
@@ -19,7 +18,7 @@ class Routes {
 
   // Edit Profile Settings
   static const String editProfileScreen = '/editProfileScreen';
-  
+
   // Change Password
   static const String changePasswordScreen = '/changePasswordScreen';
 

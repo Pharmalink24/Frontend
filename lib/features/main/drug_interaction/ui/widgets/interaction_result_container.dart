@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:pharmalink/core/theme/icons.dart';
 import '../../../../../core/theme/styles.dart';
 import '../../../../../core/widgets/card_container.dart';
 import '../../../../../core/widgets/loading/loading_indicator.dart';
@@ -36,36 +37,34 @@ class InteractionResultContainer extends StatelessWidget {
   Widget getIconStatus(BuildContext context, bool isEmpty) {
     return isEmpty
         ? Icon(
-            Icons.info,
-            size: 40,
+            Icons.info_outline_rounded,
+            size: 64,
             color: Theme.of(context).colorScheme.primary,
           )
         : Icon(
-            Icons.error_outline_sharp,
-            size: 40,
+            Icons.error_outline_rounded,
+            size: 64,
             color: Theme.of(context).colorScheme.error,
           );
   }
 
   // Get interaction result
   Widget getInteractionResult(BuildContext context, List<String> messages) {
-    return messages.isEmpty
-        ? Text(
-            AppLocalizations.of(context).translate('noInteractions'),
-            style: AppTextStyle.headlineMedium(context),
-            textAlign: TextAlign.center,
-          )
-        : ListView.builder(
-            itemBuilder: (context, index) {
-              return Text(
-                messages[index],
-                style: AppTextStyle.headlineMedium(context),
-                textAlign: TextAlign.center,
-              );
-            },
-            itemCount: messages.length,
-            shrinkWrap: true,
-          );
+    return ListView.builder(
+      itemBuilder: (context, index) {
+        return Text(
+          messages[index],
+          style: AppTextStyle.headlineMedium(context),
+          textAlign: TextAlign.center,
+        );
+      },
+      itemCount: messages.length,
+      shrinkWrap: true,
+    );
+  }
+
+  bool isThereInteraction(String message) {
+    return message == 'No interactions found';
   }
 
   Widget showSuccess(
@@ -75,7 +74,8 @@ class InteractionResultContainer extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        getIconStatus(context, interactionResult.messages.isEmpty),
+        getIconStatus(
+            context, isThereInteraction(interactionResult.messages[0])),
         const SizedBox(
           height: 16.0,
         ),
@@ -115,9 +115,9 @@ class InteractionResultContainer extends StatelessWidget {
         Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            FaIcon(
-              FontAwesomeIcons.flask,
-              size: 50,
+            Icon(
+              FFIcons.kLogoPharmaLink,
+              size: 64,
               color: Theme.of(context).colorScheme.onSecondary,
             ),
             const SizedBox(height: 16.0),

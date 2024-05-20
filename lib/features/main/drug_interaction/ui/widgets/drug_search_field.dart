@@ -67,8 +67,8 @@ class DrugSearchField extends StatelessWidget {
     return null;
   }
 
-  void selectDrug(
-      BuildContext context, TextEditingController? controller, DrugSearch drug) {
+  void selectDrug(BuildContext context, TextEditingController? controller,
+      DrugSearch drug) {
     controller?.text = drug.tradeName;
     context
         .read<DrugInteractionCubit>()

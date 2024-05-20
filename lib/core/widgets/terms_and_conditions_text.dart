@@ -8,7 +8,12 @@ class TermsAndConditionsText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 24.0),
+      padding: const EdgeInsets.only(
+        right: 16.0,
+        left: 16.0,
+        bottom: 0.0,
+        top: 24.0,
+      ),
       child: RichText(
         textAlign: TextAlign.center,
         text: TextSpan(
@@ -29,7 +34,9 @@ class TermsAndConditionsText extends StatelessWidget {
             TextSpan(
               text: AppLocalizations.of(context)
                   .translate('termsAndConditionsP3'),
-              style: AppTextStyle.labelSmall(context).copyWith(height: 1.5),
+              style: AppTextStyle.labelSmall(context).copyWith(
+                height: 2,
+              ),
             ),
             TextSpan(
               text: AppLocalizations.of(context)

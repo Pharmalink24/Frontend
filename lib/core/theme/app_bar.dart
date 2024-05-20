@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:pharmalink/core/localization/app_localizations.dart';
 import 'package:pharmalink/core/theme/colors.dart';
+import 'package:pharmalink/core/theme/icons.dart';
 import 'styles.dart';
-import '../helpers/constants/paths.dart';
 
 // App bar logo size
-const kAppBarLogoSize = 45.0;
+const kAppBarLogoSize = 36.0;
 
 // Title size
-const kAppBarTitleSize = 28.0;
+const kAppBarTitleSize = 24.0;
 
 // App bar border radius
 const kAppBarBorderRadius = 16.0;
@@ -27,6 +27,9 @@ class AppBarWidget extends StatelessWidget {
   final String? title;
   final bool automaticallyImplyLeading;
   final double titleSize;
+  final IconData? icon;
+  final void Function()? onPressed;
+  final bool isCentered;
 
   const AppBarWidget({
     super.key,
@@ -34,73 +37,69 @@ class AppBarWidget extends StatelessWidget {
     this.title,
     this.automaticallyImplyLeading = false,
     this.titleSize = kAppBarTitleSize,
+    this.icon,
+    this.onPressed,
+    this.isCentered = false,
   });
 
-  ImageIcon _buildIcon(BuildContext context) {
-    return ImageIcon(
-      const AssetImage(
-        "${AppPaths.images}/logo.png",
-      ),
-      size: kAppBarLogoSize,
+  // Build app bar icon
+  Icon _buildIcon(BuildContext context) {
+    return Icon(
+      FFIcons.kLogoPharmaLink,
       color: Theme.of(context).colorScheme.secondary,
+      size: kAppBarLogoSize,
     );
   }
 
+  // Build app bar title
   Text _buildTitle(BuildContext context) {
     return Text(
       title ?? AppLocalizations.of(context).translate("pharmalink"),
       style: AppTextStyle.titleMedium(context).copyWith(
-        fontSize: titleSize,
+        fontSize:
+            AppLocalizations.of(context).isEnLocale ? titleSize : titleSize - 4,
         color: Theme.of(context).colorScheme.secondary,
       ),
     );
   }
 
+  // Build leading icon button
+  IconButton? _buildLeading(BuildContext context) {
+    return icon != null
+        ? IconButton(
+            onPressed: onPressed ?? () => Navigator.of(context).pop(),
+            icon: Icon(
+              icon,
+              color: Theme.of(context).colorScheme.secondary,
+            ),
+          )
+        : null;
+  }
+
   // Build app bar with logo and title
-  AppBar _buildAppBarWithLogoAndTitle(BuildContext context) {
-    return AppBar(
-      automaticallyImplyLeading: automaticallyImplyLeading,
-      title: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          _buildIcon(context),
-          _buildTitle(context),
-        ],
-      ),
-    );
+  List<Widget> _buildAppBarWithLogoAndTitle(BuildContext context) {
+    return [
+      _buildIcon(context),
+      _buildTitle(context),
+    ];
   }
 
   // Build app bar without logo
-  AppBar _buildAppBarWithoutLogo(BuildContext context) {
-    return AppBar(
-      automaticallyImplyLeading: automaticallyImplyLeading,
-      title: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          _buildTitle(context),
-        ],
-      ),
-    );
+  List<Widget> _buildAppBarWithoutLogo(BuildContext context) {
+    return [
+      _buildTitle(context),
+    ];
   }
 
   // Build app bar without title
-  AppBar _buildAppBarWithoutTitle(BuildContext context) {
-    return AppBar(
-      automaticallyImplyLeading: automaticallyImplyLeading,
-      title: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          _buildIcon(context),
-        ],
-      ),
-    );
+  List<Widget> _buildAppBarWithoutTitle(BuildContext context) {
+    return [
+      _buildIcon(context),
+    ];
   }
 
-  @override
-  AppBar build(BuildContext context) {
+  // Build app bar
+  List<Widget> _buildContent(BuildContext context) {
     switch (type) {
       case AppBarType.withLogoAndTitle:
         return _buildAppBarWithLogoAndTitle(context);
@@ -109,6 +108,19 @@ class AppBarWidget extends StatelessWidget {
       case AppBarType.withoutTitle:
         return _buildAppBarWithoutTitle(context);
     }
+  }
+
+  @override
+  AppBar build(BuildContext context) {
+    return AppBar(
+      automaticallyImplyLeading: automaticallyImplyLeading,
+      title: Row(
+        mainAxisAlignment:
+            isCentered ? MainAxisAlignment.center : MainAxisAlignment.start,
+        children: _buildContent(context),
+      ),
+      leading: _buildLeading(context),
+    );
   }
 }
 
@@ -122,7 +134,7 @@ class AppBarWidgetTheme {
       shape: Border(
         bottom: BorderSide(
           color: isDark ? AppColors.darkSecondary : AppColors.secondary,
-          width: 2.0,
+          width: 1.0,
           style: BorderStyle.solid,
         ),
       ),

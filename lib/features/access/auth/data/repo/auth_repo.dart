@@ -8,7 +8,9 @@ import 'package:pharmalink/core/networking/api_service.dart';
 import 'package:pharmalink/core/shared_preferences/auth_prefs.dart';
 import 'package:pharmalink/features/access/auth/data/models/refresh_token_request_body.dart';
 import 'package:pharmalink/features/access/auth/data/models/refresh_token_response.dart';
-import 'package:pharmalink/features/access/signin/data/models/signin_response.dart';
+
+import '../../../sign/data/models/signin/signin_response.dart';
+
 
 class AuthRepo {
   final ApiService _apiService;

@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../../../core/models/doctor.dart';
+import '../../../doctors/data/models/doctor.dart';
 import '../../../../../core/widgets/app_shimmer.dart';
 import '../../../../../core/widgets/error_card.dart';
 import '../../../doctors/logic/cubit/doctors_cubit.dart';

@@ -63,7 +63,7 @@ class _RefreshTokenBlocListenerState extends State<RefreshTokenBlocListener> {
       ),
     );
     // Navigate to sign in screen
-    context.pushNamed(Routes.signInScreen);
+    context.pushNamed(Routes.signScreen);
   }
 
   void showSuccess(

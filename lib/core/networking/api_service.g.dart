@@ -195,7 +195,7 @@ class _ApiService implements ApiService {
   }
 
   @override
-  Future<List<Prescription1>> getPrescriptions1(
+  Future<List<PrescriptionDoctor>> getPrescriptionsDoctors(
     StateRequestBody stateRequestBody,
     String? auth,
   ) async {
@@ -207,7 +207,7 @@ class _ApiService implements ApiService {
     _headers.removeWhere((k, v) => v == null);
     const Map<String, dynamic>? _data = null;
     final _result = await _dio
-        .fetch<List<dynamic>>(_setStreamType<List<Prescription1>>(Options(
+        .fetch<List<dynamic>>(_setStreamType<List<PrescriptionDoctor>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -224,13 +224,14 @@ class _ApiService implements ApiService {
               baseUrl,
             ))));
     var value = _result.data!
-        .map((dynamic i) => Prescription1.fromJson(i as Map<String, dynamic>))
+        .map((dynamic i) =>
+            PrescriptionDoctor.fromJson(i as Map<String, dynamic>))
         .toList();
     return value;
   }
 
   @override
-  Future<List<Prescription2>> getPrescriptions2(
+  Future<List<PrescriptionDrugs>> getPrescriptionsDrugs(
     StateRequestBody stateRequestBody,
     String? auth,
   ) async {
@@ -242,7 +243,7 @@ class _ApiService implements ApiService {
     _headers.removeWhere((k, v) => v == null);
     const Map<String, dynamic>? _data = null;
     final _result = await _dio
-        .fetch<List<dynamic>>(_setStreamType<List<Prescription2>>(Options(
+        .fetch<List<dynamic>>(_setStreamType<List<PrescriptionDrugs>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -259,7 +260,8 @@ class _ApiService implements ApiService {
               baseUrl,
             ))));
     var value = _result.data!
-        .map((dynamic i) => Prescription2.fromJson(i as Map<String, dynamic>))
+        .map((dynamic i) =>
+            PrescriptionDrugs.fromJson(i as Map<String, dynamic>))
         .toList();
     return value;
   }

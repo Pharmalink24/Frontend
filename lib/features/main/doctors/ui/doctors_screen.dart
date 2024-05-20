@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/localization/app_localizations.dart';
-import '../../../../core/models/doctor.dart';
+import '../data/models/doctor.dart';
 import '../../../../core/theme/app_bar.dart';
 import '../../../../core/theme/styles.dart';
 import '../../../../core/widgets/card_container.dart';

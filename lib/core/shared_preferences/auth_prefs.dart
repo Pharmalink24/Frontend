@@ -4,7 +4,7 @@ import 'package:logger/logger.dart';
 import 'package:pharmalink/core/di/dependency_injection.dart';
 import 'package:pharmalink/core/networking/api_constants.dart';
 import 'package:pharmalink/core/shared_preferences/shared_preferences_service.dart';
-import 'package:pharmalink/features/access/signin/data/models/signin_response.dart';
+import 'package:pharmalink/features/access/sign/data/models/signin/signin_response.dart';
 
 abstract class AuthSharedPrefs {
   static const String _ID = "id_";

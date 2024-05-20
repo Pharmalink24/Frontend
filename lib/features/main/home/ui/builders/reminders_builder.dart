@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../core/widgets/app_shimmer.dart';
 import '../../../../../core/widgets/error_card.dart';
-import '../../../reminders/logic/cubit/reminders_state.dart';
+import '../../../reminders/logic/reminders_state.dart';
 import '../../../reminders/models/reminder.dart';
-import '../../../reminders/logic/cubit/reminders_cubit.dart';
+import '../../../reminders/logic/reminders_cubit.dart';
 import '../widgets/reminders_container.dart';
 
 const kFlex = 6;

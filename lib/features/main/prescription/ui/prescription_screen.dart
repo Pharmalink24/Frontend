@@ -1,16 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/enums/drug_state.dart';
-
 import '../../../../core/localization/app_localizations.dart';
-import '../../../../core/models/doctor_info.dart';
-import '../../../../core/models/prescription_info.dart';
+import '../../doctors/data/models/doctor_info.dart';
+import '../data/models/prescription_drugs.dart';
 import '../../../../core/theme/app_bar.dart';
 import '../../../../core/theme/styles.dart';
-import '../logic/cubit/prescription_cubit.dart';
 import 'widgets/activate_box.dart';
 import 'widgets/prescription_header_card.dart';
-import '../logic/cubit/prescription_state.dart';
 import 'widgets/drugs_list_card.dart';
 import 'widgets/ff_button_widget.dart';
 import 'widgets/deactivate_box.dart';
@@ -18,12 +14,14 @@ import 'widgets/deactivate_box.dart';
 class PrescriptionScreen extends StatefulWidget {
   final int id;
   final DoctorInfo doctor;
+  final PrescriptionDrugs drugs;
   final DrugState drugState;
 
   const PrescriptionScreen({
     super.key,
     required this.id,
     required this.doctor,
+    required this.drugs,
     required this.drugState,
   });
 
@@ -32,18 +30,7 @@ class PrescriptionScreen extends StatefulWidget {
 }
 
 class _PrescriptionScreenState extends State<PrescriptionScreen> {
-  double otherWidgetsHeight = 0.0; // Initialize with zero
-  double height = 0;
-
-  @override
-  void initState() {
-    super.initState();
-
-    // Load the prescription data
-    BlocProvider.of<PrescriptionCubit>(context).loadPrescription(widget.id);
-  }
-
-  Widget buildSuccessWidget(PrescriptionInfo prescription) {
+  Widget buildPrescriptionLayout(PrescriptionDrugs prescription) {
     return Padding(
       padding: const EdgeInsetsDirectional.symmetric(horizontal: 12.0),
       child: Column(
@@ -132,25 +119,7 @@ class _PrescriptionScreenState extends State<PrescriptionScreen> {
         automaticallyImplyLeading: true,
       ).build(context),
       body: SafeArea(
-        child: BlocBuilder<PrescriptionCubit, PrescriptionState>(
-          buildWhen: (previous, current) =>
-              current is PrescriptionLoaded ||
-              current is Loading ||
-              current is Error,
-          builder: (context, state) {
-            if (state is Loading) {
-              return const Center(
-                child: CircularProgressIndicator(),
-              );
-            } else if (state is PrescriptionLoaded) {
-              return buildSuccessWidget(state.data);
-            } else if (state is Error) {
-              return buildErrorWidget(state.message);
-            } else {
-              return const SizedBox();
-            }
-          },
-        ),
+        child: buildPrescriptionLayout(widget.drugs),
       ),
       bottomNavigationBar: _buildNavigationBar(widget.drugState),
     );

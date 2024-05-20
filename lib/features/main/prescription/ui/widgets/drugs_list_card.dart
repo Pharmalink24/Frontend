@@ -16,7 +16,6 @@ class DrugsListCard extends StatelessWidget {
       child: CardContainerWithTitle(
         title: AppLocalizations.of(context).translate('Drugs'),
         isScrollable: false,
-        flex: 12,
         child: ListView(
           children: [
             Column(

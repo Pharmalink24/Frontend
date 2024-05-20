@@ -38,7 +38,7 @@ class _DirectToState extends State<DirectTo> {
         ? context.pushReplacementNamed(Routes.mainScreen)
         : _isFirstEntry
             ? context.pushReplacementNamed(Routes.onBoardingScreen)
-            : context.pushReplacementNamed(Routes.signInScreen);
+            : context.pushReplacementNamed(Routes.signScreen);
   }
 
   @override

@@ -174,7 +174,6 @@ class _FormViewState extends State<FormView> with PostFrameMixin {
     setupDecoration();
     return Form(
       key: widget.formKey,
-      autovalidateMode: AutovalidateMode.always,
       child: ListView.builder(
         shrinkWrap: true,
         physics: const ClampingScrollPhysics(),

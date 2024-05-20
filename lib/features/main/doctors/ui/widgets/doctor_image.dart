@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pharmalink/core/theme/colors.dart'; // Todo: Remove this line
 import '../../../../../core/helpers/constants/paths.dart';
 import '../../../../../core/networking/api_constants.dart';
+import '../../../../../core/widgets/loading/loading_indicator.dart';
 
 class DoctorImage extends StatelessWidget {
   final String? image;
@@ -9,18 +10,6 @@ class DoctorImage extends StatelessWidget {
     super.key,
     this.image,
   });
-
-  Center _getLoadingIndicator(BuildContext context,ImageChunkEvent loadingProgress) {
-    return Center(
-      child: CircularProgressIndicator(
-        color: Theme.of(context).colorScheme.secondary,
-        value: loadingProgress.expectedTotalBytes != null
-            ? loadingProgress.cumulativeBytesLoaded /
-                loadingProgress.expectedTotalBytes!
-            : null,
-      ),
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -49,21 +38,22 @@ class DoctorImage extends StatelessWidget {
               child: Image.network(
                 image != null
                     ? "${ApiConstants.baseUrl}$image"
-                    : '${AppPaths.images}/doctor_placeholder.png',
+                    : '${AppPaths.placeholder}/doctor_placeholder.png',
                 width: double.infinity,
                 height: double.infinity,
                 // fit: BoxFit.scaleDown,
                 fit: BoxFit.contain,
 
                 loadingBuilder: (BuildContext context, Widget child,
-                    ImageChunkEvent? loadingProgress) {
-                  if (loadingProgress == null) return child;
-                  return _getLoadingIndicator(context, loadingProgress);
-                },
+              ImageChunkEvent? loadingProgress) {
+            return LoadingIndicator(
+              loadingProgress: loadingProgress,
+            );
+          },
                 errorBuilder: (BuildContext context, Object error,
                     StackTrace? stackTrace) {
                   return Image.asset(
-                    '${AppPaths.images}/doctor_placeholder.png',
+                    '${AppPaths.placeholder}/doctor_placeholder.png',
                   );
                 },
               ),

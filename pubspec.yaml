@@ -52,6 +52,12 @@ flutter:
     - assets/lang/
     - assets/images/
     - assets/images/introductions/
+    - assets/images/logo/
+    - assets/images/placeholder/
+    - assets/images/splash/
+    - assets/images/backgrounds/
+    - assets/images/loading/
+    - assets/images/animations/
 
   fonts:
     # Outfit Font
@@ -109,3 +115,7 @@ flutter:
         - asset: assets/fonts/ar/Cairo/Cairo-Medium.ttf
         - asset: assets/fonts/ar/Cairo/Cairo-Regular.ttf
         - asset: assets/fonts/ar/Cairo/Cairo-SemiBold.ttf
+
+    - family:  logoFont
+      fonts:
+       - asset: assets/fonts/custom/logo.ttf

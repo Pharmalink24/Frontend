@@ -50,7 +50,7 @@ class VerificationScreen extends StatelessWidget {
               FormButton(
                 text: AppLocalizations.of(context).translate('signIn'),
                 padding: EdgeInsets.zero,
-                onPressed: () => context.pushNamed(Routes.signInScreen),
+                onPressed: () => context.pushNamed(Routes.signScreen),
               ),
               VerificationBlocListener(),
             ],

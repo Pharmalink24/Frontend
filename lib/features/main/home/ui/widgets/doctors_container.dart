@@ -6,7 +6,7 @@ import '../../../../../core/routes/routes.dart';
 import '../../../../../core/theme/styles.dart';
 import '../../../../../core/widgets/text_with_icon.dart';
 import '../../../../../core/localization/app_localizations.dart';
-import '../../../../../core/models/doctor.dart';
+import '../../../doctors/data/models/doctor.dart';
 import '../../../../../core/widgets/doctor_card.dart';
 
 class DoctorsContainer extends StatelessWidget {

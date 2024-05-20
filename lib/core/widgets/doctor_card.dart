@@ -5,7 +5,8 @@ import '../helpers/extensions.dart';
 import '../networking/api_constants.dart';
 import '../routes/routes.dart';
 import '../theme/styles.dart';
-import '../models/doctor.dart';
+import '../../features/main/doctors/data/models/doctor.dart';
+import 'loading/loading_indicator.dart';
 
 class DoctorCard extends StatelessWidget {
   final Doctor doctor;
@@ -99,17 +100,18 @@ class DoctorCard extends StatelessWidget {
                       child: Image.network(
                         doctor.image != null
                             ? "${ApiConstants.baseUrl}${doctor.image}"
-                            : '${AppPaths.images}/doctor_placeholder.png',
+                            : '${AppPaths.placeholder}/doctor_placeholder.png',
                         fit: BoxFit.scaleDown,
                         loadingBuilder: (BuildContext context, Widget child,
                             ImageChunkEvent? loadingProgress) {
-                          if (loadingProgress == null) return child;
-                          return getLoadingIndicator(context, loadingProgress);
+                          return LoadingIndicator(
+                            loadingProgress: loadingProgress,
+                          );
                         },
                         errorBuilder: (BuildContext context, Object error,
                             StackTrace? stackTrace) {
                           return Image.asset(
-                            '${AppPaths.images}/doctor_placeholder.png',
+                            '${AppPaths.placeholder}/doctor_placeholder.png',
                           );
                         },
                       ),
@@ -120,19 +122,6 @@ class DoctorCard extends StatelessWidget {
             ),
           ),
         ),
-      ),
-    );
-  }
-
-  Center getLoadingIndicator(
-      BuildContext context, ImageChunkEvent loadingProgress) {
-    return Center(
-      child: CircularProgressIndicator(
-        color: Theme.of(context).colorScheme.secondary,
-        value: loadingProgress.expectedTotalBytes != null
-            ? loadingProgress.cumulativeBytesLoaded /
-                loadingProgress.expectedTotalBytes!
-            : null,
       ),
     );
   }

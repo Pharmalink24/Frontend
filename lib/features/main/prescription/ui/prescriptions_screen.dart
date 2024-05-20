@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pharmalink/core/theme/app_bar.dart';
+import 'package:pharmalink/features/main/prescription/data/models/prescription_drugs.dart';
 import '../../../../core/enums/drug_state.dart';
 import '../../../../core/helpers/extensions.dart';
 import '../../../../core/localization/app_localizations.dart';
-import '../../../../core/models/prescription1.dart';
-import '../logic/cubit/prescription_state.dart';
+import '../data/models/prescription_doctor.dart';
+import '../logic/prescription_state.dart';
 import 'widgets/doctor_prescription_card.dart';
 import '../../../../core/theme/styles.dart';
-import '../logic/cubit/prescription_cubit.dart';
+import '../logic/prescription_cubit.dart';
 
 class PrescriptionsScreen extends StatefulWidget {
   final DrugState state;
@@ -55,14 +56,16 @@ class _PrescriptionsScreenState extends State<PrescriptionsScreen> {
   }
 
   // This method is used to build the list of prescriptions
-  Widget _buildPrescriptionsList(List<Prescription1> prescriptions) {
+  Widget _buildPrescriptionsList(
+      List<PrescriptionDoctor> doctors, List<PrescriptionDrugs> drugs) {
     return ListView.builder(
       scrollDirection: Axis.vertical,
       padding: EdgeInsets.zero,
-      itemCount: prescriptions.length,
+      itemCount: doctors.length,
       itemBuilder: (context, index) {
         return DoctorPrescriptionCard(
-          prescription: prescriptions[index],
+          doctor: doctors[index],
+          drugs: drugs[index],
           state: widget.state,
         );
       },
@@ -70,10 +73,11 @@ class _PrescriptionsScreenState extends State<PrescriptionsScreen> {
   }
 
   // This method is used to build the success widget
-  Widget _buildSuccessWidget(List<Prescription1> prescriptions) {
-    return prescriptions.isEmpty
+  Widget _buildSuccessWidget(
+      List<PrescriptionDoctor> doctors, List<PrescriptionDrugs> drugs) {
+    return doctors.isEmpty
         ? _buildNoPrescriptionsFound()
-        : _buildPrescriptionsList(prescriptions);
+        : _buildPrescriptionsList(doctors, drugs);
   }
 
   // This method is used to build the error widget
@@ -105,8 +109,10 @@ class _PrescriptionsScreenState extends State<PrescriptionsScreen> {
                 child: CircularProgressIndicator(),
               );
             } else if (state is PrescriptionsLoaded) {
-              var prescriptions = state.data;
-              return _buildSuccessWidget(prescriptions);
+              var prescriptionsDoctors = state.doctors;
+              var prescriptionsDrugs = state.drugs;
+              return _buildSuccessWidget(
+                  prescriptionsDoctors, prescriptionsDrugs);
             } else if (state is Error) {
               return _buildErrorWidget(state.message);
             } else {

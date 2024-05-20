@@ -1,6 +1,8 @@
 // Flutter Packages
 import 'package:flutter/material.dart';
 
+import 'loading/loading_indicator.dart';
+
 class CircleImage extends StatelessWidget {
   final String url;
   const CircleImage({
@@ -25,22 +27,11 @@ class CircleImage extends StatelessWidget {
           fit: BoxFit.cover,
           loadingBuilder: (BuildContext context, Widget child,
               ImageChunkEvent? loadingProgress) {
-            if (loadingProgress == null) return child;
-            return getLoadingIndicator(context, loadingProgress);
+            return LoadingIndicator(
+              loadingProgress: loadingProgress,
+            );
           },
         ),
-      ),
-    );
-  }
-
-  Center getLoadingIndicator(BuildContext context,ImageChunkEvent loadingProgress) {
-    return Center(
-      child: CircularProgressIndicator(
-        color: Theme.of(context).colorScheme.secondary,
-        value: loadingProgress.expectedTotalBytes != null
-            ? loadingProgress.cumulativeBytesLoaded /
-                loadingProgress.expectedTotalBytes!
-            : null,
       ),
     );
   }

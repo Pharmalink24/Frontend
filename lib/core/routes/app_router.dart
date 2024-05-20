@@ -2,11 +2,9 @@ import "package:flutter/material.dart";
 import '../enums/drug_state.dart';
 import '../../features/access/auth/logic/cubit/auth_cubit.dart';
 import '../../features/main/doctors/ui/doctor_screen.dart';
-import '../models/drug_search.dart';
-import '../../features/main/prescription/logic/cubit/prescription_cubit.dart';
+import '../../features/main/prescription/logic/prescription_cubit.dart';
 import '../../features/main/prescription/ui/prescription_screen.dart';
 import '../../features/main/prescription/ui/prescriptions_screen.dart';
-import '../../features/main/prescription/ui/widgets/category_widget.dart';
 import '../../features/main/settings/edit_profile/logic/cubit/edit_profile_cubit.dart';
 import '../../features/main/settings/edit_profile/ui/edit_profile_screen.dart';
 import '../../features/main/settings/change_password/logic/cubit/change_password_cubit.dart';
@@ -16,15 +14,14 @@ import '../../features/main/doctors/ui/doctors_screen.dart';
 import '../di/dependency_injection.dart';
 import 'routes.dart';
 import '../../features/404/error_404_screen.dart';
-import '../../features/access/signin/logic/cubit/signin_cubit.dart';
-import '../../features/access/signup/data/models/signup_response.dart';
-import '../../features/access/signup/logic/cubit/signup_cubit.dart';
+import '../../features/access/sign/logic/signin_cubit/signin_cubit.dart';
+import '../../features/access/sign/data/models/signup/signup_response.dart';
+import '../../features/access/sign/logic/signup_cubit/signup_cubit.dart';
 import '../../features/access/verification/logic/cubit/verification_cubit.dart';
 import '../../features/on_boarding/ui/on_boarding_screen.dart';
 import '../../features/main/main/ui/main_screen.dart';
 import '../../features/splash/ui/splash_screen.dart';
-import '../../features/access/signin/ui/signin_screen.dart';
-import '../../features/access/signup/ui/signup_screen.dart';
+import '../../features/access/sign/ui/sign_screen.dart';
 import '../../features/access/verification/ui/verification_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -41,19 +38,18 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const OnBoardingScreen());
 
       // ----------------- Access (Authorization) ----------------- //
-      case Routes.signInScreen:
+      case Routes.signScreen:
         return MaterialPageRoute(
-          builder: (_) => BlocProvider(
-            create: (context) => getIt<SigninCubit>(),
-            child: const SigninScreen(),
-          ),
-        );
-
-      case Routes.signUpScreen:
-        return MaterialPageRoute(
-          builder: (_) => BlocProvider(
-            create: (context) => getIt<SignupCubit>(),
-            child: const SignupScreen(),
+          builder: (_) => MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (context) => getIt<SigninCubit>(),
+              ),
+              BlocProvider(
+                create: (context) => getIt<SignupCubit>(),
+              ),
+            ],
+            child: const SignScreen(),
           ),
         );
 
@@ -134,6 +130,7 @@ class AppRouter {
             child: PrescriptionScreen(
               id: prescription['id'],
               doctor: prescription['doctor'],
+              drugs: prescription['drugs'],
               drugState: prescription['state'],
             ),
           ),

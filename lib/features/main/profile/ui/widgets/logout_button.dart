@@ -42,8 +42,7 @@ class LogoutButton extends StatelessWidget {
                   Navigator.of(context).pop();
                   // Log out
                   AuthSharedPrefs.clearAuthData(); // Navigate to sign in screen
-                  Navigator.of(context)
-                      .pushReplacementNamed(Routes.signInScreen);
+                  Navigator.of(context).pushReplacementNamed(Routes.signScreen);
                 },
                 child: Text(
                   AppLocalizations.of(context).translate('signOut'),

@@ -50,7 +50,6 @@ class RemindersContainer extends StatelessWidget {
     return CardContainerWithTitle(
       title: AppLocalizations.of(context).translate('yourReminders'),
       isScrollable: reminders.isEmpty ? true : false,
-      flex: 6,
       iconButton: const TextWithIcon(
         icon: Icons.calendar_today_outlined,
         text: '',

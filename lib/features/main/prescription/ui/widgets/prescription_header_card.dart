@@ -6,6 +6,7 @@ import '../../../../../core/networking/api_constants.dart';
 import '../../../../../core/routes/routes.dart';
 import '../../../../../core/theme/styles.dart';
 import '../../../../../core/widgets/card_container.dart';
+import '../../../../../core/widgets/loading/loading_indicator.dart';
 
 class PrescriptionHeaderCard extends StatelessWidget {
   final int? id;
@@ -24,14 +25,54 @@ class PrescriptionHeaderCard extends StatelessWidget {
     this.time = "",
   });
 
-  Center getLoadingIndicator(BuildContext context,ImageChunkEvent loadingProgress) {
-    return Center(
-      child: CircularProgressIndicator(
-        color:Theme.of(context).colorScheme.secondary,
-        value: loadingProgress.expectedTotalBytes != null
-            ? loadingProgress.cumulativeBytesLoaded /
-                loadingProgress.expectedTotalBytes!
-            : null,
+  Widget _buildImage(BuildContext context) {
+    return Image.network(
+      "${ApiConstants.baseUrl}$doctorImage",
+      width: 70,
+      height: 70,
+      fit: BoxFit.cover,
+      loadingBuilder: (BuildContext context, Widget child,
+          ImageChunkEvent? loadingProgress) {
+        return LoadingIndicator(
+          loadingProgress: loadingProgress,
+        );
+      },
+      errorBuilder:
+          (BuildContext context, Object error, StackTrace? stackTrace) {
+        return Image.asset(
+          '${AppPaths.placeholder}/doctor_placeholder.png',
+          width: 70,
+          fit: BoxFit.fitHeight,
+        );
+      },
+    );
+  }
+
+  Widget _buildDoctorInfo(BuildContext context) {
+    return Align(
+      alignment: const AlignmentDirectional(0, 0),
+      child: Padding(
+        padding: const EdgeInsetsDirectional.fromSTEB(8, 0, 0, 0),
+        child: Column(
+          mainAxisSize: MainAxisSize.max,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Align(
+              alignment: const AlignmentDirectional(-1, 0),
+              child: Text(
+                '${AppLocalizations.of(context).translate("dr")} $doctorFirstName $doctorLastName',
+                style: AppTextStyle.titleLarge(context),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsetsDirectional.fromSTEB(0, 4, 0, 12),
+              child: Text(
+                "$date - $time",
+                style: AppTextStyle.labelMedium(context),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -45,52 +86,8 @@ class PrescriptionHeaderCard extends StatelessWidget {
           Row(
             mainAxisSize: MainAxisSize.max,
             children: [
-              Image.network(
-                doctorImage != null
-                    ? "${ApiConstants.baseUrl}$doctorImage"
-                    : '${AppPaths.images}/doctor_placeholder.png',
-                width: 70,
-                height: 70,
-                fit: BoxFit.cover,
-                loadingBuilder: (BuildContext context, Widget child,
-                    ImageChunkEvent? loadingProgress) {
-                  if (loadingProgress == null) return child;
-                  return getLoadingIndicator(context, loadingProgress);
-                },
-                errorBuilder: (BuildContext context, Object error,
-                    StackTrace? stackTrace) {
-                  return Image.asset(
-                    '${AppPaths.images}/doctor_placeholder.png',
-                  );
-                },
-              ),
-              Align(
-                alignment: const AlignmentDirectional(0, 0),
-                child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(8, 0, 0, 0),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.max,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Align(
-                        alignment: const AlignmentDirectional(-1, 0),
-                        child: Text(
-                          '${AppLocalizations.of(context).translate("dr")} $doctorFirstName $doctorLastName',
-                          style: AppTextStyle.titleLarge(context),
-                        ),
-                      ),
-                      Padding(
-                        padding:
-                            const EdgeInsetsDirectional.fromSTEB(0, 4, 0, 12),
-                        child: Text(
-                          "$date - $time",
-                          style: AppTextStyle.labelMedium(context),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
+              _buildImage(context),
+              _buildDoctorInfo(context),
             ],
           ),
         ],

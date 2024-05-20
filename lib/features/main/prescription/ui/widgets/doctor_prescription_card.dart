@@ -3,34 +3,26 @@ import 'package:flutter/material.dart';
 import 'package:pharmalink/core/enums/drug_state.dart';
 import 'package:pharmalink/core/helpers/constants/paths.dart';
 import 'package:pharmalink/core/helpers/extensions.dart';
-import 'package:pharmalink/core/models/prescription1.dart';
+import 'package:pharmalink/features/main/prescription/data/models/prescription_doctor.dart';
 import 'package:pharmalink/core/networking/api_constants.dart';
 import 'package:pharmalink/core/routes/routes.dart';
-import 'package:pharmalink/core/theme/colors.dart'; // todo: remove this import
-import 'package:pharmalink/core/theme/styles.dart';
+import 'package:pharmalink/features/main/prescription/data/models/prescription_drugs.dart';
+
+import '../../../../../core/theme/gradient.dart';
+import '../../../../../core/theme/styles.dart';
+import '../../../../../core/widgets/loading/loading_indicator.dart';
 
 class DoctorPrescriptionCard extends StatelessWidget {
-  final Prescription1 prescription;
+  final PrescriptionDoctor doctor;
+  final PrescriptionDrugs drugs;
   final DrugState state;
 
   const DoctorPrescriptionCard({
     super.key,
-    required this.prescription,
+    required this.doctor,
+    required this.drugs,
     required this.state,
   });
-
-  Center getLoadingIndicator(
-      BuildContext context, ImageChunkEvent loadingProgress) {
-    return Center(
-      child: CircularProgressIndicator(
-        color: Theme.of(context).colorScheme.secondary,
-        value: loadingProgress.expectedTotalBytes != null
-            ? loadingProgress.cumulativeBytesLoaded /
-                loadingProgress.expectedTotalBytes!
-            : null,
-      ),
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -40,8 +32,9 @@ class DoctorPrescriptionCard extends StatelessWidget {
         onTap: () => context.pushNamed(
           Routes.prescriptionScreen,
           argument: {
-            'id': prescription.id,
-            'doctor': prescription.doctorInfo,
+            'id': doctor.id,
+            'doctor': doctor.doctorInfo,
+            'drugs': drugs,
             'state': state,
           },
         ),
@@ -49,15 +42,7 @@ class DoctorPrescriptionCard extends StatelessWidget {
           width: double.infinity,
           height: 110,
           decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: [
-                Theme.of(context).colorScheme.primary,
-                AppColors.accent4,
-              ],
-              stops: const [0, 1],
-              begin: const AlignmentDirectional(1, 1),
-              end: const AlignmentDirectional(-1, -1),
-            ),
+            gradient: AppGradients.main(context),
             borderRadius: BorderRadius.circular(16),
           ),
           alignment: const AlignmentDirectional(0, 0),
@@ -69,20 +54,21 @@ class DoctorPrescriptionCard extends StatelessWidget {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(8),
                   child: Image.network(
-                    prescription.doctorInfo.image != null
-                        ? "${ApiConstants.baseUrl}${prescription.doctorInfo.image}"
-                        : '${AppPaths.images}/doctor_placeholder.png',
+                    doctor.doctorInfo.image != null
+                        ? "${ApiConstants.baseUrl}${doctor.doctorInfo.image}"
+                        : '${AppPaths.placeholder}/doctor_placeholder.png',
                     width: 89,
                     fit: BoxFit.scaleDown,
                     loadingBuilder: (BuildContext context, Widget child,
                         ImageChunkEvent? loadingProgress) {
-                      if (loadingProgress == null) return child;
-                      return getLoadingIndicator(context, loadingProgress);
+                      return LoadingIndicator(
+                        loadingProgress: loadingProgress,
+                      );
                     },
                     errorBuilder: (BuildContext context, Object error,
                         StackTrace? stackTrace) {
                       return Image.asset(
-                        '${AppPaths.images}/doctor_placeholder.png',
+                        '${AppPaths.placeholder}/doctor_placeholder.png',
                       );
                     },
                   ),
@@ -96,7 +82,7 @@ class DoctorPrescriptionCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Dr. ${prescription.doctorInfo.firstName} ${prescription.doctorInfo.lastName}',
+                      'Dr. ${doctor.doctorInfo.firstName} ${doctor.doctorInfo.lastName}',
                       style: AppTextStyle.titleMedium(context).copyWith(
                         fontSize: 20,
                       ),
@@ -105,7 +91,7 @@ class DoctorPrescriptionCard extends StatelessWidget {
                       padding:
                           const EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
                       child: Text(
-                        prescription.date,
+                        doctor.date,
                         style: AppTextStyle.titleSmall(context),
                       ),
                     ),
