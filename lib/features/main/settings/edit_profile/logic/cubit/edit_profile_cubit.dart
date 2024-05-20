@@ -16,6 +16,7 @@ class EditProfileCubit extends Cubit<EditProfileState> {
   TextEditingController phoneController = TextEditingController();
   TextEditingController birthdateController = TextEditingController();
   TextEditingController genderController = TextEditingController();
+
   final formKey = GlobalKey<FormState>();
 
   // Get user profile
@@ -66,3 +67,4 @@ class EditProfileCubit extends Cubit<EditProfileState> {
     );
   }
 }
+

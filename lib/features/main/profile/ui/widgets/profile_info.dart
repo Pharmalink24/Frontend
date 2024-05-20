@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../../../../../core/helpers/constants/paths.dart';
 import '../../../../../core/localization/app_localizations.dart';
@@ -6,43 +7,54 @@ import '../../../../../core/networking/api_constants.dart';
 import '../../../../../core/theme/styles.dart';
 import '../../../../../core/widgets/card_container_with_title.dart';
 import '../../../../../core/models/user.dart';
+import '../../logic/cubit/profile_cubit.dart';
 import 'dark_mode_switch.dart';
 
-class ProfileInfo extends StatefulWidget {
+class ProfileInfo extends StatelessWidget {
   final User user;
   const ProfileInfo({
     super.key,
     required this.user,
   });
 
-  @override
-  State<ProfileInfo> createState() => _ProfileInfoState();
-}
-
-class _ProfileInfoState extends State<ProfileInfo> {
   String cropperName(String name, {int length = 5}) {
     return name.length > length ? '${name.substring(0, length - 1)}..' : name;
   }
 
-  Widget _buildUserInfo() {
-    Image image = Image.network(
-      '${ApiConstants.baseUrl}${widget.user.image}',
+  Widget _buildProfileImage(BuildContext context) {
+    return GestureDetector(
+      onTap: () => context.read<ProfileCubit>().uploadUserImage(),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(50),
+        child: SizedBox(
+          width: 65,
+          height: 65,
+          child: user.image != null
+              ? Image.network(
+                  '${ApiConstants.baseUrl}${user.image}',
+                  width: 65,
+                  height: 65,
+                  fit: BoxFit.cover,
+                )
+              : SvgPicture.asset(
+                  user.gender == 'M'
+                      ? '${AppPaths.placeholder}/male_placeholder.svg'
+                      : '${AppPaths.placeholder}/female_placeholder.svg',
+                  width: 65,
+                  height: 65,
+                  fit: BoxFit.cover,
+                ),
+        ),
+      ),
     );
+  }
 
-    SvgPicture placeholder = SvgPicture.asset(
-      widget.user.gender == 'M'
-          ? '${AppPaths.placeholder}/male_placeholder.svg'
-          : '${AppPaths.placeholder}/female_placeholder.svg',
-      width: 65,
-      height: 65,
-      fit: BoxFit.cover,
-    );
-
+  Widget _buildUserInfo(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8.0),
       child: Row(
         children: [
-          widget.user.image != null ? image : placeholder,
+          _buildProfileImage(context),
           const SizedBox(
             width: 10,
           ),
@@ -51,18 +63,17 @@ class _ProfileInfoState extends State<ProfileInfo> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                cropperName("${widget.user.fname} ${widget.user.lname}",
-                    length: 14),
+                cropperName("${user.fname} ${user.lname}", length: 14),
                 style: AppTextStyle.headlineSmall(context),
               ),
               Text(
-                cropperName(widget.user.email!, length: 30),
+                cropperName(user.email!, length: 30),
                 style: AppTextStyle.bodySmall(context).copyWith(
                   color: Theme.of(context).colorScheme.primary,
                 ),
               ),
               Text(
-                '@${cropperName(widget.user.username ?? '', length: 28)}',
+                '@${cropperName(user.username ?? '', length: 28)}',
                 style: AppTextStyle.bodySmall(context).copyWith(
                   color: Theme.of(context).colorScheme.onSecondary,
                   fontSize: 12.0,
@@ -87,7 +98,7 @@ class _ProfileInfoState extends State<ProfileInfo> {
         children: [
           Expanded(
             flex: 4,
-            child: _buildUserInfo(),
+            child: _buildUserInfo(context),
           ),
           Divider(
             color: Theme.of(context).colorScheme.background,

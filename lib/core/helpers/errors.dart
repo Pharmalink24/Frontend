@@ -2,4 +2,5 @@
 
 class ERR {
   static const String UNEXPECTED = "An unexpected error occurred.";
+  static const String NO_IMAGE_SELECTED = "No image selected.";
 }

@@ -44,16 +44,16 @@ class HeaderBuilder extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<ProfileCubit, ProfileState>(
       buildWhen: (previous, current) =>
-          current is Loading ||
-          current is Success ||
-          current is Error,
+          current is ProfileInformationLoading ||
+          current is ProfileInformationSuccess ||
+          current is ProfileInformationError,
       builder: (context, state) {
-        if (state is Success) {
+        if (state is ProfileInformationSuccess) {
           var user = state.data;
           return buildSuccessWidget(user);
-        } else if (state is Loading) {
+        } else if (state is ProfileInformationLoading) {
           return buildLoadingWidget();
-        } else if (state is Error) {
+        } else if (state is ProfileInformationError) {
           var error = (state).error;
           return buildErrorWidget(context, error);
         } else {

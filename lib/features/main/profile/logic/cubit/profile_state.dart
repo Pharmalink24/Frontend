@@ -6,7 +6,19 @@ part 'profile_state.freezed.dart';
 class ProfileState<T> with _$ProfileState<T> {
   const factory ProfileState.initial() = _Initial;
 
-  const factory ProfileState.loading() = Loading;
-  const factory ProfileState.success(T data) = Success<T>;
-  const factory ProfileState.error({required String error}) = Error;
+  // Edit user profile image
+  const factory ProfileState.uploadProfileImageLoading() =
+      UploadProfileImageLoading;
+  const factory ProfileState.uploadProfileImageSuccess(T data) =
+      UploadProfileImageSuccess<T>;
+  const factory ProfileState.uploadProfileImageError({required String error}) =
+      UploadProfileImageError;
+
+  // Get user profile information
+  const factory ProfileState.profileInformationLoading() =
+      ProfileInformationLoading;
+  const factory ProfileState.profileInformationSuccess(T data) =
+      ProfileInformationSuccess<T>;
+  const factory ProfileState.profileInformationError({required String error}) =
+      ProfileInformationError;
 }

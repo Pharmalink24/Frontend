@@ -83,12 +83,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
   Widget build(BuildContext context) {
     return BlocBuilder<ProfileCubit, ProfileState>(
       builder: (context, state) {
-        if (state is Loading) {
+        if (state is ProfileInformationLoading) {
           return const LoadingIndicator();
-        } else if (state is Success) {
+        } else if (state is ProfileInformationSuccess) {
           final user = state.data;
           return buildProfileScreen(user);
-        } else if (state is Error) {
+        } else if (state is ProfileInformationError) {
           return buildErrorWidget(state.error);
         } else {
           return const SizedBox.shrink();

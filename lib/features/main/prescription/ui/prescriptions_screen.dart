@@ -100,20 +100,20 @@ class _PrescriptionsScreenState extends State<PrescriptionsScreen> {
       body: SafeArea(
         child: BlocBuilder<PrescriptionCubit, PrescriptionState>(
           buildWhen: (previous, current) =>
-              current is Loading ||
-              current is PrescriptionsLoaded ||
-              current is Error,
+              current is PrescriptionError ||
+              current is PrescriptionsSuccess ||
+              current is PrescriptionLoading,
           builder: (context, state) {
-            if (state is Loading) {
+            if (state is PrescriptionLoading) {
               return const Center(
                 child: CircularProgressIndicator(),
               );
-            } else if (state is PrescriptionsLoaded) {
+            } else if (state is PrescriptionsSuccess) {
               var prescriptionsDoctors = state.doctors;
               var prescriptionsDrugs = state.drugs;
               return _buildSuccessWidget(
                   prescriptionsDoctors, prescriptionsDrugs);
-            } else if (state is Error) {
+            } else if (state is PrescriptionError) {
               return _buildErrorWidget(state.message);
             } else {
               return const SizedBox();
