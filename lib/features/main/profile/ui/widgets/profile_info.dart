@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import '../../../../../core/helpers/constants/paths.dart';
 import '../../../../../core/localization/app_localizations.dart';
 import '../../../../../core/networking/api_constants.dart';
@@ -6,8 +7,6 @@ import '../../../../../core/theme/styles.dart';
 import '../../../../../core/widgets/card_container_with_title.dart';
 import '../../../../../core/models/user.dart';
 import 'dark_mode_switch.dart';
-
-const String kPlaceholderImage = '${AppPaths.placeholder}/user_placeholder.jpg';
 
 class ProfileInfo extends StatefulWidget {
   final User user;
@@ -26,20 +25,24 @@ class _ProfileInfoState extends State<ProfileInfo> {
   }
 
   Widget _buildUserInfo() {
-    ImageProvider<Object>? image = NetworkImage(
+    Image image = Image.network(
       '${ApiConstants.baseUrl}${widget.user.image}',
+    );
+
+    SvgPicture placeholder = SvgPicture.asset(
+      widget.user.gender == 'M'
+          ? '${AppPaths.placeholder}/male_placeholder.svg'
+          : '${AppPaths.placeholder}/female_placeholder.svg',
+      width: 65,
+      height: 65,
+      fit: BoxFit.cover,
     );
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8.0),
       child: Row(
         children: [
-          CircleAvatar(
-            radius: 30,
-            backgroundImage: widget.user.image != null
-                ? image
-                : const AssetImage(kPlaceholderImage),
-          ),
+          widget.user.image != null ? image : placeholder,
           const SizedBox(
             width: 10,
           ),
