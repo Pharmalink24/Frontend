@@ -7,6 +7,7 @@ import 'package:pharmalink/core/routes/routes.dart';
 import '../../../../../core/theme/styles.dart';
 
 class PrescriptionCategoryWidget extends StatelessWidget {
+  final Icon icon;
   final String title;
   final String description;
   final Color backgroundColor;
@@ -14,6 +15,7 @@ class PrescriptionCategoryWidget extends StatelessWidget {
 
   const PrescriptionCategoryWidget({
     super.key,
+    required this.icon,
     required this.title,
     required this.description,
     required this.backgroundColor,

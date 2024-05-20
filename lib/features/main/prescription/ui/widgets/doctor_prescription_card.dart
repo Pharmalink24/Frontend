@@ -61,6 +61,8 @@ class DoctorPrescriptionCard extends StatelessWidget {
                     fit: BoxFit.scaleDown,
                     loadingBuilder: (BuildContext context, Widget child,
                         ImageChunkEvent? loadingProgress) {
+                                      if (loadingProgress == null) return child;
+
                       return LoadingIndicator(
                         loadingProgress: loadingProgress,
                       );

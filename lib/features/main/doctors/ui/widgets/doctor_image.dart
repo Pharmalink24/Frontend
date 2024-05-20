@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:logger/logger.dart';
 import 'package:pharmalink/core/theme/colors.dart'; // Todo: Remove this line
 import '../../../../../core/helpers/constants/paths.dart';
 import '../../../../../core/networking/api_constants.dart';
@@ -45,11 +46,12 @@ class DoctorImage extends StatelessWidget {
                 fit: BoxFit.contain,
 
                 loadingBuilder: (BuildContext context, Widget child,
-              ImageChunkEvent? loadingProgress) {
-            return LoadingIndicator(
-              loadingProgress: loadingProgress,
-            );
-          },
+                    ImageChunkEvent? loadingProgress) {
+                  if (loadingProgress == null) return child;
+                  return LoadingIndicator(
+                    loadingProgress: loadingProgress,
+                  );
+                },
                 errorBuilder: (BuildContext context, Object error,
                     StackTrace? stackTrace) {
                   return Image.asset(

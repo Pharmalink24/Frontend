@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pharmalink/core/theme/colors.dart'; // Todo: Remove this line
+import 'package:pharmalink/core/theme/gradient.dart';
+import 'package:pharmalink/core/theme/shadow.dart';
 import '../helpers/constants/paths.dart';
 import '../helpers/extensions.dart';
 import '../networking/api_constants.dart';
@@ -43,22 +44,8 @@ class DoctorCard extends StatelessWidget {
           width: width,
           height: height,
           decoration: BoxDecoration(
-            boxShadow: [
-              BoxShadow(
-                color: Theme.of(context).colorScheme.shadow,
-                blurRadius: 5.0,
-                offset: Offset(0, 1),
-              ),
-            ],
-            gradient: LinearGradient(
-              colors: [
-                Theme.of(context).colorScheme.primary,
-                AppColors.accent4, // TODO: Add this color to the theme
-              ],
-              stops: const [0, 1],
-              begin: const AlignmentDirectional(1, 1),
-              end: const AlignmentDirectional(-1, -1),
-            ),
+            boxShadow: AppShadows.box(context),
+            gradient: AppGradients.main(context),
             borderRadius: BorderRadius.circular(16),
           ),
           child: Padding(
@@ -104,9 +91,9 @@ class DoctorCard extends StatelessWidget {
                         fit: BoxFit.scaleDown,
                         loadingBuilder: (BuildContext context, Widget child,
                             ImageChunkEvent? loadingProgress) {
+                          if (loadingProgress == null) return child;
                           return LoadingIndicator(
-                            loadingProgress: loadingProgress,
-                          );
+                              loadingProgress: loadingProgress);
                         },
                         errorBuilder: (BuildContext context, Object error,
                             StackTrace? stackTrace) {

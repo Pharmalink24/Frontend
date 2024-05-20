@@ -14,7 +14,7 @@ class LoadingIndicator extends StatelessWidget {
                 ? loadingProgress!.cumulativeBytesLoaded /
                     loadingProgress!.expectedTotalBytes!
                 : null
-            : null,
+            : 1.0,
       ),
     );
   }
