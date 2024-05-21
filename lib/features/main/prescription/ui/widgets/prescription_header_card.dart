@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../../../../../core/helpers/constants/paths.dart';
 import '../../../../../core/helpers/extensions.dart';
 import '../../../../../core/localization/app_localizations.dart';
 import '../../../../../core/networking/api_constants.dart';
@@ -7,6 +6,7 @@ import '../../../../../core/routes/routes.dart';
 import '../../../../../core/theme/styles.dart';
 import '../../../../../core/widgets/card_container.dart';
 import '../../../../../core/widgets/loading/loading_indicator.dart';
+import '../../../../../resources/resources.dart';
 
 class PrescriptionHeaderCard extends StatelessWidget {
   final int? id;
@@ -41,7 +41,7 @@ class PrescriptionHeaderCard extends StatelessWidget {
       errorBuilder:
           (BuildContext context, Object error, StackTrace? stackTrace) {
         return Image.asset(
-          '${AppPaths.placeholder}/doctor_placeholder.png',
+          Placeholders.doctorPlaceholder,
           width: 70,
           fit: BoxFit.fitHeight,
         );

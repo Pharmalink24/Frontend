@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pharmalink/core/helpers/extensions.dart';
+import 'package:pharmalink/core/theme/shadow.dart';
+import 'package:pharmalink/core/theme/styles.dart';
 import '../../../reminders/logic/reminders_cubit.dart';
 import '../../../reminders/data/models/reminder.dart';
-import '../../../../../core/theme/styles.dart';
 
-class ReminderListTile extends StatefulWidget {
+class ReminderListTile extends StatelessWidget {
   final Reminder reminder;
 
   const ReminderListTile(
@@ -12,51 +14,105 @@ class ReminderListTile extends StatefulWidget {
     super.key,
   });
 
-  @override
-  State<ReminderListTile> createState() => _ReminderListTileState();
-}
+  Widget _buildFirstRow(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text(
+          reminder.drugFirstName,
+          style: AppTextStyle.titleMedium(context).copyWith(
+            color: Theme.of(context).colorScheme.secondary,
+          ),
+        ),
+        Text(
+          '${reminder.date}',
+          style: AppTextStyle.labelSmall(context),
+        ),
+      ],
+    );
+  }
 
-class _ReminderListTileState extends State<ReminderListTile> {
-  bool isChecked = false;
+  Widget _buildSecondRow(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text(
+          '${reminder.drugRemainingName}'.crop(25),
+          style: AppTextStyle.labelSmall(context),
+        ),
+        Text(
+          '${reminder.hours}:${reminder.minute}',
+          style: AppTextStyle.labelSmall(context),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildThirdRow(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.end,
+      children: [
+        IconButton(
+          icon: const Icon(Icons.delete_outline_rounded),
+          iconSize: 20.0,
+          onPressed: () => _checkReminder(context),
+        ),
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    return CheckboxListTile(
-      value: isChecked,
-      onChanged: (value) => setState(() {
-        isChecked = value ?? false;
-        // Make reminder checked
-        BlocProvider.of<RemindersCubit>(context)
-            .makeReminderChecked(widget.reminder.id);
-        // Todo: Get reminders list
-        // BlocProvider.of<HomePageCubit>(context).getReminderList();
-      }),
-      checkboxShape:
-          RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
-      checkColor: Theme.of(context).colorScheme.tertiary,
-      activeColor: Theme.of(context).colorScheme.secondary,
-      secondary: Text(
-        "${widget.reminder.hours} : ${widget.reminder.minute}\n${widget.reminder.period}",
-        textAlign: TextAlign.center,
-        style: AppTextStyle.labelLarge(context).copyWith(
-          decoration:
-              isChecked ? TextDecoration.lineThrough : TextDecoration.none,
-        ),
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.only(
+        left: 4,
+        right: 8,
+        top: 4,
+        bottom: 0,
       ),
-      title: Text(
-        widget.reminder.drugName,
-        style: AppTextStyle.titleMedium(context).copyWith(
-          color: Theme.of(context).colorScheme.onPrimary,
-          decoration:
-              isChecked ? TextDecoration.lineThrough : TextDecoration.none,
-        ),
+      margin: const EdgeInsets.only(bottom: 12),
+      decoration: BoxDecoration(
+        color: Theme.of(context).colorScheme.background,
+        borderRadius: BorderRadius.circular(24.0),
+        boxShadow: AppShadows.box(context),
       ),
-      subtitle: Text(
-        "${widget.reminder.dosage} ${widget.reminder.dosageUnit}",
-        style: AppTextStyle.labelMedium(context).copyWith(
-          decoration:
-              isChecked ? TextDecoration.lineThrough : TextDecoration.none,
-        ),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Checkbox(
+            value: false,
+            materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+            visualDensity: VisualDensity.compact,
+            onChanged: (value) => _checkReminder(context),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20.0),
+            ),
+            side: BorderSide(
+              width: 1.0,
+              color: Theme.of(context).colorScheme.secondary,
+            ),
+          ),
+          Expanded(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                _buildFirstRow(context),
+                _buildSecondRow(context),
+                _buildThirdRow(context),
+              ],
+            ),
+          ),
+        ],
       ),
     );
+  }
+
+  void _checkReminder(BuildContext context) {
+    // Make reminder checked
+    BlocProvider.of<RemindersCubit>(context).makeReminderChecked(reminder.id);
+
+    // Get reminders list
+    BlocProvider.of<RemindersCubit>(context).getRemindersList();
   }
 }

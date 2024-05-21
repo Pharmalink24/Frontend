@@ -6,7 +6,7 @@ class AppShadows {
     return [
       BoxShadow(
         color: Theme.of(context).colorScheme.shadow,
-        blurRadius: 5.0,
+        blurRadius: 4.0,
         offset: const Offset(0, 1),
       ),
     ];

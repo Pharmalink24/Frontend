@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pharmalink/core/theme/gradient.dart';
 import 'package:pharmalink/core/theme/shadow.dart';
-import '../helpers/constants/paths.dart';
+import '../../resources/resources.dart';
 import '../helpers/extensions.dart';
 import '../networking/api_constants.dart';
 import '../routes/routes.dart';
@@ -28,10 +28,6 @@ class DoctorCard extends StatelessWidget {
     this.outerPadding = const EdgeInsetsDirectional.fromSTEB(0, 0, 16, 0),
     this.innerPadding = const EdgeInsetsDirectional.only(start: 8, end: 0),
   });
-
-  String cropperName(String name, {int length = 5}) {
-    return name.length > length ? '${name.substring(0, length - 1)}..' : name;
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -63,14 +59,14 @@ class DoctorCard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Dr. ${cropperName(doctor.firstName, length: 8)}\n${cropperName(doctor.lastName, length: 8)}',
+                        'Dr. ${doctor.firstName.crop(8)}\n${doctor.lastName.crop(8)}',
                         textAlign: TextAlign.start,
                         style: AppTextStyle.titleMedium(context).copyWith(
                           fontSize: titleFontSize,
                         ),
                       ),
                       Text(
-                        cropperName(doctor.specialty, length: 14),
+                        doctor.specialty.crop(14),
                         style: AppTextStyle.bodyMedium(context).copyWith(
                           fontSize: subTitleFontSize,
                         ),
@@ -87,7 +83,7 @@ class DoctorCard extends StatelessWidget {
                       child: Image.network(
                         doctor.image != null
                             ? "${ApiConstants.baseUrl}${doctor.image}"
-                            : '${AppPaths.placeholder}/doctor_placeholder.png',
+                            : Placeholders.doctorPlaceholder,
                         fit: BoxFit.scaleDown,
                         loadingBuilder: (BuildContext context, Widget child,
                             ImageChunkEvent? loadingProgress) {
@@ -97,9 +93,7 @@ class DoctorCard extends StatelessWidget {
                         },
                         errorBuilder: (BuildContext context, Object error,
                             StackTrace? stackTrace) {
-                          return Image.asset(
-                            '${AppPaths.placeholder}/doctor_placeholder.png',
-                          );
+                          return Image.asset(Placeholders.doctorPlaceholder);
                         },
                       ),
                     ),

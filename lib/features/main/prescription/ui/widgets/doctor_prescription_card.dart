@@ -1,7 +1,6 @@
 // Flutter Packages
 import 'package:flutter/material.dart';
 import 'package:pharmalink/core/enums/drug_state.dart';
-import 'package:pharmalink/core/helpers/constants/paths.dart';
 import 'package:pharmalink/core/helpers/extensions.dart';
 import 'package:pharmalink/features/main/prescription/data/models/prescription_doctor.dart';
 import 'package:pharmalink/core/networking/api_constants.dart';
@@ -11,6 +10,7 @@ import 'package:pharmalink/features/main/prescription/data/models/prescription_d
 import '../../../../../core/theme/gradient.dart';
 import '../../../../../core/theme/styles.dart';
 import '../../../../../core/widgets/loading/loading_indicator.dart';
+import '../../../../../resources/resources.dart';
 
 class DoctorPrescriptionCard extends StatelessWidget {
   final PrescriptionDoctor doctor;
@@ -56,12 +56,12 @@ class DoctorPrescriptionCard extends StatelessWidget {
                   child: Image.network(
                     doctor.doctorInfo.image != null
                         ? "${ApiConstants.baseUrl}${doctor.doctorInfo.image}"
-                        : '${AppPaths.placeholder}/doctor_placeholder.png',
+                        : Placeholders.doctorPlaceholder,
                     width: 89,
                     fit: BoxFit.scaleDown,
                     loadingBuilder: (BuildContext context, Widget child,
                         ImageChunkEvent? loadingProgress) {
-                                      if (loadingProgress == null) return child;
+                      if (loadingProgress == null) return child;
 
                       return LoadingIndicator(
                         loadingProgress: loadingProgress,
@@ -70,7 +70,7 @@ class DoctorPrescriptionCard extends StatelessWidget {
                     errorBuilder: (BuildContext context, Object error,
                         StackTrace? stackTrace) {
                       return Image.asset(
-                        '${AppPaths.placeholder}/doctor_placeholder.png',
+                        Placeholders.doctorPlaceholder,
                       );
                     },
                   ),

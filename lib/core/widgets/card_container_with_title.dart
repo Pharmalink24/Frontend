@@ -29,7 +29,7 @@ class CardContainerWithTitle extends StatelessWidget {
       children: [
         Text(
           title,
-          style: textStyle ?? AppTextStyle.headlineMedium(context),
+          style: textStyle ?? AppTextStyle.titleLarge(context),
         ),
         iconButton
       ],
@@ -38,7 +38,7 @@ class CardContainerWithTitle extends StatelessWidget {
 
   Widget _buildContent(BuildContext context) {
     Widget childWithPadding = Padding(
-      padding: const EdgeInsets.symmetric(vertical: 12.0),
+      padding: const EdgeInsets.symmetric(vertical: 10.0),
       child: child,
     );
 

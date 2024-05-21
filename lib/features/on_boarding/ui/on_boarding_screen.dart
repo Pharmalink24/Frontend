@@ -5,7 +5,6 @@ import '../../../core/localization/app_localizations.dart';
 
 import '../../../core/routes/routes.dart';
 import '../models/on_boarding_pages.dart';
-import '../../../core/helpers/constants/paths.dart';
 import '../../../core/theme/styles.dart';
 import 'widgets/intro_image.dart';
 import "../models/on_boarding_page.dart";
@@ -33,7 +32,7 @@ class OnBoardingScreenState extends State<OnBoardingScreen> {
               ? pageModel.body
               : pageModel.bodyInArabic,
           image:
-              IntroImage(path: '${AppPaths.introductions}/${pageModel.image}'),
+              IntroImage(path: pageModel.image),
           decoration: PageDecoration(
             titleTextStyle: AppTextStyle.headlineLarge(context).copyWith(
               fontWeight: FontWeight.w700,

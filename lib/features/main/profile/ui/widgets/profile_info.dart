@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import '../../../../../core/helpers/constants/paths.dart';
+import 'package:pharmalink/core/helpers/extensions.dart';
+import 'package:pharmalink/resources/resources.dart';
 import '../../../../../core/localization/app_localizations.dart';
 import '../../../../../core/networking/api_constants.dart';
 import '../../../../../core/theme/styles.dart';
@@ -17,10 +18,6 @@ class ProfileInfo extends StatelessWidget {
     super.key,
     required this.user,
   });
-
-  String cropperName(String name, {int length = 5}) {
-    return name.length > length ? '${name.substring(0, length - 1)}..' : name;
-  }
 
   Widget _buildProfileImage(BuildContext context) {
     return GestureDetector(
@@ -39,8 +36,8 @@ class ProfileInfo extends StatelessWidget {
                 )
               : SvgPicture.asset(
                   user.gender == 'M'
-                      ? '${AppPaths.placeholder}/male_placeholder.svg'
-                      : '${AppPaths.placeholder}/female_placeholder.svg',
+                      ? Placeholders.malePlaceholder
+                      : Placeholders.femalePlaceholder,
                   width: 65,
                   height: 65,
                   fit: BoxFit.cover,
@@ -64,17 +61,17 @@ class ProfileInfo extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                cropperName("${user.fname} ${user.lname}", length: 14),
+                "${user.fname} ${user.lname}".crop(14),
                 style: AppTextStyle.headlineSmall(context),
               ),
               Text(
-                cropperName(user.email!, length: 30),
+                user.email!.crop(30),
                 style: AppTextStyle.bodySmall(context).copyWith(
                   color: Theme.of(context).colorScheme.primary,
                 ),
               ),
               Text(
-                '@${cropperName(user.username ?? '', length: 28)}',
+                '@${(user.username ?? '').crop(28)}',
                 style: AppTextStyle.bodySmall(context).copyWith(
                   color: Theme.of(context).colorScheme.onSecondary,
                   fontSize: 12.0,

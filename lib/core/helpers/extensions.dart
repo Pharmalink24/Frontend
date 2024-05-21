@@ -47,4 +47,8 @@ extension StringExtension on String {
   String capitalize() {
     return "${this[0].toUpperCase()}${this.substring(1).toLowerCase()}";
   }
+
+  String crop(int length) {
+    return this.length > length ? '${substring(0, length - 1)}..' : this;
+  }
 }

@@ -1,3 +1,5 @@
+import 'package:pharmalink/resources/resources.dart';
+
 import 'on_boarding_page.dart';
 
 List<OnBoardingPageModel> onBoardingPages = [
@@ -8,7 +10,7 @@ List<OnBoardingPageModel> onBoardingPages = [
         "Patients cant track prescriptions, contact their physicians, and get medication reminders.",
     bodyInArabic:
         "يمكن للمرضى تتبع وصفاتهم الطبية، التواصل مع أطبائهم، والحصول على تذكيرات بالأدوية.",
-    image: "image (1).png",
+    image: Introductions.image1_,
   ),
   OnBoardingPageModel(
     title: "Real-Time Drug Interaction Alerts.",
@@ -17,7 +19,7 @@ List<OnBoardingPageModel> onBoardingPages = [
         "Physicians get alerted about possible risky interactions as the medications are prescribed.",
     bodyInArabic:
         "يتم تنبيه الأطباء بشأن التفاعلات الدوائية المحتملة الخطرة عندما يتم وصف الأدوية.",
-    image: "image (2).png",
+    image: Introductions.image2_,
   ),
   OnBoardingPageModel(
     title: "100% Digital Prescription System.",
@@ -26,7 +28,7 @@ List<OnBoardingPageModel> onBoardingPages = [
         "Paper-and-pen prescriptions are totally eliminated and replaced by a greener, more reliable, and more readable alternative.",
     bodyInArabic:
         "يتم الاستغناء التام عن وصفات الورق والقلم واستبدالها ببديل أكثر خضرة، موثوقية، وقابلية للقراءة.",
-    image: "image (3).png",
+    image: Introductions.image3_,
   ),
   OnBoardingPageModel(
     title: "Cloud-Based Operation.",
@@ -35,6 +37,6 @@ List<OnBoardingPageModel> onBoardingPages = [
         "PharmaLink requires no installation and a very minimal learning curve to get physicians started.",
     bodyInArabic:
         "لا يتطلب فارمالينك تثبيتًا ويتطلب منحنى تعليمي بسيط جدًا لبدء استخدام الأطباء.",
-    image: "image (4).png",
+    image: Introductions.image4_
   ),
 ];

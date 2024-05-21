@@ -21,11 +21,12 @@ class TextWithIcon extends StatelessWidget {
         children: [
           Text(
             text,
-            style: AppTextStyle.bodyMedium(context),
+            style: AppTextStyle.bodySmall(context),
           ),
           const SizedBox(width: 4.0), // SizedBox(
           Icon(
             icon,
+            size: 20,
             color: Theme.of(context).colorScheme.secondary,
           ),
         ],

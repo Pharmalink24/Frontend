@@ -4,7 +4,7 @@ import 'package:pharmalink/core/theme/colors.dart'; // Todo: Remove this line
 import '../../../../../core/theme/styles.dart';
 import '../../../../../core/localization/app_localizations.dart';
 
-const kFontSize = 30.0;
+const kFontSize = 22.0;
 
 class WelcomeNameText extends StatelessWidget {
   final String fname;

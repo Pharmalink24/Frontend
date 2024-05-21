@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:pharmalink/resources/resources.dart';
 import 'dart:convert' show json;
 import 'app_localizations_delegate.dart';
-import '../helpers/constants/paths.dart';
 
 class AppLocalizations {
   final Locale locale;
@@ -20,8 +20,14 @@ class AppLocalizations {
   Map<String, String> _localizedStrings;
 
   Future<void> load() async {
-    String jsonString =
-        await rootBundle.loadString('${AppPaths.languages}/${locale.languageCode}.json');
+    late String jsonString;
+
+    if (locale.languageCode == 'en') {
+      jsonString = await rootBundle.loadString(Languages.en);
+    }else{
+      jsonString = await rootBundle.loadString(Languages.ar);
+    }
+
     Map<String, dynamic> jsonMap = json.decode(jsonString);
     _localizedStrings = jsonMap.map<String, String>((key, value) {
       return MapEntry(key, value.toString());

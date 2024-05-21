@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:logger/logger.dart';
 import 'package:pharmalink/core/theme/colors.dart'; // Todo: Remove this line
-import '../../../../../core/helpers/constants/paths.dart';
+import 'package:pharmalink/resources/resources.dart';
 import '../../../../../core/networking/api_constants.dart';
 import '../../../../../core/widgets/loading/loading_indicator.dart';
 
@@ -39,7 +38,7 @@ class DoctorImage extends StatelessWidget {
               child: Image.network(
                 image != null
                     ? "${ApiConstants.baseUrl}$image"
-                    : '${AppPaths.placeholder}/doctor_placeholder.png',
+                    : Placeholders.doctorPlaceholder,
                 width: double.infinity,
                 height: double.infinity,
                 // fit: BoxFit.scaleDown,
@@ -55,7 +54,7 @@ class DoctorImage extends StatelessWidget {
                 errorBuilder: (BuildContext context, Object error,
                     StackTrace? stackTrace) {
                   return Image.asset(
-                    '${AppPaths.placeholder}/doctor_placeholder.png',
+                    Placeholders.doctorPlaceholder,
                   );
                 },
               ),

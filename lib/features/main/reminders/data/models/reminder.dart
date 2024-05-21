@@ -51,6 +51,30 @@ class Reminder {
         : null;
   }
 
+  // ----------------- Drug Name ----------------- //
+
+  get drugFirstName => drugName.split(' ').first;
+
+  get drugRemainingName {
+    final drugNameList = drugName.split(' ');
+    drugNameList.removeAt(0);
+    return drugNameList.join(' ');
+  }
+
+  // ----------------- Date ----------------- //
+
+  get dayOfDate => getNextDoseTime()?.day;
+  get monthOfDate => getNextDoseTime()?.month;
+
+  get date {
+    // Return the date in the format of 'dd MMM'
+    return "${dayOfDate.toString().padLeft(2, '0')}"
+        "/"
+        "${monthOfDate.toString().padLeft(2, '0')}";
+  }
+
+  // ----------------- Time ----------------- //
+
   get hours => getNextDoseTime()?.hour.toString().padLeft(2, '0');
 
   get minute => getNextDoseTime()?.minute.toString().padLeft(2, '0');
