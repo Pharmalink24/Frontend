@@ -7,6 +7,7 @@ class Routes {
   // Auth
   static const String signScreen = '/signScreen';
   static const String verificationScreen = '/verificationScreen';
+  static const String forgetPasswordScreen = '/forgetPasswordScreen';
 
   // Patient
   static const String mainScreen = '/mainScreen';

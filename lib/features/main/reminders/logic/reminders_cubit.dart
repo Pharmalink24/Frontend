@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import '../../../../core/helpers/errors.dart';
-import '../repo/reminders_repo.dart';
+import '../data/repo/reminders_repo.dart';
 import 'reminders_state.dart';
 
 class RemindersCubit extends Cubit<RemindersState> {

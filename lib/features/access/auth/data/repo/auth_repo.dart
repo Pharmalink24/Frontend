@@ -25,6 +25,14 @@ class AuthRepo {
     }
   }
 
+  Future<void> logout() async {
+    try {
+      await _apiService.logout(AuthSharedPrefs.getAccessToken());
+    } catch (error) {
+      getIt<Logger>().e(error);
+    }
+  }
+
   Future<void> clearAuthData() async {
     try {
       await AuthSharedPrefs.clearAuthData();

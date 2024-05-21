@@ -7,7 +7,7 @@ import '../../../../core/theme/styles.dart';
 import '../../../../core/widgets/card_container.dart';
 import '../../../../core/widgets/doctor_card.dart';
 import '../../../../core/widgets/loading/loading_indicator.dart';
-import '../../profile/logic/cubit/profile_cubit.dart';
+import '../../profile/logic/profile_cubit/profile_cubit.dart';
 
 import '../logic/cubit/doctors_cubit.dart';
 import '../logic/cubit/doctors_state.dart';

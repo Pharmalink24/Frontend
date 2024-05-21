@@ -5,7 +5,7 @@ class LoadingOverlay {
   final Duration hideTime;
 
   LoadingOverlay({
-    this.hideTime = const Duration(seconds: 2),
+    this.hideTime = const Duration(seconds: 10),
   });
 
   void show(BuildContext context) {

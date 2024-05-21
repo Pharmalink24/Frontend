@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../core/models/user.dart';
 import '../../../../../core/widgets/app_shimmer.dart';
 import '../../../../../core/widgets/error_card.dart';
-import '../../../profile/logic/cubit/profile_cubit.dart';
-import '../../../profile/logic/cubit/profile_state.dart';
+import '../../../profile/logic/profile_cubit/profile_cubit.dart';
+import '../../../profile/logic/profile_cubit/profile_state.dart';
 import '../widgets/welcome_name_text.dart';
 
 const kFlex = 1;

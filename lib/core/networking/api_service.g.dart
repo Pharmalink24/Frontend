@@ -49,6 +49,32 @@ class _ApiService implements ApiService {
   }
 
   @override
+  Future<void> logout(String? auth) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{r'Authorization': auth};
+    _headers.removeWhere((k, v) => v == null);
+    const Map<String, dynamic>? _data = null;
+    await _dio.fetch<void>(_setStreamType<void>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+        .compose(
+          _dio.options,
+          'user/logout/',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(
+            baseUrl: _combineBaseUrls(
+          _dio.options.baseUrl,
+          baseUrl,
+        ))));
+  }
+
+  @override
   Future<RefreshTokenResponse> refreshToken(
       RefreshTokenRequestBody refreshTokenRequestBody) async {
     final _extra = <String, dynamic>{};
@@ -131,6 +157,35 @@ class _ApiService implements ApiService {
               baseUrl,
             ))));
     final value = VerificationResponse.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<Message> forgetPassword(
+      ForgetPasswordRequestBody forgetPasswordRequestBody) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(forgetPasswordRequestBody.toJson());
+    final _result =
+        await _dio.fetch<Map<String, dynamic>>(_setStreamType<Message>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'user/password/reset/',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    final value = Message.fromJson(_result.data!);
     return value;
   }
 
@@ -496,7 +551,7 @@ class _ApiService implements ApiService {
 
   @override
   Future<User> updateUserImage(
-    ProfileImage image,
+    File image,
     String? auth,
   ) async {
     final _extra = <String, dynamic>{};
@@ -507,14 +562,20 @@ class _ApiService implements ApiService {
       r'Authorization': auth,
     };
     _headers.removeWhere((k, v) => v == null);
-    final _data = <String, dynamic>{};
-    _data.addAll(image.toJson());
+    final _data = FormData();
+    _data.files.add(MapEntry(
+      'image',
+      MultipartFile.fromFileSync(
+        image.path,
+        filename: image.path.split(Platform.pathSeparator).last,
+      ),
+    ));
     final _result =
         await _dio.fetch<Map<String, dynamic>>(_setStreamType<User>(Options(
       method: 'PATCH',
       headers: _headers,
       extra: _extra,
-      contentType: 'application/json',
+      contentType: 'multipart/form-data',
     )
             .compose(
               _dio.options,

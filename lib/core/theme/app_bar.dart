@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pharmalink/core/helpers/extensions.dart';
 import 'package:pharmalink/core/localization/app_localizations.dart';
 import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/theme/icons.dart';
@@ -67,7 +68,7 @@ class AppBarWidget extends StatelessWidget {
   IconButton? _buildLeading(BuildContext context) {
     return icon != null
         ? IconButton(
-            onPressed: onPressed ?? () => Navigator.of(context).pop(),
+            onPressed: onPressed ?? () => context.pop(),
             icon: Icon(
               icon,
               color: Theme.of(context).colorScheme.secondary,

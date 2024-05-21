@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../../../../../core/theme/styles.dart';
 import '../../../../../core/widgets/card_container_with_title.dart';
 import '../../../../../core/widgets/text_with_icon.dart';
-import '../../../reminders/models/reminder.dart';
+import '../../../reminders/data/models/reminder.dart';
 import '../../../../../core/localization/app_localizations.dart';
 import 'reminder_list_tile.dart';
 

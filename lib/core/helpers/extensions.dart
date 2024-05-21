@@ -17,6 +17,10 @@ extension Navigation on BuildContext {
   }
 
   void pop() => Navigator.of(this).pop();
+
+  void popUntil(String routeName) {
+    Navigator.of(this).popUntil(ModalRoute.withName(routeName));
+  }
 }
 
 extension StringTime on TimeOfDay {

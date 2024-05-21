@@ -1,4 +1,6 @@
 import "package:flutter/material.dart";
+import '../../features/access/forget_password/logic/forget_password_cubit.dart';
+import '../../features/access/forget_password/ui/forget_password_screen.dart';
 import '../enums/drug_state.dart';
 import '../../features/access/auth/logic/cubit/auth_cubit.dart';
 import '../../features/main/doctors/ui/doctor_screen.dart';
@@ -65,13 +67,18 @@ class AppRouter {
           ),
         );
 
+        case Routes.forgetPasswordScreen:
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<ForgetPasswordCubit>(),
+            child: const ForgetPasswordScreen(),
+          ),
+        );
+
       // ----------------- Main ----------------- //
       case Routes.mainScreen:
         return MaterialPageRoute(
-          builder: (_) => BlocProvider(
-            create: (context) => getIt<AuthCubit>(),
-            child: const MainScreen(),
-          ),
+          builder: (_) => const MainScreen(),
         );
 
       case Routes.editProfileScreen:

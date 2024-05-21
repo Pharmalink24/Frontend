@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:pharmalink/core/helpers/extensions.dart';
 
+import '../../../../../core/routes/routes.dart';
 import '../../../../../core/theme/styles.dart';
 import '../../../../../core/localization/app_localizations.dart';
 
@@ -15,7 +17,7 @@ class ForgetPasswordText extends StatelessWidget {
       child: Align(
         alignment: AlignmentDirectional.bottomEnd,
         child: GestureDetector(
-          onTap: () {},
+          onTap: () => context.pushNamed(Routes.forgetPasswordScreen),
           child: Text(
             AppLocalizations.of(context).translate('forgetPassword'),
             style: AppTextStyle.labelMedium(context).copyWith(

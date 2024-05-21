@@ -7,6 +7,8 @@ class ApiConstants {
   static const signUp = "user/signup/";
   static const sendVerification = "user/resend-email-verification/";
   static const refreshToken = "user/refresh-token/";
+  static const logout = "user/logout/";
+  static const forgetPassword = "user/password/reset/";
 
   // Drug Interaction & Search API
   static const searchDrugFromDrugEye = "Prescription/drug_search/";

@@ -7,7 +7,8 @@ import '../../../../../core/networking/api_constants.dart';
 import '../../../../../core/theme/styles.dart';
 import '../../../../../core/widgets/card_container_with_title.dart';
 import '../../../../../core/models/user.dart';
-import '../../logic/cubit/profile_cubit.dart';
+import '../../../settings/edit_profile/logic/cubit/edit_profile_cubit.dart';
+import 'change_image_listener.dart';
 import 'dark_mode_switch.dart';
 
 class ProfileInfo extends StatelessWidget {
@@ -23,7 +24,7 @@ class ProfileInfo extends StatelessWidget {
 
   Widget _buildProfileImage(BuildContext context) {
     return GestureDetector(
-      onTap: () => context.read<ProfileCubit>().uploadUserImage(),
+      onTap: () async => context.read<EditProfileCubit>().uploadUserImage(),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(50),
         child: SizedBox(
@@ -107,6 +108,7 @@ class ProfileInfo extends StatelessWidget {
             flex: 2,
             child: DarkModeSwitch(),
           ),
+          ChangeImageListener(),
         ],
       ),
     );

@@ -4,7 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../../core/localization/app_localizations.dart';
 import '../../../../../../core/widgets/form/form_button.dart';
 import '../../../../../../core/widgets/form/form_view.dart';
-import '../../../../../../core/widgets/terms_and_conditions_text.dart';
 import '../../../data/models/signin/signin_fields.dart';
 import '../../../logic/signin_cubit/signin_cubit.dart';
 import '../forget_password_text.dart';

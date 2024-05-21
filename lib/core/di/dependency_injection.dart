@@ -1,6 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:logger/logger.dart';
+import '../../features/access/forget_password/data/repo/forget_password_repo.dart';
+import '../../features/access/forget_password/logic/forget_password_cubit.dart';
 import '../../features/main/doctors/data/repo/doctors_repo.dart';
 import '../../features/main/doctors/logic/cubit/doctors_cubit.dart';
 import '../../features/main/drug_interaction/data/repo/drug_interaction_repo.dart';
@@ -8,9 +10,9 @@ import '../../features/main/drug_interaction/logic/cubit/drug_interaction_cubit.
 import '../../features/main/prescription/data/repo/prescription_repo.dart';
 import '../../features/main/prescription/logic/prescription_cubit.dart';
 import '../../features/main/profile/data/repo/profile_repo.dart';
-import '../../features/main/profile/logic/cubit/profile_cubit.dart';
+import '../../features/main/profile/logic/profile_cubit/profile_cubit.dart';
 import '../../features/main/reminders/logic/reminders_cubit.dart';
-import '../../features/main/reminders/repo/reminders_repo.dart';
+import '../../features/main/reminders/data/repo/reminders_repo.dart';
 import '../../features/main/settings/edit_profile/data/repo/edit_profile_repo.dart';
 import '../../features/main/settings/edit_profile/logic/cubit/edit_profile_cubit.dart';
 import '../../features/main/settings/change_password/data/repo/change_password_repo.dart';
@@ -54,6 +56,12 @@ Future<void> setupGetIt() async {
       .registerLazySingleton<VerificationRepo>(() => VerificationRepo(getIt()));
   getIt.registerFactory<VerificationCubit>(() => VerificationCubit(getIt()));
 
+  // Forgot Password
+  getIt.registerLazySingleton<ForgetPasswordRepo>(
+      () => ForgetPasswordRepo(getIt()));
+  getIt.registerFactory<ForgetPasswordCubit>(
+      () => ForgetPasswordCubit(getIt()));
+
   //-------------------- MAIN --------------------//
 
   // Home Page
@@ -70,7 +78,7 @@ Future<void> setupGetIt() async {
   //-------------------- SETTINGS & PROFILE --------------------//
   // Profile Information
   getIt.registerLazySingleton<ProfileRepo>(() => ProfileRepo(getIt()));
-  getIt.registerFactory<ProfileCubit>(() => ProfileCubit(getIt(), getIt()));
+  getIt.registerFactory<ProfileCubit>(() => ProfileCubit(getIt()));
 
   // Edit Profile
   getIt.registerLazySingleton<EditProfileRepo>(() => EditProfileRepo(getIt()));

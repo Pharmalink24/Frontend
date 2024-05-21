@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pharmalink/features/main/doctors/logic/cubit/doctors_cubit.dart';
 import 'package:pharmalink/features/main/home/ui/builders/header_builder.dart';
 import 'package:pharmalink/features/main/home/ui/builders/reminders_builder.dart';
-import 'package:pharmalink/features/main/profile/logic/cubit/profile_cubit.dart';
+import 'package:pharmalink/features/main/profile/logic/profile_cubit/profile_cubit.dart';
 import 'package:pharmalink/features/main/reminders/logic/reminders_cubit.dart';
 
 import 'builders/doctors_builder.dart';

@@ -37,14 +37,9 @@ class AuthCubit extends Cubit<AuthState> {
   }
 
   void logout() async {
-    // Loading until sign out
-    emit(const AuthState.loading());
-
     // Clear Authorization data
+    await _authRepo.logout();
     await _authRepo.clearAuthData();
-
-    // Emit success
-    emit(const AuthState.success(null));
   }
 
 }

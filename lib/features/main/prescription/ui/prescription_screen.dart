@@ -6,6 +6,7 @@ import '../data/models/prescription_drugs.dart';
 import '../../../../core/theme/app_bar.dart';
 import '../../../../core/theme/styles.dart';
 import 'widgets/activate_box.dart';
+import 'widgets/drug_state_listener.dart';
 import 'widgets/prescription_header_card.dart';
 import 'widgets/drugs_list_card.dart';
 import 'widgets/ff_button_widget.dart';
@@ -42,12 +43,13 @@ class PrescriptionScreen extends StatelessWidget {
             prescriptionId: id,
             drugs: prescription.drugs,
           ),
+          DrugStateListener(state: drugState)
         ],
       ),
     );
   }
 
-  Widget? _buildNavigationBar(BuildContext context,DrugState drugState) {
+  Widget? _buildNavigationBar(BuildContext context, DrugState drugState) {
     // Check if the drug is inactive
     if (drugState == DrugState.INACTIVE) {
       return null;

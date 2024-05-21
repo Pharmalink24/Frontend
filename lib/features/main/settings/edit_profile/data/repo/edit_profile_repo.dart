@@ -1,4 +1,6 @@
 // import 'package:pharmalink/core/models/user.dart';
+import 'dart:io';
+
 import 'package:logger/logger.dart';
 import 'package:pharmalink/core/di/dependency_injection.dart';
 import 'package:pharmalink/core/models/profile_image.dart';
@@ -38,7 +40,7 @@ class EditProfileRepo {
     }
   }
 
-  Future<ApiResult<User>> editProfileImage(ProfileImage image) async {
+  Future<ApiResult<User>> editProfileImage(File image) async {
     try {
       final response = await _apiService.updateUserImage(
         image,

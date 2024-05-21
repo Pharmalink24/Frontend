@@ -5,6 +5,18 @@
     
     "welcomeToPharmalink": "مرحبًا بكم في فارما لينك، حيث يمكنك إدارة روشتاتك!",
     "forgetPassword": "هل نسيت كلمة المرور؟",
+    "dontHaveAccount": "ليس لديك حساب؟",
+    "alreadyHaveAccount": "هل لديك حساب؟",
+    "createAccount": "إنشاء حساب",
+    "forgetYourPasswordDesc": "أدخل عنوان بريدك الإلكتروني وسنرسل لك رابطًا لإعادة تعيين كلمة المرور الخاصة بك.",
+
+
+    "email": "البريد الإلكتروني",
+    "password": "كلمة المرور",
+    "newPassword": "كلمة المرور الجديدة",
+    "currentPassword": "كلمة المرور الحالية",
+    "confirmPassword": "تأكيد كلمة المرور",
+
 
     "termsAndConditionsP1": "بتسجيلك، أنت توافق على ",
     "termsAndConditionsP2": "الشروط والأحكام ",
@@ -119,5 +131,7 @@
     "about": "عن",
     "no_info": "لا توجد معلومات",
     "chat": "الدردشة"
+
+    
 
 }

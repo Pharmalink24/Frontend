@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../reminders/logic/reminders_cubit.dart';
-import '../../../reminders/models/reminder.dart';
+import '../../../reminders/data/models/reminder.dart';
 import '../../../../../core/theme/styles.dart';
 
 class ReminderListTile extends StatefulWidget {

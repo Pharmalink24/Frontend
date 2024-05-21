@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pharmalink/core/di/dependency_injection.dart';
+import 'package:pharmalink/core/helpers/extensions.dart';
 import 'package:pharmalink/core/widgets/form/form_button.dart';
 import '../../../../../core/localization/app_localizations.dart';
 import '../../../../../core/routes/routes.dart';
 import '../../../../../core/shared_preferences/auth_prefs.dart';
 import '../../../../../core/theme/styles.dart';
+import '../../../../access/auth/logic/cubit/auth_cubit.dart';
 
 class LogoutButton extends StatelessWidget {
   const LogoutButton({
@@ -29,7 +33,7 @@ class LogoutButton extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               TextButton(
-                onPressed: () => Navigator.of(context).pop(),
+                onPressed: () => context.pop(),
                 child: Text(
                   AppLocalizations.of(context).translate('cancel'),
                   style: AppTextStyle.titleSmall(context),
@@ -39,10 +43,10 @@ class LogoutButton extends StatelessWidget {
               TextButton(
                 onPressed: () async {
                   // Close dialog
-                  Navigator.of(context).pop();
+                  context.pop();
                   // Log out
-                  AuthSharedPrefs.clearAuthData(); // Navigate to sign in screen
-                  Navigator.of(context).pushReplacementNamed(Routes.signScreen);
+                  context.read<AuthCubit>().logout();
+                  context.pushReplacementNamed(Routes.signScreen);
                 },
                 child: Text(
                   AppLocalizations.of(context).translate('signOut'),

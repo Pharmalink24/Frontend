@@ -1,5 +1,8 @@
+import 'dart:io';
+
 import 'package:dio/dio.dart' hide Headers;
 import 'package:pharmalink/core/models/profile_image.dart';
+import '../../features/access/auth/data/models/forget_password_request_body.dart';
 import '../../features/access/sign/data/models/signin/signin_request_body.dart';
 import '../../features/access/sign/data/models/signin/signin_response.dart';
 import '../../features/main/doctors/data/models/doctor.dart';
@@ -7,7 +10,7 @@ import '../../features/main/prescription/data/models/prescription_doctor.dart';
 import '../../features/main/prescription/data/models/prescription_drugs.dart';
 import '../../features/main/prescription/data/models/prescription_info.dart';
 import '../../features/access/auth/data/models/refresh_token_response.dart';
-import '../../features/main/reminders/models/reminder.dart';
+import '../../features/main/reminders/data/models/reminder.dart';
 import '../../features/main/settings/change_password/data/models/change_password_request_body.dart';
 import '../../features/main/settings/change_password/data/models/change_password_response.dart';
 import 'package:retrofit/http.dart';
@@ -41,6 +44,12 @@ abstract class ApiService {
     @Body() SigninRequestBody signinRequestBody,
   );
 
+  // Logout
+  @POST(ApiConstants.logout)
+  Future<void> logout(
+    @Header('Authorization') String? auth,
+  );
+
   // Refresh Token
   @POST(ApiConstants.refreshToken)
   Future<RefreshTokenResponse> refreshToken(
@@ -57,6 +66,12 @@ abstract class ApiService {
   @POST(ApiConstants.sendVerification)
   Future<VerificationResponse> resendVerification(
     @Queries() VerificationRequestParams verificationRequestParams,
+  );
+
+  // Forget Password
+  @POST(ApiConstants.forgetPassword)
+  Future<Message> forgetPassword(
+    @Body() ForgetPasswordRequestBody forgetPasswordRequestBody,
   );
 
   //-------------------- Reminder --------------------//
@@ -150,8 +165,9 @@ abstract class ApiService {
   @Headers(<String, dynamic>{
     'Content-Type': 'application/json',
   })
+  @MultiPart()
   Future<User> updateUserImage(
-    @Body() ProfileImage image,
+    @Part() File image,
     @Header('Authorization') String? auth,
   );
 

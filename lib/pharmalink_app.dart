@@ -10,6 +10,8 @@ import 'package:pharmalink/core/localization/app_localizations_setup.dart';
 import 'package:pharmalink/core/routes/app_router.dart';
 import 'package:pharmalink/core/routes/routes.dart';
 
+import 'features/access/auth/logic/cubit/auth_cubit.dart';
+
 class PharmalinkApp extends StatelessWidget {
   final AppRouter appRouter;
 
@@ -25,6 +27,9 @@ class PharmalinkApp extends StatelessWidget {
         BlocProvider(
           create: (context) => getIt<ThemeCubit>(),
         ),
+        BlocProvider(
+          create: (context) => getIt<AuthCubit>(),
+        )
       ],
       child: BlocBuilder<LocaleCubit, LocaleState>(
         buildWhen: (previousState, currentState) =>
