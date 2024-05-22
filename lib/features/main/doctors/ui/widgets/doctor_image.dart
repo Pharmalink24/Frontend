@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:pharmalink/core/theme/colors.dart'; // Todo: Remove this line
 import 'package:pharmalink/resources/resources.dart';
@@ -35,28 +36,24 @@ class DoctorImage extends StatelessWidget {
           child: Align(
             child: ClipRRect(
               borderRadius: BorderRadius.circular(16),
-              child: Image.network(
-                image != null
-                    ? "${ApiConstants.baseUrl}$image"
-                    : Placeholders.doctorPlaceholder,
+              child: CachedNetworkImage(
                 width: double.infinity,
                 height: double.infinity,
-                // fit: BoxFit.scaleDown,
+                imageUrl: "${ApiConstants.baseUrl}$image",
                 fit: BoxFit.contain,
-
-                loadingBuilder: (BuildContext context, Widget child,
-                    ImageChunkEvent? loadingProgress) {
-                  if (loadingProgress == null) return child;
-                  return LoadingIndicator(
-                    loadingProgress: loadingProgress,
-                  );
-                },
-                errorBuilder: (BuildContext context, Object error,
-                    StackTrace? stackTrace) {
-                  return Image.asset(
-                    Placeholders.doctorPlaceholder,
-                  );
-                },
+                imageBuilder: (context, imageProvider) => Container(
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                        image: imageProvider,
+                        fit: BoxFit.scaleDown,
+                        colorFilter: const ColorFilter.mode(
+                            Colors.red, BlendMode.colorBurn)),
+                  ),
+                ),
+                progressIndicatorBuilder: (context, url, downloadProgress) =>
+                    LoadingIndicator(loadingProgress: downloadProgress),
+                errorWidget: (context, url, error) =>
+                    Image.asset(Placeholders.doctorPlaceholder),
               ),
             ),
           ),

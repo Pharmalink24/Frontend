@@ -1,7 +1,9 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pharmalink/core/helpers/extensions.dart';
+import 'package:pharmalink/core/widgets/loading/loading_indicator.dart';
 import 'package:pharmalink/resources/resources.dart';
 import '../../../../../core/localization/app_localizations.dart';
 import '../../../../../core/networking/api_constants.dart';
@@ -27,21 +29,30 @@ class ProfileInfo extends StatelessWidget {
         child: SizedBox(
           width: 65,
           height: 65,
-          child: user.image != null
-              ? Image.network(
-                  '${ApiConstants.baseUrl}${user.image}',
-                  width: 65,
-                  height: 65,
-                  fit: BoxFit.cover,
-                )
-              : SvgPicture.asset(
-                  user.gender == 'M'
-                      ? Placeholders.malePlaceholder
-                      : Placeholders.femalePlaceholder,
-                  width: 65,
-                  height: 65,
-                  fit: BoxFit.cover,
+          child: CachedNetworkImage(
+            width: 65,
+            height: 65,
+            fit: BoxFit.cover,
+            imageUrl: '${ApiConstants.baseUrl}${user.image}',
+            imageBuilder: (context, imageProvider) => Container(
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: imageProvider,
+                  fit: BoxFit.contain,
                 ),
+              ),
+            ),
+            progressIndicatorBuilder: (context, url, downloadProgress) =>
+                LoadingIndicator(loadingProgress: downloadProgress),
+            errorWidget: (context, url, error) => SvgPicture.asset( // Todo: Replace all placeholders by const widgets
+              user.gender == 'M'
+                  ? Placeholders.malePlaceholder
+                  : Placeholders.femalePlaceholder,
+              width: 65,
+              height: 65,
+              fit: BoxFit.cover,
+            ),
+          ),
         ),
       ),
     );

@@ -1,4 +1,5 @@
 // Flutter Packages
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:pharmalink/core/enums/drug_state.dart';
 import 'package:pharmalink/core/helpers/extensions.dart';
@@ -53,26 +54,26 @@ class DoctorPrescriptionCard extends StatelessWidget {
                 padding: const EdgeInsetsDirectional.fromSTEB(10, 16, 0, 16),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(8),
-                  child: Image.network(
-                    doctor.doctorInfo.image != null
-                        ? "${ApiConstants.baseUrl}${doctor.doctorInfo.image}"
-                        : Placeholders.doctorPlaceholder,
-                    width: 89,
+                  child: CachedNetworkImage(
+                    width: 90,
+                    imageUrl:
+                        "${ApiConstants.baseUrl}${doctor.doctorInfo.image}",
                     fit: BoxFit.scaleDown,
-                    loadingBuilder: (BuildContext context, Widget child,
-                        ImageChunkEvent? loadingProgress) {
-                      if (loadingProgress == null) return child;
-
-                      return LoadingIndicator(
-                        loadingProgress: loadingProgress,
-                      );
-                    },
-                    errorBuilder: (BuildContext context, Object error,
-                        StackTrace? stackTrace) {
-                      return Image.asset(
-                        Placeholders.doctorPlaceholder,
-                      );
-                    },
+                    imageBuilder: (context, imageProvider) => Container(
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: imageProvider,
+                          fit: BoxFit.scaleDown,
+                        ),
+                      ),
+                    ),
+                    placeholder: (context, url) =>
+                        Image.asset(Placeholders.doctorPlaceholder),
+                    progressIndicatorBuilder:
+                        (context, url, downloadProgress) =>
+                            LoadingIndicator(loadingProgress: downloadProgress),
+                    errorWidget: (context, url, error) =>
+                        const Icon(Icons.error),
                   ),
                 ),
               ),

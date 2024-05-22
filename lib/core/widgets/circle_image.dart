@@ -1,6 +1,7 @@
 // Flutter Packages
 import 'package:flutter/material.dart';
-
+import 'package:cached_network_image/cached_network_image.dart';
+import '../../resources/resources.dart';
 import 'loading/loading_indicator.dart';
 
 class CircleImage extends StatelessWidget {
@@ -22,16 +23,21 @@ class CircleImage extends StatelessWidget {
         decoration: const BoxDecoration(
           shape: BoxShape.circle,
         ),
-        child: Image.network(
-          url,
+        child: CachedNetworkImage(
+          imageUrl: url,
           fit: BoxFit.cover,
-          loadingBuilder: (BuildContext context, Widget child,
-              ImageChunkEvent? loadingProgress) {
-            if (loadingProgress == null) return child;
-            return LoadingIndicator(
-              loadingProgress: loadingProgress,
-            );
-          },
+          imageBuilder: (context, imageProvider) => Container(
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: imageProvider,
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+          progressIndicatorBuilder: (context, url, downloadProgress) =>
+              LoadingIndicator(loadingProgress: downloadProgress),
+          errorWidget: (context, url, error) =>
+              Image.asset(Placeholders.userPlaceholder),
         ),
       ),
     );

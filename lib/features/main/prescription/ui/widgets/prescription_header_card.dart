@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import '../../../../../core/helpers/extensions.dart';
 import '../../../../../core/localization/app_localizations.dart';
@@ -26,26 +27,26 @@ class PrescriptionHeaderCard extends StatelessWidget {
   });
 
   Widget _buildImage(BuildContext context) {
-    return Image.network(
-      "${ApiConstants.baseUrl}$doctorImage",
+    return CachedNetworkImage(
       width: 70,
       height: 70,
+      imageUrl: "${ApiConstants.baseUrl}$doctorImage",
       fit: BoxFit.cover,
-      loadingBuilder: (BuildContext context, Widget child,
-          ImageChunkEvent? loadingProgress) {
-        if (loadingProgress == null) return child;
-        return LoadingIndicator(
-          loadingProgress: loadingProgress,
-        );
-      },
-      errorBuilder:
-          (BuildContext context, Object error, StackTrace? stackTrace) {
-        return Image.asset(
-          Placeholders.doctorPlaceholder,
-          width: 70,
-          fit: BoxFit.fitHeight,
-        );
-      },
+      imageBuilder: (context, imageProvider) => Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: imageProvider,
+            fit: BoxFit.scaleDown,
+          ),
+        ),
+      ),
+      progressIndicatorBuilder: (context, url, downloadProgress) =>
+          LoadingIndicator(loadingProgress: downloadProgress),
+      errorWidget: (context, url, error) => Image.asset(
+        Placeholders.doctorPlaceholder,
+        width: 70,
+        fit: BoxFit.fitHeight,
+      ),
     );
   }
 

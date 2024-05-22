@@ -1,0 +1,3 @@
+class AppPlaceholders {
+  // static const ;
+}

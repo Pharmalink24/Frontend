@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:pharmalink/core/theme/gradient.dart';
 import 'package:pharmalink/core/theme/shadow.dart';
@@ -80,21 +81,23 @@ class DoctorCard extends StatelessWidget {
                     alignment: const AlignmentDirectional(1, 1),
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(12),
-                      child: Image.network(
-                        doctor.image != null
-                            ? "${ApiConstants.baseUrl}${doctor.image}"
-                            : Placeholders.doctorPlaceholder,
-                        fit: BoxFit.scaleDown,
-                        loadingBuilder: (BuildContext context, Widget child,
-                            ImageChunkEvent? loadingProgress) {
-                          if (loadingProgress == null) return child;
-                          return LoadingIndicator(
-                              loadingProgress: loadingProgress);
-                        },
-                        errorBuilder: (BuildContext context, Object error,
-                            StackTrace? stackTrace) {
-                          return Image.asset(Placeholders.doctorPlaceholder);
-                        },
+                      child: CachedNetworkImage(
+                        imageUrl: "${ApiConstants.baseUrl}${doctor.image}",
+                        fit: BoxFit.cover,
+                        imageBuilder: (context, imageProvider) => Container(
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                                image: imageProvider,
+                                fit: BoxFit.scaleDown,
+                                colorFilter: const ColorFilter.mode(
+                                    Colors.red, BlendMode.colorBurn)),
+                          ),
+                        ),
+                        progressIndicatorBuilder: (context, url,
+                                downloadProgress) =>
+                            LoadingIndicator(loadingProgress: downloadProgress),
+                        errorWidget: (context, url, error) =>
+                            Image.asset(Placeholders.doctorPlaceholder),
                       ),
                     ),
                   ),

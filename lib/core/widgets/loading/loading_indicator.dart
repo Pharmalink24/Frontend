@@ -1,7 +1,8 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class LoadingIndicator extends StatelessWidget {
-  final ImageChunkEvent? loadingProgress;
+  final DownloadProgress? loadingProgress;
   const LoadingIndicator({super.key, this.loadingProgress});
 
   @override
@@ -9,12 +10,7 @@ class LoadingIndicator extends StatelessWidget {
     return Center(
       child: CircularProgressIndicator(
         color: Theme.of(context).colorScheme.secondary,
-        value: loadingProgress != null
-            ? loadingProgress!.expectedTotalBytes != null
-                ? loadingProgress!.cumulativeBytesLoaded /
-                    loadingProgress!.expectedTotalBytes!
-                : null
-            : 1.0,
+        value: loadingProgress?.progress,
       ),
     );
   }
