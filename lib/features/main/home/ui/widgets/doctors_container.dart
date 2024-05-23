@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../../../../../core/theme/colors.dart'; // Todo: Remove this line
 import '../../../../../core/widgets/card_container_with_title.dart';
 import '../../../../../core/helpers/extensions.dart';
 import '../../../../../core/routes/routes.dart';

@@ -14,11 +14,11 @@ List<BottomNavigationBarItemInfo> navigationItems = [
     label: "Prescriptions",
   ),
   BottomNavigationBarItemInfo(
-    icon: FontAwesomeIcons.flask,
+    icon: FontAwesomeIcons.flaskVial,
     label: "Drug Interactions",
   ),
   BottomNavigationBarItemInfo(
-    icon: Icons.chat,
+    icon: FontAwesomeIcons.solidMessage,
     label: "Chats",
   ),
   BottomNavigationBarItemInfo(

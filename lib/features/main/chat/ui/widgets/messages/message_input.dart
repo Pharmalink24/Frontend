@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:pharmalink/core/theme/colors.dart';
 
 class MessageInput extends StatelessWidget {
   final void Function()? onPressed;
+  final void Function(String)? onChanged;
   final TextEditingController? controller;
 
   const MessageInput({
     super.key,
     this.onPressed,
+    this.onChanged,
     this.controller,
   });
 
@@ -19,10 +19,10 @@ class MessageInput extends StatelessWidget {
           start: 16, end: 16, top: 0, bottom: 16),
       padding: const EdgeInsetsDirectional.only(start: 16, end: 16),
       decoration: BoxDecoration(
-        color: AppColors.alternateBackground,
+        color: Theme.of(context).colorScheme.primaryContainer,
         borderRadius: BorderRadius.circular(32),
         border: Border.all(
-          color: AppColors.accent5.withOpacity(0.3),
+          color: Theme.of(context).colorScheme.onTertiary,
         ),
         boxShadow: [
           BoxShadow(
@@ -37,6 +37,7 @@ class MessageInput extends StatelessWidget {
         children: [
           Expanded(
             child: TextField(
+              onChanged: onChanged,
               decoration: const InputDecoration(
                 hintText: 'Type a message...',
                 border: InputBorder.none,
@@ -46,10 +47,8 @@ class MessageInput extends StatelessWidget {
           ),
           IconButton(
             onPressed: onPressed,
-            icon: const Icon(
-              Icons.send,
-              color: AppColors.secondary,
-            ),
+            icon: Icon(Icons.send,
+                color: Theme.of(context).colorScheme.secondary),
           ),
         ],
       ),

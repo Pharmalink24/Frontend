@@ -19,17 +19,31 @@ Message _$MessageFromJson(Map<String, dynamic> json) => Message(
       timestamp: json['timestamp'] == null
           ? null
           : Timestamp.fromJson(json['timestamp'] as Map<String, dynamic>),
+      success: json['success'] as bool? ?? true,
+      isDelivered: json['is_delivered'] as bool?,
     );
 
-Map<String, dynamic> _$MessageToJson(Message instance) => <String, dynamic>{
-      'id': instance.id,
-      'sender_user_id': instance.senderUserId,
-      'sender_doctor_id': instance.senderDoctorId,
-      'receiver_user_id': instance.receiverUserId,
-      'receiver_doctor_id': instance.receiverDoctorId,
-      'message': instance.message,
-      'image': instance.image,
-      'file': instance.file,
-      'voice_message': instance.voiceMessage,
-      'timestamp': instance.timestamp,
-    };
+Map<String, dynamic> _$MessageToJson(Message instance) {
+  final val = <String, dynamic>{
+    'id': instance.id,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('sender_user_id', instance.senderUserId);
+  writeNotNull('sender_doctor_id', instance.senderDoctorId);
+  writeNotNull('receiver_user_id', instance.receiverUserId);
+  writeNotNull('receiver_doctor_id', instance.receiverDoctorId);
+  writeNotNull('message', instance.message);
+  writeNotNull('image', instance.image);
+  writeNotNull('file', instance.file);
+  writeNotNull('voice_message', instance.voiceMessage);
+  writeNotNull('timestamp', instance.timestamp);
+  val['success'] = instance.success;
+  writeNotNull('is_delivered', instance.isDelivered);
+  return val;
+}

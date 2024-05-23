@@ -1,6 +1,7 @@
 import "package:flutter/material.dart";
 import '../../features/access/forget_password/logic/forget_password_cubit.dart';
 import '../../features/access/forget_password/ui/forget_password_screen.dart';
+import '../../features/main/chat/logic/cubit/chat_cubit.dart';
 import '../enums/drug_state.dart';
 import '../../features/main/doctors/ui/doctor_screen.dart';
 import '../../features/main/prescription/logic/prescription_cubit.dart';
@@ -12,7 +13,6 @@ import '../../features/main/settings/change_password/logic/cubit/change_password
 import '../../features/main/settings/change_password/ui/change_password_screen.dart';
 import '../../features/main/doctors/logic/cubit/doctors_cubit.dart';
 import '../../features/main/doctors/ui/doctors_screen.dart';
-import 'package:pharmalink/features/main/chat/logic/cubit/chat_cubit.dart';
 import 'package:pharmalink/features/main/chat/ui/messages_screen.dart';
 import '../../features/main/chat/data/models/chat.dart';
 import '../di/dependency_injection.dart';

@@ -1,15 +1,17 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'message.dart';
+part of 'message_response.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-Message _$MessageFromJson(Map<String, dynamic> json) => Message(
+MessageResponse _$MessageResponseFromJson(Map<String, dynamic> json) =>
+    MessageResponse(
       message: json['message'] as String,
     );
 
-Map<String, dynamic> _$MessageToJson(Message instance) => <String, dynamic>{
+Map<String, dynamic> _$MessageResponseToJson(MessageResponse instance) =>
+    <String, dynamic>{
       'message': instance.message,
     };

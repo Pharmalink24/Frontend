@@ -1,5 +1,5 @@
 import 'package:logger/logger.dart';
-import 'package:pharmalink/core/models/message.dart';
+import 'package:pharmalink/core/models/message_response.dart';
 import '../../../../../core/di/dependency_injection.dart';
 import '../../../../../core/enums/drug_state.dart';
 import '../models/prescription_doctor.dart';
@@ -58,10 +58,10 @@ class PrescriptionRepo {
     }
   }
 
-  Future<ApiResult<Message>> activateDrug(
+  Future<ApiResult<MessageResponse>> activateDrug(
       int prescriptionId, String drugName) async {
     try {
-      final message= await _apiService.activateDrug(
+      final message = await _apiService.activateDrug(
         prescriptionId,
         drugName,
         AuthSharedPrefs.getAccessToken(),
@@ -73,7 +73,7 @@ class PrescriptionRepo {
     }
   }
 
-  Future<ApiResult<Message>> deactivateDrug(
+  Future<ApiResult<MessageResponse>> deactivateDrug(
       int prescriptionId, String drugName) async {
     try {
       final message = await _apiService.deactivateDrug(

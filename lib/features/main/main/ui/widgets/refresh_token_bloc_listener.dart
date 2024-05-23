@@ -19,11 +19,6 @@ class RefreshTokenBlocListener extends StatefulWidget {
 }
 
 class _RefreshTokenBlocListenerState extends State<RefreshTokenBlocListener> {
-  @override
-  void initState() {
-    super.initState(); // Todo: Make the screen stateless
-  }
-
   final LoadingOverlay _loadingOverlay = LoadingOverlay();
 
   // Show loading indicator dialog

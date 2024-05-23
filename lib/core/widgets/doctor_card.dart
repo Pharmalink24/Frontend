@@ -82,15 +82,14 @@ class DoctorCard extends StatelessWidget {
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(12),
                       child: CachedNetworkImage(
-                        imageUrl: "${ApiConstants.baseUrl}${doctor.image}",
+                        imageUrl: "${ApiConstants.httpsDomain}${doctor.image}",
                         fit: BoxFit.cover,
                         imageBuilder: (context, imageProvider) => Container(
                           decoration: BoxDecoration(
                             image: DecorationImage(
-                                image: imageProvider,
-                                fit: BoxFit.scaleDown,
-                                colorFilter: const ColorFilter.mode(
-                                    Colors.red, BlendMode.colorBurn)),
+                              image: imageProvider,
+                              fit: BoxFit.scaleDown,
+                            ),
                           ),
                         ),
                         progressIndicatorBuilder: (context, url,

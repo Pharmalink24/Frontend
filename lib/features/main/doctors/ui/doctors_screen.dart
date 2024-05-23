@@ -4,7 +4,6 @@ import '../../../../core/localization/app_localizations.dart';
 import '../data/models/doctor.dart';
 import '../../../../core/theme/app_bar.dart';
 import '../../../../core/theme/styles.dart';
-import '../../../../core/widgets/card_container.dart';
 import '../../../../core/widgets/doctor_card.dart';
 import '../../../../core/widgets/loading/loading_indicator.dart';
 import '../../profile/logic/profile_cubit/profile_cubit.dart';

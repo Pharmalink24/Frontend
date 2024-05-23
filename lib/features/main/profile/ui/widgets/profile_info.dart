@@ -33,7 +33,7 @@ class ProfileInfo extends StatelessWidget {
             width: 65,
             height: 65,
             fit: BoxFit.cover,
-            imageUrl: '${ApiConstants.baseUrl}${user.image}',
+            imageUrl: '${ApiConstants.httpsProtocol}${user.image}',
             imageBuilder: (context, imageProvider) => Container(
               decoration: BoxDecoration(
                 image: DecorationImage(

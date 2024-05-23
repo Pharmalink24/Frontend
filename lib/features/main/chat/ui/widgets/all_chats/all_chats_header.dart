@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pharmalink/core/theme/colors.dart';
+import 'package:pharmalink/core/theme/gradient.dart';
 import 'package:pharmalink/core/theme/styles.dart';
 
 class ChatsHeader extends StatelessWidget {
@@ -14,16 +14,8 @@ class ChatsHeader extends StatelessWidget {
         top: 8.0,
         bottom: 4.0,
       ),
-      decoration: const BoxDecoration(
-        gradient: LinearGradient(
-          colors: [
-            AppColors.primary,
-            AppColors.primaryBackground,
-          ],
-          stops: [0, 1],
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-        ),
+      decoration: BoxDecoration(
+        gradient: AppGradients.secondary(context),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -34,14 +26,14 @@ class ChatsHeader extends StatelessWidget {
             children: [
               Text(
                 'Chats',
-                style: AppTextStyle.headlineLarge.copyWith(
-                  color: AppColors.primaryText,
+                style: AppTextStyle.headlineLarge(context).copyWith(
+                  color: Theme.of(context).colorScheme.onPrimary,
                 ),
               ),
               Text(
                 'Below are your chats with doctors',
-                style: AppTextStyle.bodyMedium.copyWith(
-                  color: AppColors.primaryText,
+                style: AppTextStyle.bodyMedium(context).copyWith(
+                  color: Theme.of(context).colorScheme.onPrimary,
                 ),
               ),
             ],
@@ -50,16 +42,16 @@ class ChatsHeader extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               IconButton(
-                icon: const Icon(
+                icon:  Icon(
                   Icons.search,
-                  color: AppColors.primaryText,
+                  color: Theme.of(context).colorScheme.onPrimary,
                 ),
                 onPressed: () {},
               ),
               IconButton(
-                icon: const Icon(
+                icon:  Icon(
                   Icons.more_vert,
-                  color: AppColors.primaryText,
+                  color: Theme.of(context).colorScheme.onPrimary,
                 ),
                 onPressed: () {},
               ),

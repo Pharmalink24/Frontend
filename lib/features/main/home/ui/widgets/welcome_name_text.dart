@@ -1,6 +1,6 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
-import 'package:pharmalink/core/theme/colors.dart'; // Todo: Remove this line
+import 'package:pharmalink/core/theme/gradient.dart';
 import '../../../../../core/theme/styles.dart';
 import '../../../../../core/localization/app_localizations.dart';
 
@@ -41,10 +41,7 @@ class WelcomeNameText extends StatelessWidget {
                     fontSize: kFontSize,
                     fontWeight: FontWeight.w600,
                   ),
-                  colors: [
-                    Theme.of(context).colorScheme.primary,
-                    AppColors.accent4,
-                  ],
+                  colors: AppGradients.primaryColors(context),
                   textAlign: TextAlign.start,
                   textDirection: TextDirection.ltr,
                   speed: const Duration(milliseconds: 1000),
@@ -56,10 +53,7 @@ class WelcomeNameText extends StatelessWidget {
                     fontSize: kFontSize,
                     fontWeight: FontWeight.w600,
                   ),
-                  colors: [
-                    Theme.of(context).colorScheme.primary,
-                    AppColors.accent4,
-                  ],
+                  colors: AppGradients.primaryColors(context),
                   textAlign: TextAlign.start,
                   textDirection: TextDirection.ltr,
                   speed: const Duration(milliseconds: 1000),

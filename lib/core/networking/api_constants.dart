@@ -3,9 +3,10 @@ class ApiConstants {
   // Protocols
   static const httpProtocol = "http://";
   static const httpsProtocol = "https://";
-  static const wsProtocol = "ws://";
 
   static const String domain = "pharmalink.tech/";
+  static const String httpsDomain = "$httpsProtocol$domain";
+  
   static const String tokenKey = "patientCustomToken";
   // User API
   static const signIn = "user/login/";
@@ -53,9 +54,12 @@ class ApiConstants {
   static const activateDrug = "Prescription/user/{prescription_id}/activate/";
   static const deactivateDrug = "Prescription/user/{prescription_id}/deactivate/";
 
-  // ===================== Chat APIs =====================
-  static const sendMessage = "websocket";
-  static const retrieveMessages = "websocket/retrieve";
+
+  // Chat
+  static const getAllChats = "chat/chat-list/";
+  static const getUserChats = "chat/user-chat-list/";
+  static const addChats = "chat/add-chat/{id}/";
+  static const getMessagesHistory = "chat/chat-history/{id}/";
 }
 
 class ApiErrors {

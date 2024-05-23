@@ -15,7 +15,7 @@ class API {
     'Content-Type': 'application/json; charset=UTF-8',
   };
 
-  Future GET(String path, int code, {bool auth=false}) async {
+  Future GET(String path, int code, {bool auth = false}) async {
     auth
         ? headers.addAll({
             HttpHeaders.authorizationHeader:
@@ -38,11 +38,11 @@ class API {
     }
   }
 
-  Future POST(String path, Map body, int code,
-      {bool auth=false}) async {
+  Future POST(String path, Map body, int code, {bool auth = false}) async {
     auth
         ? headers.addAll({
-            HttpHeaders.authorizationHeader: AuthSharedPrefs.getAccessToken() ?? '',
+            HttpHeaders.authorizationHeader:
+                AuthSharedPrefs.getAccessToken() ?? '',
           })
         : AuthSharedPrefs.getAccessToken();
 
@@ -63,10 +63,11 @@ class API {
     }
   }
 
-  Future PATCH(String path, Map body, int code, {bool auth=false}) async {
+  Future PATCH(String path, Map body, int code, {bool auth = false}) async {
     auth
         ? headers.addAll({
-            HttpHeaders.authorizationHeader: AuthSharedPrefs.getAccessToken() ?? '',
+            HttpHeaders.authorizationHeader:
+                AuthSharedPrefs.getAccessToken() ?? '',
           })
         : AuthSharedPrefs.getAccessToken();
 
@@ -86,10 +87,11 @@ class API {
     }
   }
 
-  Future PUT(String path, Map body, int code, {bool auth=false}) async {
+  Future PUT(String path, Map body, int code, {bool auth = false}) async {
     auth
         ? headers.addAll({
-            HttpHeaders.authorizationHeader: AuthSharedPrefs.getAccessToken() ?? '',
+            HttpHeaders.authorizationHeader:
+                AuthSharedPrefs.getAccessToken() ?? '',
           })
         : AuthSharedPrefs.getAccessToken();
 
@@ -109,10 +111,11 @@ class API {
     }
   }
 
-  Future DELETE(String path, Map body, int code, {bool auth=false}) async {
+  Future DELETE(String path, Map body, int code, {bool auth = false}) async {
     auth
         ? headers.addAll({
-            HttpHeaders.authorizationHeader: AuthSharedPrefs.getAccessToken() ?? '',
+            HttpHeaders.authorizationHeader:
+                AuthSharedPrefs.getAccessToken() ?? '',
           })
         : AuthSharedPrefs.getAccessToken();
 

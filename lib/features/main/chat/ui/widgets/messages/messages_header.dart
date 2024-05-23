@@ -1,32 +1,28 @@
 import 'package:flutter/material.dart';
-import 'package:pharmalink/core/helpers/constants/paths.dart';
-import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/theme/styles.dart';
-
-import '../../data/models/chat.dart';
-
-const String kPlaceholderImage = '${AppPaths.images}/user_placeholder.jpg';
+import '../../../../../../resources/resources.dart';
+import '../../../data/models/chat.dart';
 
 AppBar buildMessageAppBar(BuildContext context, Chat chat) {
   return AppBar(
-    backgroundColor: AppColors.secondaryBackground,
-    elevation: 1,
+    toolbarHeight: 65.0,
+    elevation: 2,
     leading: IconButton(
       onPressed: () {
         Navigator.pop(context);
       },
-      icon: const Icon(
+      icon: Icon(
         Icons.arrow_back,
-        color: AppColors.primaryText,
+        color: Theme.of(context).colorScheme.onPrimary,
       ),
     ),
     title: MessagesHeader(chat),
     actions: [
       IconButton(
         onPressed: () {},
-        icon: const Icon(
+        icon: Icon(
           Icons.more_horiz,
-          color: AppColors.primaryText,
+          color: Theme.of(context).colorScheme.onPrimary,
         ),
       ),
     ],
@@ -50,11 +46,11 @@ class MessagesHeader extends StatelessWidget {
           // Todo; Replace: ? "${ApiConstants.baseUrl}${chat.doctorImage}"
           backgroundImage: chat.doctorImage != null
               ? image
-              : const AssetImage(kPlaceholderImage),
+              : const AssetImage(Placeholders.malePlaceholder),
 
           radius: 24.0,
         ),
-        const SizedBox(width: 16.0),
+        const SizedBox(width: 12.0),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -62,24 +58,23 @@ class MessagesHeader extends StatelessWidget {
               children: [
                 Text(
                   chat.doctorFname,
-                  style: AppTextStyle.headlineMedium.copyWith(
-                    color: AppColors.primaryText,
-                    fontWeight: FontWeight.w600,
+                  style: AppTextStyle.headlineSmall(context).copyWith(
+                    color: Theme.of(context).colorScheme.onPrimary,
                   ),
                 ),
-                const SizedBox(width: 8),
+                const SizedBox(width: 4.0),
                 Text(
                   chat.doctorLname,
-                  style: AppTextStyle.headlineMedium.copyWith(
-                    color: AppColors.primaryText,
+                  style: AppTextStyle.headlineSmall(context).copyWith(
+                    color: Theme.of(context).colorScheme.onPrimary,
                   ),
                 ),
               ],
             ),
             Text(
               '@${chat.doctorUsername}',
-              style: AppTextStyle.bodyMedium.copyWith(
-                color: AppColors.secondaryText,
+              style: AppTextStyle.bodySmall(context).copyWith(
+                color: Theme.of(context).colorScheme.onSecondary,
               ),
             ),
           ],

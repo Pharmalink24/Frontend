@@ -57,7 +57,7 @@ class DoctorPrescriptionCard extends StatelessWidget {
                   child: CachedNetworkImage(
                     width: 90,
                     imageUrl:
-                        "${ApiConstants.baseUrl}${doctor.doctorInfo.image}",
+                        "${ApiConstants.httpsDomain}${doctor.doctorInfo.image}",
                     fit: BoxFit.scaleDown,
                     imageBuilder: (context, imageProvider) => Container(
                       decoration: BoxDecoration(

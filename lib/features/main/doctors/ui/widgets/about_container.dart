@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:pharmalink/core/theme/colors.dart'; // Todo: Remove this line
 import '../../../../../core/helpers/extensions.dart';
 import '../../../../../core/localization/app_localizations.dart';
 import '../../../../../core/routes/routes.dart';
+import '../../../../../core/theme/gradient.dart';
 import '../../../../../core/theme/styles.dart';
 
 class AboutContainer extends StatelessWidget {
@@ -91,21 +91,13 @@ class AboutContainer extends StatelessWidget {
                 child: GestureDetector(
                   onTap: () {
                     // Open the chat screen
-                    // TODO: Implement the chat screen
-                    context.pushNamed(Routes.doctorScreen);
+                    // TODO: Send the doctor's id to the chat screen
+                    context.pushNamed(Routes.messagesScreen);
                   },
                   child: Container(
                     width: double.infinity,
                     decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        colors: [
-                          Theme.of(context).colorScheme.primary,
-                          AppColors.accent4,
-                        ],
-                        stops: [0, 1],
-                        begin: const AlignmentDirectional(0, -1),
-                        end: const AlignmentDirectional(0, 1),
-                      ),
+                      gradient: AppGradients.main(context),
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: Row(

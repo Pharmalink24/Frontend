@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+    import 'package:intl/intl.dart';
 
 extension Navigation on BuildContext {
   Future<dynamic> pushNamed(String routeName, {Object? argument}) {
@@ -43,6 +44,14 @@ extension StringTime on TimeOfDay {
   }
 }
 
+extension StringDate on DateTime{
+    String format(String format){
+
+    return DateFormat(format).format(this);
+      
+  }
+}
+
 extension StringExtension on String {
   String capitalize() {
     return "${this[0].toUpperCase()}${this.substring(1).toLowerCase()}";
@@ -50,5 +59,14 @@ extension StringExtension on String {
 
   String crop(int length) {
     return this.length > length ? '${substring(0, length - 1)}..' : this;
+  }
+
+  // Replace string with path map values
+  String replacePath(Map<String, dynamic> paths) {
+    String url = this;
+    paths.forEach((key, value) {
+      url = url.replaceAll("{$key}", '$value');
+    });
+    return url;
   }
 }

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
 import 'package:pharmalink/core/shared_preferences/auth_prefs.dart';
-import 'package:pharmalink/core/theme/colors.dart';
+import 'package:pharmalink/core/theme/shadow.dart';
+import 'package:pharmalink/core/theme/styles.dart';
 import 'package:pharmalink/features/main/chat/data/models/message.dart';
 
 class MessageCard extends StatelessWidget {
@@ -30,7 +31,7 @@ class MessageCard extends StatelessWidget {
           ? const EdgeInsetsDirectional.only(start: 64, end: 0, top: 16)
           : const EdgeInsetsDirectional.only(start: 0, end: 64, top: 16),
       decoration: BoxDecoration(
-        color: AppColors.alternateBackground,
+        color: Theme.of(context).colorScheme.primaryContainer,
         borderRadius: isMeSender()
             ? const BorderRadiusDirectional.only(
                 topStart: Radius.circular(16),
@@ -43,38 +44,27 @@ class MessageCard extends StatelessWidget {
                 bottomEnd: Radius.circular(16),
               ),
         border: Border.all(
-          color: AppColors.secondary.withOpacity(0.3),
+          color: Theme.of(context).colorScheme.onSecondary,
         ),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withOpacity(0.2),
-            spreadRadius: 1,
-            blurRadius: 1,
-            offset: const Offset(0, 1),
-          ),
-        ],
+        boxShadow: AppShadows.box(context),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
           Flexible(
-            flex: 5,
+            flex: 3,
             child: Text(
-              isErrorMessage ? message!.message ?? "" : "Error sending message",
-              style: const TextStyle(
-                fontSize: 16,
-                color: Colors.black,
-              ),
+              isErrorMessage ? "Error sending message" : message!.message ?? "",
+              style: AppTextStyle.bodyMedium(context),
             ),
           ),
           const SizedBox(height: 4),
           Flexible(
             child: Text(
-              isErrorMessage ? message!.timestamp!.date : "",
-              style: const TextStyle(
-                fontSize: 12,
-                color: AppColors.secondaryText,
+              isErrorMessage ? "" : message?.timestamp?.date ?? '',
+              style: AppTextStyle.bodySmall(context).copyWith(
+                color: Theme.of(context).colorScheme.onSecondary,
               ),
             ),
           ),

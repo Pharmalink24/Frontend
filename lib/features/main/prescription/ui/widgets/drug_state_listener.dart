@@ -4,7 +4,7 @@ import 'package:pharmalink/core/helpers/extensions.dart';
 import 'package:pharmalink/features/main/prescription/logic/prescription_state.dart';
 
 import '../../../../../core/enums/drug_state.dart';
-import '../../../../../core/models/message.dart';
+import '../../../../../core/models/message_response.dart';
 import '../../../../../core/routes/routes.dart';
 import '../../../../../core/widgets/loading/loading_overlay.dart';
 import '../../logic/prescription_cubit.dart';
@@ -48,7 +48,8 @@ class DrugStateListener extends StatelessWidget {
             onPressed: () {
               context.pop();
               context.pop();
-              context.pushReplacementNamed(Routes.prescriptionsScreen, argument: state);
+              context.pushReplacementNamed(Routes.prescriptionsScreen,
+                  argument: state);
             },
             child: const Text('OK'),
           ),
@@ -76,14 +77,14 @@ class DrugStateListener extends StatelessWidget {
         if (state is ActivateDrugError) {
           _showErrorDialog(context, state.message);
         } else if (state is ActivateDrugSuccess) {
-          var data = state.message as Message;
+          var data = state.message as MessageResponse;
           _showSuccessDialog(context, data.message);
         } else if (state is ActivateDrugLoading) {
           _showLoading(context);
         } else if (state is DeactivateDrugError) {
           _showErrorDialog(context, state.message);
         } else if (state is DeactivateDrugSuccess) {
-          var data = state.message as Message;
+          var data = state.message as MessageResponse;
 
           _showSuccessDialog(context, data.message);
         } else if (state is DeactivateDrugLoading) {

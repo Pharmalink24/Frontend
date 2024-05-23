@@ -1,10 +1,11 @@
 import 'dart:io';
 
 import 'package:dio/dio.dart' hide Headers;
-import 'package:pharmalink/core/models/profile_image.dart';
+import 'package:pharmalink/features/main/chat/data/models/message.dart';
 import '../../features/access/auth/data/models/forget_password_request_body.dart';
 import '../../features/access/sign/data/models/signin/signin_request_body.dart';
 import '../../features/access/sign/data/models/signin/signin_response.dart';
+import '../../features/main/chat/data/models/chat.dart';
 import '../../features/main/doctors/data/models/doctor.dart';
 import '../../features/main/prescription/data/models/prescription_doctor.dart';
 import '../../features/main/prescription/data/models/prescription_drugs.dart';
@@ -18,7 +19,7 @@ import '../../features/main/drug_interaction/data/models/drug_eye_search_request
 import '../models/drug_search.dart';
 import '../../features/main/drug_interaction/data/models/drug_interaction_request_body.dart';
 import '../../features/main/drug_interaction/data/models/drug_interaction_response.dart';
-import '../models/message.dart';
+import '../models/message_response.dart';
 import '../models/state_request_body.dart';
 import '../models/user.dart';
 import '../../features/main/doctors/data/models/doctor_info.dart';
@@ -32,7 +33,7 @@ import 'package:retrofit/retrofit.dart';
 
 part 'api_service.g.dart';
 
-@RestApi(baseUrl: "${ApiConstants.httpsProtocol}${ApiConstants.domain}")
+@RestApi(baseUrl: ApiConstants.httpsDomain)
 abstract class ApiService {
   factory ApiService(Dio dio, {String baseUrl}) = _ApiService;
 
@@ -70,7 +71,7 @@ abstract class ApiService {
 
   // Forget Password
   @POST(ApiConstants.forgetPassword)
-  Future<Message> forgetPassword(
+  Future<MessageResponse> forgetPassword(
     @Body() ForgetPasswordRequestBody forgetPasswordRequestBody,
   );
 
@@ -114,7 +115,7 @@ abstract class ApiService {
 
   // Activate Drug
   @POST(ApiConstants.activateDrug)
-  Future<Message> activateDrug(
+  Future<MessageResponse> activateDrug(
     @Path('prescription_id') int prescriptionId,
     @Query('drug_name') String drugName,
     @Header('Authorization') String? auth,
@@ -122,7 +123,7 @@ abstract class ApiService {
 
   // Deactivate Drug
   @POST(ApiConstants.deactivateDrug)
-  Future<Message> deactivateDrug(
+  Future<MessageResponse> deactivateDrug(
     @Path('prescription_id') int prescriptionId,
     @Query('drug_name') String drugName,
     @Header('Authorization') String? auth,
@@ -189,6 +190,29 @@ abstract class ApiService {
   @GET(ApiConstants.doctorProfile)
   Future<DoctorInfo> getDoctorProfile(
     @Path('doctor_id') int doctorId,
+    @Header('Authorization') String? auth,
+  );
+
+  //-------------------- Chat --------------------//
+  @GET(ApiConstants.getAllChats)
+  Future<List<Chat>> getAllChats(
+    @Header('Authorization') String? auth,
+  );
+
+  @GET(ApiConstants.getUserChats)
+  Future<List<Chat>> getUserChats(
+    @Header('Authorization') String? auth,
+  );
+
+  @POST(ApiConstants.addChats)
+  Future<Chat> addChats(
+    @Path('id') String id,
+    @Header('Authorization') String? auth,
+  );
+
+  @GET(ApiConstants.getMessagesHistory)
+  Future<List<Message>> getMessagesHistory(
+    @Path('id') String id,
     @Header('Authorization') String? auth,
   );
 }

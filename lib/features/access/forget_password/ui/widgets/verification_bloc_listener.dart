@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pharmalink/core/models/message.dart';
+import 'package:pharmalink/core/models/message_response.dart';
 import 'package:pharmalink/features/access/forget_password/logic/forget_password_state.dart';
 import '../../../../../core/widgets/loading/loading_overlay.dart';
 import '../../../../../core/helpers/extensions.dart';
@@ -47,7 +47,7 @@ class ForgetPasswordBlocListener extends StatelessWidget {
     );
   }
 
-  void showSuccess(BuildContext context, Message response) {
+  void showSuccess(BuildContext context, MessageResponse response) {
     _loadingOverlay.hide();
   }
 

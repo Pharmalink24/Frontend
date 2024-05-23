@@ -5,10 +5,11 @@ part "chats_response.g.dart";
 
 @JsonSerializable()
 class ChatsResponse {
-  final List<Chat> chats;
+  @JsonKey(name: 'user_chats')
+  final List<Chat> userChats;
 
   ChatsResponse({
-    required this.chats,
+    required this.userChats,
   });
 
   factory ChatsResponse.fromJson(Map<String, dynamic> json) =>
