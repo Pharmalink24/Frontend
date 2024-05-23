@@ -40,12 +40,14 @@ class AppColors {
   static const Color accent2 = Color(0x4d39d2c0);
   static const Color accent3 = Color(0x4dee8b60);
   static const Color accent4 = Color(0xFF006951);
-  static const Color accent5 = Color(0xFFE0E3E7);
+  static const Color accent5 = Color(0xFFf4f5f7);
 
   static const Color success = Color(0xFF249689);
   static const Color warning = Color(0xFFF9CF58);
   static const Color error = Color(0xFFFF5963);
   static const Color info = Color(0xFFFFFFFF);
+
+  static Color shadow = const Color(0xFF000000).withOpacity(0.08);
 }
 
 class AppColorScheme {

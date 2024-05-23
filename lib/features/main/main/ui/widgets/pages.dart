@@ -10,6 +10,8 @@ import '../../../prescription/ui/landing_prescription_screen.dart';
 import '../../../profile/logic/profile_cubit/profile_cubit.dart';
 import '../../../profile/ui/profile_screen.dart';
 import '../../../reminders/logic/reminders_cubit.dart';
+import 'package:pharmalink/features/main/chat/logic/cubit/chat_cubit.dart';
+import 'package:pharmalink/features/main/chat/ui/chats_screen.dart';
 
 List<Widget> pages = [
   MultiBlocProvider(
@@ -31,6 +33,10 @@ List<Widget> pages = [
     create: (context) => getIt<DrugInteractionCubit>(),
     child: const DrugInteractionScreen(),
   ),
+  BlocProvider(
+    create: (context) => getIt<ChatCubit>(),
+    child: const ChatsScreen(),
+  ), 
   MultiBlocProvider(
     providers: [
       BlocProvider(

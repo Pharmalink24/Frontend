@@ -27,6 +27,9 @@ class Routes {
   static const String prescriptionScreen = '/prescriptionScreen';
   static const String prescriptionsScreen = '/prescriptionsScreen';
 
+  // Chat
+  static const String messagesScreen = '/messageScreen';
+
   // End
   static const String unknownRoute = '/unknown';
 }

@@ -19,6 +19,9 @@ import '../../features/main/settings/change_password/data/repo/change_password_r
 import '../../features/main/settings/change_password/logic/cubit/change_password_cubit.dart';
 import '../Blocs/locale/locale_cubit.dart';
 import '../Blocs/theme/theme_cubit.dart';
+import 'package:pharmalink/core/networking/ws_service.dart';
+import 'package:pharmalink/features/main/chat/data/repo/chat_repo.dart';
+import 'package:pharmalink/features/main/chat/logic/cubit/chat_cubit.dart';
 import '../networking/api_service.dart';
 import '../networking/dio_factory.dart';
 import '../../features/access/auth/logic/cubit/auth_cubit.dart';
@@ -29,6 +32,7 @@ import '../../features/access/sign/logic/signup_cubit/signup_cubit.dart';
 import '../../features/access/sign/data/repo/signup_repo.dart';
 import '../../features/access/verification/data/repo/verification_repo.dart';
 import '../../features/access/verification/logic/cubit/verification_cubit.dart';
+import '../networking/ws_factory.dart';
 
 final getIt = GetIt.instance;
 
@@ -36,6 +40,10 @@ Future<void> setupGetIt() async {
   // Dio & ApiService
   Dio dio = DioFactory.getDio();
   getIt.registerLazySingleton<ApiService>(() => ApiService(dio));
+
+  // Websocket
+  WsFactory ws = WsFactory();
+  getIt.registerLazySingleton<WsService>(() => WsService(ws));
 
   //-------------------- AUTHENTICATION --------------------//
 
@@ -59,8 +67,8 @@ Future<void> setupGetIt() async {
   // Forgot Password
   getIt.registerLazySingleton<ForgetPasswordRepo>(
       () => ForgetPasswordRepo(getIt()));
-  getIt.registerFactory<ForgetPasswordCubit>(
-      () => ForgetPasswordCubit(getIt()));
+  getIt
+      .registerFactory<ForgetPasswordCubit>(() => ForgetPasswordCubit(getIt()));
 
   //-------------------- MAIN --------------------//
 
@@ -107,6 +115,9 @@ Future<void> setupGetIt() async {
 
   // Theme
   getIt.registerLazySingleton<ThemeCubit>(() => ThemeCubit());
+  // Chat
+  getIt.registerLazySingleton<ChatRepo>(() => ChatRepo(getIt(), getIt()));
+  getIt.registerFactory<ChatCubit>(() => ChatCubit(getIt()));
 
   // Logger
   getIt.registerLazySingleton<Logger>(() => Logger());

@@ -2,7 +2,6 @@ import "package:flutter/material.dart";
 import '../../features/access/forget_password/logic/forget_password_cubit.dart';
 import '../../features/access/forget_password/ui/forget_password_screen.dart';
 import '../enums/drug_state.dart';
-import '../../features/access/auth/logic/cubit/auth_cubit.dart';
 import '../../features/main/doctors/ui/doctor_screen.dart';
 import '../../features/main/prescription/logic/prescription_cubit.dart';
 import '../../features/main/prescription/ui/prescription_screen.dart';
@@ -13,6 +12,9 @@ import '../../features/main/settings/change_password/logic/cubit/change_password
 import '../../features/main/settings/change_password/ui/change_password_screen.dart';
 import '../../features/main/doctors/logic/cubit/doctors_cubit.dart';
 import '../../features/main/doctors/ui/doctors_screen.dart';
+import 'package:pharmalink/features/main/chat/logic/cubit/chat_cubit.dart';
+import 'package:pharmalink/features/main/chat/ui/messages_screen.dart';
+import '../../features/main/chat/data/models/chat.dart';
 import '../di/dependency_injection.dart';
 import 'routes.dart';
 import '../../features/404/error_404_screen.dart';
@@ -140,6 +142,16 @@ class AppRouter {
               drugs: prescription['drugs'],
               drugState: prescription['state'],
             ),
+          ),
+        );
+
+      // ----------------- Chat ----------------- //
+      case Routes.messagesScreen:
+        final chat = settings.arguments as Chat;
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<ChatCubit>(),
+            child: MessagesScreen(chat),
           ),
         );
 
