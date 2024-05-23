@@ -18,13 +18,13 @@ class Message {
   @JsonKey(includeIfNull: false)
   final String? message;
   @JsonKey(includeIfNull: false)
+  final Timestamp? timestamp;
+  @JsonKey(name: "image", includeIfNull: false)
   final String? image;
-  @JsonKey(includeIfNull: false)
+  @JsonKey(name: "file", includeIfNull: false)
   final String? file;
   @JsonKey(name: "voice_message", includeIfNull: false)
   final String? voiceMessage;
-  @JsonKey(includeIfNull: false)
-  final Timestamp? timestamp;
   @JsonKey(name: 'is_read', includeIfNull: false)
   final bool? isRead;
   @JsonKey(name: "is_delivered", includeIfNull: false)

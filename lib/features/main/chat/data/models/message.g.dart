@@ -38,10 +38,10 @@ Map<String, dynamic> _$MessageToJson(Message instance) {
   writeNotNull('receiver_user_id', instance.receiverUserId);
   writeNotNull('receiver_doctor_id', instance.receiverDoctorId);
   writeNotNull('message', instance.message);
+  writeNotNull('timestamp', instance.timestamp);
   writeNotNull('image', instance.image);
   writeNotNull('file', instance.file);
   writeNotNull('voice_message', instance.voiceMessage);
-  writeNotNull('timestamp', instance.timestamp);
   writeNotNull('is_read', instance.isRead);
   writeNotNull('is_delivered', instance.isDelivered);
   return val;
