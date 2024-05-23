@@ -23,7 +23,7 @@ abstract class SettingsSharedPrefs {
   /// get [LANGUAGE] from shared pref
   static String getLocale() {
     final String language =
-        SharedPrefsService.getString(LANGUAGE) ?? Language.English.key;
+        SharedPrefsService.getString(LANGUAGE) ?? Language.english.key;
     return language;
   }
 

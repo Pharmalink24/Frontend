@@ -24,12 +24,12 @@ class ChangePasswordCubit extends Cubit<ChangePasswordState> {
         newPassword: newPasswordController.text,
       ),
     );
-    
+
     response.when(success: (changePasswordResponse) {
       emit(ChangePasswordState.success(changePasswordResponse));
     }, failure: (error) {
       emit(ChangePasswordState.error(
-          error: error.apiErrorModel.message ?? ERR.UNEXPECTED));
+          error: error.apiErrorModel.error ?? ERR.UNEXPECTED));
     });
   }
 }

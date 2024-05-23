@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pharmalink/core/di/dependency_injection.dart';
 import 'package:pharmalink/core/helpers/extensions.dart';
 import 'package:pharmalink/core/widgets/form/form_button.dart';
 import '../../../../../core/localization/app_localizations.dart';
 import '../../../../../core/routes/routes.dart';
-import '../../../../../core/shared_preferences/auth_prefs.dart';
 import '../../../../../core/theme/styles.dart';
 import '../../../../access/auth/logic/cubit/auth_cubit.dart';
 

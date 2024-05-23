@@ -43,11 +43,7 @@ class _DoctorScreenState extends State<DoctorScreen> {
           lastName: doctor.lastName,
         ),
         DoctorImage(image: doctor.image),
-        AboutContainer(
-          university: doctor.university,
-          degree: doctor.degree,
-          brief: doctor.brief,
-        )
+        AboutContainer(doctor: doctor)
       ],
     );
   }

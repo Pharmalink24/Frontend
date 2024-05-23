@@ -37,7 +37,7 @@ class DrugInteractionCubit extends Cubit<DrugInteractionState> {
             failure: (error) {
               emit(
                 DrugInteractionState.error(
-                  error: error.apiErrorModel.message ?? ERR.UNEXPECTED,
+                  error: error.apiErrorModel.error ?? ERR.UNEXPECTED,
                 ),
               );
               drugs = null;
@@ -66,7 +66,7 @@ class DrugInteractionCubit extends Cubit<DrugInteractionState> {
       failure: (error) {
         emit(
           DrugInteractionState.error(
-              error: error.apiErrorModel.message ?? ERR.UNEXPECTED),
+              error: error.apiErrorModel.error ?? ERR.UNEXPECTED),
         );
       },
     );

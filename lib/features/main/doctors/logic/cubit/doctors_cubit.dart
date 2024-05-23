@@ -1,8 +1,6 @@
 import 'package:bloc/bloc.dart';
 import '../../../../../core/helpers/errors.dart';
 import 'doctors_state.dart';
-import '../../../../../core/models/state_request_body.dart';
-
 import '../../data/repo/doctors_repo.dart';
 
 class DoctorsCubit extends Cubit<DoctorsState> {
@@ -22,7 +20,7 @@ class DoctorsCubit extends Cubit<DoctorsState> {
       failure: (error) {
         emit(
           DoctorsState.error(
-            error: error.apiErrorModel.message ?? ERR.UNEXPECTED,
+            error: error.apiErrorModel.error ?? ERR.UNEXPECTED,
           ),
         );
       },
@@ -42,7 +40,7 @@ class DoctorsCubit extends Cubit<DoctorsState> {
       failure: (error) {
         emit(
           DoctorsState.error(
-            error: error.apiErrorModel.message ?? ERR.UNEXPECTED,
+            error: error.apiErrorModel.error ?? ERR.UNEXPECTED,
           ),
         );
       },
@@ -114,5 +112,4 @@ class DoctorsCubit extends Cubit<DoctorsState> {
   //     },
   //   );
   // }
-
 }

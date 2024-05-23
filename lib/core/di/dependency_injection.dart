@@ -2,7 +2,6 @@ import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:logger/logger.dart';
 import 'package:pharmalink/features/main/chat/logic/cubit/chat_cubit.dart';
-import 'package:web_socket_channel/io.dart';
 import '../../features/access/forget_password/data/repo/forget_password_repo.dart';
 import '../../features/access/forget_password/logic/forget_password_cubit.dart';
 import '../../features/main/doctors/data/repo/doctors_repo.dart';
@@ -32,7 +31,6 @@ import '../../features/access/sign/logic/signup_cubit/signup_cubit.dart';
 import '../../features/access/sign/data/repo/signup_repo.dart';
 import '../../features/access/verification/data/repo/verification_repo.dart';
 import '../../features/access/verification/logic/cubit/verification_cubit.dart';
-import '../networking/socket_channel.dart';
 
 final getIt = GetIt.instance;
 

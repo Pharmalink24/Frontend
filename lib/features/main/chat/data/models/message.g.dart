@@ -19,14 +19,12 @@ Message _$MessageFromJson(Map<String, dynamic> json) => Message(
       timestamp: json['timestamp'] == null
           ? null
           : Timestamp.fromJson(json['timestamp'] as Map<String, dynamic>),
-      success: json['success'] as bool? ?? true,
+      isRead: json['is_read'] as bool?,
       isDelivered: json['is_delivered'] as bool?,
     );
 
 Map<String, dynamic> _$MessageToJson(Message instance) {
-  final val = <String, dynamic>{
-    'id': instance.id,
-  };
+  final val = <String, dynamic>{};
 
   void writeNotNull(String key, dynamic value) {
     if (value != null) {
@@ -34,6 +32,7 @@ Map<String, dynamic> _$MessageToJson(Message instance) {
     }
   }
 
+  writeNotNull('id', instance.id);
   writeNotNull('sender_user_id', instance.senderUserId);
   writeNotNull('sender_doctor_id', instance.senderDoctorId);
   writeNotNull('receiver_user_id', instance.receiverUserId);
@@ -43,7 +42,7 @@ Map<String, dynamic> _$MessageToJson(Message instance) {
   writeNotNull('file', instance.file);
   writeNotNull('voice_message', instance.voiceMessage);
   writeNotNull('timestamp', instance.timestamp);
-  val['success'] = instance.success;
+  writeNotNull('is_read', instance.isRead);
   writeNotNull('is_delivered', instance.isDelivered);
   return val;
 }

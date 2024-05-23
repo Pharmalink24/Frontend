@@ -30,18 +30,18 @@ class _LanguageDropDownState extends State<LanguageDropDown> {
         ),
         hintText: AppLocalizations.of(context).translate('language'),
         value: AppLocalizations.of(context).isEnLocale
-            ? Language.English.key
-            : Language.Arabic.key,
+            ? Language.english.key
+            : Language.arabic.key,
         items: [
           DropDownFieldItem(
-            key: Language.English.key,
-            value: Language.English.value,
-            valueInArabic: Language.English.valueInArabic,
+            key: Language.english.key,
+            value: Language.english.value,
+            valueInArabic: Language.english.valueInArabic,
           ),
           DropDownFieldItem(
-            key: Language.Arabic.key,
-            value: Language.Arabic.value,
-            valueInArabic: Language.Arabic.valueInArabic,
+            key: Language.arabic.key,
+            value: Language.arabic.value,
+            valueInArabic: Language.arabic.valueInArabic,
           ),
         ],
         onChanged: (value) => changeLanguage(value),
@@ -51,9 +51,9 @@ class _LanguageDropDownState extends State<LanguageDropDown> {
 
   void changeLanguage(String value) {
     setState(() {
-      if (value == Language.English.key) {
+      if (value == Language.english.key) {
         BlocProvider.of<LocaleCubit>(context).toEnglish();
-      } else if (value == Language.Arabic.key) {
+      } else if (value == Language.arabic.key) {
         BlocProvider.of<LocaleCubit>(context).toArabic();
       }
     });

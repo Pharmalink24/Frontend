@@ -42,7 +42,7 @@ class SigninCubit extends Cubit<SigninState> {
       failure: (error) async {
         await _authRepo.clearAuthData();
         emit(SigninState.error(
-            error: error.apiErrorModel.message ?? ERR.UNEXPECTED));
+            error: error.apiErrorModel.error ?? ERR.UNEXPECTED));
       },
     );
   }

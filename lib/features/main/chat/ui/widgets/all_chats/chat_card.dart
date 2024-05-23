@@ -1,9 +1,14 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pharmalink/core/helpers/extensions.dart';
 import 'package:pharmalink/core/routes/routes.dart';
 import 'package:pharmalink/core/theme/styles.dart';
 import 'package:pharmalink/features/main/chat/data/models/chat.dart';
 import 'package:pharmalink/resources/resources.dart';
+
+import '../../../../../../core/networking/api_constants.dart';
+import '../../../../../../core/widgets/loading/loading_indicator.dart';
 
 class ChatCard extends StatelessWidget {
   final Chat chat;
@@ -14,9 +19,6 @@ class ChatCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ImageProvider<Object>? image = NetworkImage(
-      chat.doctorImage ?? '',
-    );
     return Card(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(24.0),
@@ -25,13 +27,34 @@ class ChatCard extends StatelessWidget {
       color: Theme.of(context).colorScheme.primaryContainer,
       margin: const EdgeInsets.only(bottom: 16.0),
       child: ListTile(
-        leading: CircleAvatar(
-          // Todo; Replace: ? "${ApiConstants.baseUrl}${chat.doctorImage}"
-          backgroundImage: chat.doctorImage != null
-              ? image
-              : const AssetImage(Placeholders.malePlaceholder),
-
-          radius: 24.0,
+        leading: ClipRRect(
+          borderRadius: BorderRadius.circular(50),
+          child: SizedBox(
+            width: 65,
+            height: 65,
+            child: CachedNetworkImage(
+              width: 65,
+              height: 65,
+              imageUrl: "${ApiConstants.httpsDomain}${chat.image}",
+              fit: BoxFit.contain,
+              imageBuilder: (context, imageProvider) => Container(
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: imageProvider,
+                    fit: BoxFit.contain,
+                  ),
+                ),
+              ),
+              progressIndicatorBuilder: (context, url, downloadProgress) =>
+                  LoadingIndicator(loadingProgress: downloadProgress),
+              errorWidget: (context, url, error) => SvgPicture.asset(
+                Placeholders.malePlaceholder,
+                width: 65,
+                height: 65,
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
         ),
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -40,20 +63,20 @@ class ChatCard extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Text(
-                  "Dr.",
+                  "Dr. ",
                   style: AppTextStyle.titleMedium(context).copyWith(
                     color: Theme.of(context).colorScheme.onPrimary,
                   ),
                 ),
                 Text(
-                  " ${chat.doctorFname} ",
+                  '${chat.fname} ',
                   style: AppTextStyle.titleMedium(context).copyWith(
                     color: Theme.of(context).colorScheme.onPrimary,
                     fontWeight: FontWeight.w600,
                   ),
                 ),
                 Text(
-                  chat.doctorLname,
+                  '${chat.lname}'.crop(4),
                   style: AppTextStyle.titleMedium(context).copyWith(
                     color: Theme.of(context).colorScheme.onPrimary,
                   ),
@@ -61,14 +84,21 @@ class ChatCard extends StatelessWidget {
               ],
             ),
             Text(
-              chat.lastMessageDateTime,
+              DateTime.parse(
+                      chat.lastMessageDateTime ?? DateTime.now().toString())
+                  .format('MM/dd'),
               style: AppTextStyle.labelSmall(context).copyWith(
                 color: Theme.of(context).colorScheme.onSecondary,
               ),
             ),
           ],
         ),
-        subtitle: Text(chat.lastMessage),
+        subtitle: Text(
+          chat.lastMessage?.crop(24) ?? 'No messages yet',
+          style: AppTextStyle.bodySmall(context).copyWith(
+            color: Theme.of(context).colorScheme.onSecondary,
+          ),
+        ),
         onTap: () {
           context.pushNamed(
             Routes.messagesScreen,

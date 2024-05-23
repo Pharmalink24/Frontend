@@ -5,9 +5,8 @@ import 'profile_state.dart';
 
 class ProfileCubit extends Cubit<ProfileState> {
   final ProfileRepo _profileRepo;
-  ProfileCubit(this._profileRepo)
-      : super(const ProfileState.initial());
-      
+  ProfileCubit(this._profileRepo) : super(const ProfileState.initial());
+
   // Get user profile
   void getUserProfile() async {
     emit(const ProfileState.profileInformationLoading());
@@ -19,7 +18,7 @@ class ProfileCubit extends Cubit<ProfileState> {
       },
       failure: (error) {
         emit(ProfileState.profileInformationError(
-            error: error.apiErrorModel.message ?? ERR.UNEXPECTED));
+            error: error.apiErrorModel.error ?? ERR.UNEXPECTED));
       },
     );
   }

@@ -22,7 +22,7 @@ class PrescriptionCubit extends Cubit<PrescriptionState> {
       failure: (error) {
         emit(
           PrescriptionState.prescriptionsError(
-              error.apiErrorModel.message ?? ERR.UNEXPECTED),
+              error.apiErrorModel.error ?? ERR.UNEXPECTED),
         );
       },
     );
@@ -41,12 +41,13 @@ class PrescriptionCubit extends Cubit<PrescriptionState> {
       success: (prescriptionsDoctors) async {
         prescriptionsDrugs.when(
           success: (prescriptionsDrugs) async {
-            emit(PrescriptionState.prescriptionsSuccess(prescriptionsDoctors, prescriptionsDrugs));
+            emit(PrescriptionState.prescriptionsSuccess(
+                prescriptionsDoctors, prescriptionsDrugs));
           },
           failure: (error) {
             emit(
               PrescriptionState.prescriptionsError(
-                  error.apiErrorModel.message ?? ERR.UNEXPECTED),
+                  error.apiErrorModel.error ?? ERR.UNEXPECTED),
             );
           },
         );
@@ -54,7 +55,7 @@ class PrescriptionCubit extends Cubit<PrescriptionState> {
       failure: (error) {
         emit(
           PrescriptionState.prescriptionsError(
-              error.apiErrorModel.message ?? ERR.UNEXPECTED),
+              error.apiErrorModel.error ?? ERR.UNEXPECTED),
         );
       },
     );
@@ -63,7 +64,8 @@ class PrescriptionCubit extends Cubit<PrescriptionState> {
   void activateDrug(int prescriptionId, String drugName) async {
     emit(const PrescriptionState.activateDrugLoading());
 
-    final response = await _prescriptionRepo.activateDrug(prescriptionId, drugName);
+    final response =
+        await _prescriptionRepo.activateDrug(prescriptionId, drugName);
 
     response.when(
       success: (message) {
@@ -72,7 +74,7 @@ class PrescriptionCubit extends Cubit<PrescriptionState> {
       failure: (error) {
         emit(
           PrescriptionState.activateDrugError(
-              error.apiErrorModel.message ?? ERR.UNEXPECTED),
+              error.apiErrorModel.error ?? ERR.UNEXPECTED),
         );
       },
     );
@@ -81,7 +83,8 @@ class PrescriptionCubit extends Cubit<PrescriptionState> {
   void deactivateDrug(int prescriptionId, String drugName) async {
     emit(const PrescriptionState.deactivateDrugLoading());
 
-    final response = await _prescriptionRepo.deactivateDrug(prescriptionId, drugName);
+    final response =
+        await _prescriptionRepo.deactivateDrug(prescriptionId, drugName);
 
     response.when(
       success: (message) {
@@ -90,7 +93,7 @@ class PrescriptionCubit extends Cubit<PrescriptionState> {
       failure: (error) {
         emit(
           PrescriptionState.deactivateDrugError(
-              error.apiErrorModel.message ?? ERR.UNEXPECTED),
+              error.apiErrorModel.error ?? ERR.UNEXPECTED),
         );
       },
     );

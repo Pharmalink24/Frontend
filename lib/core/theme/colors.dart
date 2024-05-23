@@ -79,7 +79,7 @@ class AppColorScheme {
     onErrorContainer: AppColors.error,
     onInverseSurface: AppColors.primaryText,
     // Shadows
-    shadow: Color(0xFF000000).withOpacity(0.17),
+    shadow: const Color(0xFF000000).withOpacity(0.17),
   );
 
   static ColorScheme dark = ColorScheme.fromSeed(

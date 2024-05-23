@@ -1,21 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:pharmalink/core/theme/icons.dart';
+import 'package:pharmalink/features/main/chat/data/models/chat.dart';
 import '../../../../../core/helpers/extensions.dart';
 import '../../../../../core/localization/app_localizations.dart';
 import '../../../../../core/routes/routes.dart';
 import '../../../../../core/theme/gradient.dart';
 import '../../../../../core/theme/styles.dart';
+import '../../data/models/doctor_info.dart';
 
 class AboutContainer extends StatelessWidget {
-  final String? university;
-  final String? degree;
-  final String? brief;
+  final DoctorInfo? doctor;
 
   const AboutContainer({
     super.key,
-    this.university,
-    this.degree,
-    this.brief,
+    this.doctor,
   });
 
   @override
@@ -65,14 +64,15 @@ class AboutContainer extends StatelessWidget {
               Align(
                 alignment: const AlignmentDirectional(-1, 0),
                 child: Text(
-                  degree ?? AppLocalizations.of(context).translate('no_info'),
+                  doctor?.degree ??
+                      AppLocalizations.of(context).translate('no_info'),
                   style: AppTextStyle.bodyMedium(context),
                 ),
               ),
               Align(
                 alignment: const AlignmentDirectional(-1, 0),
                 child: Text(
-                  'M.D. ${university ?? AppLocalizations.of(context).translate('no_info')}',
+                  'M.D. ${doctor?.university ?? AppLocalizations.of(context).translate('no_info')}',
                   style: AppTextStyle.bodyMedium(context),
                 ),
               ),
@@ -81,7 +81,8 @@ class AboutContainer extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsetsDirectional.fromSTEB(0, 8, 0, 12),
                   child: Text(
-                    brief ?? AppLocalizations.of(context).translate('no_info'),
+                    doctor?.brief ??
+                        AppLocalizations.of(context).translate('no_info'),
                     style: AppTextStyle.labelMedium(context),
                   ),
                 ),
@@ -91,8 +92,19 @@ class AboutContainer extends StatelessWidget {
                 child: GestureDetector(
                   onTap: () {
                     // Open the chat screen
-                    // TODO: Send the doctor's id to the chat screen
-                    context.pushNamed(Routes.messagesScreen);
+                    var chat = Chat(
+                      chatWithId: doctor?.id,
+                      fname: doctor?.firstName,
+                      lname: doctor?.lastName,
+                      image: doctor?.image,
+                      username: doctor?.username,
+                      lastMessage: '',
+                      lastMessageDateTime: '',
+                    );
+                    context.pushNamed(
+                      Routes.messagesScreen,
+                      argument: chat,
+                    );
                   },
                   child: Container(
                     width: double.infinity,
@@ -117,7 +129,7 @@ class AboutContainer extends StatelessWidget {
                                   12,
                                 ),
                                 child: Icon(
-                                  FontAwesomeIcons.whatsapp,
+                                  FFIcons.kLogoPharmaLink,
                                   color: Theme.of(context)
                                       .colorScheme
                                       .primaryContainer,

@@ -25,7 +25,7 @@ class AuthCubit extends Cubit<AuthState> {
       failure: (error) async {
         emit(
           AuthState.error(
-            error: error.apiErrorModel.message ?? ERR.UNEXPECTED,
+            error: error.apiErrorModel.error ?? ERR.UNEXPECTED,
           ),
         );
       },
@@ -41,5 +41,4 @@ class AuthCubit extends Cubit<AuthState> {
     await _authRepo.logout();
     await _authRepo.clearAuthData();
   }
-
 }

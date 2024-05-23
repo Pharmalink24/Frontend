@@ -20,7 +20,7 @@ class VerificationCubit extends Cubit<VerificationState> {
     }, failure: (error) {
       emit(
         VerificationState.error(
-            error: error.apiErrorModel.message ?? ERR.UNEXPECTED),
+            error: error.apiErrorModel.error ?? ERR.UNEXPECTED),
       );
     });
   }

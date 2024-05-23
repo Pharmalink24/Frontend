@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-    import 'package:intl/intl.dart';
+import 'package:intl/intl.dart';
 
 extension Navigation on BuildContext {
   Future<dynamic> pushNamed(String routeName, {Object? argument}) {
@@ -44,17 +44,15 @@ extension StringTime on TimeOfDay {
   }
 }
 
-extension StringDate on DateTime{
-    String format(String format){
-
+extension StringDate on DateTime {
+  String format(String format) {
     return DateFormat(format).format(this);
-      
   }
 }
 
 extension StringExtension on String {
   String capitalize() {
-    return "${this[0].toUpperCase()}${this.substring(1).toLowerCase()}";
+    return "${this[0].toUpperCase()}${substring(1).toLowerCase()}";
   }
 
   String crop(int length) {

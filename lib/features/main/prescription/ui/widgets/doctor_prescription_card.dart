@@ -67,13 +67,13 @@ class DoctorPrescriptionCard extends StatelessWidget {
                         ),
                       ),
                     ),
-                    placeholder: (context, url) =>
-                        Image.asset(Placeholders.doctorPlaceholder),
                     progressIndicatorBuilder:
                         (context, url, downloadProgress) =>
                             LoadingIndicator(loadingProgress: downloadProgress),
-                    errorWidget: (context, url, error) =>
-                        const Icon(Icons.error),
+                    errorWidget: (context, url, error) => Image.asset(
+                      Placeholders.doctorPlaceholder,
+                      width: 90,
+                    ),
                   ),
                 ),
               ),

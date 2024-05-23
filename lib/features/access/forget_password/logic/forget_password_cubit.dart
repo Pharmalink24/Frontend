@@ -26,7 +26,7 @@ class ForgetPasswordCubit extends Cubit<ForgetPasswordState> {
       },
       failure: (error) {
         emit(ForgetPasswordState.error(
-            error: error.apiErrorModel.message ?? ERR.UNEXPECTED));
+            error: error.apiErrorModel.error ?? ERR.UNEXPECTED));
       },
     );
   }

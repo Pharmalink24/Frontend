@@ -7,7 +7,6 @@ import '../../shared_preferences/settings_prefs.dart';
 
 part 'locale_state.dart';
 
-
 class LocaleCubit extends Cubit<LocaleState> {
   // Passing an initial value (state) with a default 'Locale' to the super class.
   LocaleCubit()
@@ -17,13 +16,13 @@ class LocaleCubit extends Cubit<LocaleState> {
   // in the 'main.dart' will rebuild the entire app with
   // the new emitted state that holds the 'ar' locale.
   void toArabic() {
-    emit(SelectedLocale(Locale(Language.Arabic.key)));
-    SettingsSharedPrefs.storeLocale(Language.Arabic);
+    emit(SelectedLocale(Locale(Language.arabic.key)));
+    SettingsSharedPrefs.storeLocale(Language.arabic);
   }
 
   // Same as the previous method, but with the 'en' locale.
   void toEnglish() {
-    emit(SelectedLocale(Locale(Language.English.key)));
-    SettingsSharedPrefs.storeLocale(Language.English);
+    emit(SelectedLocale(Locale(Language.english.key)));
+    SettingsSharedPrefs.storeLocale(Language.english);
   }
 }

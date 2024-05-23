@@ -5,6 +5,7 @@ part "message.g.dart";
 
 @JsonSerializable()
 class Message {
+  @JsonKey(includeIfNull: false)
   final int? id;
   @JsonKey(name: "sender_user_id", includeIfNull: false)
   final int? senderUserId;
@@ -24,9 +25,9 @@ class Message {
   final String? voiceMessage;
   @JsonKey(includeIfNull: false)
   final Timestamp? timestamp;
-  @JsonKey(includeIfNull: false)
-  final bool success;
-  @JsonKey(name:"is_delivered", includeIfNull: false)
+  @JsonKey(name: 'is_read', includeIfNull: false)
+  final bool? isRead;
+  @JsonKey(name: "is_delivered", includeIfNull: false)
   final bool? isDelivered;
 
   Message({
@@ -40,7 +41,7 @@ class Message {
     this.file,
     this.voiceMessage,
     this.timestamp,
-    this.success = true,
+    this.isRead,
     this.isDelivered,
   });
 

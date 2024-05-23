@@ -1,5 +1,4 @@
 import "package:flutter/material.dart";
-import "package:logger/logger.dart";
 
 class AppBottomNavigationBar extends StatefulWidget {
   final int currentIndex;

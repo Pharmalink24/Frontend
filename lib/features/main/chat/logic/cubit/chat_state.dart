@@ -6,13 +6,28 @@ part 'chat_state.freezed.dart';
 class ChatState with _$ChatState {
   const factory ChatState.initial() = _Initial;
 
-  const factory ChatState.loading() = Loading;
-
+  // Connect to the channels
+  const factory ChatState.connectedLoading() = ConnectedLoading;
   const factory ChatState.connectedSuccessfully() = ConnectedSuccessfully;
-  const factory ChatState.sentSuccessfully() = SentSuccessfully;
-  const factory ChatState.receivedSuccessfully() = ReceivedSuccessfully;
+  const factory ChatState.connectedError(String message) = ConnectedError;
+
+  // Send a message
+  const factory ChatState.messageSentLoading() = MessageSentLoading;
+  const factory ChatState.messageSentSuccessfully() = MessageSentSuccessfully;
+  const factory ChatState.messageSentError(String message) = MessageSentError;
+
+  // Get all chats
+  const factory ChatState.userChatsReceivedLoading() = UserChatsReceivedLoading;
   const factory ChatState.userChatsReceivedSuccessfully() =
       UserChatsReceivedSuccessfully;
+  const factory ChatState.userChatsReceivedError(String message) =
+      UserChatsReceivedError;
 
-  const factory ChatState.error(String message) = Error;
+  // Get all messages
+  const factory ChatState.allMessagesReceivedLoading() =
+      AllMessagesReceivedLoading;
+  const factory ChatState.allMessagesReceivedSuccessfully() =
+      AllMessagesReceivedSuccessfully;
+  const factory ChatState.allMessagesReceivedError(String message) =
+      AllMessagesReceivedError;
 }

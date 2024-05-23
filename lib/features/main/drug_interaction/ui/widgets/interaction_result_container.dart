@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:pharmalink/core/theme/icons.dart';
 import '../../../../../core/theme/styles.dart';
 import '../../../../../core/widgets/card_container.dart';

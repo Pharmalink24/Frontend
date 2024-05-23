@@ -21,7 +21,7 @@ class RemindersCubit extends Cubit<RemindersState> {
       failure: (error) {
         emit(
           RemindersState.remindersError(
-            error: error.apiErrorModel.message ?? ERR.UNEXPECTED,
+            error: error.apiErrorModel.error ?? ERR.UNEXPECTED,
           ),
         );
       },
@@ -41,7 +41,7 @@ class RemindersCubit extends Cubit<RemindersState> {
       failure: (error) {
         emit(
           RemindersState.makeReminderCheckedError(
-            error: error.apiErrorModel.message ?? ERR.UNEXPECTED,
+            error: error.apiErrorModel.error ?? ERR.UNEXPECTED,
           ),
         );
       },

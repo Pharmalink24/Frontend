@@ -15,20 +15,46 @@ import '../../../../../core/networking/socket_constants.dart';
 import '../models/chat.dart';
 import '../models/message.dart';
 
-enum ChannelType { allChats, messages }
+enum ChannelType { allChats, chatting, allMessages }
 
 class ChatRepo {
   final ApiService _apiService;
   ChatRepo(this._apiService);
 
-  SocketChannel? channel;
+  SocketChannel? messagingChannel;
+  SocketChannel? messagesHistoryChannel;
+  SocketChannel? userChatsChannel;
 
   // Socket
   Future<SocketChannel?> connectToChannel(ChannelType channelType) async {
     late String url;
 
+    Map<String, String> headers = {
+      HttpHeaders.authorizationHeader: AuthSharedPrefs.getAccessToken() ?? '',
+    };
+
     if (channelType == ChannelType.allChats) {
-      url = '${WebSocketConstants.wsDomain}${WebSocketConstants.allChatsChannel}';
+      url =
+          '${WebSocketConstants.wsDomain}${WebSocketConstants.allChatsChannel}';
+
+      userChatsChannel = SocketChannel(
+          () => IOWebSocketChannel.connect(url, headers: headers));
+
+      Logger().i(
+          'Connecting to channel with url: $url and headers: ${headers.toString()}');
+
+      return userChatsChannel;
+    } else if (channelType == ChannelType.allMessages) {
+      url =
+          '${WebSocketConstants.wsDomain}${WebSocketConstants.allMessagesChannel}';
+
+      messagesHistoryChannel = SocketChannel(
+          () => IOWebSocketChannel.connect(url, headers: headers));
+
+      Logger().i(
+          'Connecting to channel with url: $url and headers: ${headers.toString()}');
+
+      return messagesHistoryChannel;
     } else {
       url = '${WebSocketConstants.wsDomain}${WebSocketConstants.chatChannel}';
 
@@ -38,23 +64,29 @@ class ChatRepo {
 
       // Replace the path parameters in the url
       url = url.replacePath(paths);
+
+      messagingChannel = SocketChannel(
+          () => IOWebSocketChannel.connect(url, headers: headers));
+
+      Logger().i(
+          'Connecting to channel with url: $url and headers: ${headers.toString()}');
+
+      return messagingChannel;
     }
-
-    Map<String, String> headers = {
-      HttpHeaders.authorizationHeader: AuthSharedPrefs.getAccessToken() ?? '',
-    };
-
-    Logger().i(
-        'Connecting to channel with url: $url and headers: ${headers.toString()}');
-
-    channel =
-        SocketChannel(() => IOWebSocketChannel.connect(url, headers: headers));
-
-    return channel;
   }
 
-  Future<void> listenToChannel(Function onListen) async {
-    channel?.stream.listen(
+  void disconnectFromChannel(ChannelType channelType) {
+    if (channelType == ChannelType.allChats) {
+      userChatsChannel?.close();
+    } else if (channelType == ChannelType.allMessages) {
+      messagesHistoryChannel?.close();
+    } else {
+      messagingChannel?.close();
+    }
+  }
+
+  Future<void> listenToMessagingChannel(Function onListen) async {
+    messagingChannel?.stream.listen(
       (event) {
         Logger().i('Received message: $event');
         onListen(event);
@@ -64,20 +96,32 @@ class ChatRepo {
     );
   }
 
-  Future<List<Message>> getMessagesHistory(String id) async {
-    return [];
-  }
+  Future<void> listenToMessagesHistory(
+      int receiverDoctorId, Function onListen) async {
+    messagesHistoryChannel ??= await connectToChannel(ChannelType.chatting);
 
-  Future<void> sendMessage(Message msg) async {
+    Message msg = Message(
+      senderUserId: AuthSharedPrefs.getUserId(),
+      receiverDoctorId: receiverDoctorId,
+    );
+
+    var message = jsonEncode(msg.toJson());
     Logger().i(
-        'Sending message: ${jsonEncode(msg.toJson())} to channel: ${channel.toString()}');
-    channel ??= await connectToChannel(ChannelType.messages);
+        'Sending message to get messages history: $message to channel: ${messagesHistoryChannel?.toString()}');
+    messagesHistoryChannel?.sendMessage(message);
 
-    channel?.sendMessage(jsonEncode(msg.toJson()));
+    messagesHistoryChannel?.stream.listen(
+      (event) {
+        Logger().i('Received messages: $event');
+        onListen(event);
+      },
+      onError: (error) => Logger().e('Error in channel: $error'),
+      onDone: () => Logger().i('Channel is closed'),
+    );
   }
 
-  Future<void> getUserChats(Function onListen) async {
-    channel?.stream.listen(
+  Future<void> listenToUserChats(Function onListen) async {
+    userChatsChannel?.stream.listen(
       (event) {
         Logger().i('Received chats: $event');
         onListen(event);
@@ -85,6 +129,22 @@ class ChatRepo {
       onError: (error) => Logger().e('Error in channel: $error'),
       onDone: () => Logger().i('Channel is closed'),
     );
+  }
+
+  Future<void> sendMessage(int receiverDoctorId, String message) async {
+    messagingChannel ??= await connectToChannel(ChannelType.chatting);
+
+    Message msg = Message(
+      senderUserId: AuthSharedPrefs.getUserId(),
+      receiverDoctorId: receiverDoctorId,
+      message: message,
+    );
+
+    var messageJson = jsonEncode(msg.toJson());
+    Logger().i(
+        'Sending message: $messageJson to channel: ${messagingChannel?.toString()}');
+
+    messagingChannel?.sendMessage(messageJson);
   }
 
   // Chats

@@ -71,62 +71,62 @@ extension DataSourceExtension on DataSource {
       case DataSource.BAD_REQUEST:
         return ApiErrorModel(
           code: ResponseCode.BAD_REQUEST,
-          message: ResponseMessage.BAD_REQUEST,
+          error: ResponseMessage.BAD_REQUEST,
         );
       case DataSource.FORBIDDEN:
         return ApiErrorModel(
           code: ResponseCode.FORBIDDEN,
-          message: ResponseMessage.FORBIDDEN,
+          error: ResponseMessage.FORBIDDEN,
         );
       case DataSource.UNAUTHORIZED:
         return ApiErrorModel(
           code: ResponseCode.UNAUTHORIZED,
-          message: ResponseMessage.UNAUTHORIZED,
+          error: ResponseMessage.UNAUTHORIZED,
         );
       case DataSource.NOT_FOUND:
         return ApiErrorModel(
           code: ResponseCode.NOT_FOUND,
-          message: ResponseMessage.NOT_FOUND,
+          error: ResponseMessage.NOT_FOUND,
         );
       case DataSource.INTERNAL_SERVER_ERROR:
         return ApiErrorModel(
           code: ResponseCode.INTERNAL_SERVER_ERROR,
-          message: ResponseMessage.INTERNAL_SERVER_ERROR,
+          error: ResponseMessage.INTERNAL_SERVER_ERROR,
         );
       case DataSource.CONNECT_TIMEOUT:
         return ApiErrorModel(
           code: ResponseCode.CONNECT_TIMEOUT,
-          message: ResponseMessage.CONNECT_TIMEOUT,
+          error: ResponseMessage.CONNECT_TIMEOUT,
         );
       case DataSource.CANCEL:
         return ApiErrorModel(
           code: ResponseCode.CANCEL,
-          message: ResponseMessage.CANCEL,
+          error: ResponseMessage.CANCEL,
         );
       case DataSource.RECEIVE_TIMEOUT:
         return ApiErrorModel(
           code: ResponseCode.RECEIVE_TIMEOUT,
-          message: ResponseMessage.RECEIVE_TIMEOUT,
+          error: ResponseMessage.RECEIVE_TIMEOUT,
         );
       case DataSource.SEND_TIMEOUT:
         return ApiErrorModel(
           code: ResponseCode.SEND_TIMEOUT,
-          message: ResponseMessage.SEND_TIMEOUT,
+          error: ResponseMessage.SEND_TIMEOUT,
         );
       case DataSource.CACHE_ERROR:
         return ApiErrorModel(
           code: ResponseCode.CACHE_ERROR,
-          message: ResponseMessage.CACHE_ERROR,
+          error: ResponseMessage.CACHE_ERROR,
         );
       case DataSource.NO_INTERNET_CONNECTION:
         return ApiErrorModel(
           code: ResponseCode.NO_INTERNET_CONNECTION,
-          message: ResponseMessage.NO_INTERNET_CONNECTION,
+          error: ResponseMessage.NO_INTERNET_CONNECTION,
         );
       case DataSource.DEFAULT:
         return ApiErrorModel(
           code: ResponseCode.DEFAULT,
-          message: ResponseMessage.DEFAULT,
+          error: ResponseMessage.DEFAULT,
         );
     }
   }

@@ -12,7 +12,7 @@ class WidgetSize extends StatefulWidget {
   });
 
   @override
-  _WidgetSizeState createState() => _WidgetSizeState();
+  State<WidgetSize> createState() => _WidgetSizeState();
 }
 
 class _WidgetSizeState extends State<WidgetSize> {

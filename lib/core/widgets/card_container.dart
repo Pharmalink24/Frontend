@@ -34,7 +34,7 @@ class CardContainer extends StatelessWidget {
             BoxShadow(
               color: Theme.of(context).colorScheme.shadow,
               blurRadius: 5.0,
-              offset: Offset(0, 1),
+              offset: const Offset(0, 1),
             ),
           ],
         ),

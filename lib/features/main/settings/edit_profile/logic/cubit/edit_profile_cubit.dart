@@ -11,7 +11,8 @@ import 'edit_profile_state.dart';
 
 class EditProfileCubit extends Cubit<EditProfileState> {
   final EditProfileRepo _editProfileRepo;
-  EditProfileCubit(this._editProfileRepo) : super(const EditProfileState.initial());
+  EditProfileCubit(this._editProfileRepo)
+      : super(const EditProfileState.initial());
 
   TextEditingController fnameController = TextEditingController();
   TextEditingController lnameController = TextEditingController();
@@ -34,7 +35,7 @@ class EditProfileCubit extends Cubit<EditProfileState> {
       failure: (error) {
         emit(
           EditProfileState.userInformationRetrievedError(
-            error: error.apiErrorModel.message ?? ERR.UNEXPECTED,
+            error: error.apiErrorModel.error ?? ERR.UNEXPECTED,
           ),
         );
       },
@@ -63,7 +64,7 @@ class EditProfileCubit extends Cubit<EditProfileState> {
       failure: (error) {
         emit(
           EditProfileState.userInformationEditedError(
-            error: error.apiErrorModel.message ?? ERR.UNEXPECTED,
+            error: error.apiErrorModel.error ?? ERR.UNEXPECTED,
           ),
         );
       },
@@ -92,12 +93,10 @@ class EditProfileCubit extends Cubit<EditProfileState> {
       failure: (error) {
         emit(
           EditProfileState.uploadProfileImageError(
-            error: error.apiErrorModel.message ?? ERR.UNEXPECTED,
+            error: error.apiErrorModel.error ?? ERR.UNEXPECTED,
           ),
         );
       },
     );
   }
-
 }
-
