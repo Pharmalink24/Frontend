@@ -88,7 +88,7 @@ class ChatRepo {
   Future<void> listenToMessagingChannel(Function onListen) async {
     messagingChannel?.stream.listen(
       (event) {
-        Logger().i('Received message: $event');
+        Logger().i('Received message: ${event}');
         onListen(event);
       },
       onError: (error) => Logger().e('Error in channel: $error'),

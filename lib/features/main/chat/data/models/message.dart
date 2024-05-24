@@ -18,7 +18,7 @@ class Message {
   @JsonKey(includeIfNull: false)
   final String? message;
   @JsonKey(includeIfNull: false)
-  final Timestamp? timestamp;
+  final String? timestamp;
   @JsonKey(name: "image", includeIfNull: false)
   final String? image;
   @JsonKey(name: "file", includeIfNull: false)

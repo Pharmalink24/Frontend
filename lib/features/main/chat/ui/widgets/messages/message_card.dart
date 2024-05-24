@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
+import 'package:pharmalink/core/helpers/extensions.dart';
 import 'package:pharmalink/core/shared_preferences/auth_prefs.dart';
 import 'package:pharmalink/core/theme/shadow.dart';
 import 'package:pharmalink/core/theme/styles.dart';
@@ -31,7 +32,9 @@ class MessageCard extends StatelessWidget {
           ? const EdgeInsetsDirectional.only(start: 64, end: 0, top: 16)
           : const EdgeInsetsDirectional.only(start: 0, end: 64, top: 16),
       decoration: BoxDecoration(
-        color: Theme.of(context).colorScheme.primaryContainer,
+        color: isMeSender()
+            ? Theme.of(context).colorScheme.secondary
+            : Theme.of(context).colorScheme.primaryContainer,
         borderRadius: isMeSender()
             ? const BorderRadiusDirectional.only(
                 topStart: Radius.circular(16),
@@ -56,15 +59,23 @@ class MessageCard extends StatelessWidget {
             flex: 3,
             child: Text(
               isErrorMessage ? "Error sending message" : message!.message ?? "",
-              style: AppTextStyle.bodyMedium(context),
+              style: AppTextStyle.bodyMedium(context).copyWith(
+                color: isMeSender()
+                    ? Theme.of(context).colorScheme.onTertiary
+                    : Theme.of(context).colorScheme.onPrimary,
+              ),
             ),
           ),
           const SizedBox(height: 4),
           Flexible(
             child: Text(
-              isErrorMessage ? "" : message?.timestamp?.date ?? '',
+              isErrorMessage
+                  ? ""
+                  : DateTime.parse(message?.timestamp ?? '').format('hh:mm a'),
               style: AppTextStyle.bodySmall(context).copyWith(
-                color: Theme.of(context).colorScheme.onSecondary,
+                color: isMeSender()
+                    ? Theme.of(context).colorScheme.primaryContainer
+                    : Theme.of(context).colorScheme.onSecondary,
               ),
             ),
           ),

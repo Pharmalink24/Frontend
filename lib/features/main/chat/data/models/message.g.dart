@@ -16,9 +16,7 @@ Message _$MessageFromJson(Map<String, dynamic> json) => Message(
       image: json['image'] as String?,
       file: json['file'] as String?,
       voiceMessage: json['voice_message'] as String?,
-      timestamp: json['timestamp'] == null
-          ? null
-          : Timestamp.fromJson(json['timestamp'] as Map<String, dynamic>),
+      timestamp: json['timestamp'] as String?,
       isRead: json['is_read'] as bool?,
       isDelivered: json['is_delivered'] as bool?,
     );

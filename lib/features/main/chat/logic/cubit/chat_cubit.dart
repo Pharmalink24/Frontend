@@ -39,13 +39,14 @@ class ChatCubit extends Cubit<ChatState> {
     _chatRepo.disconnectFromChannel(socketChannel);
   }
 
+  // Listen to the messaging channel
   void listenToMessaging() {
     _chatRepo.listenToMessagingChannel((event) {
+      emit(const ChatState.messageSentLoading());
+
       disconnect(ChannelType.allChats);
       connect(ChannelType.allChats);
       getUserChats();
-
-      emit(const ChatState.messageSentLoading());
 
       Message receivedMsg = Message.fromJson(jsonDecode(event));
 
@@ -67,12 +68,11 @@ class ChatCubit extends Cubit<ChatState> {
     });
   }
 
+  // Get all messages
   void getChatMessages(int receiverDoctorId) {
     _chatRepo.listenToMessagesHistory(receiverDoctorId, (event) {
       emit(const ChatState.allMessagesReceivedLoading());
 
-      Logger().i(
-          'Received messages type: ${(jsonDecode(event) as List).runtimeType}');
       // Parse the event (String of List of messages)
       messages = (jsonDecode(event) as List).map((e) {
         return Message.fromJson(e);
@@ -91,7 +91,6 @@ class ChatCubit extends Cubit<ChatState> {
       (event) {
         // Parse the response
         chatsResponse = ChatsResponse.fromJson(jsonDecode(event));
-
         // Update the UI
         emit(const ChatState.userChatsReceivedSuccessfully());
       },
