@@ -4,8 +4,7 @@ import 'package:pharmalink/features/main/chat/data/models/message.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';
 
 void main() {
-  String url =
-      '${WebSocketConstants.wsDomain}${WebSocketConstants.chatChannel}';
+  String url = '${WebSocketConstants.wsDomain}${WebSocketConstants.messaging}';
 
   Map<String, dynamic> pathParams = {
     'user_id': '1',

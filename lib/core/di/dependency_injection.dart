@@ -31,6 +31,7 @@ import '../../features/access/sign/logic/signup_cubit/signup_cubit.dart';
 import '../../features/access/sign/data/repo/signup_repo.dart';
 import '../../features/access/verification/data/repo/verification_repo.dart';
 import '../../features/access/verification/logic/cubit/verification_cubit.dart';
+import '../networking/socket_service.dart';
 
 final getIt = GetIt.instance;
 
@@ -38,6 +39,9 @@ Future<void> setupGetIt() async {
   // Dio & ApiService
   Dio dio = DioFactory.getDio();
   getIt.registerLazySingleton<ApiService>(() => ApiService(dio));
+
+  // Socket
+  getIt.registerLazySingleton<SocketService>(() => SocketService());
 
   //-------------------- CORE --------------------//
 
@@ -119,6 +123,6 @@ Future<void> setupGetIt() async {
 
   //-------------------- Chat --------------------//
 
-  getIt.registerLazySingleton<ChatRepo>(() => ChatRepo(getIt()));
+  getIt.registerLazySingleton<ChatRepo>(() => ChatRepo(getIt(), getIt()));
   getIt.registerFactory<ChatCubit>(() => ChatCubit(getIt()));
 }

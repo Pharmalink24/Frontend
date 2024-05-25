@@ -1,15 +1,202 @@
+import 'dart:convert';
+import 'dart:io';
+
+import 'package:logger/logger.dart';
+import 'package:pharmalink/core/helpers/extensions.dart';
 import 'package:pharmalink/core/networking/socket_constants.dart';
+import 'package:web_socket_channel/io.dart';
+
+import '../../features/main/chat/data/models/message.dart';
+import 'socket_channel.dart';
 
 class SocketService {
   // Base URL
   String baseUrl = WebSocketConstants.wsDomain;
 
-  // Initialize the socket channels
-  void init() {
-    // Initialize the socket channels
+  SocketService();
+
+  SocketChannel? _messagingChannel;
+  SocketChannel? _messagesHistoryChannel;
+  SocketChannel? _userChatsChannel;
+
+  Map<String, String> getHeaders(String auth) => {
+        HttpHeaders.authorizationHeader: auth,
+      };
+
+  String setPathParams(String url, Map<String, dynamic> paths) {
+    return url.replacePath(paths);
   }
 
-  void connect() {
-    // Connect to the socket
+  //-------------------- Connect/Close Socket Channels --------------------//
+
+  // Connect to all channels
+  void connectToAllChannels(int currentUserId, String auth) {
+    connectToMessagingChannel(currentUserId, auth);
+    connectToUserChatsChannel(auth);
+    connectToMessagesHistoryChannel(auth);
+  }
+
+  // Close all channels
+  void closeAllChannels() {
+    _messagingChannel?.close();
+    _messagesHistoryChannel?.close();
+    _userChatsChannel?.close();
+  }
+
+  //-------------------- Messaging Channel --------------------//
+
+  // Connect to the messaging channel
+  SocketChannel connectToMessagingChannel(int currentUserId, String auth) {
+    // Get the headers
+    Map<String, String> headers = getHeaders(auth);
+    // Construct the url
+    String url = '$baseUrl${WebSocketConstants.messagingChannel}';
+    // Replace the path parameters in the url
+    url = setPathParams(url, {'user_id': currentUserId});
+
+    // Log the url and headers
+    Logger().i('url: $url');
+    Logger().i('headers: $headers');
+
+    // Connect to the messaging channel
+    _messagingChannel = SocketChannel(
+      () => IOWebSocketChannel.connect(
+        Uri.parse(url),
+        headers: headers,
+      ),
+    );
+
+    return _messagingChannel!;
+  }
+
+  // Close the messaging channel
+  void closeMessagingChannel() {
+    _messagingChannel?.close();
+    Logger().i('Messaging Channel is closed');
+  }
+
+  //-------------------- User Chats Channel --------------------//
+
+  // Connect to the user chats channel
+  SocketChannel connectToUserChatsChannel(String auth) {
+    // Get the headers
+    Map<String, String> headers = getHeaders(auth);
+
+    // Construct the url
+    String url = '$baseUrl${WebSocketConstants.allChatsChannel}';
+
+    // Log the url and headers
+    Logger().i('url: $url');
+    Logger().i('headers: $headers');
+
+    // Connect to the messaging channel
+    _userChatsChannel = SocketChannel(
+      () => IOWebSocketChannel.connect(
+        Uri.parse(url),
+        headers: headers,
+      ),
+    );
+
+    return _userChatsChannel!;
+  }
+
+  // Close the user chats channel
+  void closeUserChatsChannel() {
+    _userChatsChannel?.close();
+    Logger().i('User Chats Channel is closed');
+  }
+
+  //-------------------- Messages History Channel --------------------//
+
+  // Connect to the messages history channel
+  SocketChannel connectToMessagesHistoryChannel(String auth) {
+    // Get the headers
+    Map<String, String> headers = getHeaders(auth);
+
+    // Construct the url
+    String url = '$baseUrl${WebSocketConstants.allMessagesChannel}';
+
+    // Log the url and headers
+    Logger().i('url: $url');
+    Logger().i('headers: $headers');
+
+    // Connect to the messaging channel
+    _messagesHistoryChannel = SocketChannel(
+      () => IOWebSocketChannel.connect(
+        Uri.parse(url),
+        headers: headers,
+      ),
+    );
+
+    return _messagesHistoryChannel!;
+  }
+
+  // Close the messages history channel
+  void closeMessagesHistoryChannel() {
+    _messagesHistoryChannel?.close();
+    Logger().i('Messages history Channel is closed');
+  }
+
+  //-------------------- Listen to Channels --------------------//
+
+  // Listen to the messaging channel
+  void listenToMessagingChannel(Function onListen) {
+    _messagingChannel?.stream.listen(
+      (event) {
+        Logger().i('Received message: $event');
+        onListen(event);
+      },
+      onError: (error) => Logger().e('Error in messaging channel: $error'),
+      onDone: () => Logger().i('Messaging Channel is closed'),
+    );
+  }
+
+  // Listen to the messages history channel
+  void listenToMessagesHistory(Function onListen) {
+    _messagesHistoryChannel?.stream.listen(
+      (event) {
+        Logger().i('Received messages: $event');
+        onListen(event);
+      },
+      onError: (error) =>
+          Logger().e('Error in messages history channel: $error'),
+      onDone: () => Logger().i('Messages history Channel is closed'),
+    );
+  }
+
+  // Listen to the user chats channel
+  void listenToUserChats(Function onListen) {
+    _userChatsChannel?.stream.listen(
+      (event) {
+        Logger().i('Received chats: $event');
+        onListen(event);
+      },
+      onError: (error) => Logger().e('Error in user chats channel: $error'),
+      onDone: () => Logger().i('User chats Channel is closed'),
+    );
+  }
+
+  //-------------------- Send Messages --------------------//
+
+  // Send message to the messaging channel
+  void sendMessageToMessagingChannel(Message message) {
+    Logger().i('Sending message: ${message.toJson()}');
+
+    // Convert the message to json
+    final messageJson = jsonEncode(message.toJson());
+
+    // Send the message
+    _messagingChannel?.sendMessage(messageJson);
+  }
+
+  // Send message to the messages history channel
+  void sendMessageToMessagesHistoryChannel(Message message) {
+    Logger().i('Sending message: ${message.toJson()}');
+
+    // Convert the message to json
+    final messageJson = jsonEncode(message.toJson());
+
+    // Send the message
+    _messagesHistoryChannel?.sendMessage(messageJson);
   }
 }

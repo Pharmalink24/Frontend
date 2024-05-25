@@ -3,7 +3,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'chat_state.freezed.dart';
 
 @freezed
-class ChatState with _$ChatState {
+class ChatState<T> with _$ChatState<T> {
   const factory ChatState.initial() = _Initial;
 
   // Connect to the channels
@@ -16,18 +16,18 @@ class ChatState with _$ChatState {
   const factory ChatState.messageSentSuccessfully() = MessageSentSuccessfully;
   const factory ChatState.messageSentError(String message) = MessageSentError;
 
-  // Get all chats
+  // Get user chats
   const factory ChatState.userChatsReceivedLoading() = UserChatsReceivedLoading;
-  const factory ChatState.userChatsReceivedSuccessfully() =
-      UserChatsReceivedSuccessfully;
+  const factory ChatState.userChatsReceivedSuccessfully(T chats) =
+      UserChatsReceivedSuccessfully<T>;
   const factory ChatState.userChatsReceivedError(String message) =
       UserChatsReceivedError;
 
   // Get all messages
   const factory ChatState.allMessagesReceivedLoading() =
       AllMessagesReceivedLoading;
-  const factory ChatState.allMessagesReceivedSuccessfully() =
-      AllMessagesReceivedSuccessfully;
+  const factory ChatState.allMessagesReceivedSuccessfully(T messages) =
+      AllMessagesReceivedSuccessfully<T>;
   const factory ChatState.allMessagesReceivedError(String message) =
       AllMessagesReceivedError;
 }

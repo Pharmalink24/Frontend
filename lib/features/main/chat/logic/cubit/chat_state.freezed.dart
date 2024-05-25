@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$ChatState {
+mixin _$ChatState<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
@@ -26,10 +26,10 @@ mixin _$ChatState {
     required TResult Function() messageSentSuccessfully,
     required TResult Function(String message) messageSentError,
     required TResult Function() userChatsReceivedLoading,
-    required TResult Function() userChatsReceivedSuccessfully,
+    required TResult Function(T chats) userChatsReceivedSuccessfully,
     required TResult Function(String message) userChatsReceivedError,
     required TResult Function() allMessagesReceivedLoading,
-    required TResult Function() allMessagesReceivedSuccessfully,
+    required TResult Function(T messages) allMessagesReceivedSuccessfully,
     required TResult Function(String message) allMessagesReceivedError,
   }) =>
       throw _privateConstructorUsedError;
@@ -43,10 +43,10 @@ mixin _$ChatState {
     TResult? Function()? messageSentSuccessfully,
     TResult? Function(String message)? messageSentError,
     TResult? Function()? userChatsReceivedLoading,
-    TResult? Function()? userChatsReceivedSuccessfully,
+    TResult? Function(T chats)? userChatsReceivedSuccessfully,
     TResult? Function(String message)? userChatsReceivedError,
     TResult? Function()? allMessagesReceivedLoading,
-    TResult? Function()? allMessagesReceivedSuccessfully,
+    TResult? Function(T messages)? allMessagesReceivedSuccessfully,
     TResult? Function(String message)? allMessagesReceivedError,
   }) =>
       throw _privateConstructorUsedError;
@@ -60,91 +60,97 @@ mixin _$ChatState {
     TResult Function()? messageSentSuccessfully,
     TResult Function(String message)? messageSentError,
     TResult Function()? userChatsReceivedLoading,
-    TResult Function()? userChatsReceivedSuccessfully,
+    TResult Function(T chats)? userChatsReceivedSuccessfully,
     TResult Function(String message)? userChatsReceivedError,
     TResult Function()? allMessagesReceivedLoading,
-    TResult Function()? allMessagesReceivedSuccessfully,
+    TResult Function(T messages)? allMessagesReceivedSuccessfully,
     TResult Function(String message)? allMessagesReceivedError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(ConnectedLoading value) connectedLoading,
-    required TResult Function(ConnectedSuccessfully value)
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(ConnectedLoading<T> value) connectedLoading,
+    required TResult Function(ConnectedSuccessfully<T> value)
         connectedSuccessfully,
-    required TResult Function(ConnectedError value) connectedError,
-    required TResult Function(MessageSentLoading value) messageSentLoading,
-    required TResult Function(MessageSentSuccessfully value)
+    required TResult Function(ConnectedError<T> value) connectedError,
+    required TResult Function(MessageSentLoading<T> value) messageSentLoading,
+    required TResult Function(MessageSentSuccessfully<T> value)
         messageSentSuccessfully,
-    required TResult Function(MessageSentError value) messageSentError,
-    required TResult Function(UserChatsReceivedLoading value)
+    required TResult Function(MessageSentError<T> value) messageSentError,
+    required TResult Function(UserChatsReceivedLoading<T> value)
         userChatsReceivedLoading,
-    required TResult Function(UserChatsReceivedSuccessfully value)
+    required TResult Function(UserChatsReceivedSuccessfully<T> value)
         userChatsReceivedSuccessfully,
-    required TResult Function(UserChatsReceivedError value)
+    required TResult Function(UserChatsReceivedError<T> value)
         userChatsReceivedError,
-    required TResult Function(AllMessagesReceivedLoading value)
+    required TResult Function(AllMessagesReceivedLoading<T> value)
         allMessagesReceivedLoading,
-    required TResult Function(AllMessagesReceivedSuccessfully value)
+    required TResult Function(AllMessagesReceivedSuccessfully<T> value)
         allMessagesReceivedSuccessfully,
-    required TResult Function(AllMessagesReceivedError value)
+    required TResult Function(AllMessagesReceivedError<T> value)
         allMessagesReceivedError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(ConnectedLoading value)? connectedLoading,
-    TResult? Function(ConnectedSuccessfully value)? connectedSuccessfully,
-    TResult? Function(ConnectedError value)? connectedError,
-    TResult? Function(MessageSentLoading value)? messageSentLoading,
-    TResult? Function(MessageSentSuccessfully value)? messageSentSuccessfully,
-    TResult? Function(MessageSentError value)? messageSentError,
-    TResult? Function(UserChatsReceivedLoading value)? userChatsReceivedLoading,
-    TResult? Function(UserChatsReceivedSuccessfully value)?
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(ConnectedLoading<T> value)? connectedLoading,
+    TResult? Function(ConnectedSuccessfully<T> value)? connectedSuccessfully,
+    TResult? Function(ConnectedError<T> value)? connectedError,
+    TResult? Function(MessageSentLoading<T> value)? messageSentLoading,
+    TResult? Function(MessageSentSuccessfully<T> value)?
+        messageSentSuccessfully,
+    TResult? Function(MessageSentError<T> value)? messageSentError,
+    TResult? Function(UserChatsReceivedLoading<T> value)?
+        userChatsReceivedLoading,
+    TResult? Function(UserChatsReceivedSuccessfully<T> value)?
         userChatsReceivedSuccessfully,
-    TResult? Function(UserChatsReceivedError value)? userChatsReceivedError,
-    TResult? Function(AllMessagesReceivedLoading value)?
+    TResult? Function(UserChatsReceivedError<T> value)? userChatsReceivedError,
+    TResult? Function(AllMessagesReceivedLoading<T> value)?
         allMessagesReceivedLoading,
-    TResult? Function(AllMessagesReceivedSuccessfully value)?
+    TResult? Function(AllMessagesReceivedSuccessfully<T> value)?
         allMessagesReceivedSuccessfully,
-    TResult? Function(AllMessagesReceivedError value)? allMessagesReceivedError,
+    TResult? Function(AllMessagesReceivedError<T> value)?
+        allMessagesReceivedError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(ConnectedLoading value)? connectedLoading,
-    TResult Function(ConnectedSuccessfully value)? connectedSuccessfully,
-    TResult Function(ConnectedError value)? connectedError,
-    TResult Function(MessageSentLoading value)? messageSentLoading,
-    TResult Function(MessageSentSuccessfully value)? messageSentSuccessfully,
-    TResult Function(MessageSentError value)? messageSentError,
-    TResult Function(UserChatsReceivedLoading value)? userChatsReceivedLoading,
-    TResult Function(UserChatsReceivedSuccessfully value)?
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(ConnectedLoading<T> value)? connectedLoading,
+    TResult Function(ConnectedSuccessfully<T> value)? connectedSuccessfully,
+    TResult Function(ConnectedError<T> value)? connectedError,
+    TResult Function(MessageSentLoading<T> value)? messageSentLoading,
+    TResult Function(MessageSentSuccessfully<T> value)? messageSentSuccessfully,
+    TResult Function(MessageSentError<T> value)? messageSentError,
+    TResult Function(UserChatsReceivedLoading<T> value)?
+        userChatsReceivedLoading,
+    TResult Function(UserChatsReceivedSuccessfully<T> value)?
         userChatsReceivedSuccessfully,
-    TResult Function(UserChatsReceivedError value)? userChatsReceivedError,
-    TResult Function(AllMessagesReceivedLoading value)?
+    TResult Function(UserChatsReceivedError<T> value)? userChatsReceivedError,
+    TResult Function(AllMessagesReceivedLoading<T> value)?
         allMessagesReceivedLoading,
-    TResult Function(AllMessagesReceivedSuccessfully value)?
+    TResult Function(AllMessagesReceivedSuccessfully<T> value)?
         allMessagesReceivedSuccessfully,
-    TResult Function(AllMessagesReceivedError value)? allMessagesReceivedError,
+    TResult Function(AllMessagesReceivedError<T> value)?
+        allMessagesReceivedError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ChatStateCopyWith<$Res> {
-  factory $ChatStateCopyWith(ChatState value, $Res Function(ChatState) then) =
-      _$ChatStateCopyWithImpl<$Res, ChatState>;
+abstract class $ChatStateCopyWith<T, $Res> {
+  factory $ChatStateCopyWith(
+          ChatState<T> value, $Res Function(ChatState<T>) then) =
+      _$ChatStateCopyWithImpl<T, $Res, ChatState<T>>;
 }
 
 /// @nodoc
-class _$ChatStateCopyWithImpl<$Res, $Val extends ChatState>
-    implements $ChatStateCopyWith<$Res> {
+class _$ChatStateCopyWithImpl<T, $Res, $Val extends ChatState<T>>
+    implements $ChatStateCopyWith<T, $Res> {
   _$ChatStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -154,35 +160,35 @@ class _$ChatStateCopyWithImpl<$Res, $Val extends ChatState>
 }
 
 /// @nodoc
-abstract class _$$InitialImplCopyWith<$Res> {
+abstract class _$$InitialImplCopyWith<T, $Res> {
   factory _$$InitialImplCopyWith(
-          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
-      __$$InitialImplCopyWithImpl<$Res>;
+          _$InitialImpl<T> value, $Res Function(_$InitialImpl<T>) then) =
+      __$$InitialImplCopyWithImpl<T, $Res>;
 }
 
 /// @nodoc
-class __$$InitialImplCopyWithImpl<$Res>
-    extends _$ChatStateCopyWithImpl<$Res, _$InitialImpl>
-    implements _$$InitialImplCopyWith<$Res> {
+class __$$InitialImplCopyWithImpl<T, $Res>
+    extends _$ChatStateCopyWithImpl<T, $Res, _$InitialImpl<T>>
+    implements _$$InitialImplCopyWith<T, $Res> {
   __$$InitialImplCopyWithImpl(
-      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
+      _$InitialImpl<T> _value, $Res Function(_$InitialImpl<T>) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$InitialImpl implements _Initial {
+class _$InitialImpl<T> implements _Initial<T> {
   const _$InitialImpl();
 
   @override
   String toString() {
-    return 'ChatState.initial()';
+    return 'ChatState<$T>.initial()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$InitialImpl);
+        (other.runtimeType == runtimeType && other is _$InitialImpl<T>);
   }
 
   @override
@@ -199,10 +205,10 @@ class _$InitialImpl implements _Initial {
     required TResult Function() messageSentSuccessfully,
     required TResult Function(String message) messageSentError,
     required TResult Function() userChatsReceivedLoading,
-    required TResult Function() userChatsReceivedSuccessfully,
+    required TResult Function(T chats) userChatsReceivedSuccessfully,
     required TResult Function(String message) userChatsReceivedError,
     required TResult Function() allMessagesReceivedLoading,
-    required TResult Function() allMessagesReceivedSuccessfully,
+    required TResult Function(T messages) allMessagesReceivedSuccessfully,
     required TResult Function(String message) allMessagesReceivedError,
   }) {
     return initial();
@@ -219,10 +225,10 @@ class _$InitialImpl implements _Initial {
     TResult? Function()? messageSentSuccessfully,
     TResult? Function(String message)? messageSentError,
     TResult? Function()? userChatsReceivedLoading,
-    TResult? Function()? userChatsReceivedSuccessfully,
+    TResult? Function(T chats)? userChatsReceivedSuccessfully,
     TResult? Function(String message)? userChatsReceivedError,
     TResult? Function()? allMessagesReceivedLoading,
-    TResult? Function()? allMessagesReceivedSuccessfully,
+    TResult? Function(T messages)? allMessagesReceivedSuccessfully,
     TResult? Function(String message)? allMessagesReceivedError,
   }) {
     return initial?.call();
@@ -239,10 +245,10 @@ class _$InitialImpl implements _Initial {
     TResult Function()? messageSentSuccessfully,
     TResult Function(String message)? messageSentError,
     TResult Function()? userChatsReceivedLoading,
-    TResult Function()? userChatsReceivedSuccessfully,
+    TResult Function(T chats)? userChatsReceivedSuccessfully,
     TResult Function(String message)? userChatsReceivedError,
     TResult Function()? allMessagesReceivedLoading,
-    TResult Function()? allMessagesReceivedSuccessfully,
+    TResult Function(T messages)? allMessagesReceivedSuccessfully,
     TResult Function(String message)? allMessagesReceivedError,
     required TResult orElse(),
   }) {
@@ -255,26 +261,26 @@ class _$InitialImpl implements _Initial {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(ConnectedLoading value) connectedLoading,
-    required TResult Function(ConnectedSuccessfully value)
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(ConnectedLoading<T> value) connectedLoading,
+    required TResult Function(ConnectedSuccessfully<T> value)
         connectedSuccessfully,
-    required TResult Function(ConnectedError value) connectedError,
-    required TResult Function(MessageSentLoading value) messageSentLoading,
-    required TResult Function(MessageSentSuccessfully value)
+    required TResult Function(ConnectedError<T> value) connectedError,
+    required TResult Function(MessageSentLoading<T> value) messageSentLoading,
+    required TResult Function(MessageSentSuccessfully<T> value)
         messageSentSuccessfully,
-    required TResult Function(MessageSentError value) messageSentError,
-    required TResult Function(UserChatsReceivedLoading value)
+    required TResult Function(MessageSentError<T> value) messageSentError,
+    required TResult Function(UserChatsReceivedLoading<T> value)
         userChatsReceivedLoading,
-    required TResult Function(UserChatsReceivedSuccessfully value)
+    required TResult Function(UserChatsReceivedSuccessfully<T> value)
         userChatsReceivedSuccessfully,
-    required TResult Function(UserChatsReceivedError value)
+    required TResult Function(UserChatsReceivedError<T> value)
         userChatsReceivedError,
-    required TResult Function(AllMessagesReceivedLoading value)
+    required TResult Function(AllMessagesReceivedLoading<T> value)
         allMessagesReceivedLoading,
-    required TResult Function(AllMessagesReceivedSuccessfully value)
+    required TResult Function(AllMessagesReceivedSuccessfully<T> value)
         allMessagesReceivedSuccessfully,
-    required TResult Function(AllMessagesReceivedError value)
+    required TResult Function(AllMessagesReceivedError<T> value)
         allMessagesReceivedError,
   }) {
     return initial(this);
@@ -283,22 +289,25 @@ class _$InitialImpl implements _Initial {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(ConnectedLoading value)? connectedLoading,
-    TResult? Function(ConnectedSuccessfully value)? connectedSuccessfully,
-    TResult? Function(ConnectedError value)? connectedError,
-    TResult? Function(MessageSentLoading value)? messageSentLoading,
-    TResult? Function(MessageSentSuccessfully value)? messageSentSuccessfully,
-    TResult? Function(MessageSentError value)? messageSentError,
-    TResult? Function(UserChatsReceivedLoading value)? userChatsReceivedLoading,
-    TResult? Function(UserChatsReceivedSuccessfully value)?
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(ConnectedLoading<T> value)? connectedLoading,
+    TResult? Function(ConnectedSuccessfully<T> value)? connectedSuccessfully,
+    TResult? Function(ConnectedError<T> value)? connectedError,
+    TResult? Function(MessageSentLoading<T> value)? messageSentLoading,
+    TResult? Function(MessageSentSuccessfully<T> value)?
+        messageSentSuccessfully,
+    TResult? Function(MessageSentError<T> value)? messageSentError,
+    TResult? Function(UserChatsReceivedLoading<T> value)?
+        userChatsReceivedLoading,
+    TResult? Function(UserChatsReceivedSuccessfully<T> value)?
         userChatsReceivedSuccessfully,
-    TResult? Function(UserChatsReceivedError value)? userChatsReceivedError,
-    TResult? Function(AllMessagesReceivedLoading value)?
+    TResult? Function(UserChatsReceivedError<T> value)? userChatsReceivedError,
+    TResult? Function(AllMessagesReceivedLoading<T> value)?
         allMessagesReceivedLoading,
-    TResult? Function(AllMessagesReceivedSuccessfully value)?
+    TResult? Function(AllMessagesReceivedSuccessfully<T> value)?
         allMessagesReceivedSuccessfully,
-    TResult? Function(AllMessagesReceivedError value)? allMessagesReceivedError,
+    TResult? Function(AllMessagesReceivedError<T> value)?
+        allMessagesReceivedError,
   }) {
     return initial?.call(this);
   }
@@ -306,22 +315,24 @@ class _$InitialImpl implements _Initial {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(ConnectedLoading value)? connectedLoading,
-    TResult Function(ConnectedSuccessfully value)? connectedSuccessfully,
-    TResult Function(ConnectedError value)? connectedError,
-    TResult Function(MessageSentLoading value)? messageSentLoading,
-    TResult Function(MessageSentSuccessfully value)? messageSentSuccessfully,
-    TResult Function(MessageSentError value)? messageSentError,
-    TResult Function(UserChatsReceivedLoading value)? userChatsReceivedLoading,
-    TResult Function(UserChatsReceivedSuccessfully value)?
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(ConnectedLoading<T> value)? connectedLoading,
+    TResult Function(ConnectedSuccessfully<T> value)? connectedSuccessfully,
+    TResult Function(ConnectedError<T> value)? connectedError,
+    TResult Function(MessageSentLoading<T> value)? messageSentLoading,
+    TResult Function(MessageSentSuccessfully<T> value)? messageSentSuccessfully,
+    TResult Function(MessageSentError<T> value)? messageSentError,
+    TResult Function(UserChatsReceivedLoading<T> value)?
+        userChatsReceivedLoading,
+    TResult Function(UserChatsReceivedSuccessfully<T> value)?
         userChatsReceivedSuccessfully,
-    TResult Function(UserChatsReceivedError value)? userChatsReceivedError,
-    TResult Function(AllMessagesReceivedLoading value)?
+    TResult Function(UserChatsReceivedError<T> value)? userChatsReceivedError,
+    TResult Function(AllMessagesReceivedLoading<T> value)?
         allMessagesReceivedLoading,
-    TResult Function(AllMessagesReceivedSuccessfully value)?
+    TResult Function(AllMessagesReceivedSuccessfully<T> value)?
         allMessagesReceivedSuccessfully,
-    TResult Function(AllMessagesReceivedError value)? allMessagesReceivedError,
+    TResult Function(AllMessagesReceivedError<T> value)?
+        allMessagesReceivedError,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -331,40 +342,41 @@ class _$InitialImpl implements _Initial {
   }
 }
 
-abstract class _Initial implements ChatState {
-  const factory _Initial() = _$InitialImpl;
+abstract class _Initial<T> implements ChatState<T> {
+  const factory _Initial() = _$InitialImpl<T>;
 }
 
 /// @nodoc
-abstract class _$$ConnectedLoadingImplCopyWith<$Res> {
-  factory _$$ConnectedLoadingImplCopyWith(_$ConnectedLoadingImpl value,
-          $Res Function(_$ConnectedLoadingImpl) then) =
-      __$$ConnectedLoadingImplCopyWithImpl<$Res>;
+abstract class _$$ConnectedLoadingImplCopyWith<T, $Res> {
+  factory _$$ConnectedLoadingImplCopyWith(_$ConnectedLoadingImpl<T> value,
+          $Res Function(_$ConnectedLoadingImpl<T>) then) =
+      __$$ConnectedLoadingImplCopyWithImpl<T, $Res>;
 }
 
 /// @nodoc
-class __$$ConnectedLoadingImplCopyWithImpl<$Res>
-    extends _$ChatStateCopyWithImpl<$Res, _$ConnectedLoadingImpl>
-    implements _$$ConnectedLoadingImplCopyWith<$Res> {
-  __$$ConnectedLoadingImplCopyWithImpl(_$ConnectedLoadingImpl _value,
-      $Res Function(_$ConnectedLoadingImpl) _then)
+class __$$ConnectedLoadingImplCopyWithImpl<T, $Res>
+    extends _$ChatStateCopyWithImpl<T, $Res, _$ConnectedLoadingImpl<T>>
+    implements _$$ConnectedLoadingImplCopyWith<T, $Res> {
+  __$$ConnectedLoadingImplCopyWithImpl(_$ConnectedLoadingImpl<T> _value,
+      $Res Function(_$ConnectedLoadingImpl<T>) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$ConnectedLoadingImpl implements ConnectedLoading {
+class _$ConnectedLoadingImpl<T> implements ConnectedLoading<T> {
   const _$ConnectedLoadingImpl();
 
   @override
   String toString() {
-    return 'ChatState.connectedLoading()';
+    return 'ChatState<$T>.connectedLoading()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ConnectedLoadingImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$ConnectedLoadingImpl<T>);
   }
 
   @override
@@ -381,10 +393,10 @@ class _$ConnectedLoadingImpl implements ConnectedLoading {
     required TResult Function() messageSentSuccessfully,
     required TResult Function(String message) messageSentError,
     required TResult Function() userChatsReceivedLoading,
-    required TResult Function() userChatsReceivedSuccessfully,
+    required TResult Function(T chats) userChatsReceivedSuccessfully,
     required TResult Function(String message) userChatsReceivedError,
     required TResult Function() allMessagesReceivedLoading,
-    required TResult Function() allMessagesReceivedSuccessfully,
+    required TResult Function(T messages) allMessagesReceivedSuccessfully,
     required TResult Function(String message) allMessagesReceivedError,
   }) {
     return connectedLoading();
@@ -401,10 +413,10 @@ class _$ConnectedLoadingImpl implements ConnectedLoading {
     TResult? Function()? messageSentSuccessfully,
     TResult? Function(String message)? messageSentError,
     TResult? Function()? userChatsReceivedLoading,
-    TResult? Function()? userChatsReceivedSuccessfully,
+    TResult? Function(T chats)? userChatsReceivedSuccessfully,
     TResult? Function(String message)? userChatsReceivedError,
     TResult? Function()? allMessagesReceivedLoading,
-    TResult? Function()? allMessagesReceivedSuccessfully,
+    TResult? Function(T messages)? allMessagesReceivedSuccessfully,
     TResult? Function(String message)? allMessagesReceivedError,
   }) {
     return connectedLoading?.call();
@@ -421,10 +433,10 @@ class _$ConnectedLoadingImpl implements ConnectedLoading {
     TResult Function()? messageSentSuccessfully,
     TResult Function(String message)? messageSentError,
     TResult Function()? userChatsReceivedLoading,
-    TResult Function()? userChatsReceivedSuccessfully,
+    TResult Function(T chats)? userChatsReceivedSuccessfully,
     TResult Function(String message)? userChatsReceivedError,
     TResult Function()? allMessagesReceivedLoading,
-    TResult Function()? allMessagesReceivedSuccessfully,
+    TResult Function(T messages)? allMessagesReceivedSuccessfully,
     TResult Function(String message)? allMessagesReceivedError,
     required TResult orElse(),
   }) {
@@ -437,26 +449,26 @@ class _$ConnectedLoadingImpl implements ConnectedLoading {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(ConnectedLoading value) connectedLoading,
-    required TResult Function(ConnectedSuccessfully value)
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(ConnectedLoading<T> value) connectedLoading,
+    required TResult Function(ConnectedSuccessfully<T> value)
         connectedSuccessfully,
-    required TResult Function(ConnectedError value) connectedError,
-    required TResult Function(MessageSentLoading value) messageSentLoading,
-    required TResult Function(MessageSentSuccessfully value)
+    required TResult Function(ConnectedError<T> value) connectedError,
+    required TResult Function(MessageSentLoading<T> value) messageSentLoading,
+    required TResult Function(MessageSentSuccessfully<T> value)
         messageSentSuccessfully,
-    required TResult Function(MessageSentError value) messageSentError,
-    required TResult Function(UserChatsReceivedLoading value)
+    required TResult Function(MessageSentError<T> value) messageSentError,
+    required TResult Function(UserChatsReceivedLoading<T> value)
         userChatsReceivedLoading,
-    required TResult Function(UserChatsReceivedSuccessfully value)
+    required TResult Function(UserChatsReceivedSuccessfully<T> value)
         userChatsReceivedSuccessfully,
-    required TResult Function(UserChatsReceivedError value)
+    required TResult Function(UserChatsReceivedError<T> value)
         userChatsReceivedError,
-    required TResult Function(AllMessagesReceivedLoading value)
+    required TResult Function(AllMessagesReceivedLoading<T> value)
         allMessagesReceivedLoading,
-    required TResult Function(AllMessagesReceivedSuccessfully value)
+    required TResult Function(AllMessagesReceivedSuccessfully<T> value)
         allMessagesReceivedSuccessfully,
-    required TResult Function(AllMessagesReceivedError value)
+    required TResult Function(AllMessagesReceivedError<T> value)
         allMessagesReceivedError,
   }) {
     return connectedLoading(this);
@@ -465,22 +477,25 @@ class _$ConnectedLoadingImpl implements ConnectedLoading {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(ConnectedLoading value)? connectedLoading,
-    TResult? Function(ConnectedSuccessfully value)? connectedSuccessfully,
-    TResult? Function(ConnectedError value)? connectedError,
-    TResult? Function(MessageSentLoading value)? messageSentLoading,
-    TResult? Function(MessageSentSuccessfully value)? messageSentSuccessfully,
-    TResult? Function(MessageSentError value)? messageSentError,
-    TResult? Function(UserChatsReceivedLoading value)? userChatsReceivedLoading,
-    TResult? Function(UserChatsReceivedSuccessfully value)?
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(ConnectedLoading<T> value)? connectedLoading,
+    TResult? Function(ConnectedSuccessfully<T> value)? connectedSuccessfully,
+    TResult? Function(ConnectedError<T> value)? connectedError,
+    TResult? Function(MessageSentLoading<T> value)? messageSentLoading,
+    TResult? Function(MessageSentSuccessfully<T> value)?
+        messageSentSuccessfully,
+    TResult? Function(MessageSentError<T> value)? messageSentError,
+    TResult? Function(UserChatsReceivedLoading<T> value)?
+        userChatsReceivedLoading,
+    TResult? Function(UserChatsReceivedSuccessfully<T> value)?
         userChatsReceivedSuccessfully,
-    TResult? Function(UserChatsReceivedError value)? userChatsReceivedError,
-    TResult? Function(AllMessagesReceivedLoading value)?
+    TResult? Function(UserChatsReceivedError<T> value)? userChatsReceivedError,
+    TResult? Function(AllMessagesReceivedLoading<T> value)?
         allMessagesReceivedLoading,
-    TResult? Function(AllMessagesReceivedSuccessfully value)?
+    TResult? Function(AllMessagesReceivedSuccessfully<T> value)?
         allMessagesReceivedSuccessfully,
-    TResult? Function(AllMessagesReceivedError value)? allMessagesReceivedError,
+    TResult? Function(AllMessagesReceivedError<T> value)?
+        allMessagesReceivedError,
   }) {
     return connectedLoading?.call(this);
   }
@@ -488,22 +503,24 @@ class _$ConnectedLoadingImpl implements ConnectedLoading {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(ConnectedLoading value)? connectedLoading,
-    TResult Function(ConnectedSuccessfully value)? connectedSuccessfully,
-    TResult Function(ConnectedError value)? connectedError,
-    TResult Function(MessageSentLoading value)? messageSentLoading,
-    TResult Function(MessageSentSuccessfully value)? messageSentSuccessfully,
-    TResult Function(MessageSentError value)? messageSentError,
-    TResult Function(UserChatsReceivedLoading value)? userChatsReceivedLoading,
-    TResult Function(UserChatsReceivedSuccessfully value)?
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(ConnectedLoading<T> value)? connectedLoading,
+    TResult Function(ConnectedSuccessfully<T> value)? connectedSuccessfully,
+    TResult Function(ConnectedError<T> value)? connectedError,
+    TResult Function(MessageSentLoading<T> value)? messageSentLoading,
+    TResult Function(MessageSentSuccessfully<T> value)? messageSentSuccessfully,
+    TResult Function(MessageSentError<T> value)? messageSentError,
+    TResult Function(UserChatsReceivedLoading<T> value)?
+        userChatsReceivedLoading,
+    TResult Function(UserChatsReceivedSuccessfully<T> value)?
         userChatsReceivedSuccessfully,
-    TResult Function(UserChatsReceivedError value)? userChatsReceivedError,
-    TResult Function(AllMessagesReceivedLoading value)?
+    TResult Function(UserChatsReceivedError<T> value)? userChatsReceivedError,
+    TResult Function(AllMessagesReceivedLoading<T> value)?
         allMessagesReceivedLoading,
-    TResult Function(AllMessagesReceivedSuccessfully value)?
+    TResult Function(AllMessagesReceivedSuccessfully<T> value)?
         allMessagesReceivedSuccessfully,
-    TResult Function(AllMessagesReceivedError value)? allMessagesReceivedError,
+    TResult Function(AllMessagesReceivedError<T> value)?
+        allMessagesReceivedError,
     required TResult orElse(),
   }) {
     if (connectedLoading != null) {
@@ -513,42 +530,43 @@ class _$ConnectedLoadingImpl implements ConnectedLoading {
   }
 }
 
-abstract class ConnectedLoading implements ChatState {
-  const factory ConnectedLoading() = _$ConnectedLoadingImpl;
+abstract class ConnectedLoading<T> implements ChatState<T> {
+  const factory ConnectedLoading() = _$ConnectedLoadingImpl<T>;
 }
 
 /// @nodoc
-abstract class _$$ConnectedSuccessfullyImplCopyWith<$Res> {
+abstract class _$$ConnectedSuccessfullyImplCopyWith<T, $Res> {
   factory _$$ConnectedSuccessfullyImplCopyWith(
-          _$ConnectedSuccessfullyImpl value,
-          $Res Function(_$ConnectedSuccessfullyImpl) then) =
-      __$$ConnectedSuccessfullyImplCopyWithImpl<$Res>;
+          _$ConnectedSuccessfullyImpl<T> value,
+          $Res Function(_$ConnectedSuccessfullyImpl<T>) then) =
+      __$$ConnectedSuccessfullyImplCopyWithImpl<T, $Res>;
 }
 
 /// @nodoc
-class __$$ConnectedSuccessfullyImplCopyWithImpl<$Res>
-    extends _$ChatStateCopyWithImpl<$Res, _$ConnectedSuccessfullyImpl>
-    implements _$$ConnectedSuccessfullyImplCopyWith<$Res> {
-  __$$ConnectedSuccessfullyImplCopyWithImpl(_$ConnectedSuccessfullyImpl _value,
-      $Res Function(_$ConnectedSuccessfullyImpl) _then)
+class __$$ConnectedSuccessfullyImplCopyWithImpl<T, $Res>
+    extends _$ChatStateCopyWithImpl<T, $Res, _$ConnectedSuccessfullyImpl<T>>
+    implements _$$ConnectedSuccessfullyImplCopyWith<T, $Res> {
+  __$$ConnectedSuccessfullyImplCopyWithImpl(
+      _$ConnectedSuccessfullyImpl<T> _value,
+      $Res Function(_$ConnectedSuccessfullyImpl<T>) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$ConnectedSuccessfullyImpl implements ConnectedSuccessfully {
+class _$ConnectedSuccessfullyImpl<T> implements ConnectedSuccessfully<T> {
   const _$ConnectedSuccessfullyImpl();
 
   @override
   String toString() {
-    return 'ChatState.connectedSuccessfully()';
+    return 'ChatState<$T>.connectedSuccessfully()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ConnectedSuccessfullyImpl);
+            other is _$ConnectedSuccessfullyImpl<T>);
   }
 
   @override
@@ -565,10 +583,10 @@ class _$ConnectedSuccessfullyImpl implements ConnectedSuccessfully {
     required TResult Function() messageSentSuccessfully,
     required TResult Function(String message) messageSentError,
     required TResult Function() userChatsReceivedLoading,
-    required TResult Function() userChatsReceivedSuccessfully,
+    required TResult Function(T chats) userChatsReceivedSuccessfully,
     required TResult Function(String message) userChatsReceivedError,
     required TResult Function() allMessagesReceivedLoading,
-    required TResult Function() allMessagesReceivedSuccessfully,
+    required TResult Function(T messages) allMessagesReceivedSuccessfully,
     required TResult Function(String message) allMessagesReceivedError,
   }) {
     return connectedSuccessfully();
@@ -585,10 +603,10 @@ class _$ConnectedSuccessfullyImpl implements ConnectedSuccessfully {
     TResult? Function()? messageSentSuccessfully,
     TResult? Function(String message)? messageSentError,
     TResult? Function()? userChatsReceivedLoading,
-    TResult? Function()? userChatsReceivedSuccessfully,
+    TResult? Function(T chats)? userChatsReceivedSuccessfully,
     TResult? Function(String message)? userChatsReceivedError,
     TResult? Function()? allMessagesReceivedLoading,
-    TResult? Function()? allMessagesReceivedSuccessfully,
+    TResult? Function(T messages)? allMessagesReceivedSuccessfully,
     TResult? Function(String message)? allMessagesReceivedError,
   }) {
     return connectedSuccessfully?.call();
@@ -605,10 +623,10 @@ class _$ConnectedSuccessfullyImpl implements ConnectedSuccessfully {
     TResult Function()? messageSentSuccessfully,
     TResult Function(String message)? messageSentError,
     TResult Function()? userChatsReceivedLoading,
-    TResult Function()? userChatsReceivedSuccessfully,
+    TResult Function(T chats)? userChatsReceivedSuccessfully,
     TResult Function(String message)? userChatsReceivedError,
     TResult Function()? allMessagesReceivedLoading,
-    TResult Function()? allMessagesReceivedSuccessfully,
+    TResult Function(T messages)? allMessagesReceivedSuccessfully,
     TResult Function(String message)? allMessagesReceivedError,
     required TResult orElse(),
   }) {
@@ -621,26 +639,26 @@ class _$ConnectedSuccessfullyImpl implements ConnectedSuccessfully {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(ConnectedLoading value) connectedLoading,
-    required TResult Function(ConnectedSuccessfully value)
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(ConnectedLoading<T> value) connectedLoading,
+    required TResult Function(ConnectedSuccessfully<T> value)
         connectedSuccessfully,
-    required TResult Function(ConnectedError value) connectedError,
-    required TResult Function(MessageSentLoading value) messageSentLoading,
-    required TResult Function(MessageSentSuccessfully value)
+    required TResult Function(ConnectedError<T> value) connectedError,
+    required TResult Function(MessageSentLoading<T> value) messageSentLoading,
+    required TResult Function(MessageSentSuccessfully<T> value)
         messageSentSuccessfully,
-    required TResult Function(MessageSentError value) messageSentError,
-    required TResult Function(UserChatsReceivedLoading value)
+    required TResult Function(MessageSentError<T> value) messageSentError,
+    required TResult Function(UserChatsReceivedLoading<T> value)
         userChatsReceivedLoading,
-    required TResult Function(UserChatsReceivedSuccessfully value)
+    required TResult Function(UserChatsReceivedSuccessfully<T> value)
         userChatsReceivedSuccessfully,
-    required TResult Function(UserChatsReceivedError value)
+    required TResult Function(UserChatsReceivedError<T> value)
         userChatsReceivedError,
-    required TResult Function(AllMessagesReceivedLoading value)
+    required TResult Function(AllMessagesReceivedLoading<T> value)
         allMessagesReceivedLoading,
-    required TResult Function(AllMessagesReceivedSuccessfully value)
+    required TResult Function(AllMessagesReceivedSuccessfully<T> value)
         allMessagesReceivedSuccessfully,
-    required TResult Function(AllMessagesReceivedError value)
+    required TResult Function(AllMessagesReceivedError<T> value)
         allMessagesReceivedError,
   }) {
     return connectedSuccessfully(this);
@@ -649,22 +667,25 @@ class _$ConnectedSuccessfullyImpl implements ConnectedSuccessfully {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(ConnectedLoading value)? connectedLoading,
-    TResult? Function(ConnectedSuccessfully value)? connectedSuccessfully,
-    TResult? Function(ConnectedError value)? connectedError,
-    TResult? Function(MessageSentLoading value)? messageSentLoading,
-    TResult? Function(MessageSentSuccessfully value)? messageSentSuccessfully,
-    TResult? Function(MessageSentError value)? messageSentError,
-    TResult? Function(UserChatsReceivedLoading value)? userChatsReceivedLoading,
-    TResult? Function(UserChatsReceivedSuccessfully value)?
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(ConnectedLoading<T> value)? connectedLoading,
+    TResult? Function(ConnectedSuccessfully<T> value)? connectedSuccessfully,
+    TResult? Function(ConnectedError<T> value)? connectedError,
+    TResult? Function(MessageSentLoading<T> value)? messageSentLoading,
+    TResult? Function(MessageSentSuccessfully<T> value)?
+        messageSentSuccessfully,
+    TResult? Function(MessageSentError<T> value)? messageSentError,
+    TResult? Function(UserChatsReceivedLoading<T> value)?
+        userChatsReceivedLoading,
+    TResult? Function(UserChatsReceivedSuccessfully<T> value)?
         userChatsReceivedSuccessfully,
-    TResult? Function(UserChatsReceivedError value)? userChatsReceivedError,
-    TResult? Function(AllMessagesReceivedLoading value)?
+    TResult? Function(UserChatsReceivedError<T> value)? userChatsReceivedError,
+    TResult? Function(AllMessagesReceivedLoading<T> value)?
         allMessagesReceivedLoading,
-    TResult? Function(AllMessagesReceivedSuccessfully value)?
+    TResult? Function(AllMessagesReceivedSuccessfully<T> value)?
         allMessagesReceivedSuccessfully,
-    TResult? Function(AllMessagesReceivedError value)? allMessagesReceivedError,
+    TResult? Function(AllMessagesReceivedError<T> value)?
+        allMessagesReceivedError,
   }) {
     return connectedSuccessfully?.call(this);
   }
@@ -672,22 +693,24 @@ class _$ConnectedSuccessfullyImpl implements ConnectedSuccessfully {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(ConnectedLoading value)? connectedLoading,
-    TResult Function(ConnectedSuccessfully value)? connectedSuccessfully,
-    TResult Function(ConnectedError value)? connectedError,
-    TResult Function(MessageSentLoading value)? messageSentLoading,
-    TResult Function(MessageSentSuccessfully value)? messageSentSuccessfully,
-    TResult Function(MessageSentError value)? messageSentError,
-    TResult Function(UserChatsReceivedLoading value)? userChatsReceivedLoading,
-    TResult Function(UserChatsReceivedSuccessfully value)?
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(ConnectedLoading<T> value)? connectedLoading,
+    TResult Function(ConnectedSuccessfully<T> value)? connectedSuccessfully,
+    TResult Function(ConnectedError<T> value)? connectedError,
+    TResult Function(MessageSentLoading<T> value)? messageSentLoading,
+    TResult Function(MessageSentSuccessfully<T> value)? messageSentSuccessfully,
+    TResult Function(MessageSentError<T> value)? messageSentError,
+    TResult Function(UserChatsReceivedLoading<T> value)?
+        userChatsReceivedLoading,
+    TResult Function(UserChatsReceivedSuccessfully<T> value)?
         userChatsReceivedSuccessfully,
-    TResult Function(UserChatsReceivedError value)? userChatsReceivedError,
-    TResult Function(AllMessagesReceivedLoading value)?
+    TResult Function(UserChatsReceivedError<T> value)? userChatsReceivedError,
+    TResult Function(AllMessagesReceivedLoading<T> value)?
         allMessagesReceivedLoading,
-    TResult Function(AllMessagesReceivedSuccessfully value)?
+    TResult Function(AllMessagesReceivedSuccessfully<T> value)?
         allMessagesReceivedSuccessfully,
-    TResult Function(AllMessagesReceivedError value)? allMessagesReceivedError,
+    TResult Function(AllMessagesReceivedError<T> value)?
+        allMessagesReceivedError,
     required TResult orElse(),
   }) {
     if (connectedSuccessfully != null) {
@@ -697,25 +720,25 @@ class _$ConnectedSuccessfullyImpl implements ConnectedSuccessfully {
   }
 }
 
-abstract class ConnectedSuccessfully implements ChatState {
-  const factory ConnectedSuccessfully() = _$ConnectedSuccessfullyImpl;
+abstract class ConnectedSuccessfully<T> implements ChatState<T> {
+  const factory ConnectedSuccessfully() = _$ConnectedSuccessfullyImpl<T>;
 }
 
 /// @nodoc
-abstract class _$$ConnectedErrorImplCopyWith<$Res> {
-  factory _$$ConnectedErrorImplCopyWith(_$ConnectedErrorImpl value,
-          $Res Function(_$ConnectedErrorImpl) then) =
-      __$$ConnectedErrorImplCopyWithImpl<$Res>;
+abstract class _$$ConnectedErrorImplCopyWith<T, $Res> {
+  factory _$$ConnectedErrorImplCopyWith(_$ConnectedErrorImpl<T> value,
+          $Res Function(_$ConnectedErrorImpl<T>) then) =
+      __$$ConnectedErrorImplCopyWithImpl<T, $Res>;
   @useResult
   $Res call({String message});
 }
 
 /// @nodoc
-class __$$ConnectedErrorImplCopyWithImpl<$Res>
-    extends _$ChatStateCopyWithImpl<$Res, _$ConnectedErrorImpl>
-    implements _$$ConnectedErrorImplCopyWith<$Res> {
-  __$$ConnectedErrorImplCopyWithImpl(
-      _$ConnectedErrorImpl _value, $Res Function(_$ConnectedErrorImpl) _then)
+class __$$ConnectedErrorImplCopyWithImpl<T, $Res>
+    extends _$ChatStateCopyWithImpl<T, $Res, _$ConnectedErrorImpl<T>>
+    implements _$$ConnectedErrorImplCopyWith<T, $Res> {
+  __$$ConnectedErrorImplCopyWithImpl(_$ConnectedErrorImpl<T> _value,
+      $Res Function(_$ConnectedErrorImpl<T>) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -723,7 +746,7 @@ class __$$ConnectedErrorImplCopyWithImpl<$Res>
   $Res call({
     Object? message = null,
   }) {
-    return _then(_$ConnectedErrorImpl(
+    return _then(_$ConnectedErrorImpl<T>(
       null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -734,7 +757,7 @@ class __$$ConnectedErrorImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ConnectedErrorImpl implements ConnectedError {
+class _$ConnectedErrorImpl<T> implements ConnectedError<T> {
   const _$ConnectedErrorImpl(this.message);
 
   @override
@@ -742,14 +765,14 @@ class _$ConnectedErrorImpl implements ConnectedError {
 
   @override
   String toString() {
-    return 'ChatState.connectedError(message: $message)';
+    return 'ChatState<$T>.connectedError(message: $message)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ConnectedErrorImpl &&
+            other is _$ConnectedErrorImpl<T> &&
             (identical(other.message, message) || other.message == message));
   }
 
@@ -759,8 +782,8 @@ class _$ConnectedErrorImpl implements ConnectedError {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ConnectedErrorImplCopyWith<_$ConnectedErrorImpl> get copyWith =>
-      __$$ConnectedErrorImplCopyWithImpl<_$ConnectedErrorImpl>(
+  _$$ConnectedErrorImplCopyWith<T, _$ConnectedErrorImpl<T>> get copyWith =>
+      __$$ConnectedErrorImplCopyWithImpl<T, _$ConnectedErrorImpl<T>>(
           this, _$identity);
 
   @override
@@ -774,10 +797,10 @@ class _$ConnectedErrorImpl implements ConnectedError {
     required TResult Function() messageSentSuccessfully,
     required TResult Function(String message) messageSentError,
     required TResult Function() userChatsReceivedLoading,
-    required TResult Function() userChatsReceivedSuccessfully,
+    required TResult Function(T chats) userChatsReceivedSuccessfully,
     required TResult Function(String message) userChatsReceivedError,
     required TResult Function() allMessagesReceivedLoading,
-    required TResult Function() allMessagesReceivedSuccessfully,
+    required TResult Function(T messages) allMessagesReceivedSuccessfully,
     required TResult Function(String message) allMessagesReceivedError,
   }) {
     return connectedError(message);
@@ -794,10 +817,10 @@ class _$ConnectedErrorImpl implements ConnectedError {
     TResult? Function()? messageSentSuccessfully,
     TResult? Function(String message)? messageSentError,
     TResult? Function()? userChatsReceivedLoading,
-    TResult? Function()? userChatsReceivedSuccessfully,
+    TResult? Function(T chats)? userChatsReceivedSuccessfully,
     TResult? Function(String message)? userChatsReceivedError,
     TResult? Function()? allMessagesReceivedLoading,
-    TResult? Function()? allMessagesReceivedSuccessfully,
+    TResult? Function(T messages)? allMessagesReceivedSuccessfully,
     TResult? Function(String message)? allMessagesReceivedError,
   }) {
     return connectedError?.call(message);
@@ -814,10 +837,10 @@ class _$ConnectedErrorImpl implements ConnectedError {
     TResult Function()? messageSentSuccessfully,
     TResult Function(String message)? messageSentError,
     TResult Function()? userChatsReceivedLoading,
-    TResult Function()? userChatsReceivedSuccessfully,
+    TResult Function(T chats)? userChatsReceivedSuccessfully,
     TResult Function(String message)? userChatsReceivedError,
     TResult Function()? allMessagesReceivedLoading,
-    TResult Function()? allMessagesReceivedSuccessfully,
+    TResult Function(T messages)? allMessagesReceivedSuccessfully,
     TResult Function(String message)? allMessagesReceivedError,
     required TResult orElse(),
   }) {
@@ -830,26 +853,26 @@ class _$ConnectedErrorImpl implements ConnectedError {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(ConnectedLoading value) connectedLoading,
-    required TResult Function(ConnectedSuccessfully value)
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(ConnectedLoading<T> value) connectedLoading,
+    required TResult Function(ConnectedSuccessfully<T> value)
         connectedSuccessfully,
-    required TResult Function(ConnectedError value) connectedError,
-    required TResult Function(MessageSentLoading value) messageSentLoading,
-    required TResult Function(MessageSentSuccessfully value)
+    required TResult Function(ConnectedError<T> value) connectedError,
+    required TResult Function(MessageSentLoading<T> value) messageSentLoading,
+    required TResult Function(MessageSentSuccessfully<T> value)
         messageSentSuccessfully,
-    required TResult Function(MessageSentError value) messageSentError,
-    required TResult Function(UserChatsReceivedLoading value)
+    required TResult Function(MessageSentError<T> value) messageSentError,
+    required TResult Function(UserChatsReceivedLoading<T> value)
         userChatsReceivedLoading,
-    required TResult Function(UserChatsReceivedSuccessfully value)
+    required TResult Function(UserChatsReceivedSuccessfully<T> value)
         userChatsReceivedSuccessfully,
-    required TResult Function(UserChatsReceivedError value)
+    required TResult Function(UserChatsReceivedError<T> value)
         userChatsReceivedError,
-    required TResult Function(AllMessagesReceivedLoading value)
+    required TResult Function(AllMessagesReceivedLoading<T> value)
         allMessagesReceivedLoading,
-    required TResult Function(AllMessagesReceivedSuccessfully value)
+    required TResult Function(AllMessagesReceivedSuccessfully<T> value)
         allMessagesReceivedSuccessfully,
-    required TResult Function(AllMessagesReceivedError value)
+    required TResult Function(AllMessagesReceivedError<T> value)
         allMessagesReceivedError,
   }) {
     return connectedError(this);
@@ -858,22 +881,25 @@ class _$ConnectedErrorImpl implements ConnectedError {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(ConnectedLoading value)? connectedLoading,
-    TResult? Function(ConnectedSuccessfully value)? connectedSuccessfully,
-    TResult? Function(ConnectedError value)? connectedError,
-    TResult? Function(MessageSentLoading value)? messageSentLoading,
-    TResult? Function(MessageSentSuccessfully value)? messageSentSuccessfully,
-    TResult? Function(MessageSentError value)? messageSentError,
-    TResult? Function(UserChatsReceivedLoading value)? userChatsReceivedLoading,
-    TResult? Function(UserChatsReceivedSuccessfully value)?
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(ConnectedLoading<T> value)? connectedLoading,
+    TResult? Function(ConnectedSuccessfully<T> value)? connectedSuccessfully,
+    TResult? Function(ConnectedError<T> value)? connectedError,
+    TResult? Function(MessageSentLoading<T> value)? messageSentLoading,
+    TResult? Function(MessageSentSuccessfully<T> value)?
+        messageSentSuccessfully,
+    TResult? Function(MessageSentError<T> value)? messageSentError,
+    TResult? Function(UserChatsReceivedLoading<T> value)?
+        userChatsReceivedLoading,
+    TResult? Function(UserChatsReceivedSuccessfully<T> value)?
         userChatsReceivedSuccessfully,
-    TResult? Function(UserChatsReceivedError value)? userChatsReceivedError,
-    TResult? Function(AllMessagesReceivedLoading value)?
+    TResult? Function(UserChatsReceivedError<T> value)? userChatsReceivedError,
+    TResult? Function(AllMessagesReceivedLoading<T> value)?
         allMessagesReceivedLoading,
-    TResult? Function(AllMessagesReceivedSuccessfully value)?
+    TResult? Function(AllMessagesReceivedSuccessfully<T> value)?
         allMessagesReceivedSuccessfully,
-    TResult? Function(AllMessagesReceivedError value)? allMessagesReceivedError,
+    TResult? Function(AllMessagesReceivedError<T> value)?
+        allMessagesReceivedError,
   }) {
     return connectedError?.call(this);
   }
@@ -881,22 +907,24 @@ class _$ConnectedErrorImpl implements ConnectedError {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(ConnectedLoading value)? connectedLoading,
-    TResult Function(ConnectedSuccessfully value)? connectedSuccessfully,
-    TResult Function(ConnectedError value)? connectedError,
-    TResult Function(MessageSentLoading value)? messageSentLoading,
-    TResult Function(MessageSentSuccessfully value)? messageSentSuccessfully,
-    TResult Function(MessageSentError value)? messageSentError,
-    TResult Function(UserChatsReceivedLoading value)? userChatsReceivedLoading,
-    TResult Function(UserChatsReceivedSuccessfully value)?
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(ConnectedLoading<T> value)? connectedLoading,
+    TResult Function(ConnectedSuccessfully<T> value)? connectedSuccessfully,
+    TResult Function(ConnectedError<T> value)? connectedError,
+    TResult Function(MessageSentLoading<T> value)? messageSentLoading,
+    TResult Function(MessageSentSuccessfully<T> value)? messageSentSuccessfully,
+    TResult Function(MessageSentError<T> value)? messageSentError,
+    TResult Function(UserChatsReceivedLoading<T> value)?
+        userChatsReceivedLoading,
+    TResult Function(UserChatsReceivedSuccessfully<T> value)?
         userChatsReceivedSuccessfully,
-    TResult Function(UserChatsReceivedError value)? userChatsReceivedError,
-    TResult Function(AllMessagesReceivedLoading value)?
+    TResult Function(UserChatsReceivedError<T> value)? userChatsReceivedError,
+    TResult Function(AllMessagesReceivedLoading<T> value)?
         allMessagesReceivedLoading,
-    TResult Function(AllMessagesReceivedSuccessfully value)?
+    TResult Function(AllMessagesReceivedSuccessfully<T> value)?
         allMessagesReceivedSuccessfully,
-    TResult Function(AllMessagesReceivedError value)? allMessagesReceivedError,
+    TResult Function(AllMessagesReceivedError<T> value)?
+        allMessagesReceivedError,
     required TResult orElse(),
   }) {
     if (connectedError != null) {
@@ -906,45 +934,46 @@ class _$ConnectedErrorImpl implements ConnectedError {
   }
 }
 
-abstract class ConnectedError implements ChatState {
-  const factory ConnectedError(final String message) = _$ConnectedErrorImpl;
+abstract class ConnectedError<T> implements ChatState<T> {
+  const factory ConnectedError(final String message) = _$ConnectedErrorImpl<T>;
 
   String get message;
   @JsonKey(ignore: true)
-  _$$ConnectedErrorImplCopyWith<_$ConnectedErrorImpl> get copyWith =>
+  _$$ConnectedErrorImplCopyWith<T, _$ConnectedErrorImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$MessageSentLoadingImplCopyWith<$Res> {
-  factory _$$MessageSentLoadingImplCopyWith(_$MessageSentLoadingImpl value,
-          $Res Function(_$MessageSentLoadingImpl) then) =
-      __$$MessageSentLoadingImplCopyWithImpl<$Res>;
+abstract class _$$MessageSentLoadingImplCopyWith<T, $Res> {
+  factory _$$MessageSentLoadingImplCopyWith(_$MessageSentLoadingImpl<T> value,
+          $Res Function(_$MessageSentLoadingImpl<T>) then) =
+      __$$MessageSentLoadingImplCopyWithImpl<T, $Res>;
 }
 
 /// @nodoc
-class __$$MessageSentLoadingImplCopyWithImpl<$Res>
-    extends _$ChatStateCopyWithImpl<$Res, _$MessageSentLoadingImpl>
-    implements _$$MessageSentLoadingImplCopyWith<$Res> {
-  __$$MessageSentLoadingImplCopyWithImpl(_$MessageSentLoadingImpl _value,
-      $Res Function(_$MessageSentLoadingImpl) _then)
+class __$$MessageSentLoadingImplCopyWithImpl<T, $Res>
+    extends _$ChatStateCopyWithImpl<T, $Res, _$MessageSentLoadingImpl<T>>
+    implements _$$MessageSentLoadingImplCopyWith<T, $Res> {
+  __$$MessageSentLoadingImplCopyWithImpl(_$MessageSentLoadingImpl<T> _value,
+      $Res Function(_$MessageSentLoadingImpl<T>) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$MessageSentLoadingImpl implements MessageSentLoading {
+class _$MessageSentLoadingImpl<T> implements MessageSentLoading<T> {
   const _$MessageSentLoadingImpl();
 
   @override
   String toString() {
-    return 'ChatState.messageSentLoading()';
+    return 'ChatState<$T>.messageSentLoading()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$MessageSentLoadingImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$MessageSentLoadingImpl<T>);
   }
 
   @override
@@ -961,10 +990,10 @@ class _$MessageSentLoadingImpl implements MessageSentLoading {
     required TResult Function() messageSentSuccessfully,
     required TResult Function(String message) messageSentError,
     required TResult Function() userChatsReceivedLoading,
-    required TResult Function() userChatsReceivedSuccessfully,
+    required TResult Function(T chats) userChatsReceivedSuccessfully,
     required TResult Function(String message) userChatsReceivedError,
     required TResult Function() allMessagesReceivedLoading,
-    required TResult Function() allMessagesReceivedSuccessfully,
+    required TResult Function(T messages) allMessagesReceivedSuccessfully,
     required TResult Function(String message) allMessagesReceivedError,
   }) {
     return messageSentLoading();
@@ -981,10 +1010,10 @@ class _$MessageSentLoadingImpl implements MessageSentLoading {
     TResult? Function()? messageSentSuccessfully,
     TResult? Function(String message)? messageSentError,
     TResult? Function()? userChatsReceivedLoading,
-    TResult? Function()? userChatsReceivedSuccessfully,
+    TResult? Function(T chats)? userChatsReceivedSuccessfully,
     TResult? Function(String message)? userChatsReceivedError,
     TResult? Function()? allMessagesReceivedLoading,
-    TResult? Function()? allMessagesReceivedSuccessfully,
+    TResult? Function(T messages)? allMessagesReceivedSuccessfully,
     TResult? Function(String message)? allMessagesReceivedError,
   }) {
     return messageSentLoading?.call();
@@ -1001,10 +1030,10 @@ class _$MessageSentLoadingImpl implements MessageSentLoading {
     TResult Function()? messageSentSuccessfully,
     TResult Function(String message)? messageSentError,
     TResult Function()? userChatsReceivedLoading,
-    TResult Function()? userChatsReceivedSuccessfully,
+    TResult Function(T chats)? userChatsReceivedSuccessfully,
     TResult Function(String message)? userChatsReceivedError,
     TResult Function()? allMessagesReceivedLoading,
-    TResult Function()? allMessagesReceivedSuccessfully,
+    TResult Function(T messages)? allMessagesReceivedSuccessfully,
     TResult Function(String message)? allMessagesReceivedError,
     required TResult orElse(),
   }) {
@@ -1017,26 +1046,26 @@ class _$MessageSentLoadingImpl implements MessageSentLoading {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(ConnectedLoading value) connectedLoading,
-    required TResult Function(ConnectedSuccessfully value)
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(ConnectedLoading<T> value) connectedLoading,
+    required TResult Function(ConnectedSuccessfully<T> value)
         connectedSuccessfully,
-    required TResult Function(ConnectedError value) connectedError,
-    required TResult Function(MessageSentLoading value) messageSentLoading,
-    required TResult Function(MessageSentSuccessfully value)
+    required TResult Function(ConnectedError<T> value) connectedError,
+    required TResult Function(MessageSentLoading<T> value) messageSentLoading,
+    required TResult Function(MessageSentSuccessfully<T> value)
         messageSentSuccessfully,
-    required TResult Function(MessageSentError value) messageSentError,
-    required TResult Function(UserChatsReceivedLoading value)
+    required TResult Function(MessageSentError<T> value) messageSentError,
+    required TResult Function(UserChatsReceivedLoading<T> value)
         userChatsReceivedLoading,
-    required TResult Function(UserChatsReceivedSuccessfully value)
+    required TResult Function(UserChatsReceivedSuccessfully<T> value)
         userChatsReceivedSuccessfully,
-    required TResult Function(UserChatsReceivedError value)
+    required TResult Function(UserChatsReceivedError<T> value)
         userChatsReceivedError,
-    required TResult Function(AllMessagesReceivedLoading value)
+    required TResult Function(AllMessagesReceivedLoading<T> value)
         allMessagesReceivedLoading,
-    required TResult Function(AllMessagesReceivedSuccessfully value)
+    required TResult Function(AllMessagesReceivedSuccessfully<T> value)
         allMessagesReceivedSuccessfully,
-    required TResult Function(AllMessagesReceivedError value)
+    required TResult Function(AllMessagesReceivedError<T> value)
         allMessagesReceivedError,
   }) {
     return messageSentLoading(this);
@@ -1045,22 +1074,25 @@ class _$MessageSentLoadingImpl implements MessageSentLoading {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(ConnectedLoading value)? connectedLoading,
-    TResult? Function(ConnectedSuccessfully value)? connectedSuccessfully,
-    TResult? Function(ConnectedError value)? connectedError,
-    TResult? Function(MessageSentLoading value)? messageSentLoading,
-    TResult? Function(MessageSentSuccessfully value)? messageSentSuccessfully,
-    TResult? Function(MessageSentError value)? messageSentError,
-    TResult? Function(UserChatsReceivedLoading value)? userChatsReceivedLoading,
-    TResult? Function(UserChatsReceivedSuccessfully value)?
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(ConnectedLoading<T> value)? connectedLoading,
+    TResult? Function(ConnectedSuccessfully<T> value)? connectedSuccessfully,
+    TResult? Function(ConnectedError<T> value)? connectedError,
+    TResult? Function(MessageSentLoading<T> value)? messageSentLoading,
+    TResult? Function(MessageSentSuccessfully<T> value)?
+        messageSentSuccessfully,
+    TResult? Function(MessageSentError<T> value)? messageSentError,
+    TResult? Function(UserChatsReceivedLoading<T> value)?
+        userChatsReceivedLoading,
+    TResult? Function(UserChatsReceivedSuccessfully<T> value)?
         userChatsReceivedSuccessfully,
-    TResult? Function(UserChatsReceivedError value)? userChatsReceivedError,
-    TResult? Function(AllMessagesReceivedLoading value)?
+    TResult? Function(UserChatsReceivedError<T> value)? userChatsReceivedError,
+    TResult? Function(AllMessagesReceivedLoading<T> value)?
         allMessagesReceivedLoading,
-    TResult? Function(AllMessagesReceivedSuccessfully value)?
+    TResult? Function(AllMessagesReceivedSuccessfully<T> value)?
         allMessagesReceivedSuccessfully,
-    TResult? Function(AllMessagesReceivedError value)? allMessagesReceivedError,
+    TResult? Function(AllMessagesReceivedError<T> value)?
+        allMessagesReceivedError,
   }) {
     return messageSentLoading?.call(this);
   }
@@ -1068,22 +1100,24 @@ class _$MessageSentLoadingImpl implements MessageSentLoading {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(ConnectedLoading value)? connectedLoading,
-    TResult Function(ConnectedSuccessfully value)? connectedSuccessfully,
-    TResult Function(ConnectedError value)? connectedError,
-    TResult Function(MessageSentLoading value)? messageSentLoading,
-    TResult Function(MessageSentSuccessfully value)? messageSentSuccessfully,
-    TResult Function(MessageSentError value)? messageSentError,
-    TResult Function(UserChatsReceivedLoading value)? userChatsReceivedLoading,
-    TResult Function(UserChatsReceivedSuccessfully value)?
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(ConnectedLoading<T> value)? connectedLoading,
+    TResult Function(ConnectedSuccessfully<T> value)? connectedSuccessfully,
+    TResult Function(ConnectedError<T> value)? connectedError,
+    TResult Function(MessageSentLoading<T> value)? messageSentLoading,
+    TResult Function(MessageSentSuccessfully<T> value)? messageSentSuccessfully,
+    TResult Function(MessageSentError<T> value)? messageSentError,
+    TResult Function(UserChatsReceivedLoading<T> value)?
+        userChatsReceivedLoading,
+    TResult Function(UserChatsReceivedSuccessfully<T> value)?
         userChatsReceivedSuccessfully,
-    TResult Function(UserChatsReceivedError value)? userChatsReceivedError,
-    TResult Function(AllMessagesReceivedLoading value)?
+    TResult Function(UserChatsReceivedError<T> value)? userChatsReceivedError,
+    TResult Function(AllMessagesReceivedLoading<T> value)?
         allMessagesReceivedLoading,
-    TResult Function(AllMessagesReceivedSuccessfully value)?
+    TResult Function(AllMessagesReceivedSuccessfully<T> value)?
         allMessagesReceivedSuccessfully,
-    TResult Function(AllMessagesReceivedError value)? allMessagesReceivedError,
+    TResult Function(AllMessagesReceivedError<T> value)?
+        allMessagesReceivedError,
     required TResult orElse(),
   }) {
     if (messageSentLoading != null) {
@@ -1093,43 +1127,43 @@ class _$MessageSentLoadingImpl implements MessageSentLoading {
   }
 }
 
-abstract class MessageSentLoading implements ChatState {
-  const factory MessageSentLoading() = _$MessageSentLoadingImpl;
+abstract class MessageSentLoading<T> implements ChatState<T> {
+  const factory MessageSentLoading() = _$MessageSentLoadingImpl<T>;
 }
 
 /// @nodoc
-abstract class _$$MessageSentSuccessfullyImplCopyWith<$Res> {
+abstract class _$$MessageSentSuccessfullyImplCopyWith<T, $Res> {
   factory _$$MessageSentSuccessfullyImplCopyWith(
-          _$MessageSentSuccessfullyImpl value,
-          $Res Function(_$MessageSentSuccessfullyImpl) then) =
-      __$$MessageSentSuccessfullyImplCopyWithImpl<$Res>;
+          _$MessageSentSuccessfullyImpl<T> value,
+          $Res Function(_$MessageSentSuccessfullyImpl<T>) then) =
+      __$$MessageSentSuccessfullyImplCopyWithImpl<T, $Res>;
 }
 
 /// @nodoc
-class __$$MessageSentSuccessfullyImplCopyWithImpl<$Res>
-    extends _$ChatStateCopyWithImpl<$Res, _$MessageSentSuccessfullyImpl>
-    implements _$$MessageSentSuccessfullyImplCopyWith<$Res> {
+class __$$MessageSentSuccessfullyImplCopyWithImpl<T, $Res>
+    extends _$ChatStateCopyWithImpl<T, $Res, _$MessageSentSuccessfullyImpl<T>>
+    implements _$$MessageSentSuccessfullyImplCopyWith<T, $Res> {
   __$$MessageSentSuccessfullyImplCopyWithImpl(
-      _$MessageSentSuccessfullyImpl _value,
-      $Res Function(_$MessageSentSuccessfullyImpl) _then)
+      _$MessageSentSuccessfullyImpl<T> _value,
+      $Res Function(_$MessageSentSuccessfullyImpl<T>) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$MessageSentSuccessfullyImpl implements MessageSentSuccessfully {
+class _$MessageSentSuccessfullyImpl<T> implements MessageSentSuccessfully<T> {
   const _$MessageSentSuccessfullyImpl();
 
   @override
   String toString() {
-    return 'ChatState.messageSentSuccessfully()';
+    return 'ChatState<$T>.messageSentSuccessfully()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$MessageSentSuccessfullyImpl);
+            other is _$MessageSentSuccessfullyImpl<T>);
   }
 
   @override
@@ -1146,10 +1180,10 @@ class _$MessageSentSuccessfullyImpl implements MessageSentSuccessfully {
     required TResult Function() messageSentSuccessfully,
     required TResult Function(String message) messageSentError,
     required TResult Function() userChatsReceivedLoading,
-    required TResult Function() userChatsReceivedSuccessfully,
+    required TResult Function(T chats) userChatsReceivedSuccessfully,
     required TResult Function(String message) userChatsReceivedError,
     required TResult Function() allMessagesReceivedLoading,
-    required TResult Function() allMessagesReceivedSuccessfully,
+    required TResult Function(T messages) allMessagesReceivedSuccessfully,
     required TResult Function(String message) allMessagesReceivedError,
   }) {
     return messageSentSuccessfully();
@@ -1166,10 +1200,10 @@ class _$MessageSentSuccessfullyImpl implements MessageSentSuccessfully {
     TResult? Function()? messageSentSuccessfully,
     TResult? Function(String message)? messageSentError,
     TResult? Function()? userChatsReceivedLoading,
-    TResult? Function()? userChatsReceivedSuccessfully,
+    TResult? Function(T chats)? userChatsReceivedSuccessfully,
     TResult? Function(String message)? userChatsReceivedError,
     TResult? Function()? allMessagesReceivedLoading,
-    TResult? Function()? allMessagesReceivedSuccessfully,
+    TResult? Function(T messages)? allMessagesReceivedSuccessfully,
     TResult? Function(String message)? allMessagesReceivedError,
   }) {
     return messageSentSuccessfully?.call();
@@ -1186,10 +1220,10 @@ class _$MessageSentSuccessfullyImpl implements MessageSentSuccessfully {
     TResult Function()? messageSentSuccessfully,
     TResult Function(String message)? messageSentError,
     TResult Function()? userChatsReceivedLoading,
-    TResult Function()? userChatsReceivedSuccessfully,
+    TResult Function(T chats)? userChatsReceivedSuccessfully,
     TResult Function(String message)? userChatsReceivedError,
     TResult Function()? allMessagesReceivedLoading,
-    TResult Function()? allMessagesReceivedSuccessfully,
+    TResult Function(T messages)? allMessagesReceivedSuccessfully,
     TResult Function(String message)? allMessagesReceivedError,
     required TResult orElse(),
   }) {
@@ -1202,26 +1236,26 @@ class _$MessageSentSuccessfullyImpl implements MessageSentSuccessfully {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(ConnectedLoading value) connectedLoading,
-    required TResult Function(ConnectedSuccessfully value)
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(ConnectedLoading<T> value) connectedLoading,
+    required TResult Function(ConnectedSuccessfully<T> value)
         connectedSuccessfully,
-    required TResult Function(ConnectedError value) connectedError,
-    required TResult Function(MessageSentLoading value) messageSentLoading,
-    required TResult Function(MessageSentSuccessfully value)
+    required TResult Function(ConnectedError<T> value) connectedError,
+    required TResult Function(MessageSentLoading<T> value) messageSentLoading,
+    required TResult Function(MessageSentSuccessfully<T> value)
         messageSentSuccessfully,
-    required TResult Function(MessageSentError value) messageSentError,
-    required TResult Function(UserChatsReceivedLoading value)
+    required TResult Function(MessageSentError<T> value) messageSentError,
+    required TResult Function(UserChatsReceivedLoading<T> value)
         userChatsReceivedLoading,
-    required TResult Function(UserChatsReceivedSuccessfully value)
+    required TResult Function(UserChatsReceivedSuccessfully<T> value)
         userChatsReceivedSuccessfully,
-    required TResult Function(UserChatsReceivedError value)
+    required TResult Function(UserChatsReceivedError<T> value)
         userChatsReceivedError,
-    required TResult Function(AllMessagesReceivedLoading value)
+    required TResult Function(AllMessagesReceivedLoading<T> value)
         allMessagesReceivedLoading,
-    required TResult Function(AllMessagesReceivedSuccessfully value)
+    required TResult Function(AllMessagesReceivedSuccessfully<T> value)
         allMessagesReceivedSuccessfully,
-    required TResult Function(AllMessagesReceivedError value)
+    required TResult Function(AllMessagesReceivedError<T> value)
         allMessagesReceivedError,
   }) {
     return messageSentSuccessfully(this);
@@ -1230,22 +1264,25 @@ class _$MessageSentSuccessfullyImpl implements MessageSentSuccessfully {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(ConnectedLoading value)? connectedLoading,
-    TResult? Function(ConnectedSuccessfully value)? connectedSuccessfully,
-    TResult? Function(ConnectedError value)? connectedError,
-    TResult? Function(MessageSentLoading value)? messageSentLoading,
-    TResult? Function(MessageSentSuccessfully value)? messageSentSuccessfully,
-    TResult? Function(MessageSentError value)? messageSentError,
-    TResult? Function(UserChatsReceivedLoading value)? userChatsReceivedLoading,
-    TResult? Function(UserChatsReceivedSuccessfully value)?
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(ConnectedLoading<T> value)? connectedLoading,
+    TResult? Function(ConnectedSuccessfully<T> value)? connectedSuccessfully,
+    TResult? Function(ConnectedError<T> value)? connectedError,
+    TResult? Function(MessageSentLoading<T> value)? messageSentLoading,
+    TResult? Function(MessageSentSuccessfully<T> value)?
+        messageSentSuccessfully,
+    TResult? Function(MessageSentError<T> value)? messageSentError,
+    TResult? Function(UserChatsReceivedLoading<T> value)?
+        userChatsReceivedLoading,
+    TResult? Function(UserChatsReceivedSuccessfully<T> value)?
         userChatsReceivedSuccessfully,
-    TResult? Function(UserChatsReceivedError value)? userChatsReceivedError,
-    TResult? Function(AllMessagesReceivedLoading value)?
+    TResult? Function(UserChatsReceivedError<T> value)? userChatsReceivedError,
+    TResult? Function(AllMessagesReceivedLoading<T> value)?
         allMessagesReceivedLoading,
-    TResult? Function(AllMessagesReceivedSuccessfully value)?
+    TResult? Function(AllMessagesReceivedSuccessfully<T> value)?
         allMessagesReceivedSuccessfully,
-    TResult? Function(AllMessagesReceivedError value)? allMessagesReceivedError,
+    TResult? Function(AllMessagesReceivedError<T> value)?
+        allMessagesReceivedError,
   }) {
     return messageSentSuccessfully?.call(this);
   }
@@ -1253,22 +1290,24 @@ class _$MessageSentSuccessfullyImpl implements MessageSentSuccessfully {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(ConnectedLoading value)? connectedLoading,
-    TResult Function(ConnectedSuccessfully value)? connectedSuccessfully,
-    TResult Function(ConnectedError value)? connectedError,
-    TResult Function(MessageSentLoading value)? messageSentLoading,
-    TResult Function(MessageSentSuccessfully value)? messageSentSuccessfully,
-    TResult Function(MessageSentError value)? messageSentError,
-    TResult Function(UserChatsReceivedLoading value)? userChatsReceivedLoading,
-    TResult Function(UserChatsReceivedSuccessfully value)?
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(ConnectedLoading<T> value)? connectedLoading,
+    TResult Function(ConnectedSuccessfully<T> value)? connectedSuccessfully,
+    TResult Function(ConnectedError<T> value)? connectedError,
+    TResult Function(MessageSentLoading<T> value)? messageSentLoading,
+    TResult Function(MessageSentSuccessfully<T> value)? messageSentSuccessfully,
+    TResult Function(MessageSentError<T> value)? messageSentError,
+    TResult Function(UserChatsReceivedLoading<T> value)?
+        userChatsReceivedLoading,
+    TResult Function(UserChatsReceivedSuccessfully<T> value)?
         userChatsReceivedSuccessfully,
-    TResult Function(UserChatsReceivedError value)? userChatsReceivedError,
-    TResult Function(AllMessagesReceivedLoading value)?
+    TResult Function(UserChatsReceivedError<T> value)? userChatsReceivedError,
+    TResult Function(AllMessagesReceivedLoading<T> value)?
         allMessagesReceivedLoading,
-    TResult Function(AllMessagesReceivedSuccessfully value)?
+    TResult Function(AllMessagesReceivedSuccessfully<T> value)?
         allMessagesReceivedSuccessfully,
-    TResult Function(AllMessagesReceivedError value)? allMessagesReceivedError,
+    TResult Function(AllMessagesReceivedError<T> value)?
+        allMessagesReceivedError,
     required TResult orElse(),
   }) {
     if (messageSentSuccessfully != null) {
@@ -1278,25 +1317,25 @@ class _$MessageSentSuccessfullyImpl implements MessageSentSuccessfully {
   }
 }
 
-abstract class MessageSentSuccessfully implements ChatState {
-  const factory MessageSentSuccessfully() = _$MessageSentSuccessfullyImpl;
+abstract class MessageSentSuccessfully<T> implements ChatState<T> {
+  const factory MessageSentSuccessfully() = _$MessageSentSuccessfullyImpl<T>;
 }
 
 /// @nodoc
-abstract class _$$MessageSentErrorImplCopyWith<$Res> {
-  factory _$$MessageSentErrorImplCopyWith(_$MessageSentErrorImpl value,
-          $Res Function(_$MessageSentErrorImpl) then) =
-      __$$MessageSentErrorImplCopyWithImpl<$Res>;
+abstract class _$$MessageSentErrorImplCopyWith<T, $Res> {
+  factory _$$MessageSentErrorImplCopyWith(_$MessageSentErrorImpl<T> value,
+          $Res Function(_$MessageSentErrorImpl<T>) then) =
+      __$$MessageSentErrorImplCopyWithImpl<T, $Res>;
   @useResult
   $Res call({String message});
 }
 
 /// @nodoc
-class __$$MessageSentErrorImplCopyWithImpl<$Res>
-    extends _$ChatStateCopyWithImpl<$Res, _$MessageSentErrorImpl>
-    implements _$$MessageSentErrorImplCopyWith<$Res> {
-  __$$MessageSentErrorImplCopyWithImpl(_$MessageSentErrorImpl _value,
-      $Res Function(_$MessageSentErrorImpl) _then)
+class __$$MessageSentErrorImplCopyWithImpl<T, $Res>
+    extends _$ChatStateCopyWithImpl<T, $Res, _$MessageSentErrorImpl<T>>
+    implements _$$MessageSentErrorImplCopyWith<T, $Res> {
+  __$$MessageSentErrorImplCopyWithImpl(_$MessageSentErrorImpl<T> _value,
+      $Res Function(_$MessageSentErrorImpl<T>) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1304,7 +1343,7 @@ class __$$MessageSentErrorImplCopyWithImpl<$Res>
   $Res call({
     Object? message = null,
   }) {
-    return _then(_$MessageSentErrorImpl(
+    return _then(_$MessageSentErrorImpl<T>(
       null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -1315,7 +1354,7 @@ class __$$MessageSentErrorImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$MessageSentErrorImpl implements MessageSentError {
+class _$MessageSentErrorImpl<T> implements MessageSentError<T> {
   const _$MessageSentErrorImpl(this.message);
 
   @override
@@ -1323,14 +1362,14 @@ class _$MessageSentErrorImpl implements MessageSentError {
 
   @override
   String toString() {
-    return 'ChatState.messageSentError(message: $message)';
+    return 'ChatState<$T>.messageSentError(message: $message)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$MessageSentErrorImpl &&
+            other is _$MessageSentErrorImpl<T> &&
             (identical(other.message, message) || other.message == message));
   }
 
@@ -1340,8 +1379,8 @@ class _$MessageSentErrorImpl implements MessageSentError {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$MessageSentErrorImplCopyWith<_$MessageSentErrorImpl> get copyWith =>
-      __$$MessageSentErrorImplCopyWithImpl<_$MessageSentErrorImpl>(
+  _$$MessageSentErrorImplCopyWith<T, _$MessageSentErrorImpl<T>> get copyWith =>
+      __$$MessageSentErrorImplCopyWithImpl<T, _$MessageSentErrorImpl<T>>(
           this, _$identity);
 
   @override
@@ -1355,10 +1394,10 @@ class _$MessageSentErrorImpl implements MessageSentError {
     required TResult Function() messageSentSuccessfully,
     required TResult Function(String message) messageSentError,
     required TResult Function() userChatsReceivedLoading,
-    required TResult Function() userChatsReceivedSuccessfully,
+    required TResult Function(T chats) userChatsReceivedSuccessfully,
     required TResult Function(String message) userChatsReceivedError,
     required TResult Function() allMessagesReceivedLoading,
-    required TResult Function() allMessagesReceivedSuccessfully,
+    required TResult Function(T messages) allMessagesReceivedSuccessfully,
     required TResult Function(String message) allMessagesReceivedError,
   }) {
     return messageSentError(message);
@@ -1375,10 +1414,10 @@ class _$MessageSentErrorImpl implements MessageSentError {
     TResult? Function()? messageSentSuccessfully,
     TResult? Function(String message)? messageSentError,
     TResult? Function()? userChatsReceivedLoading,
-    TResult? Function()? userChatsReceivedSuccessfully,
+    TResult? Function(T chats)? userChatsReceivedSuccessfully,
     TResult? Function(String message)? userChatsReceivedError,
     TResult? Function()? allMessagesReceivedLoading,
-    TResult? Function()? allMessagesReceivedSuccessfully,
+    TResult? Function(T messages)? allMessagesReceivedSuccessfully,
     TResult? Function(String message)? allMessagesReceivedError,
   }) {
     return messageSentError?.call(message);
@@ -1395,10 +1434,10 @@ class _$MessageSentErrorImpl implements MessageSentError {
     TResult Function()? messageSentSuccessfully,
     TResult Function(String message)? messageSentError,
     TResult Function()? userChatsReceivedLoading,
-    TResult Function()? userChatsReceivedSuccessfully,
+    TResult Function(T chats)? userChatsReceivedSuccessfully,
     TResult Function(String message)? userChatsReceivedError,
     TResult Function()? allMessagesReceivedLoading,
-    TResult Function()? allMessagesReceivedSuccessfully,
+    TResult Function(T messages)? allMessagesReceivedSuccessfully,
     TResult Function(String message)? allMessagesReceivedError,
     required TResult orElse(),
   }) {
@@ -1411,26 +1450,26 @@ class _$MessageSentErrorImpl implements MessageSentError {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(ConnectedLoading value) connectedLoading,
-    required TResult Function(ConnectedSuccessfully value)
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(ConnectedLoading<T> value) connectedLoading,
+    required TResult Function(ConnectedSuccessfully<T> value)
         connectedSuccessfully,
-    required TResult Function(ConnectedError value) connectedError,
-    required TResult Function(MessageSentLoading value) messageSentLoading,
-    required TResult Function(MessageSentSuccessfully value)
+    required TResult Function(ConnectedError<T> value) connectedError,
+    required TResult Function(MessageSentLoading<T> value) messageSentLoading,
+    required TResult Function(MessageSentSuccessfully<T> value)
         messageSentSuccessfully,
-    required TResult Function(MessageSentError value) messageSentError,
-    required TResult Function(UserChatsReceivedLoading value)
+    required TResult Function(MessageSentError<T> value) messageSentError,
+    required TResult Function(UserChatsReceivedLoading<T> value)
         userChatsReceivedLoading,
-    required TResult Function(UserChatsReceivedSuccessfully value)
+    required TResult Function(UserChatsReceivedSuccessfully<T> value)
         userChatsReceivedSuccessfully,
-    required TResult Function(UserChatsReceivedError value)
+    required TResult Function(UserChatsReceivedError<T> value)
         userChatsReceivedError,
-    required TResult Function(AllMessagesReceivedLoading value)
+    required TResult Function(AllMessagesReceivedLoading<T> value)
         allMessagesReceivedLoading,
-    required TResult Function(AllMessagesReceivedSuccessfully value)
+    required TResult Function(AllMessagesReceivedSuccessfully<T> value)
         allMessagesReceivedSuccessfully,
-    required TResult Function(AllMessagesReceivedError value)
+    required TResult Function(AllMessagesReceivedError<T> value)
         allMessagesReceivedError,
   }) {
     return messageSentError(this);
@@ -1439,22 +1478,25 @@ class _$MessageSentErrorImpl implements MessageSentError {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(ConnectedLoading value)? connectedLoading,
-    TResult? Function(ConnectedSuccessfully value)? connectedSuccessfully,
-    TResult? Function(ConnectedError value)? connectedError,
-    TResult? Function(MessageSentLoading value)? messageSentLoading,
-    TResult? Function(MessageSentSuccessfully value)? messageSentSuccessfully,
-    TResult? Function(MessageSentError value)? messageSentError,
-    TResult? Function(UserChatsReceivedLoading value)? userChatsReceivedLoading,
-    TResult? Function(UserChatsReceivedSuccessfully value)?
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(ConnectedLoading<T> value)? connectedLoading,
+    TResult? Function(ConnectedSuccessfully<T> value)? connectedSuccessfully,
+    TResult? Function(ConnectedError<T> value)? connectedError,
+    TResult? Function(MessageSentLoading<T> value)? messageSentLoading,
+    TResult? Function(MessageSentSuccessfully<T> value)?
+        messageSentSuccessfully,
+    TResult? Function(MessageSentError<T> value)? messageSentError,
+    TResult? Function(UserChatsReceivedLoading<T> value)?
+        userChatsReceivedLoading,
+    TResult? Function(UserChatsReceivedSuccessfully<T> value)?
         userChatsReceivedSuccessfully,
-    TResult? Function(UserChatsReceivedError value)? userChatsReceivedError,
-    TResult? Function(AllMessagesReceivedLoading value)?
+    TResult? Function(UserChatsReceivedError<T> value)? userChatsReceivedError,
+    TResult? Function(AllMessagesReceivedLoading<T> value)?
         allMessagesReceivedLoading,
-    TResult? Function(AllMessagesReceivedSuccessfully value)?
+    TResult? Function(AllMessagesReceivedSuccessfully<T> value)?
         allMessagesReceivedSuccessfully,
-    TResult? Function(AllMessagesReceivedError value)? allMessagesReceivedError,
+    TResult? Function(AllMessagesReceivedError<T> value)?
+        allMessagesReceivedError,
   }) {
     return messageSentError?.call(this);
   }
@@ -1462,22 +1504,24 @@ class _$MessageSentErrorImpl implements MessageSentError {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(ConnectedLoading value)? connectedLoading,
-    TResult Function(ConnectedSuccessfully value)? connectedSuccessfully,
-    TResult Function(ConnectedError value)? connectedError,
-    TResult Function(MessageSentLoading value)? messageSentLoading,
-    TResult Function(MessageSentSuccessfully value)? messageSentSuccessfully,
-    TResult Function(MessageSentError value)? messageSentError,
-    TResult Function(UserChatsReceivedLoading value)? userChatsReceivedLoading,
-    TResult Function(UserChatsReceivedSuccessfully value)?
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(ConnectedLoading<T> value)? connectedLoading,
+    TResult Function(ConnectedSuccessfully<T> value)? connectedSuccessfully,
+    TResult Function(ConnectedError<T> value)? connectedError,
+    TResult Function(MessageSentLoading<T> value)? messageSentLoading,
+    TResult Function(MessageSentSuccessfully<T> value)? messageSentSuccessfully,
+    TResult Function(MessageSentError<T> value)? messageSentError,
+    TResult Function(UserChatsReceivedLoading<T> value)?
+        userChatsReceivedLoading,
+    TResult Function(UserChatsReceivedSuccessfully<T> value)?
         userChatsReceivedSuccessfully,
-    TResult Function(UserChatsReceivedError value)? userChatsReceivedError,
-    TResult Function(AllMessagesReceivedLoading value)?
+    TResult Function(UserChatsReceivedError<T> value)? userChatsReceivedError,
+    TResult Function(AllMessagesReceivedLoading<T> value)?
         allMessagesReceivedLoading,
-    TResult Function(AllMessagesReceivedSuccessfully value)?
+    TResult Function(AllMessagesReceivedSuccessfully<T> value)?
         allMessagesReceivedSuccessfully,
-    TResult Function(AllMessagesReceivedError value)? allMessagesReceivedError,
+    TResult Function(AllMessagesReceivedError<T> value)?
+        allMessagesReceivedError,
     required TResult orElse(),
   }) {
     if (messageSentError != null) {
@@ -1487,48 +1531,49 @@ class _$MessageSentErrorImpl implements MessageSentError {
   }
 }
 
-abstract class MessageSentError implements ChatState {
-  const factory MessageSentError(final String message) = _$MessageSentErrorImpl;
+abstract class MessageSentError<T> implements ChatState<T> {
+  const factory MessageSentError(final String message) =
+      _$MessageSentErrorImpl<T>;
 
   String get message;
   @JsonKey(ignore: true)
-  _$$MessageSentErrorImplCopyWith<_$MessageSentErrorImpl> get copyWith =>
+  _$$MessageSentErrorImplCopyWith<T, _$MessageSentErrorImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UserChatsReceivedLoadingImplCopyWith<$Res> {
+abstract class _$$UserChatsReceivedLoadingImplCopyWith<T, $Res> {
   factory _$$UserChatsReceivedLoadingImplCopyWith(
-          _$UserChatsReceivedLoadingImpl value,
-          $Res Function(_$UserChatsReceivedLoadingImpl) then) =
-      __$$UserChatsReceivedLoadingImplCopyWithImpl<$Res>;
+          _$UserChatsReceivedLoadingImpl<T> value,
+          $Res Function(_$UserChatsReceivedLoadingImpl<T>) then) =
+      __$$UserChatsReceivedLoadingImplCopyWithImpl<T, $Res>;
 }
 
 /// @nodoc
-class __$$UserChatsReceivedLoadingImplCopyWithImpl<$Res>
-    extends _$ChatStateCopyWithImpl<$Res, _$UserChatsReceivedLoadingImpl>
-    implements _$$UserChatsReceivedLoadingImplCopyWith<$Res> {
+class __$$UserChatsReceivedLoadingImplCopyWithImpl<T, $Res>
+    extends _$ChatStateCopyWithImpl<T, $Res, _$UserChatsReceivedLoadingImpl<T>>
+    implements _$$UserChatsReceivedLoadingImplCopyWith<T, $Res> {
   __$$UserChatsReceivedLoadingImplCopyWithImpl(
-      _$UserChatsReceivedLoadingImpl _value,
-      $Res Function(_$UserChatsReceivedLoadingImpl) _then)
+      _$UserChatsReceivedLoadingImpl<T> _value,
+      $Res Function(_$UserChatsReceivedLoadingImpl<T>) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$UserChatsReceivedLoadingImpl implements UserChatsReceivedLoading {
+class _$UserChatsReceivedLoadingImpl<T> implements UserChatsReceivedLoading<T> {
   const _$UserChatsReceivedLoadingImpl();
 
   @override
   String toString() {
-    return 'ChatState.userChatsReceivedLoading()';
+    return 'ChatState<$T>.userChatsReceivedLoading()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UserChatsReceivedLoadingImpl);
+            other is _$UserChatsReceivedLoadingImpl<T>);
   }
 
   @override
@@ -1545,10 +1590,10 @@ class _$UserChatsReceivedLoadingImpl implements UserChatsReceivedLoading {
     required TResult Function() messageSentSuccessfully,
     required TResult Function(String message) messageSentError,
     required TResult Function() userChatsReceivedLoading,
-    required TResult Function() userChatsReceivedSuccessfully,
+    required TResult Function(T chats) userChatsReceivedSuccessfully,
     required TResult Function(String message) userChatsReceivedError,
     required TResult Function() allMessagesReceivedLoading,
-    required TResult Function() allMessagesReceivedSuccessfully,
+    required TResult Function(T messages) allMessagesReceivedSuccessfully,
     required TResult Function(String message) allMessagesReceivedError,
   }) {
     return userChatsReceivedLoading();
@@ -1565,10 +1610,10 @@ class _$UserChatsReceivedLoadingImpl implements UserChatsReceivedLoading {
     TResult? Function()? messageSentSuccessfully,
     TResult? Function(String message)? messageSentError,
     TResult? Function()? userChatsReceivedLoading,
-    TResult? Function()? userChatsReceivedSuccessfully,
+    TResult? Function(T chats)? userChatsReceivedSuccessfully,
     TResult? Function(String message)? userChatsReceivedError,
     TResult? Function()? allMessagesReceivedLoading,
-    TResult? Function()? allMessagesReceivedSuccessfully,
+    TResult? Function(T messages)? allMessagesReceivedSuccessfully,
     TResult? Function(String message)? allMessagesReceivedError,
   }) {
     return userChatsReceivedLoading?.call();
@@ -1585,10 +1630,10 @@ class _$UserChatsReceivedLoadingImpl implements UserChatsReceivedLoading {
     TResult Function()? messageSentSuccessfully,
     TResult Function(String message)? messageSentError,
     TResult Function()? userChatsReceivedLoading,
-    TResult Function()? userChatsReceivedSuccessfully,
+    TResult Function(T chats)? userChatsReceivedSuccessfully,
     TResult Function(String message)? userChatsReceivedError,
     TResult Function()? allMessagesReceivedLoading,
-    TResult Function()? allMessagesReceivedSuccessfully,
+    TResult Function(T messages)? allMessagesReceivedSuccessfully,
     TResult Function(String message)? allMessagesReceivedError,
     required TResult orElse(),
   }) {
@@ -1601,26 +1646,26 @@ class _$UserChatsReceivedLoadingImpl implements UserChatsReceivedLoading {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(ConnectedLoading value) connectedLoading,
-    required TResult Function(ConnectedSuccessfully value)
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(ConnectedLoading<T> value) connectedLoading,
+    required TResult Function(ConnectedSuccessfully<T> value)
         connectedSuccessfully,
-    required TResult Function(ConnectedError value) connectedError,
-    required TResult Function(MessageSentLoading value) messageSentLoading,
-    required TResult Function(MessageSentSuccessfully value)
+    required TResult Function(ConnectedError<T> value) connectedError,
+    required TResult Function(MessageSentLoading<T> value) messageSentLoading,
+    required TResult Function(MessageSentSuccessfully<T> value)
         messageSentSuccessfully,
-    required TResult Function(MessageSentError value) messageSentError,
-    required TResult Function(UserChatsReceivedLoading value)
+    required TResult Function(MessageSentError<T> value) messageSentError,
+    required TResult Function(UserChatsReceivedLoading<T> value)
         userChatsReceivedLoading,
-    required TResult Function(UserChatsReceivedSuccessfully value)
+    required TResult Function(UserChatsReceivedSuccessfully<T> value)
         userChatsReceivedSuccessfully,
-    required TResult Function(UserChatsReceivedError value)
+    required TResult Function(UserChatsReceivedError<T> value)
         userChatsReceivedError,
-    required TResult Function(AllMessagesReceivedLoading value)
+    required TResult Function(AllMessagesReceivedLoading<T> value)
         allMessagesReceivedLoading,
-    required TResult Function(AllMessagesReceivedSuccessfully value)
+    required TResult Function(AllMessagesReceivedSuccessfully<T> value)
         allMessagesReceivedSuccessfully,
-    required TResult Function(AllMessagesReceivedError value)
+    required TResult Function(AllMessagesReceivedError<T> value)
         allMessagesReceivedError,
   }) {
     return userChatsReceivedLoading(this);
@@ -1629,22 +1674,25 @@ class _$UserChatsReceivedLoadingImpl implements UserChatsReceivedLoading {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(ConnectedLoading value)? connectedLoading,
-    TResult? Function(ConnectedSuccessfully value)? connectedSuccessfully,
-    TResult? Function(ConnectedError value)? connectedError,
-    TResult? Function(MessageSentLoading value)? messageSentLoading,
-    TResult? Function(MessageSentSuccessfully value)? messageSentSuccessfully,
-    TResult? Function(MessageSentError value)? messageSentError,
-    TResult? Function(UserChatsReceivedLoading value)? userChatsReceivedLoading,
-    TResult? Function(UserChatsReceivedSuccessfully value)?
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(ConnectedLoading<T> value)? connectedLoading,
+    TResult? Function(ConnectedSuccessfully<T> value)? connectedSuccessfully,
+    TResult? Function(ConnectedError<T> value)? connectedError,
+    TResult? Function(MessageSentLoading<T> value)? messageSentLoading,
+    TResult? Function(MessageSentSuccessfully<T> value)?
+        messageSentSuccessfully,
+    TResult? Function(MessageSentError<T> value)? messageSentError,
+    TResult? Function(UserChatsReceivedLoading<T> value)?
+        userChatsReceivedLoading,
+    TResult? Function(UserChatsReceivedSuccessfully<T> value)?
         userChatsReceivedSuccessfully,
-    TResult? Function(UserChatsReceivedError value)? userChatsReceivedError,
-    TResult? Function(AllMessagesReceivedLoading value)?
+    TResult? Function(UserChatsReceivedError<T> value)? userChatsReceivedError,
+    TResult? Function(AllMessagesReceivedLoading<T> value)?
         allMessagesReceivedLoading,
-    TResult? Function(AllMessagesReceivedSuccessfully value)?
+    TResult? Function(AllMessagesReceivedSuccessfully<T> value)?
         allMessagesReceivedSuccessfully,
-    TResult? Function(AllMessagesReceivedError value)? allMessagesReceivedError,
+    TResult? Function(AllMessagesReceivedError<T> value)?
+        allMessagesReceivedError,
   }) {
     return userChatsReceivedLoading?.call(this);
   }
@@ -1652,22 +1700,24 @@ class _$UserChatsReceivedLoadingImpl implements UserChatsReceivedLoading {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(ConnectedLoading value)? connectedLoading,
-    TResult Function(ConnectedSuccessfully value)? connectedSuccessfully,
-    TResult Function(ConnectedError value)? connectedError,
-    TResult Function(MessageSentLoading value)? messageSentLoading,
-    TResult Function(MessageSentSuccessfully value)? messageSentSuccessfully,
-    TResult Function(MessageSentError value)? messageSentError,
-    TResult Function(UserChatsReceivedLoading value)? userChatsReceivedLoading,
-    TResult Function(UserChatsReceivedSuccessfully value)?
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(ConnectedLoading<T> value)? connectedLoading,
+    TResult Function(ConnectedSuccessfully<T> value)? connectedSuccessfully,
+    TResult Function(ConnectedError<T> value)? connectedError,
+    TResult Function(MessageSentLoading<T> value)? messageSentLoading,
+    TResult Function(MessageSentSuccessfully<T> value)? messageSentSuccessfully,
+    TResult Function(MessageSentError<T> value)? messageSentError,
+    TResult Function(UserChatsReceivedLoading<T> value)?
+        userChatsReceivedLoading,
+    TResult Function(UserChatsReceivedSuccessfully<T> value)?
         userChatsReceivedSuccessfully,
-    TResult Function(UserChatsReceivedError value)? userChatsReceivedError,
-    TResult Function(AllMessagesReceivedLoading value)?
+    TResult Function(UserChatsReceivedError<T> value)? userChatsReceivedError,
+    TResult Function(AllMessagesReceivedLoading<T> value)?
         allMessagesReceivedLoading,
-    TResult Function(AllMessagesReceivedSuccessfully value)?
+    TResult Function(AllMessagesReceivedSuccessfully<T> value)?
         allMessagesReceivedSuccessfully,
-    TResult Function(AllMessagesReceivedError value)? allMessagesReceivedError,
+    TResult Function(AllMessagesReceivedError<T> value)?
+        allMessagesReceivedError,
     required TResult orElse(),
   }) {
     if (userChatsReceivedLoading != null) {
@@ -1677,48 +1727,77 @@ class _$UserChatsReceivedLoadingImpl implements UserChatsReceivedLoading {
   }
 }
 
-abstract class UserChatsReceivedLoading implements ChatState {
-  const factory UserChatsReceivedLoading() = _$UserChatsReceivedLoadingImpl;
+abstract class UserChatsReceivedLoading<T> implements ChatState<T> {
+  const factory UserChatsReceivedLoading() = _$UserChatsReceivedLoadingImpl<T>;
 }
 
 /// @nodoc
-abstract class _$$UserChatsReceivedSuccessfullyImplCopyWith<$Res> {
+abstract class _$$UserChatsReceivedSuccessfullyImplCopyWith<T, $Res> {
   factory _$$UserChatsReceivedSuccessfullyImplCopyWith(
-          _$UserChatsReceivedSuccessfullyImpl value,
-          $Res Function(_$UserChatsReceivedSuccessfullyImpl) then) =
-      __$$UserChatsReceivedSuccessfullyImplCopyWithImpl<$Res>;
+          _$UserChatsReceivedSuccessfullyImpl<T> value,
+          $Res Function(_$UserChatsReceivedSuccessfullyImpl<T>) then) =
+      __$$UserChatsReceivedSuccessfullyImplCopyWithImpl<T, $Res>;
+  @useResult
+  $Res call({T chats});
 }
 
 /// @nodoc
-class __$$UserChatsReceivedSuccessfullyImplCopyWithImpl<$Res>
-    extends _$ChatStateCopyWithImpl<$Res, _$UserChatsReceivedSuccessfullyImpl>
-    implements _$$UserChatsReceivedSuccessfullyImplCopyWith<$Res> {
+class __$$UserChatsReceivedSuccessfullyImplCopyWithImpl<T, $Res>
+    extends _$ChatStateCopyWithImpl<T, $Res,
+        _$UserChatsReceivedSuccessfullyImpl<T>>
+    implements _$$UserChatsReceivedSuccessfullyImplCopyWith<T, $Res> {
   __$$UserChatsReceivedSuccessfullyImplCopyWithImpl(
-      _$UserChatsReceivedSuccessfullyImpl _value,
-      $Res Function(_$UserChatsReceivedSuccessfullyImpl) _then)
+      _$UserChatsReceivedSuccessfullyImpl<T> _value,
+      $Res Function(_$UserChatsReceivedSuccessfullyImpl<T>) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? chats = freezed,
+  }) {
+    return _then(_$UserChatsReceivedSuccessfullyImpl<T>(
+      freezed == chats
+          ? _value.chats
+          : chats // ignore: cast_nullable_to_non_nullable
+              as T,
+    ));
+  }
 }
 
 /// @nodoc
 
-class _$UserChatsReceivedSuccessfullyImpl
-    implements UserChatsReceivedSuccessfully {
-  const _$UserChatsReceivedSuccessfullyImpl();
+class _$UserChatsReceivedSuccessfullyImpl<T>
+    implements UserChatsReceivedSuccessfully<T> {
+  const _$UserChatsReceivedSuccessfullyImpl(this.chats);
+
+  @override
+  final T chats;
 
   @override
   String toString() {
-    return 'ChatState.userChatsReceivedSuccessfully()';
+    return 'ChatState<$T>.userChatsReceivedSuccessfully(chats: $chats)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UserChatsReceivedSuccessfullyImpl);
+            other is _$UserChatsReceivedSuccessfullyImpl<T> &&
+            const DeepCollectionEquality().equals(other.chats, chats));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(chats));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UserChatsReceivedSuccessfullyImplCopyWith<T,
+          _$UserChatsReceivedSuccessfullyImpl<T>>
+      get copyWith => __$$UserChatsReceivedSuccessfullyImplCopyWithImpl<T,
+          _$UserChatsReceivedSuccessfullyImpl<T>>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1731,13 +1810,13 @@ class _$UserChatsReceivedSuccessfullyImpl
     required TResult Function() messageSentSuccessfully,
     required TResult Function(String message) messageSentError,
     required TResult Function() userChatsReceivedLoading,
-    required TResult Function() userChatsReceivedSuccessfully,
+    required TResult Function(T chats) userChatsReceivedSuccessfully,
     required TResult Function(String message) userChatsReceivedError,
     required TResult Function() allMessagesReceivedLoading,
-    required TResult Function() allMessagesReceivedSuccessfully,
+    required TResult Function(T messages) allMessagesReceivedSuccessfully,
     required TResult Function(String message) allMessagesReceivedError,
   }) {
-    return userChatsReceivedSuccessfully();
+    return userChatsReceivedSuccessfully(chats);
   }
 
   @override
@@ -1751,13 +1830,13 @@ class _$UserChatsReceivedSuccessfullyImpl
     TResult? Function()? messageSentSuccessfully,
     TResult? Function(String message)? messageSentError,
     TResult? Function()? userChatsReceivedLoading,
-    TResult? Function()? userChatsReceivedSuccessfully,
+    TResult? Function(T chats)? userChatsReceivedSuccessfully,
     TResult? Function(String message)? userChatsReceivedError,
     TResult? Function()? allMessagesReceivedLoading,
-    TResult? Function()? allMessagesReceivedSuccessfully,
+    TResult? Function(T messages)? allMessagesReceivedSuccessfully,
     TResult? Function(String message)? allMessagesReceivedError,
   }) {
-    return userChatsReceivedSuccessfully?.call();
+    return userChatsReceivedSuccessfully?.call(chats);
   }
 
   @override
@@ -1771,15 +1850,15 @@ class _$UserChatsReceivedSuccessfullyImpl
     TResult Function()? messageSentSuccessfully,
     TResult Function(String message)? messageSentError,
     TResult Function()? userChatsReceivedLoading,
-    TResult Function()? userChatsReceivedSuccessfully,
+    TResult Function(T chats)? userChatsReceivedSuccessfully,
     TResult Function(String message)? userChatsReceivedError,
     TResult Function()? allMessagesReceivedLoading,
-    TResult Function()? allMessagesReceivedSuccessfully,
+    TResult Function(T messages)? allMessagesReceivedSuccessfully,
     TResult Function(String message)? allMessagesReceivedError,
     required TResult orElse(),
   }) {
     if (userChatsReceivedSuccessfully != null) {
-      return userChatsReceivedSuccessfully();
+      return userChatsReceivedSuccessfully(chats);
     }
     return orElse();
   }
@@ -1787,26 +1866,26 @@ class _$UserChatsReceivedSuccessfullyImpl
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(ConnectedLoading value) connectedLoading,
-    required TResult Function(ConnectedSuccessfully value)
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(ConnectedLoading<T> value) connectedLoading,
+    required TResult Function(ConnectedSuccessfully<T> value)
         connectedSuccessfully,
-    required TResult Function(ConnectedError value) connectedError,
-    required TResult Function(MessageSentLoading value) messageSentLoading,
-    required TResult Function(MessageSentSuccessfully value)
+    required TResult Function(ConnectedError<T> value) connectedError,
+    required TResult Function(MessageSentLoading<T> value) messageSentLoading,
+    required TResult Function(MessageSentSuccessfully<T> value)
         messageSentSuccessfully,
-    required TResult Function(MessageSentError value) messageSentError,
-    required TResult Function(UserChatsReceivedLoading value)
+    required TResult Function(MessageSentError<T> value) messageSentError,
+    required TResult Function(UserChatsReceivedLoading<T> value)
         userChatsReceivedLoading,
-    required TResult Function(UserChatsReceivedSuccessfully value)
+    required TResult Function(UserChatsReceivedSuccessfully<T> value)
         userChatsReceivedSuccessfully,
-    required TResult Function(UserChatsReceivedError value)
+    required TResult Function(UserChatsReceivedError<T> value)
         userChatsReceivedError,
-    required TResult Function(AllMessagesReceivedLoading value)
+    required TResult Function(AllMessagesReceivedLoading<T> value)
         allMessagesReceivedLoading,
-    required TResult Function(AllMessagesReceivedSuccessfully value)
+    required TResult Function(AllMessagesReceivedSuccessfully<T> value)
         allMessagesReceivedSuccessfully,
-    required TResult Function(AllMessagesReceivedError value)
+    required TResult Function(AllMessagesReceivedError<T> value)
         allMessagesReceivedError,
   }) {
     return userChatsReceivedSuccessfully(this);
@@ -1815,22 +1894,25 @@ class _$UserChatsReceivedSuccessfullyImpl
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(ConnectedLoading value)? connectedLoading,
-    TResult? Function(ConnectedSuccessfully value)? connectedSuccessfully,
-    TResult? Function(ConnectedError value)? connectedError,
-    TResult? Function(MessageSentLoading value)? messageSentLoading,
-    TResult? Function(MessageSentSuccessfully value)? messageSentSuccessfully,
-    TResult? Function(MessageSentError value)? messageSentError,
-    TResult? Function(UserChatsReceivedLoading value)? userChatsReceivedLoading,
-    TResult? Function(UserChatsReceivedSuccessfully value)?
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(ConnectedLoading<T> value)? connectedLoading,
+    TResult? Function(ConnectedSuccessfully<T> value)? connectedSuccessfully,
+    TResult? Function(ConnectedError<T> value)? connectedError,
+    TResult? Function(MessageSentLoading<T> value)? messageSentLoading,
+    TResult? Function(MessageSentSuccessfully<T> value)?
+        messageSentSuccessfully,
+    TResult? Function(MessageSentError<T> value)? messageSentError,
+    TResult? Function(UserChatsReceivedLoading<T> value)?
+        userChatsReceivedLoading,
+    TResult? Function(UserChatsReceivedSuccessfully<T> value)?
         userChatsReceivedSuccessfully,
-    TResult? Function(UserChatsReceivedError value)? userChatsReceivedError,
-    TResult? Function(AllMessagesReceivedLoading value)?
+    TResult? Function(UserChatsReceivedError<T> value)? userChatsReceivedError,
+    TResult? Function(AllMessagesReceivedLoading<T> value)?
         allMessagesReceivedLoading,
-    TResult? Function(AllMessagesReceivedSuccessfully value)?
+    TResult? Function(AllMessagesReceivedSuccessfully<T> value)?
         allMessagesReceivedSuccessfully,
-    TResult? Function(AllMessagesReceivedError value)? allMessagesReceivedError,
+    TResult? Function(AllMessagesReceivedError<T> value)?
+        allMessagesReceivedError,
   }) {
     return userChatsReceivedSuccessfully?.call(this);
   }
@@ -1838,22 +1920,24 @@ class _$UserChatsReceivedSuccessfullyImpl
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(ConnectedLoading value)? connectedLoading,
-    TResult Function(ConnectedSuccessfully value)? connectedSuccessfully,
-    TResult Function(ConnectedError value)? connectedError,
-    TResult Function(MessageSentLoading value)? messageSentLoading,
-    TResult Function(MessageSentSuccessfully value)? messageSentSuccessfully,
-    TResult Function(MessageSentError value)? messageSentError,
-    TResult Function(UserChatsReceivedLoading value)? userChatsReceivedLoading,
-    TResult Function(UserChatsReceivedSuccessfully value)?
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(ConnectedLoading<T> value)? connectedLoading,
+    TResult Function(ConnectedSuccessfully<T> value)? connectedSuccessfully,
+    TResult Function(ConnectedError<T> value)? connectedError,
+    TResult Function(MessageSentLoading<T> value)? messageSentLoading,
+    TResult Function(MessageSentSuccessfully<T> value)? messageSentSuccessfully,
+    TResult Function(MessageSentError<T> value)? messageSentError,
+    TResult Function(UserChatsReceivedLoading<T> value)?
+        userChatsReceivedLoading,
+    TResult Function(UserChatsReceivedSuccessfully<T> value)?
         userChatsReceivedSuccessfully,
-    TResult Function(UserChatsReceivedError value)? userChatsReceivedError,
-    TResult Function(AllMessagesReceivedLoading value)?
+    TResult Function(UserChatsReceivedError<T> value)? userChatsReceivedError,
+    TResult Function(AllMessagesReceivedLoading<T> value)?
         allMessagesReceivedLoading,
-    TResult Function(AllMessagesReceivedSuccessfully value)?
+    TResult Function(AllMessagesReceivedSuccessfully<T> value)?
         allMessagesReceivedSuccessfully,
-    TResult Function(AllMessagesReceivedError value)? allMessagesReceivedError,
+    TResult Function(AllMessagesReceivedError<T> value)?
+        allMessagesReceivedError,
     required TResult orElse(),
   }) {
     if (userChatsReceivedSuccessfully != null) {
@@ -1863,28 +1947,34 @@ class _$UserChatsReceivedSuccessfullyImpl
   }
 }
 
-abstract class UserChatsReceivedSuccessfully implements ChatState {
-  const factory UserChatsReceivedSuccessfully() =
-      _$UserChatsReceivedSuccessfullyImpl;
+abstract class UserChatsReceivedSuccessfully<T> implements ChatState<T> {
+  const factory UserChatsReceivedSuccessfully(final T chats) =
+      _$UserChatsReceivedSuccessfullyImpl<T>;
+
+  T get chats;
+  @JsonKey(ignore: true)
+  _$$UserChatsReceivedSuccessfullyImplCopyWith<T,
+          _$UserChatsReceivedSuccessfullyImpl<T>>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UserChatsReceivedErrorImplCopyWith<$Res> {
+abstract class _$$UserChatsReceivedErrorImplCopyWith<T, $Res> {
   factory _$$UserChatsReceivedErrorImplCopyWith(
-          _$UserChatsReceivedErrorImpl value,
-          $Res Function(_$UserChatsReceivedErrorImpl) then) =
-      __$$UserChatsReceivedErrorImplCopyWithImpl<$Res>;
+          _$UserChatsReceivedErrorImpl<T> value,
+          $Res Function(_$UserChatsReceivedErrorImpl<T>) then) =
+      __$$UserChatsReceivedErrorImplCopyWithImpl<T, $Res>;
   @useResult
   $Res call({String message});
 }
 
 /// @nodoc
-class __$$UserChatsReceivedErrorImplCopyWithImpl<$Res>
-    extends _$ChatStateCopyWithImpl<$Res, _$UserChatsReceivedErrorImpl>
-    implements _$$UserChatsReceivedErrorImplCopyWith<$Res> {
+class __$$UserChatsReceivedErrorImplCopyWithImpl<T, $Res>
+    extends _$ChatStateCopyWithImpl<T, $Res, _$UserChatsReceivedErrorImpl<T>>
+    implements _$$UserChatsReceivedErrorImplCopyWith<T, $Res> {
   __$$UserChatsReceivedErrorImplCopyWithImpl(
-      _$UserChatsReceivedErrorImpl _value,
-      $Res Function(_$UserChatsReceivedErrorImpl) _then)
+      _$UserChatsReceivedErrorImpl<T> _value,
+      $Res Function(_$UserChatsReceivedErrorImpl<T>) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1892,7 +1982,7 @@ class __$$UserChatsReceivedErrorImplCopyWithImpl<$Res>
   $Res call({
     Object? message = null,
   }) {
-    return _then(_$UserChatsReceivedErrorImpl(
+    return _then(_$UserChatsReceivedErrorImpl<T>(
       null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -1903,7 +1993,7 @@ class __$$UserChatsReceivedErrorImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UserChatsReceivedErrorImpl implements UserChatsReceivedError {
+class _$UserChatsReceivedErrorImpl<T> implements UserChatsReceivedError<T> {
   const _$UserChatsReceivedErrorImpl(this.message);
 
   @override
@@ -1911,14 +2001,14 @@ class _$UserChatsReceivedErrorImpl implements UserChatsReceivedError {
 
   @override
   String toString() {
-    return 'ChatState.userChatsReceivedError(message: $message)';
+    return 'ChatState<$T>.userChatsReceivedError(message: $message)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UserChatsReceivedErrorImpl &&
+            other is _$UserChatsReceivedErrorImpl<T> &&
             (identical(other.message, message) || other.message == message));
   }
 
@@ -1928,9 +2018,9 @@ class _$UserChatsReceivedErrorImpl implements UserChatsReceivedError {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UserChatsReceivedErrorImplCopyWith<_$UserChatsReceivedErrorImpl>
-      get copyWith => __$$UserChatsReceivedErrorImplCopyWithImpl<
-          _$UserChatsReceivedErrorImpl>(this, _$identity);
+  _$$UserChatsReceivedErrorImplCopyWith<T, _$UserChatsReceivedErrorImpl<T>>
+      get copyWith => __$$UserChatsReceivedErrorImplCopyWithImpl<T,
+          _$UserChatsReceivedErrorImpl<T>>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1943,10 +2033,10 @@ class _$UserChatsReceivedErrorImpl implements UserChatsReceivedError {
     required TResult Function() messageSentSuccessfully,
     required TResult Function(String message) messageSentError,
     required TResult Function() userChatsReceivedLoading,
-    required TResult Function() userChatsReceivedSuccessfully,
+    required TResult Function(T chats) userChatsReceivedSuccessfully,
     required TResult Function(String message) userChatsReceivedError,
     required TResult Function() allMessagesReceivedLoading,
-    required TResult Function() allMessagesReceivedSuccessfully,
+    required TResult Function(T messages) allMessagesReceivedSuccessfully,
     required TResult Function(String message) allMessagesReceivedError,
   }) {
     return userChatsReceivedError(message);
@@ -1963,10 +2053,10 @@ class _$UserChatsReceivedErrorImpl implements UserChatsReceivedError {
     TResult? Function()? messageSentSuccessfully,
     TResult? Function(String message)? messageSentError,
     TResult? Function()? userChatsReceivedLoading,
-    TResult? Function()? userChatsReceivedSuccessfully,
+    TResult? Function(T chats)? userChatsReceivedSuccessfully,
     TResult? Function(String message)? userChatsReceivedError,
     TResult? Function()? allMessagesReceivedLoading,
-    TResult? Function()? allMessagesReceivedSuccessfully,
+    TResult? Function(T messages)? allMessagesReceivedSuccessfully,
     TResult? Function(String message)? allMessagesReceivedError,
   }) {
     return userChatsReceivedError?.call(message);
@@ -1983,10 +2073,10 @@ class _$UserChatsReceivedErrorImpl implements UserChatsReceivedError {
     TResult Function()? messageSentSuccessfully,
     TResult Function(String message)? messageSentError,
     TResult Function()? userChatsReceivedLoading,
-    TResult Function()? userChatsReceivedSuccessfully,
+    TResult Function(T chats)? userChatsReceivedSuccessfully,
     TResult Function(String message)? userChatsReceivedError,
     TResult Function()? allMessagesReceivedLoading,
-    TResult Function()? allMessagesReceivedSuccessfully,
+    TResult Function(T messages)? allMessagesReceivedSuccessfully,
     TResult Function(String message)? allMessagesReceivedError,
     required TResult orElse(),
   }) {
@@ -1999,26 +2089,26 @@ class _$UserChatsReceivedErrorImpl implements UserChatsReceivedError {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(ConnectedLoading value) connectedLoading,
-    required TResult Function(ConnectedSuccessfully value)
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(ConnectedLoading<T> value) connectedLoading,
+    required TResult Function(ConnectedSuccessfully<T> value)
         connectedSuccessfully,
-    required TResult Function(ConnectedError value) connectedError,
-    required TResult Function(MessageSentLoading value) messageSentLoading,
-    required TResult Function(MessageSentSuccessfully value)
+    required TResult Function(ConnectedError<T> value) connectedError,
+    required TResult Function(MessageSentLoading<T> value) messageSentLoading,
+    required TResult Function(MessageSentSuccessfully<T> value)
         messageSentSuccessfully,
-    required TResult Function(MessageSentError value) messageSentError,
-    required TResult Function(UserChatsReceivedLoading value)
+    required TResult Function(MessageSentError<T> value) messageSentError,
+    required TResult Function(UserChatsReceivedLoading<T> value)
         userChatsReceivedLoading,
-    required TResult Function(UserChatsReceivedSuccessfully value)
+    required TResult Function(UserChatsReceivedSuccessfully<T> value)
         userChatsReceivedSuccessfully,
-    required TResult Function(UserChatsReceivedError value)
+    required TResult Function(UserChatsReceivedError<T> value)
         userChatsReceivedError,
-    required TResult Function(AllMessagesReceivedLoading value)
+    required TResult Function(AllMessagesReceivedLoading<T> value)
         allMessagesReceivedLoading,
-    required TResult Function(AllMessagesReceivedSuccessfully value)
+    required TResult Function(AllMessagesReceivedSuccessfully<T> value)
         allMessagesReceivedSuccessfully,
-    required TResult Function(AllMessagesReceivedError value)
+    required TResult Function(AllMessagesReceivedError<T> value)
         allMessagesReceivedError,
   }) {
     return userChatsReceivedError(this);
@@ -2027,22 +2117,25 @@ class _$UserChatsReceivedErrorImpl implements UserChatsReceivedError {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(ConnectedLoading value)? connectedLoading,
-    TResult? Function(ConnectedSuccessfully value)? connectedSuccessfully,
-    TResult? Function(ConnectedError value)? connectedError,
-    TResult? Function(MessageSentLoading value)? messageSentLoading,
-    TResult? Function(MessageSentSuccessfully value)? messageSentSuccessfully,
-    TResult? Function(MessageSentError value)? messageSentError,
-    TResult? Function(UserChatsReceivedLoading value)? userChatsReceivedLoading,
-    TResult? Function(UserChatsReceivedSuccessfully value)?
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(ConnectedLoading<T> value)? connectedLoading,
+    TResult? Function(ConnectedSuccessfully<T> value)? connectedSuccessfully,
+    TResult? Function(ConnectedError<T> value)? connectedError,
+    TResult? Function(MessageSentLoading<T> value)? messageSentLoading,
+    TResult? Function(MessageSentSuccessfully<T> value)?
+        messageSentSuccessfully,
+    TResult? Function(MessageSentError<T> value)? messageSentError,
+    TResult? Function(UserChatsReceivedLoading<T> value)?
+        userChatsReceivedLoading,
+    TResult? Function(UserChatsReceivedSuccessfully<T> value)?
         userChatsReceivedSuccessfully,
-    TResult? Function(UserChatsReceivedError value)? userChatsReceivedError,
-    TResult? Function(AllMessagesReceivedLoading value)?
+    TResult? Function(UserChatsReceivedError<T> value)? userChatsReceivedError,
+    TResult? Function(AllMessagesReceivedLoading<T> value)?
         allMessagesReceivedLoading,
-    TResult? Function(AllMessagesReceivedSuccessfully value)?
+    TResult? Function(AllMessagesReceivedSuccessfully<T> value)?
         allMessagesReceivedSuccessfully,
-    TResult? Function(AllMessagesReceivedError value)? allMessagesReceivedError,
+    TResult? Function(AllMessagesReceivedError<T> value)?
+        allMessagesReceivedError,
   }) {
     return userChatsReceivedError?.call(this);
   }
@@ -2050,22 +2143,24 @@ class _$UserChatsReceivedErrorImpl implements UserChatsReceivedError {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(ConnectedLoading value)? connectedLoading,
-    TResult Function(ConnectedSuccessfully value)? connectedSuccessfully,
-    TResult Function(ConnectedError value)? connectedError,
-    TResult Function(MessageSentLoading value)? messageSentLoading,
-    TResult Function(MessageSentSuccessfully value)? messageSentSuccessfully,
-    TResult Function(MessageSentError value)? messageSentError,
-    TResult Function(UserChatsReceivedLoading value)? userChatsReceivedLoading,
-    TResult Function(UserChatsReceivedSuccessfully value)?
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(ConnectedLoading<T> value)? connectedLoading,
+    TResult Function(ConnectedSuccessfully<T> value)? connectedSuccessfully,
+    TResult Function(ConnectedError<T> value)? connectedError,
+    TResult Function(MessageSentLoading<T> value)? messageSentLoading,
+    TResult Function(MessageSentSuccessfully<T> value)? messageSentSuccessfully,
+    TResult Function(MessageSentError<T> value)? messageSentError,
+    TResult Function(UserChatsReceivedLoading<T> value)?
+        userChatsReceivedLoading,
+    TResult Function(UserChatsReceivedSuccessfully<T> value)?
         userChatsReceivedSuccessfully,
-    TResult Function(UserChatsReceivedError value)? userChatsReceivedError,
-    TResult Function(AllMessagesReceivedLoading value)?
+    TResult Function(UserChatsReceivedError<T> value)? userChatsReceivedError,
+    TResult Function(AllMessagesReceivedLoading<T> value)?
         allMessagesReceivedLoading,
-    TResult Function(AllMessagesReceivedSuccessfully value)?
+    TResult Function(AllMessagesReceivedSuccessfully<T> value)?
         allMessagesReceivedSuccessfully,
-    TResult Function(AllMessagesReceivedError value)? allMessagesReceivedError,
+    TResult Function(AllMessagesReceivedError<T> value)?
+        allMessagesReceivedError,
     required TResult orElse(),
   }) {
     if (userChatsReceivedError != null) {
@@ -2075,49 +2170,51 @@ class _$UserChatsReceivedErrorImpl implements UserChatsReceivedError {
   }
 }
 
-abstract class UserChatsReceivedError implements ChatState {
+abstract class UserChatsReceivedError<T> implements ChatState<T> {
   const factory UserChatsReceivedError(final String message) =
-      _$UserChatsReceivedErrorImpl;
+      _$UserChatsReceivedErrorImpl<T>;
 
   String get message;
   @JsonKey(ignore: true)
-  _$$UserChatsReceivedErrorImplCopyWith<_$UserChatsReceivedErrorImpl>
+  _$$UserChatsReceivedErrorImplCopyWith<T, _$UserChatsReceivedErrorImpl<T>>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$AllMessagesReceivedLoadingImplCopyWith<$Res> {
+abstract class _$$AllMessagesReceivedLoadingImplCopyWith<T, $Res> {
   factory _$$AllMessagesReceivedLoadingImplCopyWith(
-          _$AllMessagesReceivedLoadingImpl value,
-          $Res Function(_$AllMessagesReceivedLoadingImpl) then) =
-      __$$AllMessagesReceivedLoadingImplCopyWithImpl<$Res>;
+          _$AllMessagesReceivedLoadingImpl<T> value,
+          $Res Function(_$AllMessagesReceivedLoadingImpl<T>) then) =
+      __$$AllMessagesReceivedLoadingImplCopyWithImpl<T, $Res>;
 }
 
 /// @nodoc
-class __$$AllMessagesReceivedLoadingImplCopyWithImpl<$Res>
-    extends _$ChatStateCopyWithImpl<$Res, _$AllMessagesReceivedLoadingImpl>
-    implements _$$AllMessagesReceivedLoadingImplCopyWith<$Res> {
+class __$$AllMessagesReceivedLoadingImplCopyWithImpl<T, $Res>
+    extends _$ChatStateCopyWithImpl<T, $Res,
+        _$AllMessagesReceivedLoadingImpl<T>>
+    implements _$$AllMessagesReceivedLoadingImplCopyWith<T, $Res> {
   __$$AllMessagesReceivedLoadingImplCopyWithImpl(
-      _$AllMessagesReceivedLoadingImpl _value,
-      $Res Function(_$AllMessagesReceivedLoadingImpl) _then)
+      _$AllMessagesReceivedLoadingImpl<T> _value,
+      $Res Function(_$AllMessagesReceivedLoadingImpl<T>) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$AllMessagesReceivedLoadingImpl implements AllMessagesReceivedLoading {
+class _$AllMessagesReceivedLoadingImpl<T>
+    implements AllMessagesReceivedLoading<T> {
   const _$AllMessagesReceivedLoadingImpl();
 
   @override
   String toString() {
-    return 'ChatState.allMessagesReceivedLoading()';
+    return 'ChatState<$T>.allMessagesReceivedLoading()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$AllMessagesReceivedLoadingImpl);
+            other is _$AllMessagesReceivedLoadingImpl<T>);
   }
 
   @override
@@ -2134,10 +2231,10 @@ class _$AllMessagesReceivedLoadingImpl implements AllMessagesReceivedLoading {
     required TResult Function() messageSentSuccessfully,
     required TResult Function(String message) messageSentError,
     required TResult Function() userChatsReceivedLoading,
-    required TResult Function() userChatsReceivedSuccessfully,
+    required TResult Function(T chats) userChatsReceivedSuccessfully,
     required TResult Function(String message) userChatsReceivedError,
     required TResult Function() allMessagesReceivedLoading,
-    required TResult Function() allMessagesReceivedSuccessfully,
+    required TResult Function(T messages) allMessagesReceivedSuccessfully,
     required TResult Function(String message) allMessagesReceivedError,
   }) {
     return allMessagesReceivedLoading();
@@ -2154,10 +2251,10 @@ class _$AllMessagesReceivedLoadingImpl implements AllMessagesReceivedLoading {
     TResult? Function()? messageSentSuccessfully,
     TResult? Function(String message)? messageSentError,
     TResult? Function()? userChatsReceivedLoading,
-    TResult? Function()? userChatsReceivedSuccessfully,
+    TResult? Function(T chats)? userChatsReceivedSuccessfully,
     TResult? Function(String message)? userChatsReceivedError,
     TResult? Function()? allMessagesReceivedLoading,
-    TResult? Function()? allMessagesReceivedSuccessfully,
+    TResult? Function(T messages)? allMessagesReceivedSuccessfully,
     TResult? Function(String message)? allMessagesReceivedError,
   }) {
     return allMessagesReceivedLoading?.call();
@@ -2174,10 +2271,10 @@ class _$AllMessagesReceivedLoadingImpl implements AllMessagesReceivedLoading {
     TResult Function()? messageSentSuccessfully,
     TResult Function(String message)? messageSentError,
     TResult Function()? userChatsReceivedLoading,
-    TResult Function()? userChatsReceivedSuccessfully,
+    TResult Function(T chats)? userChatsReceivedSuccessfully,
     TResult Function(String message)? userChatsReceivedError,
     TResult Function()? allMessagesReceivedLoading,
-    TResult Function()? allMessagesReceivedSuccessfully,
+    TResult Function(T messages)? allMessagesReceivedSuccessfully,
     TResult Function(String message)? allMessagesReceivedError,
     required TResult orElse(),
   }) {
@@ -2190,26 +2287,26 @@ class _$AllMessagesReceivedLoadingImpl implements AllMessagesReceivedLoading {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(ConnectedLoading value) connectedLoading,
-    required TResult Function(ConnectedSuccessfully value)
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(ConnectedLoading<T> value) connectedLoading,
+    required TResult Function(ConnectedSuccessfully<T> value)
         connectedSuccessfully,
-    required TResult Function(ConnectedError value) connectedError,
-    required TResult Function(MessageSentLoading value) messageSentLoading,
-    required TResult Function(MessageSentSuccessfully value)
+    required TResult Function(ConnectedError<T> value) connectedError,
+    required TResult Function(MessageSentLoading<T> value) messageSentLoading,
+    required TResult Function(MessageSentSuccessfully<T> value)
         messageSentSuccessfully,
-    required TResult Function(MessageSentError value) messageSentError,
-    required TResult Function(UserChatsReceivedLoading value)
+    required TResult Function(MessageSentError<T> value) messageSentError,
+    required TResult Function(UserChatsReceivedLoading<T> value)
         userChatsReceivedLoading,
-    required TResult Function(UserChatsReceivedSuccessfully value)
+    required TResult Function(UserChatsReceivedSuccessfully<T> value)
         userChatsReceivedSuccessfully,
-    required TResult Function(UserChatsReceivedError value)
+    required TResult Function(UserChatsReceivedError<T> value)
         userChatsReceivedError,
-    required TResult Function(AllMessagesReceivedLoading value)
+    required TResult Function(AllMessagesReceivedLoading<T> value)
         allMessagesReceivedLoading,
-    required TResult Function(AllMessagesReceivedSuccessfully value)
+    required TResult Function(AllMessagesReceivedSuccessfully<T> value)
         allMessagesReceivedSuccessfully,
-    required TResult Function(AllMessagesReceivedError value)
+    required TResult Function(AllMessagesReceivedError<T> value)
         allMessagesReceivedError,
   }) {
     return allMessagesReceivedLoading(this);
@@ -2218,22 +2315,25 @@ class _$AllMessagesReceivedLoadingImpl implements AllMessagesReceivedLoading {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(ConnectedLoading value)? connectedLoading,
-    TResult? Function(ConnectedSuccessfully value)? connectedSuccessfully,
-    TResult? Function(ConnectedError value)? connectedError,
-    TResult? Function(MessageSentLoading value)? messageSentLoading,
-    TResult? Function(MessageSentSuccessfully value)? messageSentSuccessfully,
-    TResult? Function(MessageSentError value)? messageSentError,
-    TResult? Function(UserChatsReceivedLoading value)? userChatsReceivedLoading,
-    TResult? Function(UserChatsReceivedSuccessfully value)?
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(ConnectedLoading<T> value)? connectedLoading,
+    TResult? Function(ConnectedSuccessfully<T> value)? connectedSuccessfully,
+    TResult? Function(ConnectedError<T> value)? connectedError,
+    TResult? Function(MessageSentLoading<T> value)? messageSentLoading,
+    TResult? Function(MessageSentSuccessfully<T> value)?
+        messageSentSuccessfully,
+    TResult? Function(MessageSentError<T> value)? messageSentError,
+    TResult? Function(UserChatsReceivedLoading<T> value)?
+        userChatsReceivedLoading,
+    TResult? Function(UserChatsReceivedSuccessfully<T> value)?
         userChatsReceivedSuccessfully,
-    TResult? Function(UserChatsReceivedError value)? userChatsReceivedError,
-    TResult? Function(AllMessagesReceivedLoading value)?
+    TResult? Function(UserChatsReceivedError<T> value)? userChatsReceivedError,
+    TResult? Function(AllMessagesReceivedLoading<T> value)?
         allMessagesReceivedLoading,
-    TResult? Function(AllMessagesReceivedSuccessfully value)?
+    TResult? Function(AllMessagesReceivedSuccessfully<T> value)?
         allMessagesReceivedSuccessfully,
-    TResult? Function(AllMessagesReceivedError value)? allMessagesReceivedError,
+    TResult? Function(AllMessagesReceivedError<T> value)?
+        allMessagesReceivedError,
   }) {
     return allMessagesReceivedLoading?.call(this);
   }
@@ -2241,22 +2341,24 @@ class _$AllMessagesReceivedLoadingImpl implements AllMessagesReceivedLoading {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(ConnectedLoading value)? connectedLoading,
-    TResult Function(ConnectedSuccessfully value)? connectedSuccessfully,
-    TResult Function(ConnectedError value)? connectedError,
-    TResult Function(MessageSentLoading value)? messageSentLoading,
-    TResult Function(MessageSentSuccessfully value)? messageSentSuccessfully,
-    TResult Function(MessageSentError value)? messageSentError,
-    TResult Function(UserChatsReceivedLoading value)? userChatsReceivedLoading,
-    TResult Function(UserChatsReceivedSuccessfully value)?
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(ConnectedLoading<T> value)? connectedLoading,
+    TResult Function(ConnectedSuccessfully<T> value)? connectedSuccessfully,
+    TResult Function(ConnectedError<T> value)? connectedError,
+    TResult Function(MessageSentLoading<T> value)? messageSentLoading,
+    TResult Function(MessageSentSuccessfully<T> value)? messageSentSuccessfully,
+    TResult Function(MessageSentError<T> value)? messageSentError,
+    TResult Function(UserChatsReceivedLoading<T> value)?
+        userChatsReceivedLoading,
+    TResult Function(UserChatsReceivedSuccessfully<T> value)?
         userChatsReceivedSuccessfully,
-    TResult Function(UserChatsReceivedError value)? userChatsReceivedError,
-    TResult Function(AllMessagesReceivedLoading value)?
+    TResult Function(UserChatsReceivedError<T> value)? userChatsReceivedError,
+    TResult Function(AllMessagesReceivedLoading<T> value)?
         allMessagesReceivedLoading,
-    TResult Function(AllMessagesReceivedSuccessfully value)?
+    TResult Function(AllMessagesReceivedSuccessfully<T> value)?
         allMessagesReceivedSuccessfully,
-    TResult Function(AllMessagesReceivedError value)? allMessagesReceivedError,
+    TResult Function(AllMessagesReceivedError<T> value)?
+        allMessagesReceivedError,
     required TResult orElse(),
   }) {
     if (allMessagesReceivedLoading != null) {
@@ -2266,48 +2368,78 @@ class _$AllMessagesReceivedLoadingImpl implements AllMessagesReceivedLoading {
   }
 }
 
-abstract class AllMessagesReceivedLoading implements ChatState {
-  const factory AllMessagesReceivedLoading() = _$AllMessagesReceivedLoadingImpl;
+abstract class AllMessagesReceivedLoading<T> implements ChatState<T> {
+  const factory AllMessagesReceivedLoading() =
+      _$AllMessagesReceivedLoadingImpl<T>;
 }
 
 /// @nodoc
-abstract class _$$AllMessagesReceivedSuccessfullyImplCopyWith<$Res> {
+abstract class _$$AllMessagesReceivedSuccessfullyImplCopyWith<T, $Res> {
   factory _$$AllMessagesReceivedSuccessfullyImplCopyWith(
-          _$AllMessagesReceivedSuccessfullyImpl value,
-          $Res Function(_$AllMessagesReceivedSuccessfullyImpl) then) =
-      __$$AllMessagesReceivedSuccessfullyImplCopyWithImpl<$Res>;
+          _$AllMessagesReceivedSuccessfullyImpl<T> value,
+          $Res Function(_$AllMessagesReceivedSuccessfullyImpl<T>) then) =
+      __$$AllMessagesReceivedSuccessfullyImplCopyWithImpl<T, $Res>;
+  @useResult
+  $Res call({T messages});
 }
 
 /// @nodoc
-class __$$AllMessagesReceivedSuccessfullyImplCopyWithImpl<$Res>
-    extends _$ChatStateCopyWithImpl<$Res, _$AllMessagesReceivedSuccessfullyImpl>
-    implements _$$AllMessagesReceivedSuccessfullyImplCopyWith<$Res> {
+class __$$AllMessagesReceivedSuccessfullyImplCopyWithImpl<T, $Res>
+    extends _$ChatStateCopyWithImpl<T, $Res,
+        _$AllMessagesReceivedSuccessfullyImpl<T>>
+    implements _$$AllMessagesReceivedSuccessfullyImplCopyWith<T, $Res> {
   __$$AllMessagesReceivedSuccessfullyImplCopyWithImpl(
-      _$AllMessagesReceivedSuccessfullyImpl _value,
-      $Res Function(_$AllMessagesReceivedSuccessfullyImpl) _then)
+      _$AllMessagesReceivedSuccessfullyImpl<T> _value,
+      $Res Function(_$AllMessagesReceivedSuccessfullyImpl<T>) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? messages = freezed,
+  }) {
+    return _then(_$AllMessagesReceivedSuccessfullyImpl<T>(
+      freezed == messages
+          ? _value.messages
+          : messages // ignore: cast_nullable_to_non_nullable
+              as T,
+    ));
+  }
 }
 
 /// @nodoc
 
-class _$AllMessagesReceivedSuccessfullyImpl
-    implements AllMessagesReceivedSuccessfully {
-  const _$AllMessagesReceivedSuccessfullyImpl();
+class _$AllMessagesReceivedSuccessfullyImpl<T>
+    implements AllMessagesReceivedSuccessfully<T> {
+  const _$AllMessagesReceivedSuccessfullyImpl(this.messages);
+
+  @override
+  final T messages;
 
   @override
   String toString() {
-    return 'ChatState.allMessagesReceivedSuccessfully()';
+    return 'ChatState<$T>.allMessagesReceivedSuccessfully(messages: $messages)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$AllMessagesReceivedSuccessfullyImpl);
+            other is _$AllMessagesReceivedSuccessfullyImpl<T> &&
+            const DeepCollectionEquality().equals(other.messages, messages));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(messages));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AllMessagesReceivedSuccessfullyImplCopyWith<T,
+          _$AllMessagesReceivedSuccessfullyImpl<T>>
+      get copyWith => __$$AllMessagesReceivedSuccessfullyImplCopyWithImpl<T,
+          _$AllMessagesReceivedSuccessfullyImpl<T>>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -2320,13 +2452,13 @@ class _$AllMessagesReceivedSuccessfullyImpl
     required TResult Function() messageSentSuccessfully,
     required TResult Function(String message) messageSentError,
     required TResult Function() userChatsReceivedLoading,
-    required TResult Function() userChatsReceivedSuccessfully,
+    required TResult Function(T chats) userChatsReceivedSuccessfully,
     required TResult Function(String message) userChatsReceivedError,
     required TResult Function() allMessagesReceivedLoading,
-    required TResult Function() allMessagesReceivedSuccessfully,
+    required TResult Function(T messages) allMessagesReceivedSuccessfully,
     required TResult Function(String message) allMessagesReceivedError,
   }) {
-    return allMessagesReceivedSuccessfully();
+    return allMessagesReceivedSuccessfully(messages);
   }
 
   @override
@@ -2340,13 +2472,13 @@ class _$AllMessagesReceivedSuccessfullyImpl
     TResult? Function()? messageSentSuccessfully,
     TResult? Function(String message)? messageSentError,
     TResult? Function()? userChatsReceivedLoading,
-    TResult? Function()? userChatsReceivedSuccessfully,
+    TResult? Function(T chats)? userChatsReceivedSuccessfully,
     TResult? Function(String message)? userChatsReceivedError,
     TResult? Function()? allMessagesReceivedLoading,
-    TResult? Function()? allMessagesReceivedSuccessfully,
+    TResult? Function(T messages)? allMessagesReceivedSuccessfully,
     TResult? Function(String message)? allMessagesReceivedError,
   }) {
-    return allMessagesReceivedSuccessfully?.call();
+    return allMessagesReceivedSuccessfully?.call(messages);
   }
 
   @override
@@ -2360,15 +2492,15 @@ class _$AllMessagesReceivedSuccessfullyImpl
     TResult Function()? messageSentSuccessfully,
     TResult Function(String message)? messageSentError,
     TResult Function()? userChatsReceivedLoading,
-    TResult Function()? userChatsReceivedSuccessfully,
+    TResult Function(T chats)? userChatsReceivedSuccessfully,
     TResult Function(String message)? userChatsReceivedError,
     TResult Function()? allMessagesReceivedLoading,
-    TResult Function()? allMessagesReceivedSuccessfully,
+    TResult Function(T messages)? allMessagesReceivedSuccessfully,
     TResult Function(String message)? allMessagesReceivedError,
     required TResult orElse(),
   }) {
     if (allMessagesReceivedSuccessfully != null) {
-      return allMessagesReceivedSuccessfully();
+      return allMessagesReceivedSuccessfully(messages);
     }
     return orElse();
   }
@@ -2376,26 +2508,26 @@ class _$AllMessagesReceivedSuccessfullyImpl
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(ConnectedLoading value) connectedLoading,
-    required TResult Function(ConnectedSuccessfully value)
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(ConnectedLoading<T> value) connectedLoading,
+    required TResult Function(ConnectedSuccessfully<T> value)
         connectedSuccessfully,
-    required TResult Function(ConnectedError value) connectedError,
-    required TResult Function(MessageSentLoading value) messageSentLoading,
-    required TResult Function(MessageSentSuccessfully value)
+    required TResult Function(ConnectedError<T> value) connectedError,
+    required TResult Function(MessageSentLoading<T> value) messageSentLoading,
+    required TResult Function(MessageSentSuccessfully<T> value)
         messageSentSuccessfully,
-    required TResult Function(MessageSentError value) messageSentError,
-    required TResult Function(UserChatsReceivedLoading value)
+    required TResult Function(MessageSentError<T> value) messageSentError,
+    required TResult Function(UserChatsReceivedLoading<T> value)
         userChatsReceivedLoading,
-    required TResult Function(UserChatsReceivedSuccessfully value)
+    required TResult Function(UserChatsReceivedSuccessfully<T> value)
         userChatsReceivedSuccessfully,
-    required TResult Function(UserChatsReceivedError value)
+    required TResult Function(UserChatsReceivedError<T> value)
         userChatsReceivedError,
-    required TResult Function(AllMessagesReceivedLoading value)
+    required TResult Function(AllMessagesReceivedLoading<T> value)
         allMessagesReceivedLoading,
-    required TResult Function(AllMessagesReceivedSuccessfully value)
+    required TResult Function(AllMessagesReceivedSuccessfully<T> value)
         allMessagesReceivedSuccessfully,
-    required TResult Function(AllMessagesReceivedError value)
+    required TResult Function(AllMessagesReceivedError<T> value)
         allMessagesReceivedError,
   }) {
     return allMessagesReceivedSuccessfully(this);
@@ -2404,22 +2536,25 @@ class _$AllMessagesReceivedSuccessfullyImpl
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(ConnectedLoading value)? connectedLoading,
-    TResult? Function(ConnectedSuccessfully value)? connectedSuccessfully,
-    TResult? Function(ConnectedError value)? connectedError,
-    TResult? Function(MessageSentLoading value)? messageSentLoading,
-    TResult? Function(MessageSentSuccessfully value)? messageSentSuccessfully,
-    TResult? Function(MessageSentError value)? messageSentError,
-    TResult? Function(UserChatsReceivedLoading value)? userChatsReceivedLoading,
-    TResult? Function(UserChatsReceivedSuccessfully value)?
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(ConnectedLoading<T> value)? connectedLoading,
+    TResult? Function(ConnectedSuccessfully<T> value)? connectedSuccessfully,
+    TResult? Function(ConnectedError<T> value)? connectedError,
+    TResult? Function(MessageSentLoading<T> value)? messageSentLoading,
+    TResult? Function(MessageSentSuccessfully<T> value)?
+        messageSentSuccessfully,
+    TResult? Function(MessageSentError<T> value)? messageSentError,
+    TResult? Function(UserChatsReceivedLoading<T> value)?
+        userChatsReceivedLoading,
+    TResult? Function(UserChatsReceivedSuccessfully<T> value)?
         userChatsReceivedSuccessfully,
-    TResult? Function(UserChatsReceivedError value)? userChatsReceivedError,
-    TResult? Function(AllMessagesReceivedLoading value)?
+    TResult? Function(UserChatsReceivedError<T> value)? userChatsReceivedError,
+    TResult? Function(AllMessagesReceivedLoading<T> value)?
         allMessagesReceivedLoading,
-    TResult? Function(AllMessagesReceivedSuccessfully value)?
+    TResult? Function(AllMessagesReceivedSuccessfully<T> value)?
         allMessagesReceivedSuccessfully,
-    TResult? Function(AllMessagesReceivedError value)? allMessagesReceivedError,
+    TResult? Function(AllMessagesReceivedError<T> value)?
+        allMessagesReceivedError,
   }) {
     return allMessagesReceivedSuccessfully?.call(this);
   }
@@ -2427,22 +2562,24 @@ class _$AllMessagesReceivedSuccessfullyImpl
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(ConnectedLoading value)? connectedLoading,
-    TResult Function(ConnectedSuccessfully value)? connectedSuccessfully,
-    TResult Function(ConnectedError value)? connectedError,
-    TResult Function(MessageSentLoading value)? messageSentLoading,
-    TResult Function(MessageSentSuccessfully value)? messageSentSuccessfully,
-    TResult Function(MessageSentError value)? messageSentError,
-    TResult Function(UserChatsReceivedLoading value)? userChatsReceivedLoading,
-    TResult Function(UserChatsReceivedSuccessfully value)?
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(ConnectedLoading<T> value)? connectedLoading,
+    TResult Function(ConnectedSuccessfully<T> value)? connectedSuccessfully,
+    TResult Function(ConnectedError<T> value)? connectedError,
+    TResult Function(MessageSentLoading<T> value)? messageSentLoading,
+    TResult Function(MessageSentSuccessfully<T> value)? messageSentSuccessfully,
+    TResult Function(MessageSentError<T> value)? messageSentError,
+    TResult Function(UserChatsReceivedLoading<T> value)?
+        userChatsReceivedLoading,
+    TResult Function(UserChatsReceivedSuccessfully<T> value)?
         userChatsReceivedSuccessfully,
-    TResult Function(UserChatsReceivedError value)? userChatsReceivedError,
-    TResult Function(AllMessagesReceivedLoading value)?
+    TResult Function(UserChatsReceivedError<T> value)? userChatsReceivedError,
+    TResult Function(AllMessagesReceivedLoading<T> value)?
         allMessagesReceivedLoading,
-    TResult Function(AllMessagesReceivedSuccessfully value)?
+    TResult Function(AllMessagesReceivedSuccessfully<T> value)?
         allMessagesReceivedSuccessfully,
-    TResult Function(AllMessagesReceivedError value)? allMessagesReceivedError,
+    TResult Function(AllMessagesReceivedError<T> value)?
+        allMessagesReceivedError,
     required TResult orElse(),
   }) {
     if (allMessagesReceivedSuccessfully != null) {
@@ -2452,28 +2589,34 @@ class _$AllMessagesReceivedSuccessfullyImpl
   }
 }
 
-abstract class AllMessagesReceivedSuccessfully implements ChatState {
-  const factory AllMessagesReceivedSuccessfully() =
-      _$AllMessagesReceivedSuccessfullyImpl;
+abstract class AllMessagesReceivedSuccessfully<T> implements ChatState<T> {
+  const factory AllMessagesReceivedSuccessfully(final T messages) =
+      _$AllMessagesReceivedSuccessfullyImpl<T>;
+
+  T get messages;
+  @JsonKey(ignore: true)
+  _$$AllMessagesReceivedSuccessfullyImplCopyWith<T,
+          _$AllMessagesReceivedSuccessfullyImpl<T>>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$AllMessagesReceivedErrorImplCopyWith<$Res> {
+abstract class _$$AllMessagesReceivedErrorImplCopyWith<T, $Res> {
   factory _$$AllMessagesReceivedErrorImplCopyWith(
-          _$AllMessagesReceivedErrorImpl value,
-          $Res Function(_$AllMessagesReceivedErrorImpl) then) =
-      __$$AllMessagesReceivedErrorImplCopyWithImpl<$Res>;
+          _$AllMessagesReceivedErrorImpl<T> value,
+          $Res Function(_$AllMessagesReceivedErrorImpl<T>) then) =
+      __$$AllMessagesReceivedErrorImplCopyWithImpl<T, $Res>;
   @useResult
   $Res call({String message});
 }
 
 /// @nodoc
-class __$$AllMessagesReceivedErrorImplCopyWithImpl<$Res>
-    extends _$ChatStateCopyWithImpl<$Res, _$AllMessagesReceivedErrorImpl>
-    implements _$$AllMessagesReceivedErrorImplCopyWith<$Res> {
+class __$$AllMessagesReceivedErrorImplCopyWithImpl<T, $Res>
+    extends _$ChatStateCopyWithImpl<T, $Res, _$AllMessagesReceivedErrorImpl<T>>
+    implements _$$AllMessagesReceivedErrorImplCopyWith<T, $Res> {
   __$$AllMessagesReceivedErrorImplCopyWithImpl(
-      _$AllMessagesReceivedErrorImpl _value,
-      $Res Function(_$AllMessagesReceivedErrorImpl) _then)
+      _$AllMessagesReceivedErrorImpl<T> _value,
+      $Res Function(_$AllMessagesReceivedErrorImpl<T>) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -2481,7 +2624,7 @@ class __$$AllMessagesReceivedErrorImplCopyWithImpl<$Res>
   $Res call({
     Object? message = null,
   }) {
-    return _then(_$AllMessagesReceivedErrorImpl(
+    return _then(_$AllMessagesReceivedErrorImpl<T>(
       null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -2492,7 +2635,7 @@ class __$$AllMessagesReceivedErrorImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$AllMessagesReceivedErrorImpl implements AllMessagesReceivedError {
+class _$AllMessagesReceivedErrorImpl<T> implements AllMessagesReceivedError<T> {
   const _$AllMessagesReceivedErrorImpl(this.message);
 
   @override
@@ -2500,14 +2643,14 @@ class _$AllMessagesReceivedErrorImpl implements AllMessagesReceivedError {
 
   @override
   String toString() {
-    return 'ChatState.allMessagesReceivedError(message: $message)';
+    return 'ChatState<$T>.allMessagesReceivedError(message: $message)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$AllMessagesReceivedErrorImpl &&
+            other is _$AllMessagesReceivedErrorImpl<T> &&
             (identical(other.message, message) || other.message == message));
   }
 
@@ -2517,9 +2660,9 @@ class _$AllMessagesReceivedErrorImpl implements AllMessagesReceivedError {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$AllMessagesReceivedErrorImplCopyWith<_$AllMessagesReceivedErrorImpl>
-      get copyWith => __$$AllMessagesReceivedErrorImplCopyWithImpl<
-          _$AllMessagesReceivedErrorImpl>(this, _$identity);
+  _$$AllMessagesReceivedErrorImplCopyWith<T, _$AllMessagesReceivedErrorImpl<T>>
+      get copyWith => __$$AllMessagesReceivedErrorImplCopyWithImpl<T,
+          _$AllMessagesReceivedErrorImpl<T>>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -2532,10 +2675,10 @@ class _$AllMessagesReceivedErrorImpl implements AllMessagesReceivedError {
     required TResult Function() messageSentSuccessfully,
     required TResult Function(String message) messageSentError,
     required TResult Function() userChatsReceivedLoading,
-    required TResult Function() userChatsReceivedSuccessfully,
+    required TResult Function(T chats) userChatsReceivedSuccessfully,
     required TResult Function(String message) userChatsReceivedError,
     required TResult Function() allMessagesReceivedLoading,
-    required TResult Function() allMessagesReceivedSuccessfully,
+    required TResult Function(T messages) allMessagesReceivedSuccessfully,
     required TResult Function(String message) allMessagesReceivedError,
   }) {
     return allMessagesReceivedError(message);
@@ -2552,10 +2695,10 @@ class _$AllMessagesReceivedErrorImpl implements AllMessagesReceivedError {
     TResult? Function()? messageSentSuccessfully,
     TResult? Function(String message)? messageSentError,
     TResult? Function()? userChatsReceivedLoading,
-    TResult? Function()? userChatsReceivedSuccessfully,
+    TResult? Function(T chats)? userChatsReceivedSuccessfully,
     TResult? Function(String message)? userChatsReceivedError,
     TResult? Function()? allMessagesReceivedLoading,
-    TResult? Function()? allMessagesReceivedSuccessfully,
+    TResult? Function(T messages)? allMessagesReceivedSuccessfully,
     TResult? Function(String message)? allMessagesReceivedError,
   }) {
     return allMessagesReceivedError?.call(message);
@@ -2572,10 +2715,10 @@ class _$AllMessagesReceivedErrorImpl implements AllMessagesReceivedError {
     TResult Function()? messageSentSuccessfully,
     TResult Function(String message)? messageSentError,
     TResult Function()? userChatsReceivedLoading,
-    TResult Function()? userChatsReceivedSuccessfully,
+    TResult Function(T chats)? userChatsReceivedSuccessfully,
     TResult Function(String message)? userChatsReceivedError,
     TResult Function()? allMessagesReceivedLoading,
-    TResult Function()? allMessagesReceivedSuccessfully,
+    TResult Function(T messages)? allMessagesReceivedSuccessfully,
     TResult Function(String message)? allMessagesReceivedError,
     required TResult orElse(),
   }) {
@@ -2588,26 +2731,26 @@ class _$AllMessagesReceivedErrorImpl implements AllMessagesReceivedError {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(ConnectedLoading value) connectedLoading,
-    required TResult Function(ConnectedSuccessfully value)
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(ConnectedLoading<T> value) connectedLoading,
+    required TResult Function(ConnectedSuccessfully<T> value)
         connectedSuccessfully,
-    required TResult Function(ConnectedError value) connectedError,
-    required TResult Function(MessageSentLoading value) messageSentLoading,
-    required TResult Function(MessageSentSuccessfully value)
+    required TResult Function(ConnectedError<T> value) connectedError,
+    required TResult Function(MessageSentLoading<T> value) messageSentLoading,
+    required TResult Function(MessageSentSuccessfully<T> value)
         messageSentSuccessfully,
-    required TResult Function(MessageSentError value) messageSentError,
-    required TResult Function(UserChatsReceivedLoading value)
+    required TResult Function(MessageSentError<T> value) messageSentError,
+    required TResult Function(UserChatsReceivedLoading<T> value)
         userChatsReceivedLoading,
-    required TResult Function(UserChatsReceivedSuccessfully value)
+    required TResult Function(UserChatsReceivedSuccessfully<T> value)
         userChatsReceivedSuccessfully,
-    required TResult Function(UserChatsReceivedError value)
+    required TResult Function(UserChatsReceivedError<T> value)
         userChatsReceivedError,
-    required TResult Function(AllMessagesReceivedLoading value)
+    required TResult Function(AllMessagesReceivedLoading<T> value)
         allMessagesReceivedLoading,
-    required TResult Function(AllMessagesReceivedSuccessfully value)
+    required TResult Function(AllMessagesReceivedSuccessfully<T> value)
         allMessagesReceivedSuccessfully,
-    required TResult Function(AllMessagesReceivedError value)
+    required TResult Function(AllMessagesReceivedError<T> value)
         allMessagesReceivedError,
   }) {
     return allMessagesReceivedError(this);
@@ -2616,22 +2759,25 @@ class _$AllMessagesReceivedErrorImpl implements AllMessagesReceivedError {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(ConnectedLoading value)? connectedLoading,
-    TResult? Function(ConnectedSuccessfully value)? connectedSuccessfully,
-    TResult? Function(ConnectedError value)? connectedError,
-    TResult? Function(MessageSentLoading value)? messageSentLoading,
-    TResult? Function(MessageSentSuccessfully value)? messageSentSuccessfully,
-    TResult? Function(MessageSentError value)? messageSentError,
-    TResult? Function(UserChatsReceivedLoading value)? userChatsReceivedLoading,
-    TResult? Function(UserChatsReceivedSuccessfully value)?
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(ConnectedLoading<T> value)? connectedLoading,
+    TResult? Function(ConnectedSuccessfully<T> value)? connectedSuccessfully,
+    TResult? Function(ConnectedError<T> value)? connectedError,
+    TResult? Function(MessageSentLoading<T> value)? messageSentLoading,
+    TResult? Function(MessageSentSuccessfully<T> value)?
+        messageSentSuccessfully,
+    TResult? Function(MessageSentError<T> value)? messageSentError,
+    TResult? Function(UserChatsReceivedLoading<T> value)?
+        userChatsReceivedLoading,
+    TResult? Function(UserChatsReceivedSuccessfully<T> value)?
         userChatsReceivedSuccessfully,
-    TResult? Function(UserChatsReceivedError value)? userChatsReceivedError,
-    TResult? Function(AllMessagesReceivedLoading value)?
+    TResult? Function(UserChatsReceivedError<T> value)? userChatsReceivedError,
+    TResult? Function(AllMessagesReceivedLoading<T> value)?
         allMessagesReceivedLoading,
-    TResult? Function(AllMessagesReceivedSuccessfully value)?
+    TResult? Function(AllMessagesReceivedSuccessfully<T> value)?
         allMessagesReceivedSuccessfully,
-    TResult? Function(AllMessagesReceivedError value)? allMessagesReceivedError,
+    TResult? Function(AllMessagesReceivedError<T> value)?
+        allMessagesReceivedError,
   }) {
     return allMessagesReceivedError?.call(this);
   }
@@ -2639,22 +2785,24 @@ class _$AllMessagesReceivedErrorImpl implements AllMessagesReceivedError {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(ConnectedLoading value)? connectedLoading,
-    TResult Function(ConnectedSuccessfully value)? connectedSuccessfully,
-    TResult Function(ConnectedError value)? connectedError,
-    TResult Function(MessageSentLoading value)? messageSentLoading,
-    TResult Function(MessageSentSuccessfully value)? messageSentSuccessfully,
-    TResult Function(MessageSentError value)? messageSentError,
-    TResult Function(UserChatsReceivedLoading value)? userChatsReceivedLoading,
-    TResult Function(UserChatsReceivedSuccessfully value)?
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(ConnectedLoading<T> value)? connectedLoading,
+    TResult Function(ConnectedSuccessfully<T> value)? connectedSuccessfully,
+    TResult Function(ConnectedError<T> value)? connectedError,
+    TResult Function(MessageSentLoading<T> value)? messageSentLoading,
+    TResult Function(MessageSentSuccessfully<T> value)? messageSentSuccessfully,
+    TResult Function(MessageSentError<T> value)? messageSentError,
+    TResult Function(UserChatsReceivedLoading<T> value)?
+        userChatsReceivedLoading,
+    TResult Function(UserChatsReceivedSuccessfully<T> value)?
         userChatsReceivedSuccessfully,
-    TResult Function(UserChatsReceivedError value)? userChatsReceivedError,
-    TResult Function(AllMessagesReceivedLoading value)?
+    TResult Function(UserChatsReceivedError<T> value)? userChatsReceivedError,
+    TResult Function(AllMessagesReceivedLoading<T> value)?
         allMessagesReceivedLoading,
-    TResult Function(AllMessagesReceivedSuccessfully value)?
+    TResult Function(AllMessagesReceivedSuccessfully<T> value)?
         allMessagesReceivedSuccessfully,
-    TResult Function(AllMessagesReceivedError value)? allMessagesReceivedError,
+    TResult Function(AllMessagesReceivedError<T> value)?
+        allMessagesReceivedError,
     required TResult orElse(),
   }) {
     if (allMessagesReceivedError != null) {
@@ -2664,12 +2812,12 @@ class _$AllMessagesReceivedErrorImpl implements AllMessagesReceivedError {
   }
 }
 
-abstract class AllMessagesReceivedError implements ChatState {
+abstract class AllMessagesReceivedError<T> implements ChatState<T> {
   const factory AllMessagesReceivedError(final String message) =
-      _$AllMessagesReceivedErrorImpl;
+      _$AllMessagesReceivedErrorImpl<T>;
 
   String get message;
   @JsonKey(ignore: true)
-  _$$AllMessagesReceivedErrorImplCopyWith<_$AllMessagesReceivedErrorImpl>
+  _$$AllMessagesReceivedErrorImplCopyWith<T, _$AllMessagesReceivedErrorImpl<T>>
       get copyWith => throw _privateConstructorUsedError;
 }

@@ -24,8 +24,10 @@ class _MessagesScreenState extends State<MessagesScreen> {
   void initState() {
     super.initState();
 
-    context.read<ChatCubit>().connect(ChannelType.allMessages);
-    context.read<ChatCubit>().getChatMessages(widget.chat.chatWithId ?? -1);
+    // Get all messages
+    context
+        .read<ChatCubit>()
+        .retrieveChatMessages(widget.chat.chatWithId ?? -1);
   }
 
   @override

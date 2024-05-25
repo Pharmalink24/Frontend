@@ -8,7 +8,7 @@ class WebSocketConstants {
   static const String tokenKey = "patientCustomToken";
 
   // ===================== Chat Sockets =====================
-  static const chatChannel = "ws/chat/user/{user_id}/";
+  static const messagingChannel = "ws/chat/user/{user_id}/";
   static const allChatsChannel = "websocket/chat_info/user/";
   static const allMessagesChannel = "websocket/user/retrieve/";
 }
