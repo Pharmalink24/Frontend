@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pharmalink/core/localization/app_localizations.dart';
 import 'package:pharmalink/core/theme/styles.dart';
+import 'package:pharmalink/core/widgets/app_shimmer.dart';
 import '../../../../core/models/user.dart';
 import '../logic/profile_cubit/profile_cubit.dart';
 import '../logic/profile_cubit/profile_state.dart';
@@ -26,22 +27,39 @@ class _ProfileScreenState extends State<ProfileScreen> {
     context.read<ProfileCubit>().getUserProfile();
   }
 
-  Widget buildProfileScreen(User user) {
-    return SafeArea(
+  Widget _buildLoadingScreen() {
+    return const AppShimmer(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Expanded(
             flex: 11,
-            child: ProfileInfo(user: user),
+            child: ProfileInfo(),
           ),
-          const Expanded(
+          Expanded(
             flex: 20,
             child: AccountSettings(),
           ),
         ],
       ),
+    );
+  }
+
+  Widget buildProfileScreen(User user) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Expanded(
+          flex: 11,
+          child: ProfileInfo(user: user),
+        ),
+        const Expanded(
+          flex: 20,
+          child: AccountSettings(),
+        ),
+      ],
     );
   }
 
@@ -81,19 +99,21 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<ProfileCubit, ProfileState>(
-      builder: (context, state) {
-        if (state is ProfileInformationLoading) {
-          return const LoadingIndicator();
-        } else if (state is ProfileInformationSuccess) {
-          final user = state.data;
-          return buildProfileScreen(user);
-        } else if (state is ProfileInformationError) {
-          return buildErrorWidget(state.error);
-        } else {
-          return const SizedBox.shrink();
-        }
-      },
+    return SafeArea(
+      child: BlocBuilder<ProfileCubit, ProfileState>(
+        builder: (context, state) {
+          if (state is ProfileInformationLoading) {
+            return _buildLoadingScreen();
+          } else if (state is ProfileInformationSuccess) {
+            final user = state.data;
+            return buildProfileScreen(user);
+          } else if (state is ProfileInformationError) {
+            return buildErrorWidget(state.error);
+          } else {
+            return const SizedBox.shrink();
+          }
+        },
+      ),
     );
   }
 }

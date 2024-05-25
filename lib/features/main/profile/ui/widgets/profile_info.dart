@@ -15,10 +15,10 @@ import 'change_image_listener.dart';
 import 'dark_mode_switch.dart';
 
 class ProfileInfo extends StatelessWidget {
-  final User user;
+  final User? user;
   const ProfileInfo({
     super.key,
-    required this.user,
+    this.user,
   });
 
   Widget _buildProfileImage(BuildContext context) {
@@ -33,7 +33,7 @@ class ProfileInfo extends StatelessWidget {
             width: 65,
             height: 65,
             fit: BoxFit.cover,
-            imageUrl: '${ApiConstants.httpsProtocol}${user.image}',
+            imageUrl: '${ApiConstants.httpsProtocol}${user?.image}',
             imageBuilder: (context, imageProvider) => Container(
               decoration: BoxDecoration(
                 image: DecorationImage(
@@ -44,10 +44,11 @@ class ProfileInfo extends StatelessWidget {
             ),
             progressIndicatorBuilder: (context, url, downloadProgress) =>
                 LoadingIndicator(loadingProgress: downloadProgress),
-            errorWidget: (context, url, error) => SvgPicture.asset( // Todo: Replace all placeholders by const widgets
-              user.gender == 'M'
-                  ? Placeholders.malePlaceholder
-                  : Placeholders.femalePlaceholder,
+            errorWidget: (context, url, error) => SvgPicture.asset(
+              // Todo: Replace all placeholders by const widgets
+              user?.gender == 'F'
+                  ? Placeholders.femalePlaceholder
+                  : Placeholders.malePlaceholder,
               width: 65,
               height: 65,
               fit: BoxFit.cover,
@@ -72,17 +73,17 @@ class ProfileInfo extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "${user.fname} ${user.lname}".crop(14),
+                user != null ? "${user?.fname} ${user?.lname}".crop(14) : '',
                 style: AppTextStyle.headlineSmall(context),
               ),
               Text(
-                user.email!.crop(30),
+                user != null ? user!.email!.crop(30) : '',
                 style: AppTextStyle.bodySmall(context).copyWith(
                   color: Theme.of(context).colorScheme.primary,
                 ),
               ),
               Text(
-                '@${(user.username ?? '').crop(28)}',
+                user != null ? '@${(user?.username ?? '').crop(28)}' : '@',
                 style: AppTextStyle.bodySmall(context).copyWith(
                   color: Theme.of(context).colorScheme.onSecondary,
                   fontSize: 12.0,
