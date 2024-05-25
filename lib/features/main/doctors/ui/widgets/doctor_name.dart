@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import '../../../../../core/theme/fonts.dart';
+import '../../../../../core/theme/gradient.dart';
 import '../../../../../core/theme/styles.dart';
+import 'package:simple_gradient_text/simple_gradient_text.dart';
 
 class DoctorName extends StatelessWidget {
   final String firstName;
@@ -13,16 +14,13 @@ class DoctorName extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Align(
-      alignment: const AlignmentDirectional(0, 0),
-      child: Padding(
-        padding: const EdgeInsetsDirectional.fromSTEB(0, 32, 0, 0),
-        child: Text(
-          'Dr. $firstName $lastName',
-          style: AppTextStyle.headlineLarge(context).copyWith(
-            fontFamily: AppFonts.getFont(context, Font.secondary),
-          ),
-        ),
+    return Padding(
+      padding: const EdgeInsetsDirectional.fromSTEB(0, 32, 0, 0),
+      child: GradientText(
+        'Dr. $firstName $lastName',
+        colors: AppGradients.primaryColors(context),
+        textAlign: TextAlign.center,
+        style: AppTextStyle.headlineLarge(context),
       ),
     );
   }

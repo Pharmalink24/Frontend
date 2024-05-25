@@ -4,9 +4,12 @@ import 'package:pharmalink/core/networking/api_service.dart';
 import 'package:pharmalink/core/networking/socket_channel.dart';
 import 'package:pharmalink/core/networking/socket_service.dart';
 import 'package:pharmalink/core/shared_preferences/auth_prefs.dart';
+import '../../../../../core/networking/api_error_handler.dart';
+import '../../../../../core/networking/api_result.dart';
 import '../models/chat.dart';
 import '../models/chats_response.dart';
 import '../models/message.dart';
+import '../models/messages_history_response.dart';
 
 enum ChannelType { allChats, chatting, allMessages }
 
@@ -62,31 +65,21 @@ class ChatRepo {
   }
 
   // ------------------------ All Messages Channels ------------------------ //
-  void retrieveAllMessages(
-      int receiverId, Function(List<Message> messages) onListen) {
-    // Get the access token
-    final String accessToken = AuthSharedPrefs.getAccessToken() ?? '';
+  Future<ApiResult<MessagesHistoryResponse>> retrieveAllMessages(int receiverId,
+      {int pageSize = 10, int pageNumber = 1}) async {
+    try {
+      final result = await _apiService.getMessagesHistory(
+        AuthSharedPrefs.getUserId() ?? -1,
+        receiverId,
+        pageNumber,
+        pageSize,
+        AuthSharedPrefs.getAccessToken(),
+      );
 
-    // Connect to the all messages channel
-    _socketService.connectToMessagesHistoryChannel(accessToken);
-
-    // Send the request to get all messages
-    _socketService.sendMessageToMessagesHistoryChannel(
-      Message(
-        senderUserId: AuthSharedPrefs.getUserId() ?? -1,
-        receiverDoctorId: receiverId,
-      ),
-    );
-
-    // Listen to the all messages channel
-    _socketService.listenToMessagesHistory((event) {
-      final List<Message> messagesList =
-          (jsonDecode(event) as List).map((e) => Message.fromJson(e)).toList();
-      Logger().i(messagesList);
-      onListen(messagesList);
-    });
-
-    // Close the all messages channel
-    _socketService.closeMessagesHistoryChannel();
+      return ApiResult.success(result);
+    } catch (error) {
+      Logger().e('Error in retrieving all messages: $error');
+      return ApiResult.failure(ErrorHandler.handle(error));
+    }
   }
 }

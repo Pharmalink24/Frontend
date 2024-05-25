@@ -1,11 +1,10 @@
 import 'dart:io';
 
 import 'package:dio/dio.dart' hide Headers;
-import 'package:pharmalink/features/main/chat/data/models/message.dart';
 import '../../features/access/auth/data/models/forget_password_request_body.dart';
 import '../../features/access/sign/data/models/signin/signin_request_body.dart';
 import '../../features/access/sign/data/models/signin/signin_response.dart';
-import '../../features/main/chat/data/models/chat.dart';
+import '../../features/main/chat/data/models/messages_history_response.dart';
 import '../../features/main/doctors/data/models/doctor.dart';
 import '../../features/main/prescription/data/models/prescription_doctor.dart';
 import '../../features/main/prescription/data/models/prescription_drugs.dart';
@@ -194,25 +193,17 @@ abstract class ApiService {
   );
 
   //-------------------- Chat --------------------//
-  @GET(ApiConstants.getAllChats)
-  Future<List<Chat>> getAllChats(
-    @Header('Authorization') String? auth,
-  );
-
-  @GET(ApiConstants.getUserChats)
-  Future<List<Chat>> getUserChats(
-    @Header('Authorization') String? auth,
-  );
-
-  @POST(ApiConstants.addChats)
-  Future<Chat> addChats(
-    @Path('id') String id,
-    @Header('Authorization') String? auth,
-  );
 
   @GET(ApiConstants.getMessagesHistory)
-  Future<List<Message>> getMessagesHistory(
-    @Path('id') String id,
+  Future<MessagesHistoryResponse> getMessagesHistory(
+    @Query('sender_user_id') int senderUserId,
+    @Query('receiver_doctor_id') int receiverDoctorId,
+    @Query('page') int page,
+    @Query('page_size') int pageSize,
     @Header('Authorization') String? auth,
   );
+
+  // @Put(ApiConstants.updateMessage)
+  // @Delete(ApiConstants.deleteMessage)
+  // @POST(ApiConstants.markMessageAsRead)
 }

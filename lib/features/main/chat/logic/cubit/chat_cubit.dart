@@ -3,6 +3,8 @@ import 'dart:convert';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:pharmalink/features/main/chat/data/models/chats_response.dart';
+import 'package:pharmalink/features/main/chat/data/models/messages_history_response.dart';
+import '../../../../../core/helpers/errors.dart';
 import '../../data/models/message.dart';
 import '../../data/repo/chat_repo.dart';
 import 'chat_state.dart';
@@ -33,12 +35,27 @@ class ChatCubit extends Cubit<ChatState> {
   }
 
   // Get all messages
-  void retrieveChatMessages(int receiverDoctorId) {
+  void retrieveChatMessages(int receiverDoctorId) async {
+    // Loading state
+    emit(const ChatState.allMessagesReceivedLoading());
+
     // Retrieve all messages
-    _chatRepo.retrieveAllMessages(receiverDoctorId, (messages) {
-      // Update the UI
-      emit(ChatState.allMessagesReceivedSuccessfully(messages));
-    });
+    await _chatRepo.retrieveAllMessages(receiverDoctorId).then(
+          (response) => response.when(
+            success: (messagesHistoryResponse) {
+              // Update the UI
+              emit(ChatState.allMessagesReceivedSuccessfully(
+                  messagesHistoryResponse));
+            },
+            failure: (error) {
+              emit(
+                ChatState.allMessagesReceivedError(
+                  error.apiErrorModel.error ?? ERR.UNEXPECTED,
+                ),
+              );
+            },
+          ),
+        );
   }
 
   // Retrieve user chats

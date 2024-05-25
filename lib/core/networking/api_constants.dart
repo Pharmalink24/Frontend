@@ -59,7 +59,7 @@ class ApiConstants {
   static const getAllChats = "chat/chat-list/";
   static const getUserChats = "chat/user-chat-list/";
   static const addChats = "chat/add-chat/{id}/";
-  static const getMessagesHistory = "chat/chat-history/{id}/";
+  static const getMessagesHistory = "chat/user-retrieve-messages/";
 }
 
 class ApiErrors {
