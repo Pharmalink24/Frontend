@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pharmalink/core/theme/colors.dart';
 import '../../../../core/localization/app_localizations.dart';
 import '../data/models/doctor.dart';
 import '../../../../core/theme/app_bar.dart';
@@ -64,14 +65,14 @@ class _DoctorsScreenState extends State<DoctorsScreen> {
         Icon(
           Icons.person_add_alt_1_rounded,
           size: 80,
-          color: Theme.of(context).colorScheme.onSecondary,
+          color: context.colorScheme.onSecondary,
         ),
         Center(
           child: Text(
             AppLocalizations.of(context).translate('noDoctorsMessage'),
             textAlign: TextAlign.center,
             style: AppTextStyle.headlineSmall(context).copyWith(
-              color: Theme.of(context).colorScheme.onSecondary,
+              color: context.colorScheme.onSecondary,
             ),
           ),
         ),
@@ -98,7 +99,7 @@ class _DoctorsScreenState extends State<DoctorsScreen> {
             Icon(
               Icons.error,
               size: 50,
-              color: Theme.of(context).colorScheme.error,
+              color: context.colorScheme.error,
             ),
             const SizedBox(height: 20),
             Text(

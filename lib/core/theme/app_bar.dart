@@ -47,7 +47,7 @@ class AppBarWidget extends StatelessWidget {
   Icon _buildIcon(BuildContext context) {
     return Icon(
       FFIcons.kLogoPharmaLink,
-      color: Theme.of(context).colorScheme.secondary,
+      color: context.colorScheme.secondary,
       size: kAppBarLogoSize,
     );
   }
@@ -59,7 +59,7 @@ class AppBarWidget extends StatelessWidget {
       style: AppTextStyle.titleMedium(context).copyWith(
         fontSize:
             AppLocalizations.of(context).isEnLocale ? titleSize : titleSize - 4,
-        color: Theme.of(context).colorScheme.secondary,
+        color: context.colorScheme.secondary,
       ),
     );
   }
@@ -71,7 +71,7 @@ class AppBarWidget extends StatelessWidget {
             onPressed: onPressed ?? () => context.pop(),
             icon: Icon(
               icon,
-              color: Theme.of(context).colorScheme.secondary,
+              color: context.colorScheme.secondary,
             ),
           )
         : null;

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pharmalink/core/theme/colors.dart';
 import '../../../../core/helpers/extensions.dart';
 import '../../../../core/routes/routes.dart';
 import '../../../../core/shared_preferences/auth_prefs.dart';
@@ -48,7 +49,7 @@ class _DirectToState extends State<DirectTo> {
     return Padding(
       padding: const EdgeInsets.all(32.0),
       child: LinearProgressIndicator(
-        color: Theme.of(context).colorScheme.secondary,
+        color: context.colorScheme.secondary,
       ),
     );
   }

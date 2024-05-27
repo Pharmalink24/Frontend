@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pharmalink/core/theme/colors.dart';
 import '../../../../../core/widgets/loading/loading_overlay.dart';
 import '../../../../../core/helpers/extensions.dart';
 import '../../../../../core/routes/routes.dart';
@@ -7,7 +8,6 @@ import '../../../../../core/theme/styles.dart';
 import '../../data/models/signup/signup_response.dart';
 import '../../logic/signup_cubit/signup_cubit.dart';
 import '../../logic/signup_cubit/signup_state.dart';
-
 
 class SignupBlocListener extends StatelessWidget {
   SignupBlocListener({super.key});
@@ -26,7 +26,7 @@ class SignupBlocListener extends StatelessWidget {
       builder: (context) => AlertDialog(
         icon: Icon(
           Icons.error,
-          color: Theme.of(context).colorScheme.error,
+          color: context.colorScheme.error,
           size: 32,
         ),
         content: Text(
@@ -40,7 +40,7 @@ class SignupBlocListener extends StatelessWidget {
             child: Text(
               "Got it",
               style: AppTextStyle.labelLarge(context).copyWith(
-                color: Theme.of(context).colorScheme.onTertiary,
+                color: context.colorScheme.onTertiary,
               ),
             ),
           ),

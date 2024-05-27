@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:pharmalink/core/theme/colors.dart';
 import '../../../../../core/helpers/extensions.dart';
 import 'ff_button_widget.dart';
 import '../../../../../core/theme/styles.dart';
@@ -56,11 +57,11 @@ class _DeactivateBoxWidgetState extends State<DeactivateBoxWidget> {
       width: double.infinity,
       height: 449,
       decoration: BoxDecoration(
-        color: Theme.of(context).colorScheme.primaryContainer,
+        color: context.colorScheme.primaryContainer,
         boxShadow: [
           BoxShadow(
             blurRadius: 5,
-            color: Theme.of(context).colorScheme.shadow,
+            color: context.colorScheme.shadow,
             offset: const Offset(
               0.0,
               -3,
@@ -83,7 +84,7 @@ class _DeactivateBoxWidgetState extends State<DeactivateBoxWidget> {
               padding: const EdgeInsetsDirectional.fromSTEB(0, 16, 0, 16),
               child: FaIcon(
                 FontAwesomeIcons.question,
-                color: Theme.of(context).colorScheme.onSecondary,
+                color: context.colorScheme.onSecondary,
                 size: 32,
               ),
             ),
@@ -107,7 +108,7 @@ class _DeactivateBoxWidgetState extends State<DeactivateBoxWidget> {
                   height: 45,
                   padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                   iconPadding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                  color: Theme.of(context).colorScheme.primary,
+                  color: context.colorScheme.primary,
                   textStyle: AppTextStyle.bodyLarge(context).copyWith(
                     fontSize: 20,
                   ),
@@ -131,7 +132,7 @@ class _DeactivateBoxWidgetState extends State<DeactivateBoxWidget> {
                   height: 45,
                   padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                   iconPadding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                  color: Theme.of(context).colorScheme.primary,
+                  color: context.colorScheme.primary,
                   textStyle: AppTextStyle.bodyLarge(context).copyWith(
                     fontSize: 20,
                   ),
@@ -155,9 +156,9 @@ class _DeactivateBoxWidgetState extends State<DeactivateBoxWidget> {
                   height: 60,
                   padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                   iconPadding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                  color: Theme.of(context).colorScheme.primaryContainer,
+                  color: context.colorScheme.primaryContainer,
                   textStyle: AppTextStyle.titleSmall(context).copyWith(
-                    color: Theme.of(context).colorScheme.onSecondary,
+                    color: context.colorScheme.onSecondary,
                     fontWeight: FontWeight.normal,
                   ),
                   elevation: 0,

@@ -12,7 +12,12 @@ class HeaderBuilder extends StatelessWidget {
 
   // Success widget
   Widget buildSuccessWidget(User user) {
-    return WelcomeNameText(fname: user.fname!, lname: user.lname!);
+    return WelcomeNameText(
+      fname: user.fname ?? "",
+      lname: user.lname ?? "",
+      image: user.image,
+      gender: user.gender ?? "",
+    );
   }
 
   // Loading widget

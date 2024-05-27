@@ -4,6 +4,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pharmalink/core/localization/app_localizations.dart';
+import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/features/main/doctors/data/models/doctor_info.dart';
 import 'package:pharmalink/core/widgets/app_shimmer.dart';
 import 'package:pharmalink/features/main/doctors/logic/cubit/doctors_cubit.dart';
@@ -28,7 +29,6 @@ class DoctorScreen extends StatefulWidget {
 }
 
 class _DoctorScreenState extends State<DoctorScreen> {
-
   @override
   void initState() {
     super.initState();
@@ -59,7 +59,7 @@ class _DoctorScreenState extends State<DoctorScreen> {
       child: Text(
         error,
         style: AppTextStyle.bodyMedium(context).copyWith(
-          color: Theme.of(context).colorScheme.error,
+          color: context.colorScheme.error,
         ),
       ),
     );

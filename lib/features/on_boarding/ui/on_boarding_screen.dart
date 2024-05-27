@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
+import 'package:pharmalink/core/theme/colors.dart';
 import '../../../core/localization/app_localizations.dart';
 
 import '../../../core/routes/routes.dart';
@@ -31,15 +32,14 @@ class OnBoardingScreenState extends State<OnBoardingScreen> {
           body: AppLocalizations.of(context).isEnLocale
               ? pageModel.body
               : pageModel.bodyInArabic,
-          image:
-              IntroImage(path: pageModel.image),
+          image: IntroImage(path: pageModel.image),
           decoration: PageDecoration(
             titleTextStyle: AppTextStyle.headlineLarge(context).copyWith(
               fontWeight: FontWeight.w700,
             ),
             bodyTextStyle: AppTextStyle.labelSmall(context)
                 .copyWith(fontSize: 16.0, fontWeight: FontWeight.w700),
-            pageColor: Theme.of(context).colorScheme.background,
+            pageColor: context.colorScheme.background,
             imagePadding: const EdgeInsets.all(0.0),
             imageFlex: 7,
             bodyFlex: 5,
@@ -59,7 +59,7 @@ class OnBoardingScreenState extends State<OnBoardingScreen> {
   Widget build(BuildContext context) {
     return IntroductionScreen(
       pages: listPagesViewModel,
-      globalBackgroundColor: Theme.of(context).colorScheme.background,
+      globalBackgroundColor: context.colorScheme.background,
       allowImplicitScrolling: true,
       onDone: () => _onIntroEnd(context),
       onSkip: () => _onIntroEnd(context), // You can override onSkip callback
@@ -68,16 +68,16 @@ class OnBoardingScreenState extends State<OnBoardingScreen> {
       nextFlex: 0,
       back: Icon(
         Icons.arrow_back,
-        color: Theme.of(context).colorScheme.tertiary,
+        color: context.colorScheme.tertiary,
       ),
       next: Icon(
         Icons.arrow_forward,
-        color: Theme.of(context).colorScheme.tertiary,
+        color: context.colorScheme.tertiary,
       ),
       done: Text(
         AppLocalizations.of(context).translate('signIn'),
         style: AppTextStyle.labelMedium(context).copyWith(
-          color: Theme.of(context).colorScheme.tertiary,
+          color: context.colorScheme.tertiary,
           // fontSize: 15.0,
         ),
       ),
@@ -91,10 +91,10 @@ class OnBoardingScreenState extends State<OnBoardingScreen> {
         activeShape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(25.0)),
         ),
-        activeColor: Theme.of(context).colorScheme.primary,
+        activeColor: context.colorScheme.primary,
       ),
       dotsContainerDecorator: ShapeDecoration(
-        color: Theme.of(context).colorScheme.secondary,
+        color: context.colorScheme.secondary,
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(16.0)),
         ),

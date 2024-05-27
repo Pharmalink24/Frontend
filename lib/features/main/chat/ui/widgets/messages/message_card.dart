@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
 import 'package:pharmalink/core/helpers/extensions.dart';
 import 'package:pharmalink/core/shared_preferences/auth_prefs.dart';
+import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/theme/shadow.dart';
 import 'package:pharmalink/core/theme/styles.dart';
 import 'package:pharmalink/features/main/chat/data/models/message.dart';
@@ -33,8 +34,8 @@ class MessageCard extends StatelessWidget {
           : const EdgeInsetsDirectional.only(start: 0, end: 64),
       decoration: BoxDecoration(
         color: isMeSender()
-            ? Theme.of(context).colorScheme.secondary
-            : Theme.of(context).colorScheme.primaryContainer,
+            ? context.colorScheme.secondary
+            : context.colorScheme.primaryContainer,
         borderRadius: isMeSender()
             ? const BorderRadiusDirectional.only(
                 topStart: Radius.circular(16),
@@ -47,7 +48,7 @@ class MessageCard extends StatelessWidget {
                 bottomEnd: Radius.circular(16),
               ),
         border: Border.all(
-          color: Theme.of(context).colorScheme.onSecondary,
+          color: context.colorScheme.onSecondary,
         ),
         boxShadow: AppShadows.box(context),
       ),
@@ -61,8 +62,8 @@ class MessageCard extends StatelessWidget {
               isErrorMessage ? "Error sending message" : message!.message ?? "",
               style: AppTextStyle.bodyMedium(context).copyWith(
                 color: isMeSender()
-                    ? Theme.of(context).colorScheme.onTertiary
-                    : Theme.of(context).colorScheme.onPrimary,
+                    ? context.colorScheme.onTertiary
+                    : context.colorScheme.onPrimary,
               ),
             ),
           ),
@@ -74,8 +75,8 @@ class MessageCard extends StatelessWidget {
                   : DateTime.parse(message?.timestamp ?? '').format('hh:mm a'),
               style: AppTextStyle.bodySmall(context).copyWith(
                 color: isMeSender()
-                    ? Theme.of(context).colorScheme.primaryContainer
-                    : Theme.of(context).colorScheme.onSecondary,
+                    ? context.colorScheme.primaryContainer
+                    : context.colorScheme.onSecondary,
               ),
             ),
           ),

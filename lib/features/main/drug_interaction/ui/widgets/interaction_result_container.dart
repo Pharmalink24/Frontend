@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/theme/icons.dart';
 import '../../../../../core/theme/styles.dart';
 import '../../../../../core/widgets/card_container.dart';
@@ -38,12 +39,12 @@ class InteractionResultContainer extends StatelessWidget {
         ? Icon(
             Icons.info_outline_rounded,
             size: 64,
-            color: Theme.of(context).colorScheme.primary,
+            color: context.colorScheme.primary,
           )
         : Icon(
             Icons.error_outline_rounded,
             size: 64,
-            color: Theme.of(context).colorScheme.error,
+            color: context.colorScheme.error,
           );
   }
 
@@ -92,7 +93,7 @@ class InteractionResultContainer extends StatelessWidget {
         Icon(
           Icons.error_outline_sharp,
           size: 40,
-          color: Theme.of(context).colorScheme.error,
+          color: context.colorScheme.error,
         ),
         Text(
           error,
@@ -117,7 +118,7 @@ class InteractionResultContainer extends StatelessWidget {
             Icon(
               FFIcons.kLogoPharmaLink,
               size: 64,
-              color: Theme.of(context).colorScheme.onSecondary,
+              color: context.colorScheme.onSecondary,
             ),
             const SizedBox(height: 16.0),
             Center(
@@ -125,7 +126,7 @@ class InteractionResultContainer extends StatelessWidget {
                 AppLocalizations.of(context).translate('enter2drugs'),
                 textAlign: TextAlign.center,
                 style: AppTextStyle.headlineSmall(context).copyWith(
-                  color: Theme.of(context).colorScheme.onSecondary,
+                  color: context.colorScheme.onSecondary,
                 ),
               ),
             ),

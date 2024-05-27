@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pharmalink/core/helpers/extensions.dart';
+import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/theme/shadow.dart';
 import 'package:pharmalink/core/theme/styles.dart';
 import '../../../reminders/logic/reminders_cubit.dart';
@@ -21,7 +22,7 @@ class ReminderListTile extends StatelessWidget {
         Text(
           reminder.drugFirstName,
           style: AppTextStyle.titleMedium(context).copyWith(
-            color: Theme.of(context).colorScheme.secondary,
+            color: context.colorScheme.secondary,
           ),
         ),
         Text(
@@ -60,7 +61,7 @@ class ReminderListTile extends StatelessWidget {
       ),
       margin: const EdgeInsets.only(bottom: 12),
       decoration: BoxDecoration(
-        color: Theme.of(context).colorScheme.background,
+        color: context.colorScheme.background,
         borderRadius: BorderRadius.circular(24.0),
         boxShadow: AppShadows.box(context),
       ),
@@ -77,7 +78,7 @@ class ReminderListTile extends StatelessWidget {
             ),
             side: BorderSide(
               width: 1.0,
-              color: Theme.of(context).colorScheme.secondary,
+              color: context.colorScheme.secondary,
             ),
           ),
           Expanded(

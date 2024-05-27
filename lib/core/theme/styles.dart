@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pharmalink/core/theme/colors.dart';
 import '../localization/app_localizations.dart';
 import 'fonts.dart';
 
@@ -6,14 +7,14 @@ class AppTextStyle {
   static TextStyle displayLarge(BuildContext context) {
     return Theme.of(context).textTheme.displayLarge!.copyWith(
           fontFamily: AppFonts.getFont(context, Font.primary),
-          color: Theme.of(context).colorScheme.onPrimary,
+          color: context.colorScheme.onPrimary,
         );
   }
 
   static TextStyle displayMedium(BuildContext context) {
     return Theme.of(context).textTheme.displayMedium!.copyWith(
           fontFamily: AppFonts.getFont(context, Font.primary),
-          color: Theme.of(context).colorScheme.onPrimary,
+          color: context.colorScheme.onPrimary,
         );
   }
 
@@ -24,91 +25,91 @@ class AppTextStyle {
               ? FontWeight.w600
               : FontWeight.bold,
           fontSize: AppLocalizations.of(context).isEnLocale ? 36.0 : 24.0,
-          color: Theme.of(context).colorScheme.onPrimary,
+          color: context.colorScheme.onPrimary,
         );
   }
 
   static TextStyle headlineLarge(BuildContext context) {
     return Theme.of(context).textTheme.headlineLarge!.copyWith(
           fontFamily: AppFonts.getFont(context, Font.primary),
-          color: Theme.of(context).colorScheme.onPrimary,
+          color: context.colorScheme.onPrimary,
         );
   }
 
   static TextStyle headlineMedium(BuildContext context) {
     return Theme.of(context).textTheme.headlineMedium!.copyWith(
           fontFamily: AppFonts.getFont(context, Font.primary),
-          color: Theme.of(context).colorScheme.onPrimary,
+          color: context.colorScheme.onPrimary,
         );
   }
 
   static TextStyle headlineSmall(BuildContext context) {
     return Theme.of(context).textTheme.headlineSmall!.copyWith(
           fontFamily: AppFonts.getFont(context, Font.primary),
-          color: Theme.of(context).colorScheme.onPrimary,
+          color: context.colorScheme.onPrimary,
         );
   }
 
   static TextStyle titleLarge(BuildContext context) {
     return Theme.of(context).textTheme.titleLarge!.copyWith(
           fontFamily: AppFonts.getFont(context, Font.primary),
-          color: Theme.of(context).colorScheme.onPrimary,
+          color: context.colorScheme.onPrimary,
         );
   }
 
   static TextStyle titleMedium(BuildContext context) {
     return Theme.of(context).textTheme.titleMedium!.copyWith(
           fontFamily: AppFonts.getFont(context, Font.secondary),
-          color: Theme.of(context).colorScheme.onTertiary,
+          color: context.colorScheme.onTertiary,
         );
   }
 
   static TextStyle titleSmall(BuildContext context) {
     return Theme.of(context).textTheme.titleSmall!.copyWith(
           fontFamily: AppFonts.getFont(context, Font.secondary),
-          color: Theme.of(context).colorScheme.onTertiary,
+          color: context.colorScheme.onTertiary,
         );
   }
 
   static TextStyle labelLarge(BuildContext context) {
     return Theme.of(context).textTheme.labelLarge!.copyWith(
           fontFamily: AppFonts.getFont(context, Font.secondary),
-          color: Theme.of(context).colorScheme.onSecondary,
+          color: context.colorScheme.onSecondary,
         );
   }
 
   static TextStyle labelMedium(BuildContext context) {
     return Theme.of(context).textTheme.labelMedium!.copyWith(
           fontFamily: AppFonts.getFont(context, Font.secondary),
-          color: Theme.of(context).colorScheme.onSecondary,
+          color: context.colorScheme.onSecondary,
         );
   }
 
   static TextStyle labelSmall(BuildContext context) {
     return Theme.of(context).textTheme.labelSmall!.copyWith(
           fontFamily: AppFonts.getFont(context, Font.secondary),
-          color: Theme.of(context).colorScheme.onSecondary,
+          color: context.colorScheme.onSecondary,
         );
   }
 
   static TextStyle bodyLarge(BuildContext context) {
     return Theme.of(context).textTheme.bodyLarge!.copyWith(
           fontFamily: AppFonts.getFont(context, Font.secondary),
-          color: Theme.of(context).colorScheme.onPrimary,
+          color: context.colorScheme.onPrimary,
         );
   }
 
   static TextStyle bodyMedium(BuildContext context) {
     return Theme.of(context).textTheme.bodyMedium!.copyWith(
           fontFamily: AppFonts.getFont(context, Font.secondary),
-          color: Theme.of(context).colorScheme.onPrimary,
+          color: context.colorScheme.onPrimary,
         );
   }
 
   static TextStyle bodySmall(BuildContext context) {
     return Theme.of(context).textTheme.bodySmall!.copyWith(
           fontFamily: AppFonts.getFont(context, Font.secondary),
-          color: Theme.of(context).colorScheme.onPrimary,
+          color: context.colorScheme.onPrimary,
         );
   }
 }
@@ -134,19 +135,19 @@ class AppTextFieldDecoration {
       ),
       focusedBorder: OutlineInputBorder(
         borderSide: BorderSide(
-          color: Theme.of(context).colorScheme.secondary,
+          color: context.colorScheme.secondary,
           width: _kBorderWidth,
         ),
       ),
       errorBorder: OutlineInputBorder(
         borderSide: BorderSide(
-          color: Theme.of(context).colorScheme.error,
+          color: context.colorScheme.error,
           width: _kBorderWidth,
         ),
       ),
       focusedErrorBorder: OutlineInputBorder(
         borderSide: BorderSide(
-          color: Theme.of(context).colorScheme.error,
+          color: context.colorScheme.error,
           width: _kBorderWidth,
         ),
       ),
@@ -162,20 +163,20 @@ class AppTextFieldDecoration {
       ),
       enabledBorder: OutlineInputBorder(
         borderSide: BorderSide(
-          color: Theme.of(context).colorScheme.tertiary,
+          color: context.colorScheme.tertiary,
         ),
         borderRadius: BorderRadius.circular(_kPrimaryBorderRadius),
       ),
       focusedBorder: OutlineInputBorder(
         borderSide: BorderSide(
-          color: Theme.of(context).colorScheme.primary,
+          color: context.colorScheme.primary,
         ),
         borderRadius: BorderRadius.circular(_kPrimaryBorderRadius),
       ),
       errorBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(_kPrimaryBorderRadius),
       ),
-      fillColor: Theme.of(context).colorScheme.primaryContainer,
+      fillColor: context.colorScheme.primaryContainer,
     );
   }
 
@@ -186,20 +187,20 @@ class AppTextFieldDecoration {
       ),
       enabledBorder: OutlineInputBorder(
         borderSide: BorderSide(
-          color: Theme.of(context).colorScheme.tertiary,
+          color: context.colorScheme.tertiary,
         ),
         borderRadius: BorderRadius.circular(_kSecondaryBorderRadius),
       ),
       focusedBorder: OutlineInputBorder(
         borderSide: BorderSide(
-          color: Theme.of(context).colorScheme.primary,
+          color: context.colorScheme.primary,
         ),
         borderRadius: BorderRadius.circular(_kSecondaryBorderRadius),
       ),
       errorBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(_kSecondaryBorderRadius),
       ),
-      fillColor: Theme.of(context).colorScheme.primaryContainer,
+      fillColor: context.colorScheme.primaryContainer,
     );
   }
 
@@ -208,7 +209,7 @@ class AppTextFieldDecoration {
       contentPadding: const EdgeInsets.all(14.0),
       suffixIcon: Icon(
         Icons.keyboard_arrow_down_rounded,
-        color: Theme.of(context).colorScheme.secondary,
+        color: context.colorScheme.secondary,
       ),
       hintStyle: AppTextStyle.labelMedium(context),
       labelStyle: AppTextStyle.bodyMedium(context),
@@ -218,20 +219,20 @@ class AppTextFieldDecoration {
       enabledBorder: OutlineInputBorder(
         borderSide: BorderSide(
           width: _kBorderWidth,
-          color: Theme.of(context).colorScheme.tertiary,
+          color: context.colorScheme.tertiary,
         ),
         borderRadius: BorderRadius.circular(_kSearchBorderRadius),
       ),
       focusedBorder: OutlineInputBorder(
         borderSide: BorderSide(
           width: _kBorderWidth,
-          color: Theme.of(context).colorScheme.primary,
+          color: context.colorScheme.primary,
         ),
       ),
       errorBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(_kSearchBorderRadius),
       ),
-      fillColor: Theme.of(context).colorScheme.primaryContainer,
+      fillColor: context.colorScheme.primaryContainer,
     );
   }
 
@@ -246,9 +247,9 @@ class AppTextFieldDecoration {
 
   static BoxDecoration primaryBoxDecoration(BuildContext context) {
     return _generalBoxDecoration(context).copyWith(
-      color: Theme.of(context).colorScheme.primaryContainer,
+      color: context.colorScheme.primaryContainer,
       border: Border.all(
-        color: Theme.of(context).colorScheme.tertiary,
+        color: context.colorScheme.tertiary,
       ),
       borderRadius: BorderRadius.circular(_kPrimaryBorderRadius),
     );
@@ -256,9 +257,9 @@ class AppTextFieldDecoration {
 
   static BoxDecoration secondaryBoxDecoration(BuildContext context) {
     return _generalBoxDecoration(context).copyWith(
-      color: Theme.of(context).colorScheme.primaryContainer,
+      color: context.colorScheme.primaryContainer,
       border: Border.all(
-        color: Theme.of(context).colorScheme.tertiary,
+        color: context.colorScheme.tertiary,
       ),
       borderRadius: BorderRadius.circular(_kSecondaryBorderRadius),
     );

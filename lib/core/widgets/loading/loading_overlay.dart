@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pharmalink/core/theme/colors.dart';
 
 class LoadingOverlay {
   OverlayEntry? _overlay;
@@ -13,11 +14,11 @@ class LoadingOverlay {
       _overlay = OverlayEntry(
         // replace with your own layout
         builder: (context) => ColoredBox(
-          color: Theme.of(context).colorScheme.primaryContainer.withOpacity(0.5),
+          color: context.colorScheme.primaryContainer.withOpacity(0.5),
           child: Center(
             child: CircularProgressIndicator(
               valueColor: AlwaysStoppedAnimation(
-                Theme.of(context).colorScheme.secondary,
+                context.colorScheme.secondary,
               ),
             ),
           ),

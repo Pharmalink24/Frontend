@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pharmalink/core/localization/app_localizations.dart';
+import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/theme/styles.dart';
 import 'package:pharmalink/core/widgets/app_shimmer.dart';
 import '../../../../core/models/user.dart';
@@ -9,7 +10,6 @@ import '../logic/profile_cubit/profile_cubit.dart';
 import '../logic/profile_cubit/profile_state.dart';
 import 'widgets/account_settings.dart';
 import 'widgets/profile_info.dart';
-import 'package:pharmalink/core/widgets/loading/loading_indicator.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -73,7 +73,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             Icon(
               Icons.error,
               size: 50,
-              color: Theme.of(context).colorScheme.error,
+              color: context.colorScheme.error,
             ),
             const SizedBox(height: 20),
             Text(

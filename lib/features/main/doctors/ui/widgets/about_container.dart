@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/theme/icons.dart';
 import 'package:pharmalink/features/main/chat/data/models/chat.dart';
 import '../../../../../core/helpers/extensions.dart';
@@ -29,11 +29,11 @@ class AboutContainer extends StatelessWidget {
       child: Container(
         width: double.infinity,
         decoration: BoxDecoration(
-          color: Theme.of(context).colorScheme.primaryContainer,
+          color: context.colorScheme.primaryContainer,
           boxShadow: [
             BoxShadow(
               blurRadius: 4,
-              color: Theme.of(context).colorScheme.shadow,
+              color: context.colorScheme.shadow,
               offset: const Offset(
                 0,
                 2,

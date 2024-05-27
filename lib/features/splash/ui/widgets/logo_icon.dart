@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pharmalink/core/theme/colors.dart';
 import '../../../../core/localization/app_localizations.dart';
 import '../../../../core/theme/icons.dart';
 import '../../../../core/theme/styles.dart';
@@ -15,7 +16,7 @@ class LogoIcon extends StatelessWidget {
         Icon(
           FFIcons.kLogoPharmaLink,
           size: kLogoSize,
-          color: Theme.of(context).colorScheme.primary,
+          color: context.colorScheme.primary,
         ),
         Text(
           AppLocalizations.of(context).translate('appName'),

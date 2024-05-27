@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pharmalink/core/theme/colors.dart';
 import '../theme/styles.dart';
 
 class TextWithIcon extends StatelessWidget {
@@ -27,7 +28,7 @@ class TextWithIcon extends StatelessWidget {
           Icon(
             icon,
             size: 20,
-            color: Theme.of(context).colorScheme.secondary,
+            color: context.colorScheme.secondary,
           ),
         ],
       ),

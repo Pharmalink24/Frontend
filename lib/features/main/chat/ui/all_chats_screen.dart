@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pharmalink/core/localization/app_localizations.dart';
+import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/theme/styles.dart';
 import 'package:pharmalink/core/widgets/loading/loading_indicator.dart';
 import 'package:pharmalink/features/main/chat/data/models/chats_response.dart';
@@ -38,7 +39,7 @@ class _ChatsScreenState extends State<ChatsScreen> {
           Icon(
             Icons.chat_bubble_outline,
             size: 82,
-            color: Theme.of(context).colorScheme.onSecondary,
+            color: context.colorScheme.onSecondary,
           ),
           const SizedBox(
             height: 16,
@@ -46,7 +47,7 @@ class _ChatsScreenState extends State<ChatsScreen> {
           Text(
             AppLocalizations.of(context).translate('noChats'),
             style: AppTextStyle.headlineMedium(context).copyWith(
-              color: Theme.of(context).colorScheme.onSecondary,
+              color: context.colorScheme.onSecondary,
             ),
           ),
           const SizedBox(
@@ -55,7 +56,7 @@ class _ChatsScreenState extends State<ChatsScreen> {
           Text(
             AppLocalizations.of(context).translate('noChatsDescription'),
             style: AppTextStyle.bodyMedium(context).copyWith(
-              color: Theme.of(context).colorScheme.onSecondary,
+              color: context.colorScheme.onSecondary,
             ),
           )
         ],

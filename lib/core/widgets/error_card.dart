@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pharmalink/core/theme/colors.dart';
 
 class ErrorCard extends StatelessWidget {
   final String message;
@@ -18,7 +19,7 @@ class ErrorCard extends StatelessWidget {
         children: <Widget>[
           Icon(
             Icons.error_outline,
-            color: Theme.of(context).colorScheme.error,
+            color: context.colorScheme.error,
             size: 60,
           ),
           Padding(

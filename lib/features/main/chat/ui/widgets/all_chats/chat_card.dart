@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pharmalink/core/helpers/extensions.dart';
 import 'package:pharmalink/core/routes/routes.dart';
+import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/theme/styles.dart';
 import 'package:pharmalink/features/main/chat/data/models/chat.dart';
 import 'package:pharmalink/resources/resources.dart';
@@ -24,7 +25,7 @@ class ChatCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(24.0),
       ),
       elevation: 3.0,
-      color: Theme.of(context).colorScheme.primaryContainer,
+      color: context.colorScheme.primaryContainer,
       margin: const EdgeInsets.only(bottom: 16.0),
       child: ListTile(
         leading: ClipRRect(
@@ -65,20 +66,20 @@ class ChatCard extends StatelessWidget {
                 Text(
                   "Dr. ",
                   style: AppTextStyle.titleMedium(context).copyWith(
-                    color: Theme.of(context).colorScheme.onPrimary,
+                    color: context.colorScheme.onPrimary,
                   ),
                 ),
                 Text(
                   '${chat.fname} ',
                   style: AppTextStyle.titleMedium(context).copyWith(
-                    color: Theme.of(context).colorScheme.onPrimary,
+                    color: context.colorScheme.onPrimary,
                     fontWeight: FontWeight.w600,
                   ),
                 ),
                 Text(
                   '${chat.lname}'.crop(4),
                   style: AppTextStyle.titleMedium(context).copyWith(
-                    color: Theme.of(context).colorScheme.onPrimary,
+                    color: context.colorScheme.onPrimary,
                   ),
                 ),
               ],
@@ -88,7 +89,7 @@ class ChatCard extends StatelessWidget {
                       chat.lastMessageDateTime ?? DateTime.now().toString())
                   .format('MM/dd'),
               style: AppTextStyle.labelSmall(context).copyWith(
-                color: Theme.of(context).colorScheme.onSecondary,
+                color: context.colorScheme.onSecondary,
               ),
             ),
           ],
@@ -96,7 +97,7 @@ class ChatCard extends StatelessWidget {
         subtitle: Text(
           chat.lastMessage?.crop(24) ?? 'No messages yet',
           style: AppTextStyle.bodySmall(context).copyWith(
-            color: Theme.of(context).colorScheme.onSecondary,
+            color: context.colorScheme.onSecondary,
           ),
         ),
         onTap: () {

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pharmalink/core/theme/colors.dart';
 import '../../../../core/enums/drug_state.dart';
 import '../../../../core/localization/app_localizations.dart';
 import '../../doctors/data/models/doctor_info.dart';
@@ -81,7 +82,7 @@ class PrescriptionScreen extends StatelessWidget {
             height: 40,
             padding: const EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
             iconPadding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-            color: Theme.of(context).colorScheme.primary,
+            color: context.colorScheme.primary,
             textStyle: AppTextStyle.titleSmall(context),
             elevation: 3,
             borderSide: const BorderSide(

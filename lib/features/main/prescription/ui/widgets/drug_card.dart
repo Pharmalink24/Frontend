@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/features/main/prescription/logic/prescription_cubit.dart';
 import '../../../../../core/models/drug_info.dart';
 import '../../../../../core/theme/styles.dart';
@@ -23,12 +24,12 @@ class DrugCard extends StatelessWidget {
         ? Icon(
             size: 40.0,
             FontAwesomeIcons.capsules,
-            color: Theme.of(context).colorScheme.primary,
+            color: context.colorScheme.primary,
           )
         : Icon(
             size: 40.0,
             FontAwesomeIcons.syringe,
-            color: Theme.of(context).colorScheme.primary,
+            color: context.colorScheme.primary,
           );
   }
 
@@ -49,7 +50,7 @@ class DrugCard extends StatelessWidget {
   Widget _buildButtonBar(BuildContext context) {
     final ButtonStyle flatButtonStyle = TextButton.styleFrom(
       backgroundColor: Colors.transparent,
-      iconColor: Theme.of(context).colorScheme.secondary,
+      iconColor: context.colorScheme.secondary,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(65.0)),
       ),
@@ -100,11 +101,11 @@ class DrugCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ExpansionTileCard(
-      baseColor: Theme.of(context).colorScheme.secondaryContainer,
-      expandedColor: Theme.of(context).colorScheme.secondaryContainer,
+      baseColor: context.colorScheme.secondaryContainer,
+      expandedColor: context.colorScheme.secondaryContainer,
       elevation: 5.0,
       initialElevation: 1.0,
-      shadowColor: Theme.of(context).colorScheme.shadow,
+      shadowColor: context.colorScheme.shadow,
       initialPadding: const EdgeInsets.symmetric(vertical: 12.0),
       leading: _buildDrugIcon(context),
       title: _buildTradeName(context),

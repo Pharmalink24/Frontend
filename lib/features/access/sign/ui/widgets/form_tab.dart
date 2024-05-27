@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pharmalink/core/theme/colors.dart';
 
 import '../../../../../core/localization/app_localizations.dart';
 import '../../../../../core/theme/fonts.dart';
@@ -80,24 +81,24 @@ class _FormTabState extends State<FormTab> with TickerProviderStateMixin {
         ),
       ],
       isScrollable: true,
-      labelColor: Theme.of(context).colorScheme.onPrimary,
-      unselectedLabelColor: Theme.of(context).colorScheme.onSecondary,
+      labelColor: context.colorScheme.onPrimary,
+      unselectedLabelColor: context.colorScheme.onSecondary,
       tabAlignment: TabAlignment.start,
       overlayColor: MaterialStateProperty.all(Colors.transparent),
       indicatorSize: TabBarIndicatorSize.label,
       enableFeedback: false,
       labelPadding: const EdgeInsetsDirectional.fromSTEB(16, 0, 16, 8),
       labelStyle: AppTextStyle.displaySmall(context).copyWith(
-        color: Theme.of(context).colorScheme.onPrimary,
+        color: context.colorScheme.onPrimary,
         fontFamily: AppFonts.getFont(context, Font.tertiary),
         fontSize: AppLocalizations.of(context).isEnLocale ? 32.0 : 24.0,
       ),
       unselectedLabelStyle: AppTextStyle.displaySmall(context).copyWith(
-        color: Theme.of(context).colorScheme.onSecondary,
+        color: context.colorScheme.onSecondary,
         fontFamily: AppFonts.getFont(context, Font.tertiary),
         fontSize: AppLocalizations.of(context).isEnLocale ? 32.0 : 24.0,
       ),
-      indicatorColor: Theme.of(context).colorScheme.primary,
+      indicatorColor: context.colorScheme.primary,
       indicatorWeight: 4,
       onTap: (i) async {
         [() async {}, () async {}][i]();

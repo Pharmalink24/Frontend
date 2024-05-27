@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pharmalink/core/theme/app_bar.dart';
+import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/features/main/prescription/data/models/prescription_drugs.dart';
 import '../../../../core/enums/drug_state.dart';
 import '../../../../core/helpers/extensions.dart';
@@ -40,14 +41,14 @@ class _PrescriptionsScreenState extends State<PrescriptionsScreen> {
         Icon(
           Icons.featured_play_list_rounded,
           size: 80,
-          color: Theme.of(context).colorScheme.onSecondary,
+          color: context.colorScheme.onSecondary,
         ),
         Center(
           child: Text(
             AppLocalizations.of(context).translate('noPrescriptionsFound'),
             textAlign: TextAlign.center,
             style: AppTextStyle.headlineSmall(context).copyWith(
-              color: Theme.of(context).colorScheme.onSecondary,
+              color: context.colorScheme.onSecondary,
             ),
           ),
         ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pharmalink/core/theme/colors.dart';
 import '../../../../../core/widgets/card_container_with_title.dart';
 import '../../../../../core/helpers/extensions.dart';
 import '../../../../../core/routes/routes.dart';
@@ -35,14 +36,14 @@ class DoctorsContainer extends StatelessWidget {
         Icon(
           Icons.person_add_alt_1_rounded,
           size: 80,
-          color: Theme.of(context).colorScheme.onSecondary,
+          color: context.colorScheme.onSecondary,
         ),
         Center(
           child: Text(
             AppLocalizations.of(context).translate('noDoctorsMessage'),
             textAlign: TextAlign.center,
             style: AppTextStyle.headlineSmall(context).copyWith(
-              color: Theme.of(context).colorScheme.onSecondary,
+              color: context.colorScheme.onSecondary,
             ),
           ),
         ),

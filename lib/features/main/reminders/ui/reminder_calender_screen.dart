@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/features/main/reminders/data/models/reminder.dart';
 import 'package:table_calendar/table_calendar.dart';
 import '../../../../core/localization/app_localizations.dart';
@@ -15,17 +16,15 @@ class ReminderCalenderScreen extends StatelessWidget {
       focusedDay: DateTime.now(),
       calendarStyle: CalendarStyle(
         todayDecoration: BoxDecoration(
-          color: Theme.of(context).colorScheme.primary,
+          color: context.colorScheme.primary,
           shape: BoxShape.circle,
         ),
         selectedDecoration: BoxDecoration(
-          color: Theme.of(context).colorScheme.secondary,
+          color: context.colorScheme.secondary,
           shape: BoxShape.circle,
         ),
-        selectedTextStyle:
-            TextStyle(color: Theme.of(context).colorScheme.onSecondary),
-        todayTextStyle:
-            TextStyle(color: Theme.of(context).colorScheme.onPrimary),
+        selectedTextStyle: TextStyle(color: context.colorScheme.onSecondary),
+        todayTextStyle: TextStyle(color: context.colorScheme.onPrimary),
       ),
     );
   }

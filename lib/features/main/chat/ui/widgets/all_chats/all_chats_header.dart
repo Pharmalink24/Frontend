@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pharmalink/core/localization/app_localizations.dart';
+import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/theme/gradient.dart';
 import 'package:pharmalink/core/theme/styles.dart';
 
@@ -28,13 +29,13 @@ class ChatsHeader extends StatelessWidget {
               Text(
                 AppLocalizations.of(context).translate('chats'),
                 style: AppTextStyle.headlineLarge(context).copyWith(
-                  color: Theme.of(context).colorScheme.onPrimary,
+                  color: context.colorScheme.onPrimary,
                 ),
               ),
               Text(
                 AppLocalizations.of(context).translate('chatsDescription'),
                 style: AppTextStyle.bodyMedium(context).copyWith(
-                  color: Theme.of(context).colorScheme.onPrimary,
+                  color: context.colorScheme.onPrimary,
                 ),
               ),
             ],
@@ -43,16 +44,16 @@ class ChatsHeader extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               IconButton(
-                icon:  Icon(
+                icon: Icon(
                   Icons.search,
-                  color: Theme.of(context).colorScheme.onPrimary,
+                  color: context.colorScheme.onPrimary,
                 ),
                 onPressed: () {},
               ),
               IconButton(
-                icon:  Icon(
+                icon: Icon(
                   Icons.more_vert,
-                  color: Theme.of(context).colorScheme.onPrimary,
+                  color: context.colorScheme.onPrimary,
                 ),
                 onPressed: () {},
               ),

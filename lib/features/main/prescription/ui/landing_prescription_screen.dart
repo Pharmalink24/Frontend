@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pharmalink/core/theme/colors.dart';
 import '../../../../core/enums/drug_state.dart';
 import '../../../../core/localization/app_localizations.dart';
 import '../../../../core/theme/styles.dart';
@@ -24,7 +25,7 @@ class LandingPrescriptionScreen extends StatelessWidget {
             title: AppLocalizations.of(context).translate('newDrugs'),
             description:
                 AppLocalizations.of(context).translate('newDrugsDescription'),
-            backgroundColor: Theme.of(context).colorScheme.primary,
+            backgroundColor: context.colorScheme.primary,
             category: DrugState.NEW,
           ),
           PrescriptionCategoryWidget(
@@ -32,7 +33,7 @@ class LandingPrescriptionScreen extends StatelessWidget {
             title: AppLocalizations.of(context).translate('activeDrugs'),
             description: AppLocalizations.of(context)
                 .translate('activeDrugsDescription'),
-            backgroundColor: Theme.of(context).colorScheme.secondary,
+            backgroundColor: context.colorScheme.secondary,
             category: DrugState.ACTIVE,
           ),
           PrescriptionCategoryWidget(
@@ -40,7 +41,7 @@ class LandingPrescriptionScreen extends StatelessWidget {
             title: AppLocalizations.of(context).translate('inactiveDrugs'),
             description: AppLocalizations.of(context)
                 .translate('inactiveDrugsDescription'),
-            backgroundColor: Theme.of(context).colorScheme.scrim,
+            backgroundColor: context.colorScheme.scrim,
             category: DrugState.INACTIVE,
           ),
         ],

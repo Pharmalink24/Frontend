@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pharmalink/core/helpers/extensions.dart';
+import 'package:pharmalink/core/theme/colors.dart';
 
 import '../../../../../core/routes/routes.dart';
 import '../../../../../core/theme/styles.dart';
@@ -21,7 +22,7 @@ class ForgetPasswordText extends StatelessWidget {
           child: Text(
             AppLocalizations.of(context).translate('forgetPassword'),
             style: AppTextStyle.labelMedium(context).copyWith(
-              color: Theme.of(context).colorScheme.secondary,
+              color: context.colorScheme.secondary,
             ),
           ),
         ),

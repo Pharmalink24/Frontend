@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pharmalink/core/theme/colors.dart';
 
 import '../../../../../../core/localization/app_localizations.dart';
 import '../../../../../../core/models/user.dart';
@@ -43,7 +44,7 @@ class RetrieveProfileBlocBuilder extends StatelessWidget {
             Icon(
               Icons.error,
               size: 50,
-              color: Theme.of(context).colorScheme.error,
+              color: context.colorScheme.error,
             ),
             const SizedBox(height: 20),
             Text(
@@ -57,7 +58,7 @@ class RetrieveProfileBlocBuilder extends StatelessWidget {
                 context.read<EditProfileCubit>().retrieveUserInformation();
               },
               style: ElevatedButton.styleFrom(
-                backgroundColor: Theme.of(context).colorScheme.secondary,
+                backgroundColor: context.colorScheme.secondary,
               ),
               child: Text(
                 AppLocalizations.of(context).translate('retry'),

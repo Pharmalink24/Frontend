@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pharmalink/core/helpers/extensions.dart';
+import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/widgets/loading/loading_indicator.dart';
 import 'package:pharmalink/resources/resources.dart';
 import '../../../../../core/localization/app_localizations.dart';
@@ -33,12 +34,12 @@ class ProfileInfo extends StatelessWidget {
             width: 65,
             height: 65,
             fit: BoxFit.cover,
-            imageUrl: '${ApiConstants.httpsProtocol}${user?.image}',
+            imageUrl: '${ApiConstants.httpsDomain}${user?.image}',
             imageBuilder: (context, imageProvider) => Container(
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: imageProvider,
-                  fit: BoxFit.contain,
+                  fit: BoxFit.cover,
                 ),
               ),
             ),
@@ -79,13 +80,13 @@ class ProfileInfo extends StatelessWidget {
               Text(
                 user != null ? user!.email!.crop(30) : '',
                 style: AppTextStyle.bodySmall(context).copyWith(
-                  color: Theme.of(context).colorScheme.primary,
+                  color: context.colorScheme.primary,
                 ),
               ),
               Text(
                 user != null ? '@${(user?.username ?? '').crop(28)}' : '@',
                 style: AppTextStyle.bodySmall(context).copyWith(
-                  color: Theme.of(context).colorScheme.onSecondary,
+                  color: context.colorScheme.onSecondary,
                   fontSize: 12.0,
                 ),
               ),
@@ -111,7 +112,7 @@ class ProfileInfo extends StatelessWidget {
             child: _buildUserInfo(context),
           ),
           Divider(
-            color: Theme.of(context).colorScheme.background,
+            color: context.colorScheme.background,
           ),
           const Expanded(
             flex: 2,

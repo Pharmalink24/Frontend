@@ -115,3 +115,7 @@ class AppColorScheme {
     shadow: AppColors.darkAlternate.withOpacity(0.1),
   );
 }
+
+extension ContextExt on BuildContext {
+  ColorScheme get colorScheme => Theme.of(this).colorScheme;
+}

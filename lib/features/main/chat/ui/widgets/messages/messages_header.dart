@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pharmalink/core/helpers/extensions.dart';
+import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/theme/styles.dart';
 import '../../../../../../core/networking/api_constants.dart';
 import '../../../../../../core/widgets/loading/loading_indicator.dart';
@@ -18,7 +19,7 @@ AppBar buildMessageAppBar(BuildContext context, Chat chat) {
       },
       icon: Icon(
         Icons.arrow_back,
-        color: Theme.of(context).colorScheme.onPrimary,
+        color: context.colorScheme.onPrimary,
       ),
     ),
     title: MessagesHeader(chat),
@@ -27,7 +28,7 @@ AppBar buildMessageAppBar(BuildContext context, Chat chat) {
         onPressed: () {},
         icon: Icon(
           Icons.more_horiz,
-          color: Theme.of(context).colorScheme.onPrimary,
+          color: context.colorScheme.onPrimary,
         ),
       ),
     ],
@@ -84,13 +85,13 @@ class MessagesHeader extends StatelessWidget {
             Text(
               '${chat.fname} ${chat.lname}'.crop(14),
               style: AppTextStyle.titleMedium(context).copyWith(
-                color: Theme.of(context).colorScheme.onPrimary,
+                color: context.colorScheme.onPrimary,
               ),
             ),
             Text(
               '@${chat.username}',
               style: AppTextStyle.bodySmall(context).copyWith(
-                color: Theme.of(context).colorScheme.onSecondary,
+                color: context.colorScheme.onSecondary,
               ),
             ),
           ],

@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/theme/styles.dart';
 
 class FormButton extends StatelessWidget {
@@ -54,8 +55,8 @@ class FormButton extends StatelessWidget {
           child: Text(
             text,
             style: AppTextStyle.titleSmall(context).copyWith(
-                  color: Theme.of(context).colorScheme.primaryContainer,
-                ),
+              color: context.colorScheme.primaryContainer,
+            ),
           ),
         ),
       ),

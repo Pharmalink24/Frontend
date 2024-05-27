@@ -1,5 +1,6 @@
 // Flutter Packages
 import 'package:flutter/material.dart';
+import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/theme/styles.dart';
 
 const kIconSize = 45.0;
@@ -26,7 +27,7 @@ class IconContent extends StatelessWidget {
       children: [
         Icon(
           icon,
-          color: iconColor ?? Theme.of(context).colorScheme.onSecondary,
+          color: iconColor ?? context.colorScheme.onSecondary,
           size: kIconSize,
         ),
         const SizedBox(
@@ -35,7 +36,7 @@ class IconContent extends StatelessWidget {
         Text(
           label,
           style: AppTextStyle.titleSmall(context).copyWith(
-            color: labelColor ?? Theme.of(context).colorScheme.onSecondary,
+            color: labelColor ?? context.colorScheme.onSecondary,
           ),
         ),
       ],

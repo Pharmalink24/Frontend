@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_typeahead/flutter_typeahead.dart';
+import 'package:pharmalink/core/theme/colors.dart';
 import '../../../../../core/theme/styles.dart';
 import '../../../../../core/widgets/loading/loading_indicator.dart';
 import '../../logic/cubit/drug_interaction_cubit.dart';
@@ -55,7 +56,7 @@ class DrugSearchField extends StatelessWidget {
         title: Text(
       AppLocalizations.of(context).translate('noDrugsFound'),
       style: AppTextStyle.bodyMedium(context).copyWith(
-        color: Theme.of(context).colorScheme.error,
+        color: context.colorScheme.error,
       ),
     ));
   }

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:pharmalink/core/enums/drug_state.dart';
 import 'package:pharmalink/core/helpers/extensions.dart';
 import 'package:pharmalink/core/routes/routes.dart';
+import 'package:pharmalink/core/theme/colors.dart';
 import '../../../../../core/theme/shadow.dart';
 import '../../../../../core/theme/styles.dart';
 import '../../../../../core/widgets/clip_shadow_path.dart';
@@ -27,12 +28,12 @@ class PrescriptionCategoryWidget extends StatelessWidget {
   /// this function checks that color difference between background color and
   /// text color and returns different color for text
   Color checkFontColor(BuildContext context, Color backgroundColor) {
-    if (backgroundColor == Theme.of(context).colorScheme.primary) {
-      return Theme.of(context).colorScheme.onPrimary;
-    } else if (backgroundColor == Theme.of(context).colorScheme.secondary) {
-      return Theme.of(context).colorScheme.primaryContainer;
+    if (backgroundColor == context.colorScheme.primary) {
+      return context.colorScheme.onPrimary;
+    } else if (backgroundColor == context.colorScheme.secondary) {
+      return context.colorScheme.primaryContainer;
     } else {
-      return Theme.of(context).colorScheme.onBackground;
+      return context.colorScheme.onBackground;
     }
   }
 

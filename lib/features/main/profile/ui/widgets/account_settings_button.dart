@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pharmalink/core/theme/colors.dart';
 import '../../../../../core/theme/styles.dart';
 
 class AccountSettingsButton extends StatelessWidget {
@@ -35,7 +36,7 @@ class AccountSettingsButton extends StatelessWidget {
               ),
               Icon(
                 Icons.arrow_forward_ios,
-                color: Theme.of(context).colorScheme.onSecondary,
+                color: context.colorScheme.onSecondary,
                 size: 18,
               ),
             ],

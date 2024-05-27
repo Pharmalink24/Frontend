@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pharmalink/core/theme/colors.dart';
 import '../../../../../core/Blocs/theme/theme_cubit.dart';
 import '../../../../../core/shared_preferences/settings_prefs.dart';
 import '../../../../../core/theme/styles.dart';
@@ -26,15 +27,15 @@ class DarkModeSwitch extends StatelessWidget {
             value: SettingsSharedPrefs.getTheme() == 1,
             onChanged: (value) => _onChanged(context, value),
             trackOutlineColor: MaterialStatePropertyAll(
-              Theme.of(context).colorScheme.primary,
+              context.colorScheme.primary,
             ),
             thumbColor: MaterialStatePropertyAll(
-              Theme.of(context).colorScheme.primary,
+              context.colorScheme.primary,
             ),
-            activeTrackColor: Theme.of(context).colorScheme.primaryContainer,
-            activeColor: Theme.of(context).colorScheme.primaryContainer,
-            inactiveTrackColor: Theme.of(context).colorScheme.primaryContainer,
-            inactiveThumbColor: Theme.of(context).colorScheme.tertiary,
+            activeTrackColor: context.colorScheme.primaryContainer,
+            activeColor: context.colorScheme.primaryContainer,
+            inactiveTrackColor: context.colorScheme.primaryContainer,
+            inactiveThumbColor: context.colorScheme.tertiary,
           ),
         ],
       ),

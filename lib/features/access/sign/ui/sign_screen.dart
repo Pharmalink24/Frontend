@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/features/access/sign/ui/widgets/form_tab.dart';
 import '../../../../core/theme/app_bar.dart';
 import '../../../../core/widgets/terms_and_conditions_text.dart';
@@ -13,7 +14,7 @@ class SignScreen extends StatelessWidget {
     return PopScope(
       canPop: false,
       child: Scaffold(
-        backgroundColor: Theme.of(context).colorScheme.primaryContainer,
+        backgroundColor: context.colorScheme.primaryContainer,
         appBar: const AppBarWidget(
           type: AppBarType.withoutTitle,
           isCentered: true,

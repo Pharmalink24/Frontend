@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pharmalink/core/helpers/extensions.dart';
 import 'package:pharmalink/core/routes/routes.dart';
+import 'package:pharmalink/core/theme/styles.dart';
 import 'package:pharmalink/core/widgets/loading/loading_overlay.dart';
 import 'package:pharmalink/features/main/settings/edit_profile/logic/cubit/edit_profile_cubit.dart';
 import 'package:pharmalink/features/main/settings/edit_profile/logic/cubit/edit_profile_state.dart';
@@ -23,8 +24,9 @@ class ChangeImageListener extends StatelessWidget {
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: const Text('Success'),
-          content: const Text('Image uploaded successfully'),
+          title: Text('Success', style: AppTextStyle.headlineLarge(context)),
+          content: Text('Image uploaded successfully',
+              style: AppTextStyle.bodyMedium(context)),
           actions: <Widget>[
             TextButton(
               onPressed: () {

@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pharmalink/core/theme/app_bar.dart';
+import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/widgets/form/form_button.dart';
 import 'package:pharmalink/core/localization/app_localizations.dart';
 import 'package:pharmalink/core/widgets/form/form_view.dart';
@@ -33,7 +34,7 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.primaryContainer,
+      backgroundColor: context.colorScheme.primaryContainer,
       appBar: AppBarWidget(
         type: AppBarType.withoutLogo,
         title: AppLocalizations.of(context).translate('forgetPassword'),

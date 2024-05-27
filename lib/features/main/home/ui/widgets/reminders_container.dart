@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pharmalink/core/helpers/extensions.dart';
+import 'package:pharmalink/core/theme/colors.dart';
 import '../../../../../core/routes/routes.dart';
 import '../../../../../core/theme/styles.dart';
 import '../../../../../core/widgets/card_container_with_title.dart';
@@ -32,14 +33,14 @@ class RemindersContainer extends StatelessWidget {
         Icon(
           Icons.playlist_add_check_circle_rounded,
           size: 80,
-          color: Theme.of(context).colorScheme.onSecondary,
+          color: context.colorScheme.onSecondary,
         ),
         Center(
           child: Text(
             AppLocalizations.of(context).translate('noRemindersToday'),
             textAlign: TextAlign.center,
             style: AppTextStyle.headlineSmall(context).copyWith(
-              color: Theme.of(context).colorScheme.onSecondary,
+              color: context.colorScheme.onSecondary,
             ),
           ),
         ),
@@ -55,7 +56,8 @@ class RemindersContainer extends StatelessWidget {
       iconButton: TextWithIcon(
         icon: Icons.calendar_today_outlined,
         text: '',
-        onTap: () => context.pushNamed(Routes.remindersCalenderScreen, argument: reminders),
+        onTap: () => context.pushNamed(Routes.remindersCalenderScreen,
+            argument: reminders),
       ),
       child: reminders.isEmpty
           ? buildNoDataWidget(context)

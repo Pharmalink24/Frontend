@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:pharmalink/core/theme/colors.dart';
 
 class AppShadows {
   // Shadow
   static Shadow shadow(BuildContext context) {
     return Shadow(
-      color: Theme.of(context).colorScheme.shadow,
+      color: context.colorScheme.shadow,
       blurRadius: 4.0,
       offset: const Offset(0, 1),
     );
@@ -14,7 +15,7 @@ class AppShadows {
   static List<BoxShadow> box(BuildContext context) {
     return [
       BoxShadow(
-        color: Theme.of(context).colorScheme.shadow,
+        color: context.colorScheme.shadow,
         blurRadius: 4.0,
         offset: const Offset(0, 1),
       ),

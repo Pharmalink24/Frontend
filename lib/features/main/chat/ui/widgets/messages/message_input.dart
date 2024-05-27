@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pharmalink/core/theme/colors.dart';
 
 class MessageInput extends StatelessWidget {
   final void Function()? onPressed;
@@ -19,10 +20,10 @@ class MessageInput extends StatelessWidget {
           start: 16, end: 16, top: 0, bottom: 16),
       padding: const EdgeInsetsDirectional.only(start: 16, end: 16),
       decoration: BoxDecoration(
-        color: Theme.of(context).colorScheme.primaryContainer,
+        color: context.colorScheme.primaryContainer,
         borderRadius: BorderRadius.circular(32),
         border: Border.all(
-          color: Theme.of(context).colorScheme.onTertiary,
+          color: context.colorScheme.onTertiary,
         ),
         boxShadow: [
           BoxShadow(
@@ -47,8 +48,7 @@ class MessageInput extends StatelessWidget {
           ),
           IconButton(
             onPressed: onPressed,
-            icon: Icon(Icons.send,
-                color: Theme.of(context).colorScheme.secondary),
+            icon: Icon(Icons.send, color: context.colorScheme.secondary),
           ),
         ],
       ),

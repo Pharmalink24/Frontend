@@ -1,6 +1,7 @@
 import "package:flutter/material.dart";
 import 'package:pharmalink/core/helpers/classes/field_item.dart';
 import 'package:pharmalink/core/localization/app_localizations.dart';
+import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/theme/styles.dart';
 
 class FormDropDownButton extends StatelessWidget {
@@ -51,7 +52,7 @@ class FormDropDownButton extends StatelessWidget {
         child: DropdownButton(
           icon: Icon(
             Icons.keyboard_arrow_down_rounded,
-            color: Theme.of(context).colorScheme.secondary,
+            color: context.colorScheme.secondary,
             size: 24,
           ),
           hint: Text(hintText ?? ""),

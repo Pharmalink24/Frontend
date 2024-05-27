@@ -3,13 +3,13 @@ import 'package:pharmalink/core/theme/colors.dart';
 
 class AppGradients {
   static primaryColors(BuildContext context) => [
-        Theme.of(context).colorScheme.primary,
+        context.colorScheme.primary,
         AppColors.accent4,
       ];
 
   static secondaryColors(BuildContext context) => [
-        Theme.of(context).colorScheme.primary,
-        Theme.of(context).colorScheme.background,
+        context.colorScheme.primary,
+        context.colorScheme.background,
       ];
 
   // Gradient Colors

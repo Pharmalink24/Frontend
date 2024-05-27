@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pharmalink/core/theme/colors.dart';
 import '../localization/app_localizations.dart';
 import '../theme/styles.dart';
 
@@ -27,7 +28,7 @@ class TermsAndConditionsText extends StatelessWidget {
               text: AppLocalizations.of(context)
                   .translate('termsAndConditionsP2'),
               style: AppTextStyle.labelSmall(context).copyWith(
-                color: Theme.of(context).colorScheme.secondary,
+                color: context.colorScheme.secondary,
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -42,7 +43,7 @@ class TermsAndConditionsText extends StatelessWidget {
               text: AppLocalizations.of(context)
                   .translate('termsAndConditionsP4'),
               style: AppTextStyle.labelSmall(context).copyWith(
-                color: Theme.of(context).colorScheme.secondary,
+                color: context.colorScheme.secondary,
                 fontWeight: FontWeight.bold,
               ),
             ),
