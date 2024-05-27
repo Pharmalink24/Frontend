@@ -37,13 +37,13 @@ class LogoutButton extends StatelessWidget {
                   style: AppTextStyle.titleSmall(context),
                 ),
               ),
-              // Todo: Implement log out with AuthCubit
               TextButton(
                 onPressed: () async {
                   // Close dialog
                   context.pop();
+
                   // Log out
-                  context.read<AuthCubit>().logout();
+                  BlocProvider.of<AuthCubit>(context).logout();
                   context.pushReplacementNamed(Routes.signScreen);
                 },
                 child: Text(

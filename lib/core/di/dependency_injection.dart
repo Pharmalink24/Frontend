@@ -38,10 +38,11 @@ import '../networking/socket_service.dart';
 final getIt = GetIt.instance;
 
 Future<void> setupGetIt() async {
-  // Dio & ApiService
+  // Auth Dio & Auth Service
   Dio authDio = AuthDioFactory.getDio();
-  AuthService authService = AuthService(authDio);
-  Dio appDio = AppDioFactory.getDio(authService);
+  getIt.registerLazySingleton<AuthService>(() => AuthService(authDio));
+  // Api Dio & Api Service
+  Dio appDio = AppDioFactory.getDio(getIt());
   getIt.registerLazySingleton<ApiService>(() => ApiService(appDio));
 
   // Socket

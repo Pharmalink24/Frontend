@@ -1,15 +1,13 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
-import 'package:logger/logger.dart';
 import 'package:pharmalink/features/main/chat/data/models/messages_history_response.dart';
-import 'package:pharmalink/features/main/chat/ui/widgets/messages/message_card.dart';
 import '../../../../../core/helpers/errors.dart';
 import '../../data/models/message.dart';
 import '../../data/repo/chat_repo.dart';
 import 'chat_state.dart';
 
-const _kPageSize = 20;
+const _kNumberOfMessagesPerRequest = 20;
 
 class ChatCubit extends Cubit<ChatState> {
   final ChatRepo _chatRepo;
@@ -51,7 +49,7 @@ class ChatCubit extends Cubit<ChatState> {
     final response = await _chatRepo.retrieveAllMessages(
       receiverDoctorId,
       pageNumber: pageKey,
-      pageSize: _kPageSize,
+      pageSize: _kNumberOfMessagesPerRequest,
     );
 
     response.when(

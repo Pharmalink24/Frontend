@@ -1,12 +1,10 @@
 import 'dart:convert';
 import 'package:logger/logger.dart';
 import 'package:pharmalink/core/networking/api_service.dart';
-import 'package:pharmalink/core/networking/socket_channel.dart';
 import 'package:pharmalink/core/networking/socket_service.dart';
 import 'package:pharmalink/core/shared_preferences/auth_prefs.dart';
 import '../../../../../core/networking/api_error_handler.dart';
 import '../../../../../core/networking/api_result.dart';
-import '../models/chat.dart';
 import '../models/chats_response.dart';
 import '../models/message.dart';
 import '../models/messages_history_response.dart';
@@ -66,8 +64,11 @@ class ChatRepo {
   }
 
   // ------------------------ All Messages Channels ------------------------ //
-  Future<ApiResult<MessagesHistoryResponse>> retrieveAllMessages(int receiverId,
-      {int pageSize = 10, int pageNumber = 1}) async {
+  Future<ApiResult<MessagesHistoryResponse>> retrieveAllMessages(
+    int receiverId, {
+    int pageSize = 10,
+    int pageNumber = 1,
+  }) async {
     try {
       final result = await _apiService.getMessagesHistory(
         AuthSharedPrefs.getUserId() ?? -1,
