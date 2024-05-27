@@ -107,6 +107,22 @@ class WelcomeNameText extends StatelessWidget {
     );
   }
 
+  Widget _buildIconButton(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        color: context.colorScheme.secondary.withOpacity(0.3),
+      ),
+      child: IconButton(
+        icon: const Icon(Icons.notifications_none),
+        onPressed: () {
+          Logger().i('Notification button pressed');
+        },
+        color: context.colorScheme.onTertiary,
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -122,13 +138,7 @@ class WelcomeNameText extends StatelessWidget {
             _buildName(context),
           ],
         ),
-        IconButton(
-          onPressed: () {},
-          icon: Icon(
-            Icons.notifications,
-            color: context.colorScheme.secondary,
-          ),
-        ),
+        _buildIconButton(context),
       ],
     );
   }
