@@ -1,22 +1,30 @@
-import 'dart:convert';
-
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:pharmalink/features/main/chat/data/models/chats_response.dart';
+import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
+import 'package:logger/logger.dart';
 import 'package:pharmalink/features/main/chat/data/models/messages_history_response.dart';
+import 'package:pharmalink/features/main/chat/ui/widgets/messages/message_card.dart';
 import '../../../../../core/helpers/errors.dart';
 import '../../data/models/message.dart';
 import '../../data/repo/chat_repo.dart';
 import 'chat_state.dart';
 
+const _kPageSize = 20;
+
 class ChatCubit extends Cubit<ChatState> {
   final ChatRepo _chatRepo;
   ChatCubit(this._chatRepo) : super(const ChatState.initial());
 
-  // Controller
-  TextEditingController controller = TextEditingController();
+  // Message Input Controller
+  TextEditingController messageController = TextEditingController();
 
-  // List
+  // Messages pagination controller
+  final PagingController<int, Message> pagingController =
+      PagingController(firstPageKey: 0);
+
+  int lastPage = 0;
+
+  // List of messages
   List<Message> messagesResponse = [];
 
   // Listen to the messaging channel
@@ -35,41 +43,56 @@ class ChatCubit extends Cubit<ChatState> {
   }
 
   // Get all messages
-  void retrieveChatMessages(int receiverDoctorId) async {
-    // Loading state
-    emit(const ChatState.allMessagesReceivedLoading());
-
+  void retrieveChatMessages(
+    int receiverDoctorId, {
+    int pageKey = 0,
+  }) async {
     // Retrieve all messages
-    await _chatRepo.retrieveAllMessages(receiverDoctorId).then(
-          (response) => response.when(
-            success: (messagesHistoryResponse) {
-              // Update the UI
-              emit(ChatState.allMessagesReceivedSuccessfully(
-                  messagesHistoryResponse));
-            },
-            failure: (error) {
-              emit(
-                ChatState.allMessagesReceivedError(
-                  error.apiErrorModel.error ?? ERR.UNEXPECTED,
-                ),
-              );
-            },
+    final response = await _chatRepo.retrieveAllMessages(
+      receiverDoctorId,
+      pageNumber: pageKey,
+      pageSize: _kPageSize,
+    );
+
+    response.when(
+      success: (newPage) {
+        final previouslyFetchedItemsCount =
+            pagingController.itemList?.length ?? 0;
+
+        final isLastPage = newPage.isLastPage(previouslyFetchedItemsCount);
+        final newItems = newPage.messages;
+
+        if (isLastPage) {
+          pagingController.appendLastPage(newItems);
+        } else {
+          final nextPageKey = pageKey + 1;
+          pagingController.appendPage(newItems, nextPageKey);
+        }
+
+        // Update the UI
+        emit(const ChatState.allMessagesReceivedSuccessfully());
+      },
+      failure: (error) {
+        // Paging controller error
+        pagingController.error = error;
+
+        // Update the UI
+        emit(
+          ChatState.allMessagesReceivedError(
+            error.apiErrorModel.error ?? ERR.UNEXPECTED,
           ),
         );
+      },
+    );
   }
 
   // Retrieve user chats
   void retrieveUserChats() {
-    // Retrieve the user chats
-    // Listen to the user chats channel
-
-    _chatRepo.retrieveUserChats().stream.listen(
-      (event) {
+    _chatRepo.retrieveUserChats(
+      (chats) {
         // Loading state
         emit(const ChatState.userChatsReceivedLoading());
 
-        // Convert the event to json
-        final ChatsResponse chats = ChatsResponse.fromJson(jsonDecode(event));
         // Update the UI
         emit(ChatState.userChatsReceivedSuccessfully(chats));
       },
@@ -78,19 +101,20 @@ class ChatCubit extends Cubit<ChatState> {
 
   // Send message to the chat channel
   void sendMessage(int receiverDoctorId) {
-    if (controller.text.isNotEmpty) {
+    if (messageController.text.isNotEmpty) {
       // Create the message
       _chatRepo.sendMessageToMessagingChannel(
-          receiverDoctorId, controller.text);
+          receiverDoctorId, messageController.text);
 
       // Clear the input field
-      controller.clear();
+      messageController.clear();
     }
   }
 
   // Dispose
   void dispose() {
-    controller.dispose();
+    messageController.dispose();
+    pagingController.dispose();
     super.close();
   }
 }

@@ -129,6 +129,18 @@
     "dr": "Dr.",
     "about": "About",
     "no_info": "No information available",
-    "chat": "Chat"
+    "chat": "Chat",
+
+    "calender": "Calender",
+
+    "noDrugsFound": "No drugs found",
+
+    "chats": "Chats",
+    "chatWith": "Chat with",
+    "noChats": "No Chats",
+    "noChatsMessage": "Start a new chat with a doctor",
+    "startChat": "Start Chat",
+    "chatWithDoctor": "Chat with Doctor",
+    "chatsDescription": "View your chat with a doctor."
 
 }

@@ -19,17 +19,18 @@ class ChatRepo {
   ChatRepo(this._socketService, this._apiService);
 
   // ------------------------ Chat Channels ------------------------ //
-  SocketChannel retrieveUserChats() {
+  void retrieveUserChats(Function(ChatsResponse chats) onListen) {
     // Get the access token
     final String accessToken = AuthSharedPrefs.getAccessToken() ?? '';
 
     // Connect to the user chats channel
-    return _socketService.connectToUserChatsChannel(accessToken);
+    _socketService.connectToUserChatsChannel(accessToken);
 
     // Listen to the user chats channel
-    // _socketService.listenToUserChats((event) {
-    //   final ChatsResponse chats = ChatsResponse.fromJson(jsonDecode(event));
-    // });
+    _socketService.listenToUserChats((event) {
+      final ChatsResponse chats = ChatsResponse.fromJson(jsonDecode(event));
+      onListen(chats);
+    });
 
     // Close the user chats channel
     // _socketService.closeUserChatsChannel();

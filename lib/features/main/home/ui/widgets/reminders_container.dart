@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:pharmalink/core/helpers/extensions.dart';
+import '../../../../../core/routes/routes.dart';
 import '../../../../../core/theme/styles.dart';
 import '../../../../../core/widgets/card_container_with_title.dart';
 import '../../../../../core/widgets/text_with_icon.dart';
@@ -50,9 +52,10 @@ class RemindersContainer extends StatelessWidget {
     return CardContainerWithTitle(
       title: AppLocalizations.of(context).translate('yourReminders'),
       isScrollable: reminders.isEmpty ? true : false,
-      iconButton: const TextWithIcon(
+      iconButton: TextWithIcon(
         icon: Icons.calendar_today_outlined,
         text: '',
+        onTap: () => context.pushNamed(Routes.remindersCalenderScreen, argument: reminders),
       ),
       child: reminders.isEmpty
           ? buildNoDataWidget(context)

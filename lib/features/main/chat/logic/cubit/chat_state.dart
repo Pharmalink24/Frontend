@@ -11,11 +11,6 @@ class ChatState<T> with _$ChatState<T> {
   const factory ChatState.connectedSuccessfully() = ConnectedSuccessfully;
   const factory ChatState.connectedError(String message) = ConnectedError;
 
-  // Send a message
-  const factory ChatState.messageSentLoading() = MessageSentLoading;
-  const factory ChatState.messageSentSuccessfully() = MessageSentSuccessfully;
-  const factory ChatState.messageSentError(String message) = MessageSentError;
-
   // Get user chats
   const factory ChatState.userChatsReceivedLoading() = UserChatsReceivedLoading;
   const factory ChatState.userChatsReceivedSuccessfully(T chats) =
@@ -23,11 +18,16 @@ class ChatState<T> with _$ChatState<T> {
   const factory ChatState.userChatsReceivedError(String message) =
       UserChatsReceivedError;
 
+  // Send a message
+  const factory ChatState.messageSentLoading() = MessageSentLoading;
+  const factory ChatState.messageSentSuccessfully() = MessageSentSuccessfully;
+  const factory ChatState.messageSentError(String message) = MessageSentError;
+
   // Get all messages
   const factory ChatState.allMessagesReceivedLoading() =
       AllMessagesReceivedLoading;
-  const factory ChatState.allMessagesReceivedSuccessfully(T messages) =
-      AllMessagesReceivedSuccessfully<T>;
+  const factory ChatState.allMessagesReceivedSuccessfully() =
+      AllMessagesReceivedSuccessfully;
   const factory ChatState.allMessagesReceivedError(String message) =
       AllMessagesReceivedError;
 }

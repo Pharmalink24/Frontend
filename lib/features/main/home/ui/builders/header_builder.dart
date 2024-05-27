@@ -7,26 +7,18 @@ import '../../../profile/logic/profile_cubit/profile_cubit.dart';
 import '../../../profile/logic/profile_cubit/profile_state.dart';
 import '../widgets/welcome_name_text.dart';
 
-const kFlex = 1;
-
 class HeaderBuilder extends StatelessWidget {
   const HeaderBuilder({super.key});
 
   // Success widget
   Widget buildSuccessWidget(User user) {
-    return Expanded(
-      flex: kFlex,
-      child: WelcomeNameText(fname: user.fname!, lname: user.lname!),
-    );
+    return WelcomeNameText(fname: user.fname!, lname: user.lname!);
   }
 
   // Loading widget
   Widget buildLoadingWidget() {
-    return const Expanded(
-      flex: kFlex,
-      child: AppShimmer(
-        child: WelcomeNameText(),
-      ),
+    return const AppShimmer(
+      child: WelcomeNameText(),
     );
   }
 

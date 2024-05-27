@@ -9,6 +9,9 @@ class Routes {
   static const String verificationScreen = '/verificationScreen';
   static const String forgetPasswordScreen = '/forgetPasswordScreen';
 
+  // Reminder
+  static const String remindersCalenderScreen = '/remindersCalenderScreen';
+
   // Patient
   static const String mainScreen = '/mainScreen';
   static const String homeScreen = '/homeScreen';

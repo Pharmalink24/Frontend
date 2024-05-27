@@ -53,7 +53,10 @@ class DrugSearchField extends StatelessWidget {
   Widget noDrugFoundWidget(BuildContext context) {
     return ListTile(
         title: Text(
-      AppLocalizations.of(context).translate('noInteractions'),
+      AppLocalizations.of(context).translate('noDrugsFound'),
+      style: AppTextStyle.bodyMedium(context).copyWith(
+        color: Theme.of(context).colorScheme.error,
+      ),
     ));
   }
 

@@ -44,18 +44,6 @@ abstract class ApiService {
     @Body() SigninRequestBody signinRequestBody,
   );
 
-  // Logout
-  @POST(ApiConstants.logout)
-  Future<void> logout(
-    @Header('Authorization') String? auth,
-  );
-
-  // Refresh Token
-  @POST(ApiConstants.refreshToken)
-  Future<RefreshTokenResponse> refreshToken(
-    @Body() RefreshTokenRequestBody refreshTokenRequestBody,
-  );
-
   // Signup
   @POST(ApiConstants.signUp)
   Future<SignupResponse> signup(

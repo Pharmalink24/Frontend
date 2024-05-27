@@ -9,4 +9,11 @@ Future<void> init() async {
   setupGetIt();
   // Initialize PreferenceUtils instance.
   await SharedPrefsService.init();
+
+  // Initialize WebSocket
+  initWebSocket();
+}
+
+void initWebSocket() {
+  // BlocProvider.of<ChatCubit>(context).listenToMessaging();
 }

@@ -48,28 +48,15 @@ class ReminderListTile extends StatelessWidget {
     );
   }
 
-  Widget _buildThirdRow(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.end,
-      children: [
-        IconButton(
-          icon: const Icon(Icons.delete_outline_rounded),
-          iconSize: 20.0,
-          onPressed: () => _checkReminder(context),
-        ),
-      ],
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.only(
-        left: 4,
-        right: 8,
+        left: 16,
+        right: 16,
         top: 4,
-        bottom: 0,
+        bottom: 8,
       ),
       margin: const EdgeInsets.only(bottom: 12),
       decoration: BoxDecoration(
@@ -98,8 +85,8 @@ class ReminderListTile extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 _buildFirstRow(context),
+                const SizedBox(height: 4),
                 _buildSecondRow(context),
-                _buildThirdRow(context),
               ],
             ),
           ),

@@ -9,12 +9,13 @@ import 'package:pharmalink/core/shared_preferences/auth_prefs.dart';
 import 'package:pharmalink/features/access/auth/data/models/refresh_token_request_body.dart';
 import 'package:pharmalink/features/access/auth/data/models/refresh_token_response.dart';
 
+import '../../../../../core/networking/auth_service.dart';
 import '../../../sign/data/models/signin/signin_response.dart';
 
 
 class AuthRepo {
-  final ApiService _apiService;
-  AuthRepo(this._apiService);
+  final AuthService _authService;
+  AuthRepo(this._authService);
 
   bool isLoggedIn() {
     try {
@@ -27,7 +28,7 @@ class AuthRepo {
 
   Future<void> logout() async {
     try {
-      await _apiService.logout(AuthSharedPrefs.getAccessToken());
+      await _authService.logout(AuthSharedPrefs.getAccessToken());
     } catch (error) {
       getIt<Logger>().e(error);
     }
@@ -46,35 +47,6 @@ class AuthRepo {
       await AuthSharedPrefs.storeAuthData(auth);
     } catch (error) {
       getIt<Logger>().e(error);
-    }
-  }
-
-  Future<void> setAccessToken(String accessToken) async {
-    try {
-      await AuthSharedPrefs.storeAuthData(
-        SigninResponse(
-          id: AuthSharedPrefs.getUserId() ?? 0,
-          username: AuthSharedPrefs.getUsername() ?? '',
-          email: AuthSharedPrefs.getEmail() ?? '',
-          accessToken: accessToken,
-          refreshToken: AuthSharedPrefs.getRefreshToken() ?? '',
-        ),
-      );
-    } catch (error) {
-      getIt<Logger>().e(error);
-    }
-  }
-
-  Future<ApiResult<RefreshTokenResponse>> refreshToken() async {
-    try {
-      final response = await _apiService.refreshToken(
-        RefreshTokenRequestBody(
-          refreshToken: AuthSharedPrefs.getRefreshToken() ?? '',
-        ),
-      );
-      return ApiResult.success(response);
-    } catch (error) {
-      return ApiResult.failure(ErrorHandler.handle(error));
     }
   }
 }

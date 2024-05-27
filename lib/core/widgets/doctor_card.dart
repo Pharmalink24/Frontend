@@ -37,71 +37,82 @@ class DoctorCard extends StatelessWidget {
       child: GestureDetector(
         onTap: () =>
             context.pushNamed(Routes.doctorScreen, argument: doctor.id),
-        child: Container(
-          width: width,
-          height: height,
-          decoration: BoxDecoration(
-            boxShadow: AppShadows.box(context),
-            gradient: AppGradients.main(context),
-            borderRadius: BorderRadius.circular(16),
+        child: ClipPath(
+          clipper: const ShapeBorderClipper(
+            shape: ContinuousRectangleBorder(
+              borderRadius: BorderRadius.all(
+                Radius.circular(80),
+              ),
+            ),
           ),
-          child: Padding(
-            padding: innerPadding,
-            child: Row(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Flexible(
-                  flex: 3,
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Dr. ${doctor.firstName.crop(8)}\n${doctor.lastName.crop(8)}',
-                        textAlign: TextAlign.start,
-                        style: AppTextStyle.titleMedium(context).copyWith(
-                          fontSize: titleFontSize,
-                        ),
-                      ),
-                      Text(
-                        doctor.specialty.crop(14),
-                        style: AppTextStyle.bodyMedium(context).copyWith(
-                          fontSize: subTitleFontSize,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Flexible(
-                  flex: 2,
-                  child: Align(
-                    alignment: const AlignmentDirectional(1, 1),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(12),
-                      child: CachedNetworkImage(
-                        imageUrl: "${ApiConstants.httpsDomain}${doctor.image}",
-                        fit: BoxFit.cover,
-                        imageBuilder: (context, imageProvider) => Container(
-                          decoration: BoxDecoration(
-                            image: DecorationImage(
-                              image: imageProvider,
-                              fit: BoxFit.scaleDown,
-                            ),
+          child: Container(
+            width: width,
+            height: height,
+            decoration: BoxDecoration(
+              boxShadow: AppShadows.box(context),
+              gradient: AppGradients.main(context),
+              borderRadius: BorderRadius.circular(16),
+            ),
+            child: Padding(
+              padding: innerPadding,
+              child: Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Flexible(
+                    flex: 3,
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Dr. ${doctor.firstName.crop(8)}\n${doctor.lastName.crop(8)}',
+                          textAlign: TextAlign.start,
+                          style: AppTextStyle.titleMedium(context).copyWith(
+                            fontSize: titleFontSize,
                           ),
                         ),
-                        progressIndicatorBuilder: (context, url,
-                                downloadProgress) =>
-                            LoadingIndicator(loadingProgress: downloadProgress),
-                        errorWidget: (context, url, error) =>
-                            Image.asset(Placeholders.doctorPlaceholder),
+                        Text(
+                          doctor.specialty.crop(14),
+                          style: AppTextStyle.bodyMedium(context).copyWith(
+                            fontSize: subTitleFontSize,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Flexible(
+                    flex: 3,
+                    child: Align(
+                      alignment: const AlignmentDirectional(1, 1),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(12),
+                        child: CachedNetworkImage(
+                          imageUrl:
+                              "${ApiConstants.httpsDomain}${doctor.image}",
+                          fit: BoxFit.cover,
+                          imageBuilder: (context, imageProvider) => Container(
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                image: imageProvider,
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ),
+                          progressIndicatorBuilder:
+                              (context, url, downloadProgress) =>
+                                  LoadingIndicator(
+                                      loadingProgress: downloadProgress),
+                          errorWidget: (context, url, error) =>
+                              Image.asset(Placeholders.doctorPlaceholder),
+                        ),
                       ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),

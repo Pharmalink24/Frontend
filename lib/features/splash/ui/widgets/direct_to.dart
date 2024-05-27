@@ -18,6 +18,8 @@ class _DirectToState extends State<DirectTo> {
   @override
   void initState() {
     super.initState();
+
+    // Load preferences after the frame is rendered
     WidgetsBinding.instance
         .addPostFrameCallback((_) => _loadPreferences().then((_) {
               direct(context);

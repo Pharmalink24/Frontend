@@ -7,7 +7,7 @@ import '../../../reminders/data/models/reminder.dart';
 import '../../../reminders/logic/reminders_cubit.dart';
 import '../widgets/reminders_container.dart';
 
-const kFlex = 6;
+const kFlex = 7;
 
 class RemindersBuilder extends StatelessWidget {
   const RemindersBuilder({super.key});

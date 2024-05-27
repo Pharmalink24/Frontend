@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:logger/logger.dart';
+import 'package:pharmalink/core/networking/auth_service.dart';
 import 'package:pharmalink/features/main/chat/logic/cubit/chat_cubit.dart';
 import '../../features/access/forget_password/data/repo/forget_password_repo.dart';
 import '../../features/access/forget_password/logic/forget_password_cubit.dart';
@@ -22,7 +23,8 @@ import '../Blocs/locale/locale_cubit.dart';
 import '../Blocs/theme/theme_cubit.dart';
 import 'package:pharmalink/features/main/chat/data/repo/chat_repo.dart';
 import '../networking/api_service.dart';
-import '../networking/dio_factory.dart';
+import '../networking/auth_dio_factory.dart';
+import '../networking/app_dio_factory.dart';
 import '../../features/access/auth/logic/cubit/auth_cubit.dart';
 import '../../features/access/auth/data/repo/auth_repo.dart';
 import '../../features/access/sign/data/repo/signin_repo.dart';
@@ -37,8 +39,10 @@ final getIt = GetIt.instance;
 
 Future<void> setupGetIt() async {
   // Dio & ApiService
-  Dio dio = DioFactory.getDio();
-  getIt.registerLazySingleton<ApiService>(() => ApiService(dio));
+  Dio authDio = AuthDioFactory.getDio();
+  AuthService authService = AuthService(authDio);
+  Dio appDio = AppDioFactory.getDio(authService);
+  getIt.registerLazySingleton<ApiService>(() => ApiService(appDio));
 
   // Socket
   getIt.registerLazySingleton<SocketService>(() => SocketService());

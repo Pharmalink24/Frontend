@@ -1,4 +1,6 @@
 // Flutter Packages
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pharmalink/core/localization/app_localizations.dart';
@@ -11,6 +13,7 @@ import '../../../../core/theme/app_bar.dart';
 import '../logic/cubit/doctors_state.dart';
 import 'widgets/doctor_image.dart';
 import 'widgets/doctor_name.dart';
+import 'package:sensors_plus/sensors_plus.dart';
 
 class DoctorScreen extends StatefulWidget {
   final int id;
@@ -25,6 +28,7 @@ class DoctorScreen extends StatefulWidget {
 }
 
 class _DoctorScreenState extends State<DoctorScreen> {
+
   @override
   void initState() {
     super.initState();
@@ -33,6 +37,7 @@ class _DoctorScreenState extends State<DoctorScreen> {
     context.read<DoctorsCubit>().emitDoctorProfile(widget.id);
   }
 
+  // Build the doctor profile
   Widget _buildDoctorProfile(DoctorInfo doctor) {
     return Column(
       mainAxisSize: MainAxisSize.max,
@@ -48,6 +53,7 @@ class _DoctorScreenState extends State<DoctorScreen> {
     );
   }
 
+  // Build the error message
   Widget _buildError(String error) {
     return Center(
       child: Text(
@@ -59,7 +65,8 @@ class _DoctorScreenState extends State<DoctorScreen> {
     );
   }
 
-  Widget _buildLoading() {
+  // Build the loading shimmer
+  Widget _buildShimmerLoading() {
     return const AppShimmer(
       child: Column(
         mainAxisSize: MainAxisSize.max,
@@ -84,7 +91,7 @@ class _DoctorScreenState extends State<DoctorScreen> {
       body: BlocBuilder<DoctorsCubit, DoctorsState>(
         builder: (context, state) {
           if (state is Loading) {
-            return _buildLoading();
+            return _buildShimmerLoading();
           } else if (state is Success) {
             return _buildDoctorProfile(state.data);
           } else if (state is Error) {

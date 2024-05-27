@@ -12,4 +12,6 @@ part 'placeholders.dart';
 
 part 'splash.dart';
 
+part 'faces.dart';
+
 part 'languages.dart';

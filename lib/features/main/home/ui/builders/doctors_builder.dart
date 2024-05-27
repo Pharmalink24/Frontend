@@ -46,9 +46,7 @@ class DoctorsBuilder extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<DoctorsCubit, DoctorsState>(
       buildWhen: (previous, current) =>
-          current is Loading ||
-          current is Success ||
-          current is Error,
+          current is Loading || current is Success || current is Error,
       builder: (context, state) {
         if (state is Success) {
           var doctors = state.data;

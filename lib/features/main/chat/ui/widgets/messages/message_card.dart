@@ -29,8 +29,8 @@ class MessageCard extends StatelessWidget {
     return Container(
       padding: const EdgeInsetsDirectional.fromSTEB(16, 8, 16, 8),
       margin: isMeSender()
-          ? const EdgeInsetsDirectional.only(start: 64, end: 0, top: 16)
-          : const EdgeInsetsDirectional.only(start: 0, end: 64, top: 16),
+          ? const EdgeInsetsDirectional.only(start: 64, end: 0)
+          : const EdgeInsetsDirectional.only(start: 0, end: 64),
       decoration: BoxDecoration(
         color: isMeSender()
             ? Theme.of(context).colorScheme.secondary

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:logger/logger.dart';
+import 'package:pharmalink/core/localization/app_localizations.dart';
 import 'package:pharmalink/core/theme/styles.dart';
 import 'package:pharmalink/core/widgets/loading/loading_indicator.dart';
+import 'package:pharmalink/features/main/chat/data/models/chats_response.dart';
 import 'package:pharmalink/features/main/chat/logic/cubit/chat_cubit.dart';
 import 'package:pharmalink/features/main/chat/ui/widgets/all_chats/all_chats_header.dart';
 import '../data/models/chat.dart';
@@ -22,7 +23,11 @@ class _ChatsScreenState extends State<ChatsScreen> {
     super.initState();
 
     // Listen to messaging
-    context.read<ChatCubit>().listenToMessaging();
+    BlocProvider.of<ChatCubit>(context).retrieveUserChats();
+
+    // Todo: Check if this is the best place to initialize WebSocket
+    // Initialize WebSocket for chat
+    BlocProvider.of<ChatCubit>(context).listenToMessaging();
   }
 
   Widget _buildEmptyChats() {
@@ -39,7 +44,7 @@ class _ChatsScreenState extends State<ChatsScreen> {
             height: 16,
           ),
           Text(
-            'No Chats',
+            AppLocalizations.of(context).translate('noChats'),
             style: AppTextStyle.headlineMedium(context).copyWith(
               color: Theme.of(context).colorScheme.onSecondary,
             ),
@@ -48,7 +53,7 @@ class _ChatsScreenState extends State<ChatsScreen> {
             height: 16,
           ),
           Text(
-            'Start a new chat with a doctor',
+            AppLocalizations.of(context).translate('noChatsDescription'),
             style: AppTextStyle.bodyMedium(context).copyWith(
               color: Theme.of(context).colorScheme.onSecondary,
             ),
@@ -77,10 +82,11 @@ class _ChatsScreenState extends State<ChatsScreen> {
             current is UserChatsReceivedSuccessfully,
         builder: (context, state) {
           if (state is UserChatsReceivedSuccessfully) {
-            if (state.chats.isEmpty) {
+            final response = state.chats as ChatsResponse;
+            if (response.userChats.isEmpty) {
               return _buildEmptyChats();
             } else {
-              return _buildChatsList(state.chats);
+              return _buildChatsList(response.userChats);
             }
           } else {
             return const LoadingIndicator();

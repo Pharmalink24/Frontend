@@ -1,4 +1,7 @@
 import "package:flutter/material.dart";
+import 'package:pharmalink/features/main/prescription/data/models/prescription_info.dart';
+import 'package:pharmalink/features/main/reminders/data/models/reminder.dart';
+import 'package:pharmalink/features/main/reminders/ui/reminder_calender_screen.dart';
 import '../../features/access/forget_password/logic/forget_password_cubit.dart';
 import '../../features/access/forget_password/ui/forget_password_screen.dart';
 import '../../features/main/chat/logic/cubit/chat_cubit.dart';
@@ -69,7 +72,7 @@ class AppRouter {
           ),
         );
 
-        case Routes.forgetPasswordScreen:
+      case Routes.forgetPasswordScreen:
         return MaterialPageRoute(
           builder: (_) => BlocProvider(
             create: (context) => getIt<ForgetPasswordCubit>(),
@@ -83,6 +86,16 @@ class AppRouter {
           builder: (_) => const MainScreen(),
         );
 
+      //----------------- Reminders ----------------- //
+      case Routes.remindersCalenderScreen:
+        final reminders = settings.arguments as List<Reminder>;
+        return MaterialPageRoute(
+          builder: (_) => ReminderCalenderScreen(
+            reminders: reminders,
+          ),
+        );
+
+      // ----------------- Settings ----------------- //
       case Routes.editProfileScreen:
         return MaterialPageRoute(
           builder: (_) => BlocProvider(

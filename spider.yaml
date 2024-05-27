@@ -58,6 +58,11 @@ groups:
     class_name: Splash
     types: [ .png, .jpg, .jpeg, .webp, .webm, .bmp, .svg ]
 
+  - path: assets/images/faces
+    class_name: Faces
+    types: [ .png ]
+
+
   - path: assets/lang
     class_name: Languages
     types: [ .json ]

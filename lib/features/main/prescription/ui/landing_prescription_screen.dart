@@ -20,7 +20,7 @@ class LandingPrescriptionScreen extends StatelessWidget {
             ),
           ),
           PrescriptionCategoryWidget(
-            icon: const Icon(Icons.add),
+            iconData: Icons.add_circle_outline,
             title: AppLocalizations.of(context).translate('newDrugs'),
             description:
                 AppLocalizations.of(context).translate('newDrugsDescription'),
@@ -28,7 +28,7 @@ class LandingPrescriptionScreen extends StatelessWidget {
             category: DrugState.NEW,
           ),
           PrescriptionCategoryWidget(
-            icon: const Icon(Icons.medical_services),
+            iconData: Icons.circle,
             title: AppLocalizations.of(context).translate('activeDrugs'),
             description: AppLocalizations.of(context)
                 .translate('activeDrugsDescription'),
@@ -36,11 +36,11 @@ class LandingPrescriptionScreen extends StatelessWidget {
             category: DrugState.ACTIVE,
           ),
           PrescriptionCategoryWidget(
-            icon: const Icon(Icons.medical_services),
+            iconData: Icons.stop_circle_outlined,
             title: AppLocalizations.of(context).translate('inactiveDrugs'),
             description: AppLocalizations.of(context)
                 .translate('inactiveDrugsDescription'),
-            backgroundColor: Theme.of(context).colorScheme.tertiary,
+            backgroundColor: Theme.of(context).colorScheme.scrim,
             category: DrugState.INACTIVE,
           ),
         ],

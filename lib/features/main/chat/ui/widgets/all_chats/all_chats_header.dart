@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pharmalink/core/localization/app_localizations.dart';
 import 'package:pharmalink/core/theme/gradient.dart';
 import 'package:pharmalink/core/theme/styles.dart';
 
@@ -25,13 +26,13 @@ class ChatsHeader extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Chats',
+                AppLocalizations.of(context).translate('chats'),
                 style: AppTextStyle.headlineLarge(context).copyWith(
                   color: Theme.of(context).colorScheme.onPrimary,
                 ),
               ),
               Text(
-                'Below are your chats with doctors',
+                AppLocalizations.of(context).translate('chatsDescription'),
                 style: AppTextStyle.bodyMedium(context).copyWith(
                   color: Theme.of(context).colorScheme.onPrimary,
                 ),
