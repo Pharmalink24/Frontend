@@ -6,6 +6,7 @@ import 'package:pharmalink/features/main/prescription/data/models/prescription_d
 import '../../../../core/enums/drug_state.dart';
 import '../../../../core/helpers/extensions.dart';
 import '../../../../core/localization/app_localizations.dart';
+import '../../../../core/widgets/loading/loading_indicator.dart';
 import '../data/models/prescription_doctor.dart';
 import '../logic/prescription_state.dart';
 import 'widgets/doctor_prescription_card.dart';
@@ -101,20 +102,20 @@ class _PrescriptionsScreenState extends State<PrescriptionsScreen> {
       body: SafeArea(
         child: BlocBuilder<PrescriptionCubit, PrescriptionState>(
           buildWhen: (previous, current) =>
-              current is PrescriptionError ||
+              current is PrescriptionsError ||
               current is PrescriptionsSuccess ||
-              current is PrescriptionLoading,
+              current is PrescriptionsLoading,
           builder: (context, state) {
-            if (state is PrescriptionLoading) {
-              return const Center(
-                child: CircularProgressIndicator(),
-              );
+            if (state is PrescriptionsLoading) {
+              return const LoadingIndicator();
             } else if (state is PrescriptionsSuccess) {
               var prescriptionsDoctors = state.doctors;
               var prescriptionsDrugs = state.drugs;
               return _buildSuccessWidget(
-                  prescriptionsDoctors, prescriptionsDrugs);
-            } else if (state is PrescriptionError) {
+                prescriptionsDoctors,
+                prescriptionsDrugs,
+              );
+            } else if (state is PrescriptionsError) {
               return _buildErrorWidget(state.message);
             } else {
               return const SizedBox();

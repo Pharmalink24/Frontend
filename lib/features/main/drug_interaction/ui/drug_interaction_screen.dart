@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
-
 import 'package:flutter/material.dart';
 import 'widgets/drug_interaction_form.dart';
 import 'widgets/interaction_result_container.dart';
@@ -14,9 +12,9 @@ class DrugInteractionScreen extends StatefulWidget {
 class _DrugInteractionScreenState extends State<DrugInteractionScreen> {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+    return const SafeArea(
       child: Padding(
-        padding: const EdgeInsetsDirectional.all(16),
+        padding: EdgeInsetsDirectional.all(16),
         child: Column(
           children: [
             Expanded(

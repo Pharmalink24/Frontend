@@ -34,6 +34,7 @@ class PrescriptionCubit extends Cubit<PrescriptionState> {
     // Load the prescriptions data
     final prescriptionsDrugs =
         await _prescriptionRepo.getPrescriptionsDrugs(drugState);
+    
     final prescriptionsDoctors =
         await _prescriptionRepo.getPrescriptionsDoctors(drugState);
 

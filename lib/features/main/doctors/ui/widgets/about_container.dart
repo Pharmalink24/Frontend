@@ -1,7 +1,9 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/theme/icons.dart';
 import 'package:pharmalink/features/main/chat/data/models/chat.dart';
+import 'package:readmore/readmore.dart';
 import '../../../../../core/helpers/extensions.dart';
 import '../../../../../core/localization/app_localizations.dart';
 import '../../../../../core/routes/routes.dart';
@@ -80,10 +82,28 @@ class AboutContainer extends StatelessWidget {
                 alignment: const AlignmentDirectional(-1, 0),
                 child: Padding(
                   padding: const EdgeInsetsDirectional.fromSTEB(0, 8, 0, 12),
-                  child: Text(
+                  child: ReadMoreText(
                     doctor?.brief ??
                         AppLocalizations.of(context).translate('no_info'),
-                    style: AppTextStyle.labelMedium(context),
+                    trimMode: TrimMode.Line,
+                    trimLines: 3,
+                    colorClickableText: context.colorScheme.primary,
+                    trimCollapsedText: 'Show more',
+                    trimExpandedText: 'Show less',
+                    moreStyle: AppTextStyle.labelMedium(context),
+                    annotations: [
+                      Annotation(
+                        regExp: RegExp(r'#([a-zA-Z0-9_]+)'),
+                        spanBuilder: (
+                                {required String text, TextStyle? textStyle}) =>
+                            TextSpan(
+                          text: text,
+                          style: textStyle?.copyWith(
+                            color: context.colorScheme.secondary,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ),

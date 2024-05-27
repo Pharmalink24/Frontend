@@ -39,11 +39,15 @@ class PrescriptionScreen extends StatelessWidget {
             doctorLastName: doctor.lastName,
             date: prescription.date,
             time: prescription.time,
+            
           ),
           DrugsListCard(
             prescriptionId: id,
             drugs: prescription.drugs,
           ),
+          // OtherInfoCard(
+          // ),
+
           DrugStateListener(state: drugState)
         ],
       ),

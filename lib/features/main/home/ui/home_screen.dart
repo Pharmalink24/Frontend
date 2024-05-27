@@ -29,6 +29,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
     // Get reminders list
     BlocProvider.of<RemindersCubit>(context).getRemindersList();
+  
   }
 
   @override

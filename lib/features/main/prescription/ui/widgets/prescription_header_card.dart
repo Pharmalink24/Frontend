@@ -27,25 +27,28 @@ class PrescriptionHeaderCard extends StatelessWidget {
   });
 
   Widget _buildImage(BuildContext context) {
-    return CachedNetworkImage(
-      width: 70,
-      height: 70,
-      imageUrl: "${ApiConstants.httpsDomain}$doctorImage",
-      fit: BoxFit.cover,
-      imageBuilder: (context, imageProvider) => Container(
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: imageProvider,
-            fit: BoxFit.scaleDown,
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(16),
+      child: CachedNetworkImage(
+        width: 70,
+        height: 70,
+        imageUrl: "${ApiConstants.httpsDomain}$doctorImage",
+        fit: BoxFit.cover,
+        imageBuilder: (context, imageProvider) => Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: imageProvider,
+              fit: BoxFit.scaleDown,
+            ),
           ),
         ),
-      ),
-      progressIndicatorBuilder: (context, url, downloadProgress) =>
-          LoadingIndicator(loadingProgress: downloadProgress),
-      errorWidget: (context, url, error) => Image.asset(
-        Placeholders.doctorPlaceholder,
-        width: 70,
-        fit: BoxFit.fitHeight,
+        progressIndicatorBuilder: (context, url, downloadProgress) =>
+            LoadingIndicator(loadingProgress: downloadProgress),
+        errorWidget: (context, url, error) => Image.asset(
+          Placeholders.doctorPlaceholder,
+          width: 70,
+          fit: BoxFit.fitHeight,
+        ),
       ),
     );
   }
@@ -59,17 +62,15 @@ class PrescriptionHeaderCard extends StatelessWidget {
           mainAxisSize: MainAxisSize.max,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Align(
-              alignment: const AlignmentDirectional(-1, 0),
-              child: Text(
-                '${AppLocalizations.of(context).translate("dr")} $doctorFirstName $doctorLastName',
-                style: AppTextStyle.titleLarge(context),
-              ),
+            Text(
+              '${AppLocalizations.of(context).translate("dr")} $doctorFirstName $doctorLastName'
+                  .crop(18),
+              style: AppTextStyle.titleLarge(context),
             ),
             Padding(
               padding: const EdgeInsetsDirectional.fromSTEB(0, 4, 0, 12),
               child: Text(
-                "$date - $time",
+                '$date  $time',
                 style: AppTextStyle.labelMedium(context),
               ),
             ),
@@ -87,6 +88,8 @@ class PrescriptionHeaderCard extends StatelessWidget {
         children: [
           Row(
             mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               _buildImage(context),
               _buildDoctorInfo(context),
