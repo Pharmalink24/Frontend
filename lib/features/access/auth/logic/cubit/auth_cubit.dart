@@ -14,5 +14,6 @@ class AuthCubit extends Cubit<AuthState> {
   void logout() async {
     // Clear Authorization data
     await _authRepo.logout();
+    await _authRepo.clearAuthData();
   }
 }
