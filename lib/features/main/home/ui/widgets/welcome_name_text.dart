@@ -1,14 +1,11 @@
-import 'dart:async';
-
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_background_service/flutter_background_service.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:logger/logger.dart';
 import 'package:pharmalink/core/networking/api_constants.dart';
 import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/theme/gradient.dart';
+import 'package:pharmalink/core/theme/icons.dart';
 import '../../../../../core/theme/styles.dart';
 import '../../../../../core/localization/app_localizations.dart';
 import '../../../../../core/widgets/loading/loading_indicator.dart';
@@ -75,15 +72,20 @@ class WelcomeNameText extends StatelessWidget {
   }
 
   // Build the image
-  Widget _buildImage() {
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(50),
-      child: SizedBox(
-        width: 45,
-        height: 45,
+  Widget _buildImage(BuildContext context) {
+    return Container(
+      width: 40,
+      height: 40,
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        border: Border.all(
+          color: context.colorScheme.secondary,
+          width: 2.0,
+        ),
+      ),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(40),
         child: CachedNetworkImage(
-          width: 45,
-          height: 45,
           fit: BoxFit.cover,
           imageUrl: '${ApiConstants.httpsDomain}$image',
           imageBuilder: (context, imageProvider) => Container(
@@ -101,8 +103,7 @@ class WelcomeNameText extends StatelessWidget {
             gender == 'F'
                 ? Placeholders.femalePlaceholder
                 : Placeholders.malePlaceholder,
-            width: 45,
-            height: 45,
+
             fit: BoxFit.cover,
           ),
         ),
@@ -111,17 +112,11 @@ class WelcomeNameText extends StatelessWidget {
   }
 
   Widget _buildIconButton(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        shape: BoxShape.circle,
-        color: context.colorScheme.secondary.withOpacity(0.3),
-      ),
-      child: IconButton(
-        icon: const Icon(Icons.notifications_none),
-        onPressed: () {
-          Logger().i('Notification button pressed');
-        },
-        color: context.colorScheme.onTertiary,
+    return IconButton(
+      onPressed: () {},
+      icon: Icon(
+        FFIcons.kLogoPharmaLink,
+        color: context.colorScheme.onPrimary,
       ),
     );
   }
@@ -135,7 +130,7 @@ class WelcomeNameText extends StatelessWidget {
         Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            _buildImage(),
+            _buildImage(context),
             const SizedBox(width: 10),
             _buildHello(context),
             _buildName(context),

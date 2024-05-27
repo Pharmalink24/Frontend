@@ -18,7 +18,15 @@ class DrugInteractionCubit extends Cubit<DrugInteractionState> {
   TextEditingController drugController2 = TextEditingController();
   String activeIngredient1 = '';
   String activeIngredient2 = '';
-  final formKey = GlobalKey<FormState>();
+
+  final form1Key = GlobalKey<FormState>();
+  final form2Key = GlobalKey<FormState>();
+
+  int selectedTabIndex = 0;
+
+  void selectTab(int index) {
+    selectedTabIndex = index;
+  }
 
   Future<List<DrugSearch>?> getDrugSearchSuggestion(
       {required int drugId}) async {
@@ -48,10 +56,10 @@ class DrugInteractionCubit extends Cubit<DrugInteractionState> {
     return drugs;
   }
 
-  void emitDrugInteractionStates() async {
+  void emitTwoDrugInteractionStates() async {
     emit(const DrugInteractionState.loading());
 
-    final response = await _drugInteractionRepo.drugInteractionCheck(
+    final response = await _drugInteractionRepo.checkInteractionBetween2Drugs(
       DrugInteractionRequestBody(
         activeIngredient1: activeIngredient1,
         activeIngredient2: activeIngredient2,
@@ -60,8 +68,34 @@ class DrugInteractionCubit extends Cubit<DrugInteractionState> {
 
     response.when(
       success: (drugInteractionResponse) {
-        emit(DrugInteractionState.drugInteractionSuccess(
+        emit(DrugInteractionState.twoDrugSInteractionSuccess(
             drugInteractionResponse));
+      },
+      failure: (error) {
+        emit(
+          DrugInteractionState.error(
+              error: error.apiErrorModel.error ?? ERR.UNEXPECTED),
+        );
+      },
+    );
+  }
+
+  void emitOneDrugInteractionStates() async {
+    emit(const DrugInteractionState.loading());
+
+    final response =
+        await _drugInteractionRepo.checkInteractionBetweenDrugAndMedications(
+      DrugInteractionRequestBody(
+        activeIngredient1: activeIngredient1,
+      ),
+    );
+
+    response.when(
+      success: (interactions) {
+        emit(
+          DrugInteractionState.drugAndMedicationsInteractionSuccess(
+              interactions),
+        );
       },
       failure: (error) {
         emit(

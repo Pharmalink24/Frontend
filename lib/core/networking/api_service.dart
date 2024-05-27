@@ -6,6 +6,7 @@ import '../../features/access/sign/data/models/signin/signin_request_body.dart';
 import '../../features/access/sign/data/models/signin/signin_response.dart';
 import '../../features/main/chat/data/models/messages_history_response.dart';
 import '../../features/main/doctors/data/models/doctor.dart';
+import '../../features/main/drug_interaction/data/models/interaction.dart';
 import '../../features/main/prescription/data/models/prescription_doctor.dart';
 import '../../features/main/prescription/data/models/prescription_drugs.dart';
 import '../../features/main/prescription/data/models/prescription_info.dart';
@@ -127,8 +128,14 @@ abstract class ApiService {
 
   // TODO: EDIT THIS FROM 'POST' TO 'GET' WHEN BACKEND EDIT IT.
   // Drug Interaction Checker
-  @POST(ApiConstants.drugInteraction)
-  Future<DrugInteractionResponse> drugInteractionCheck(
+  @POST(ApiConstants.twoDrugInteraction)
+  Future<TwoDrugsInteractionResponse> checkInteractionBetweenTwoDrugs(
+    @Body() DrugInteractionRequestBody drugInteractionRequestBody,
+    @Header("Authorization") String? auth,
+  );
+
+  @POST(ApiConstants.drugAndMedicationsInteraction)
+  Future<List<Interaction>> checkInteractionBetweenDrugAndMedications(
     @Body() DrugInteractionRequestBody drugInteractionRequestBody,
     @Header("Authorization") String? auth,
   );

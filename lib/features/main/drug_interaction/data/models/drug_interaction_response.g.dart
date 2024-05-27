@@ -6,15 +6,15 @@ part of 'drug_interaction_response.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-DrugInteractionResponse _$DrugInteractionResponseFromJson(
+TwoDrugsInteractionResponse _$TwoDrugsInteractionResponseFromJson(
         Map<String, dynamic> json) =>
-    DrugInteractionResponse(
+    TwoDrugsInteractionResponse(
       messages:
           (json['message'] as List<dynamic>).map((e) => e as String).toList(),
     );
 
-Map<String, dynamic> _$DrugInteractionResponseToJson(
-        DrugInteractionResponse instance) =>
+Map<String, dynamic> _$TwoDrugsInteractionResponseToJson(
+        TwoDrugsInteractionResponse instance) =>
     <String, dynamic>{
       'message': instance.messages,
     };

@@ -21,7 +21,8 @@ mixin _$DrugInteractionState<T> {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(T data) searchedDrugsRetrieved,
-    required TResult Function(T data) drugInteractionSuccess,
+    required TResult Function(T data) twoDrugSInteractionSuccess,
+    required TResult Function(T data) drugAndMedicationsInteractionSuccess,
     required TResult Function(String error) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -30,7 +31,8 @@ mixin _$DrugInteractionState<T> {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(T data)? searchedDrugsRetrieved,
-    TResult? Function(T data)? drugInteractionSuccess,
+    TResult? Function(T data)? twoDrugSInteractionSuccess,
+    TResult? Function(T data)? drugAndMedicationsInteractionSuccess,
     TResult? Function(String error)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -39,7 +41,8 @@ mixin _$DrugInteractionState<T> {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(T data)? searchedDrugsRetrieved,
-    TResult Function(T data)? drugInteractionSuccess,
+    TResult Function(T data)? twoDrugSInteractionSuccess,
+    TResult Function(T data)? drugAndMedicationsInteractionSuccess,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) =>
@@ -50,8 +53,10 @@ mixin _$DrugInteractionState<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(SearchedDrugsRetrieved<T> value)
         searchedDrugsRetrieved,
-    required TResult Function(DrugInteractionSuccess<T> value)
-        drugInteractionSuccess,
+    required TResult Function(TwoDrugSInteractionSuccess<T> value)
+        twoDrugSInteractionSuccess,
+    required TResult Function(DrugAndMedicationsInteractionSuccess<T> value)
+        drugAndMedicationsInteractionSuccess,
     required TResult Function(Error<T> value) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -60,7 +65,10 @@ mixin _$DrugInteractionState<T> {
     TResult? Function(_Initial<T> value)? initial,
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(SearchedDrugsRetrieved<T> value)? searchedDrugsRetrieved,
-    TResult? Function(DrugInteractionSuccess<T> value)? drugInteractionSuccess,
+    TResult? Function(TwoDrugSInteractionSuccess<T> value)?
+        twoDrugSInteractionSuccess,
+    TResult? Function(DrugAndMedicationsInteractionSuccess<T> value)?
+        drugAndMedicationsInteractionSuccess,
     TResult? Function(Error<T> value)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -69,7 +77,10 @@ mixin _$DrugInteractionState<T> {
     TResult Function(_Initial<T> value)? initial,
     TResult Function(Loading<T> value)? loading,
     TResult Function(SearchedDrugsRetrieved<T> value)? searchedDrugsRetrieved,
-    TResult Function(DrugInteractionSuccess<T> value)? drugInteractionSuccess,
+    TResult Function(TwoDrugSInteractionSuccess<T> value)?
+        twoDrugSInteractionSuccess,
+    TResult Function(DrugAndMedicationsInteractionSuccess<T> value)?
+        drugAndMedicationsInteractionSuccess,
     TResult Function(Error<T> value)? error,
     required TResult orElse(),
   }) =>
@@ -136,7 +147,8 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(T data) searchedDrugsRetrieved,
-    required TResult Function(T data) drugInteractionSuccess,
+    required TResult Function(T data) twoDrugSInteractionSuccess,
+    required TResult Function(T data) drugAndMedicationsInteractionSuccess,
     required TResult Function(String error) error,
   }) {
     return initial();
@@ -148,7 +160,8 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(T data)? searchedDrugsRetrieved,
-    TResult? Function(T data)? drugInteractionSuccess,
+    TResult? Function(T data)? twoDrugSInteractionSuccess,
+    TResult? Function(T data)? drugAndMedicationsInteractionSuccess,
     TResult? Function(String error)? error,
   }) {
     return initial?.call();
@@ -160,7 +173,8 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(T data)? searchedDrugsRetrieved,
-    TResult Function(T data)? drugInteractionSuccess,
+    TResult Function(T data)? twoDrugSInteractionSuccess,
+    TResult Function(T data)? drugAndMedicationsInteractionSuccess,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) {
@@ -177,8 +191,10 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(SearchedDrugsRetrieved<T> value)
         searchedDrugsRetrieved,
-    required TResult Function(DrugInteractionSuccess<T> value)
-        drugInteractionSuccess,
+    required TResult Function(TwoDrugSInteractionSuccess<T> value)
+        twoDrugSInteractionSuccess,
+    required TResult Function(DrugAndMedicationsInteractionSuccess<T> value)
+        drugAndMedicationsInteractionSuccess,
     required TResult Function(Error<T> value) error,
   }) {
     return initial(this);
@@ -190,7 +206,10 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function(_Initial<T> value)? initial,
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(SearchedDrugsRetrieved<T> value)? searchedDrugsRetrieved,
-    TResult? Function(DrugInteractionSuccess<T> value)? drugInteractionSuccess,
+    TResult? Function(TwoDrugSInteractionSuccess<T> value)?
+        twoDrugSInteractionSuccess,
+    TResult? Function(DrugAndMedicationsInteractionSuccess<T> value)?
+        drugAndMedicationsInteractionSuccess,
     TResult? Function(Error<T> value)? error,
   }) {
     return initial?.call(this);
@@ -202,7 +221,10 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function(_Initial<T> value)? initial,
     TResult Function(Loading<T> value)? loading,
     TResult Function(SearchedDrugsRetrieved<T> value)? searchedDrugsRetrieved,
-    TResult Function(DrugInteractionSuccess<T> value)? drugInteractionSuccess,
+    TResult Function(TwoDrugSInteractionSuccess<T> value)?
+        twoDrugSInteractionSuccess,
+    TResult Function(DrugAndMedicationsInteractionSuccess<T> value)?
+        drugAndMedicationsInteractionSuccess,
     TResult Function(Error<T> value)? error,
     required TResult orElse(),
   }) {
@@ -258,7 +280,8 @@ class _$LoadingImpl<T> implements Loading<T> {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(T data) searchedDrugsRetrieved,
-    required TResult Function(T data) drugInteractionSuccess,
+    required TResult Function(T data) twoDrugSInteractionSuccess,
+    required TResult Function(T data) drugAndMedicationsInteractionSuccess,
     required TResult Function(String error) error,
   }) {
     return loading();
@@ -270,7 +293,8 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(T data)? searchedDrugsRetrieved,
-    TResult? Function(T data)? drugInteractionSuccess,
+    TResult? Function(T data)? twoDrugSInteractionSuccess,
+    TResult? Function(T data)? drugAndMedicationsInteractionSuccess,
     TResult? Function(String error)? error,
   }) {
     return loading?.call();
@@ -282,7 +306,8 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(T data)? searchedDrugsRetrieved,
-    TResult Function(T data)? drugInteractionSuccess,
+    TResult Function(T data)? twoDrugSInteractionSuccess,
+    TResult Function(T data)? drugAndMedicationsInteractionSuccess,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) {
@@ -299,8 +324,10 @@ class _$LoadingImpl<T> implements Loading<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(SearchedDrugsRetrieved<T> value)
         searchedDrugsRetrieved,
-    required TResult Function(DrugInteractionSuccess<T> value)
-        drugInteractionSuccess,
+    required TResult Function(TwoDrugSInteractionSuccess<T> value)
+        twoDrugSInteractionSuccess,
+    required TResult Function(DrugAndMedicationsInteractionSuccess<T> value)
+        drugAndMedicationsInteractionSuccess,
     required TResult Function(Error<T> value) error,
   }) {
     return loading(this);
@@ -312,7 +339,10 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult? Function(_Initial<T> value)? initial,
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(SearchedDrugsRetrieved<T> value)? searchedDrugsRetrieved,
-    TResult? Function(DrugInteractionSuccess<T> value)? drugInteractionSuccess,
+    TResult? Function(TwoDrugSInteractionSuccess<T> value)?
+        twoDrugSInteractionSuccess,
+    TResult? Function(DrugAndMedicationsInteractionSuccess<T> value)?
+        drugAndMedicationsInteractionSuccess,
     TResult? Function(Error<T> value)? error,
   }) {
     return loading?.call(this);
@@ -324,7 +354,10 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult Function(_Initial<T> value)? initial,
     TResult Function(Loading<T> value)? loading,
     TResult Function(SearchedDrugsRetrieved<T> value)? searchedDrugsRetrieved,
-    TResult Function(DrugInteractionSuccess<T> value)? drugInteractionSuccess,
+    TResult Function(TwoDrugSInteractionSuccess<T> value)?
+        twoDrugSInteractionSuccess,
+    TResult Function(DrugAndMedicationsInteractionSuccess<T> value)?
+        drugAndMedicationsInteractionSuccess,
     TResult Function(Error<T> value)? error,
     required TResult orElse(),
   }) {
@@ -411,7 +444,8 @@ class _$SearchedDrugsRetrievedImpl<T> implements SearchedDrugsRetrieved<T> {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(T data) searchedDrugsRetrieved,
-    required TResult Function(T data) drugInteractionSuccess,
+    required TResult Function(T data) twoDrugSInteractionSuccess,
+    required TResult Function(T data) drugAndMedicationsInteractionSuccess,
     required TResult Function(String error) error,
   }) {
     return searchedDrugsRetrieved(data);
@@ -423,7 +457,8 @@ class _$SearchedDrugsRetrievedImpl<T> implements SearchedDrugsRetrieved<T> {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(T data)? searchedDrugsRetrieved,
-    TResult? Function(T data)? drugInteractionSuccess,
+    TResult? Function(T data)? twoDrugSInteractionSuccess,
+    TResult? Function(T data)? drugAndMedicationsInteractionSuccess,
     TResult? Function(String error)? error,
   }) {
     return searchedDrugsRetrieved?.call(data);
@@ -435,7 +470,8 @@ class _$SearchedDrugsRetrievedImpl<T> implements SearchedDrugsRetrieved<T> {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(T data)? searchedDrugsRetrieved,
-    TResult Function(T data)? drugInteractionSuccess,
+    TResult Function(T data)? twoDrugSInteractionSuccess,
+    TResult Function(T data)? drugAndMedicationsInteractionSuccess,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) {
@@ -452,8 +488,10 @@ class _$SearchedDrugsRetrievedImpl<T> implements SearchedDrugsRetrieved<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(SearchedDrugsRetrieved<T> value)
         searchedDrugsRetrieved,
-    required TResult Function(DrugInteractionSuccess<T> value)
-        drugInteractionSuccess,
+    required TResult Function(TwoDrugSInteractionSuccess<T> value)
+        twoDrugSInteractionSuccess,
+    required TResult Function(DrugAndMedicationsInteractionSuccess<T> value)
+        drugAndMedicationsInteractionSuccess,
     required TResult Function(Error<T> value) error,
   }) {
     return searchedDrugsRetrieved(this);
@@ -465,7 +503,10 @@ class _$SearchedDrugsRetrievedImpl<T> implements SearchedDrugsRetrieved<T> {
     TResult? Function(_Initial<T> value)? initial,
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(SearchedDrugsRetrieved<T> value)? searchedDrugsRetrieved,
-    TResult? Function(DrugInteractionSuccess<T> value)? drugInteractionSuccess,
+    TResult? Function(TwoDrugSInteractionSuccess<T> value)?
+        twoDrugSInteractionSuccess,
+    TResult? Function(DrugAndMedicationsInteractionSuccess<T> value)?
+        drugAndMedicationsInteractionSuccess,
     TResult? Function(Error<T> value)? error,
   }) {
     return searchedDrugsRetrieved?.call(this);
@@ -477,7 +518,10 @@ class _$SearchedDrugsRetrievedImpl<T> implements SearchedDrugsRetrieved<T> {
     TResult Function(_Initial<T> value)? initial,
     TResult Function(Loading<T> value)? loading,
     TResult Function(SearchedDrugsRetrieved<T> value)? searchedDrugsRetrieved,
-    TResult Function(DrugInteractionSuccess<T> value)? drugInteractionSuccess,
+    TResult Function(TwoDrugSInteractionSuccess<T> value)?
+        twoDrugSInteractionSuccess,
+    TResult Function(DrugAndMedicationsInteractionSuccess<T> value)?
+        drugAndMedicationsInteractionSuccess,
     TResult Function(Error<T> value)? error,
     required TResult orElse(),
   }) {
@@ -499,23 +543,23 @@ abstract class SearchedDrugsRetrieved<T> implements DrugInteractionState<T> {
 }
 
 /// @nodoc
-abstract class _$$DrugInteractionSuccessImplCopyWith<T, $Res> {
-  factory _$$DrugInteractionSuccessImplCopyWith(
-          _$DrugInteractionSuccessImpl<T> value,
-          $Res Function(_$DrugInteractionSuccessImpl<T>) then) =
-      __$$DrugInteractionSuccessImplCopyWithImpl<T, $Res>;
+abstract class _$$TwoDrugSInteractionSuccessImplCopyWith<T, $Res> {
+  factory _$$TwoDrugSInteractionSuccessImplCopyWith(
+          _$TwoDrugSInteractionSuccessImpl<T> value,
+          $Res Function(_$TwoDrugSInteractionSuccessImpl<T>) then) =
+      __$$TwoDrugSInteractionSuccessImplCopyWithImpl<T, $Res>;
   @useResult
   $Res call({T data});
 }
 
 /// @nodoc
-class __$$DrugInteractionSuccessImplCopyWithImpl<T, $Res>
+class __$$TwoDrugSInteractionSuccessImplCopyWithImpl<T, $Res>
     extends _$DrugInteractionStateCopyWithImpl<T, $Res,
-        _$DrugInteractionSuccessImpl<T>>
-    implements _$$DrugInteractionSuccessImplCopyWith<T, $Res> {
-  __$$DrugInteractionSuccessImplCopyWithImpl(
-      _$DrugInteractionSuccessImpl<T> _value,
-      $Res Function(_$DrugInteractionSuccessImpl<T>) _then)
+        _$TwoDrugSInteractionSuccessImpl<T>>
+    implements _$$TwoDrugSInteractionSuccessImplCopyWith<T, $Res> {
+  __$$TwoDrugSInteractionSuccessImplCopyWithImpl(
+      _$TwoDrugSInteractionSuccessImpl<T> _value,
+      $Res Function(_$TwoDrugSInteractionSuccessImpl<T>) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -523,7 +567,7 @@ class __$$DrugInteractionSuccessImplCopyWithImpl<T, $Res>
   $Res call({
     Object? data = freezed,
   }) {
-    return _then(_$DrugInteractionSuccessImpl<T>(
+    return _then(_$TwoDrugSInteractionSuccessImpl<T>(
       freezed == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -534,22 +578,23 @@ class __$$DrugInteractionSuccessImplCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$DrugInteractionSuccessImpl<T> implements DrugInteractionSuccess<T> {
-  const _$DrugInteractionSuccessImpl(this.data);
+class _$TwoDrugSInteractionSuccessImpl<T>
+    implements TwoDrugSInteractionSuccess<T> {
+  const _$TwoDrugSInteractionSuccessImpl(this.data);
 
   @override
   final T data;
 
   @override
   String toString() {
-    return 'DrugInteractionState<$T>.drugInteractionSuccess(data: $data)';
+    return 'DrugInteractionState<$T>.twoDrugSInteractionSuccess(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$DrugInteractionSuccessImpl<T> &&
+            other is _$TwoDrugSInteractionSuccessImpl<T> &&
             const DeepCollectionEquality().equals(other.data, data));
   }
 
@@ -560,9 +605,10 @@ class _$DrugInteractionSuccessImpl<T> implements DrugInteractionSuccess<T> {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$DrugInteractionSuccessImplCopyWith<T, _$DrugInteractionSuccessImpl<T>>
-      get copyWith => __$$DrugInteractionSuccessImplCopyWithImpl<T,
-          _$DrugInteractionSuccessImpl<T>>(this, _$identity);
+  _$$TwoDrugSInteractionSuccessImplCopyWith<T,
+          _$TwoDrugSInteractionSuccessImpl<T>>
+      get copyWith => __$$TwoDrugSInteractionSuccessImplCopyWithImpl<T,
+          _$TwoDrugSInteractionSuccessImpl<T>>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -570,10 +616,11 @@ class _$DrugInteractionSuccessImpl<T> implements DrugInteractionSuccess<T> {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(T data) searchedDrugsRetrieved,
-    required TResult Function(T data) drugInteractionSuccess,
+    required TResult Function(T data) twoDrugSInteractionSuccess,
+    required TResult Function(T data) drugAndMedicationsInteractionSuccess,
     required TResult Function(String error) error,
   }) {
-    return drugInteractionSuccess(data);
+    return twoDrugSInteractionSuccess(data);
   }
 
   @override
@@ -582,10 +629,11 @@ class _$DrugInteractionSuccessImpl<T> implements DrugInteractionSuccess<T> {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(T data)? searchedDrugsRetrieved,
-    TResult? Function(T data)? drugInteractionSuccess,
+    TResult? Function(T data)? twoDrugSInteractionSuccess,
+    TResult? Function(T data)? drugAndMedicationsInteractionSuccess,
     TResult? Function(String error)? error,
   }) {
-    return drugInteractionSuccess?.call(data);
+    return twoDrugSInteractionSuccess?.call(data);
   }
 
   @override
@@ -594,12 +642,13 @@ class _$DrugInteractionSuccessImpl<T> implements DrugInteractionSuccess<T> {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(T data)? searchedDrugsRetrieved,
-    TResult Function(T data)? drugInteractionSuccess,
+    TResult Function(T data)? twoDrugSInteractionSuccess,
+    TResult Function(T data)? drugAndMedicationsInteractionSuccess,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) {
-    if (drugInteractionSuccess != null) {
-      return drugInteractionSuccess(data);
+    if (twoDrugSInteractionSuccess != null) {
+      return twoDrugSInteractionSuccess(data);
     }
     return orElse();
   }
@@ -611,11 +660,13 @@ class _$DrugInteractionSuccessImpl<T> implements DrugInteractionSuccess<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(SearchedDrugsRetrieved<T> value)
         searchedDrugsRetrieved,
-    required TResult Function(DrugInteractionSuccess<T> value)
-        drugInteractionSuccess,
+    required TResult Function(TwoDrugSInteractionSuccess<T> value)
+        twoDrugSInteractionSuccess,
+    required TResult Function(DrugAndMedicationsInteractionSuccess<T> value)
+        drugAndMedicationsInteractionSuccess,
     required TResult Function(Error<T> value) error,
   }) {
-    return drugInteractionSuccess(this);
+    return twoDrugSInteractionSuccess(this);
   }
 
   @override
@@ -624,10 +675,13 @@ class _$DrugInteractionSuccessImpl<T> implements DrugInteractionSuccess<T> {
     TResult? Function(_Initial<T> value)? initial,
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(SearchedDrugsRetrieved<T> value)? searchedDrugsRetrieved,
-    TResult? Function(DrugInteractionSuccess<T> value)? drugInteractionSuccess,
+    TResult? Function(TwoDrugSInteractionSuccess<T> value)?
+        twoDrugSInteractionSuccess,
+    TResult? Function(DrugAndMedicationsInteractionSuccess<T> value)?
+        drugAndMedicationsInteractionSuccess,
     TResult? Function(Error<T> value)? error,
   }) {
-    return drugInteractionSuccess?.call(this);
+    return twoDrugSInteractionSuccess?.call(this);
   }
 
   @override
@@ -636,24 +690,203 @@ class _$DrugInteractionSuccessImpl<T> implements DrugInteractionSuccess<T> {
     TResult Function(_Initial<T> value)? initial,
     TResult Function(Loading<T> value)? loading,
     TResult Function(SearchedDrugsRetrieved<T> value)? searchedDrugsRetrieved,
-    TResult Function(DrugInteractionSuccess<T> value)? drugInteractionSuccess,
+    TResult Function(TwoDrugSInteractionSuccess<T> value)?
+        twoDrugSInteractionSuccess,
+    TResult Function(DrugAndMedicationsInteractionSuccess<T> value)?
+        drugAndMedicationsInteractionSuccess,
     TResult Function(Error<T> value)? error,
     required TResult orElse(),
   }) {
-    if (drugInteractionSuccess != null) {
-      return drugInteractionSuccess(this);
+    if (twoDrugSInteractionSuccess != null) {
+      return twoDrugSInteractionSuccess(this);
     }
     return orElse();
   }
 }
 
-abstract class DrugInteractionSuccess<T> implements DrugInteractionState<T> {
-  const factory DrugInteractionSuccess(final T data) =
-      _$DrugInteractionSuccessImpl<T>;
+abstract class TwoDrugSInteractionSuccess<T>
+    implements DrugInteractionState<T> {
+  const factory TwoDrugSInteractionSuccess(final T data) =
+      _$TwoDrugSInteractionSuccessImpl<T>;
 
   T get data;
   @JsonKey(ignore: true)
-  _$$DrugInteractionSuccessImplCopyWith<T, _$DrugInteractionSuccessImpl<T>>
+  _$$TwoDrugSInteractionSuccessImplCopyWith<T,
+          _$TwoDrugSInteractionSuccessImpl<T>>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$DrugAndMedicationsInteractionSuccessImplCopyWith<T, $Res> {
+  factory _$$DrugAndMedicationsInteractionSuccessImplCopyWith(
+          _$DrugAndMedicationsInteractionSuccessImpl<T> value,
+          $Res Function(_$DrugAndMedicationsInteractionSuccessImpl<T>) then) =
+      __$$DrugAndMedicationsInteractionSuccessImplCopyWithImpl<T, $Res>;
+  @useResult
+  $Res call({T data});
+}
+
+/// @nodoc
+class __$$DrugAndMedicationsInteractionSuccessImplCopyWithImpl<T, $Res>
+    extends _$DrugInteractionStateCopyWithImpl<T, $Res,
+        _$DrugAndMedicationsInteractionSuccessImpl<T>>
+    implements _$$DrugAndMedicationsInteractionSuccessImplCopyWith<T, $Res> {
+  __$$DrugAndMedicationsInteractionSuccessImplCopyWithImpl(
+      _$DrugAndMedicationsInteractionSuccessImpl<T> _value,
+      $Res Function(_$DrugAndMedicationsInteractionSuccessImpl<T>) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = freezed,
+  }) {
+    return _then(_$DrugAndMedicationsInteractionSuccessImpl<T>(
+      freezed == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as T,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$DrugAndMedicationsInteractionSuccessImpl<T>
+    implements DrugAndMedicationsInteractionSuccess<T> {
+  const _$DrugAndMedicationsInteractionSuccessImpl(this.data);
+
+  @override
+  final T data;
+
+  @override
+  String toString() {
+    return 'DrugInteractionState<$T>.drugAndMedicationsInteractionSuccess(data: $data)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DrugAndMedicationsInteractionSuccessImpl<T> &&
+            const DeepCollectionEquality().equals(other.data, data));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DrugAndMedicationsInteractionSuccessImplCopyWith<T,
+          _$DrugAndMedicationsInteractionSuccessImpl<T>>
+      get copyWith => __$$DrugAndMedicationsInteractionSuccessImplCopyWithImpl<
+          T, _$DrugAndMedicationsInteractionSuccessImpl<T>>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(T data) searchedDrugsRetrieved,
+    required TResult Function(T data) twoDrugSInteractionSuccess,
+    required TResult Function(T data) drugAndMedicationsInteractionSuccess,
+    required TResult Function(String error) error,
+  }) {
+    return drugAndMedicationsInteractionSuccess(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(T data)? searchedDrugsRetrieved,
+    TResult? Function(T data)? twoDrugSInteractionSuccess,
+    TResult? Function(T data)? drugAndMedicationsInteractionSuccess,
+    TResult? Function(String error)? error,
+  }) {
+    return drugAndMedicationsInteractionSuccess?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(T data)? searchedDrugsRetrieved,
+    TResult Function(T data)? twoDrugSInteractionSuccess,
+    TResult Function(T data)? drugAndMedicationsInteractionSuccess,
+    TResult Function(String error)? error,
+    required TResult orElse(),
+  }) {
+    if (drugAndMedicationsInteractionSuccess != null) {
+      return drugAndMedicationsInteractionSuccess(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(Loading<T> value) loading,
+    required TResult Function(SearchedDrugsRetrieved<T> value)
+        searchedDrugsRetrieved,
+    required TResult Function(TwoDrugSInteractionSuccess<T> value)
+        twoDrugSInteractionSuccess,
+    required TResult Function(DrugAndMedicationsInteractionSuccess<T> value)
+        drugAndMedicationsInteractionSuccess,
+    required TResult Function(Error<T> value) error,
+  }) {
+    return drugAndMedicationsInteractionSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(Loading<T> value)? loading,
+    TResult? Function(SearchedDrugsRetrieved<T> value)? searchedDrugsRetrieved,
+    TResult? Function(TwoDrugSInteractionSuccess<T> value)?
+        twoDrugSInteractionSuccess,
+    TResult? Function(DrugAndMedicationsInteractionSuccess<T> value)?
+        drugAndMedicationsInteractionSuccess,
+    TResult? Function(Error<T> value)? error,
+  }) {
+    return drugAndMedicationsInteractionSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(Loading<T> value)? loading,
+    TResult Function(SearchedDrugsRetrieved<T> value)? searchedDrugsRetrieved,
+    TResult Function(TwoDrugSInteractionSuccess<T> value)?
+        twoDrugSInteractionSuccess,
+    TResult Function(DrugAndMedicationsInteractionSuccess<T> value)?
+        drugAndMedicationsInteractionSuccess,
+    TResult Function(Error<T> value)? error,
+    required TResult orElse(),
+  }) {
+    if (drugAndMedicationsInteractionSuccess != null) {
+      return drugAndMedicationsInteractionSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class DrugAndMedicationsInteractionSuccess<T>
+    implements DrugInteractionState<T> {
+  const factory DrugAndMedicationsInteractionSuccess(final T data) =
+      _$DrugAndMedicationsInteractionSuccessImpl<T>;
+
+  T get data;
+  @JsonKey(ignore: true)
+  _$$DrugAndMedicationsInteractionSuccessImplCopyWith<T,
+          _$DrugAndMedicationsInteractionSuccessImpl<T>>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -724,7 +957,8 @@ class _$ErrorImpl<T> implements Error<T> {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(T data) searchedDrugsRetrieved,
-    required TResult Function(T data) drugInteractionSuccess,
+    required TResult Function(T data) twoDrugSInteractionSuccess,
+    required TResult Function(T data) drugAndMedicationsInteractionSuccess,
     required TResult Function(String error) error,
   }) {
     return error(this.error);
@@ -736,7 +970,8 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(T data)? searchedDrugsRetrieved,
-    TResult? Function(T data)? drugInteractionSuccess,
+    TResult? Function(T data)? twoDrugSInteractionSuccess,
+    TResult? Function(T data)? drugAndMedicationsInteractionSuccess,
     TResult? Function(String error)? error,
   }) {
     return error?.call(this.error);
@@ -748,7 +983,8 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(T data)? searchedDrugsRetrieved,
-    TResult Function(T data)? drugInteractionSuccess,
+    TResult Function(T data)? twoDrugSInteractionSuccess,
+    TResult Function(T data)? drugAndMedicationsInteractionSuccess,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) {
@@ -765,8 +1001,10 @@ class _$ErrorImpl<T> implements Error<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(SearchedDrugsRetrieved<T> value)
         searchedDrugsRetrieved,
-    required TResult Function(DrugInteractionSuccess<T> value)
-        drugInteractionSuccess,
+    required TResult Function(TwoDrugSInteractionSuccess<T> value)
+        twoDrugSInteractionSuccess,
+    required TResult Function(DrugAndMedicationsInteractionSuccess<T> value)
+        drugAndMedicationsInteractionSuccess,
     required TResult Function(Error<T> value) error,
   }) {
     return error(this);
@@ -778,7 +1016,10 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult? Function(_Initial<T> value)? initial,
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(SearchedDrugsRetrieved<T> value)? searchedDrugsRetrieved,
-    TResult? Function(DrugInteractionSuccess<T> value)? drugInteractionSuccess,
+    TResult? Function(TwoDrugSInteractionSuccess<T> value)?
+        twoDrugSInteractionSuccess,
+    TResult? Function(DrugAndMedicationsInteractionSuccess<T> value)?
+        drugAndMedicationsInteractionSuccess,
     TResult? Function(Error<T> value)? error,
   }) {
     return error?.call(this);
@@ -790,7 +1031,10 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult Function(_Initial<T> value)? initial,
     TResult Function(Loading<T> value)? loading,
     TResult Function(SearchedDrugsRetrieved<T> value)? searchedDrugsRetrieved,
-    TResult Function(DrugInteractionSuccess<T> value)? drugInteractionSuccess,
+    TResult Function(TwoDrugSInteractionSuccess<T> value)?
+        twoDrugSInteractionSuccess,
+    TResult Function(DrugAndMedicationsInteractionSuccess<T> value)?
+        drugAndMedicationsInteractionSuccess,
     TResult Function(Error<T> value)? error,
     required TResult orElse(),
   }) {

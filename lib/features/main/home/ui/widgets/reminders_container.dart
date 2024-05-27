@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:pharmalink/core/helpers/extensions.dart';
 import 'package:pharmalink/core/theme/colors.dart';
 import '../../../../../core/routes/routes.dart';
@@ -54,8 +55,7 @@ class RemindersContainer extends StatelessWidget {
       title: AppLocalizations.of(context).translate('yourReminders'),
       isScrollable: reminders.isEmpty ? true : false,
       iconButton: TextWithIcon(
-        icon: Icons.calendar_today_outlined,
-        text: '',
+        icon: FontAwesomeIcons.solidCalendar,
         onTap: () => context.pushNamed(Routes.remindersCalenderScreen,
             argument: reminders),
       ),

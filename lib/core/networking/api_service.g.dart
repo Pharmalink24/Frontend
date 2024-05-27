@@ -400,7 +400,7 @@ class _ApiService implements ApiService {
   }
 
   @override
-  Future<DrugInteractionResponse> drugInteractionCheck(
+  Future<TwoDrugsInteractionResponse> checkInteractionBetweenTwoDrugs(
     DrugInteractionRequestBody drugInteractionRequestBody,
     String? auth,
   ) async {
@@ -412,7 +412,7 @@ class _ApiService implements ApiService {
     final _data = <String, dynamic>{};
     _data.addAll(drugInteractionRequestBody.toJson());
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<DrugInteractionResponse>(Options(
+        _setStreamType<TwoDrugsInteractionResponse>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
@@ -428,7 +428,42 @@ class _ApiService implements ApiService {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = DrugInteractionResponse.fromJson(_result.data!);
+    final value = TwoDrugsInteractionResponse.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<List<Interaction>> checkInteractionBetweenDrugAndMedications(
+    DrugInteractionRequestBody drugInteractionRequestBody,
+    String? auth,
+  ) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{r'Authorization': auth};
+    _headers.removeWhere((k, v) => v == null);
+    final _data = <String, dynamic>{};
+    _data.addAll(drugInteractionRequestBody.toJson());
+    final _result = await _dio
+        .fetch<List<dynamic>>(_setStreamType<List<Interaction>>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'Drugs/check-drug-interaction-All/',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    var value = _result.data!
+        .map((dynamic i) => Interaction.fromJson(i as Map<String, dynamic>))
+        .toList();
     return value;
   }
 

@@ -306,6 +306,7 @@ extension FileExt on File {
 }
 
 extension ScopeFunctionExt<T> on T {
+
   // Do Something on The Object and returns Something
   R map<R>(R Function(T) block) {
     return block(this);

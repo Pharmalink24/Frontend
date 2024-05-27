@@ -6,6 +6,7 @@ import '../../../../../core/theme/styles.dart';
 import '../../../../../core/widgets/card_container.dart';
 import '../../../../../core/widgets/loading/loading_indicator.dart';
 import '../../data/models/drug_interaction_response.dart';
+import '../../data/models/interaction.dart';
 import '../../logic/cubit/drug_interaction_cubit.dart';
 import '../../logic/cubit/drug_interaction_state.dart';
 import '../../../../../core/localization/app_localizations.dart';
@@ -19,9 +20,15 @@ class InteractionResultContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<DrugInteractionCubit, DrugInteractionState>(
       builder: (context, state) {
-        if (state is DrugInteractionSuccess) {
+        if (state is TwoDrugSInteractionSuccess) {
           var interactionResult = (state).data;
-          return showSuccess(context, interactionResult);
+          return showSuccessOfDrugAndMedicationsInteraction(
+              context, interactionResult);
+        }
+        if (state is DrugAndMedicationsInteractionSuccess) {
+          var interactions = (state).data;
+          return showSuccessOfDrugAndMedicationsInteraction(
+              context, interactions);
         } else if (state is Error) {
           return showError(context, (state).error);
         } else if (state is Loading) {
@@ -49,7 +56,8 @@ class InteractionResultContainer extends StatelessWidget {
   }
 
   // Get interaction result
-  Widget getInteractionResult(BuildContext context, List<String> messages) {
+  Widget getTwoDrugsInteractionResult(
+      BuildContext context, List<String> messages) {
     return ListView.builder(
       itemBuilder: (context, index) {
         return Text(
@@ -63,12 +71,50 @@ class InteractionResultContainer extends StatelessWidget {
     );
   }
 
-  bool isThereInteraction(String message) {
-    return message == 'No interactions found';
+  // Get interaction result
+  Widget getDrugAndMedicationsInteractionResult(
+      BuildContext context, List<Interaction> interactions) {
+    return ListView.builder(
+      itemBuilder: (context, index) {
+        return Column(
+          children: [
+            Text(
+              interactions[index].drug,
+              style: AppTextStyle.headlineMedium(context),
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(
+              height: 8.0,
+            ),
+            ListView.builder(
+              itemBuilder: (context, i) {
+                return Text(
+                  interactions[index].interactionType[i],
+                  style: AppTextStyle.bodySmall(context),
+                  textAlign: TextAlign.center,
+                );
+              },
+            ),
+          ],
+        );
+      },
+      itemCount: interactions.length,
+      shrinkWrap: true,
+    );
   }
 
-  Widget showSuccess(
-      BuildContext context, DrugInteractionResponse interactionResult) {
+  bool isThereInteraction(dynamic data) {
+    if (data is String) {
+      return data == 'No interactions found';
+    } else if (data is List) {
+      return data.isNotEmpty;
+    }
+
+    return true;
+  }
+
+  Widget showSuccessOfDrugAndMedicationsInteraction(
+      BuildContext context, TwoDrugsInteractionResponse interactionResult) {
     // Show success dialog
     return CardContainer(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -79,7 +125,23 @@ class InteractionResultContainer extends StatelessWidget {
         const SizedBox(
           height: 16.0,
         ),
-        getInteractionResult(context, interactionResult.messages),
+        getTwoDrugsInteractionResult(context, interactionResult.messages),
+      ],
+    );
+  }
+
+  Widget showSuccessOfTwoDrugsInteraction(
+      BuildContext context, List<Interaction> interactions) {
+    // Show success dialog
+    return CardContainer(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        getIconStatus(context, isThereInteraction(interactions)),
+        const SizedBox(
+          height: 16.0,
+        ),
+        getDrugAndMedicationsInteractionResult(context, interactions),
       ],
     );
   }
@@ -123,7 +185,7 @@ class InteractionResultContainer extends StatelessWidget {
             const SizedBox(height: 16.0),
             Center(
               child: Text(
-                AppLocalizations.of(context).translate('enter2drugs'),
+                AppLocalizations.of(context).translate('enterDrugs'),
                 textAlign: TextAlign.center,
                 style: AppTextStyle.headlineSmall(context).copyWith(
                   color: context.colorScheme.onSecondary,

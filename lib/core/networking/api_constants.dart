@@ -18,7 +18,8 @@ class ApiConstants {
 
   // Drug Interaction & Search API
   static const searchDrugFromDrugEye = "Prescription/drug_search/";
-  static const drugInteraction = "Drugs/check-drug-interaction-TradeName/";
+  static const twoDrugInteraction = "Drugs/check-drug-interaction-TradeName/";
+  static const drugAndMedicationsInteraction = "Drugs/check-drug-interaction-All/";
 
   // Home API
   static const homePage = "Prescription/user/HomePage/";

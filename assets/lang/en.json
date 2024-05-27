@@ -87,6 +87,7 @@
     "interactionsFound": "Interactions Found",
     "noInteractions": "No Interactions",
     "pleaseSelectDrugs": "Please select drug..",
+    "enterDrugs": "Enter drugs to check the interactions.",
     "enter2drugs": "Enter two drugs to check the interactions.",
 
     "profile": "Profile",

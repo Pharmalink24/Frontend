@@ -1,4 +1,5 @@
 import 'package:logger/logger.dart';
+import 'package:pharmalink/features/main/drug_interaction/data/models/interaction.dart';
 import '../../../../../core/di/dependency_injection.dart';
 import '../../../../../core/networking/api_error_handler.dart';
 import '../../../../../core/networking/api_result.dart';
@@ -26,11 +27,25 @@ class DrugInteractionRepo {
     }
   }
 
-  Future<ApiResult<DrugInteractionResponse>> drugInteractionCheck(
+  Future<ApiResult<TwoDrugsInteractionResponse>> checkInteractionBetween2Drugs(
       DrugInteractionRequestBody drugInteractionRequestBody) async {
     try {
-      final result = await _apiService.drugInteractionCheck(
+      final result = await _apiService.checkInteractionBetweenTwoDrugs(
           drugInteractionRequestBody, AuthSharedPrefs.getAccessToken());
+      return ApiResult.success(result);
+    } catch (error) {
+      getIt<Logger>().e(error);
+      return ApiResult.failure(ErrorHandler.handle(error));
+    }
+  }
+
+  Future<ApiResult<List<Interaction>>>
+      checkInteractionBetweenDrugAndMedications(
+          DrugInteractionRequestBody drugInteractionRequestBody) async {
+    try {
+      final result =
+          await _apiService.checkInteractionBetweenDrugAndMedications(
+              drugInteractionRequestBody, AuthSharedPrefs.getAccessToken());
       return ApiResult.success(result);
     } catch (error) {
       getIt<Logger>().e(error);

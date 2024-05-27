@@ -1,14 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../../../core/widgets/form/form_button.dart';
+import '../../../../../core/theme/styles.dart';
 import '../../logic/cubit/drug_interaction_cubit.dart';
 import 'drug_search_field.dart';
 import '../../../../../core/localization/app_localizations.dart';
 
 import 'form_input_label.dart';
 
-class DrugInteractionInputs extends StatelessWidget {
-  const DrugInteractionInputs({super.key});
+class DrugInteraction2Inputs extends StatelessWidget {
+  const DrugInteraction2Inputs({super.key});
+
+  Widget _buildDescription(BuildContext context) {
+    return Text(
+      "This page helps you check interaction between a pair of medications.",
+      style: AppTextStyle.labelMedium(context),
+      textAlign: TextAlign.center,
+    );
+  }
 
   Widget _buildFirstInput(BuildContext context) {
     return Column(
@@ -40,34 +48,27 @@ class DrugInteractionInputs extends StatelessWidget {
     );
   }
 
-  Widget _buildSubmitButton(BuildContext context) {
-    return FormButton(
-      onPressed: () => drugInteraction(context),
-      text: AppLocalizations.of(context).translate('checkInteractions'),
-      padding: EdgeInsets.zero,
-      borderRadius: 8.0,
-      height: null,
-      width: double.infinity,
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
-    return Form(
-      key: context.read<DrugInteractionCubit>().formKey,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          _buildFirstInput(context),
-          _buildSecondInput(context),
-          _buildSubmitButton(context),
-        ],
+    return SingleChildScrollView(
+      padding: const EdgeInsets.only(
+        top: 16.0,
+        left: 16.0,
+        right: 16.0,
+      ),
+      child: Form(
+        key: context.read<DrugInteractionCubit>().form1Key,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            _buildDescription(context),
+            const SizedBox(height: 16),
+            _buildFirstInput(context),
+            const SizedBox(height: 16),
+            _buildSecondInput(context),
+          ],
+        ),
       ),
     );
-  }
-
-  void drugInteraction(BuildContext context) {
-    context.read<DrugInteractionCubit>().emitDrugInteractionStates();
   }
 }
