@@ -44,9 +44,7 @@ class _MessagesScreenState extends State<MessagesScreen> {
         },
         child: Align(
           alignment: Alignment.topCenter,
-          child: MessagesListView(
-            userId: widget.chat.chatWithId ?? -1,
-          ),
+          child: MessagesListView(userId: widget.chat.chatWithId ?? -1),
         ),
       ),
     );

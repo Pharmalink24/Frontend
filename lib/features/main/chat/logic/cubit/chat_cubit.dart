@@ -1,13 +1,11 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
-import 'package:pharmalink/features/main/chat/data/models/messages_history_response.dart';
 import '../../../../../core/helpers/errors.dart';
 import '../../data/models/message.dart';
 import '../../data/repo/chat_repo.dart';
 import 'chat_state.dart';
 
-const _kNumberOfMessagesPerRequest = 20;
+const _kNumberOfMessagesPerRequest = 15;
 
 class ChatCubit extends Cubit<ChatState> {
   final ChatRepo _chatRepo;
@@ -16,11 +14,11 @@ class ChatCubit extends Cubit<ChatState> {
   // Message Input Controller
   TextEditingController messageController = TextEditingController();
 
-  // Messages pagination controller
-  final PagingController<int, Message> pagingController =
-      PagingController(firstPageKey: 0);
+  // Current page number
+  int currentPage = 1;
 
-  int lastPage = 0;
+  // Is current page is last
+  bool isLast = false;
 
   // List of messages
   List<Message> messagesResponse = [];
@@ -41,39 +39,46 @@ class ChatCubit extends Cubit<ChatState> {
   }
 
   // Get all messages
-  void retrieveChatMessages(
-    int receiverDoctorId, {
-    int pageKey = 0,
-  }) async {
+  void retrieveChatMessages(int receiverDoctorId) async {
+    // Emit loading state
+    if (state is AllMessagesReceivedLoading) return;
+
+    final currentState = state;
+
+    if (currentState is AllMessagesReceivedSuccessfully) {
+      messagesResponse = List.from(currentState.messages);
+    }
+
+    if (isLast) return;
+
+    emit(
+      ChatState.allMessagesReceivedLoading(messagesResponse, currentPage == 0),
+    );
+
     // Retrieve all messages
     final response = await _chatRepo.retrieveAllMessages(
       receiverDoctorId,
-      pageNumber: pageKey,
+      pageNumber: currentPage,
       pageSize: _kNumberOfMessagesPerRequest,
     );
 
     response.when(
-      success: (newPage) {
-        final previouslyFetchedItemsCount =
-            pagingController.itemList?.length ?? 0;
+      success: (messagesHistoryResponse) {
+        // Increase current page number
+        currentPage++;
 
-        final isLastPage = newPage.isLastPage(previouslyFetchedItemsCount);
-        final newItems = newPage.messages;
+        // Is the current page last
+        isLast = currentPage > messagesHistoryResponse.pages;
 
-        if (isLastPage) {
-          pagingController.appendLastPage(newItems);
-        } else {
-          final nextPageKey = pageKey + 1;
-          pagingController.appendPage(newItems, nextPageKey);
-        }
+        // Add messages to Messages list
+        messagesResponse =
+            List<Message>.from((state as AllMessagesReceivedLoading).messages).reversed.toList();
+        messagesResponse.addAll(messagesHistoryResponse.messages);
 
         // Update the UI
-        emit(const ChatState.allMessagesReceivedSuccessfully());
+        emit(ChatState.allMessagesReceivedSuccessfully(messagesResponse));
       },
       failure: (error) {
-        // Paging controller error
-        pagingController.error = error;
-
         // Update the UI
         emit(
           ChatState.allMessagesReceivedError(
@@ -112,7 +117,6 @@ class ChatCubit extends Cubit<ChatState> {
   // Dispose
   void dispose() {
     messageController.dispose();
-    pagingController.dispose();
     super.close();
   }
 }

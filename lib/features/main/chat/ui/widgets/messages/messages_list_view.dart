@@ -1,12 +1,13 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:logger/logger.dart';
+import 'package:pharmalink/core/widgets/loading/loading_indicator.dart';
 import 'package:pharmalink/features/main/chat/logic/cubit/chat_cubit.dart';
 import 'package:pharmalink/features/main/chat/ui/widgets/messages/message_card.dart';
-import '../../../../../../core/widgets/loading/empty_list_indicator.dart';
-import '../../../../../../core/widgets/loading/error_indicator.dart';
 import '../../../data/models/message.dart';
 import '../../../logic/cubit/chat_state.dart';
-import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 
 class MessagesListView extends StatefulWidget {
   final int userId;
@@ -21,39 +22,53 @@ class MessagesListView extends StatefulWidget {
 }
 
 class _MessagesListViewState extends State<MessagesListView> {
+  final ScrollController scrollController = ScrollController();
+
   @override
   void initState() {
-    BlocProvider.of<ChatCubit>(context).retrieveChatMessages(widget.userId);
-
     super.initState();
+
+    setupScrollController(context);
+    BlocProvider.of<ChatCubit>(context).retrieveChatMessages(widget.userId);
   }
 
-  Widget _buildMessagesList(List<Message> messages) {
-    return RefreshIndicator(
-      onRefresh: () => Future.sync(
-        () => context.read<ChatCubit>().pagingController.refresh(),
+  void setupScrollController(context) {
+    scrollController.addListener(() {
+      if (scrollController.position.atEdge) {
+        if (scrollController.position.pixels != 0) {
+          BlocProvider.of<ChatCubit>(context)
+              .retrieveChatMessages(widget.userId);
+        }
+      }
+    });
+  }
+
+  Widget _buildMessagesList(BuildContext context, bool isLoading) {
+    final cubit = BlocProvider.of<ChatCubit>(context);
+    final messages = cubit.messagesResponse.reversed.toList();
+    return ListView.separated(
+      controller: scrollController,
+      shrinkWrap: true,
+      reverse: true,
+      padding: const EdgeInsetsDirectional.only(
+        start: 16,
+        end: 16,
+        top: 16,
+        bottom: 16,
       ),
-      child: PagedListView.separated(
-        reverse: true,
-        shrinkWrap: true,
-        pagingController: context.read<ChatCubit>().pagingController,
-        padding: const EdgeInsetsDirectional.only(
-          start: 16,
-          end: 16,
-          top: 16,
-          bottom: 16,
-        ),
-        separatorBuilder: (context, index) => const SizedBox(height: 16),
-        builderDelegate: PagedChildBuilderDelegate<Message>(
-          itemBuilder: (context, message, index) => MessageCard(message),
-          firstPageErrorIndicatorBuilder: (context) => ErrorIndicator(
-            error: context.read<ChatCubit>().pagingController.error,
-            onTryAgain: () =>
-                context.read<ChatCubit>().pagingController.refresh(),
-          ),
-          noItemsFoundIndicatorBuilder: (context) => EmptyListIndicator(),
-        ),
-      ),
+      separatorBuilder: (context, index) => const SizedBox(height: 16),
+      itemBuilder: (context, index) {
+        if (index < messages.length) {
+          return MessageCard(messages[index]);
+        } else {
+          Timer(const Duration(milliseconds: 30), () {
+            scrollController.jumpTo(scrollController.position.maxScrollExtent);
+          });
+
+          return const LoadingIndicator();
+        }
+      },
+      itemCount: messages.length + (isLoading ? 1 : 0),
     );
   }
 
@@ -66,11 +81,18 @@ class _MessagesListViewState extends State<MessagesListView> {
           current is MessageSentLoading ||
           current is AllMessagesReceivedLoading,
       builder: (context, state) {
-        if (state is AllMessagesReceivedSuccessfully ||
-            state is MessageSentSuccessfully) {
-          return _buildMessagesList(context.read<ChatCubit>().messagesResponse);
+        if (state is AllMessagesReceivedLoading && state.isFirstFetch) {
+          return const LoadingIndicator();
         } else {
-          return const SizedBox.shrink();
+          bool isLoading = false;
+          if (state is AllMessagesReceivedLoading) {
+            isLoading = true;
+          } else if (state is AllMessagesReceivedSuccessfully ||
+              state is MessageSentSuccessfully) {
+            isLoading = false;
+          }
+
+          return _buildMessagesList(context, isLoading);
         }
       },
     );

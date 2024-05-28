@@ -1,5 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../../data/models/message.dart';
+
 part 'chat_state.freezed.dart';
 
 @freezed
@@ -24,10 +26,10 @@ class ChatState<T> with _$ChatState<T> {
   const factory ChatState.messageSentError(String message) = MessageSentError;
 
   // Get all messages
-  const factory ChatState.allMessagesReceivedLoading() =
-      AllMessagesReceivedLoading;
-  const factory ChatState.allMessagesReceivedSuccessfully() =
-      AllMessagesReceivedSuccessfully;
+  const factory ChatState.allMessagesReceivedLoading(
+      List<Message> messages, bool isFirstFetch) = AllMessagesReceivedLoading;
+  const factory ChatState.allMessagesReceivedSuccessfully(
+      List<Message> messages) = AllMessagesReceivedSuccessfully;
   const factory ChatState.allMessagesReceivedError(String message) =
       AllMessagesReceivedError;
 }

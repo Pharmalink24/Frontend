@@ -28,8 +28,10 @@ mixin _$ChatState<T> {
     required TResult Function() messageSentLoading,
     required TResult Function() messageSentSuccessfully,
     required TResult Function(String message) messageSentError,
-    required TResult Function() allMessagesReceivedLoading,
-    required TResult Function() allMessagesReceivedSuccessfully,
+    required TResult Function(List<Message> messages, bool isFirstFetch)
+        allMessagesReceivedLoading,
+    required TResult Function(List<Message> messages)
+        allMessagesReceivedSuccessfully,
     required TResult Function(String message) allMessagesReceivedError,
   }) =>
       throw _privateConstructorUsedError;
@@ -45,8 +47,9 @@ mixin _$ChatState<T> {
     TResult? Function()? messageSentLoading,
     TResult? Function()? messageSentSuccessfully,
     TResult? Function(String message)? messageSentError,
-    TResult? Function()? allMessagesReceivedLoading,
-    TResult? Function()? allMessagesReceivedSuccessfully,
+    TResult? Function(List<Message> messages, bool isFirstFetch)?
+        allMessagesReceivedLoading,
+    TResult? Function(List<Message> messages)? allMessagesReceivedSuccessfully,
     TResult? Function(String message)? allMessagesReceivedError,
   }) =>
       throw _privateConstructorUsedError;
@@ -62,8 +65,9 @@ mixin _$ChatState<T> {
     TResult Function()? messageSentLoading,
     TResult Function()? messageSentSuccessfully,
     TResult Function(String message)? messageSentError,
-    TResult Function()? allMessagesReceivedLoading,
-    TResult Function()? allMessagesReceivedSuccessfully,
+    TResult Function(List<Message> messages, bool isFirstFetch)?
+        allMessagesReceivedLoading,
+    TResult Function(List<Message> messages)? allMessagesReceivedSuccessfully,
     TResult Function(String message)? allMessagesReceivedError,
     required TResult orElse(),
   }) =>
@@ -207,8 +211,10 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function() messageSentLoading,
     required TResult Function() messageSentSuccessfully,
     required TResult Function(String message) messageSentError,
-    required TResult Function() allMessagesReceivedLoading,
-    required TResult Function() allMessagesReceivedSuccessfully,
+    required TResult Function(List<Message> messages, bool isFirstFetch)
+        allMessagesReceivedLoading,
+    required TResult Function(List<Message> messages)
+        allMessagesReceivedSuccessfully,
     required TResult Function(String message) allMessagesReceivedError,
   }) {
     return initial();
@@ -227,8 +233,9 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function()? messageSentLoading,
     TResult? Function()? messageSentSuccessfully,
     TResult? Function(String message)? messageSentError,
-    TResult? Function()? allMessagesReceivedLoading,
-    TResult? Function()? allMessagesReceivedSuccessfully,
+    TResult? Function(List<Message> messages, bool isFirstFetch)?
+        allMessagesReceivedLoading,
+    TResult? Function(List<Message> messages)? allMessagesReceivedSuccessfully,
     TResult? Function(String message)? allMessagesReceivedError,
   }) {
     return initial?.call();
@@ -247,8 +254,9 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function()? messageSentLoading,
     TResult Function()? messageSentSuccessfully,
     TResult Function(String message)? messageSentError,
-    TResult Function()? allMessagesReceivedLoading,
-    TResult Function()? allMessagesReceivedSuccessfully,
+    TResult Function(List<Message> messages, bool isFirstFetch)?
+        allMessagesReceivedLoading,
+    TResult Function(List<Message> messages)? allMessagesReceivedSuccessfully,
     TResult Function(String message)? allMessagesReceivedError,
     required TResult orElse(),
   }) {
@@ -395,8 +403,10 @@ class _$ConnectedLoadingImpl<T> implements ConnectedLoading<T> {
     required TResult Function() messageSentLoading,
     required TResult Function() messageSentSuccessfully,
     required TResult Function(String message) messageSentError,
-    required TResult Function() allMessagesReceivedLoading,
-    required TResult Function() allMessagesReceivedSuccessfully,
+    required TResult Function(List<Message> messages, bool isFirstFetch)
+        allMessagesReceivedLoading,
+    required TResult Function(List<Message> messages)
+        allMessagesReceivedSuccessfully,
     required TResult Function(String message) allMessagesReceivedError,
   }) {
     return connectedLoading();
@@ -415,8 +425,9 @@ class _$ConnectedLoadingImpl<T> implements ConnectedLoading<T> {
     TResult? Function()? messageSentLoading,
     TResult? Function()? messageSentSuccessfully,
     TResult? Function(String message)? messageSentError,
-    TResult? Function()? allMessagesReceivedLoading,
-    TResult? Function()? allMessagesReceivedSuccessfully,
+    TResult? Function(List<Message> messages, bool isFirstFetch)?
+        allMessagesReceivedLoading,
+    TResult? Function(List<Message> messages)? allMessagesReceivedSuccessfully,
     TResult? Function(String message)? allMessagesReceivedError,
   }) {
     return connectedLoading?.call();
@@ -435,8 +446,9 @@ class _$ConnectedLoadingImpl<T> implements ConnectedLoading<T> {
     TResult Function()? messageSentLoading,
     TResult Function()? messageSentSuccessfully,
     TResult Function(String message)? messageSentError,
-    TResult Function()? allMessagesReceivedLoading,
-    TResult Function()? allMessagesReceivedSuccessfully,
+    TResult Function(List<Message> messages, bool isFirstFetch)?
+        allMessagesReceivedLoading,
+    TResult Function(List<Message> messages)? allMessagesReceivedSuccessfully,
     TResult Function(String message)? allMessagesReceivedError,
     required TResult orElse(),
   }) {
@@ -585,8 +597,10 @@ class _$ConnectedSuccessfullyImpl<T> implements ConnectedSuccessfully<T> {
     required TResult Function() messageSentLoading,
     required TResult Function() messageSentSuccessfully,
     required TResult Function(String message) messageSentError,
-    required TResult Function() allMessagesReceivedLoading,
-    required TResult Function() allMessagesReceivedSuccessfully,
+    required TResult Function(List<Message> messages, bool isFirstFetch)
+        allMessagesReceivedLoading,
+    required TResult Function(List<Message> messages)
+        allMessagesReceivedSuccessfully,
     required TResult Function(String message) allMessagesReceivedError,
   }) {
     return connectedSuccessfully();
@@ -605,8 +619,9 @@ class _$ConnectedSuccessfullyImpl<T> implements ConnectedSuccessfully<T> {
     TResult? Function()? messageSentLoading,
     TResult? Function()? messageSentSuccessfully,
     TResult? Function(String message)? messageSentError,
-    TResult? Function()? allMessagesReceivedLoading,
-    TResult? Function()? allMessagesReceivedSuccessfully,
+    TResult? Function(List<Message> messages, bool isFirstFetch)?
+        allMessagesReceivedLoading,
+    TResult? Function(List<Message> messages)? allMessagesReceivedSuccessfully,
     TResult? Function(String message)? allMessagesReceivedError,
   }) {
     return connectedSuccessfully?.call();
@@ -625,8 +640,9 @@ class _$ConnectedSuccessfullyImpl<T> implements ConnectedSuccessfully<T> {
     TResult Function()? messageSentLoading,
     TResult Function()? messageSentSuccessfully,
     TResult Function(String message)? messageSentError,
-    TResult Function()? allMessagesReceivedLoading,
-    TResult Function()? allMessagesReceivedSuccessfully,
+    TResult Function(List<Message> messages, bool isFirstFetch)?
+        allMessagesReceivedLoading,
+    TResult Function(List<Message> messages)? allMessagesReceivedSuccessfully,
     TResult Function(String message)? allMessagesReceivedError,
     required TResult orElse(),
   }) {
@@ -799,8 +815,10 @@ class _$ConnectedErrorImpl<T> implements ConnectedError<T> {
     required TResult Function() messageSentLoading,
     required TResult Function() messageSentSuccessfully,
     required TResult Function(String message) messageSentError,
-    required TResult Function() allMessagesReceivedLoading,
-    required TResult Function() allMessagesReceivedSuccessfully,
+    required TResult Function(List<Message> messages, bool isFirstFetch)
+        allMessagesReceivedLoading,
+    required TResult Function(List<Message> messages)
+        allMessagesReceivedSuccessfully,
     required TResult Function(String message) allMessagesReceivedError,
   }) {
     return connectedError(message);
@@ -819,8 +837,9 @@ class _$ConnectedErrorImpl<T> implements ConnectedError<T> {
     TResult? Function()? messageSentLoading,
     TResult? Function()? messageSentSuccessfully,
     TResult? Function(String message)? messageSentError,
-    TResult? Function()? allMessagesReceivedLoading,
-    TResult? Function()? allMessagesReceivedSuccessfully,
+    TResult? Function(List<Message> messages, bool isFirstFetch)?
+        allMessagesReceivedLoading,
+    TResult? Function(List<Message> messages)? allMessagesReceivedSuccessfully,
     TResult? Function(String message)? allMessagesReceivedError,
   }) {
     return connectedError?.call(message);
@@ -839,8 +858,9 @@ class _$ConnectedErrorImpl<T> implements ConnectedError<T> {
     TResult Function()? messageSentLoading,
     TResult Function()? messageSentSuccessfully,
     TResult Function(String message)? messageSentError,
-    TResult Function()? allMessagesReceivedLoading,
-    TResult Function()? allMessagesReceivedSuccessfully,
+    TResult Function(List<Message> messages, bool isFirstFetch)?
+        allMessagesReceivedLoading,
+    TResult Function(List<Message> messages)? allMessagesReceivedSuccessfully,
     TResult Function(String message)? allMessagesReceivedError,
     required TResult orElse(),
   }) {
@@ -994,8 +1014,10 @@ class _$UserChatsReceivedLoadingImpl<T> implements UserChatsReceivedLoading<T> {
     required TResult Function() messageSentLoading,
     required TResult Function() messageSentSuccessfully,
     required TResult Function(String message) messageSentError,
-    required TResult Function() allMessagesReceivedLoading,
-    required TResult Function() allMessagesReceivedSuccessfully,
+    required TResult Function(List<Message> messages, bool isFirstFetch)
+        allMessagesReceivedLoading,
+    required TResult Function(List<Message> messages)
+        allMessagesReceivedSuccessfully,
     required TResult Function(String message) allMessagesReceivedError,
   }) {
     return userChatsReceivedLoading();
@@ -1014,8 +1036,9 @@ class _$UserChatsReceivedLoadingImpl<T> implements UserChatsReceivedLoading<T> {
     TResult? Function()? messageSentLoading,
     TResult? Function()? messageSentSuccessfully,
     TResult? Function(String message)? messageSentError,
-    TResult? Function()? allMessagesReceivedLoading,
-    TResult? Function()? allMessagesReceivedSuccessfully,
+    TResult? Function(List<Message> messages, bool isFirstFetch)?
+        allMessagesReceivedLoading,
+    TResult? Function(List<Message> messages)? allMessagesReceivedSuccessfully,
     TResult? Function(String message)? allMessagesReceivedError,
   }) {
     return userChatsReceivedLoading?.call();
@@ -1034,8 +1057,9 @@ class _$UserChatsReceivedLoadingImpl<T> implements UserChatsReceivedLoading<T> {
     TResult Function()? messageSentLoading,
     TResult Function()? messageSentSuccessfully,
     TResult Function(String message)? messageSentError,
-    TResult Function()? allMessagesReceivedLoading,
-    TResult Function()? allMessagesReceivedSuccessfully,
+    TResult Function(List<Message> messages, bool isFirstFetch)?
+        allMessagesReceivedLoading,
+    TResult Function(List<Message> messages)? allMessagesReceivedSuccessfully,
     TResult Function(String message)? allMessagesReceivedError,
     required TResult orElse(),
   }) {
@@ -1214,8 +1238,10 @@ class _$UserChatsReceivedSuccessfullyImpl<T>
     required TResult Function() messageSentLoading,
     required TResult Function() messageSentSuccessfully,
     required TResult Function(String message) messageSentError,
-    required TResult Function() allMessagesReceivedLoading,
-    required TResult Function() allMessagesReceivedSuccessfully,
+    required TResult Function(List<Message> messages, bool isFirstFetch)
+        allMessagesReceivedLoading,
+    required TResult Function(List<Message> messages)
+        allMessagesReceivedSuccessfully,
     required TResult Function(String message) allMessagesReceivedError,
   }) {
     return userChatsReceivedSuccessfully(chats);
@@ -1234,8 +1260,9 @@ class _$UserChatsReceivedSuccessfullyImpl<T>
     TResult? Function()? messageSentLoading,
     TResult? Function()? messageSentSuccessfully,
     TResult? Function(String message)? messageSentError,
-    TResult? Function()? allMessagesReceivedLoading,
-    TResult? Function()? allMessagesReceivedSuccessfully,
+    TResult? Function(List<Message> messages, bool isFirstFetch)?
+        allMessagesReceivedLoading,
+    TResult? Function(List<Message> messages)? allMessagesReceivedSuccessfully,
     TResult? Function(String message)? allMessagesReceivedError,
   }) {
     return userChatsReceivedSuccessfully?.call(chats);
@@ -1254,8 +1281,9 @@ class _$UserChatsReceivedSuccessfullyImpl<T>
     TResult Function()? messageSentLoading,
     TResult Function()? messageSentSuccessfully,
     TResult Function(String message)? messageSentError,
-    TResult Function()? allMessagesReceivedLoading,
-    TResult Function()? allMessagesReceivedSuccessfully,
+    TResult Function(List<Message> messages, bool isFirstFetch)?
+        allMessagesReceivedLoading,
+    TResult Function(List<Message> messages)? allMessagesReceivedSuccessfully,
     TResult Function(String message)? allMessagesReceivedError,
     required TResult orElse(),
   }) {
@@ -1437,8 +1465,10 @@ class _$UserChatsReceivedErrorImpl<T> implements UserChatsReceivedError<T> {
     required TResult Function() messageSentLoading,
     required TResult Function() messageSentSuccessfully,
     required TResult Function(String message) messageSentError,
-    required TResult Function() allMessagesReceivedLoading,
-    required TResult Function() allMessagesReceivedSuccessfully,
+    required TResult Function(List<Message> messages, bool isFirstFetch)
+        allMessagesReceivedLoading,
+    required TResult Function(List<Message> messages)
+        allMessagesReceivedSuccessfully,
     required TResult Function(String message) allMessagesReceivedError,
   }) {
     return userChatsReceivedError(message);
@@ -1457,8 +1487,9 @@ class _$UserChatsReceivedErrorImpl<T> implements UserChatsReceivedError<T> {
     TResult? Function()? messageSentLoading,
     TResult? Function()? messageSentSuccessfully,
     TResult? Function(String message)? messageSentError,
-    TResult? Function()? allMessagesReceivedLoading,
-    TResult? Function()? allMessagesReceivedSuccessfully,
+    TResult? Function(List<Message> messages, bool isFirstFetch)?
+        allMessagesReceivedLoading,
+    TResult? Function(List<Message> messages)? allMessagesReceivedSuccessfully,
     TResult? Function(String message)? allMessagesReceivedError,
   }) {
     return userChatsReceivedError?.call(message);
@@ -1477,8 +1508,9 @@ class _$UserChatsReceivedErrorImpl<T> implements UserChatsReceivedError<T> {
     TResult Function()? messageSentLoading,
     TResult Function()? messageSentSuccessfully,
     TResult Function(String message)? messageSentError,
-    TResult Function()? allMessagesReceivedLoading,
-    TResult Function()? allMessagesReceivedSuccessfully,
+    TResult Function(List<Message> messages, bool isFirstFetch)?
+        allMessagesReceivedLoading,
+    TResult Function(List<Message> messages)? allMessagesReceivedSuccessfully,
     TResult Function(String message)? allMessagesReceivedError,
     required TResult orElse(),
   }) {
@@ -1631,8 +1663,10 @@ class _$MessageSentLoadingImpl<T> implements MessageSentLoading<T> {
     required TResult Function() messageSentLoading,
     required TResult Function() messageSentSuccessfully,
     required TResult Function(String message) messageSentError,
-    required TResult Function() allMessagesReceivedLoading,
-    required TResult Function() allMessagesReceivedSuccessfully,
+    required TResult Function(List<Message> messages, bool isFirstFetch)
+        allMessagesReceivedLoading,
+    required TResult Function(List<Message> messages)
+        allMessagesReceivedSuccessfully,
     required TResult Function(String message) allMessagesReceivedError,
   }) {
     return messageSentLoading();
@@ -1651,8 +1685,9 @@ class _$MessageSentLoadingImpl<T> implements MessageSentLoading<T> {
     TResult? Function()? messageSentLoading,
     TResult? Function()? messageSentSuccessfully,
     TResult? Function(String message)? messageSentError,
-    TResult? Function()? allMessagesReceivedLoading,
-    TResult? Function()? allMessagesReceivedSuccessfully,
+    TResult? Function(List<Message> messages, bool isFirstFetch)?
+        allMessagesReceivedLoading,
+    TResult? Function(List<Message> messages)? allMessagesReceivedSuccessfully,
     TResult? Function(String message)? allMessagesReceivedError,
   }) {
     return messageSentLoading?.call();
@@ -1671,8 +1706,9 @@ class _$MessageSentLoadingImpl<T> implements MessageSentLoading<T> {
     TResult Function()? messageSentLoading,
     TResult Function()? messageSentSuccessfully,
     TResult Function(String message)? messageSentError,
-    TResult Function()? allMessagesReceivedLoading,
-    TResult Function()? allMessagesReceivedSuccessfully,
+    TResult Function(List<Message> messages, bool isFirstFetch)?
+        allMessagesReceivedLoading,
+    TResult Function(List<Message> messages)? allMessagesReceivedSuccessfully,
     TResult Function(String message)? allMessagesReceivedError,
     required TResult orElse(),
   }) {
@@ -1821,8 +1857,10 @@ class _$MessageSentSuccessfullyImpl<T> implements MessageSentSuccessfully<T> {
     required TResult Function() messageSentLoading,
     required TResult Function() messageSentSuccessfully,
     required TResult Function(String message) messageSentError,
-    required TResult Function() allMessagesReceivedLoading,
-    required TResult Function() allMessagesReceivedSuccessfully,
+    required TResult Function(List<Message> messages, bool isFirstFetch)
+        allMessagesReceivedLoading,
+    required TResult Function(List<Message> messages)
+        allMessagesReceivedSuccessfully,
     required TResult Function(String message) allMessagesReceivedError,
   }) {
     return messageSentSuccessfully();
@@ -1841,8 +1879,9 @@ class _$MessageSentSuccessfullyImpl<T> implements MessageSentSuccessfully<T> {
     TResult? Function()? messageSentLoading,
     TResult? Function()? messageSentSuccessfully,
     TResult? Function(String message)? messageSentError,
-    TResult? Function()? allMessagesReceivedLoading,
-    TResult? Function()? allMessagesReceivedSuccessfully,
+    TResult? Function(List<Message> messages, bool isFirstFetch)?
+        allMessagesReceivedLoading,
+    TResult? Function(List<Message> messages)? allMessagesReceivedSuccessfully,
     TResult? Function(String message)? allMessagesReceivedError,
   }) {
     return messageSentSuccessfully?.call();
@@ -1861,8 +1900,9 @@ class _$MessageSentSuccessfullyImpl<T> implements MessageSentSuccessfully<T> {
     TResult Function()? messageSentLoading,
     TResult Function()? messageSentSuccessfully,
     TResult Function(String message)? messageSentError,
-    TResult Function()? allMessagesReceivedLoading,
-    TResult Function()? allMessagesReceivedSuccessfully,
+    TResult Function(List<Message> messages, bool isFirstFetch)?
+        allMessagesReceivedLoading,
+    TResult Function(List<Message> messages)? allMessagesReceivedSuccessfully,
     TResult Function(String message)? allMessagesReceivedError,
     required TResult orElse(),
   }) {
@@ -2035,8 +2075,10 @@ class _$MessageSentErrorImpl<T> implements MessageSentError<T> {
     required TResult Function() messageSentLoading,
     required TResult Function() messageSentSuccessfully,
     required TResult Function(String message) messageSentError,
-    required TResult Function() allMessagesReceivedLoading,
-    required TResult Function() allMessagesReceivedSuccessfully,
+    required TResult Function(List<Message> messages, bool isFirstFetch)
+        allMessagesReceivedLoading,
+    required TResult Function(List<Message> messages)
+        allMessagesReceivedSuccessfully,
     required TResult Function(String message) allMessagesReceivedError,
   }) {
     return messageSentError(message);
@@ -2055,8 +2097,9 @@ class _$MessageSentErrorImpl<T> implements MessageSentError<T> {
     TResult? Function()? messageSentLoading,
     TResult? Function()? messageSentSuccessfully,
     TResult? Function(String message)? messageSentError,
-    TResult? Function()? allMessagesReceivedLoading,
-    TResult? Function()? allMessagesReceivedSuccessfully,
+    TResult? Function(List<Message> messages, bool isFirstFetch)?
+        allMessagesReceivedLoading,
+    TResult? Function(List<Message> messages)? allMessagesReceivedSuccessfully,
     TResult? Function(String message)? allMessagesReceivedError,
   }) {
     return messageSentError?.call(message);
@@ -2075,8 +2118,9 @@ class _$MessageSentErrorImpl<T> implements MessageSentError<T> {
     TResult Function()? messageSentLoading,
     TResult Function()? messageSentSuccessfully,
     TResult Function(String message)? messageSentError,
-    TResult Function()? allMessagesReceivedLoading,
-    TResult Function()? allMessagesReceivedSuccessfully,
+    TResult Function(List<Message> messages, bool isFirstFetch)?
+        allMessagesReceivedLoading,
+    TResult Function(List<Message> messages)? allMessagesReceivedSuccessfully,
     TResult Function(String message)? allMessagesReceivedError,
     required TResult orElse(),
   }) {
@@ -2186,6 +2230,8 @@ abstract class _$$AllMessagesReceivedLoadingImplCopyWith<T, $Res> {
           _$AllMessagesReceivedLoadingImpl<T> value,
           $Res Function(_$AllMessagesReceivedLoadingImpl<T>) then) =
       __$$AllMessagesReceivedLoadingImplCopyWithImpl<T, $Res>;
+  @useResult
+  $Res call({List<Message> messages, bool isFirstFetch});
 }
 
 /// @nodoc
@@ -2197,28 +2243,71 @@ class __$$AllMessagesReceivedLoadingImplCopyWithImpl<T, $Res>
       _$AllMessagesReceivedLoadingImpl<T> _value,
       $Res Function(_$AllMessagesReceivedLoadingImpl<T>) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? messages = null,
+    Object? isFirstFetch = null,
+  }) {
+    return _then(_$AllMessagesReceivedLoadingImpl<T>(
+      null == messages
+          ? _value._messages
+          : messages // ignore: cast_nullable_to_non_nullable
+              as List<Message>,
+      null == isFirstFetch
+          ? _value.isFirstFetch
+          : isFirstFetch // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$AllMessagesReceivedLoadingImpl<T>
     implements AllMessagesReceivedLoading<T> {
-  const _$AllMessagesReceivedLoadingImpl();
+  const _$AllMessagesReceivedLoadingImpl(
+      final List<Message> messages, this.isFirstFetch)
+      : _messages = messages;
+
+  final List<Message> _messages;
+  @override
+  List<Message> get messages {
+    if (_messages is EqualUnmodifiableListView) return _messages;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_messages);
+  }
+
+  @override
+  final bool isFirstFetch;
 
   @override
   String toString() {
-    return 'ChatState<$T>.allMessagesReceivedLoading()';
+    return 'ChatState<$T>.allMessagesReceivedLoading(messages: $messages, isFirstFetch: $isFirstFetch)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$AllMessagesReceivedLoadingImpl<T>);
+            other is _$AllMessagesReceivedLoadingImpl<T> &&
+            const DeepCollectionEquality().equals(other._messages, _messages) &&
+            (identical(other.isFirstFetch, isFirstFetch) ||
+                other.isFirstFetch == isFirstFetch));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType,
+      const DeepCollectionEquality().hash(_messages), isFirstFetch);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AllMessagesReceivedLoadingImplCopyWith<T,
+          _$AllMessagesReceivedLoadingImpl<T>>
+      get copyWith => __$$AllMessagesReceivedLoadingImplCopyWithImpl<T,
+          _$AllMessagesReceivedLoadingImpl<T>>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -2233,11 +2322,13 @@ class _$AllMessagesReceivedLoadingImpl<T>
     required TResult Function() messageSentLoading,
     required TResult Function() messageSentSuccessfully,
     required TResult Function(String message) messageSentError,
-    required TResult Function() allMessagesReceivedLoading,
-    required TResult Function() allMessagesReceivedSuccessfully,
+    required TResult Function(List<Message> messages, bool isFirstFetch)
+        allMessagesReceivedLoading,
+    required TResult Function(List<Message> messages)
+        allMessagesReceivedSuccessfully,
     required TResult Function(String message) allMessagesReceivedError,
   }) {
-    return allMessagesReceivedLoading();
+    return allMessagesReceivedLoading(messages, isFirstFetch);
   }
 
   @override
@@ -2253,11 +2344,12 @@ class _$AllMessagesReceivedLoadingImpl<T>
     TResult? Function()? messageSentLoading,
     TResult? Function()? messageSentSuccessfully,
     TResult? Function(String message)? messageSentError,
-    TResult? Function()? allMessagesReceivedLoading,
-    TResult? Function()? allMessagesReceivedSuccessfully,
+    TResult? Function(List<Message> messages, bool isFirstFetch)?
+        allMessagesReceivedLoading,
+    TResult? Function(List<Message> messages)? allMessagesReceivedSuccessfully,
     TResult? Function(String message)? allMessagesReceivedError,
   }) {
-    return allMessagesReceivedLoading?.call();
+    return allMessagesReceivedLoading?.call(messages, isFirstFetch);
   }
 
   @override
@@ -2273,13 +2365,14 @@ class _$AllMessagesReceivedLoadingImpl<T>
     TResult Function()? messageSentLoading,
     TResult Function()? messageSentSuccessfully,
     TResult Function(String message)? messageSentError,
-    TResult Function()? allMessagesReceivedLoading,
-    TResult Function()? allMessagesReceivedSuccessfully,
+    TResult Function(List<Message> messages, bool isFirstFetch)?
+        allMessagesReceivedLoading,
+    TResult Function(List<Message> messages)? allMessagesReceivedSuccessfully,
     TResult Function(String message)? allMessagesReceivedError,
     required TResult orElse(),
   }) {
     if (allMessagesReceivedLoading != null) {
-      return allMessagesReceivedLoading();
+      return allMessagesReceivedLoading(messages, isFirstFetch);
     }
     return orElse();
   }
@@ -2369,8 +2462,16 @@ class _$AllMessagesReceivedLoadingImpl<T>
 }
 
 abstract class AllMessagesReceivedLoading<T> implements ChatState<T> {
-  const factory AllMessagesReceivedLoading() =
+  const factory AllMessagesReceivedLoading(
+          final List<Message> messages, final bool isFirstFetch) =
       _$AllMessagesReceivedLoadingImpl<T>;
+
+  List<Message> get messages;
+  bool get isFirstFetch;
+  @JsonKey(ignore: true)
+  _$$AllMessagesReceivedLoadingImplCopyWith<T,
+          _$AllMessagesReceivedLoadingImpl<T>>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -2379,6 +2480,8 @@ abstract class _$$AllMessagesReceivedSuccessfullyImplCopyWith<T, $Res> {
           _$AllMessagesReceivedSuccessfullyImpl<T> value,
           $Res Function(_$AllMessagesReceivedSuccessfullyImpl<T>) then) =
       __$$AllMessagesReceivedSuccessfullyImplCopyWithImpl<T, $Res>;
+  @useResult
+  $Res call({List<Message> messages});
 }
 
 /// @nodoc
@@ -2390,28 +2493,60 @@ class __$$AllMessagesReceivedSuccessfullyImplCopyWithImpl<T, $Res>
       _$AllMessagesReceivedSuccessfullyImpl<T> _value,
       $Res Function(_$AllMessagesReceivedSuccessfullyImpl<T>) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? messages = null,
+  }) {
+    return _then(_$AllMessagesReceivedSuccessfullyImpl<T>(
+      null == messages
+          ? _value._messages
+          : messages // ignore: cast_nullable_to_non_nullable
+              as List<Message>,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$AllMessagesReceivedSuccessfullyImpl<T>
     implements AllMessagesReceivedSuccessfully<T> {
-  const _$AllMessagesReceivedSuccessfullyImpl();
+  const _$AllMessagesReceivedSuccessfullyImpl(final List<Message> messages)
+      : _messages = messages;
+
+  final List<Message> _messages;
+  @override
+  List<Message> get messages {
+    if (_messages is EqualUnmodifiableListView) return _messages;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_messages);
+  }
 
   @override
   String toString() {
-    return 'ChatState<$T>.allMessagesReceivedSuccessfully()';
+    return 'ChatState<$T>.allMessagesReceivedSuccessfully(messages: $messages)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$AllMessagesReceivedSuccessfullyImpl<T>);
+            other is _$AllMessagesReceivedSuccessfullyImpl<T> &&
+            const DeepCollectionEquality().equals(other._messages, _messages));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_messages));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AllMessagesReceivedSuccessfullyImplCopyWith<T,
+          _$AllMessagesReceivedSuccessfullyImpl<T>>
+      get copyWith => __$$AllMessagesReceivedSuccessfullyImplCopyWithImpl<T,
+          _$AllMessagesReceivedSuccessfullyImpl<T>>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -2426,11 +2561,13 @@ class _$AllMessagesReceivedSuccessfullyImpl<T>
     required TResult Function() messageSentLoading,
     required TResult Function() messageSentSuccessfully,
     required TResult Function(String message) messageSentError,
-    required TResult Function() allMessagesReceivedLoading,
-    required TResult Function() allMessagesReceivedSuccessfully,
+    required TResult Function(List<Message> messages, bool isFirstFetch)
+        allMessagesReceivedLoading,
+    required TResult Function(List<Message> messages)
+        allMessagesReceivedSuccessfully,
     required TResult Function(String message) allMessagesReceivedError,
   }) {
-    return allMessagesReceivedSuccessfully();
+    return allMessagesReceivedSuccessfully(messages);
   }
 
   @override
@@ -2446,11 +2583,12 @@ class _$AllMessagesReceivedSuccessfullyImpl<T>
     TResult? Function()? messageSentLoading,
     TResult? Function()? messageSentSuccessfully,
     TResult? Function(String message)? messageSentError,
-    TResult? Function()? allMessagesReceivedLoading,
-    TResult? Function()? allMessagesReceivedSuccessfully,
+    TResult? Function(List<Message> messages, bool isFirstFetch)?
+        allMessagesReceivedLoading,
+    TResult? Function(List<Message> messages)? allMessagesReceivedSuccessfully,
     TResult? Function(String message)? allMessagesReceivedError,
   }) {
-    return allMessagesReceivedSuccessfully?.call();
+    return allMessagesReceivedSuccessfully?.call(messages);
   }
 
   @override
@@ -2466,13 +2604,14 @@ class _$AllMessagesReceivedSuccessfullyImpl<T>
     TResult Function()? messageSentLoading,
     TResult Function()? messageSentSuccessfully,
     TResult Function(String message)? messageSentError,
-    TResult Function()? allMessagesReceivedLoading,
-    TResult Function()? allMessagesReceivedSuccessfully,
+    TResult Function(List<Message> messages, bool isFirstFetch)?
+        allMessagesReceivedLoading,
+    TResult Function(List<Message> messages)? allMessagesReceivedSuccessfully,
     TResult Function(String message)? allMessagesReceivedError,
     required TResult orElse(),
   }) {
     if (allMessagesReceivedSuccessfully != null) {
-      return allMessagesReceivedSuccessfully();
+      return allMessagesReceivedSuccessfully(messages);
     }
     return orElse();
   }
@@ -2562,8 +2701,14 @@ class _$AllMessagesReceivedSuccessfullyImpl<T>
 }
 
 abstract class AllMessagesReceivedSuccessfully<T> implements ChatState<T> {
-  const factory AllMessagesReceivedSuccessfully() =
+  const factory AllMessagesReceivedSuccessfully(final List<Message> messages) =
       _$AllMessagesReceivedSuccessfullyImpl<T>;
+
+  List<Message> get messages;
+  @JsonKey(ignore: true)
+  _$$AllMessagesReceivedSuccessfullyImplCopyWith<T,
+          _$AllMessagesReceivedSuccessfullyImpl<T>>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -2643,8 +2788,10 @@ class _$AllMessagesReceivedErrorImpl<T> implements AllMessagesReceivedError<T> {
     required TResult Function() messageSentLoading,
     required TResult Function() messageSentSuccessfully,
     required TResult Function(String message) messageSentError,
-    required TResult Function() allMessagesReceivedLoading,
-    required TResult Function() allMessagesReceivedSuccessfully,
+    required TResult Function(List<Message> messages, bool isFirstFetch)
+        allMessagesReceivedLoading,
+    required TResult Function(List<Message> messages)
+        allMessagesReceivedSuccessfully,
     required TResult Function(String message) allMessagesReceivedError,
   }) {
     return allMessagesReceivedError(message);
@@ -2663,8 +2810,9 @@ class _$AllMessagesReceivedErrorImpl<T> implements AllMessagesReceivedError<T> {
     TResult? Function()? messageSentLoading,
     TResult? Function()? messageSentSuccessfully,
     TResult? Function(String message)? messageSentError,
-    TResult? Function()? allMessagesReceivedLoading,
-    TResult? Function()? allMessagesReceivedSuccessfully,
+    TResult? Function(List<Message> messages, bool isFirstFetch)?
+        allMessagesReceivedLoading,
+    TResult? Function(List<Message> messages)? allMessagesReceivedSuccessfully,
     TResult? Function(String message)? allMessagesReceivedError,
   }) {
     return allMessagesReceivedError?.call(message);
@@ -2683,8 +2831,9 @@ class _$AllMessagesReceivedErrorImpl<T> implements AllMessagesReceivedError<T> {
     TResult Function()? messageSentLoading,
     TResult Function()? messageSentSuccessfully,
     TResult Function(String message)? messageSentError,
-    TResult Function()? allMessagesReceivedLoading,
-    TResult Function()? allMessagesReceivedSuccessfully,
+    TResult Function(List<Message> messages, bool isFirstFetch)?
+        allMessagesReceivedLoading,
+    TResult Function(List<Message> messages)? allMessagesReceivedSuccessfully,
     TResult Function(String message)? allMessagesReceivedError,
     required TResult orElse(),
   }) {
