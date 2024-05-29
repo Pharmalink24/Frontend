@@ -1,5 +1,4 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_background_service/flutter_background_service.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
@@ -18,6 +17,8 @@ Future<void> init() async {
 
   // Initialize background service
   await initializeBackgroundAndForegroundService();
+
+  deepLinking();
 }
 
 /// Foreground and Background
@@ -86,4 +87,7 @@ void onStart(ServiceInstance service) async {
       }
     }
   });
+}
+
+void deepLinking() {
 }
