@@ -34,7 +34,7 @@ class _MessagesScreenState extends State<MessagesScreen> {
 
   Widget _buildMessageInput(BuildContext context) {
     return MessageInput(
-      controller: context.read<ChatCubit>().messageController,
+      controller: BlocProvider.of<ChatCubit>(context).messageController,
       onPressed: () =>
           context.read<ChatCubit>().sendMessage(widget.chat.chatWithId ?? -1),
     );
@@ -61,13 +61,11 @@ class _MessagesScreenState extends State<MessagesScreen> {
       child: Scaffold(
         resizeToAvoidBottomInset: true, // assign true
         appBar: buildMessageAppBar(context, widget.chat),
-        body: SafeArea(
-          child: Column(
-            children: [
-              _buildMessageListView(context),
-              _buildMessageInput(context),
-            ],
-          ),
+        body: Column(
+          children: [
+            _buildMessageListView(context),
+            _buildMessageInput(context),
+          ],
         ),
       ),
     );

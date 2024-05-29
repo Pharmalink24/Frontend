@@ -30,7 +30,7 @@ class ChatRepo {
       onListen(chats);
     });
 
-    // Close the user chats channel
+    // // Close the user chats channel
     // _socketService.closeUserChatsChannel();
   }
 
@@ -83,5 +83,16 @@ class ChatRepo {
       Logger().e('Error in retrieving all messages: $error');
       return ApiResult.failure(ErrorHandler.handle(error));
     }
+  }
+
+  //-------------------- Streams --------------------//
+
+  // Retrieve the chatting stream
+  Stream<dynamic>? getChattingStream() {
+    return _socketService.getChattingStream();
+  }
+
+  Stream<dynamic>? getUserChatsStream() {
+    return _socketService.getUserChatsStream();
   }
 }

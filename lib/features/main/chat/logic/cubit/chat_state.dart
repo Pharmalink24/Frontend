@@ -22,7 +22,8 @@ class ChatState<T> with _$ChatState<T> {
 
   // Send a message
   const factory ChatState.messageSentLoading() = MessageSentLoading;
-  const factory ChatState.messageSentSuccessfully() = MessageSentSuccessfully;
+  const factory ChatState.messageSentSuccessfully(List<Message> messages) =
+      MessageSentSuccessfully;
   const factory ChatState.messageSentError(String message) = MessageSentError;
 
   // Get all messages

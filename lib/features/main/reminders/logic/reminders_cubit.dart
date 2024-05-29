@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import '../../../../core/helpers/errors.dart';
+import '../data/models/reminder.dart';
 import '../data/repo/reminders_repo.dart';
 import 'reminders_state.dart';
 
@@ -46,5 +47,11 @@ class RemindersCubit extends Cubit<RemindersState> {
         );
       },
     );
+  }
+
+  List<Reminder> filterReminders(
+      List<Reminder> reminders, ReminderTime filter) {
+    final filteredReminders = _remindersRepo.filterReminders(reminders, filter);
+    return filteredReminders;
   }
 }

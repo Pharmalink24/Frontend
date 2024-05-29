@@ -11,7 +11,6 @@ import '../../../data/models/chat.dart';
 import '../../../logic/cubit/chat_state.dart';
 import 'chat_card.dart';
 
-
 class ChatsWidget extends StatefulWidget {
   const ChatsWidget({super.key});
 

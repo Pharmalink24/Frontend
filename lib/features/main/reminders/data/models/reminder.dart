@@ -42,7 +42,17 @@ class Reminder {
   });
 
   bool isToday() {
-    return DateTime.now().day == getNextDoseTime()?.day;
+    return getNextDoseTime()?.day == DateTime.now().day &&
+        getNextDoseTime()?.month == DateTime.now().month &&
+        getNextDoseTime()?.year == DateTime.now().year;
+  }
+
+  bool isBeforeToday() {
+    return getNextDoseTime()?.isBefore(DateTime.now()) ?? false;
+  }
+
+  bool isAfterToday() {
+    return getNextDoseTime()?.isAfter(DateTime.now()) ?? false;
   }
 
   DateTime? getNextDoseTime() {

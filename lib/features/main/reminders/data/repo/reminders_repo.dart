@@ -7,6 +7,13 @@ import '../../../../../core/shared_preferences/auth_prefs.dart';
 
 import '../models/reminder.dart';
 
+enum ReminderTime {
+  all,
+  previous,
+  today,
+  coming,
+}
+
 class RemindersRepo {
   final ApiService _apiService;
 
@@ -16,12 +23,7 @@ class RemindersRepo {
     try {
       final reminders =
           await _apiService.getReminderList(AuthSharedPrefs.getAccessToken());
-
-      List<Reminder> showedReminders = [];
-      for (var reminder in reminders) {
-        reminder.isToday() ? showedReminders.add(reminder) : null;
-      }
-      return ApiResult.success(showedReminders);
+      return ApiResult.success(reminders);
     } catch (error) {
       getIt<Logger>().e(error);
       return ApiResult.failure(ErrorHandler.handle(error));
@@ -39,5 +41,25 @@ class RemindersRepo {
       getIt<Logger>().e(error);
       return ApiResult.failure(ErrorHandler.handle(error));
     }
+  }
+
+  List<Reminder> filterReminders(
+      List<Reminder> reminders, ReminderTime filter) {
+    List<Reminder> filteredReminders = [];
+
+    if (filter == ReminderTime.all) {
+      filteredReminders = reminders;
+    } else if (filter == ReminderTime.previous) {
+      filteredReminders =
+          reminders.where((reminder) => reminder.isBeforeToday()).toList();
+    } else if (filter == ReminderTime.today) {
+      filteredReminders =
+          reminders.where((reminder) => reminder.isToday()).toList();
+    } else if (filter == ReminderTime.coming) {
+      filteredReminders =
+          reminders.where((reminder) => reminder.isAfterToday()).toList();
+    }
+
+    return filteredReminders;
   }
 }

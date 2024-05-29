@@ -144,7 +144,9 @@
     "noChatsMessage": "ليس لديك دردشات بعد.",
     "startChat": "بدء الدردشة",
     "chatWithDoctor": "الدردشة مع الطبيب",
-    "chatsDescription": "عرض وإدارة الدردشات الخاصة بك."
+    "chatsDescription": "عرض وإدارة الدردشات الخاصة بك.",
+
+    "noReminders": "لا توجد تذكيرات"
 
 
 }

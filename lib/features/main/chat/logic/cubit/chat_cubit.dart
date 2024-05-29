@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import '../../../../../core/helpers/errors.dart';
@@ -23,18 +25,23 @@ class ChatCubit extends Cubit<ChatState> {
   // List of messages
   List<Message> messagesResponse = [];
 
+  Stream<dynamic>? getChattingStream() {
+    return _chatRepo.getChattingStream();
+  }
+
+  void receiveMessage(String data) {
+    Message message = Message.fromJson(jsonDecode(data));
+
+    // Add the message to the list
+    messagesResponse.insert(0, message);
+  }
+
   // Listen to the messaging channel
   void listenToMessaging() {
     // Listen to the messaging channel
     _chatRepo.messaging((message) {
       // Retrieve the user chats
       retrieveUserChats();
-
-      // Add the message to the list
-      messagesResponse.add(message);
-
-      // Update the UI
-      emit(const ChatState.messageSentSuccessfully());
     });
   }
 
@@ -51,9 +58,8 @@ class ChatCubit extends Cubit<ChatState> {
 
     if (isLast) return;
 
-    emit(
-      ChatState.allMessagesReceivedLoading(messagesResponse, currentPage == 0),
-    );
+    emit(ChatState.allMessagesReceivedLoading(
+        messagesResponse, currentPage == 0));
 
     // Retrieve all messages
     final response = await _chatRepo.retrieveAllMessages(
@@ -72,7 +78,7 @@ class ChatCubit extends Cubit<ChatState> {
 
         // Add messages to Messages list
         messagesResponse =
-            List<Message>.from((state as AllMessagesReceivedLoading).messages).reversed.toList();
+            List<Message>.from((state as AllMessagesReceivedLoading).messages);
         messagesResponse.addAll(messagesHistoryResponse.messages);
 
         // Update the UI

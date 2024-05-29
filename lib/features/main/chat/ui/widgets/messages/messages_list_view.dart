@@ -1,10 +1,13 @@
 import 'dart:async';
+import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:logger/logger.dart';
 import 'package:pharmalink/core/widgets/loading/loading_indicator.dart';
 import 'package:pharmalink/features/main/chat/logic/cubit/chat_cubit.dart';
 import 'package:pharmalink/features/main/chat/ui/widgets/messages/message_card.dart';
+import '../../../data/models/message.dart';
 import '../../../logic/cubit/chat_state.dart';
 
 class MessagesListView extends StatefulWidget {
@@ -41,9 +44,8 @@ class _MessagesListViewState extends State<MessagesListView> {
     });
   }
 
-  Widget _buildMessagesList(BuildContext context, bool isLoading) {
-    final cubit = BlocProvider.of<ChatCubit>(context);
-    final messages = cubit.messagesResponse.reversed.toList();
+  Widget _buildMessagesList(
+      BuildContext context, bool isLoading, List<Message> messages) {
     return ListView.separated(
       controller: scrollController,
       shrinkWrap: true,
@@ -70,14 +72,24 @@ class _MessagesListViewState extends State<MessagesListView> {
     );
   }
 
+  Widget _buildStream(BuildContext context, bool isLoading) {
+    return StreamBuilder<dynamic>(
+        stream: BlocProvider.of<ChatCubit>(context).getChattingStream(),
+        builder: (context, snapshot) {
+          final cubit = BlocProvider.of<ChatCubit>(context);
+          final messages = cubit.messagesResponse;
+
+          if (snapshot.hasData) {
+            BlocProvider.of<ChatCubit>(context).receiveMessage(snapshot.data);
+          }
+
+          return _buildMessagesList(context, isLoading, messages);
+        });
+  }
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ChatCubit, ChatState>(
-      buildWhen: (previous, current) =>
-          current is MessageSentSuccessfully ||
-          current is AllMessagesReceivedSuccessfully ||
-          current is MessageSentLoading ||
-          current is AllMessagesReceivedLoading,
       builder: (context, state) {
         if (state is AllMessagesReceivedLoading && state.isFirstFetch) {
           return const LoadingIndicator();
@@ -85,12 +97,11 @@ class _MessagesListViewState extends State<MessagesListView> {
           bool isLoading = false;
           if (state is AllMessagesReceivedLoading) {
             isLoading = true;
-          } else if (state is AllMessagesReceivedSuccessfully ||
-              state is MessageSentSuccessfully) {
+          } else if (state is AllMessagesReceivedSuccessfully) {
             isLoading = false;
           }
 
-          return _buildMessagesList(context, isLoading);
+          return _buildStream(context, isLoading);
         }
       },
     );

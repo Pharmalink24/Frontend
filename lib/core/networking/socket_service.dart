@@ -16,7 +16,6 @@ class SocketService {
   SocketService();
 
   SocketChannel? _messagingChannel;
-  SocketChannel? _messagesHistoryChannel;
   SocketChannel? _userChatsChannel;
 
   Map<String, String> getHeaders(String auth) => {
@@ -33,13 +32,11 @@ class SocketService {
   void connectToAllChannels(int currentUserId, String auth) {
     connectToMessagingChannel(currentUserId, auth);
     connectToUserChatsChannel(auth);
-    connectToMessagesHistoryChannel(auth);
   }
 
   // Close all channels
   void closeAllChannels() {
     _messagingChannel?.close();
-    _messagesHistoryChannel?.close();
     _userChatsChannel?.close();
   }
 
@@ -106,37 +103,6 @@ class SocketService {
     Logger().i('User Chats Channel is closed');
   }
 
-  //-------------------- Messages History Channel --------------------//
-
-  // Connect to the messages history channel
-  SocketChannel connectToMessagesHistoryChannel(String auth) {
-    // Get the headers
-    Map<String, String> headers = getHeaders(auth);
-
-    // Construct the url
-    String url = '$baseUrl${WebSocketConstants.allMessagesChannel}';
-
-    // Log the url and headers
-    Logger().i('url: $url');
-    Logger().i('headers: $headers');
-
-    // Connect to the messaging channel
-    _messagesHistoryChannel = SocketChannel(
-      () => IOWebSocketChannel.connect(
-        Uri.parse(url),
-        headers: headers,
-      ),
-    );
-
-    return _messagesHistoryChannel!;
-  }
-
-  // Close the messages history channel
-  void closeMessagesHistoryChannel() {
-    _messagesHistoryChannel?.close();
-    Logger().i('Messages history Channel is closed');
-  }
-
   //-------------------- Listen to Channels --------------------//
 
   // Listen to the messaging channel
@@ -148,19 +114,6 @@ class SocketService {
       },
       onError: (error) => Logger().e('Error in messaging channel: $error'),
       onDone: () => Logger().i('Messaging Channel is closed'),
-    );
-  }
-
-  // Listen to the messages history channel
-  void listenToMessagesHistory(Function onListen) {
-    _messagesHistoryChannel?.stream.listen(
-      (event) {
-        Logger().i('Received messages: $event');
-        onListen(event);
-      },
-      onError: (error) =>
-          Logger().e('Error in messages history channel: $error'),
-      onDone: () => Logger().i('Messages history Channel is closed'),
     );
   }
 
@@ -189,14 +142,13 @@ class SocketService {
     _messagingChannel?.sendMessage(messageJson);
   }
 
-  // Send message to the messages history channel
-  void sendMessageToMessagesHistoryChannel(Message message) {
-    Logger().i('Sending message: ${message.toJson()}');
+  // Retrieve the chatting stream
+  Stream<dynamic>? getChattingStream() {
+    return _messagingChannel?.stream;
+  }
 
-    // Convert the message to json
-    final messageJson = jsonEncode(message.toJson());
-
-    // Send the message
-    _messagesHistoryChannel?.sendMessage(messageJson);
+  // Retrieve the user chats stream
+  Stream<dynamic>? getUserChatsStream() {
+    return _userChatsChannel?.stream;
   }
 }

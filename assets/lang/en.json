@@ -142,6 +142,8 @@
     "noChatsMessage": "Start a new chat with a doctor",
     "startChat": "Start Chat",
     "chatWithDoctor": "Chat with Doctor",
-    "chatsDescription": "View your chat with a doctor."
+    "chatsDescription": "View your chat with a doctor.",
+
+    "noReminders": "No Reminders"
 
 }

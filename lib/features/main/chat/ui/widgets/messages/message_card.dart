@@ -72,7 +72,9 @@ class MessageCard extends StatelessWidget {
             child: Text(
               isErrorMessage
                   ? ""
-                  : DateTime.parse(message?.timestamp ?? '').format('hh:mm a'),
+                  : DateTime.parse(
+                          message?.timestamp ?? DateTime.now().toString())
+                      .format('hh:mm a'),
               style: AppTextStyle.bodySmall(context).copyWith(
                 color: isMeSender()
                     ? context.colorScheme.primaryContainer
