@@ -1,11 +1,11 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pharmalink/core/helpers/extensions.dart';
+import 'package:pharmalink/core/routes/app_router.dart';
 import 'package:pharmalink/features/main/prescription/logic/prescription_state.dart';
 
 import '../../../../../core/enums/drug_state.dart';
 import '../../../../../core/models/message_response.dart';
-import '../../../../../core/routes/routes.dart';
 import '../../../../../core/widgets/loading/loading_overlay.dart';
 import '../../logic/prescription_cubit.dart';
 
@@ -25,9 +25,7 @@ class DrugStateListener extends StatelessWidget {
         content: Text(error),
         actions: [
           TextButton(
-            onPressed: () {
-              context.pop();
-            },
+            onPressed: () => context.maybePop(),
             child: const Text('OK'),
           ),
         ],
@@ -46,10 +44,12 @@ class DrugStateListener extends StatelessWidget {
         actions: [
           TextButton(
             onPressed: () {
-              context.pop();
-              context.pop();
-              context.pushReplacementNamed(Routes.prescriptionsScreen,
-                  argument: state);
+              context.maybePop(); 
+              
+              // Todo: add push Replacement
+              context.pushRoute(
+                PrescriptionsRoute(state: state),
+              );
             },
             child: const Text('OK'),
           ),

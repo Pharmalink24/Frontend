@@ -1,9 +1,9 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pharmalink/core/routes/app_router.dart';
 import 'package:pharmalink/core/theme/colors.dart';
 import '../../../../../core/widgets/loading/loading_overlay.dart';
-import '../../../../../core/helpers/extensions.dart';
-import '../../../../../core/routes/routes.dart';
 import '../../../../../core/theme/styles.dart';
 import '../../data/models/signup/signup_response.dart';
 import '../../logic/signup_cubit/signup_cubit.dart';
@@ -36,7 +36,7 @@ class SignupBlocListener extends StatelessWidget {
         ),
         actions: [
           TextButton(
-            onPressed: () => context.pop(),
+            onPressed: () => context.maybePop(),
             child: Text(
               "Got it",
               style: AppTextStyle.labelLarge(context).copyWith(
@@ -51,10 +51,8 @@ class SignupBlocListener extends StatelessWidget {
 
   void showSuccess(BuildContext context, SignupResponse signupResponse) {
     _loadingOverlay.hide();
-    context.pushNamed(
-      Routes.verificationScreen,
-      argument: signupResponse,
-    );
+    context.pushRoute(VerificationRoute(
+        email: signupResponse.email, userId: signupResponse.id));
   }
 
   @override

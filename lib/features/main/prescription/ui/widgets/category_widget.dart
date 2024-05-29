@@ -1,16 +1,15 @@
 // ignore_for_file: constant_identifier_names
 
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:pharmalink/core/enums/drug_state.dart';
-import 'package:pharmalink/core/helpers/extensions.dart';
-import 'package:pharmalink/core/routes/routes.dart';
+import 'package:pharmalink/core/routes/app_router.dart';
 import 'package:pharmalink/core/theme/colors.dart';
 import '../../../../../core/theme/shadow.dart';
 import '../../../../../core/theme/styles.dart';
 import '../../../../../core/widgets/clip_shadow_path.dart';
 
 class PrescriptionCategoryWidget extends StatelessWidget {
-  final IconData iconData;
   final String title;
   final String description;
   final Color backgroundColor;
@@ -18,7 +17,6 @@ class PrescriptionCategoryWidget extends StatelessWidget {
 
   const PrescriptionCategoryWidget({
     super.key,
-    required this.iconData,
     required this.title,
     required this.description,
     required this.backgroundColor,
@@ -42,8 +40,9 @@ class PrescriptionCategoryWidget extends StatelessWidget {
     return Padding(
       padding: const EdgeInsetsDirectional.fromSTEB(10, 10, 10, 0),
       child: GestureDetector(
-        onTap: () =>
-            context.pushNamed(Routes.prescriptionsScreen, argument: category),
+        onTap: () => context.pushRoute(
+          PrescriptionsRoute(state: category),
+        ),
         child: ClipShadowPath(
           shadow: AppShadows.shadow(context),
           clipper: const ShapeBorderClipper(
@@ -62,22 +61,12 @@ class PrescriptionCategoryWidget extends StatelessWidget {
                   child: Padding(
                     padding:
                         const EdgeInsetsDirectional.fromSTEB(16, 16, 16, 16),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Icon(
-                          iconData,
-                          color: checkFontColor(context, backgroundColor),
-                          size: 50,
-                        ),
-                        Text(
-                          title,
-                          style: AppTextStyle.displayMedium(context).copyWith(
-                            fontSize: 32,
-                            color: checkFontColor(context, backgroundColor),
-                          ),
-                        ),
-                      ],
+                    child: Text(
+                      title,
+                      style: AppTextStyle.displayMedium(context).copyWith(
+                        fontSize: 42,
+                        color: checkFontColor(context, backgroundColor),
+                      ),
                     ),
                   ),
                 ),
@@ -89,7 +78,7 @@ class PrescriptionCategoryWidget extends StatelessWidget {
                     child: Text(
                       description,
                       style: AppTextStyle.displayMedium(context).copyWith(
-                        fontSize: 18,
+                        fontSize: 24,
                         color: checkFontColor(context, backgroundColor),
                       ),
                     ),

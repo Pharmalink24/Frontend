@@ -3,20 +3,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pharmalink/core/Blocs/locale/locale_cubit.dart';
 import 'package:pharmalink/core/Blocs/theme/theme_cubit.dart';
-import 'package:pharmalink/core/Blocs/theme/theme_state.dart';
 import 'package:pharmalink/core/di/dependency_injection.dart';
 import 'package:pharmalink/core/helpers/constants/strings.dart';
 import 'package:pharmalink/core/localization/app_localizations_setup.dart';
-import 'package:pharmalink/core/routes/app_router.dart';
-import 'package:pharmalink/core/routes/routes.dart';
+import 'package:pharmalink/core/theme/app_theme.dart';
 import 'package:pharmalink/features/main/chat/logic/cubit/chat_cubit.dart';
 
+import 'core/routes/app_router.dart';
 import 'features/access/auth/logic/cubit/auth_cubit.dart';
 
 class PharmalinkApp extends StatelessWidget {
-  final AppRouter appRouter;
+  PharmalinkApp({super.key});
 
-  const PharmalinkApp({super.key, required this.appRouter});
+  final _appRouter = AppRouter();
 
   @override
   Widget build(BuildContext context) {
@@ -39,11 +38,11 @@ class PharmalinkApp extends StatelessWidget {
         buildWhen: (previousState, currentState) =>
             previousState != currentState,
         builder: (context, localeState) {
-          return BlocBuilder<ThemeCubit, ThemeState>(
+          return BlocBuilder<ThemeCubit, ThemeMode>(
             buildWhen: (previousState, currentState) =>
                 previousState != currentState,
             builder: (context, themeState) {
-              return MaterialApp(
+              return MaterialApp.router(
                 supportedLocales: AppLocalizationsSetup.supportedLocales,
                 localizationsDelegates:
                     AppLocalizationsSetup.localizationsDelegates,
@@ -51,17 +50,10 @@ class PharmalinkApp extends StatelessWidget {
                     AppLocalizationsSetup.localeResolutionCallback,
                 locale: localeState.locale,
                 title: appTitle,
-                themeMode: ThemeMode.system,
-                theme: themeState.whenOrNull(
-                  light: (theme) => theme,
-                  dark: (theme) => theme,
-                ),
-                darkTheme: themeState.whenOrNull(
-                  light: (theme) => theme,
-                  dark: (theme) => theme,
-                ),
-                initialRoute: Routes.initialRoute,
-                onGenerateRoute: appRouter.generateRoute,
+                theme: AppTheme.lightTheme(),
+                darkTheme: AppTheme.darkTheme(),
+                themeMode: themeState,
+                routerConfig: _appRouter.config(),
                 debugShowCheckedModeBanner: false,
               );
             },

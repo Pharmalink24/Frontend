@@ -1,8 +1,11 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:pharmalink/core/networking/api_constants.dart';
+import 'package:pharmalink/core/routes/app_router.dart';
 import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/theme/gradient.dart';
 import 'package:pharmalink/core/theme/icons.dart';
@@ -113,9 +116,9 @@ class WelcomeNameText extends StatelessWidget {
 
   Widget _buildIconButton(BuildContext context) {
     return IconButton(
-      onPressed: () {},
+      onPressed: () => context.pushRoute(const ChatsRoute()),
       icon: Icon(
-        FFIcons.kLogoPharmaLink,
+        FontAwesomeIcons.solidCommentDots,
         color: context.colorScheme.onPrimary,
       ),
     );

@@ -1,7 +1,7 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:pharmalink/core/theme/colors.dart';
-import '../../../../../core/helpers/extensions.dart';
 import 'ff_button_widget.dart';
 import '../../../../../core/theme/styles.dart';
 import '../../../../../core/networking/networking.dart';
@@ -41,7 +41,8 @@ class _DeactivateBoxWidgetState extends State<DeactivateBoxWidget> {
 
       if (doctorInfo != null) {
         setState(() {
-          Navigator.pop(context, 'Activated');
+          context.maybePop('Activated');
+          // Navigator.pop(context, 'Activated');
         });
       } else {
         throw "Exception";
@@ -147,9 +148,7 @@ class _DeactivateBoxWidgetState extends State<DeactivateBoxWidget> {
             Padding(
               padding: const EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
               child: FFButtonWidget(
-                onPressed: () async {
-                  context.pop();
-                },
+                onPressed: () async => context.maybePop(),
                 text: 'Cancel',
                 options: FFButtonOptions(
                   width: double.infinity,

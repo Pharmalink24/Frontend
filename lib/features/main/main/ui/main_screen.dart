@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:pharmalink/core/routes/app_router.dart';
 import 'widgets/app_bottom_navigation_bar.dart';
 import '../data/models/navigation_items.dart';
-import 'widgets/pages.dart';
+import 'package:auto_route/auto_route.dart';
 
-class MainScreen extends StatefulWidget {
+@RoutePage()
+class MainScreen extends AutoRouter {
   const MainScreen({super.key});
 
   @override
@@ -11,30 +13,26 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  int activeIndex = 0;
-
   @override
   Widget build(BuildContext context) {
     // Refresh token on start
     return PopScope(
       canPop: false,
-      child: Scaffold(
-        resizeToAvoidBottomInset: false,
-        body: Column(
-          children: [
-            Expanded(child: pages[activeIndex]),
+      child: AutoTabsScaffold(
+          resizeToAvoidBottomInset: false,
+          routes: const [
+            HomeRoute(),
+            LandingPrescriptionRoute(),
+            DrugInteractionRoute(),
+            ProfileRoute(),
           ],
-        ),
-        bottomNavigationBar: AppBottomNavigationBar(
-          currentIndex: activeIndex,
-          onTap: (i) {
-            setState(() {
-              activeIndex = i;
-            });
-          },
-          items: getBottomNavigationBarItems(navigationItems),
-        ),
-      ),
+          bottomNavigationBuilder: (_, tabsRouter) {
+            return AppBottomNavigationBar(
+              currentIndex: tabsRouter.activeIndex,
+              onTap: tabsRouter.setActiveIndex,
+              items: getBottomNavigationBarItems(navigationItems),
+            );
+          }),
     );
   }
 }

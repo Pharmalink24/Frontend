@@ -1,6 +1,6 @@
 import "package:flutter/material.dart";
 
-class AppBottomNavigationBar extends StatefulWidget {
+class AppBottomNavigationBar extends StatelessWidget {
   final int currentIndex;
   final Function onTap;
   final List<BottomNavigationBarItem> items;
@@ -13,16 +13,11 @@ class AppBottomNavigationBar extends StatefulWidget {
   });
 
   @override
-  State<AppBottomNavigationBar> createState() => _AppBottomNavigationBarState();
-}
-
-class _AppBottomNavigationBarState extends State<AppBottomNavigationBar> {
-  @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
-      currentIndex: widget.currentIndex,
-      onTap: (i) => widget.onTap(i),
-      items: widget.items,
+      currentIndex: currentIndex,
+      onTap: (i) => onTap(i),
+      items: items,
       backgroundColor:
           Theme.of(context).bottomNavigationBarTheme.backgroundColor,
       selectedItemColor:

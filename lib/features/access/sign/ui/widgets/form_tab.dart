@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pharmalink/core/theme/colors.dart';
 
+import '../../../../../core/di/dependency_injection.dart';
 import '../../../../../core/localization/app_localizations.dart';
 import '../../../../../core/theme/fonts.dart';
 import '../../../../../core/theme/styles.dart';
@@ -32,40 +33,6 @@ class _FormTabState extends State<FormTab> with TickerProviderStateMixin {
       length: 2,
       initialIndex: 0,
     );
-
-    // Initialize the controllers
-    _initSignupControllers();
-    _initSignInControllers();
-  }
-
-  void _initSignupControllers() {
-    // Initialize controllers
-    signUpFields["fname"]!.controller =
-        context.read<SignupCubit>().fnameController;
-    signUpFields["lname"]!.controller =
-        context.read<SignupCubit>().lnameController;
-    signUpFields["username"]!.controller =
-        context.read<SignupCubit>().usernameController;
-    signUpFields["password"]!.controller =
-        context.read<SignupCubit>().passwordController;
-    signUpFields["confirmPassword"]!.controller =
-        context.read<SignupCubit>().confirmPasswordController;
-    signUpFields["email"]!.controller =
-        context.read<SignupCubit>().emailController;
-    signUpFields["phone"]!.controller =
-        context.read<SignupCubit>().phoneController;
-    signUpFields["birthdate"]!.controller =
-        context.read<SignupCubit>().birthdateController;
-    signUpFields["gender"]!.controller =
-        context.read<SignupCubit>().genderController;
-  }
-
-  void _initSignInControllers() {
-    // Initialize controllers
-    signInFields["email"]!.controller =
-        context.read<SigninCubit>().emailController;
-    signInFields["password"]!.controller =
-        context.read<SigninCubit>().passwordController;
   }
 
   // Build the TabBar
@@ -110,9 +77,15 @@ class _FormTabState extends State<FormTab> with TickerProviderStateMixin {
   TabBarView _buildTabBody() {
     return TabBarView(
       controller: tabBarController,
-      children: const [
-        SigninBody(),
-        SignupBody(),
+      children: [
+        BlocProvider<SigninCubit>(
+          create: (context) => getIt<SigninCubit>(),
+          child: const SigninBody(),
+        ),
+        BlocProvider<SignupCubit>(
+          create: (context) => getIt<SignupCubit>(),
+          child: const SignupBody(),
+        ),
       ],
     );
   }

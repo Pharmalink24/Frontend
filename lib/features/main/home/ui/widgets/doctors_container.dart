@@ -1,8 +1,8 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:pharmalink/core/routes/app_router.dart';
 import 'package:pharmalink/core/theme/colors.dart';
 import '../../../../../core/widgets/card_container_with_title.dart';
-import '../../../../../core/helpers/extensions.dart';
-import '../../../../../core/routes/routes.dart';
 import '../../../../../core/theme/styles.dart';
 import '../../../../../core/widgets/text_with_icon.dart';
 import '../../../../../core/localization/app_localizations.dart';
@@ -57,7 +57,7 @@ class DoctorsContainer extends StatelessWidget {
       title: AppLocalizations.of(context).translate('yourDoctors'),
       isScrollable: doctors.isEmpty ? true : false,
       iconButton: TextWithIcon(
-        onTap: () => context.pushNamed(Routes.doctorsScreen),
+        onTap: () => context.pushRoute(const DoctorsRoute()),
         icon: AppLocalizations.of(context).isEnLocale
             ? Icons.arrow_circle_right_sharp
             : Icons.arrow_circle_left_sharp,

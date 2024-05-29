@@ -1,7 +1,7 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:pharmalink/core/routes/app_router.dart';
 import 'package:pharmalink/core/theme/colors.dart';
-import '../../../../core/helpers/extensions.dart';
-import '../../../../core/routes/routes.dart';
 import '../../../../core/shared_preferences/auth_prefs.dart';
 import '../../../../core/shared_preferences/entry_prefs.dart';
 
@@ -37,11 +37,12 @@ class _DirectToState extends State<DirectTo> {
   }
 
   void direct(BuildContext context) {
+    // Add pushReplacementNamed to avoid back navigation
     _isLoggedIn
-        ? context.pushReplacementNamed(Routes.mainScreen)
+        ? context.pushRoute(const MainRoute())
         : _isFirstEntry
-            ? context.pushReplacementNamed(Routes.onBoardingScreen)
-            : context.pushReplacementNamed(Routes.signScreen);
+            ? context.pushRoute(const OnBoardingRoute())
+            : context.pushRoute(const SignRoute());
   }
 
   @override

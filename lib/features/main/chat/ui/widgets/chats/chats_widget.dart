@@ -6,19 +6,20 @@ import 'package:pharmalink/core/theme/styles.dart';
 import 'package:pharmalink/core/widgets/loading/loading_indicator.dart';
 import 'package:pharmalink/features/main/chat/data/models/chats_response.dart';
 import 'package:pharmalink/features/main/chat/logic/cubit/chat_cubit.dart';
-import 'package:pharmalink/features/main/chat/ui/widgets/all_chats/all_chats_header.dart';
-import '../data/models/chat.dart';
-import '../logic/cubit/chat_state.dart';
-import 'widgets/all_chats/chat_card.dart';
+import 'package:pharmalink/features/main/chat/ui/widgets/chats/chats_header.dart';
+import '../../../data/models/chat.dart';
+import '../../../logic/cubit/chat_state.dart';
+import 'chat_card.dart';
 
-class ChatsScreen extends StatefulWidget {
-  const ChatsScreen({super.key});
+
+class ChatsWidget extends StatefulWidget {
+  const ChatsWidget({super.key});
 
   @override
-  State<ChatsScreen> createState() => _ChatsScreenState();
+  State<ChatsWidget> createState() => _ChatsScreenState();
 }
 
-class _ChatsScreenState extends State<ChatsScreen> {
+class _ChatsScreenState extends State<ChatsWidget> {
   @override
   void initState() {
     super.initState();

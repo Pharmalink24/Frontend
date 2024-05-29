@@ -1,15 +1,15 @@
 // Flutter Packages
+import 'package:auto_route/auto_route.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:pharmalink/core/enums/drug_state.dart';
 import 'package:pharmalink/core/helpers/extensions.dart';
+import 'package:pharmalink/core/routes/app_router.dart';
 import 'package:pharmalink/core/theme/shadow.dart';
 import 'package:pharmalink/core/widgets/clip_shadow_path.dart';
 import 'package:pharmalink/features/main/prescription/data/models/prescription_doctor.dart';
 import 'package:pharmalink/core/networking/api_constants.dart';
-import 'package:pharmalink/core/routes/routes.dart';
 import 'package:pharmalink/features/main/prescription/data/models/prescription_drugs.dart';
-
 import '../../../../../core/theme/gradient.dart';
 import '../../../../../core/theme/styles.dart';
 import '../../../../../core/widgets/loading/loading_indicator.dart';
@@ -85,14 +85,13 @@ class DoctorPrescriptionCard extends StatelessWidget {
     return Padding(
       padding: const EdgeInsetsDirectional.fromSTEB(16, 8, 16, 8),
       child: GestureDetector(
-        onTap: () => context.pushNamed(
-          Routes.prescriptionScreen,
-          argument: {
-            'id': doctor.id,
-            'doctor': doctor.doctorInfo,
-            'drugs': drugs,
-            'state': state,
-          },
+        onTap: () => context.pushRoute(
+          PrescriptionRoute(
+            id: doctor.id,
+            doctor: doctor.doctorInfo,
+            drugs: drugs,
+            drugState: state,
+          ),
         ),
         child: ClipShadowPath(
           shadow: AppShadows.shadow(context),

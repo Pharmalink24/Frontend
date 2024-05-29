@@ -9,7 +9,7 @@ import '../../../../../core/models/drug_search.dart';
 import '../../../../../core/localization/app_localizations.dart';
 
 class DrugSearchField extends StatelessWidget {
-  final int drugFieldId;
+  final DrugFieldId drugFieldId;
   final TextEditingController? controller;
   const DrugSearchField(
       {super.key, required this.drugFieldId, this.controller});
@@ -62,7 +62,7 @@ class DrugSearchField extends StatelessWidget {
   }
 
   Future<List<DrugSearch>?> getSearchedDrugs(BuildContext context,
-      {required int drugId, required String search}) async {
+      {required DrugFieldId drugId, required String search}) async {
     if (search.length > 2) {
       return await context
           .read<DrugInteractionCubit>()
@@ -71,8 +71,11 @@ class DrugSearchField extends StatelessWidget {
     return null;
   }
 
-  void selectDrug(BuildContext context, TextEditingController? controller,
-      DrugSearch drug) {
+  void selectDrug(
+    BuildContext context,
+    TextEditingController? controller,
+    DrugSearch drug,
+  ) {
     controller?.text = drug.tradeName;
     context
         .read<DrugInteractionCubit>()

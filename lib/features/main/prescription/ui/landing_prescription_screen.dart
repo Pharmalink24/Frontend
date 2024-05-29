@@ -5,6 +5,9 @@ import '../../../../core/localization/app_localizations.dart';
 import '../../../../core/theme/styles.dart';
 import 'widgets/category_widget.dart';
 
+import 'package:auto_route/auto_route.dart';
+
+@RoutePage()
 class LandingPrescriptionScreen extends StatelessWidget {
   const LandingPrescriptionScreen({super.key});
 
@@ -21,7 +24,6 @@ class LandingPrescriptionScreen extends StatelessWidget {
             ),
           ),
           PrescriptionCategoryWidget(
-            iconData: Icons.add_circle_outline,
             title: AppLocalizations.of(context).translate('newDrugs'),
             description:
                 AppLocalizations.of(context).translate('newDrugsDescription'),
@@ -29,7 +31,6 @@ class LandingPrescriptionScreen extends StatelessWidget {
             category: DrugState.NEW,
           ),
           PrescriptionCategoryWidget(
-            iconData: Icons.circle,
             title: AppLocalizations.of(context).translate('activeDrugs'),
             description: AppLocalizations.of(context)
                 .translate('activeDrugsDescription'),
@@ -37,7 +38,6 @@ class LandingPrescriptionScreen extends StatelessWidget {
             category: DrugState.ACTIVE,
           ),
           PrescriptionCategoryWidget(
-            iconData: Icons.stop_circle_outlined,
             title: AppLocalizations.of(context).translate('inactiveDrugs'),
             description: AppLocalizations.of(context)
                 .translate('inactiveDrugsDescription'),

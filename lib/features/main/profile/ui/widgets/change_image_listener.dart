@@ -1,7 +1,7 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pharmalink/core/helpers/extensions.dart';
-import 'package:pharmalink/core/routes/routes.dart';
+import 'package:pharmalink/core/routes/app_router.dart';
 import 'package:pharmalink/core/theme/styles.dart';
 import 'package:pharmalink/core/widgets/loading/loading_overlay.dart';
 import 'package:pharmalink/features/main/settings/edit_profile/logic/cubit/edit_profile_cubit.dart';
@@ -30,9 +30,10 @@ class ChangeImageListener extends StatelessWidget {
           actions: <Widget>[
             TextButton(
               onPressed: () {
-                context.pop();
-                context.pushReplacementNamed(Routes
-                    .mainScreen); // Todo: Refresh the page after uploading the image successfully
+                context.maybePop();
+                // Todo: Add pushReplacementNamed
+                context.pushRoute(
+                    const MainRoute()); // Todo: Refresh the page after uploading the image successfully
               },
               child: const Text('OK'),
             ),
@@ -53,9 +54,7 @@ class ChangeImageListener extends StatelessWidget {
           content: const Text('Failed to upload image'),
           actions: <Widget>[
             TextButton(
-              onPressed: () {
-                context.pop();
-              },
+              onPressed: () => context.maybePop(),
               child: const Text('OK'),
             ),
           ],

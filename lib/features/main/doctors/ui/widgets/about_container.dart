@@ -1,12 +1,11 @@
-import 'package:flutter/gestures.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:pharmalink/core/routes/app_router.dart';
 import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/theme/icons.dart';
 import 'package:pharmalink/features/main/chat/data/models/chat.dart';
 import 'package:readmore/readmore.dart';
-import '../../../../../core/helpers/extensions.dart';
 import '../../../../../core/localization/app_localizations.dart';
-import '../../../../../core/routes/routes.dart';
 import '../../../../../core/theme/gradient.dart';
 import '../../../../../core/theme/styles.dart';
 import '../../data/models/doctor_info.dart';
@@ -112,18 +111,17 @@ class AboutContainer extends StatelessWidget {
                 child: GestureDetector(
                   onTap: () {
                     // Open the chat screen
-                    var chat = Chat(
-                      chatWithId: doctor?.id,
-                      fname: doctor?.firstName,
-                      lname: doctor?.lastName,
-                      image: doctor?.image,
-                      username: doctor?.username,
-                      lastMessage: '',
-                      lastMessageDateTime: '',
-                    );
-                    context.pushNamed(
-                      Routes.messagesScreen,
-                      argument: chat,
+                    context.pushRoute(
+                      MessagesRoute(
+                          chat: Chat(
+                        chatWithId: doctor?.id,
+                        fname: doctor?.firstName,
+                        lname: doctor?.lastName,
+                        image: doctor?.image,
+                        username: doctor?.username,
+                        lastMessage: '',
+                        lastMessageDateTime: '',
+                      )),
                     );
                   },
                   child: Container(

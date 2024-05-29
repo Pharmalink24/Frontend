@@ -1,8 +1,8 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pharmalink/core/theme/colors.dart';
 import '../../../../../core/widgets/loading/loading_overlay.dart';
-import '../../../../../core/helpers/extensions.dart';
 import '../../../../../core/theme/styles.dart';
 import '../../logic/cubit/verification_cubit.dart';
 import '../../logic/cubit/verification_state.dart';
@@ -34,7 +34,7 @@ class VerificationBlocListener extends StatelessWidget {
         ),
         actions: [
           TextButton(
-            onPressed: () => context.pop(),
+            onPressed: () => context.maybePop(),
             child: Text(
               "Got it",
               style: AppTextStyle.labelLarge(context).copyWith(

@@ -1,6 +1,6 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import '../../../../../core/helpers/extensions.dart';
-import '../../../../../core/routes/routes.dart';
+import 'package:pharmalink/core/routes/app_router.dart';
 import 'account_settings_drop_down.dart';
 import '../../../../../core/localization/app_localizations.dart';
 import 'logout_button.dart';
@@ -16,11 +16,11 @@ class AccountSettingsButtons extends StatelessWidget {
       children: [
         AccountSettingsButton(
           text: AppLocalizations.of(context).translate('editProfile'),
-          onPressed: () => context.pushNamed(Routes.editProfileScreen),
+          onPressed: () => context.pushRoute(const EditProfileRoute()),
         ),
         AccountSettingsButton(
           text: AppLocalizations.of(context).translate('changePassword'),
-          onPressed: () => context.pushNamed(Routes.changePasswordScreen),
+          onPressed: () => context.pushRoute(const ChangePasswordRoute()),
         ),
         const LanguageDropDown(),
         const LogoutButton(),

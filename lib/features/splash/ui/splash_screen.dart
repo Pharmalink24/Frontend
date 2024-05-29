@@ -4,6 +4,9 @@ import 'widgets/direct_to.dart';
 import 'widgets/logo_icon.dart';
 import 'widgets/subtitle_animation.dart';
 
+import 'package:auto_route/auto_route.dart';
+
+@RoutePage()
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
 

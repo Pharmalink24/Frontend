@@ -1,9 +1,9 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pharmalink/core/helpers/extensions.dart';
+import 'package:pharmalink/core/routes/app_router.dart';
 import 'package:pharmalink/core/widgets/form/form_button.dart';
 import '../../../../../core/localization/app_localizations.dart';
-import '../../../../../core/routes/routes.dart';
 import '../../../../../core/theme/styles.dart';
 import '../../../../access/auth/logic/cubit/auth_cubit.dart';
 
@@ -31,7 +31,7 @@ class LogoutButton extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               TextButton(
-                onPressed: () => context.pop(),
+                onPressed: () => context.maybePop(),
                 child: Text(
                   AppLocalizations.of(context).translate('cancel'),
                   style: AppTextStyle.titleSmall(context),
@@ -40,11 +40,13 @@ class LogoutButton extends StatelessWidget {
               TextButton(
                 onPressed: () async {
                   // Close dialog
-                  context.pop();
+                  context.maybePop();
 
                   // Log out
                   BlocProvider.of<AuthCubit>(context).logout();
-                  context.pushReplacementNamed(Routes.signScreen);
+
+                  // Add pushReplacementNamed
+                  context.pushRoute(const SignRoute());
                 },
                 child: Text(
                   AppLocalizations.of(context).translate('signOut'),

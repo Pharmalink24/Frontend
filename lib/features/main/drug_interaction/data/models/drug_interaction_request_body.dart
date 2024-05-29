@@ -4,13 +4,16 @@ part 'drug_interaction_request_body.g.dart';
 
 @JsonSerializable()
 class DrugInteractionRequestBody {
-  @JsonKey(name: 'drug1_name')
-  final String activeIngredient1;
+  @JsonKey(name: 'drug_name', includeIfNull: false)
+  final String? activeIngredient;
+  @JsonKey(name: 'drug1_name', includeIfNull: false)
+  final String? activeIngredient1;
   @JsonKey(name: 'drug2_name', includeIfNull: false)
   final String? activeIngredient2;
 
   DrugInteractionRequestBody({
-    required this.activeIngredient1,
+    this.activeIngredient,
+    this.activeIngredient1,
     this.activeIngredient2,
   });
 

@@ -5,6 +5,9 @@ import 'package:table_calendar/table_calendar.dart';
 import '../../../../core/localization/app_localizations.dart';
 import '../../../../core/theme/app_bar.dart';
 
+import 'package:auto_route/auto_route.dart';
+
+@RoutePage()
 class ReminderCalenderScreen extends StatelessWidget {
   final List<Reminder> reminders;
   const ReminderCalenderScreen({super.key, required this.reminders});

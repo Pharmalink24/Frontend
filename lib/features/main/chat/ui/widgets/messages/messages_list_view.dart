@@ -2,11 +2,9 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:logger/logger.dart';
 import 'package:pharmalink/core/widgets/loading/loading_indicator.dart';
 import 'package:pharmalink/features/main/chat/logic/cubit/chat_cubit.dart';
 import 'package:pharmalink/features/main/chat/ui/widgets/messages/message_card.dart';
-import '../../../data/models/message.dart';
 import '../../../logic/cubit/chat_state.dart';
 
 class MessagesListView extends StatefulWidget {

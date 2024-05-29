@@ -1,4 +1,4 @@
-// Flutter Packages
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pharmalink/core/theme/app_bar.dart';
@@ -10,8 +10,10 @@ import 'package:pharmalink/features/access/forget_password/data/models/forget_pa
 import 'package:pharmalink/features/access/forget_password/logic/forget_password_cubit.dart';
 import 'package:pharmalink/features/access/forget_password/ui/widgets/verification_bloc_listener.dart';
 
+import '../../../../core/di/dependency_injection.dart';
 import '../../../../core/theme/styles.dart';
 
+@RoutePage()
 class ForgetPasswordScreen extends StatefulWidget {
   const ForgetPasswordScreen({
     super.key,
@@ -40,27 +42,32 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
         title: AppLocalizations.of(context).translate('forgetPassword'),
         automaticallyImplyLeading: true,
       ).build(context),
-      body: SafeArea(
-        child: ListView(
-          padding: const EdgeInsets.symmetric(vertical: 32.0, horizontal: 22.0),
-          children: [
-            Text(
-              AppLocalizations.of(context).translate('forgetYourPasswordDesc'),
-              style: AppTextStyle.bodyLarge(context),
-            ),
-            const SizedBox(height: 24.0),
-            FormView(
-              model: forgetPasswordFields,
-              formKey: context.read<ForgetPasswordCubit>().formKey,
-              decorationType: DecorationType.secondary,
-            ),
-            FormButton(
-              text: AppLocalizations.of(context).translate('forgetPassword'),
-              onPressed: () => forgetPassword(context),
-              borderRadius: 12.0,
-            ),
-            ForgetPasswordBlocListener(),
-          ],
+      body: BlocProvider(
+        create: (context) => getIt<ForgetPasswordCubit>(),
+        child: SafeArea(
+          child: ListView(
+            padding:
+                const EdgeInsets.symmetric(vertical: 32.0, horizontal: 22.0),
+            children: [
+              Text(
+                AppLocalizations.of(context)
+                    .translate('forgetYourPasswordDesc'),
+                style: AppTextStyle.bodyLarge(context),
+              ),
+              const SizedBox(height: 24.0),
+              FormView(
+                model: forgetPasswordFields,
+                formKey: context.read<ForgetPasswordCubit>().formKey,
+                decorationType: DecorationType.secondary,
+              ),
+              FormButton(
+                text: AppLocalizations.of(context).translate('forgetPassword'),
+                onPressed: () => forgetPassword(context),
+                borderRadius: 12.0,
+              ),
+              ForgetPasswordBlocListener(),
+            ],
+          ),
         ),
       ),
     );

@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -14,9 +15,7 @@ AppBar buildMessageAppBar(BuildContext context, Chat chat) {
     toolbarHeight: 65.0,
     elevation: 2,
     leading: IconButton(
-      onPressed: () {
-        Navigator.pop(context);
-      },
+      onPressed: () => context.maybePop(),
       icon: Icon(
         Icons.arrow_back,
         color: context.colorScheme.onPrimary,

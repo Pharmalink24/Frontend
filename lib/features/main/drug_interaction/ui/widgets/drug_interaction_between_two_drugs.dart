@@ -1,22 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../../../core/theme/styles.dart';
 import '../../logic/cubit/drug_interaction_cubit.dart';
 import 'drug_search_field.dart';
 import '../../../../../core/localization/app_localizations.dart';
 
 import 'form_input_label.dart';
 
-class DrugInteraction2Inputs extends StatelessWidget {
-  const DrugInteraction2Inputs({super.key});
-
-  Widget _buildDescription(BuildContext context) {
-    return Text(
-      "This page helps you check interaction between a pair of medications.",
-      style: AppTextStyle.labelMedium(context),
-      textAlign: TextAlign.center,
-    );
-  }
+class DrugInteractionBetweenTwoDrugs extends StatelessWidget {
+  const DrugInteractionBetweenTwoDrugs({super.key});
 
   Widget _buildFirstInput(BuildContext context) {
     return Column(
@@ -26,7 +17,7 @@ class DrugInteraction2Inputs extends StatelessWidget {
           text: AppLocalizations.of(context).translate('firstDrug'),
         ),
         DrugSearchField(
-          drugFieldId: 1,
+          drugFieldId: DrugFieldId.betweenTwoDrugsFirst,
           controller: context.read<DrugInteractionCubit>().drugController1,
         ),
       ],
@@ -41,7 +32,7 @@ class DrugInteraction2Inputs extends StatelessWidget {
           text: AppLocalizations.of(context).translate('secondDrug'),
         ),
         DrugSearchField(
-          drugFieldId: 2,
+          drugFieldId: DrugFieldId.betweenTwoDrugsSecond,
           controller: context.read<DrugInteractionCubit>().drugController2,
         ),
       ],
@@ -50,21 +41,19 @@ class DrugInteraction2Inputs extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
+    return Padding(
       padding: const EdgeInsets.only(
-        top: 16.0,
+        top: 4.0,
         left: 16.0,
         right: 16.0,
       ),
       child: Form(
         key: context.read<DrugInteractionCubit>().form1Key,
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            _buildDescription(context),
-            const SizedBox(height: 16),
             _buildFirstInput(context),
-            const SizedBox(height: 16),
             _buildSecondInput(context),
           ],
         ),

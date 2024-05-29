@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:pharmalink/core/helpers/extensions.dart';
 import 'package:pharmalink/core/localization/app_localizations.dart';
@@ -68,7 +69,7 @@ class AppBarWidget extends StatelessWidget {
   IconButton? _buildLeading(BuildContext context) {
     return icon != null
         ? IconButton(
-            onPressed: onPressed ?? () => context.pop(),
+            onPressed: onPressed ?? () => context.maybePop(),
             icon: Icon(
               icon,
               color: context.colorScheme.secondary,

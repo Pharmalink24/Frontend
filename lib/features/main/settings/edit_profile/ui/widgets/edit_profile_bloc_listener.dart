@@ -1,10 +1,10 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pharmalink/core/routes/app_router.dart';
 import 'package:pharmalink/core/theme/colors.dart';
-import '../../../../../../core/helpers/extensions.dart';
 import '../../../../../../core/localization/app_localizations.dart';
 import '../../../../../../core/models/user.dart';
-import '../../../../../../core/routes/routes.dart';
 import '../../../../../../core/theme/styles.dart';
 import '../../../../../../core/widgets/loading/loading_overlay.dart';
 import '../../logic/cubit/edit_profile_cubit.dart';
@@ -37,7 +37,7 @@ class EditProfileBlocListener extends StatelessWidget {
         ),
         actions: [
           TextButton(
-            onPressed: () => context.pop(),
+            onPressed: () => context.maybePop(),
             child: Text(
               AppLocalizations.of(context).translate('gotIt'),
               style: AppTextStyle.labelLarge(context).copyWith(
@@ -69,7 +69,8 @@ class EditProfileBlocListener extends StatelessWidget {
         ),
         actions: [
           TextButton(
-            onPressed: () => context.pushReplacementNamed(Routes.mainScreen),
+            // Todo: Add push replacement
+            onPressed: () => context.pushRoute(const MainRoute()),
             child: Text(
               AppLocalizations.of(context).translate('gotIt'),
               style: AppTextStyle.labelLarge(context).copyWith(

@@ -1,11 +1,12 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:pharmalink/core/routes/app_router.dart';
 import 'package:pharmalink/core/theme/gradient.dart';
 import 'package:pharmalink/core/theme/shadow.dart';
 import '../../resources/resources.dart';
 import '../helpers/extensions.dart';
 import '../networking/api_constants.dart';
-import '../routes/routes.dart';
 import '../theme/styles.dart';
 import '../../features/main/doctors/data/models/doctor.dart';
 import 'loading/loading_indicator.dart';
@@ -35,8 +36,7 @@ class DoctorCard extends StatelessWidget {
     return Padding(
       padding: outerPadding,
       child: GestureDetector(
-        onTap: () =>
-            context.pushNamed(Routes.doctorScreen, argument: doctor.id),
+        onTap: () => context.pushRoute(DoctorRoute(id: doctor.id)),
         child: ClipPath(
           clipper: const ShapeBorderClipper(
             shape: ContinuousRectangleBorder(

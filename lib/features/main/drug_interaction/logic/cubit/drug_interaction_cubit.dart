@@ -7,6 +7,12 @@ import '../../data/repo/drug_interaction_repo.dart';
 import '../../../../../core/helpers/errors.dart';
 import 'drug_interaction_state.dart';
 
+enum DrugFieldId {
+  withMedication,
+  betweenTwoDrugsFirst,
+  betweenTwoDrugsSecond,
+}
+
 class DrugInteractionCubit extends Cubit<DrugInteractionState> {
   final DrugInteractionRepo _drugInteractionRepo;
   List<DrugSearch>? drugs;
@@ -14,14 +20,21 @@ class DrugInteractionCubit extends Cubit<DrugInteractionState> {
   DrugInteractionCubit(this._drugInteractionRepo)
       : super(const DrugInteractionState.initial());
 
+  // Drug Controller
+  TextEditingController drugController0 = TextEditingController();
   TextEditingController drugController1 = TextEditingController();
   TextEditingController drugController2 = TextEditingController();
+
+  // Active Ingredients
+  String activeIngredient0 = '';
   String activeIngredient1 = '';
   String activeIngredient2 = '';
 
+  // Form Keys
   final form1Key = GlobalKey<FormState>();
   final form2Key = GlobalKey<FormState>();
 
+  // Selected Tab Index
   int selectedTabIndex = 0;
 
   void selectTab(int index) {
@@ -29,11 +42,11 @@ class DrugInteractionCubit extends Cubit<DrugInteractionState> {
   }
 
   Future<List<DrugSearch>?> getDrugSearchSuggestion(
-      {required int drugId}) async {
+      {required DrugFieldId drugId}) async {
     await _drugInteractionRepo
         .searchDrugFromDrugEye(
           DrugEyeSearchRequestParams(
-            query: drugId == 1 ? drugController1.text : drugController2.text,
+            query: getControllerText(drugId),
           ),
         )
         .then(
@@ -86,7 +99,7 @@ class DrugInteractionCubit extends Cubit<DrugInteractionState> {
     final response =
         await _drugInteractionRepo.checkInteractionBetweenDrugAndMedications(
       DrugInteractionRequestBody(
-        activeIngredient1: activeIngredient1,
+        activeIngredient: activeIngredient0,
       ),
     );
 
@@ -106,11 +119,27 @@ class DrugInteractionCubit extends Cubit<DrugInteractionState> {
     );
   }
 
-  void setActiveIngredients(DrugSearch drug, int drugId) {
-    if (drugId == 1) {
-      activeIngredient1 = drug.activeIngredient;
-    } else {
-      activeIngredient2 = drug.activeIngredient;
+  String getControllerText(DrugFieldId drugId) {
+    switch (drugId) {
+      case DrugFieldId.withMedication:
+        return drugController0.text;
+      case DrugFieldId.betweenTwoDrugsFirst:
+        return drugController1.text;
+      case DrugFieldId.betweenTwoDrugsSecond:
+        return drugController2.text;
+      default:
+        return '';
+    }
+  }
+
+  void setActiveIngredients(DrugSearch drug, DrugFieldId drugId) {
+    switch (drugId) {
+      case DrugFieldId.withMedication:
+        activeIngredient0 = drug.activeIngredient;
+      case DrugFieldId.betweenTwoDrugsFirst:
+        activeIngredient1 = drug.activeIngredient;
+      case DrugFieldId.betweenTwoDrugsSecond:
+        activeIngredient2 = drug.activeIngredient;
     }
   }
 }

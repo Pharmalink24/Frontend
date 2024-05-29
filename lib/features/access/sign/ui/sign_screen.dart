@@ -3,9 +3,9 @@ import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/features/access/sign/ui/widgets/form_tab.dart';
 import '../../../../core/theme/app_bar.dart';
 import '../../../../core/widgets/terms_and_conditions_text.dart';
-import 'widgets/signin_bloc_listener.dart';
-import 'widgets/signup_bloc_listener.dart';
+import 'package:auto_route/auto_route.dart';
 
+@RoutePage()    
 class SignScreen extends StatelessWidget {
   const SignScreen({super.key});
 
@@ -19,17 +19,15 @@ class SignScreen extends StatelessWidget {
           type: AppBarType.withoutTitle,
           isCentered: true,
         ).build(context),
-        body: SafeArea(
+        body: const SafeArea(
           child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 32.0),
+            padding: EdgeInsets.symmetric(vertical: 32.0),
             child: Column(
               children: [
-                const Expanded(
+                Expanded(
                   child: FormTab(),
                 ),
-                const TermsAndConditionsText(),
-                SigninBlocListener(),
-                SignupBlocListener(),
+                TermsAndConditionsText(),
               ],
             ),
           ),

@@ -1,9 +1,10 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:pharmalink/core/routes/app_router.dart';
 import '../../../../../core/helpers/extensions.dart';
 import '../../../../../core/localization/app_localizations.dart';
 import '../../../../../core/networking/api_constants.dart';
-import '../../../../../core/routes/routes.dart';
 import '../../../../../core/theme/styles.dart';
 import '../../../../../core/widgets/card_container.dart';
 import '../../../../../core/widgets/loading/loading_indicator.dart';
@@ -84,7 +85,9 @@ class PrescriptionHeaderCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: CardContainer(
-        onPressed: () => context.pushNamed(Routes.doctorScreen, argument: id),
+        onPressed: () => context.pushRoute(
+          DoctorRoute(id: id ?? -1),
+        ),
         children: [
           Row(
             mainAxisSize: MainAxisSize.max,

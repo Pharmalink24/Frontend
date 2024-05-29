@@ -1,9 +1,9 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pharmalink/core/routes/app_router.dart';
 import 'package:pharmalink/core/theme/colors.dart';
 import '../../../../../core/widgets/loading/loading_overlay.dart';
-import '../../../../../core/helpers/extensions.dart';
-import '../../../../../core/routes/routes.dart';
 import '../../../../../core/theme/styles.dart';
 import '../../data/models/signin/signin_response.dart';
 import '../../logic/signin_cubit/signin_cubit.dart';
@@ -37,7 +37,7 @@ class SigninBlocListener extends StatelessWidget {
         ),
         actions: [
           TextButton(
-            onPressed: () => context.pop(),
+            onPressed: () => context.maybePop(),
             child: Text(
               "Got it",
               style: AppTextStyle.labelLarge(context).copyWith(
@@ -52,7 +52,8 @@ class SigninBlocListener extends StatelessWidget {
 
   void showSuccess(BuildContext context, SigninResponse signinResponse) async {
     _loadingOverlay.hide();
-    context.pushNamed(Routes.mainScreen);
+    // Redirect to main route
+    context.pushRoute(const MainRoute());
   }
 
   @override

@@ -1,8 +1,9 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pharmalink/core/helpers/extensions.dart';
-import 'package:pharmalink/core/routes/routes.dart';
+import 'package:pharmalink/core/routes/app_router.dart';
 import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/theme/styles.dart';
 import 'package:pharmalink/features/main/chat/data/models/chat.dart';
@@ -100,12 +101,7 @@ class ChatCard extends StatelessWidget {
             color: context.colorScheme.onSecondary,
           ),
         ),
-        onTap: () {
-          context.pushNamed(
-            Routes.messagesScreen,
-            argument: chat,
-          );
-        },
+        onTap: () => context.pushRoute(MessagesRoute(chat: chat)),
       ),
     );
   }

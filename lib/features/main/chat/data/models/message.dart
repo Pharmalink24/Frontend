@@ -1,6 +1,4 @@
 import "package:json_annotation/json_annotation.dart";
-import "package:pharmalink/core/models/timestamp.dart";
-
 part "message.g.dart";
 
 @JsonSerializable()

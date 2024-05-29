@@ -4,21 +4,21 @@ import 'package:pharmalink/core/theme/styles.dart';
 import '../../logic/cubit/drug_interaction_cubit.dart';
 import 'drug_search_field.dart';
 
-class DrugInteraction1Input extends StatelessWidget {
-  const DrugInteraction1Input({super.key});
+class DrugInteractionWithMedications extends StatelessWidget {
+  const DrugInteractionWithMedications({super.key});
 
   Widget _buildDescription(BuildContext context) {
     return Text(
-      "This page helps you decide whether a certain medication might interact with another medication you're currently using.",
-      style: AppTextStyle.labelMedium(context),
+      "We helps you decide whether a medication might interact with another medication you're currently using.",
+      style: AppTextStyle.labelSmall(context),
       textAlign: TextAlign.center,
     );
   }
 
-  Widget _buildFirstInput(BuildContext context) {
+  Widget _buildInput(BuildContext context) {
     return DrugSearchField(
-      drugFieldId: 1,
-      controller: context.read<DrugInteractionCubit>().drugController1,
+      drugFieldId: DrugFieldId.withMedication,
+      controller: context.read<DrugInteractionCubit>().drugController0,
     );
   }
 
@@ -37,8 +37,8 @@ class DrugInteraction1Input extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             _buildDescription(context),
-            const SizedBox(height: 64),
-            _buildFirstInput(context),
+            const SizedBox(height: 32),
+            _buildInput(context),
           ],
         ),
       ),

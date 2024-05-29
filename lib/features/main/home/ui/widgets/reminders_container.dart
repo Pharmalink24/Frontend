@@ -1,8 +1,8 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:pharmalink/core/helpers/extensions.dart';
+import 'package:pharmalink/core/routes/app_router.dart';
 import 'package:pharmalink/core/theme/colors.dart';
-import '../../../../../core/routes/routes.dart';
 import '../../../../../core/theme/styles.dart';
 import '../../../../../core/widgets/card_container_with_title.dart';
 import '../../../../../core/widgets/text_with_icon.dart';
@@ -56,8 +56,9 @@ class RemindersContainer extends StatelessWidget {
       isScrollable: reminders.isEmpty ? true : false,
       iconButton: TextWithIcon(
         icon: FontAwesomeIcons.solidCalendar,
-        onTap: () => context.pushNamed(Routes.remindersCalenderScreen,
-            argument: reminders),
+        onTap: () => context.pushRoute(
+          ReminderCalenderRoute(reminders: reminders),
+        ),
       ),
       child: reminders.isEmpty
           ? buildNoDataWidget(context)

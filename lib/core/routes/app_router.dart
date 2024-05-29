@@ -1,178 +1,197 @@
-import "package:flutter/material.dart";
-import 'package:pharmalink/features/main/prescription/data/models/prescription_info.dart';
+import 'package:auto_route/auto_route.dart';
+import 'package:flutter/material.dart';
+import 'package:pharmalink/core/enums/drug_state.dart';
+import 'package:pharmalink/features/404/error_404_screen.dart';
+import 'package:pharmalink/features/access/forget_password/ui/forget_password_screen.dart';
+import 'package:pharmalink/features/access/sign/ui/sign_screen.dart';
+import 'package:pharmalink/features/access/verification/ui/verification_screen.dart';
+import 'package:pharmalink/features/main/chat/data/models/chat.dart';
+import 'package:pharmalink/features/main/chat/ui/messages_screen.dart';
+import 'package:pharmalink/features/main/doctors/data/models/doctor_info.dart';
+import 'package:pharmalink/features/main/doctors/ui/doctor_screen.dart';
+import 'package:pharmalink/features/main/doctors/ui/doctors_screen.dart';
+import 'package:pharmalink/features/main/drug_interaction/ui/drug_interaction_screen.dart';
+import 'package:pharmalink/features/main/home/ui/home_screen.dart';
+import 'package:pharmalink/features/main/main/ui/main_screen.dart';
+import 'package:pharmalink/features/main/prescription/data/models/prescription_drugs.dart';
+import 'package:pharmalink/features/main/prescription/ui/landing_prescription_screen.dart';
+import 'package:pharmalink/features/main/prescription/ui/prescription_screen.dart';
+import 'package:pharmalink/features/main/prescription/ui/prescriptions_screen.dart';
+import 'package:pharmalink/features/main/profile/ui/profile_screen.dart';
 import 'package:pharmalink/features/main/reminders/data/models/reminder.dart';
 import 'package:pharmalink/features/main/reminders/ui/reminder_calender_screen.dart';
-import '../../features/access/forget_password/logic/forget_password_cubit.dart';
-import '../../features/access/forget_password/ui/forget_password_screen.dart';
-import '../../features/main/chat/logic/cubit/chat_cubit.dart';
-import '../enums/drug_state.dart';
-import '../../features/main/doctors/ui/doctor_screen.dart';
-import '../../features/main/prescription/logic/prescription_cubit.dart';
-import '../../features/main/prescription/ui/prescription_screen.dart';
-import '../../features/main/prescription/ui/prescriptions_screen.dart';
-import '../../features/main/settings/edit_profile/logic/cubit/edit_profile_cubit.dart';
-import '../../features/main/settings/edit_profile/ui/edit_profile_screen.dart';
-import '../../features/main/settings/change_password/logic/cubit/change_password_cubit.dart';
-import '../../features/main/settings/change_password/ui/change_password_screen.dart';
-import '../../features/main/doctors/logic/cubit/doctors_cubit.dart';
-import '../../features/main/doctors/ui/doctors_screen.dart';
-import 'package:pharmalink/features/main/chat/ui/messages_screen.dart';
-import '../../features/main/chat/data/models/chat.dart';
-import '../di/dependency_injection.dart';
-import 'routes.dart';
-import '../../features/404/error_404_screen.dart';
-import '../../features/access/sign/logic/signin_cubit/signin_cubit.dart';
-import '../../features/access/sign/data/models/signup/signup_response.dart';
-import '../../features/access/sign/logic/signup_cubit/signup_cubit.dart';
-import '../../features/access/verification/logic/cubit/verification_cubit.dart';
-import '../../features/on_boarding/ui/on_boarding_screen.dart';
-import '../../features/main/main/ui/main_screen.dart';
-import '../../features/splash/ui/splash_screen.dart';
-import '../../features/access/sign/ui/sign_screen.dart';
-import '../../features/access/verification/ui/verification_screen.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pharmalink/features/main/settings/change_password/ui/change_password_screen.dart';
+import 'package:pharmalink/features/main/settings/edit_profile/ui/edit_profile_screen.dart';
+import 'package:pharmalink/features/on_boarding/ui/on_boarding_screen.dart';
+import 'package:pharmalink/features/splash/ui/splash_screen.dart';
+import '../../features/main/chat/ui/chats_screen.dart';
 
-class AppRouter {
-  Route generateRoute(RouteSettings settings) {
-    switch (settings.name) {
-      case Routes.initialRoute:
-        return MaterialPageRoute(builder: (_) => const SplashScreen());
+part 'app_router.gr.dart';
 
-      case Routes.splashScreen:
-        return MaterialPageRoute(builder: (_) => const SplashScreen());
-
-      case Routes.onBoardingScreen:
-        return MaterialPageRoute(builder: (_) => const OnBoardingScreen());
-
-      // ----------------- Access (Authorization) ----------------- //
-      case Routes.signScreen:
-        return MaterialPageRoute(
-          builder: (_) => MultiBlocProvider(
-            providers: [
-              BlocProvider(
-                create: (context) => getIt<SigninCubit>(),
-              ),
-              BlocProvider(
-                create: (context) => getIt<SignupCubit>(),
-              ),
-            ],
-            child: const SignScreen(),
-          ),
-        );
-
-      case Routes.verificationScreen:
-        final signupResponse = settings.arguments as SignupResponse;
-        return MaterialPageRoute(
-          builder: (_) => BlocProvider(
-            create: (context) => getIt<VerificationCubit>(),
-            child: VerificationScreen(
-              email: signupResponse.email,
-              userId: signupResponse.id,
+@AutoRouterConfig(replaceInRouteName: 'Screen,Route')
+class AppRouter extends _$AppRouter {
+  @override
+  List<AutoRoute> get routes => [
+        AutoRoute(
+          path: '/',
+          page: StartRoute.page,
+          initial: true,
+          children: [
+            AutoRoute(
+              path: '',
+              page: SplashRoute.page,
             ),
-          ),
-        );
-
-      case Routes.forgetPasswordScreen:
-        return MaterialPageRoute(
-          builder: (_) => BlocProvider(
-            create: (context) => getIt<ForgetPasswordCubit>(),
-            child: const ForgetPasswordScreen(),
-          ),
-        );
-
-      // ----------------- Main ----------------- //
-      case Routes.mainScreen:
-        return MaterialPageRoute(
-          builder: (_) => const MainScreen(),
-        );
-
-      //----------------- Reminders ----------------- //
-      case Routes.remindersCalenderScreen:
-        final reminders = settings.arguments as List<Reminder>;
-        return MaterialPageRoute(
-          builder: (_) => ReminderCalenderScreen(
-            reminders: reminders,
-          ),
-        );
-
-      // ----------------- Settings ----------------- //
-      case Routes.editProfileScreen:
-        return MaterialPageRoute(
-          builder: (_) => BlocProvider(
-            create: (context) => getIt<EditProfileCubit>(),
-            child: const EditProfileScreen(),
-          ),
-        );
-
-      case Routes.changePasswordScreen:
-        return MaterialPageRoute(
-          builder: (_) => BlocProvider(
-            create: (context) => getIt<ChangePasswordCubit>(),
-            child: const ChangePasswordScreen(),
-          ),
-        );
-
-      // ----------------- Doctor ----------------- //
-      case Routes.doctorsScreen:
-        return MaterialPageRoute(
-          builder: (_) => BlocProvider(
-            create: (context) => getIt<DoctorsCubit>(),
-            child: const DoctorsScreen(),
-          ),
-        );
-
-      case Routes.doctorScreen:
-        final doctorId = settings.arguments as int;
-        return MaterialPageRoute(
-          builder: (_) => BlocProvider(
-            create: (context) => getIt<DoctorsCubit>(),
-            child: DoctorScreen(
-              id: doctorId,
+            AutoRoute(
+              path: 'on-boarding',
+              page: OnBoardingRoute.page,
             ),
-          ),
-        );
-
-      // ----------------- Prescription ----------------- //
-      case Routes.prescriptionsScreen:
-        final category = settings.arguments as DrugState;
-        return MaterialPageRoute(
-          builder: (_) => BlocProvider(
-            create: (context) => getIt<PrescriptionCubit>(),
-            child: PrescriptionsScreen(
-              state: category,
+            AutoRoute(
+              path: 'sign',
+              page: AccessRoute.page,
+              children: [
+                AutoRoute(
+                  path: '',
+                  page: SignRoute.page,
+                ),
+                AutoRoute(
+                  path: 'forget-password',
+                  page: ForgetPasswordRoute.page,
+                ),
+                AutoRoute(
+                  path: 'verification',
+                  page: VerificationRoute.page,
+                ),
+              ],
             ),
-          ),
-        );
-
-      case Routes.prescriptionScreen:
-        final prescription = settings.arguments as Map<String, dynamic>;
-        return MaterialPageRoute(
-          builder: (_) => BlocProvider(
-            create: (context) => getIt<PrescriptionCubit>(),
-            child: PrescriptionScreen(
-              id: prescription['id'],
-              doctor: prescription['doctor'],
-              drugs: prescription['drugs'],
-              drugState: prescription['state'],
+            AutoRoute(
+              path: 'main',
+              page: MainRoute.page,
+              children: [
+                AutoRoute(
+                  path: 'home',
+                  page: LandingHomeRoute.page,
+                  children: [
+                    AutoRoute(
+                      path: '',
+                      page: HomeRoute.page,
+                    ),
+                    AutoRoute(
+                      path: 'doctors',
+                      page: DoctorsRoute.page,
+                    ),
+                    AutoRoute(
+                      path: 'doctor/:id',
+                      page: DoctorRoute.page,
+                    ),
+                    AutoRoute(
+                      path: 'reminder-calender',
+                      page: ReminderCalenderRoute.page,
+                    ),
+                    AutoRoute(
+                      page: ChattingRoute.page,
+                      path: 'chats',
+                      children: [
+                        AutoRoute(
+                          page: ChatsRoute.page,
+                          path: '',
+                        ),
+                        AutoRoute(
+                          page: MessagesRoute.page,
+                          path: 'chat',
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+                AutoRoute(
+                  page: MainPrescriptionRoute.page,
+                  path: 'landing-prescription',
+                  children: [
+                    AutoRoute(
+                      page: LandingPrescriptionRoute.page,
+                      path: '',
+                    ),
+                    AutoRoute(
+                      page: PrescriptionsRoute.page,
+                      path: 'prescriptions',
+                    ),
+                    AutoRoute(
+                      page: PrescriptionRoute.page,
+                      path: 'prescription',
+                    ),
+                  ],
+                ),
+                AutoRoute(
+                  page: DrugInteractionRoute.page,
+                  path: 'drug-interaction',
+                ),
+                AutoRoute(
+                  page: MainProfileRoute.page,
+                  path: 'profile',
+                  children: [
+                    AutoRoute(
+                      page: ProfileRoute.page,
+                      path: '',
+                    ),
+                    AutoRoute(
+                      page: EditProfileRoute.page,
+                      path: 'edit-profile',
+                    ),
+                    AutoRoute(
+                      page: ChangePasswordRoute.page,
+                      path: 'change-password',
+                    ),
+                  ],
+                ),
+              ],
             ),
-          ),
-        );
+          ],
+        ),
 
-      // ----------------- Chat ----------------- //
-      case Routes.messagesScreen:
-        final chat = settings.arguments as Chat;
-        return MaterialPageRoute(
-          builder: (_) => BlocProvider(
-            create: (context) => getIt<ChatCubit>(),
-            child: MessagesScreen(chat),
-          ),
-        );
+        // ----------------- Error 404 ----------------- //
+        AutoRoute(page: Error404Route.page),
 
-      case Routes.unknownRoute:
-        return MaterialPageRoute(builder: (_) => const Error404Screen());
+        // if the path matches to home, it will redirect to home screen
+        // RedirectRoute(path: '/main/home', redirectTo: '/')
+      ];
+}
 
-      default:
-        return MaterialPageRoute(builder: (_) => const Error404Screen());
-    }
-  }
+@RoutePage()
+class StartScreen extends AutoRouter {
+  const StartScreen({super.key});
+}
+
+@RoutePage()
+class AccessScreen extends AutoRouter {
+  const AccessScreen({super.key});
+}
+
+@RoutePage()
+class LandingHomeScreen extends AutoRouter {
+  const LandingHomeScreen({super.key});
+}
+
+@RoutePage()
+class LandingDoctorsScreen extends AutoRouter {
+  const LandingDoctorsScreen({super.key});
+}
+
+@RoutePage()
+class ChattingScreen extends AutoRouter {
+  const ChattingScreen({super.key});
+}
+
+@RoutePage()
+class MainPrescriptionScreen extends AutoRouter {
+  const MainPrescriptionScreen({super.key});
+}
+
+@RoutePage()
+class LandingPrescriptionsScreen extends AutoRouter {
+  const LandingPrescriptionsScreen({super.key});
+}
+
+@RoutePage()
+class MainProfileScreen extends AutoRouter {
+  const MainProfileScreen({super.key});
 }

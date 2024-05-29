@@ -1,18 +1,17 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../shared_preferences/settings_prefs.dart';
-import '../../theme/app_theme.dart';
-import 'theme_state.dart';
 
-class ThemeCubit extends Cubit<ThemeState> {
+class ThemeCubit extends Cubit<ThemeMode> {
   ThemeCubit()
       : super(SettingsSharedPrefs.getTheme() == 1
-            ? ThemeState.dark(AppTheme.darkTheme())
-            : ThemeState.light(AppTheme.lightTheme()));
+            ? ThemeMode.dark
+            : ThemeMode.light);
 
   // Switch to the dark theme
   void toggleDarkTheme() {
     // Initialize the theme data with the dark theme
-    emit(ThemeState.dark(AppTheme.darkTheme()));
+    emit(ThemeMode.dark);
 
     // Store the theme in the shared preferences
     SettingsSharedPrefs.storeTheme(1);
@@ -21,7 +20,7 @@ class ThemeCubit extends Cubit<ThemeState> {
   // Switch to the light theme
   void toggleLightTheme() {
     // Initialize the theme data with the light theme
-    emit(ThemeState.light(AppTheme.lightTheme()));
+    emit(ThemeMode.light);
 
     // Store the theme in the shared preferences
     SettingsSharedPrefs.storeTheme(0);
