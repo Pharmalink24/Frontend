@@ -13,7 +13,6 @@ import 'package:pharmalink/features/main/doctors/ui/doctors_screen.dart';
 import 'package:pharmalink/features/main/drug_interaction/ui/drug_interaction_screen.dart';
 import 'package:pharmalink/features/main/home/ui/home_screen.dart';
 import 'package:pharmalink/features/main/main/ui/main_screen.dart';
-import 'package:pharmalink/features/main/prescription/data/models/prescription_drugs.dart';
 import 'package:pharmalink/features/main/prescription/ui/landing_prescription_screen.dart';
 import 'package:pharmalink/features/main/prescription/ui/prescription_screen.dart';
 import 'package:pharmalink/features/main/prescription/ui/prescriptions_screen.dart';
@@ -25,6 +24,7 @@ import 'package:pharmalink/features/main/settings/edit_profile/ui/edit_profile_s
 import 'package:pharmalink/features/on_boarding/ui/on_boarding_screen.dart';
 import 'package:pharmalink/features/splash/ui/splash_screen.dart';
 import '../../features/main/chat/ui/chats_screen.dart';
+import '../../features/main/prescription/data/models/prescription_info.dart';
 
 part 'app_router.gr.dart';
 

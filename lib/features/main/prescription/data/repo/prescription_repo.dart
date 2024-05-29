@@ -3,7 +3,6 @@ import 'package:pharmalink/core/models/message_response.dart';
 import '../../../../../core/di/dependency_injection.dart';
 import '../../../../../core/enums/drug_state.dart';
 import '../models/prescription_doctor.dart';
-import '../models/prescription_drugs.dart';
 import '../models/prescription_info.dart';
 import '../../../../../core/models/state_request_body.dart';
 import '../../../../../core/networking/api_error_handler.dart';
@@ -19,7 +18,7 @@ class PrescriptionRepo {
   Future<ApiResult<PrescriptionInfo>> getPrescription(
       int prescriptionId) async {
     try {
-      final prescription = await _apiService.getPrescriptionInfo(
+      final prescription = await _apiService.getSpecificPrescriptionInfo(
         prescriptionId,
         AuthSharedPrefs.getAccessToken(),
       );
@@ -44,7 +43,7 @@ class PrescriptionRepo {
     }
   }
 
-  Future<ApiResult<List<PrescriptionDrugs>>> getPrescriptionsDrugs(
+  Future<ApiResult<List<PrescriptionInfo>>> getPrescriptionsDrugs(
       DrugState drugState) async {
     try {
       final prescriptions = await _apiService.getPrescriptionsDrugs(

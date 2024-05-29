@@ -9,7 +9,7 @@ import 'package:pharmalink/core/theme/shadow.dart';
 import 'package:pharmalink/core/widgets/clip_shadow_path.dart';
 import 'package:pharmalink/features/main/prescription/data/models/prescription_doctor.dart';
 import 'package:pharmalink/core/networking/api_constants.dart';
-import 'package:pharmalink/features/main/prescription/data/models/prescription_drugs.dart';
+import 'package:pharmalink/features/main/prescription/data/models/prescription_info.dart';
 import '../../../../../core/theme/gradient.dart';
 import '../../../../../core/theme/styles.dart';
 import '../../../../../core/widgets/loading/loading_indicator.dart';
@@ -17,13 +17,13 @@ import '../../../../../resources/resources.dart';
 
 class DoctorPrescriptionCard extends StatelessWidget {
   final PrescriptionDoctor doctor;
-  final PrescriptionDrugs drugs;
+  final PrescriptionInfo prescriptionInfo;
   final DrugState state;
 
   const DoctorPrescriptionCard({
     super.key,
     required this.doctor,
-    required this.drugs,
+    required this.prescriptionInfo,
     required this.state,
   });
 
@@ -89,7 +89,7 @@ class DoctorPrescriptionCard extends StatelessWidget {
           PrescriptionRoute(
             id: doctor.id,
             doctor: doctor.doctorInfo,
-            drugs: drugs,
+            prescriptionInfo: prescriptionInfo,
             drugState: state,
           ),
         ),

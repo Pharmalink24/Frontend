@@ -1,16 +1,20 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pharmalink/core/theme/colors.dart';
+import 'package:pharmalink/features/main/prescription/data/models/prescription_info.dart';
 import '../../../../core/di/dependency_injection.dart';
 import '../../../../core/enums/drug_state.dart';
 import '../../../../core/localization/app_localizations.dart';
 import '../../doctors/data/models/doctor_info.dart';
-import '../data/models/prescription_drugs.dart';
 import '../../../../core/theme/app_bar.dart';
 import '../../../../core/theme/styles.dart';
 import '../logic/prescription_cubit.dart';
 import 'widgets/activate_box.dart';
 import 'widgets/drug_state_listener.dart';
+import 'widgets/diagnosis_card.dart';
+import 'widgets/notes_card.dart';
 import 'widgets/prescription_header_card.dart';
 import 'widgets/drugs_list_card.dart';
 import 'widgets/ff_button_widget.dart';
@@ -18,25 +22,28 @@ import 'widgets/deactivate_box.dart';
 
 import 'package:auto_route/auto_route.dart';
 
+import 'widgets/tests_card.dart';
+
 @RoutePage()
 class PrescriptionScreen extends StatelessWidget {
   final int id;
   final DoctorInfo doctor;
-  final PrescriptionDrugs drugs;
+  final PrescriptionInfo prescriptionInfo;
   final DrugState drugState;
 
   const PrescriptionScreen({
     super.key,
     required this.id,
     required this.doctor,
-    required this.drugs,
+    required this.prescriptionInfo,
     required this.drugState,
   });
 
-  Widget buildPrescriptionLayout(PrescriptionDrugs prescription) {
+  Widget buildPrescriptionLayout(
+      BuildContext context, PrescriptionInfo prescription) {
     return Padding(
       padding: const EdgeInsetsDirectional.symmetric(horizontal: 12.0),
-      child: Column(
+      child: ListView(
         children: [
           PrescriptionHeaderCard(
             id: doctor.id,
@@ -45,14 +52,21 @@ class PrescriptionScreen extends StatelessWidget {
             doctorLastName: doctor.lastName,
             date: prescription.date,
             time: prescription.time,
+            nextVisit: prescription.nextVisit,
           ),
-          DrugsListCard(
-            prescriptionId: id,
-            drugs: prescription.drugs,
+          Container(
+            constraints: BoxConstraints(
+              minHeight: 250,
+              maxHeight: MediaQuery.of(context).size.height * 0.4,
+            ),
+            child: DrugsListCard(
+              prescriptionId: id,
+              drugs: prescription.drugs,
+            ),
           ),
-          // OtherInfoCard(
-          // ),
-
+          DiagnosisCard(diagnosis: prescription.diagnosis),
+          NotesCard(notes: prescription.doctorNotes),
+          TestsCard(tests: prescription.tests),
           DrugStateListener(state: drugState)
         ],
       ),
@@ -116,7 +130,7 @@ class PrescriptionScreen extends StatelessWidget {
       body: SafeArea(
         child: BlocProvider<PrescriptionCubit>(
           create: (context) => getIt<PrescriptionCubit>(),
-          child: buildPrescriptionLayout(drugs),
+          child: buildPrescriptionLayout(context, prescriptionInfo),
         ),
       ),
       bottomNavigationBar: _buildNavigationBar(context, drugState),

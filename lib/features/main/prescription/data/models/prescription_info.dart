@@ -1,27 +1,32 @@
 import 'package:json_annotation/json_annotation.dart';
 import '../../../../../core/models/drug_info.dart';
-
 part 'prescription_info.g.dart';
 
 @JsonSerializable()
 class PrescriptionInfo {
   final int id;
+  @JsonKey(name: 'session')
+  final int sessionId;
   @JsonKey(name: 'doctor_id')
   final int doctorId;
   @JsonKey(name: 'user_id')
   final int userId;
   @JsonKey(name: 'created_at')
   final String createdAt;
+  @JsonKey(name: 'drugs')
+  final Map<String, DrugInfo> drugs;
+  @JsonKey(name: 'diagnosis')
   final String diagnosis;
   @JsonKey(name: 'doctor_notes')
   final String doctorNotes;
+  @JsonKey(name: 'tests')
   final String tests;
   @JsonKey(name: 'next_visit')
-  final String nextVisit;
-  final Map<String, DrugInfo> drugs;
+  final String? nextVisit;
 
   const PrescriptionInfo({
     required this.id,
+    required this.sessionId,
     required this.doctorId,
     required this.userId,
     required this.createdAt,

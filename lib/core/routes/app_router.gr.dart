@@ -153,7 +153,7 @@ abstract class _$AppRouter extends RootStackRouter {
           key: args.key,
           id: args.id,
           doctor: args.doctor,
-          drugs: args.drugs,
+          prescriptionInfo: args.prescriptionInfo,
           drugState: args.drugState,
         ),
       );
@@ -551,7 +551,7 @@ class PrescriptionRoute extends PageRouteInfo<PrescriptionRouteArgs> {
     Key? key,
     required int id,
     required DoctorInfo doctor,
-    required PrescriptionDrugs drugs,
+    required PrescriptionInfo prescriptionInfo,
     required DrugState drugState,
     List<PageRouteInfo>? children,
   }) : super(
@@ -560,7 +560,7 @@ class PrescriptionRoute extends PageRouteInfo<PrescriptionRouteArgs> {
             key: key,
             id: id,
             doctor: doctor,
-            drugs: drugs,
+            prescriptionInfo: prescriptionInfo,
             drugState: drugState,
           ),
           initialChildren: children,
@@ -577,7 +577,7 @@ class PrescriptionRouteArgs {
     this.key,
     required this.id,
     required this.doctor,
-    required this.drugs,
+    required this.prescriptionInfo,
     required this.drugState,
   });
 
@@ -587,13 +587,13 @@ class PrescriptionRouteArgs {
 
   final DoctorInfo doctor;
 
-  final PrescriptionDrugs drugs;
+  final PrescriptionInfo prescriptionInfo;
 
   final DrugState drugState;
 
   @override
   String toString() {
-    return 'PrescriptionRouteArgs{key: $key, id: $id, doctor: $doctor, drugs: $drugs, drugState: $drugState}';
+    return 'PrescriptionRouteArgs{key: $key, id: $id, doctor: $doctor, prescriptionInfo: $prescriptionInfo, drugState: $drugState}';
   }
 }
 

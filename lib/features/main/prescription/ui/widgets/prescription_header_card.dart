@@ -1,10 +1,14 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:pharmalink/core/routes/app_router.dart';
+import 'package:pharmalink/core/theme/colors.dart';
 import '../../../../../core/helpers/extensions.dart';
 import '../../../../../core/localization/app_localizations.dart';
 import '../../../../../core/networking/api_constants.dart';
+import '../../../../../core/theme/gradient.dart';
+import '../../../../../core/theme/shadow.dart';
 import '../../../../../core/theme/styles.dart';
 import '../../../../../core/widgets/card_container.dart';
 import '../../../../../core/widgets/loading/loading_indicator.dart';
@@ -17,6 +21,7 @@ class PrescriptionHeaderCard extends StatelessWidget {
   final String doctorLastName;
   final String date;
   final String time;
+  final String? nextVisit;
   const PrescriptionHeaderCard({
     super.key,
     this.id,
@@ -25,6 +30,7 @@ class PrescriptionHeaderCard extends StatelessWidget {
     this.doctorLastName = "",
     this.date = "",
     this.time = "",
+    this.nextVisit,
   });
 
   Widget _buildImage(BuildContext context) {
@@ -54,6 +60,59 @@ class PrescriptionHeaderCard extends StatelessWidget {
     );
   }
 
+  Widget _buildTime(BuildContext context) {
+    return Container(
+      // width: double.infinity,
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      decoration: BoxDecoration(
+        color: context.colorScheme.primary.withAlpha(100),
+        borderRadius: BorderRadius.circular(8.0),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisSize: MainAxisSize.max,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Icon(
+                FontAwesomeIcons.solidCalendarDays,
+                size: 20,
+                color: context.colorScheme.scrim,
+              ),
+              const SizedBox(width: 4.0),
+              Text(
+                '$date',
+                style: AppTextStyle.labelMedium(context).copyWith(
+                  color: context.colorScheme.scrim,
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(width: 20.0),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              Icon(
+                FontAwesomeIcons.solidClock,
+                size: 20,
+                color: context.colorScheme.scrim,
+              ),
+              const SizedBox(width: 4.0),
+              Text(
+                '${time}',
+                style: AppTextStyle.labelMedium(context).copyWith(
+                  color: context.colorScheme.scrim,
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
   Widget _buildDoctorInfo(BuildContext context) {
     return Align(
       alignment: const AlignmentDirectional(0, 0),
@@ -68,13 +127,8 @@ class PrescriptionHeaderCard extends StatelessWidget {
                   .crop(18),
               style: AppTextStyle.titleLarge(context),
             ),
-            Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(0, 4, 0, 12),
-              child: Text(
-                '$date  $time',
-                style: AppTextStyle.labelMedium(context),
-              ),
-            ),
+            const SizedBox(height: 8.0),
+            _buildTime(context),
           ],
         ),
       ),
@@ -83,21 +137,23 @@ class PrescriptionHeaderCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: CardContainer(
-        onPressed: () => context.pushRoute(
-          DoctorRoute(id: id ?? -1),
-        ),
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
+      margin: const EdgeInsets.symmetric(vertical: 12.0),
+      decoration: BoxDecoration(
+        color: context.colorScheme.primary,
+        gradient: AppGradients.main(context),
+        borderRadius: BorderRadius.circular(24.0),
+        boxShadow: AppShadows.box(context),
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Row(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              _buildImage(context),
-              _buildDoctorInfo(context),
-            ],
-          ),
+          _buildImage(context),
+          _buildDoctorInfo(context),
         ],
       ),
     );

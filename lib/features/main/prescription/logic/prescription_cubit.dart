@@ -32,7 +32,7 @@ class PrescriptionCubit extends Cubit<PrescriptionState> {
     emit(const PrescriptionState.prescriptionsLoading());
 
     // Load the prescriptions data
-    final prescriptionsDrugs =
+    final prescriptionsInfo =
         await _prescriptionRepo.getPrescriptionsDrugs(drugState);
     
     final prescriptionsDoctors =
@@ -40,10 +40,10 @@ class PrescriptionCubit extends Cubit<PrescriptionState> {
 
     prescriptionsDoctors.when(
       success: (prescriptionsDoctors) async {
-        prescriptionsDrugs.when(
-          success: (prescriptionsDrugs) async {
+        prescriptionsInfo.when(
+          success: (prescriptionsInfo) async {
             emit(PrescriptionState.prescriptionsSuccess(
-                prescriptionsDoctors, prescriptionsDrugs));
+                prescriptionsDoctors, prescriptionsInfo));
           },
           failure: (error) {
             emit(

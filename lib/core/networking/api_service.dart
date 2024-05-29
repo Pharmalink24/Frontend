@@ -8,7 +8,6 @@ import '../../features/main/chat/data/models/messages_history_response.dart';
 import '../../features/main/doctors/data/models/doctor.dart';
 import '../../features/main/drug_interaction/data/models/interaction.dart';
 import '../../features/main/prescription/data/models/prescription_doctor.dart';
-import '../../features/main/prescription/data/models/prescription_drugs.dart';
 import '../../features/main/prescription/data/models/prescription_info.dart';
 import '../../features/main/reminders/data/models/reminder.dart';
 import '../../features/main/settings/change_password/data/models/change_password_request_body.dart';
@@ -87,14 +86,14 @@ abstract class ApiService {
 
   // Prescription
   @GET(ApiConstants.prescriptionsList2)
-  Future<List<PrescriptionDrugs>> getPrescriptionsDrugs(
+  Future<List<PrescriptionInfo>> getPrescriptionsDrugs(
     @Queries() StateRequestBody stateRequestBody,
     @Header('Authorization') String? auth,
   );
 
   // Prescription Detail
-  @GET(ApiConstants.prescriptionInfo)
-  Future<PrescriptionInfo> getPrescriptionInfo(
+  @GET(ApiConstants.specificPrescriptionInfo)
+  Future<PrescriptionInfo> getSpecificPrescriptionInfo(
     @Path('prescription_id') int prescriptionId,
     @Header('Authorization') String? auth,
   );

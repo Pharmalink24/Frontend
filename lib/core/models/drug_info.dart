@@ -23,7 +23,6 @@ class DrugInfo {
   final int course;
   final int repetition;
   final int per;
-
   final DrugState state;
 
   const DrugInfo({

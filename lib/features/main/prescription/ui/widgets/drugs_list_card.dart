@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:pharmalink/core/theme/colors.dart';
 import '../../../../../core/localization/app_localizations.dart';
 import '../../../../../core/models/drug_info.dart';
+import '../../../../../core/theme/styles.dart';
 import '../../../../../core/widgets/card_container_with_title.dart';
 
 import 'drug_card.dart';
@@ -15,31 +17,51 @@ class DrugsListCard extends StatelessWidget {
     required this.drugs,
   });
 
+  Widget _buildEmptyList(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Icon(
+          Icons.featured_play_list_rounded,
+          size: 80,
+          color: context.colorScheme.onSecondary,
+        ),
+        Center(
+          child: Text(
+            AppLocalizations.of(context).translate('noDrugsFound'),
+            textAlign: TextAlign.center,
+            style: AppTextStyle.headlineSmall(context).copyWith(
+              color: context.colorScheme.onSecondary,
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildDrugsList(BuildContext context) {
+    return ListView.builder(
+      itemCount: drugs.length,
+      itemBuilder: (context, index) {
+        final tradeName = drugs.keys.toList()[index];
+        final drugInfo = drugs.values.toList()[index];
+        return DrugCard(
+          prescriptionId: prescriptionId,
+          tradeName: tradeName,
+          drugInfo: drugInfo,
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      flex: 4,
-      child: CardContainerWithTitle(
-        title: AppLocalizations.of(context).translate('Drugs'),
-        isScrollable: false,
-        child: ListView(
-          children: [
-            Column(
-              mainAxisSize: MainAxisSize.max,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: drugs.entries
-                  .map(
-                    (drug) => DrugCard(
-                      prescriptionId: prescriptionId,
-                      tradeName: drug.key,
-                      drugInfo: drug.value,
-                    ),
-                  )
-                  .toList(),
-            ),
-          ],
-        ),
-      ),
+    return CardContainerWithTitle(
+      title: AppLocalizations.of(context).translate('Drugs'),
+      isScrollable: false,
+      child:
+          drugs.isEmpty ? _buildEmptyList(context) : _buildDrugsList(context),
     );
   }
 }

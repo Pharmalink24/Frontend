@@ -46,7 +46,7 @@ class ApiConstants {
   static const prescriptionsList2 = "Prescription/user/active-prescriptions/";
 
   // Prescription Detail
-  static const prescriptionInfo = "Prescription/get-prescription/{prescription_id}/";
+  static const specificPrescriptionInfo = "Prescription/get-prescription/{prescription_id}/";
 
   // Doctor Profile
   static const doctorProfile = "doctor/doctors/{doctor_id}/";

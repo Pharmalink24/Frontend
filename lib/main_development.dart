@@ -4,8 +4,5 @@ import 'init.dart';
 
 void main() async {
   await init();
-  runApp(
-    PharmalinkApp(
-    ),
-  );
+  runApp(PharmalinkApp());
 }

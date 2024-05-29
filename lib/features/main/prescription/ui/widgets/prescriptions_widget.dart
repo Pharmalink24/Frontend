@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pharmalink/core/theme/app_bar.dart';
 import 'package:pharmalink/core/theme/colors.dart';
-import 'package:pharmalink/features/main/prescription/data/models/prescription_drugs.dart';
+import 'package:pharmalink/features/main/prescription/data/models/prescription_info.dart';
 import '../../../../../core/enums/drug_state.dart';
 import '../../../../../core/helpers/extensions.dart';
 import '../../../../../core/localization/app_localizations.dart';
@@ -59,7 +59,7 @@ class _PrescriptionsWidgetState extends State<PrescriptionsWidget> {
 
   // This method is used to build the list of prescriptions
   Widget _buildPrescriptionsList(
-      List<PrescriptionDoctor> doctors, List<PrescriptionDrugs> drugs) {
+      List<PrescriptionDoctor> doctors, List<PrescriptionInfo> drugs) {
     return ListView.builder(
       scrollDirection: Axis.vertical,
       padding: EdgeInsets.zero,
@@ -67,7 +67,7 @@ class _PrescriptionsWidgetState extends State<PrescriptionsWidget> {
       itemBuilder: (context, index) {
         return DoctorPrescriptionCard(
           doctor: doctors[index],
-          drugs: drugs[index],
+          prescriptionInfo: drugs[index],
           state: widget.state,
         );
       },
@@ -76,7 +76,7 @@ class _PrescriptionsWidgetState extends State<PrescriptionsWidget> {
 
   // This method is used to build the success widget
   Widget _buildSuccessWidget(
-      List<PrescriptionDoctor> doctors, List<PrescriptionDrugs> drugs) {
+      List<PrescriptionDoctor> doctors, List<PrescriptionInfo> drugs) {
     return doctors.isEmpty
         ? _buildNoPrescriptionsFound()
         : _buildPrescriptionsList(doctors, drugs);
