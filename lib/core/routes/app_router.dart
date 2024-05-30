@@ -23,6 +23,7 @@ import 'package:pharmalink/features/main/settings/change_password/ui/change_pass
 import 'package:pharmalink/features/main/settings/edit_profile/ui/edit_profile_screen.dart';
 import 'package:pharmalink/features/on_boarding/ui/on_boarding_screen.dart';
 import 'package:pharmalink/features/splash/ui/splash_screen.dart';
+import '../../features/404/connection_lost_widget.dart';
 import '../../features/main/chat/ui/chats_screen.dart';
 import '../../features/main/prescription/data/models/prescription_info.dart';
 

@@ -62,7 +62,6 @@ groups:
     class_name: Faces
     types: [ .png ]
 
-
   - path: assets/lang
     class_name: Languages
     types: [ .json ]

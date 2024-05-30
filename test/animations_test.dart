@@ -6,5 +6,6 @@ import 'package:pharmalink/resources/resources.dart';
 void main() {
   test('animations assets test', () {
     expect(File(Animations.hourglass).existsSync(), isTrue);
+    expect(File(Animations.noConnection).existsSync(), isTrue);
   });
 }

@@ -9,6 +9,8 @@ class Backgrounds {
   static const String doctorsDark =
       'assets/images/backgrounds/doctors_dark.svg';
   static const String injured = 'assets/images/backgrounds/injured.svg';
+  static const String internetConnection =
+      'assets/images/backgrounds/internet_connection.svg';
   static const String security = 'assets/images/backgrounds/security.svg';
   static const String security1 = 'assets/images/backgrounds/security1.svg';
   static const String security1Dark =

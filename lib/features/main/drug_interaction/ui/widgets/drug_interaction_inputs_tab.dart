@@ -90,11 +90,6 @@ class _DrugInteractionInputsTabState extends State<DrugInteractionInputsTab>
       title: AppLocalizations.of(context).translate('drugInteractionTitle'),
       textStyle: AppTextStyle.displayMedium(context).copyWith(fontSize: 28),
       isScrollable: false,
-      padding: const EdgeInsets.only(
-        top: 12.0,
-        left: 6.0,
-        right: 6.0,
-      ),
       child: Column(
         children: [
           _buildTabBar(),

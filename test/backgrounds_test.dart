@@ -10,6 +10,7 @@ void main() {
     expect(File(Backgrounds.doctors).existsSync(), isTrue);
     expect(File(Backgrounds.doctorsDark).existsSync(), isTrue);
     expect(File(Backgrounds.injured).existsSync(), isTrue);
+    expect(File(Backgrounds.internetConnection).existsSync(), isTrue);
     expect(File(Backgrounds.security).existsSync(), isTrue);
     expect(File(Backgrounds.security1).existsSync(), isTrue);
     expect(File(Backgrounds.security1Dark).existsSync(), isTrue);

@@ -7,8 +7,8 @@ import '../../../profile/logic/profile_cubit/profile_cubit.dart';
 import '../../../profile/logic/profile_cubit/profile_state.dart';
 import '../widgets/welcome_name_text.dart';
 
-class HeaderBuilder extends StatelessWidget {
-  const HeaderBuilder({super.key});
+class HomeHeaderBuilder extends StatelessWidget {
+  const HomeHeaderBuilder({super.key});
 
   // Success widget
   Widget buildSuccessWidget(User user) {

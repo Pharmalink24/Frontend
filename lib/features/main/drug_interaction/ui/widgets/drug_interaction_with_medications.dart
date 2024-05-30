@@ -24,23 +24,16 @@ class DrugInteractionWithMedications extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      padding: const EdgeInsets.only(
-        top: 16.0,
-        left: 16.0,
-        right: 16.0,
-      ),
-      child: Form(
-        key: context.read<DrugInteractionCubit>().form2Key,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            _buildDescription(context),
-            const SizedBox(height: 32),
-            _buildInput(context),
-          ],
-        ),
+    return Form(
+      key: context.read<DrugInteractionCubit>().form2Key,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          _buildDescription(context),
+          const SizedBox(height: 16),
+          _buildInput(context),
+        ],
       ),
     );
   }

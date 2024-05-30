@@ -39,6 +39,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const ChattingScreen(),
       );
     },
+    ConnectionLostRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const ConnectionLost(),
+      );
+    },
     DoctorRoute.name: (routeData) {
       final pathParams = routeData.inheritedPathParams;
       final args = routeData.argsAs<DoctorRouteArgs>(
@@ -268,6 +274,20 @@ class ChattingRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'ChattingRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [ConnectionLost]
+class ConnectionLostRoute extends PageRouteInfo<void> {
+  const ConnectionLostRoute({List<PageRouteInfo>? children})
+      : super(
+          ConnectionLostRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ConnectionLost';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

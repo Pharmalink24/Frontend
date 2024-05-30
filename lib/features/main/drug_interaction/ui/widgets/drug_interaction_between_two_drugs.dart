@@ -50,7 +50,7 @@ class DrugInteractionBetweenTwoDrugs extends StatelessWidget {
       child: Form(
         key: context.read<DrugInteractionCubit>().form1Key,
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             _buildFirstInput(context),
