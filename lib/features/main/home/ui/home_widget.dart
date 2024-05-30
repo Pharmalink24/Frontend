@@ -47,20 +47,16 @@ class _HomeWidgetState extends State<HomeWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: SmartRefresher(
-        controller: _refreshController,
-        onRefresh: _onRefresh,
-        enablePullDown: true,
-        child: const Padding(
-          padding: EdgeInsets.all(8.0),
-          child: Column(
-            children: [
-              HomeHeaderBuilder(),
-              DoctorsBuilder(),
-              RemindersBuilder(),
-            ],
-          ),
+    // Todo: Add pull to refresh
+    return const SafeArea(
+      child: Padding(
+        padding: EdgeInsets.all(8.0),
+        child: Column(
+          children: [
+            HomeHeaderBuilder(),
+            DoctorsBuilder(),
+            RemindersBuilder(),
+          ],
         ),
       ),
     );

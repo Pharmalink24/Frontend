@@ -22,8 +22,7 @@ class _MainScreenState extends State<MainScreen> {
     return PopScope(
       canPop: false,
       child: BlocBuilder<NetworkBloc, NetworkState>(
-        buildWhen: (previous, current) =>
-            current is ConnectionSuccess || current is ConnectionFailure,
+        buildWhen: (previous, current) => current != previous,
         builder: (context, state) {
           if (state is ConnectionSuccess) {
             return AutoTabsScaffold(
