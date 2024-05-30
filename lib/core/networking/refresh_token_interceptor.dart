@@ -84,7 +84,7 @@ class RefreshTokenInterceptor extends Interceptor {
         setAccessTokenRepo(refreshTokenResponse.accessToken);
 
         failedRequests.add({'err': err, 'handler': handler});
-        await retryRequests(refreshTokenResponse.accessToken);
+        await retryRequests();
 
         return refreshTokenResponse;
       },
@@ -134,7 +134,7 @@ class RefreshTokenInterceptor extends Interceptor {
   }
 
   // Retry Requests
-  Future retryRequests(accessToken) async {
+  Future retryRequests() async {
     // Create a Dio instance for retrying requests
     Dio retryDio = Dio(
       BaseOptions(
@@ -149,7 +149,7 @@ class RefreshTokenInterceptor extends Interceptor {
 
       // Update headers with the new access token
       requestOptions.headers = {
-        HttpHeaders.authorizationHeader: accessToken,
+        HttpHeaders.authorizationHeader: '${AuthSharedPrefs.getAccessToken()}',
       };
 
       // Retry the request using the new token

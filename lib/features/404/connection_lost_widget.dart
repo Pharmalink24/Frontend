@@ -1,7 +1,8 @@
-
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:pharmalink/core/theme/styles.dart';
 import 'package:pharmalink/resources/resources.dart';
+
 
 class ConnectionLost extends StatelessWidget {
   const ConnectionLost({super.key});
@@ -21,9 +22,12 @@ class ConnectionLost extends StatelessWidget {
                 fit: BoxFit.fill,
               ),
               const SizedBox(height: 10),
-              const Text("Connection Lost",style: TextStyle(
-                fontSize: 18,fontWeight: FontWeight.w500
-              ))
+              Text(
+                "Connection Lost",
+                style: AppTextStyle.bodyLarge(context).copyWith(
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
             ],
           ),
         )
