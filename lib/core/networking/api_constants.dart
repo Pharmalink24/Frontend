@@ -6,7 +6,7 @@ class ApiConstants {
 
   static const String domain = "pharmalink.tech/";
   static const String httpsDomain = "$httpsProtocol$domain";
-  
+
   static const String tokenKey = "patientCustomToken";
   // User API
   static const signIn = "user/login/";
@@ -19,7 +19,8 @@ class ApiConstants {
   // Drug Interaction & Search API
   static const searchDrugFromDrugEye = "Prescription/drug_search/";
   static const twoDrugInteraction = "Drugs/check-drug-interaction-TradeName/";
-  static const drugAndMedicationsInteraction = "Drugs/check-drug-interaction-All/";
+  static const drugAndMedicationsInteraction =
+      "Drugs/user/check-drug-interaction-All/";
 
   // Home API
   static const homePage = "Prescription/user/HomePage/";
@@ -33,7 +34,7 @@ class ApiConstants {
   // Change Password API
   static const changePassword = "user/password/change/";
   // Doctors List API
-  static const doctorsList = "Prescription/user/Doctors/list/"; 
+  static const doctorsList = "Prescription/user/Doctors/list/";
 
   // Get Reminder List
   static const reminderList = "Reminder/list/";
@@ -41,25 +42,24 @@ class ApiConstants {
   // Add Reminder
   static const makeReminderDone = "Reminder/check/{reminder_id}/";
 
-  // Prescription 
-  static const prescriptionsList1 = "Prescription/user/state-prescriptions/Doctorinfo/";
+  // Prescription
+  static const prescriptionsList1 =
+      "Prescription/user/state-prescriptions/Doctorinfo/";
   static const prescriptionsList2 = "Prescription/user/active-prescriptions/";
 
   // Prescription Detail
-  static const specificPrescriptionInfo = "Prescription/get-prescription/{prescription_id}/";
+  static const specificPrescriptionInfo =
+      "Prescription/get-prescription/{prescription_id}/";
 
   // Doctor Profile
   static const doctorProfile = "doctor/doctors/{doctor_id}/";
 
   // Activate & Deactivate Drug
   static const activateDrug = "Prescription/user/{prescription_id}/activate/";
-  static const deactivateDrug = "Prescription/user/{prescription_id}/deactivate/";
-
+  static const deactivateDrug =
+      "Prescription/user/{prescription_id}/deactivate/";
 
   // Chat
-  static const getAllChats = "chat/chat-list/";
-  static const getUserChats = "chat/user-chat-list/";
-  static const addChats = "chat/add-chat/{id}/";
   static const getMessagesHistory = "chat/user-retrieve-messages/";
 }
 
