@@ -9,6 +9,7 @@ import 'core/di/dependency_injection.dart';
 import 'core/shared_preferences/shared_preferences_service.dart';
 import 'dart:async';
 import 'package:flutter_background_service_android/flutter_background_service_android.dart';
+import 'firebase_options.dart';
 
 Future<void> init() async {
   // Required for async calls in `main`
@@ -19,7 +20,7 @@ Future<void> init() async {
   await SharedPrefsService.init();
 
   // Initialize firebase messaging
-  // await firebaseMessagingInit();
+  await firebaseMessagingInit();
 
   // Initialize deep linking
   await deepLinking();
@@ -30,9 +31,8 @@ Future<void> init() async {
 
 Future<void> firebaseMessagingInit() async {
   await Firebase.initializeApp(
-
-      // options: DefaultFirebaseOptions.currentPlatform,
-      );
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   FirebaseMessaging messaging = FirebaseMessaging.instance;
   messaging.getToken().then((value) {
     Logger().i(value);

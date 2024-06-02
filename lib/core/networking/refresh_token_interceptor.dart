@@ -12,6 +12,7 @@ import '../../features/access/sign/data/models/signin/signin_response.dart';
 import '../di/dependency_injection.dart';
 import 'api_constants.dart';
 import 'api_error_handler.dart';
+import 'api_error_model.dart';
 import 'api_result.dart';
 
 class RefreshTokenInterceptor extends Interceptor {
@@ -19,11 +20,17 @@ class RefreshTokenInterceptor extends Interceptor {
   bool isRefreshing = false;
 
   final AuthService _authService;
+  // Create a Dio instance for retrying requests
+    Dio dio = Dio(
+      BaseOptions(
+        baseUrl: ApiConstants.httpsDomain,
+      ),
+    );
   RefreshTokenInterceptor(this._authService);
 
   // ------------------ Repository ------------------ //
 
-  Future<void> setAccessTokenRepo(String accessToken) async {
+  Future<void> setAccessToken(String accessToken) async {
     try {
       await AuthSharedPrefs.storeAuthData(
         SigninResponse(
@@ -52,7 +59,7 @@ class RefreshTokenInterceptor extends Interceptor {
     }
   }
 
-  Future<void> logoutRepo() async {
+  Future<void> logout() async {
     try {
       await _authService.logout(AuthSharedPrefs.getAccessToken());
     } catch (error) {
@@ -81,7 +88,7 @@ class RefreshTokenInterceptor extends Interceptor {
     response.when(
       success: (refreshTokenResponse) async {
         // save new refresh token and access token
-        setAccessTokenRepo(refreshTokenResponse.accessToken);
+        setAccessToken(refreshTokenResponse.accessToken);
 
         failedRequests.add({'err': err, 'handler': handler});
         await retryRequests();
@@ -93,7 +100,7 @@ class RefreshTokenInterceptor extends Interceptor {
             error.apiErrorModel.code == 403) {
           // handle logout
           // handle refresh token
-          await logoutRepo();
+          await logout();
           await clearAuthDataRepo();
         }
 
@@ -107,20 +114,25 @@ class RefreshTokenInterceptor extends Interceptor {
     if (err.response?.statusCode == 401) {
       // If refresh token is not available, perform logout
       if ((AuthSharedPrefs.getRefreshToken() ?? "").isEmpty) {
-        await logoutRepo();
+        await logout();
         return handler.reject(err);
       }
 
       if (!isRefreshing) {
         // Initiating token refresh
         isRefreshing = true;
-        var refreshTokenResponse = await refreshToken(err, handler);
+        final refreshTokenResponse = await refreshToken(err, handler);
+
         if (refreshTokenResponse is RefreshTokenResponse) {
-          setAccessTokenRepo(refreshTokenResponse.accessToken);
+          setAccessToken(refreshTokenResponse.accessToken);
 
           err.requestOptions.headers['Authorization'] =
               '${AuthSharedPrefs.getAccessToken()}';
+
+          // Repeat the request with the updated header
+          return handler.resolve(await dio.fetch(err.requestOptions));
         } else {
+          err.error;
           // If the refresh process fails, reject with the previous error
           return handler.next(err);
         }
@@ -135,17 +147,11 @@ class RefreshTokenInterceptor extends Interceptor {
 
   // Retry Requests
   Future retryRequests() async {
-    // Create a Dio instance for retrying requests
-    Dio retryDio = Dio(
-      BaseOptions(
-        baseUrl: ApiConstants.httpsDomain,
-      ),
-    );
     // Iterate through failed requests and retry them
-    for (var i = 0; i < failedRequests.length; i++) {
+    for (var request in failedRequests) {
       // Get the RequestOptions from the failed request
       RequestOptions requestOptions =
-          failedRequests[i]['err'].requestOptions as RequestOptions;
+          request['err'].requestOptions as RequestOptions;
 
       // Update headers with the new access token
       requestOptions.headers = {
@@ -153,11 +159,12 @@ class RefreshTokenInterceptor extends Interceptor {
       };
 
       // Retry the request using the new token
-      await retryDio.fetch(requestOptions).then(
-        failedRequests[i]['handler'].resolve,
+      await dio.fetch(requestOptions).then(
+        (request['handler'] as ErrorInterceptorHandler).resolve,
         onError: (error) async {
           // Reject the request if an error occurs during retry
-          failedRequests[i]['handler'].reject(error as DioException);
+          (request['handler'] as ErrorInterceptorHandler)
+              .reject(error as DioException);
         },
       );
     }
