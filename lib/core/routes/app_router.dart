@@ -23,9 +23,10 @@ import 'package:pharmalink/features/main/settings/change_password/ui/change_pass
 import 'package:pharmalink/features/main/settings/edit_profile/ui/edit_profile_screen.dart';
 import 'package:pharmalink/features/on_boarding/ui/on_boarding_screen.dart';
 import 'package:pharmalink/features/splash/ui/splash_screen.dart';
-import '../../features/404/connection_lost_widget.dart';
 import '../../features/main/chat/ui/chats_screen.dart';
 import '../../features/main/prescription/data/models/prescription_info.dart';
+import '../shared_preferences/auth_prefs.dart';
+import '../shared_preferences/entry_prefs.dart';
 
 part 'app_router.gr.dart';
 
@@ -41,6 +42,7 @@ class AppRouter extends _$AppRouter {
             AutoRoute(
               path: '',
               page: SplashRoute.page,
+              guards: [AuthGuard()],
             ),
             AutoRoute(
               path: 'on-boarding',
@@ -195,4 +197,22 @@ class LandingPrescriptionsScreen extends AutoRouter {
 @RoutePage()
 class MainProfileScreen extends AutoRouter {
   const MainProfileScreen({super.key});
+}
+
+class AuthGuard extends AutoRouteGuard {
+  @override
+  void onNavigation(NavigationResolver resolver, StackRouter router) async {
+    bool isLoggedIn = AuthSharedPrefs.isUserLoggedIn();
+    bool isFirstEntry = EntrySharedPrefs.isFirstEntry();
+
+    if (isLoggedIn) {
+      router.push(const MainRoute());
+    } else if (isFirstEntry) {
+      router.push(const OnBoardingRoute());
+    } else if (!isLoggedIn && !isFirstEntry) {
+      router.push(const SignRoute());
+    } else {
+      resolver.next(true); // Proceed to the page
+    }
+  }
 }

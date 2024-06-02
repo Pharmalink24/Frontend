@@ -21,8 +21,8 @@ class _SubtitleAnimationState extends State<SubtitleAnimation> {
           speed: const Duration(milliseconds: 75),
           appSubtitle,
           textAlign: TextAlign.center,
-          textStyle: AppTextStyle.titleMedium(context).copyWith(
-            color: context.colorScheme.secondary,
+          textStyle: AppTextStyle.titleLarge(context).copyWith(
+            color: context.colorScheme.primary,
           ),
         ),
       ],

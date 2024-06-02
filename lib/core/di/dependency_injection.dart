@@ -39,18 +39,11 @@ import '../networking/socket_service.dart';
 final getIt = GetIt.instance;
 
 Future<void> setupGetIt() async {
-  // Auth Dio & Auth Service
-  Dio authDio = AuthDioFactory.getDio();
-  getIt.registerLazySingleton<AuthService>(() => AuthService(authDio));
-  // Api Dio & Api Service
-  Dio appDio = AppDioFactory.getDio(getIt());
-  getIt.registerLazySingleton<ApiService>(() => ApiService(appDio));
+    //-------------------- CORE --------------------//
 
-  // Socket
-  getIt.registerLazySingleton<SocketService>(() => SocketService());
+  // Authorization
+  getIt.registerFactory<AuthCubit>(() => AuthCubit());
 
-  //-------------------- CORE --------------------//
-  
   // Network
   getIt.registerLazySingleton<NetworkBloc>(() => NetworkBloc());
 
@@ -63,11 +56,20 @@ Future<void> setupGetIt() async {
   // Logger
   getIt.registerLazySingleton<Logger>(() => Logger());
 
+  // Auth Dio & Auth Service
+  Dio authDio = AuthDioFactory.getDio();
+  getIt.registerLazySingleton<AuthService>(() => AuthService(authDio));
+  // Api Dio & Api Service
+  Dio appDio = AppDioFactory.getDio(getIt(),getIt());
+  getIt.registerLazySingleton<ApiService>(() => ApiService(appDio));
+
+  // Socket
+  getIt.registerLazySingleton<SocketService>(() => SocketService());
+
   //-------------------- AUTHENTICATION --------------------//
 
   // Auth
   getIt.registerLazySingleton<AuthRepo>(() => AuthRepo(getIt()));
-  getIt.registerFactory<AuthCubit>(() => AuthCubit(getIt()));
 
   // Signin
   getIt.registerLazySingleton<SigninRepo>(() => SigninRepo(getIt()));

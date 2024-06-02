@@ -1,9 +1,5 @@
-import 'package:expansion_tile_card/expansion_tile_card.dart';
 import 'package:flutter/material.dart';
 import 'package:pharmalink/core/localization/app_localizations.dart';
-import 'package:pharmalink/core/theme/colors.dart';
-import 'package:pharmalink/core/widgets/card_container_with_title.dart';
-
 import '../../../../../../core/theme/styles.dart';
 import '../../../../../../core/widgets/expansion_card_container.dart';
 

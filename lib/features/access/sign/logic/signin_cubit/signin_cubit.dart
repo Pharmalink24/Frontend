@@ -21,7 +21,7 @@ class SigninCubit extends Cubit<SigninState> {
   final formKey = GlobalKey<FormState>();
 
   // Sign in
-  void emitSigninStates() async {
+  void signin() async {
     // Loading until sign in
     emit(const SigninState.loading());
 
@@ -46,4 +46,19 @@ class SigninCubit extends Cubit<SigninState> {
       },
     );
   }
+
+  // Logout
+  void logout() async {
+    // Clear Authorization data
+    await _authRepo.logout();
+    await _authRepo.clearAuthData();
+  }
+  
+  // Dispose
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+  }
+
+
 }

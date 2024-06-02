@@ -12,12 +12,13 @@ import 'package:pharmalink/features/main/chat/logic/cubit/chat_cubit.dart';
 import 'core/Blocs/connection/bloc/network_event.dart';
 import 'core/routes/app_router.dart';
 import 'features/access/auth/logic/cubit/auth_cubit.dart';
+import 'features/access/sign/logic/signin_cubit/signin_cubit.dart';
 
 class PharmalinkApp extends StatelessWidget {
   PharmalinkApp({super.key});
 
   final _appRouter = AppRouter();
-  
+
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
@@ -32,35 +33,32 @@ class PharmalinkApp extends StatelessWidget {
           create: (context) => getIt<ThemeCubit>(),
         ),
         BlocProvider(
-          create: (context) => getIt<AuthCubit>(),
+          create: (context) => getIt<AuthCubit>()..checkAuthentication(),
         ),
         BlocProvider(
           create: (context) => getIt<ChatCubit>(),
         ),
+        BlocProvider(
+          create: (context) => getIt<SigninCubit>(),
+        ),
       ],
-      child: BlocBuilder<LocaleCubit, LocaleState>(
-        buildWhen: (previousState, currentState) =>
-            previousState != currentState,
-        builder: (context, localeState) {
-          return BlocBuilder<ThemeCubit, ThemeMode>(
-            buildWhen: (previousState, currentState) =>
-                previousState != currentState,
-            builder: (context, themeState) {
-              return MaterialApp.router(
-                supportedLocales: AppLocalizationsSetup.supportedLocales,
-                localizationsDelegates:
-                    AppLocalizationsSetup.localizationsDelegates,
-                localeResolutionCallback:
-                    AppLocalizationsSetup.localeResolutionCallback,
-                locale: localeState.locale,
-                title: appTitle,
-                theme: AppTheme.lightTheme(),
-                darkTheme: AppTheme.darkTheme(),
-                themeMode: themeState,
-                routerConfig: _appRouter.config(),
-                debugShowCheckedModeBanner: false,
-              );
-            },
+      child: Builder(
+        builder: (context) {
+          final localeState = context.watch<LocaleCubit>().state;
+          final themeState = context.watch<ThemeCubit>().state;
+          return MaterialApp.router(
+            supportedLocales: AppLocalizationsSetup.supportedLocales,
+            localizationsDelegates:
+                AppLocalizationsSetup.localizationsDelegates,
+            localeResolutionCallback:
+                AppLocalizationsSetup.localeResolutionCallback,
+            locale: localeState.locale,
+            title: appTitle,
+            theme: AppTheme.lightTheme(),
+            darkTheme: AppTheme.darkTheme(),
+            themeMode: themeState,
+            routerConfig: _appRouter.config(),
+            debugShowCheckedModeBanner: false,
           );
         },
       ),

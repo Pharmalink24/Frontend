@@ -9,7 +9,6 @@ import '../forget_password_text.dart';
 import '../signin_bloc_listener.dart';
 import '../welcome_text.dart';
 
-
 class SigninBody extends StatefulWidget {
   const SigninBody({super.key});
 
@@ -59,7 +58,7 @@ class _SigninBodyState extends State<SigninBody> {
 
   void validationThenSignin(BuildContext context) {
     if (context.read<SigninCubit>().formKey.currentState!.validate()) {
-      context.read<SigninCubit>().emitSigninStates();
+      context.read<SigninCubit>().signin();
     }
   }
 }

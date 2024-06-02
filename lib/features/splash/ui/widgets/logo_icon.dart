@@ -4,7 +4,7 @@ import '../../../../core/localization/app_localizations.dart';
 import '../../../../core/theme/icons.dart';
 import '../../../../core/theme/styles.dart';
 
-const kLogoSize = 150.0;
+const kLogoSize = 100.0;
 
 class LogoIcon extends StatelessWidget {
   const LogoIcon({super.key});
@@ -18,6 +18,7 @@ class LogoIcon extends StatelessWidget {
           size: kLogoSize,
           color: context.colorScheme.primary,
         ),
+        const SizedBox(height: 16.0),
         Text(
           AppLocalizations.of(context).translate('appName'),
           textAlign: TextAlign.center,

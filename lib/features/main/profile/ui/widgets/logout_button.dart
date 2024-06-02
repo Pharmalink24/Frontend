@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pharmalink/core/routes/app_router.dart';
 import 'package:pharmalink/core/widgets/form/form_button.dart';
+import 'package:pharmalink/features/access/sign/logic/signin_cubit/signin_cubit.dart';
 import '../../../../../core/localization/app_localizations.dart';
 import '../../../../../core/theme/styles.dart';
 import '../../../../access/auth/logic/cubit/auth_cubit.dart';
@@ -43,7 +44,7 @@ class LogoutButton extends StatelessWidget {
                   context.maybePop();
 
                   // Log out
-                  BlocProvider.of<AuthCubit>(context).logout();
+                  BlocProvider.of<SigninCubit>(context).logout();
 
                   // Add pushReplacementNamed
                   context.pushRoute(const SignRoute());
