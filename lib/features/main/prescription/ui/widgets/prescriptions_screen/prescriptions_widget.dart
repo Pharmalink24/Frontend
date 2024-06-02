@@ -3,15 +3,15 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pharmalink/core/theme/app_bar.dart';
 import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/features/main/prescription/data/models/prescription_info.dart';
-import '../../../../../core/enums/drug_state.dart';
-import '../../../../../core/helpers/extensions.dart';
-import '../../../../../core/localization/app_localizations.dart';
-import '../../../../../core/widgets/loading/loading_indicator.dart';
-import '../../data/models/prescription_doctor.dart';
-import '../../logic/prescription_state.dart';
+import '../../../../../../core/enums/drug_state.dart';
+import '../../../../../../core/helpers/extensions.dart';
+import '../../../../../../core/localization/app_localizations.dart';
+import '../../../../../../core/widgets/loading/loading_indicator.dart';
+import '../../../data/models/prescription_doctor.dart';
+import '../../../logic/prescription_state.dart';
 import 'doctor_prescription_card.dart';
-import '../../../../../core/theme/styles.dart';
-import '../../logic/prescription_cubit.dart';
+import '../../../../../../core/theme/styles.dart';
+import '../../../logic/prescription_cubit.dart';
 
 class PrescriptionsWidget extends StatefulWidget {
   final DrugState state;

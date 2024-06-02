@@ -5,9 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:pharmalink/core/enums/drug_state.dart';
 import 'package:pharmalink/core/routes/app_router.dart';
 import 'package:pharmalink/core/theme/colors.dart';
-import '../../../../../core/theme/shadow.dart';
-import '../../../../../core/theme/styles.dart';
-import '../../../../../core/widgets/clip_shadow_path.dart';
+import '../../../../../../core/theme/shadow.dart';
+import '../../../../../../core/theme/styles.dart';
+import '../../../../../../core/widgets/clip_shadow_path.dart';
 
 class PrescriptionCategoryWidget extends StatelessWidget {
   final String title;
@@ -31,7 +31,7 @@ class PrescriptionCategoryWidget extends StatelessWidget {
     } else if (backgroundColor == context.colorScheme.secondary) {
       return context.colorScheme.primaryContainer;
     } else {
-      return context.colorScheme.onBackground;
+      return context.colorScheme.onSurface;
     }
   }
 

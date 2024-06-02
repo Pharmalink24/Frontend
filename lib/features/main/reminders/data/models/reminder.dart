@@ -48,7 +48,9 @@ class Reminder {
   }
 
   bool isBeforeToday() {
-    return getNextDoseTime()?.isBefore(DateTime.now()) ?? false;
+    return getNextDoseTime()
+            ?.isBefore(DateTime.now().subtract(const Duration(days: 1))) ??
+        false;
   }
 
   bool isAfterToday() {

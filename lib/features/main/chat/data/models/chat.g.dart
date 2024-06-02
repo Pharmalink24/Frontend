@@ -7,7 +7,7 @@ part of 'chat.dart';
 // **************************************************************************
 
 Chat _$ChatFromJson(Map<String, dynamic> json) => Chat(
-      chatWithId: json['chat_with_id'] as int?,
+      chatWithId: (json['chat_with_id'] as num?)?.toInt(),
       fname: json['chat_with_fname'] as String?,
       lname: json['chat_with_lname'] as String?,
       image: json['chat_with_image'] as String?,

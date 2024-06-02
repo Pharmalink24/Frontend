@@ -9,7 +9,7 @@ class AppGradients {
 
   static secondaryColors(BuildContext context) => [
         context.colorScheme.primary,
-        context.colorScheme.background,
+        context.colorScheme.surface,
       ];
 
   // Gradient Colors

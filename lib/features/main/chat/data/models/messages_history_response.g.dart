@@ -12,9 +12,9 @@ MessagesHistoryResponse _$MessagesHistoryResponseFromJson(
       messages: (json['messages'] as List<dynamic>)
           .map((e) => Message.fromJson(e as Map<String, dynamic>))
           .toList(),
-      page: json['page'] as int,
-      pages: json['pages'] as int,
-      totalMessages: json['total_messages'] as int,
+      page: (json['page'] as num).toInt(),
+      pages: (json['pages'] as num).toInt(),
+      totalMessages: (json['total_messages'] as num).toInt(),
     );
 
 Map<String, dynamic> _$MessagesHistoryResponseToJson(

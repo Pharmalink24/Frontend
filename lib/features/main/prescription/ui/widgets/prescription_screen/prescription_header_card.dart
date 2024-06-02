@@ -1,18 +1,15 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:pharmalink/core/routes/app_router.dart';
 import 'package:pharmalink/core/theme/colors.dart';
-import '../../../../../core/helpers/extensions.dart';
-import '../../../../../core/localization/app_localizations.dart';
-import '../../../../../core/networking/api_constants.dart';
-import '../../../../../core/theme/gradient.dart';
-import '../../../../../core/theme/shadow.dart';
-import '../../../../../core/theme/styles.dart';
-import '../../../../../core/widgets/card_container.dart';
-import '../../../../../core/widgets/loading/loading_indicator.dart';
-import '../../../../../resources/resources.dart';
+import '../../../../../../core/helpers/extensions.dart';
+import '../../../../../../core/localization/app_localizations.dart';
+import '../../../../../../core/networking/api_constants.dart';
+import '../../../../../../core/theme/gradient.dart';
+import '../../../../../../core/theme/shadow.dart';
+import '../../../../../../core/theme/styles.dart';
+import '../../../../../../core/widgets/loading/loading_indicator.dart';
+import '../../../../../../resources/resources.dart';
 
 class PrescriptionHeaderCard extends StatelessWidget {
   final int? id;
@@ -82,7 +79,7 @@ class PrescriptionHeaderCard extends StatelessWidget {
               ),
               const SizedBox(width: 4.0),
               Text(
-                '$date',
+                date,
                 style: AppTextStyle.labelMedium(context).copyWith(
                   color: context.colorScheme.scrim,
                 ),
@@ -101,7 +98,7 @@ class PrescriptionHeaderCard extends StatelessWidget {
               ),
               const SizedBox(width: 4.0),
               Text(
-                '${time}',
+                time,
                 style: AppTextStyle.labelMedium(context).copyWith(
                   color: context.colorScheme.scrim,
                 ),

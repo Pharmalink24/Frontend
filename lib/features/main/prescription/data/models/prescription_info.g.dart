@@ -8,10 +8,10 @@ part of 'prescription_info.dart';
 
 PrescriptionInfo _$PrescriptionInfoFromJson(Map<String, dynamic> json) =>
     PrescriptionInfo(
-      id: json['id'] as int,
-      sessionId: json['session'] as int,
-      doctorId: json['doctor_id'] as int,
-      userId: json['user_id'] as int,
+      id: (json['id'] as num).toInt(),
+      sessionId: (json['session'] as num).toInt(),
+      doctorId: (json['doctor_id'] as num).toInt(),
+      userId: (json['user_id'] as num).toInt(),
       createdAt: json['created_at'] as String,
       diagnosis: json['diagnosis'] as String,
       doctorNotes: json['doctor_notes'] as String,

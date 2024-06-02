@@ -1,7 +1,10 @@
 import 'dart:ui';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_background_service/flutter_background_service.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:logger/logger.dart';
 import 'core/di/dependency_injection.dart';
 import 'core/shared_preferences/shared_preferences_service.dart';
 import 'dart:async';
@@ -15,10 +18,33 @@ Future<void> init() async {
   // Initialize PreferenceUtils instance.
   await SharedPrefsService.init();
 
+  // Initialize firebase messaging
+  // await firebaseMessagingInit();
+
+  // Initialize deep linking
+  await deepLinking();
+
   // Initialize background service
   await initializeBackgroundAndForegroundService();
+}
 
-  deepLinking();
+Future<void> firebaseMessagingInit() async {
+  await Firebase.initializeApp(
+
+      // options: DefaultFirebaseOptions.currentPlatform,
+      );
+  FirebaseMessaging messaging = FirebaseMessaging.instance;
+  messaging.getToken().then((value) {
+    Logger().i(value);
+  });
+
+  FirebaseMessaging.onMessage.listen((RemoteMessage event) {
+    Logger().i("message received");
+    Logger().i(event.notification!.body);
+  });
+  FirebaseMessaging.onMessageOpenedApp.listen((message) {
+    Logger().i('Message clicked!');
+  });
 }
 
 /// Foreground and Background
@@ -41,6 +67,11 @@ Future<void> initializeBackgroundAndForegroundService() async {
     ),
   );
 }
+
+/// Deep linking
+Future<void> deepLinking() async {}
+
+///---------------------------------------- main.dart ----------------------------------------//
 
 @pragma('vm:entry-point')
 Future<bool> onIosBackground(ServiceInstance service) async {
@@ -87,7 +118,4 @@ void onStart(ServiceInstance service) async {
       }
     }
   });
-}
-
-void deepLinking() {
 }

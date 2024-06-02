@@ -7,7 +7,7 @@ part of 'interaction.dart';
 // **************************************************************************
 
 Interaction _$InteractionFromJson(Map<String, dynamic> json) => Interaction(
-      prescriptionId: json['prescription_id'] as int,
+      prescriptionId: (json['prescription_id'] as num).toInt(),
       prescriptionDrug: json['prescription_drug'] as String,
       drug: json['drug'] as String,
       prescriptionScname: json['prescription_scname'] as String,

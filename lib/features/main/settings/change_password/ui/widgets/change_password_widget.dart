@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../../../../core/di/dependency_injection.dart';
 import '../../../../../../core/localization/app_localizations.dart';
 import '../../../../../../core/theme/app_bar.dart';
 import '../../../../../../core/theme/styles.dart';

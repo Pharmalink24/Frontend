@@ -3,7 +3,7 @@ import 'package:pharmalink/core/theme/colors.dart';
 import '../../../../core/enums/drug_state.dart';
 import '../../../../core/localization/app_localizations.dart';
 import '../../../../core/theme/styles.dart';
-import 'widgets/category_widget.dart';
+import 'widgets/landing_prescription_screen/category_widget.dart';
 
 import 'package:auto_route/auto_route.dart';
 

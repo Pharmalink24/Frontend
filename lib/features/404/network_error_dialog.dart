@@ -37,8 +37,8 @@ class NetworkErrorDialog extends StatelessWidget {
           ),
           const SizedBox(height: 16),
           ElevatedButton(
-            child: const Text("Try Again"),
             onPressed: onPressed,
+            child: const Text("Try Again"),
           )
         ],
       ),

@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/features/main/prescription/data/models/prescription_info.dart';
@@ -12,17 +10,17 @@ import '../../../../core/theme/app_bar.dart';
 import '../../../../core/theme/styles.dart';
 import '../logic/prescription_cubit.dart';
 import 'widgets/activate_box.dart';
-import 'widgets/drug_state_listener.dart';
-import 'widgets/diagnosis_card.dart';
-import 'widgets/notes_card.dart';
-import 'widgets/prescription_header_card.dart';
-import 'widgets/drugs_list_card.dart';
+import 'listeners/drug_state_listener.dart';
+import 'widgets/prescription_screen/diagnosis_card.dart';
+import 'widgets/prescription_screen/notes_card.dart';
+import 'widgets/prescription_screen/prescription_header_card.dart';
+import 'widgets/prescription_screen/drugs_list_card.dart';
 import 'widgets/ff_button_widget.dart';
 import 'widgets/deactivate_box.dart';
 
 import 'package:auto_route/auto_route.dart';
 
-import 'widgets/tests_card.dart';
+import 'widgets/prescription_screen/tests_card.dart';
 
 @RoutePage()
 class PrescriptionScreen extends StatelessWidget {
@@ -54,15 +52,9 @@ class PrescriptionScreen extends StatelessWidget {
             time: prescription.time,
             nextVisit: prescription.nextVisit,
           ),
-          Container(
-            constraints: BoxConstraints(
-              minHeight: 250,
-              maxHeight: MediaQuery.of(context).size.height * 0.4,
-            ),
-            child: DrugsListCard(
-              prescriptionId: id,
-              drugs: prescription.drugs,
-            ),
+          DrugsListCard(
+            prescriptionId: id,
+            drugs: prescription.drugs,
           ),
           DiagnosisCard(diagnosis: prescription.diagnosis),
           NotesCard(notes: prescription.doctorNotes),

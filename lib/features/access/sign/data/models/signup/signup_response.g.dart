@@ -8,7 +8,7 @@ part of 'signup_response.dart';
 
 SignupResponse _$SignupResponseFromJson(Map<String, dynamic> json) =>
     SignupResponse(
-      id: json['id'] as int,
+      id: (json['id'] as num).toInt(),
       username: json['username'] as String,
       email: json['email'] as String,
     );

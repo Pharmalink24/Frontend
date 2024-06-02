@@ -8,7 +8,7 @@ part of 'signin_response.dart';
 
 SigninResponse _$SigninResponseFromJson(Map<String, dynamic> json) =>
     SigninResponse(
-      id: json['id'] as int,
+      id: (json['id'] as num).toInt(),
       username: json['username'] as String,
       email: json['email'] as String,
       refreshToken: json['refresh_token'] as String,

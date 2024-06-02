@@ -1,4 +1,3 @@
-// Flutter Packages
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pharmalink/core/Blocs/connection/bloc/network_cubit.dart';
@@ -18,7 +17,7 @@ class PharmalinkApp extends StatelessWidget {
   PharmalinkApp({super.key});
 
   final _appRouter = AppRouter();
-
+  
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(

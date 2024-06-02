@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:pharmalink/core/theme/colors.dart';
-import '../../../../../core/localization/app_localizations.dart';
-import '../../../../../core/models/drug_info.dart';
-import '../../../../../core/theme/styles.dart';
-import '../../../../../core/widgets/card_container_with_title.dart';
-
+import '../../../../../../core/localization/app_localizations.dart';
+import '../../../../../../core/models/drug_info.dart';
+import '../../../../../../core/theme/styles.dart';
+import '../../../../../../core/widgets/expansion_card_container.dart';
 import 'drug_card.dart';
 
 class DrugsListCard extends StatelessWidget {
@@ -24,14 +23,14 @@ class DrugsListCard extends StatelessWidget {
       children: [
         Icon(
           Icons.featured_play_list_rounded,
-          size: 80,
+          size: 60,
           color: context.colorScheme.onSecondary,
         ),
         Center(
           child: Text(
             AppLocalizations.of(context).translate('noDrugsFound'),
             textAlign: TextAlign.center,
-            style: AppTextStyle.headlineSmall(context).copyWith(
+            style: AppTextStyle.bodyLarge(context).copyWith(
               color: context.colorScheme.onSecondary,
             ),
           ),
@@ -41,27 +40,24 @@ class DrugsListCard extends StatelessWidget {
   }
 
   Widget _buildDrugsList(BuildContext context) {
-    return ListView.builder(
-      itemCount: drugs.length,
-      itemBuilder: (context, index) {
-        final tradeName = drugs.keys.toList()[index];
-        final drugInfo = drugs.values.toList()[index];
+    return Column(
+      children: drugs.entries.map((MapEntry<String, DrugInfo> entry) {
         return DrugCard(
           prescriptionId: prescriptionId,
-          tradeName: tradeName,
-          drugInfo: drugInfo,
+          tradeName: entry.key,
+          drugInfo: entry.value,
         );
-      },
+      }).toList(),
     );
   }
 
   @override
   Widget build(BuildContext context) {
-    return CardContainerWithTitle(
+    return ExpansionCardContainer(
       title: AppLocalizations.of(context).translate('Drugs'),
-      isScrollable: false,
-      child:
-          drugs.isEmpty ? _buildEmptyList(context) : _buildDrugsList(context),
+      children: [
+        drugs.isEmpty ? _buildEmptyList(context) : _buildDrugsList(context),
+      ],
     );
   }
 }

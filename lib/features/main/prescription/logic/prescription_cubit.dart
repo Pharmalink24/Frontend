@@ -34,7 +34,7 @@ class PrescriptionCubit extends Cubit<PrescriptionState> {
     // Load the prescriptions data
     final prescriptionsInfo =
         await _prescriptionRepo.getPrescriptionsDrugs(drugState);
-    
+
     final prescriptionsDoctors =
         await _prescriptionRepo.getPrescriptionsDoctors(drugState);
 
@@ -94,6 +94,25 @@ class PrescriptionCubit extends Cubit<PrescriptionState> {
       failure: (error) {
         emit(
           PrescriptionState.deactivateDrugError(
+              error.apiErrorModel.error ?? ERR.UNEXPECTED),
+        );
+      },
+    );
+  }
+
+  void reactivateDrug(int prescriptionId, String drugName) async {
+    emit(const PrescriptionState.reactivateDrugLoading());
+
+    final response =
+        await _prescriptionRepo.activateDrug(prescriptionId, drugName);
+
+    response.when(
+      success: (message) {
+        emit(PrescriptionState.reactivateDrugSuccess(message));
+      },
+      failure: (error) {
+        emit(
+          PrescriptionState.reactivateDrugError(
               error.apiErrorModel.error ?? ERR.UNEXPECTED),
         );
       },

@@ -7,11 +7,11 @@ part of 'drug_search.dart';
 // **************************************************************************
 
 DrugSearch _$DrugSearchFromJson(Map<String, dynamic> json) => DrugSearch(
-      id: json['id'] as int,
+      id: (json['id'] as num).toInt(),
       tradeName: json['TradeName'] as String,
       drugEyeId: json['ID'] as String,
       activeIngredient: json['ScName'] as String,
-      quantity: json['HOWMUCH'] as int,
+      quantity: (json['HOWMUCH'] as num).toInt(),
       unit: json['Unit'] as String,
       classification: json['CLASSIFICATION'] as String,
     );

@@ -34,4 +34,13 @@ class PrescriptionState<T> with _$PrescriptionState<T> {
       DeactivateDrugSuccess<T>;
   const factory PrescriptionState.deactivateDrugError(String message) =
       DeactivateDrugError;
+
+  // Reactivate Drug
+    const factory PrescriptionState.reactivateDrugLoading() =
+      ReactivateDrugLoading;
+  const factory PrescriptionState.reactivateDrugSuccess(T message) =
+      ReactivateDrugSuccess<T>;
+  const factory PrescriptionState.reactivateDrugError(String message) =
+      ReactivateDrugError;
+
 }

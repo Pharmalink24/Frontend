@@ -26,10 +26,10 @@ class DarkModeSwitch extends StatelessWidget {
           Switch(
             value: SettingsSharedPrefs.getTheme() == 1,
             onChanged: (value) => _onChanged(context, value),
-            trackOutlineColor: MaterialStatePropertyAll(
+            trackOutlineColor: WidgetStatePropertyAll(
               context.colorScheme.primary,
             ),
-            thumbColor: MaterialStatePropertyAll(
+            thumbColor: WidgetStatePropertyAll(
               context.colorScheme.primary,
             ),
             activeTrackColor: context.colorScheme.primaryContainer,

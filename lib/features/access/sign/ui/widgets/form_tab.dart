@@ -6,8 +6,6 @@ import '../../../../../core/di/dependency_injection.dart';
 import '../../../../../core/localization/app_localizations.dart';
 import '../../../../../core/theme/fonts.dart';
 import '../../../../../core/theme/styles.dart';
-import '../../data/models/signin/signin_fields.dart';
-import '../../data/models/signup/signup_fields.dart';
 import '../../logic/signin_cubit/signin_cubit.dart';
 import '../../logic/signup_cubit/signup_cubit.dart';
 import 'signin/signin_body.dart';
@@ -51,7 +49,7 @@ class _FormTabState extends State<FormTab> with TickerProviderStateMixin {
       labelColor: context.colorScheme.onPrimary,
       unselectedLabelColor: context.colorScheme.onSecondary,
       tabAlignment: TabAlignment.start,
-      overlayColor: MaterialStateProperty.all(Colors.transparent),
+      overlayColor: WidgetStateProperty.all(Colors.transparent),
       indicatorSize: TabBarIndicatorSize.label,
       enableFeedback: false,
       labelPadding: const EdgeInsetsDirectional.fromSTEB(16, 0, 16, 8),

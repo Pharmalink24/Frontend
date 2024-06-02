@@ -36,10 +36,10 @@ class FormButton extends StatelessWidget {
         child: TextButton(
           style: ButtonStyle(
             backgroundColor:
-                color != null ? MaterialStatePropertyAll(color) : null,
-            elevation: MaterialStatePropertyAll(elevation),
+                color != null ? WidgetStatePropertyAll(color) : null,
+            elevation: WidgetStatePropertyAll(elevation),
             shape: borderRadius != null
-                ? MaterialStatePropertyAll(
+                ? WidgetStatePropertyAll(
                     RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(borderRadius!),
                     ),

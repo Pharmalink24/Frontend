@@ -7,7 +7,7 @@ part of 'drug_info.dart';
 // **************************************************************************
 
 DrugInfo _$DrugInfoFromJson(Map<String, dynamic> json) => DrugInfo(
-      drugEye: json['DrugEye'] as int,
+      drugEye: (json['DrugEye'] as num).toInt(),
       scName: json['ScName'] as String,
       scNameComponents: (json['ScNameComponents'] as List<dynamic>)
           .map((e) => e as String)
@@ -16,9 +16,9 @@ DrugInfo _$DrugInfoFromJson(Map<String, dynamic> json) => DrugInfo(
       endDate: json['end_date'] as String,
       dosage: (json['dosage'] as num).toDouble(),
       dosageUnit: json['dosage_unit'] as String,
-      course: json['course'] as int,
-      repetition: json['repetition'] as int,
-      per: json['per'] as int,
+      course: (json['course'] as num).toInt(),
+      repetition: (json['repetition'] as num).toInt(),
+      per: (json['per'] as num).toInt(),
       state: $enumDecode(_$DrugStateEnumMap, json['state']),
     );
 

@@ -452,7 +452,7 @@ class _ApiService implements ApiService {
     )
             .compose(
               _dio.options,
-              'Drugs/check-drug-interaction-All/',
+              'Drugs/user/check-drug-interaction-All/',
               queryParameters: queryParameters,
               data: _data,
             )

@@ -64,7 +64,7 @@ class _ReminderListTileState extends State<ReminderListTile> {
               Text(
                 '${widget.reminder.drugRemainingName}',
                 style: AppTextStyle.bodySmall(context).copyWith(
-                  color: context.colorScheme.onBackground,
+                  color: context.colorScheme.onSurface,
                 ),
               ),
             ],

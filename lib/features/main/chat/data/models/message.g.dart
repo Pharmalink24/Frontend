@@ -7,11 +7,11 @@ part of 'message.dart';
 // **************************************************************************
 
 Message _$MessageFromJson(Map<String, dynamic> json) => Message(
-      id: json['id'] as int?,
-      senderUserId: json['sender_user_id'] as int?,
-      senderDoctorId: json['sender_doctor_id'] as int?,
-      receiverUserId: json['receiver_user_id'] as int?,
-      receiverDoctorId: json['receiver_doctor_id'] as int?,
+      id: (json['id'] as num?)?.toInt(),
+      senderUserId: (json['sender_user_id'] as num?)?.toInt(),
+      senderDoctorId: (json['sender_doctor_id'] as num?)?.toInt(),
+      receiverUserId: (json['receiver_user_id'] as num?)?.toInt(),
+      receiverDoctorId: (json['receiver_doctor_id'] as num?)?.toInt(),
       message: json['message'] as String?,
       image: json['image'] as String?,
       file: json['file'] as String?,

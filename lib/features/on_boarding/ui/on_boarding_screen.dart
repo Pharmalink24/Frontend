@@ -39,7 +39,7 @@ class OnBoardingScreenState extends State<OnBoardingScreen> {
             ),
             bodyTextStyle: AppTextStyle.labelSmall(context)
                 .copyWith(fontSize: 16.0, fontWeight: FontWeight.w700),
-            pageColor: context.colorScheme.background,
+            pageColor: context.colorScheme.surface,
             imagePadding: const EdgeInsets.all(0.0),
             imageFlex: 7,
             bodyFlex: 5,
@@ -60,7 +60,7 @@ class OnBoardingScreenState extends State<OnBoardingScreen> {
   Widget build(BuildContext context) {
     return IntroductionScreen(
       pages: listPagesViewModel,
-      globalBackgroundColor: context.colorScheme.background,
+      globalBackgroundColor: context.colorScheme.surface,
       allowImplicitScrolling: true,
       onDone: () => _onIntroEnd(context),
       onSkip: () => _onIntroEnd(context), // You can override onSkip callback

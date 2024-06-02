@@ -41,8 +41,8 @@ class _DoctorsWidgetState extends State<DoctorsWidget> {
               doctors[index],
               width: 200,
               height: 150,
-              titleFontSize: 28.0,
-              subTitleFontSize: 18.0,
+              titleFontSize: 24.0,
+              subTitleFontSize: 16.0,
               outerPadding: const EdgeInsetsDirectional.symmetric(
                 vertical: 10.0,
               ),

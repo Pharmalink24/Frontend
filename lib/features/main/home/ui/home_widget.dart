@@ -7,7 +7,6 @@ import 'package:pharmalink/features/main/profile/logic/profile_cubit/profile_cub
 import 'package:pharmalink/features/main/reminders/logic/reminders_cubit.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'builders/doctors_builder.dart';
-import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 class HomeWidget extends StatefulWidget {
   const HomeWidget({super.key});

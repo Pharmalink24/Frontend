@@ -8,7 +8,6 @@ import 'package:pharmalink/core/networking/api_constants.dart';
 import 'package:pharmalink/core/routes/app_router.dart';
 import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/theme/gradient.dart';
-import 'package:pharmalink/core/theme/icons.dart';
 import '../../../../../core/theme/styles.dart';
 import '../../../../../core/localization/app_localizations.dart';
 import '../../../../../core/widgets/loading/loading_indicator.dart';

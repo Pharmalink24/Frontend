@@ -7,7 +7,7 @@ part of 'reminder.dart';
 // **************************************************************************
 
 Reminder _$ReminderFromJson(Map<String, dynamic> json) => Reminder(
-      id: json['id'] as int,
+      id: (json['id'] as num).toInt(),
       drugName: json['drug_name'] as String,
       dosage: (json['dosage'] as num?)?.toDouble(),
       dosageUnit: json['dosage_unit'] as String?,
@@ -17,8 +17,8 @@ Reminder _$ReminderFromJson(Map<String, dynamic> json) => Reminder(
       state: $enumDecode(_$DrugStateEnumMap, json['state']),
       eatingState:
           $enumDecodeNullable(_$EatingStateEnumMap, json['eating_state']),
-      userId: json['user'] as int,
-      prescriptionId: json['prescription'] as int,
+      userId: (json['user'] as num).toInt(),
+      prescriptionId: (json['prescription'] as num).toInt(),
     );
 
 Map<String, dynamic> _$ReminderToJson(Reminder instance) => <String, dynamic>{

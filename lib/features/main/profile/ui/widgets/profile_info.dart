@@ -112,7 +112,7 @@ class ProfileInfo extends StatelessWidget {
             child: _buildUserInfo(context),
           ),
           Divider(
-            color: context.colorScheme.background,
+            color: context.colorScheme.surface,
           ),
           const Expanded(
             flex: 2,

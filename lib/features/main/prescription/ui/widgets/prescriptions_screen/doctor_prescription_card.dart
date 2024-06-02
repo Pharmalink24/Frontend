@@ -10,10 +10,10 @@ import 'package:pharmalink/core/widgets/clip_shadow_path.dart';
 import 'package:pharmalink/features/main/prescription/data/models/prescription_doctor.dart';
 import 'package:pharmalink/core/networking/api_constants.dart';
 import 'package:pharmalink/features/main/prescription/data/models/prescription_info.dart';
-import '../../../../../core/theme/gradient.dart';
-import '../../../../../core/theme/styles.dart';
-import '../../../../../core/widgets/loading/loading_indicator.dart';
-import '../../../../../resources/resources.dart';
+import '../../../../../../core/theme/gradient.dart';
+import '../../../../../../core/theme/styles.dart';
+import '../../../../../../core/widgets/loading/loading_indicator.dart';
+import '../../../../../../resources/resources.dart';
 
 class DoctorPrescriptionCard extends StatelessWidget {
   final PrescriptionDoctor doctor;

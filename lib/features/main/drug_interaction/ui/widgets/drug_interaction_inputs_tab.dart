@@ -50,7 +50,7 @@ class _DrugInteractionInputsTabState extends State<DrugInteractionInputsTab>
       labelColor: context.colorScheme.onPrimary,
       unselectedLabelColor: context.colorScheme.onSecondary,
       tabAlignment: TabAlignment.start,
-      overlayColor: MaterialStateProperty.all(Colors.transparent),
+      overlayColor: WidgetStateProperty.all(Colors.transparent),
       indicatorSize: TabBarIndicatorSize.label,
       enableFeedback: false,
       labelPadding: const EdgeInsetsDirectional.fromSTEB(6, 0, 8, 0),

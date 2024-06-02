@@ -8,7 +8,7 @@ part of 'prescription_doctor.dart';
 
 PrescriptionDoctor _$PrescriptionDoctorFromJson(Map<String, dynamic> json) =>
     PrescriptionDoctor(
-      id: json['id'] as int,
+      id: (json['id'] as num).toInt(),
       doctorInfo:
           DoctorInfo.fromJson(json['doctorInfo'] as Map<String, dynamic>),
       createdAt: json['created_at'] as String,

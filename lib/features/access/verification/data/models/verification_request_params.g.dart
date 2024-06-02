@@ -9,7 +9,7 @@ part of 'verification_request_params.dart';
 VerificationRequestParams _$VerificationRequestParamsFromJson(
         Map<String, dynamic> json) =>
     VerificationRequestParams(
-      userId: json['user_id'] as int,
+      userId: (json['user_id'] as num).toInt(),
     );
 
 Map<String, dynamic> _$VerificationRequestParamsToJson(
