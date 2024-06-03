@@ -5,7 +5,6 @@ import 'package:pharmalink/features/main/home/ui/builders/home_header_builder.da
 import 'package:pharmalink/features/main/home/ui/builders/reminders_builder.dart';
 import 'package:pharmalink/features/main/profile/logic/profile_cubit/profile_cubit.dart';
 import 'package:pharmalink/features/main/reminders/logic/reminders_cubit.dart';
-import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'builders/doctors_builder.dart';
 
 class HomeWidget extends StatefulWidget {
@@ -16,9 +15,6 @@ class HomeWidget extends StatefulWidget {
 }
 
 class _HomeWidgetState extends State<HomeWidget> {
-  final RefreshController _refreshController =
-      RefreshController(initialRefresh: false);
-
   @override
   void initState() {
     super.initState();
@@ -29,8 +25,6 @@ class _HomeWidgetState extends State<HomeWidget> {
 
   void _onRefresh() async {
     loadData();
-
-    _refreshController.refreshCompleted();
   }
 
   void loadData() {

@@ -29,12 +29,15 @@ class AppShimmer extends StatelessWidget {
     double height = 0.0,
   }) {
     return AppShimmer(
-      child: Container(
-        width: width,
-        height: height,
-        decoration: BoxDecoration(
-          color: context.colorScheme.secondary.withOpacity(0.1),
-          shape: BoxShape.circle,
+      child: ClipRRect(
+        
+        child: Container(
+          width: width,
+          height: height,
+          decoration: BoxDecoration(
+            color: context.colorScheme.secondary,
+            shape: BoxShape.circle,
+          ),
         ),
       ),
     );
@@ -49,7 +52,7 @@ class AppShimmer extends StatelessWidget {
         width: width,
         height: height,
         decoration: BoxDecoration(
-          color: context.colorScheme.secondary.withOpacity(0.1),
+          color: context.colorScheme.secondary,
           borderRadius: BorderRadius.circular(8.0),
         ),
       ),
