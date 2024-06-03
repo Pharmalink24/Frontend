@@ -3,13 +3,13 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:logger/logger.dart';
-import 'package:pharmalink/core/networking/auth_service.dart';
+import 'package:pharmalink/core/networking/api/auth_service.dart';
 import 'package:pharmalink/core/shared_preferences/auth_prefs.dart';
 import 'package:pharmalink/features/access/auth/data/models/refresh_token_response.dart';
-import '../../features/access/auth/data/models/refresh_token_request_body.dart';
-import '../../features/access/auth/logic/cubit/auth_cubit.dart';
-import '../../features/access/sign/data/models/signin/signin_response.dart';
-import '../di/dependency_injection.dart';
+import '../../../features/access/auth/data/models/refresh_token_request_body.dart';
+import '../../../features/access/auth/logic/cubit/auth_cubit.dart';
+import '../../../features/access/sign/data/models/signin/signin_response.dart';
+import '../../di/dependency_injection.dart';
 import 'api_constants.dart';
 import 'api_error_handler.dart';
 import 'api_result.dart';

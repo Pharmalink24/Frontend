@@ -22,4 +22,37 @@ class AppShimmer extends StatelessWidget {
       child: child,
     );
   }
+
+  static Widget circle(
+    BuildContext context, {
+    double width = 0.0,
+    double height = 0.0,
+  }) {
+    return AppShimmer(
+      child: Container(
+        width: width,
+        height: height,
+        decoration: BoxDecoration(
+          color: context.colorScheme.secondary.withOpacity(0.1),
+          shape: BoxShape.circle,
+        ),
+      ),
+    );
+  }
+
+  static Widget rectangle(BuildContext context, {
+    double width = 0.0,
+    double height = 0.0,
+  }){
+    return AppShimmer(
+      child: Container(
+        width: width,
+        height: height,
+        decoration: BoxDecoration(
+          color: context.colorScheme.secondary.withOpacity(0.1),
+          borderRadius: BorderRadius.circular(8.0),
+        ),
+      ),
+    );
+  }
 }

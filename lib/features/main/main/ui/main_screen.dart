@@ -24,7 +24,14 @@ class _MainScreenState extends State<MainScreen> {
       child: BlocBuilder<NetworkBloc, NetworkState>(
         buildWhen: (previous, current) => current != previous,
         builder: (context, state) {
-          if (state is ConnectionSuccess) {
+          if (state is ConnectionFailure) {
+                        return const Scaffold(
+              body: Center(
+                child: ConnectionLost(),
+              ),
+            );
+
+          } else {
             return AutoTabsScaffold(
               resizeToAvoidBottomInset: false,
               routes: const [
@@ -40,12 +47,6 @@ class _MainScreenState extends State<MainScreen> {
                   items: getBottomNavigationBarItems(navigationItems),
                 );
               },
-            );
-          } else {
-            return const Scaffold(
-              body: Center(
-                child: ConnectionLost(),
-              ),
             );
           }
         },

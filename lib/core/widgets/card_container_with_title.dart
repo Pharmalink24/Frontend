@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../theme/styles.dart';
 
+import 'app_shimmer.dart';
 import 'card_container.dart';
 
 class CardContainerWithTitle extends StatelessWidget {
@@ -59,6 +60,27 @@ class CardContainerWithTitle extends StatelessWidget {
         _buildTitle(context),
         Expanded(
           child: _buildContent(context),
+        ),
+      ],
+    );
+  }
+
+  static Widget buildShimmer(BuildContext context) {
+    return CardContainer(
+      mainAxisAlignment: MainAxisAlignment.start,
+      padding: const EdgeInsets.all(12.0),
+      margin: const EdgeInsets.symmetric(vertical: 8.0),
+      children: [
+        AppShimmer.rectangle(
+          context,
+          width: double.infinity,
+          height: 20,
+        ),
+        const SizedBox(height: 10),
+        AppShimmer.rectangle(
+          context,
+          width: double.infinity,
+          height: 200,
         ),
       ],
     );

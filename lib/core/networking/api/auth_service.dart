@@ -1,8 +1,8 @@
 import 'package:dio/dio.dart' hide Headers;
-import '../../features/access/auth/data/models/refresh_token_response.dart';
+import '../../../features/access/auth/data/models/refresh_token_response.dart';
 import 'package:retrofit/http.dart';
 import 'api_constants.dart';
-import '../../features/access/auth/data/models/refresh_token_request_body.dart';
+import '../../../features/access/auth/data/models/refresh_token_request_body.dart';
 import 'package:retrofit/retrofit.dart';
 
 part 'auth_service.g.dart';

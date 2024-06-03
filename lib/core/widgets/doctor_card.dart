@@ -6,7 +6,7 @@ import 'package:pharmalink/core/theme/gradient.dart';
 import 'package:pharmalink/core/theme/shadow.dart';
 import '../../resources/resources.dart';
 import '../helpers/extensions.dart';
-import '../networking/api_constants.dart';
+import '../networking/api/api_constants.dart';
 import '../theme/styles.dart';
 import '../../features/main/doctors/data/models/doctor.dart';
 import 'loading/loading_indicator.dart';

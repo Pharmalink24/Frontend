@@ -5,7 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pharmalink/core/helpers/extensions.dart';
 import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/theme/styles.dart';
-import '../../../../../../core/networking/api_constants.dart';
+import '../../../../../../core/networking/api/api_constants.dart';
 import '../../../../../../core/widgets/loading/loading_indicator.dart';
 import '../../../../../../resources/resources.dart';
 import '../../../data/models/chat.dart';

@@ -1,9 +1,9 @@
 import 'package:logger/logger.dart';
 import '../../../../../core/di/dependency_injection.dart';
 
-import '../../../../../core/networking/api_error_handler.dart';
-import '../../../../../core/networking/api_result.dart';
-import '../../../../../core/networking/api_service.dart';
+import '../../../../../core/networking/api/api_error_handler.dart';
+import '../../../../../core/networking/api/api_result.dart';
+import '../../../../../core/networking/api/api_service.dart';
 import '../models/signin/signin_request_body.dart';
 import '../models/signin/signin_response.dart';
 

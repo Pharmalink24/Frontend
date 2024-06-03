@@ -8,7 +8,7 @@ import 'package:pharmalink/core/routes/app_router.dart';
 import 'package:pharmalink/core/theme/shadow.dart';
 import 'package:pharmalink/core/widgets/clip_shadow_path.dart';
 import 'package:pharmalink/features/main/prescription/data/models/prescription_doctor.dart';
-import 'package:pharmalink/core/networking/api_constants.dart';
+import 'package:pharmalink/core/networking/api/api_constants.dart';
 import 'package:pharmalink/features/main/prescription/data/models/prescription_info.dart';
 import '../../../../../../core/theme/gradient.dart';
 import '../../../../../../core/theme/styles.dart';

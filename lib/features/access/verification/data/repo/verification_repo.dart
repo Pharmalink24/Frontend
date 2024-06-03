@@ -1,8 +1,8 @@
 import 'package:logger/logger.dart';
 import '../../../../../core/di/dependency_injection.dart';
-import '../../../../../core/networking/api_error_handler.dart';
-import '../../../../../core/networking/api_result.dart';
-import '../../../../../core/networking/api_service.dart';
+import '../../../../../core/networking/api/api_error_handler.dart';
+import '../../../../../core/networking/api/api_result.dart';
+import '../../../../../core/networking/api/api_service.dart';
 import '../models/verification_request_params.dart';
 import '../models/verification_response.dart';
 

@@ -4,24 +4,25 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:pharmalink/core/networking/api_constants.dart';
+import 'package:pharmalink/core/networking/api/api_constants.dart';
 import 'package:pharmalink/core/routes/app_router.dart';
 import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/theme/gradient.dart';
 import '../../../../../core/theme/styles.dart';
 import '../../../../../core/localization/app_localizations.dart';
+import '../../../../../core/widgets/app_shimmer.dart';
 import '../../../../../core/widgets/loading/loading_indicator.dart';
 import '../../../../../resources/resources.dart';
 
 const kFontSize = 22.0;
 
-class WelcomeNameText extends StatelessWidget {
+class HomeHeaderRow extends StatelessWidget {
   final String fname;
   final String lname;
   final String? image;
   final String gender;
 
-  const WelcomeNameText({
+  const HomeHeaderRow({
     super.key,
     this.fname = "",
     this.lname = "",
@@ -113,6 +114,7 @@ class WelcomeNameText extends StatelessWidget {
     );
   }
 
+  // Build the icon button
   Widget _buildIconButton(BuildContext context) {
     return IconButton(
       onPressed: () => context.pushRoute(const ChatsRoute()),
@@ -139,6 +141,37 @@ class WelcomeNameText extends StatelessWidget {
           ],
         ),
         _buildIconButton(context),
+      ],
+    );
+  }
+
+  // Shimmer effect
+  static Widget buildShimmer(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      crossAxisAlignment: CrossAxisAlignment.end,
+      children: [
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            AppShimmer.circle(
+              context,
+              width: 40,
+              height: 40,
+            ),
+            const SizedBox(width: 10),
+            AppShimmer.rectangle(
+              context,
+              width: 100,
+              height: 20,
+            ),
+          ],
+        ),
+        AppShimmer.circle(
+          context,
+          width: 40,
+          height: 40,
+        ),
       ],
     );
   }

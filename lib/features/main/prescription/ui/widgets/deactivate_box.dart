@@ -4,7 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:pharmalink/core/theme/colors.dart';
 import 'ff_button_widget.dart';
 import '../../../../../core/theme/styles.dart';
-import '../../../../../core/networking/networking.dart';
+import '../../../../../core/networking/api/networking.dart';
 
 class DeactivateBoxWidget extends StatefulWidget {
   final int id;

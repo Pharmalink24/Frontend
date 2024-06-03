@@ -3,7 +3,7 @@
 import 'package:logger/logger.dart';
 import 'package:pharmalink/core/di/dependency_injection.dart';
 import 'package:pharmalink/core/shared_preferences/auth_prefs.dart';
-import '../../../../../core/networking/auth_service.dart';
+import '../../../../../core/networking/api/auth_service.dart';
 import '../../../sign/data/models/signin/signin_response.dart';
 
 

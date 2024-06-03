@@ -4,9 +4,9 @@ import 'dart:io';
 import 'package:logger/logger.dart';
 import 'package:pharmalink/core/di/dependency_injection.dart';
 import 'package:pharmalink/core/models/user.dart';
-import 'package:pharmalink/core/networking/api_error_handler.dart';
-import 'package:pharmalink/core/networking/api_result.dart';
-import 'package:pharmalink/core/networking/api_service.dart';
+import 'package:pharmalink/core/networking/api/api_error_handler.dart';
+import 'package:pharmalink/core/networking/api/api_result.dart';
+import 'package:pharmalink/core/networking/api/api_service.dart';
 import 'package:pharmalink/core/shared_preferences/auth_prefs.dart';
 
 class EditProfileRepo {

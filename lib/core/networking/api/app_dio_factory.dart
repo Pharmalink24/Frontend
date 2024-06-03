@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
-import '../../features/access/auth/logic/cubit/auth_cubit.dart';
+import '../../../features/access/auth/logic/cubit/auth_cubit.dart';
 import 'auth_service.dart';
 import 'refresh_token_interceptor.dart';
 

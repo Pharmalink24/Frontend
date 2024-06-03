@@ -1,9 +1,9 @@
 import 'package:logger/logger.dart';
 import 'package:pharmalink/features/main/drug_interaction/data/models/interaction.dart';
 import '../../../../../core/di/dependency_injection.dart';
-import '../../../../../core/networking/api_error_handler.dart';
-import '../../../../../core/networking/api_result.dart';
-import '../../../../../core/networking/api_service.dart';
+import '../../../../../core/networking/api/api_error_handler.dart';
+import '../../../../../core/networking/api/api_result.dart';
+import '../../../../../core/networking/api/api_service.dart';
 import '../../../../../core/shared_preferences/auth_prefs.dart';
 import '../models/drug_eye_search_request_params.dart';
 import '../../../../../core/models/drug_search.dart';

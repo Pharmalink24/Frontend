@@ -4,7 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:pharmalink/core/theme/colors.dart';
 import '../../../../../../core/helpers/extensions.dart';
 import '../../../../../../core/localization/app_localizations.dart';
-import '../../../../../../core/networking/api_constants.dart';
+import '../../../../../../core/networking/api/api_constants.dart';
 import '../../../../../../core/theme/gradient.dart';
 import '../../../../../../core/theme/shadow.dart';
 import '../../../../../../core/theme/styles.dart';

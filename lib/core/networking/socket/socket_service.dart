@@ -3,10 +3,10 @@ import 'dart:io';
 
 import 'package:logger/logger.dart';
 import 'package:pharmalink/core/helpers/extensions.dart';
-import 'package:pharmalink/core/networking/socket_constants.dart';
+import 'package:pharmalink/core/networking/socket/socket_constants.dart';
 import 'package:web_socket_channel/io.dart';
 
-import '../../features/main/chat/data/models/message.dart';
+import '../../../features/main/chat/data/models/message.dart';
 import 'socket_channel.dart';
 
 class SocketService {

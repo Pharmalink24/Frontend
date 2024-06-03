@@ -1,8 +1,8 @@
 import 'package:logger/logger.dart';
 import 'package:pharmalink/features/access/auth/data/models/forget_password_request_body.dart';
-import '../../../../../core/networking/api_error_handler.dart';
-import '../../../../../core/networking/api_result.dart';
-import '../../../../../core/networking/api_service.dart';
+import '../../../../../core/networking/api/api_error_handler.dart';
+import '../../../../../core/networking/api/api_result.dart';
+import '../../../../../core/networking/api/api_service.dart';
 
 class ForgetPasswordRepo {
   final ApiService _apiService;

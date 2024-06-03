@@ -7,7 +7,7 @@ import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/widgets/loading/loading_indicator.dart';
 import 'package:pharmalink/resources/resources.dart';
 import '../../../../../core/localization/app_localizations.dart';
-import '../../../../../core/networking/api_constants.dart';
+import '../../../../../core/networking/api/api_constants.dart';
 import '../../../../../core/theme/styles.dart';
 import '../../../../../core/widgets/card_container_with_title.dart';
 import '../../../../../core/models/user.dart';

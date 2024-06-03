@@ -1,5 +1,5 @@
 import 'package:logger/logger.dart';
-import 'package:pharmalink/core/networking/socket_constants.dart';
+import 'package:pharmalink/core/networking/socket/socket_constants.dart';
 import 'package:pharmalink/features/main/chat/data/models/message.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';
 

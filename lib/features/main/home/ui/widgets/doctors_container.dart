@@ -68,4 +68,8 @@ class DoctorsContainer extends StatelessWidget {
           : buildLoadedListWidgets(),
     );
   }
+
+  static Widget buildShimmer(BuildContext context) {
+    return CardContainerWithTitle.buildShimmer(context);
+  }
 }

@@ -9,7 +9,7 @@ import 'package:pharmalink/core/theme/styles.dart';
 import 'package:pharmalink/features/main/chat/data/models/chat.dart';
 import 'package:pharmalink/resources/resources.dart';
 
-import '../../../../../../core/networking/api_constants.dart';
+import '../../../../../../core/networking/api/api_constants.dart';
 import '../../../../../../core/widgets/loading/loading_indicator.dart';
 
 class ChatCard extends StatelessWidget {
