@@ -25,15 +25,9 @@ mixin _$PrescriptionState<T> {
     required TResult Function() prescriptionsLoading,
     required TResult Function(T doctors, T drugs) prescriptionsSuccess,
     required TResult Function(String message) prescriptionsError,
-    required TResult Function() activateDrugLoading,
-    required TResult Function(T message) activateDrugSuccess,
-    required TResult Function(String message) activateDrugError,
-    required TResult Function() deactivateDrugLoading,
-    required TResult Function(T message) deactivateDrugSuccess,
-    required TResult Function(String message) deactivateDrugError,
-    required TResult Function() reactivateDrugLoading,
-    required TResult Function(T message) reactivateDrugSuccess,
-    required TResult Function(String message) reactivateDrugError,
+    required TResult Function() stateLoading,
+    required TResult Function(T message) stateSuccess,
+    required TResult Function(String message) stateError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -45,15 +39,9 @@ mixin _$PrescriptionState<T> {
     TResult? Function()? prescriptionsLoading,
     TResult? Function(T doctors, T drugs)? prescriptionsSuccess,
     TResult? Function(String message)? prescriptionsError,
-    TResult? Function()? activateDrugLoading,
-    TResult? Function(T message)? activateDrugSuccess,
-    TResult? Function(String message)? activateDrugError,
-    TResult? Function()? deactivateDrugLoading,
-    TResult? Function(T message)? deactivateDrugSuccess,
-    TResult? Function(String message)? deactivateDrugError,
-    TResult? Function()? reactivateDrugLoading,
-    TResult? Function(T message)? reactivateDrugSuccess,
-    TResult? Function(String message)? reactivateDrugError,
+    TResult? Function()? stateLoading,
+    TResult? Function(T message)? stateSuccess,
+    TResult? Function(String message)? stateError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -65,15 +53,9 @@ mixin _$PrescriptionState<T> {
     TResult Function()? prescriptionsLoading,
     TResult Function(T doctors, T drugs)? prescriptionsSuccess,
     TResult Function(String message)? prescriptionsError,
-    TResult Function()? activateDrugLoading,
-    TResult Function(T message)? activateDrugSuccess,
-    TResult Function(String message)? activateDrugError,
-    TResult Function()? deactivateDrugLoading,
-    TResult Function(T message)? deactivateDrugSuccess,
-    TResult Function(String message)? deactivateDrugError,
-    TResult Function()? reactivateDrugLoading,
-    TResult Function(T message)? reactivateDrugSuccess,
-    TResult Function(String message)? reactivateDrugError,
+    TResult Function()? stateLoading,
+    TResult Function(T message)? stateSuccess,
+    TResult Function(String message)? stateError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -88,19 +70,9 @@ mixin _$PrescriptionState<T> {
     required TResult Function(PrescriptionsSuccess<T> value)
         prescriptionsSuccess,
     required TResult Function(PrescriptionsError<T> value) prescriptionsError,
-    required TResult Function(ActivateDrugLoading<T> value) activateDrugLoading,
-    required TResult Function(ActivateDrugSuccess<T> value) activateDrugSuccess,
-    required TResult Function(ActivateDrugError<T> value) activateDrugError,
-    required TResult Function(DeactivateDrugLoading<T> value)
-        deactivateDrugLoading,
-    required TResult Function(DeactivateDrugSuccess<T> value)
-        deactivateDrugSuccess,
-    required TResult Function(DeactivateDrugError<T> value) deactivateDrugError,
-    required TResult Function(ReactivateDrugLoading<T> value)
-        reactivateDrugLoading,
-    required TResult Function(ReactivateDrugSuccess<T> value)
-        reactivateDrugSuccess,
-    required TResult Function(ReactivateDrugError<T> value) reactivateDrugError,
+    required TResult Function(StateLoading<T> value) stateLoading,
+    required TResult Function(StateSuccess<T> value) stateSuccess,
+    required TResult Function(StateError<T> value) stateError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -112,15 +84,9 @@ mixin _$PrescriptionState<T> {
     TResult? Function(PrescriptionsLoading<T> value)? prescriptionsLoading,
     TResult? Function(PrescriptionsSuccess<T> value)? prescriptionsSuccess,
     TResult? Function(PrescriptionsError<T> value)? prescriptionsError,
-    TResult? Function(ActivateDrugLoading<T> value)? activateDrugLoading,
-    TResult? Function(ActivateDrugSuccess<T> value)? activateDrugSuccess,
-    TResult? Function(ActivateDrugError<T> value)? activateDrugError,
-    TResult? Function(DeactivateDrugLoading<T> value)? deactivateDrugLoading,
-    TResult? Function(DeactivateDrugSuccess<T> value)? deactivateDrugSuccess,
-    TResult? Function(DeactivateDrugError<T> value)? deactivateDrugError,
-    TResult? Function(ReactivateDrugLoading<T> value)? reactivateDrugLoading,
-    TResult? Function(ReactivateDrugSuccess<T> value)? reactivateDrugSuccess,
-    TResult? Function(ReactivateDrugError<T> value)? reactivateDrugError,
+    TResult? Function(StateLoading<T> value)? stateLoading,
+    TResult? Function(StateSuccess<T> value)? stateSuccess,
+    TResult? Function(StateError<T> value)? stateError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -132,15 +98,9 @@ mixin _$PrescriptionState<T> {
     TResult Function(PrescriptionsLoading<T> value)? prescriptionsLoading,
     TResult Function(PrescriptionsSuccess<T> value)? prescriptionsSuccess,
     TResult Function(PrescriptionsError<T> value)? prescriptionsError,
-    TResult Function(ActivateDrugLoading<T> value)? activateDrugLoading,
-    TResult Function(ActivateDrugSuccess<T> value)? activateDrugSuccess,
-    TResult Function(ActivateDrugError<T> value)? activateDrugError,
-    TResult Function(DeactivateDrugLoading<T> value)? deactivateDrugLoading,
-    TResult Function(DeactivateDrugSuccess<T> value)? deactivateDrugSuccess,
-    TResult Function(DeactivateDrugError<T> value)? deactivateDrugError,
-    TResult Function(ReactivateDrugLoading<T> value)? reactivateDrugLoading,
-    TResult Function(ReactivateDrugSuccess<T> value)? reactivateDrugSuccess,
-    TResult Function(ReactivateDrugError<T> value)? reactivateDrugError,
+    TResult Function(StateLoading<T> value)? stateLoading,
+    TResult Function(StateSuccess<T> value)? stateSuccess,
+    TResult Function(StateError<T> value)? stateError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -210,15 +170,9 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function() prescriptionsLoading,
     required TResult Function(T doctors, T drugs) prescriptionsSuccess,
     required TResult Function(String message) prescriptionsError,
-    required TResult Function() activateDrugLoading,
-    required TResult Function(T message) activateDrugSuccess,
-    required TResult Function(String message) activateDrugError,
-    required TResult Function() deactivateDrugLoading,
-    required TResult Function(T message) deactivateDrugSuccess,
-    required TResult Function(String message) deactivateDrugError,
-    required TResult Function() reactivateDrugLoading,
-    required TResult Function(T message) reactivateDrugSuccess,
-    required TResult Function(String message) reactivateDrugError,
+    required TResult Function() stateLoading,
+    required TResult Function(T message) stateSuccess,
+    required TResult Function(String message) stateError,
   }) {
     return initial();
   }
@@ -233,15 +187,9 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function()? prescriptionsLoading,
     TResult? Function(T doctors, T drugs)? prescriptionsSuccess,
     TResult? Function(String message)? prescriptionsError,
-    TResult? Function()? activateDrugLoading,
-    TResult? Function(T message)? activateDrugSuccess,
-    TResult? Function(String message)? activateDrugError,
-    TResult? Function()? deactivateDrugLoading,
-    TResult? Function(T message)? deactivateDrugSuccess,
-    TResult? Function(String message)? deactivateDrugError,
-    TResult? Function()? reactivateDrugLoading,
-    TResult? Function(T message)? reactivateDrugSuccess,
-    TResult? Function(String message)? reactivateDrugError,
+    TResult? Function()? stateLoading,
+    TResult? Function(T message)? stateSuccess,
+    TResult? Function(String message)? stateError,
   }) {
     return initial?.call();
   }
@@ -256,15 +204,9 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function()? prescriptionsLoading,
     TResult Function(T doctors, T drugs)? prescriptionsSuccess,
     TResult Function(String message)? prescriptionsError,
-    TResult Function()? activateDrugLoading,
-    TResult Function(T message)? activateDrugSuccess,
-    TResult Function(String message)? activateDrugError,
-    TResult Function()? deactivateDrugLoading,
-    TResult Function(T message)? deactivateDrugSuccess,
-    TResult Function(String message)? deactivateDrugError,
-    TResult Function()? reactivateDrugLoading,
-    TResult Function(T message)? reactivateDrugSuccess,
-    TResult Function(String message)? reactivateDrugError,
+    TResult Function()? stateLoading,
+    TResult Function(T message)? stateSuccess,
+    TResult Function(String message)? stateError,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -285,19 +227,9 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function(PrescriptionsSuccess<T> value)
         prescriptionsSuccess,
     required TResult Function(PrescriptionsError<T> value) prescriptionsError,
-    required TResult Function(ActivateDrugLoading<T> value) activateDrugLoading,
-    required TResult Function(ActivateDrugSuccess<T> value) activateDrugSuccess,
-    required TResult Function(ActivateDrugError<T> value) activateDrugError,
-    required TResult Function(DeactivateDrugLoading<T> value)
-        deactivateDrugLoading,
-    required TResult Function(DeactivateDrugSuccess<T> value)
-        deactivateDrugSuccess,
-    required TResult Function(DeactivateDrugError<T> value) deactivateDrugError,
-    required TResult Function(ReactivateDrugLoading<T> value)
-        reactivateDrugLoading,
-    required TResult Function(ReactivateDrugSuccess<T> value)
-        reactivateDrugSuccess,
-    required TResult Function(ReactivateDrugError<T> value) reactivateDrugError,
+    required TResult Function(StateLoading<T> value) stateLoading,
+    required TResult Function(StateSuccess<T> value) stateSuccess,
+    required TResult Function(StateError<T> value) stateError,
   }) {
     return initial(this);
   }
@@ -312,15 +244,9 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function(PrescriptionsLoading<T> value)? prescriptionsLoading,
     TResult? Function(PrescriptionsSuccess<T> value)? prescriptionsSuccess,
     TResult? Function(PrescriptionsError<T> value)? prescriptionsError,
-    TResult? Function(ActivateDrugLoading<T> value)? activateDrugLoading,
-    TResult? Function(ActivateDrugSuccess<T> value)? activateDrugSuccess,
-    TResult? Function(ActivateDrugError<T> value)? activateDrugError,
-    TResult? Function(DeactivateDrugLoading<T> value)? deactivateDrugLoading,
-    TResult? Function(DeactivateDrugSuccess<T> value)? deactivateDrugSuccess,
-    TResult? Function(DeactivateDrugError<T> value)? deactivateDrugError,
-    TResult? Function(ReactivateDrugLoading<T> value)? reactivateDrugLoading,
-    TResult? Function(ReactivateDrugSuccess<T> value)? reactivateDrugSuccess,
-    TResult? Function(ReactivateDrugError<T> value)? reactivateDrugError,
+    TResult? Function(StateLoading<T> value)? stateLoading,
+    TResult? Function(StateSuccess<T> value)? stateSuccess,
+    TResult? Function(StateError<T> value)? stateError,
   }) {
     return initial?.call(this);
   }
@@ -335,15 +261,9 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function(PrescriptionsLoading<T> value)? prescriptionsLoading,
     TResult Function(PrescriptionsSuccess<T> value)? prescriptionsSuccess,
     TResult Function(PrescriptionsError<T> value)? prescriptionsError,
-    TResult Function(ActivateDrugLoading<T> value)? activateDrugLoading,
-    TResult Function(ActivateDrugSuccess<T> value)? activateDrugSuccess,
-    TResult Function(ActivateDrugError<T> value)? activateDrugError,
-    TResult Function(DeactivateDrugLoading<T> value)? deactivateDrugLoading,
-    TResult Function(DeactivateDrugSuccess<T> value)? deactivateDrugSuccess,
-    TResult Function(DeactivateDrugError<T> value)? deactivateDrugError,
-    TResult Function(ReactivateDrugLoading<T> value)? reactivateDrugLoading,
-    TResult Function(ReactivateDrugSuccess<T> value)? reactivateDrugSuccess,
-    TResult Function(ReactivateDrugError<T> value)? reactivateDrugError,
+    TResult Function(StateLoading<T> value)? stateLoading,
+    TResult Function(StateSuccess<T> value)? stateSuccess,
+    TResult Function(StateError<T> value)? stateError,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -404,15 +324,9 @@ class _$PrescriptionLoadingImpl<T> implements PrescriptionLoading<T> {
     required TResult Function() prescriptionsLoading,
     required TResult Function(T doctors, T drugs) prescriptionsSuccess,
     required TResult Function(String message) prescriptionsError,
-    required TResult Function() activateDrugLoading,
-    required TResult Function(T message) activateDrugSuccess,
-    required TResult Function(String message) activateDrugError,
-    required TResult Function() deactivateDrugLoading,
-    required TResult Function(T message) deactivateDrugSuccess,
-    required TResult Function(String message) deactivateDrugError,
-    required TResult Function() reactivateDrugLoading,
-    required TResult Function(T message) reactivateDrugSuccess,
-    required TResult Function(String message) reactivateDrugError,
+    required TResult Function() stateLoading,
+    required TResult Function(T message) stateSuccess,
+    required TResult Function(String message) stateError,
   }) {
     return prescriptionLoading();
   }
@@ -427,15 +341,9 @@ class _$PrescriptionLoadingImpl<T> implements PrescriptionLoading<T> {
     TResult? Function()? prescriptionsLoading,
     TResult? Function(T doctors, T drugs)? prescriptionsSuccess,
     TResult? Function(String message)? prescriptionsError,
-    TResult? Function()? activateDrugLoading,
-    TResult? Function(T message)? activateDrugSuccess,
-    TResult? Function(String message)? activateDrugError,
-    TResult? Function()? deactivateDrugLoading,
-    TResult? Function(T message)? deactivateDrugSuccess,
-    TResult? Function(String message)? deactivateDrugError,
-    TResult? Function()? reactivateDrugLoading,
-    TResult? Function(T message)? reactivateDrugSuccess,
-    TResult? Function(String message)? reactivateDrugError,
+    TResult? Function()? stateLoading,
+    TResult? Function(T message)? stateSuccess,
+    TResult? Function(String message)? stateError,
   }) {
     return prescriptionLoading?.call();
   }
@@ -450,15 +358,9 @@ class _$PrescriptionLoadingImpl<T> implements PrescriptionLoading<T> {
     TResult Function()? prescriptionsLoading,
     TResult Function(T doctors, T drugs)? prescriptionsSuccess,
     TResult Function(String message)? prescriptionsError,
-    TResult Function()? activateDrugLoading,
-    TResult Function(T message)? activateDrugSuccess,
-    TResult Function(String message)? activateDrugError,
-    TResult Function()? deactivateDrugLoading,
-    TResult Function(T message)? deactivateDrugSuccess,
-    TResult Function(String message)? deactivateDrugError,
-    TResult Function()? reactivateDrugLoading,
-    TResult Function(T message)? reactivateDrugSuccess,
-    TResult Function(String message)? reactivateDrugError,
+    TResult Function()? stateLoading,
+    TResult Function(T message)? stateSuccess,
+    TResult Function(String message)? stateError,
     required TResult orElse(),
   }) {
     if (prescriptionLoading != null) {
@@ -479,19 +381,9 @@ class _$PrescriptionLoadingImpl<T> implements PrescriptionLoading<T> {
     required TResult Function(PrescriptionsSuccess<T> value)
         prescriptionsSuccess,
     required TResult Function(PrescriptionsError<T> value) prescriptionsError,
-    required TResult Function(ActivateDrugLoading<T> value) activateDrugLoading,
-    required TResult Function(ActivateDrugSuccess<T> value) activateDrugSuccess,
-    required TResult Function(ActivateDrugError<T> value) activateDrugError,
-    required TResult Function(DeactivateDrugLoading<T> value)
-        deactivateDrugLoading,
-    required TResult Function(DeactivateDrugSuccess<T> value)
-        deactivateDrugSuccess,
-    required TResult Function(DeactivateDrugError<T> value) deactivateDrugError,
-    required TResult Function(ReactivateDrugLoading<T> value)
-        reactivateDrugLoading,
-    required TResult Function(ReactivateDrugSuccess<T> value)
-        reactivateDrugSuccess,
-    required TResult Function(ReactivateDrugError<T> value) reactivateDrugError,
+    required TResult Function(StateLoading<T> value) stateLoading,
+    required TResult Function(StateSuccess<T> value) stateSuccess,
+    required TResult Function(StateError<T> value) stateError,
   }) {
     return prescriptionLoading(this);
   }
@@ -506,15 +398,9 @@ class _$PrescriptionLoadingImpl<T> implements PrescriptionLoading<T> {
     TResult? Function(PrescriptionsLoading<T> value)? prescriptionsLoading,
     TResult? Function(PrescriptionsSuccess<T> value)? prescriptionsSuccess,
     TResult? Function(PrescriptionsError<T> value)? prescriptionsError,
-    TResult? Function(ActivateDrugLoading<T> value)? activateDrugLoading,
-    TResult? Function(ActivateDrugSuccess<T> value)? activateDrugSuccess,
-    TResult? Function(ActivateDrugError<T> value)? activateDrugError,
-    TResult? Function(DeactivateDrugLoading<T> value)? deactivateDrugLoading,
-    TResult? Function(DeactivateDrugSuccess<T> value)? deactivateDrugSuccess,
-    TResult? Function(DeactivateDrugError<T> value)? deactivateDrugError,
-    TResult? Function(ReactivateDrugLoading<T> value)? reactivateDrugLoading,
-    TResult? Function(ReactivateDrugSuccess<T> value)? reactivateDrugSuccess,
-    TResult? Function(ReactivateDrugError<T> value)? reactivateDrugError,
+    TResult? Function(StateLoading<T> value)? stateLoading,
+    TResult? Function(StateSuccess<T> value)? stateSuccess,
+    TResult? Function(StateError<T> value)? stateError,
   }) {
     return prescriptionLoading?.call(this);
   }
@@ -529,15 +415,9 @@ class _$PrescriptionLoadingImpl<T> implements PrescriptionLoading<T> {
     TResult Function(PrescriptionsLoading<T> value)? prescriptionsLoading,
     TResult Function(PrescriptionsSuccess<T> value)? prescriptionsSuccess,
     TResult Function(PrescriptionsError<T> value)? prescriptionsError,
-    TResult Function(ActivateDrugLoading<T> value)? activateDrugLoading,
-    TResult Function(ActivateDrugSuccess<T> value)? activateDrugSuccess,
-    TResult Function(ActivateDrugError<T> value)? activateDrugError,
-    TResult Function(DeactivateDrugLoading<T> value)? deactivateDrugLoading,
-    TResult Function(DeactivateDrugSuccess<T> value)? deactivateDrugSuccess,
-    TResult Function(DeactivateDrugError<T> value)? deactivateDrugError,
-    TResult Function(ReactivateDrugLoading<T> value)? reactivateDrugLoading,
-    TResult Function(ReactivateDrugSuccess<T> value)? reactivateDrugSuccess,
-    TResult Function(ReactivateDrugError<T> value)? reactivateDrugError,
+    TResult Function(StateLoading<T> value)? stateLoading,
+    TResult Function(StateSuccess<T> value)? stateSuccess,
+    TResult Function(StateError<T> value)? stateError,
     required TResult orElse(),
   }) {
     if (prescriptionLoading != null) {
@@ -625,15 +505,9 @@ class _$PrescriptionSuccessImpl<T> implements PrescriptionSuccess<T> {
     required TResult Function() prescriptionsLoading,
     required TResult Function(T doctors, T drugs) prescriptionsSuccess,
     required TResult Function(String message) prescriptionsError,
-    required TResult Function() activateDrugLoading,
-    required TResult Function(T message) activateDrugSuccess,
-    required TResult Function(String message) activateDrugError,
-    required TResult Function() deactivateDrugLoading,
-    required TResult Function(T message) deactivateDrugSuccess,
-    required TResult Function(String message) deactivateDrugError,
-    required TResult Function() reactivateDrugLoading,
-    required TResult Function(T message) reactivateDrugSuccess,
-    required TResult Function(String message) reactivateDrugError,
+    required TResult Function() stateLoading,
+    required TResult Function(T message) stateSuccess,
+    required TResult Function(String message) stateError,
   }) {
     return prescriptionSuccess(data);
   }
@@ -648,15 +522,9 @@ class _$PrescriptionSuccessImpl<T> implements PrescriptionSuccess<T> {
     TResult? Function()? prescriptionsLoading,
     TResult? Function(T doctors, T drugs)? prescriptionsSuccess,
     TResult? Function(String message)? prescriptionsError,
-    TResult? Function()? activateDrugLoading,
-    TResult? Function(T message)? activateDrugSuccess,
-    TResult? Function(String message)? activateDrugError,
-    TResult? Function()? deactivateDrugLoading,
-    TResult? Function(T message)? deactivateDrugSuccess,
-    TResult? Function(String message)? deactivateDrugError,
-    TResult? Function()? reactivateDrugLoading,
-    TResult? Function(T message)? reactivateDrugSuccess,
-    TResult? Function(String message)? reactivateDrugError,
+    TResult? Function()? stateLoading,
+    TResult? Function(T message)? stateSuccess,
+    TResult? Function(String message)? stateError,
   }) {
     return prescriptionSuccess?.call(data);
   }
@@ -671,15 +539,9 @@ class _$PrescriptionSuccessImpl<T> implements PrescriptionSuccess<T> {
     TResult Function()? prescriptionsLoading,
     TResult Function(T doctors, T drugs)? prescriptionsSuccess,
     TResult Function(String message)? prescriptionsError,
-    TResult Function()? activateDrugLoading,
-    TResult Function(T message)? activateDrugSuccess,
-    TResult Function(String message)? activateDrugError,
-    TResult Function()? deactivateDrugLoading,
-    TResult Function(T message)? deactivateDrugSuccess,
-    TResult Function(String message)? deactivateDrugError,
-    TResult Function()? reactivateDrugLoading,
-    TResult Function(T message)? reactivateDrugSuccess,
-    TResult Function(String message)? reactivateDrugError,
+    TResult Function()? stateLoading,
+    TResult Function(T message)? stateSuccess,
+    TResult Function(String message)? stateError,
     required TResult orElse(),
   }) {
     if (prescriptionSuccess != null) {
@@ -700,19 +562,9 @@ class _$PrescriptionSuccessImpl<T> implements PrescriptionSuccess<T> {
     required TResult Function(PrescriptionsSuccess<T> value)
         prescriptionsSuccess,
     required TResult Function(PrescriptionsError<T> value) prescriptionsError,
-    required TResult Function(ActivateDrugLoading<T> value) activateDrugLoading,
-    required TResult Function(ActivateDrugSuccess<T> value) activateDrugSuccess,
-    required TResult Function(ActivateDrugError<T> value) activateDrugError,
-    required TResult Function(DeactivateDrugLoading<T> value)
-        deactivateDrugLoading,
-    required TResult Function(DeactivateDrugSuccess<T> value)
-        deactivateDrugSuccess,
-    required TResult Function(DeactivateDrugError<T> value) deactivateDrugError,
-    required TResult Function(ReactivateDrugLoading<T> value)
-        reactivateDrugLoading,
-    required TResult Function(ReactivateDrugSuccess<T> value)
-        reactivateDrugSuccess,
-    required TResult Function(ReactivateDrugError<T> value) reactivateDrugError,
+    required TResult Function(StateLoading<T> value) stateLoading,
+    required TResult Function(StateSuccess<T> value) stateSuccess,
+    required TResult Function(StateError<T> value) stateError,
   }) {
     return prescriptionSuccess(this);
   }
@@ -727,15 +579,9 @@ class _$PrescriptionSuccessImpl<T> implements PrescriptionSuccess<T> {
     TResult? Function(PrescriptionsLoading<T> value)? prescriptionsLoading,
     TResult? Function(PrescriptionsSuccess<T> value)? prescriptionsSuccess,
     TResult? Function(PrescriptionsError<T> value)? prescriptionsError,
-    TResult? Function(ActivateDrugLoading<T> value)? activateDrugLoading,
-    TResult? Function(ActivateDrugSuccess<T> value)? activateDrugSuccess,
-    TResult? Function(ActivateDrugError<T> value)? activateDrugError,
-    TResult? Function(DeactivateDrugLoading<T> value)? deactivateDrugLoading,
-    TResult? Function(DeactivateDrugSuccess<T> value)? deactivateDrugSuccess,
-    TResult? Function(DeactivateDrugError<T> value)? deactivateDrugError,
-    TResult? Function(ReactivateDrugLoading<T> value)? reactivateDrugLoading,
-    TResult? Function(ReactivateDrugSuccess<T> value)? reactivateDrugSuccess,
-    TResult? Function(ReactivateDrugError<T> value)? reactivateDrugError,
+    TResult? Function(StateLoading<T> value)? stateLoading,
+    TResult? Function(StateSuccess<T> value)? stateSuccess,
+    TResult? Function(StateError<T> value)? stateError,
   }) {
     return prescriptionSuccess?.call(this);
   }
@@ -750,15 +596,9 @@ class _$PrescriptionSuccessImpl<T> implements PrescriptionSuccess<T> {
     TResult Function(PrescriptionsLoading<T> value)? prescriptionsLoading,
     TResult Function(PrescriptionsSuccess<T> value)? prescriptionsSuccess,
     TResult Function(PrescriptionsError<T> value)? prescriptionsError,
-    TResult Function(ActivateDrugLoading<T> value)? activateDrugLoading,
-    TResult Function(ActivateDrugSuccess<T> value)? activateDrugSuccess,
-    TResult Function(ActivateDrugError<T> value)? activateDrugError,
-    TResult Function(DeactivateDrugLoading<T> value)? deactivateDrugLoading,
-    TResult Function(DeactivateDrugSuccess<T> value)? deactivateDrugSuccess,
-    TResult Function(DeactivateDrugError<T> value)? deactivateDrugError,
-    TResult Function(ReactivateDrugLoading<T> value)? reactivateDrugLoading,
-    TResult Function(ReactivateDrugSuccess<T> value)? reactivateDrugSuccess,
-    TResult Function(ReactivateDrugError<T> value)? reactivateDrugError,
+    TResult Function(StateLoading<T> value)? stateLoading,
+    TResult Function(StateSuccess<T> value)? stateSuccess,
+    TResult Function(StateError<T> value)? stateError,
     required TResult orElse(),
   }) {
     if (prescriptionSuccess != null) {
@@ -851,15 +691,9 @@ class _$PrescriptionErrorImpl<T> implements PrescriptionError<T> {
     required TResult Function() prescriptionsLoading,
     required TResult Function(T doctors, T drugs) prescriptionsSuccess,
     required TResult Function(String message) prescriptionsError,
-    required TResult Function() activateDrugLoading,
-    required TResult Function(T message) activateDrugSuccess,
-    required TResult Function(String message) activateDrugError,
-    required TResult Function() deactivateDrugLoading,
-    required TResult Function(T message) deactivateDrugSuccess,
-    required TResult Function(String message) deactivateDrugError,
-    required TResult Function() reactivateDrugLoading,
-    required TResult Function(T message) reactivateDrugSuccess,
-    required TResult Function(String message) reactivateDrugError,
+    required TResult Function() stateLoading,
+    required TResult Function(T message) stateSuccess,
+    required TResult Function(String message) stateError,
   }) {
     return prescriptionError(message);
   }
@@ -874,15 +708,9 @@ class _$PrescriptionErrorImpl<T> implements PrescriptionError<T> {
     TResult? Function()? prescriptionsLoading,
     TResult? Function(T doctors, T drugs)? prescriptionsSuccess,
     TResult? Function(String message)? prescriptionsError,
-    TResult? Function()? activateDrugLoading,
-    TResult? Function(T message)? activateDrugSuccess,
-    TResult? Function(String message)? activateDrugError,
-    TResult? Function()? deactivateDrugLoading,
-    TResult? Function(T message)? deactivateDrugSuccess,
-    TResult? Function(String message)? deactivateDrugError,
-    TResult? Function()? reactivateDrugLoading,
-    TResult? Function(T message)? reactivateDrugSuccess,
-    TResult? Function(String message)? reactivateDrugError,
+    TResult? Function()? stateLoading,
+    TResult? Function(T message)? stateSuccess,
+    TResult? Function(String message)? stateError,
   }) {
     return prescriptionError?.call(message);
   }
@@ -897,15 +725,9 @@ class _$PrescriptionErrorImpl<T> implements PrescriptionError<T> {
     TResult Function()? prescriptionsLoading,
     TResult Function(T doctors, T drugs)? prescriptionsSuccess,
     TResult Function(String message)? prescriptionsError,
-    TResult Function()? activateDrugLoading,
-    TResult Function(T message)? activateDrugSuccess,
-    TResult Function(String message)? activateDrugError,
-    TResult Function()? deactivateDrugLoading,
-    TResult Function(T message)? deactivateDrugSuccess,
-    TResult Function(String message)? deactivateDrugError,
-    TResult Function()? reactivateDrugLoading,
-    TResult Function(T message)? reactivateDrugSuccess,
-    TResult Function(String message)? reactivateDrugError,
+    TResult Function()? stateLoading,
+    TResult Function(T message)? stateSuccess,
+    TResult Function(String message)? stateError,
     required TResult orElse(),
   }) {
     if (prescriptionError != null) {
@@ -926,19 +748,9 @@ class _$PrescriptionErrorImpl<T> implements PrescriptionError<T> {
     required TResult Function(PrescriptionsSuccess<T> value)
         prescriptionsSuccess,
     required TResult Function(PrescriptionsError<T> value) prescriptionsError,
-    required TResult Function(ActivateDrugLoading<T> value) activateDrugLoading,
-    required TResult Function(ActivateDrugSuccess<T> value) activateDrugSuccess,
-    required TResult Function(ActivateDrugError<T> value) activateDrugError,
-    required TResult Function(DeactivateDrugLoading<T> value)
-        deactivateDrugLoading,
-    required TResult Function(DeactivateDrugSuccess<T> value)
-        deactivateDrugSuccess,
-    required TResult Function(DeactivateDrugError<T> value) deactivateDrugError,
-    required TResult Function(ReactivateDrugLoading<T> value)
-        reactivateDrugLoading,
-    required TResult Function(ReactivateDrugSuccess<T> value)
-        reactivateDrugSuccess,
-    required TResult Function(ReactivateDrugError<T> value) reactivateDrugError,
+    required TResult Function(StateLoading<T> value) stateLoading,
+    required TResult Function(StateSuccess<T> value) stateSuccess,
+    required TResult Function(StateError<T> value) stateError,
   }) {
     return prescriptionError(this);
   }
@@ -953,15 +765,9 @@ class _$PrescriptionErrorImpl<T> implements PrescriptionError<T> {
     TResult? Function(PrescriptionsLoading<T> value)? prescriptionsLoading,
     TResult? Function(PrescriptionsSuccess<T> value)? prescriptionsSuccess,
     TResult? Function(PrescriptionsError<T> value)? prescriptionsError,
-    TResult? Function(ActivateDrugLoading<T> value)? activateDrugLoading,
-    TResult? Function(ActivateDrugSuccess<T> value)? activateDrugSuccess,
-    TResult? Function(ActivateDrugError<T> value)? activateDrugError,
-    TResult? Function(DeactivateDrugLoading<T> value)? deactivateDrugLoading,
-    TResult? Function(DeactivateDrugSuccess<T> value)? deactivateDrugSuccess,
-    TResult? Function(DeactivateDrugError<T> value)? deactivateDrugError,
-    TResult? Function(ReactivateDrugLoading<T> value)? reactivateDrugLoading,
-    TResult? Function(ReactivateDrugSuccess<T> value)? reactivateDrugSuccess,
-    TResult? Function(ReactivateDrugError<T> value)? reactivateDrugError,
+    TResult? Function(StateLoading<T> value)? stateLoading,
+    TResult? Function(StateSuccess<T> value)? stateSuccess,
+    TResult? Function(StateError<T> value)? stateError,
   }) {
     return prescriptionError?.call(this);
   }
@@ -976,15 +782,9 @@ class _$PrescriptionErrorImpl<T> implements PrescriptionError<T> {
     TResult Function(PrescriptionsLoading<T> value)? prescriptionsLoading,
     TResult Function(PrescriptionsSuccess<T> value)? prescriptionsSuccess,
     TResult Function(PrescriptionsError<T> value)? prescriptionsError,
-    TResult Function(ActivateDrugLoading<T> value)? activateDrugLoading,
-    TResult Function(ActivateDrugSuccess<T> value)? activateDrugSuccess,
-    TResult Function(ActivateDrugError<T> value)? activateDrugError,
-    TResult Function(DeactivateDrugLoading<T> value)? deactivateDrugLoading,
-    TResult Function(DeactivateDrugSuccess<T> value)? deactivateDrugSuccess,
-    TResult Function(DeactivateDrugError<T> value)? deactivateDrugError,
-    TResult Function(ReactivateDrugLoading<T> value)? reactivateDrugLoading,
-    TResult Function(ReactivateDrugSuccess<T> value)? reactivateDrugSuccess,
-    TResult Function(ReactivateDrugError<T> value)? reactivateDrugError,
+    TResult Function(StateLoading<T> value)? stateLoading,
+    TResult Function(StateSuccess<T> value)? stateSuccess,
+    TResult Function(StateError<T> value)? stateError,
     required TResult orElse(),
   }) {
     if (prescriptionError != null) {
@@ -1052,15 +852,9 @@ class _$PrescriptionsLoadingImpl<T> implements PrescriptionsLoading<T> {
     required TResult Function() prescriptionsLoading,
     required TResult Function(T doctors, T drugs) prescriptionsSuccess,
     required TResult Function(String message) prescriptionsError,
-    required TResult Function() activateDrugLoading,
-    required TResult Function(T message) activateDrugSuccess,
-    required TResult Function(String message) activateDrugError,
-    required TResult Function() deactivateDrugLoading,
-    required TResult Function(T message) deactivateDrugSuccess,
-    required TResult Function(String message) deactivateDrugError,
-    required TResult Function() reactivateDrugLoading,
-    required TResult Function(T message) reactivateDrugSuccess,
-    required TResult Function(String message) reactivateDrugError,
+    required TResult Function() stateLoading,
+    required TResult Function(T message) stateSuccess,
+    required TResult Function(String message) stateError,
   }) {
     return prescriptionsLoading();
   }
@@ -1075,15 +869,9 @@ class _$PrescriptionsLoadingImpl<T> implements PrescriptionsLoading<T> {
     TResult? Function()? prescriptionsLoading,
     TResult? Function(T doctors, T drugs)? prescriptionsSuccess,
     TResult? Function(String message)? prescriptionsError,
-    TResult? Function()? activateDrugLoading,
-    TResult? Function(T message)? activateDrugSuccess,
-    TResult? Function(String message)? activateDrugError,
-    TResult? Function()? deactivateDrugLoading,
-    TResult? Function(T message)? deactivateDrugSuccess,
-    TResult? Function(String message)? deactivateDrugError,
-    TResult? Function()? reactivateDrugLoading,
-    TResult? Function(T message)? reactivateDrugSuccess,
-    TResult? Function(String message)? reactivateDrugError,
+    TResult? Function()? stateLoading,
+    TResult? Function(T message)? stateSuccess,
+    TResult? Function(String message)? stateError,
   }) {
     return prescriptionsLoading?.call();
   }
@@ -1098,15 +886,9 @@ class _$PrescriptionsLoadingImpl<T> implements PrescriptionsLoading<T> {
     TResult Function()? prescriptionsLoading,
     TResult Function(T doctors, T drugs)? prescriptionsSuccess,
     TResult Function(String message)? prescriptionsError,
-    TResult Function()? activateDrugLoading,
-    TResult Function(T message)? activateDrugSuccess,
-    TResult Function(String message)? activateDrugError,
-    TResult Function()? deactivateDrugLoading,
-    TResult Function(T message)? deactivateDrugSuccess,
-    TResult Function(String message)? deactivateDrugError,
-    TResult Function()? reactivateDrugLoading,
-    TResult Function(T message)? reactivateDrugSuccess,
-    TResult Function(String message)? reactivateDrugError,
+    TResult Function()? stateLoading,
+    TResult Function(T message)? stateSuccess,
+    TResult Function(String message)? stateError,
     required TResult orElse(),
   }) {
     if (prescriptionsLoading != null) {
@@ -1127,19 +909,9 @@ class _$PrescriptionsLoadingImpl<T> implements PrescriptionsLoading<T> {
     required TResult Function(PrescriptionsSuccess<T> value)
         prescriptionsSuccess,
     required TResult Function(PrescriptionsError<T> value) prescriptionsError,
-    required TResult Function(ActivateDrugLoading<T> value) activateDrugLoading,
-    required TResult Function(ActivateDrugSuccess<T> value) activateDrugSuccess,
-    required TResult Function(ActivateDrugError<T> value) activateDrugError,
-    required TResult Function(DeactivateDrugLoading<T> value)
-        deactivateDrugLoading,
-    required TResult Function(DeactivateDrugSuccess<T> value)
-        deactivateDrugSuccess,
-    required TResult Function(DeactivateDrugError<T> value) deactivateDrugError,
-    required TResult Function(ReactivateDrugLoading<T> value)
-        reactivateDrugLoading,
-    required TResult Function(ReactivateDrugSuccess<T> value)
-        reactivateDrugSuccess,
-    required TResult Function(ReactivateDrugError<T> value) reactivateDrugError,
+    required TResult Function(StateLoading<T> value) stateLoading,
+    required TResult Function(StateSuccess<T> value) stateSuccess,
+    required TResult Function(StateError<T> value) stateError,
   }) {
     return prescriptionsLoading(this);
   }
@@ -1154,15 +926,9 @@ class _$PrescriptionsLoadingImpl<T> implements PrescriptionsLoading<T> {
     TResult? Function(PrescriptionsLoading<T> value)? prescriptionsLoading,
     TResult? Function(PrescriptionsSuccess<T> value)? prescriptionsSuccess,
     TResult? Function(PrescriptionsError<T> value)? prescriptionsError,
-    TResult? Function(ActivateDrugLoading<T> value)? activateDrugLoading,
-    TResult? Function(ActivateDrugSuccess<T> value)? activateDrugSuccess,
-    TResult? Function(ActivateDrugError<T> value)? activateDrugError,
-    TResult? Function(DeactivateDrugLoading<T> value)? deactivateDrugLoading,
-    TResult? Function(DeactivateDrugSuccess<T> value)? deactivateDrugSuccess,
-    TResult? Function(DeactivateDrugError<T> value)? deactivateDrugError,
-    TResult? Function(ReactivateDrugLoading<T> value)? reactivateDrugLoading,
-    TResult? Function(ReactivateDrugSuccess<T> value)? reactivateDrugSuccess,
-    TResult? Function(ReactivateDrugError<T> value)? reactivateDrugError,
+    TResult? Function(StateLoading<T> value)? stateLoading,
+    TResult? Function(StateSuccess<T> value)? stateSuccess,
+    TResult? Function(StateError<T> value)? stateError,
   }) {
     return prescriptionsLoading?.call(this);
   }
@@ -1177,15 +943,9 @@ class _$PrescriptionsLoadingImpl<T> implements PrescriptionsLoading<T> {
     TResult Function(PrescriptionsLoading<T> value)? prescriptionsLoading,
     TResult Function(PrescriptionsSuccess<T> value)? prescriptionsSuccess,
     TResult Function(PrescriptionsError<T> value)? prescriptionsError,
-    TResult Function(ActivateDrugLoading<T> value)? activateDrugLoading,
-    TResult Function(ActivateDrugSuccess<T> value)? activateDrugSuccess,
-    TResult Function(ActivateDrugError<T> value)? activateDrugError,
-    TResult Function(DeactivateDrugLoading<T> value)? deactivateDrugLoading,
-    TResult Function(DeactivateDrugSuccess<T> value)? deactivateDrugSuccess,
-    TResult Function(DeactivateDrugError<T> value)? deactivateDrugError,
-    TResult Function(ReactivateDrugLoading<T> value)? reactivateDrugLoading,
-    TResult Function(ReactivateDrugSuccess<T> value)? reactivateDrugSuccess,
-    TResult Function(ReactivateDrugError<T> value)? reactivateDrugError,
+    TResult Function(StateLoading<T> value)? stateLoading,
+    TResult Function(StateSuccess<T> value)? stateSuccess,
+    TResult Function(StateError<T> value)? stateError,
     required TResult orElse(),
   }) {
     if (prescriptionsLoading != null) {
@@ -1284,15 +1044,9 @@ class _$PrescriptionsSuccessImpl<T> implements PrescriptionsSuccess<T> {
     required TResult Function() prescriptionsLoading,
     required TResult Function(T doctors, T drugs) prescriptionsSuccess,
     required TResult Function(String message) prescriptionsError,
-    required TResult Function() activateDrugLoading,
-    required TResult Function(T message) activateDrugSuccess,
-    required TResult Function(String message) activateDrugError,
-    required TResult Function() deactivateDrugLoading,
-    required TResult Function(T message) deactivateDrugSuccess,
-    required TResult Function(String message) deactivateDrugError,
-    required TResult Function() reactivateDrugLoading,
-    required TResult Function(T message) reactivateDrugSuccess,
-    required TResult Function(String message) reactivateDrugError,
+    required TResult Function() stateLoading,
+    required TResult Function(T message) stateSuccess,
+    required TResult Function(String message) stateError,
   }) {
     return prescriptionsSuccess(doctors, drugs);
   }
@@ -1307,15 +1061,9 @@ class _$PrescriptionsSuccessImpl<T> implements PrescriptionsSuccess<T> {
     TResult? Function()? prescriptionsLoading,
     TResult? Function(T doctors, T drugs)? prescriptionsSuccess,
     TResult? Function(String message)? prescriptionsError,
-    TResult? Function()? activateDrugLoading,
-    TResult? Function(T message)? activateDrugSuccess,
-    TResult? Function(String message)? activateDrugError,
-    TResult? Function()? deactivateDrugLoading,
-    TResult? Function(T message)? deactivateDrugSuccess,
-    TResult? Function(String message)? deactivateDrugError,
-    TResult? Function()? reactivateDrugLoading,
-    TResult? Function(T message)? reactivateDrugSuccess,
-    TResult? Function(String message)? reactivateDrugError,
+    TResult? Function()? stateLoading,
+    TResult? Function(T message)? stateSuccess,
+    TResult? Function(String message)? stateError,
   }) {
     return prescriptionsSuccess?.call(doctors, drugs);
   }
@@ -1330,15 +1078,9 @@ class _$PrescriptionsSuccessImpl<T> implements PrescriptionsSuccess<T> {
     TResult Function()? prescriptionsLoading,
     TResult Function(T doctors, T drugs)? prescriptionsSuccess,
     TResult Function(String message)? prescriptionsError,
-    TResult Function()? activateDrugLoading,
-    TResult Function(T message)? activateDrugSuccess,
-    TResult Function(String message)? activateDrugError,
-    TResult Function()? deactivateDrugLoading,
-    TResult Function(T message)? deactivateDrugSuccess,
-    TResult Function(String message)? deactivateDrugError,
-    TResult Function()? reactivateDrugLoading,
-    TResult Function(T message)? reactivateDrugSuccess,
-    TResult Function(String message)? reactivateDrugError,
+    TResult Function()? stateLoading,
+    TResult Function(T message)? stateSuccess,
+    TResult Function(String message)? stateError,
     required TResult orElse(),
   }) {
     if (prescriptionsSuccess != null) {
@@ -1359,19 +1101,9 @@ class _$PrescriptionsSuccessImpl<T> implements PrescriptionsSuccess<T> {
     required TResult Function(PrescriptionsSuccess<T> value)
         prescriptionsSuccess,
     required TResult Function(PrescriptionsError<T> value) prescriptionsError,
-    required TResult Function(ActivateDrugLoading<T> value) activateDrugLoading,
-    required TResult Function(ActivateDrugSuccess<T> value) activateDrugSuccess,
-    required TResult Function(ActivateDrugError<T> value) activateDrugError,
-    required TResult Function(DeactivateDrugLoading<T> value)
-        deactivateDrugLoading,
-    required TResult Function(DeactivateDrugSuccess<T> value)
-        deactivateDrugSuccess,
-    required TResult Function(DeactivateDrugError<T> value) deactivateDrugError,
-    required TResult Function(ReactivateDrugLoading<T> value)
-        reactivateDrugLoading,
-    required TResult Function(ReactivateDrugSuccess<T> value)
-        reactivateDrugSuccess,
-    required TResult Function(ReactivateDrugError<T> value) reactivateDrugError,
+    required TResult Function(StateLoading<T> value) stateLoading,
+    required TResult Function(StateSuccess<T> value) stateSuccess,
+    required TResult Function(StateError<T> value) stateError,
   }) {
     return prescriptionsSuccess(this);
   }
@@ -1386,15 +1118,9 @@ class _$PrescriptionsSuccessImpl<T> implements PrescriptionsSuccess<T> {
     TResult? Function(PrescriptionsLoading<T> value)? prescriptionsLoading,
     TResult? Function(PrescriptionsSuccess<T> value)? prescriptionsSuccess,
     TResult? Function(PrescriptionsError<T> value)? prescriptionsError,
-    TResult? Function(ActivateDrugLoading<T> value)? activateDrugLoading,
-    TResult? Function(ActivateDrugSuccess<T> value)? activateDrugSuccess,
-    TResult? Function(ActivateDrugError<T> value)? activateDrugError,
-    TResult? Function(DeactivateDrugLoading<T> value)? deactivateDrugLoading,
-    TResult? Function(DeactivateDrugSuccess<T> value)? deactivateDrugSuccess,
-    TResult? Function(DeactivateDrugError<T> value)? deactivateDrugError,
-    TResult? Function(ReactivateDrugLoading<T> value)? reactivateDrugLoading,
-    TResult? Function(ReactivateDrugSuccess<T> value)? reactivateDrugSuccess,
-    TResult? Function(ReactivateDrugError<T> value)? reactivateDrugError,
+    TResult? Function(StateLoading<T> value)? stateLoading,
+    TResult? Function(StateSuccess<T> value)? stateSuccess,
+    TResult? Function(StateError<T> value)? stateError,
   }) {
     return prescriptionsSuccess?.call(this);
   }
@@ -1409,15 +1135,9 @@ class _$PrescriptionsSuccessImpl<T> implements PrescriptionsSuccess<T> {
     TResult Function(PrescriptionsLoading<T> value)? prescriptionsLoading,
     TResult Function(PrescriptionsSuccess<T> value)? prescriptionsSuccess,
     TResult Function(PrescriptionsError<T> value)? prescriptionsError,
-    TResult Function(ActivateDrugLoading<T> value)? activateDrugLoading,
-    TResult Function(ActivateDrugSuccess<T> value)? activateDrugSuccess,
-    TResult Function(ActivateDrugError<T> value)? activateDrugError,
-    TResult Function(DeactivateDrugLoading<T> value)? deactivateDrugLoading,
-    TResult Function(DeactivateDrugSuccess<T> value)? deactivateDrugSuccess,
-    TResult Function(DeactivateDrugError<T> value)? deactivateDrugError,
-    TResult Function(ReactivateDrugLoading<T> value)? reactivateDrugLoading,
-    TResult Function(ReactivateDrugSuccess<T> value)? reactivateDrugSuccess,
-    TResult Function(ReactivateDrugError<T> value)? reactivateDrugError,
+    TResult Function(StateLoading<T> value)? stateLoading,
+    TResult Function(StateSuccess<T> value)? stateSuccess,
+    TResult Function(StateError<T> value)? stateError,
     required TResult orElse(),
   }) {
     if (prescriptionsSuccess != null) {
@@ -1511,15 +1231,9 @@ class _$PrescriptionsErrorImpl<T> implements PrescriptionsError<T> {
     required TResult Function() prescriptionsLoading,
     required TResult Function(T doctors, T drugs) prescriptionsSuccess,
     required TResult Function(String message) prescriptionsError,
-    required TResult Function() activateDrugLoading,
-    required TResult Function(T message) activateDrugSuccess,
-    required TResult Function(String message) activateDrugError,
-    required TResult Function() deactivateDrugLoading,
-    required TResult Function(T message) deactivateDrugSuccess,
-    required TResult Function(String message) deactivateDrugError,
-    required TResult Function() reactivateDrugLoading,
-    required TResult Function(T message) reactivateDrugSuccess,
-    required TResult Function(String message) reactivateDrugError,
+    required TResult Function() stateLoading,
+    required TResult Function(T message) stateSuccess,
+    required TResult Function(String message) stateError,
   }) {
     return prescriptionsError(message);
   }
@@ -1534,15 +1248,9 @@ class _$PrescriptionsErrorImpl<T> implements PrescriptionsError<T> {
     TResult? Function()? prescriptionsLoading,
     TResult? Function(T doctors, T drugs)? prescriptionsSuccess,
     TResult? Function(String message)? prescriptionsError,
-    TResult? Function()? activateDrugLoading,
-    TResult? Function(T message)? activateDrugSuccess,
-    TResult? Function(String message)? activateDrugError,
-    TResult? Function()? deactivateDrugLoading,
-    TResult? Function(T message)? deactivateDrugSuccess,
-    TResult? Function(String message)? deactivateDrugError,
-    TResult? Function()? reactivateDrugLoading,
-    TResult? Function(T message)? reactivateDrugSuccess,
-    TResult? Function(String message)? reactivateDrugError,
+    TResult? Function()? stateLoading,
+    TResult? Function(T message)? stateSuccess,
+    TResult? Function(String message)? stateError,
   }) {
     return prescriptionsError?.call(message);
   }
@@ -1557,15 +1265,9 @@ class _$PrescriptionsErrorImpl<T> implements PrescriptionsError<T> {
     TResult Function()? prescriptionsLoading,
     TResult Function(T doctors, T drugs)? prescriptionsSuccess,
     TResult Function(String message)? prescriptionsError,
-    TResult Function()? activateDrugLoading,
-    TResult Function(T message)? activateDrugSuccess,
-    TResult Function(String message)? activateDrugError,
-    TResult Function()? deactivateDrugLoading,
-    TResult Function(T message)? deactivateDrugSuccess,
-    TResult Function(String message)? deactivateDrugError,
-    TResult Function()? reactivateDrugLoading,
-    TResult Function(T message)? reactivateDrugSuccess,
-    TResult Function(String message)? reactivateDrugError,
+    TResult Function()? stateLoading,
+    TResult Function(T message)? stateSuccess,
+    TResult Function(String message)? stateError,
     required TResult orElse(),
   }) {
     if (prescriptionsError != null) {
@@ -1586,19 +1288,9 @@ class _$PrescriptionsErrorImpl<T> implements PrescriptionsError<T> {
     required TResult Function(PrescriptionsSuccess<T> value)
         prescriptionsSuccess,
     required TResult Function(PrescriptionsError<T> value) prescriptionsError,
-    required TResult Function(ActivateDrugLoading<T> value) activateDrugLoading,
-    required TResult Function(ActivateDrugSuccess<T> value) activateDrugSuccess,
-    required TResult Function(ActivateDrugError<T> value) activateDrugError,
-    required TResult Function(DeactivateDrugLoading<T> value)
-        deactivateDrugLoading,
-    required TResult Function(DeactivateDrugSuccess<T> value)
-        deactivateDrugSuccess,
-    required TResult Function(DeactivateDrugError<T> value) deactivateDrugError,
-    required TResult Function(ReactivateDrugLoading<T> value)
-        reactivateDrugLoading,
-    required TResult Function(ReactivateDrugSuccess<T> value)
-        reactivateDrugSuccess,
-    required TResult Function(ReactivateDrugError<T> value) reactivateDrugError,
+    required TResult Function(StateLoading<T> value) stateLoading,
+    required TResult Function(StateSuccess<T> value) stateSuccess,
+    required TResult Function(StateError<T> value) stateError,
   }) {
     return prescriptionsError(this);
   }
@@ -1613,15 +1305,9 @@ class _$PrescriptionsErrorImpl<T> implements PrescriptionsError<T> {
     TResult? Function(PrescriptionsLoading<T> value)? prescriptionsLoading,
     TResult? Function(PrescriptionsSuccess<T> value)? prescriptionsSuccess,
     TResult? Function(PrescriptionsError<T> value)? prescriptionsError,
-    TResult? Function(ActivateDrugLoading<T> value)? activateDrugLoading,
-    TResult? Function(ActivateDrugSuccess<T> value)? activateDrugSuccess,
-    TResult? Function(ActivateDrugError<T> value)? activateDrugError,
-    TResult? Function(DeactivateDrugLoading<T> value)? deactivateDrugLoading,
-    TResult? Function(DeactivateDrugSuccess<T> value)? deactivateDrugSuccess,
-    TResult? Function(DeactivateDrugError<T> value)? deactivateDrugError,
-    TResult? Function(ReactivateDrugLoading<T> value)? reactivateDrugLoading,
-    TResult? Function(ReactivateDrugSuccess<T> value)? reactivateDrugSuccess,
-    TResult? Function(ReactivateDrugError<T> value)? reactivateDrugError,
+    TResult? Function(StateLoading<T> value)? stateLoading,
+    TResult? Function(StateSuccess<T> value)? stateSuccess,
+    TResult? Function(StateError<T> value)? stateError,
   }) {
     return prescriptionsError?.call(this);
   }
@@ -1636,15 +1322,9 @@ class _$PrescriptionsErrorImpl<T> implements PrescriptionsError<T> {
     TResult Function(PrescriptionsLoading<T> value)? prescriptionsLoading,
     TResult Function(PrescriptionsSuccess<T> value)? prescriptionsSuccess,
     TResult Function(PrescriptionsError<T> value)? prescriptionsError,
-    TResult Function(ActivateDrugLoading<T> value)? activateDrugLoading,
-    TResult Function(ActivateDrugSuccess<T> value)? activateDrugSuccess,
-    TResult Function(ActivateDrugError<T> value)? activateDrugError,
-    TResult Function(DeactivateDrugLoading<T> value)? deactivateDrugLoading,
-    TResult Function(DeactivateDrugSuccess<T> value)? deactivateDrugSuccess,
-    TResult Function(DeactivateDrugError<T> value)? deactivateDrugError,
-    TResult Function(ReactivateDrugLoading<T> value)? reactivateDrugLoading,
-    TResult Function(ReactivateDrugSuccess<T> value)? reactivateDrugSuccess,
-    TResult Function(ReactivateDrugError<T> value)? reactivateDrugError,
+    TResult Function(StateLoading<T> value)? stateLoading,
+    TResult Function(StateSuccess<T> value)? stateSuccess,
+    TResult Function(StateError<T> value)? stateError,
     required TResult orElse(),
   }) {
     if (prescriptionsError != null) {
@@ -1665,37 +1345,35 @@ abstract class PrescriptionsError<T> implements PrescriptionState<T> {
 }
 
 /// @nodoc
-abstract class _$$ActivateDrugLoadingImplCopyWith<T, $Res> {
-  factory _$$ActivateDrugLoadingImplCopyWith(_$ActivateDrugLoadingImpl<T> value,
-          $Res Function(_$ActivateDrugLoadingImpl<T>) then) =
-      __$$ActivateDrugLoadingImplCopyWithImpl<T, $Res>;
+abstract class _$$StateLoadingImplCopyWith<T, $Res> {
+  factory _$$StateLoadingImplCopyWith(_$StateLoadingImpl<T> value,
+          $Res Function(_$StateLoadingImpl<T>) then) =
+      __$$StateLoadingImplCopyWithImpl<T, $Res>;
 }
 
 /// @nodoc
-class __$$ActivateDrugLoadingImplCopyWithImpl<T, $Res>
-    extends _$PrescriptionStateCopyWithImpl<T, $Res,
-        _$ActivateDrugLoadingImpl<T>>
-    implements _$$ActivateDrugLoadingImplCopyWith<T, $Res> {
-  __$$ActivateDrugLoadingImplCopyWithImpl(_$ActivateDrugLoadingImpl<T> _value,
-      $Res Function(_$ActivateDrugLoadingImpl<T>) _then)
+class __$$StateLoadingImplCopyWithImpl<T, $Res>
+    extends _$PrescriptionStateCopyWithImpl<T, $Res, _$StateLoadingImpl<T>>
+    implements _$$StateLoadingImplCopyWith<T, $Res> {
+  __$$StateLoadingImplCopyWithImpl(
+      _$StateLoadingImpl<T> _value, $Res Function(_$StateLoadingImpl<T>) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$ActivateDrugLoadingImpl<T> implements ActivateDrugLoading<T> {
-  const _$ActivateDrugLoadingImpl();
+class _$StateLoadingImpl<T> implements StateLoading<T> {
+  const _$StateLoadingImpl();
 
   @override
   String toString() {
-    return 'PrescriptionState<$T>.activateDrugLoading()';
+    return 'PrescriptionState<$T>.stateLoading()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ActivateDrugLoadingImpl<T>);
+        (other.runtimeType == runtimeType && other is _$StateLoadingImpl<T>);
   }
 
   @override
@@ -1711,17 +1389,11 @@ class _$ActivateDrugLoadingImpl<T> implements ActivateDrugLoading<T> {
     required TResult Function() prescriptionsLoading,
     required TResult Function(T doctors, T drugs) prescriptionsSuccess,
     required TResult Function(String message) prescriptionsError,
-    required TResult Function() activateDrugLoading,
-    required TResult Function(T message) activateDrugSuccess,
-    required TResult Function(String message) activateDrugError,
-    required TResult Function() deactivateDrugLoading,
-    required TResult Function(T message) deactivateDrugSuccess,
-    required TResult Function(String message) deactivateDrugError,
-    required TResult Function() reactivateDrugLoading,
-    required TResult Function(T message) reactivateDrugSuccess,
-    required TResult Function(String message) reactivateDrugError,
+    required TResult Function() stateLoading,
+    required TResult Function(T message) stateSuccess,
+    required TResult Function(String message) stateError,
   }) {
-    return activateDrugLoading();
+    return stateLoading();
   }
 
   @override
@@ -1734,17 +1406,11 @@ class _$ActivateDrugLoadingImpl<T> implements ActivateDrugLoading<T> {
     TResult? Function()? prescriptionsLoading,
     TResult? Function(T doctors, T drugs)? prescriptionsSuccess,
     TResult? Function(String message)? prescriptionsError,
-    TResult? Function()? activateDrugLoading,
-    TResult? Function(T message)? activateDrugSuccess,
-    TResult? Function(String message)? activateDrugError,
-    TResult? Function()? deactivateDrugLoading,
-    TResult? Function(T message)? deactivateDrugSuccess,
-    TResult? Function(String message)? deactivateDrugError,
-    TResult? Function()? reactivateDrugLoading,
-    TResult? Function(T message)? reactivateDrugSuccess,
-    TResult? Function(String message)? reactivateDrugError,
+    TResult? Function()? stateLoading,
+    TResult? Function(T message)? stateSuccess,
+    TResult? Function(String message)? stateError,
   }) {
-    return activateDrugLoading?.call();
+    return stateLoading?.call();
   }
 
   @override
@@ -1757,19 +1423,13 @@ class _$ActivateDrugLoadingImpl<T> implements ActivateDrugLoading<T> {
     TResult Function()? prescriptionsLoading,
     TResult Function(T doctors, T drugs)? prescriptionsSuccess,
     TResult Function(String message)? prescriptionsError,
-    TResult Function()? activateDrugLoading,
-    TResult Function(T message)? activateDrugSuccess,
-    TResult Function(String message)? activateDrugError,
-    TResult Function()? deactivateDrugLoading,
-    TResult Function(T message)? deactivateDrugSuccess,
-    TResult Function(String message)? deactivateDrugError,
-    TResult Function()? reactivateDrugLoading,
-    TResult Function(T message)? reactivateDrugSuccess,
-    TResult Function(String message)? reactivateDrugError,
+    TResult Function()? stateLoading,
+    TResult Function(T message)? stateSuccess,
+    TResult Function(String message)? stateError,
     required TResult orElse(),
   }) {
-    if (activateDrugLoading != null) {
-      return activateDrugLoading();
+    if (stateLoading != null) {
+      return stateLoading();
     }
     return orElse();
   }
@@ -1786,21 +1446,11 @@ class _$ActivateDrugLoadingImpl<T> implements ActivateDrugLoading<T> {
     required TResult Function(PrescriptionsSuccess<T> value)
         prescriptionsSuccess,
     required TResult Function(PrescriptionsError<T> value) prescriptionsError,
-    required TResult Function(ActivateDrugLoading<T> value) activateDrugLoading,
-    required TResult Function(ActivateDrugSuccess<T> value) activateDrugSuccess,
-    required TResult Function(ActivateDrugError<T> value) activateDrugError,
-    required TResult Function(DeactivateDrugLoading<T> value)
-        deactivateDrugLoading,
-    required TResult Function(DeactivateDrugSuccess<T> value)
-        deactivateDrugSuccess,
-    required TResult Function(DeactivateDrugError<T> value) deactivateDrugError,
-    required TResult Function(ReactivateDrugLoading<T> value)
-        reactivateDrugLoading,
-    required TResult Function(ReactivateDrugSuccess<T> value)
-        reactivateDrugSuccess,
-    required TResult Function(ReactivateDrugError<T> value) reactivateDrugError,
+    required TResult Function(StateLoading<T> value) stateLoading,
+    required TResult Function(StateSuccess<T> value) stateSuccess,
+    required TResult Function(StateError<T> value) stateError,
   }) {
-    return activateDrugLoading(this);
+    return stateLoading(this);
   }
 
   @override
@@ -1813,17 +1463,11 @@ class _$ActivateDrugLoadingImpl<T> implements ActivateDrugLoading<T> {
     TResult? Function(PrescriptionsLoading<T> value)? prescriptionsLoading,
     TResult? Function(PrescriptionsSuccess<T> value)? prescriptionsSuccess,
     TResult? Function(PrescriptionsError<T> value)? prescriptionsError,
-    TResult? Function(ActivateDrugLoading<T> value)? activateDrugLoading,
-    TResult? Function(ActivateDrugSuccess<T> value)? activateDrugSuccess,
-    TResult? Function(ActivateDrugError<T> value)? activateDrugError,
-    TResult? Function(DeactivateDrugLoading<T> value)? deactivateDrugLoading,
-    TResult? Function(DeactivateDrugSuccess<T> value)? deactivateDrugSuccess,
-    TResult? Function(DeactivateDrugError<T> value)? deactivateDrugError,
-    TResult? Function(ReactivateDrugLoading<T> value)? reactivateDrugLoading,
-    TResult? Function(ReactivateDrugSuccess<T> value)? reactivateDrugSuccess,
-    TResult? Function(ReactivateDrugError<T> value)? reactivateDrugError,
+    TResult? Function(StateLoading<T> value)? stateLoading,
+    TResult? Function(StateSuccess<T> value)? stateSuccess,
+    TResult? Function(StateError<T> value)? stateError,
   }) {
-    return activateDrugLoading?.call(this);
+    return stateLoading?.call(this);
   }
 
   @override
@@ -1836,44 +1480,37 @@ class _$ActivateDrugLoadingImpl<T> implements ActivateDrugLoading<T> {
     TResult Function(PrescriptionsLoading<T> value)? prescriptionsLoading,
     TResult Function(PrescriptionsSuccess<T> value)? prescriptionsSuccess,
     TResult Function(PrescriptionsError<T> value)? prescriptionsError,
-    TResult Function(ActivateDrugLoading<T> value)? activateDrugLoading,
-    TResult Function(ActivateDrugSuccess<T> value)? activateDrugSuccess,
-    TResult Function(ActivateDrugError<T> value)? activateDrugError,
-    TResult Function(DeactivateDrugLoading<T> value)? deactivateDrugLoading,
-    TResult Function(DeactivateDrugSuccess<T> value)? deactivateDrugSuccess,
-    TResult Function(DeactivateDrugError<T> value)? deactivateDrugError,
-    TResult Function(ReactivateDrugLoading<T> value)? reactivateDrugLoading,
-    TResult Function(ReactivateDrugSuccess<T> value)? reactivateDrugSuccess,
-    TResult Function(ReactivateDrugError<T> value)? reactivateDrugError,
+    TResult Function(StateLoading<T> value)? stateLoading,
+    TResult Function(StateSuccess<T> value)? stateSuccess,
+    TResult Function(StateError<T> value)? stateError,
     required TResult orElse(),
   }) {
-    if (activateDrugLoading != null) {
-      return activateDrugLoading(this);
+    if (stateLoading != null) {
+      return stateLoading(this);
     }
     return orElse();
   }
 }
 
-abstract class ActivateDrugLoading<T> implements PrescriptionState<T> {
-  const factory ActivateDrugLoading() = _$ActivateDrugLoadingImpl<T>;
+abstract class StateLoading<T> implements PrescriptionState<T> {
+  const factory StateLoading() = _$StateLoadingImpl<T>;
 }
 
 /// @nodoc
-abstract class _$$ActivateDrugSuccessImplCopyWith<T, $Res> {
-  factory _$$ActivateDrugSuccessImplCopyWith(_$ActivateDrugSuccessImpl<T> value,
-          $Res Function(_$ActivateDrugSuccessImpl<T>) then) =
-      __$$ActivateDrugSuccessImplCopyWithImpl<T, $Res>;
+abstract class _$$StateSuccessImplCopyWith<T, $Res> {
+  factory _$$StateSuccessImplCopyWith(_$StateSuccessImpl<T> value,
+          $Res Function(_$StateSuccessImpl<T>) then) =
+      __$$StateSuccessImplCopyWithImpl<T, $Res>;
   @useResult
   $Res call({T message});
 }
 
 /// @nodoc
-class __$$ActivateDrugSuccessImplCopyWithImpl<T, $Res>
-    extends _$PrescriptionStateCopyWithImpl<T, $Res,
-        _$ActivateDrugSuccessImpl<T>>
-    implements _$$ActivateDrugSuccessImplCopyWith<T, $Res> {
-  __$$ActivateDrugSuccessImplCopyWithImpl(_$ActivateDrugSuccessImpl<T> _value,
-      $Res Function(_$ActivateDrugSuccessImpl<T>) _then)
+class __$$StateSuccessImplCopyWithImpl<T, $Res>
+    extends _$PrescriptionStateCopyWithImpl<T, $Res, _$StateSuccessImpl<T>>
+    implements _$$StateSuccessImplCopyWith<T, $Res> {
+  __$$StateSuccessImplCopyWithImpl(
+      _$StateSuccessImpl<T> _value, $Res Function(_$StateSuccessImpl<T>) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1881,7 +1518,7 @@ class __$$ActivateDrugSuccessImplCopyWithImpl<T, $Res>
   $Res call({
     Object? message = freezed,
   }) {
-    return _then(_$ActivateDrugSuccessImpl<T>(
+    return _then(_$StateSuccessImpl<T>(
       freezed == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -1892,22 +1529,22 @@ class __$$ActivateDrugSuccessImplCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$ActivateDrugSuccessImpl<T> implements ActivateDrugSuccess<T> {
-  const _$ActivateDrugSuccessImpl(this.message);
+class _$StateSuccessImpl<T> implements StateSuccess<T> {
+  const _$StateSuccessImpl(this.message);
 
   @override
   final T message;
 
   @override
   String toString() {
-    return 'PrescriptionState<$T>.activateDrugSuccess(message: $message)';
+    return 'PrescriptionState<$T>.stateSuccess(message: $message)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ActivateDrugSuccessImpl<T> &&
+            other is _$StateSuccessImpl<T> &&
             const DeepCollectionEquality().equals(other.message, message));
   }
 
@@ -1918,9 +1555,9 @@ class _$ActivateDrugSuccessImpl<T> implements ActivateDrugSuccess<T> {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ActivateDrugSuccessImplCopyWith<T, _$ActivateDrugSuccessImpl<T>>
-      get copyWith => __$$ActivateDrugSuccessImplCopyWithImpl<T,
-          _$ActivateDrugSuccessImpl<T>>(this, _$identity);
+  _$$StateSuccessImplCopyWith<T, _$StateSuccessImpl<T>> get copyWith =>
+      __$$StateSuccessImplCopyWithImpl<T, _$StateSuccessImpl<T>>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1932,17 +1569,11 @@ class _$ActivateDrugSuccessImpl<T> implements ActivateDrugSuccess<T> {
     required TResult Function() prescriptionsLoading,
     required TResult Function(T doctors, T drugs) prescriptionsSuccess,
     required TResult Function(String message) prescriptionsError,
-    required TResult Function() activateDrugLoading,
-    required TResult Function(T message) activateDrugSuccess,
-    required TResult Function(String message) activateDrugError,
-    required TResult Function() deactivateDrugLoading,
-    required TResult Function(T message) deactivateDrugSuccess,
-    required TResult Function(String message) deactivateDrugError,
-    required TResult Function() reactivateDrugLoading,
-    required TResult Function(T message) reactivateDrugSuccess,
-    required TResult Function(String message) reactivateDrugError,
+    required TResult Function() stateLoading,
+    required TResult Function(T message) stateSuccess,
+    required TResult Function(String message) stateError,
   }) {
-    return activateDrugSuccess(message);
+    return stateSuccess(message);
   }
 
   @override
@@ -1955,17 +1586,11 @@ class _$ActivateDrugSuccessImpl<T> implements ActivateDrugSuccess<T> {
     TResult? Function()? prescriptionsLoading,
     TResult? Function(T doctors, T drugs)? prescriptionsSuccess,
     TResult? Function(String message)? prescriptionsError,
-    TResult? Function()? activateDrugLoading,
-    TResult? Function(T message)? activateDrugSuccess,
-    TResult? Function(String message)? activateDrugError,
-    TResult? Function()? deactivateDrugLoading,
-    TResult? Function(T message)? deactivateDrugSuccess,
-    TResult? Function(String message)? deactivateDrugError,
-    TResult? Function()? reactivateDrugLoading,
-    TResult? Function(T message)? reactivateDrugSuccess,
-    TResult? Function(String message)? reactivateDrugError,
+    TResult? Function()? stateLoading,
+    TResult? Function(T message)? stateSuccess,
+    TResult? Function(String message)? stateError,
   }) {
-    return activateDrugSuccess?.call(message);
+    return stateSuccess?.call(message);
   }
 
   @override
@@ -1978,19 +1603,13 @@ class _$ActivateDrugSuccessImpl<T> implements ActivateDrugSuccess<T> {
     TResult Function()? prescriptionsLoading,
     TResult Function(T doctors, T drugs)? prescriptionsSuccess,
     TResult Function(String message)? prescriptionsError,
-    TResult Function()? activateDrugLoading,
-    TResult Function(T message)? activateDrugSuccess,
-    TResult Function(String message)? activateDrugError,
-    TResult Function()? deactivateDrugLoading,
-    TResult Function(T message)? deactivateDrugSuccess,
-    TResult Function(String message)? deactivateDrugError,
-    TResult Function()? reactivateDrugLoading,
-    TResult Function(T message)? reactivateDrugSuccess,
-    TResult Function(String message)? reactivateDrugError,
+    TResult Function()? stateLoading,
+    TResult Function(T message)? stateSuccess,
+    TResult Function(String message)? stateError,
     required TResult orElse(),
   }) {
-    if (activateDrugSuccess != null) {
-      return activateDrugSuccess(message);
+    if (stateSuccess != null) {
+      return stateSuccess(message);
     }
     return orElse();
   }
@@ -2007,21 +1626,11 @@ class _$ActivateDrugSuccessImpl<T> implements ActivateDrugSuccess<T> {
     required TResult Function(PrescriptionsSuccess<T> value)
         prescriptionsSuccess,
     required TResult Function(PrescriptionsError<T> value) prescriptionsError,
-    required TResult Function(ActivateDrugLoading<T> value) activateDrugLoading,
-    required TResult Function(ActivateDrugSuccess<T> value) activateDrugSuccess,
-    required TResult Function(ActivateDrugError<T> value) activateDrugError,
-    required TResult Function(DeactivateDrugLoading<T> value)
-        deactivateDrugLoading,
-    required TResult Function(DeactivateDrugSuccess<T> value)
-        deactivateDrugSuccess,
-    required TResult Function(DeactivateDrugError<T> value) deactivateDrugError,
-    required TResult Function(ReactivateDrugLoading<T> value)
-        reactivateDrugLoading,
-    required TResult Function(ReactivateDrugSuccess<T> value)
-        reactivateDrugSuccess,
-    required TResult Function(ReactivateDrugError<T> value) reactivateDrugError,
+    required TResult Function(StateLoading<T> value) stateLoading,
+    required TResult Function(StateSuccess<T> value) stateSuccess,
+    required TResult Function(StateError<T> value) stateError,
   }) {
-    return activateDrugSuccess(this);
+    return stateSuccess(this);
   }
 
   @override
@@ -2034,17 +1643,11 @@ class _$ActivateDrugSuccessImpl<T> implements ActivateDrugSuccess<T> {
     TResult? Function(PrescriptionsLoading<T> value)? prescriptionsLoading,
     TResult? Function(PrescriptionsSuccess<T> value)? prescriptionsSuccess,
     TResult? Function(PrescriptionsError<T> value)? prescriptionsError,
-    TResult? Function(ActivateDrugLoading<T> value)? activateDrugLoading,
-    TResult? Function(ActivateDrugSuccess<T> value)? activateDrugSuccess,
-    TResult? Function(ActivateDrugError<T> value)? activateDrugError,
-    TResult? Function(DeactivateDrugLoading<T> value)? deactivateDrugLoading,
-    TResult? Function(DeactivateDrugSuccess<T> value)? deactivateDrugSuccess,
-    TResult? Function(DeactivateDrugError<T> value)? deactivateDrugError,
-    TResult? Function(ReactivateDrugLoading<T> value)? reactivateDrugLoading,
-    TResult? Function(ReactivateDrugSuccess<T> value)? reactivateDrugSuccess,
-    TResult? Function(ReactivateDrugError<T> value)? reactivateDrugError,
+    TResult? Function(StateLoading<T> value)? stateLoading,
+    TResult? Function(StateSuccess<T> value)? stateSuccess,
+    TResult? Function(StateError<T> value)? stateError,
   }) {
-    return activateDrugSuccess?.call(this);
+    return stateSuccess?.call(this);
   }
 
   @override
@@ -2057,49 +1660,42 @@ class _$ActivateDrugSuccessImpl<T> implements ActivateDrugSuccess<T> {
     TResult Function(PrescriptionsLoading<T> value)? prescriptionsLoading,
     TResult Function(PrescriptionsSuccess<T> value)? prescriptionsSuccess,
     TResult Function(PrescriptionsError<T> value)? prescriptionsError,
-    TResult Function(ActivateDrugLoading<T> value)? activateDrugLoading,
-    TResult Function(ActivateDrugSuccess<T> value)? activateDrugSuccess,
-    TResult Function(ActivateDrugError<T> value)? activateDrugError,
-    TResult Function(DeactivateDrugLoading<T> value)? deactivateDrugLoading,
-    TResult Function(DeactivateDrugSuccess<T> value)? deactivateDrugSuccess,
-    TResult Function(DeactivateDrugError<T> value)? deactivateDrugError,
-    TResult Function(ReactivateDrugLoading<T> value)? reactivateDrugLoading,
-    TResult Function(ReactivateDrugSuccess<T> value)? reactivateDrugSuccess,
-    TResult Function(ReactivateDrugError<T> value)? reactivateDrugError,
+    TResult Function(StateLoading<T> value)? stateLoading,
+    TResult Function(StateSuccess<T> value)? stateSuccess,
+    TResult Function(StateError<T> value)? stateError,
     required TResult orElse(),
   }) {
-    if (activateDrugSuccess != null) {
-      return activateDrugSuccess(this);
+    if (stateSuccess != null) {
+      return stateSuccess(this);
     }
     return orElse();
   }
 }
 
-abstract class ActivateDrugSuccess<T> implements PrescriptionState<T> {
-  const factory ActivateDrugSuccess(final T message) =
-      _$ActivateDrugSuccessImpl<T>;
+abstract class StateSuccess<T> implements PrescriptionState<T> {
+  const factory StateSuccess(final T message) = _$StateSuccessImpl<T>;
 
   T get message;
   @JsonKey(ignore: true)
-  _$$ActivateDrugSuccessImplCopyWith<T, _$ActivateDrugSuccessImpl<T>>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$StateSuccessImplCopyWith<T, _$StateSuccessImpl<T>> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ActivateDrugErrorImplCopyWith<T, $Res> {
-  factory _$$ActivateDrugErrorImplCopyWith(_$ActivateDrugErrorImpl<T> value,
-          $Res Function(_$ActivateDrugErrorImpl<T>) then) =
-      __$$ActivateDrugErrorImplCopyWithImpl<T, $Res>;
+abstract class _$$StateErrorImplCopyWith<T, $Res> {
+  factory _$$StateErrorImplCopyWith(
+          _$StateErrorImpl<T> value, $Res Function(_$StateErrorImpl<T>) then) =
+      __$$StateErrorImplCopyWithImpl<T, $Res>;
   @useResult
   $Res call({String message});
 }
 
 /// @nodoc
-class __$$ActivateDrugErrorImplCopyWithImpl<T, $Res>
-    extends _$PrescriptionStateCopyWithImpl<T, $Res, _$ActivateDrugErrorImpl<T>>
-    implements _$$ActivateDrugErrorImplCopyWith<T, $Res> {
-  __$$ActivateDrugErrorImplCopyWithImpl(_$ActivateDrugErrorImpl<T> _value,
-      $Res Function(_$ActivateDrugErrorImpl<T>) _then)
+class __$$StateErrorImplCopyWithImpl<T, $Res>
+    extends _$PrescriptionStateCopyWithImpl<T, $Res, _$StateErrorImpl<T>>
+    implements _$$StateErrorImplCopyWith<T, $Res> {
+  __$$StateErrorImplCopyWithImpl(
+      _$StateErrorImpl<T> _value, $Res Function(_$StateErrorImpl<T>) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -2107,7 +1703,7 @@ class __$$ActivateDrugErrorImplCopyWithImpl<T, $Res>
   $Res call({
     Object? message = null,
   }) {
-    return _then(_$ActivateDrugErrorImpl<T>(
+    return _then(_$StateErrorImpl<T>(
       null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -2118,22 +1714,22 @@ class __$$ActivateDrugErrorImplCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$ActivateDrugErrorImpl<T> implements ActivateDrugError<T> {
-  const _$ActivateDrugErrorImpl(this.message);
+class _$StateErrorImpl<T> implements StateError<T> {
+  const _$StateErrorImpl(this.message);
 
   @override
   final String message;
 
   @override
   String toString() {
-    return 'PrescriptionState<$T>.activateDrugError(message: $message)';
+    return 'PrescriptionState<$T>.stateError(message: $message)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ActivateDrugErrorImpl<T> &&
+            other is _$StateErrorImpl<T> &&
             (identical(other.message, message) || other.message == message));
   }
 
@@ -2143,10 +1739,8 @@ class _$ActivateDrugErrorImpl<T> implements ActivateDrugError<T> {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ActivateDrugErrorImplCopyWith<T, _$ActivateDrugErrorImpl<T>>
-      get copyWith =>
-          __$$ActivateDrugErrorImplCopyWithImpl<T, _$ActivateDrugErrorImpl<T>>(
-              this, _$identity);
+  _$$StateErrorImplCopyWith<T, _$StateErrorImpl<T>> get copyWith =>
+      __$$StateErrorImplCopyWithImpl<T, _$StateErrorImpl<T>>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -2158,17 +1752,11 @@ class _$ActivateDrugErrorImpl<T> implements ActivateDrugError<T> {
     required TResult Function() prescriptionsLoading,
     required TResult Function(T doctors, T drugs) prescriptionsSuccess,
     required TResult Function(String message) prescriptionsError,
-    required TResult Function() activateDrugLoading,
-    required TResult Function(T message) activateDrugSuccess,
-    required TResult Function(String message) activateDrugError,
-    required TResult Function() deactivateDrugLoading,
-    required TResult Function(T message) deactivateDrugSuccess,
-    required TResult Function(String message) deactivateDrugError,
-    required TResult Function() reactivateDrugLoading,
-    required TResult Function(T message) reactivateDrugSuccess,
-    required TResult Function(String message) reactivateDrugError,
+    required TResult Function() stateLoading,
+    required TResult Function(T message) stateSuccess,
+    required TResult Function(String message) stateError,
   }) {
-    return activateDrugError(message);
+    return stateError(message);
   }
 
   @override
@@ -2181,17 +1769,11 @@ class _$ActivateDrugErrorImpl<T> implements ActivateDrugError<T> {
     TResult? Function()? prescriptionsLoading,
     TResult? Function(T doctors, T drugs)? prescriptionsSuccess,
     TResult? Function(String message)? prescriptionsError,
-    TResult? Function()? activateDrugLoading,
-    TResult? Function(T message)? activateDrugSuccess,
-    TResult? Function(String message)? activateDrugError,
-    TResult? Function()? deactivateDrugLoading,
-    TResult? Function(T message)? deactivateDrugSuccess,
-    TResult? Function(String message)? deactivateDrugError,
-    TResult? Function()? reactivateDrugLoading,
-    TResult? Function(T message)? reactivateDrugSuccess,
-    TResult? Function(String message)? reactivateDrugError,
+    TResult? Function()? stateLoading,
+    TResult? Function(T message)? stateSuccess,
+    TResult? Function(String message)? stateError,
   }) {
-    return activateDrugError?.call(message);
+    return stateError?.call(message);
   }
 
   @override
@@ -2204,19 +1786,13 @@ class _$ActivateDrugErrorImpl<T> implements ActivateDrugError<T> {
     TResult Function()? prescriptionsLoading,
     TResult Function(T doctors, T drugs)? prescriptionsSuccess,
     TResult Function(String message)? prescriptionsError,
-    TResult Function()? activateDrugLoading,
-    TResult Function(T message)? activateDrugSuccess,
-    TResult Function(String message)? activateDrugError,
-    TResult Function()? deactivateDrugLoading,
-    TResult Function(T message)? deactivateDrugSuccess,
-    TResult Function(String message)? deactivateDrugError,
-    TResult Function()? reactivateDrugLoading,
-    TResult Function(T message)? reactivateDrugSuccess,
-    TResult Function(String message)? reactivateDrugError,
+    TResult Function()? stateLoading,
+    TResult Function(T message)? stateSuccess,
+    TResult Function(String message)? stateError,
     required TResult orElse(),
   }) {
-    if (activateDrugError != null) {
-      return activateDrugError(message);
+    if (stateError != null) {
+      return stateError(message);
     }
     return orElse();
   }
@@ -2233,21 +1809,11 @@ class _$ActivateDrugErrorImpl<T> implements ActivateDrugError<T> {
     required TResult Function(PrescriptionsSuccess<T> value)
         prescriptionsSuccess,
     required TResult Function(PrescriptionsError<T> value) prescriptionsError,
-    required TResult Function(ActivateDrugLoading<T> value) activateDrugLoading,
-    required TResult Function(ActivateDrugSuccess<T> value) activateDrugSuccess,
-    required TResult Function(ActivateDrugError<T> value) activateDrugError,
-    required TResult Function(DeactivateDrugLoading<T> value)
-        deactivateDrugLoading,
-    required TResult Function(DeactivateDrugSuccess<T> value)
-        deactivateDrugSuccess,
-    required TResult Function(DeactivateDrugError<T> value) deactivateDrugError,
-    required TResult Function(ReactivateDrugLoading<T> value)
-        reactivateDrugLoading,
-    required TResult Function(ReactivateDrugSuccess<T> value)
-        reactivateDrugSuccess,
-    required TResult Function(ReactivateDrugError<T> value) reactivateDrugError,
+    required TResult Function(StateLoading<T> value) stateLoading,
+    required TResult Function(StateSuccess<T> value) stateSuccess,
+    required TResult Function(StateError<T> value) stateError,
   }) {
-    return activateDrugError(this);
+    return stateError(this);
   }
 
   @override
@@ -2260,17 +1826,11 @@ class _$ActivateDrugErrorImpl<T> implements ActivateDrugError<T> {
     TResult? Function(PrescriptionsLoading<T> value)? prescriptionsLoading,
     TResult? Function(PrescriptionsSuccess<T> value)? prescriptionsSuccess,
     TResult? Function(PrescriptionsError<T> value)? prescriptionsError,
-    TResult? Function(ActivateDrugLoading<T> value)? activateDrugLoading,
-    TResult? Function(ActivateDrugSuccess<T> value)? activateDrugSuccess,
-    TResult? Function(ActivateDrugError<T> value)? activateDrugError,
-    TResult? Function(DeactivateDrugLoading<T> value)? deactivateDrugLoading,
-    TResult? Function(DeactivateDrugSuccess<T> value)? deactivateDrugSuccess,
-    TResult? Function(DeactivateDrugError<T> value)? deactivateDrugError,
-    TResult? Function(ReactivateDrugLoading<T> value)? reactivateDrugLoading,
-    TResult? Function(ReactivateDrugSuccess<T> value)? reactivateDrugSuccess,
-    TResult? Function(ReactivateDrugError<T> value)? reactivateDrugError,
+    TResult? Function(StateLoading<T> value)? stateLoading,
+    TResult? Function(StateSuccess<T> value)? stateSuccess,
+    TResult? Function(StateError<T> value)? stateError,
   }) {
-    return activateDrugError?.call(this);
+    return stateError?.call(this);
   }
 
   @override
@@ -2283,1332 +1843,23 @@ class _$ActivateDrugErrorImpl<T> implements ActivateDrugError<T> {
     TResult Function(PrescriptionsLoading<T> value)? prescriptionsLoading,
     TResult Function(PrescriptionsSuccess<T> value)? prescriptionsSuccess,
     TResult Function(PrescriptionsError<T> value)? prescriptionsError,
-    TResult Function(ActivateDrugLoading<T> value)? activateDrugLoading,
-    TResult Function(ActivateDrugSuccess<T> value)? activateDrugSuccess,
-    TResult Function(ActivateDrugError<T> value)? activateDrugError,
-    TResult Function(DeactivateDrugLoading<T> value)? deactivateDrugLoading,
-    TResult Function(DeactivateDrugSuccess<T> value)? deactivateDrugSuccess,
-    TResult Function(DeactivateDrugError<T> value)? deactivateDrugError,
-    TResult Function(ReactivateDrugLoading<T> value)? reactivateDrugLoading,
-    TResult Function(ReactivateDrugSuccess<T> value)? reactivateDrugSuccess,
-    TResult Function(ReactivateDrugError<T> value)? reactivateDrugError,
+    TResult Function(StateLoading<T> value)? stateLoading,
+    TResult Function(StateSuccess<T> value)? stateSuccess,
+    TResult Function(StateError<T> value)? stateError,
     required TResult orElse(),
   }) {
-    if (activateDrugError != null) {
-      return activateDrugError(this);
+    if (stateError != null) {
+      return stateError(this);
     }
     return orElse();
   }
 }
 
-abstract class ActivateDrugError<T> implements PrescriptionState<T> {
-  const factory ActivateDrugError(final String message) =
-      _$ActivateDrugErrorImpl<T>;
+abstract class StateError<T> implements PrescriptionState<T> {
+  const factory StateError(final String message) = _$StateErrorImpl<T>;
 
   String get message;
   @JsonKey(ignore: true)
-  _$$ActivateDrugErrorImplCopyWith<T, _$ActivateDrugErrorImpl<T>>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$DeactivateDrugLoadingImplCopyWith<T, $Res> {
-  factory _$$DeactivateDrugLoadingImplCopyWith(
-          _$DeactivateDrugLoadingImpl<T> value,
-          $Res Function(_$DeactivateDrugLoadingImpl<T>) then) =
-      __$$DeactivateDrugLoadingImplCopyWithImpl<T, $Res>;
-}
-
-/// @nodoc
-class __$$DeactivateDrugLoadingImplCopyWithImpl<T, $Res>
-    extends _$PrescriptionStateCopyWithImpl<T, $Res,
-        _$DeactivateDrugLoadingImpl<T>>
-    implements _$$DeactivateDrugLoadingImplCopyWith<T, $Res> {
-  __$$DeactivateDrugLoadingImplCopyWithImpl(
-      _$DeactivateDrugLoadingImpl<T> _value,
-      $Res Function(_$DeactivateDrugLoadingImpl<T>) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$DeactivateDrugLoadingImpl<T> implements DeactivateDrugLoading<T> {
-  const _$DeactivateDrugLoadingImpl();
-
-  @override
-  String toString() {
-    return 'PrescriptionState<$T>.deactivateDrugLoading()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$DeactivateDrugLoadingImpl<T>);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() prescriptionLoading,
-    required TResult Function(T data) prescriptionSuccess,
-    required TResult Function(String message) prescriptionError,
-    required TResult Function() prescriptionsLoading,
-    required TResult Function(T doctors, T drugs) prescriptionsSuccess,
-    required TResult Function(String message) prescriptionsError,
-    required TResult Function() activateDrugLoading,
-    required TResult Function(T message) activateDrugSuccess,
-    required TResult Function(String message) activateDrugError,
-    required TResult Function() deactivateDrugLoading,
-    required TResult Function(T message) deactivateDrugSuccess,
-    required TResult Function(String message) deactivateDrugError,
-    required TResult Function() reactivateDrugLoading,
-    required TResult Function(T message) reactivateDrugSuccess,
-    required TResult Function(String message) reactivateDrugError,
-  }) {
-    return deactivateDrugLoading();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? prescriptionLoading,
-    TResult? Function(T data)? prescriptionSuccess,
-    TResult? Function(String message)? prescriptionError,
-    TResult? Function()? prescriptionsLoading,
-    TResult? Function(T doctors, T drugs)? prescriptionsSuccess,
-    TResult? Function(String message)? prescriptionsError,
-    TResult? Function()? activateDrugLoading,
-    TResult? Function(T message)? activateDrugSuccess,
-    TResult? Function(String message)? activateDrugError,
-    TResult? Function()? deactivateDrugLoading,
-    TResult? Function(T message)? deactivateDrugSuccess,
-    TResult? Function(String message)? deactivateDrugError,
-    TResult? Function()? reactivateDrugLoading,
-    TResult? Function(T message)? reactivateDrugSuccess,
-    TResult? Function(String message)? reactivateDrugError,
-  }) {
-    return deactivateDrugLoading?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? prescriptionLoading,
-    TResult Function(T data)? prescriptionSuccess,
-    TResult Function(String message)? prescriptionError,
-    TResult Function()? prescriptionsLoading,
-    TResult Function(T doctors, T drugs)? prescriptionsSuccess,
-    TResult Function(String message)? prescriptionsError,
-    TResult Function()? activateDrugLoading,
-    TResult Function(T message)? activateDrugSuccess,
-    TResult Function(String message)? activateDrugError,
-    TResult Function()? deactivateDrugLoading,
-    TResult Function(T message)? deactivateDrugSuccess,
-    TResult Function(String message)? deactivateDrugError,
-    TResult Function()? reactivateDrugLoading,
-    TResult Function(T message)? reactivateDrugSuccess,
-    TResult Function(String message)? reactivateDrugError,
-    required TResult orElse(),
-  }) {
-    if (deactivateDrugLoading != null) {
-      return deactivateDrugLoading();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial<T> value) initial,
-    required TResult Function(PrescriptionLoading<T> value) prescriptionLoading,
-    required TResult Function(PrescriptionSuccess<T> value) prescriptionSuccess,
-    required TResult Function(PrescriptionError<T> value) prescriptionError,
-    required TResult Function(PrescriptionsLoading<T> value)
-        prescriptionsLoading,
-    required TResult Function(PrescriptionsSuccess<T> value)
-        prescriptionsSuccess,
-    required TResult Function(PrescriptionsError<T> value) prescriptionsError,
-    required TResult Function(ActivateDrugLoading<T> value) activateDrugLoading,
-    required TResult Function(ActivateDrugSuccess<T> value) activateDrugSuccess,
-    required TResult Function(ActivateDrugError<T> value) activateDrugError,
-    required TResult Function(DeactivateDrugLoading<T> value)
-        deactivateDrugLoading,
-    required TResult Function(DeactivateDrugSuccess<T> value)
-        deactivateDrugSuccess,
-    required TResult Function(DeactivateDrugError<T> value) deactivateDrugError,
-    required TResult Function(ReactivateDrugLoading<T> value)
-        reactivateDrugLoading,
-    required TResult Function(ReactivateDrugSuccess<T> value)
-        reactivateDrugSuccess,
-    required TResult Function(ReactivateDrugError<T> value) reactivateDrugError,
-  }) {
-    return deactivateDrugLoading(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(PrescriptionLoading<T> value)? prescriptionLoading,
-    TResult? Function(PrescriptionSuccess<T> value)? prescriptionSuccess,
-    TResult? Function(PrescriptionError<T> value)? prescriptionError,
-    TResult? Function(PrescriptionsLoading<T> value)? prescriptionsLoading,
-    TResult? Function(PrescriptionsSuccess<T> value)? prescriptionsSuccess,
-    TResult? Function(PrescriptionsError<T> value)? prescriptionsError,
-    TResult? Function(ActivateDrugLoading<T> value)? activateDrugLoading,
-    TResult? Function(ActivateDrugSuccess<T> value)? activateDrugSuccess,
-    TResult? Function(ActivateDrugError<T> value)? activateDrugError,
-    TResult? Function(DeactivateDrugLoading<T> value)? deactivateDrugLoading,
-    TResult? Function(DeactivateDrugSuccess<T> value)? deactivateDrugSuccess,
-    TResult? Function(DeactivateDrugError<T> value)? deactivateDrugError,
-    TResult? Function(ReactivateDrugLoading<T> value)? reactivateDrugLoading,
-    TResult? Function(ReactivateDrugSuccess<T> value)? reactivateDrugSuccess,
-    TResult? Function(ReactivateDrugError<T> value)? reactivateDrugError,
-  }) {
-    return deactivateDrugLoading?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial<T> value)? initial,
-    TResult Function(PrescriptionLoading<T> value)? prescriptionLoading,
-    TResult Function(PrescriptionSuccess<T> value)? prescriptionSuccess,
-    TResult Function(PrescriptionError<T> value)? prescriptionError,
-    TResult Function(PrescriptionsLoading<T> value)? prescriptionsLoading,
-    TResult Function(PrescriptionsSuccess<T> value)? prescriptionsSuccess,
-    TResult Function(PrescriptionsError<T> value)? prescriptionsError,
-    TResult Function(ActivateDrugLoading<T> value)? activateDrugLoading,
-    TResult Function(ActivateDrugSuccess<T> value)? activateDrugSuccess,
-    TResult Function(ActivateDrugError<T> value)? activateDrugError,
-    TResult Function(DeactivateDrugLoading<T> value)? deactivateDrugLoading,
-    TResult Function(DeactivateDrugSuccess<T> value)? deactivateDrugSuccess,
-    TResult Function(DeactivateDrugError<T> value)? deactivateDrugError,
-    TResult Function(ReactivateDrugLoading<T> value)? reactivateDrugLoading,
-    TResult Function(ReactivateDrugSuccess<T> value)? reactivateDrugSuccess,
-    TResult Function(ReactivateDrugError<T> value)? reactivateDrugError,
-    required TResult orElse(),
-  }) {
-    if (deactivateDrugLoading != null) {
-      return deactivateDrugLoading(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class DeactivateDrugLoading<T> implements PrescriptionState<T> {
-  const factory DeactivateDrugLoading() = _$DeactivateDrugLoadingImpl<T>;
-}
-
-/// @nodoc
-abstract class _$$DeactivateDrugSuccessImplCopyWith<T, $Res> {
-  factory _$$DeactivateDrugSuccessImplCopyWith(
-          _$DeactivateDrugSuccessImpl<T> value,
-          $Res Function(_$DeactivateDrugSuccessImpl<T>) then) =
-      __$$DeactivateDrugSuccessImplCopyWithImpl<T, $Res>;
-  @useResult
-  $Res call({T message});
-}
-
-/// @nodoc
-class __$$DeactivateDrugSuccessImplCopyWithImpl<T, $Res>
-    extends _$PrescriptionStateCopyWithImpl<T, $Res,
-        _$DeactivateDrugSuccessImpl<T>>
-    implements _$$DeactivateDrugSuccessImplCopyWith<T, $Res> {
-  __$$DeactivateDrugSuccessImplCopyWithImpl(
-      _$DeactivateDrugSuccessImpl<T> _value,
-      $Res Function(_$DeactivateDrugSuccessImpl<T>) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? message = freezed,
-  }) {
-    return _then(_$DeactivateDrugSuccessImpl<T>(
-      freezed == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as T,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$DeactivateDrugSuccessImpl<T> implements DeactivateDrugSuccess<T> {
-  const _$DeactivateDrugSuccessImpl(this.message);
-
-  @override
-  final T message;
-
-  @override
-  String toString() {
-    return 'PrescriptionState<$T>.deactivateDrugSuccess(message: $message)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$DeactivateDrugSuccessImpl<T> &&
-            const DeepCollectionEquality().equals(other.message, message));
-  }
-
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(message));
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$DeactivateDrugSuccessImplCopyWith<T, _$DeactivateDrugSuccessImpl<T>>
-      get copyWith => __$$DeactivateDrugSuccessImplCopyWithImpl<T,
-          _$DeactivateDrugSuccessImpl<T>>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() prescriptionLoading,
-    required TResult Function(T data) prescriptionSuccess,
-    required TResult Function(String message) prescriptionError,
-    required TResult Function() prescriptionsLoading,
-    required TResult Function(T doctors, T drugs) prescriptionsSuccess,
-    required TResult Function(String message) prescriptionsError,
-    required TResult Function() activateDrugLoading,
-    required TResult Function(T message) activateDrugSuccess,
-    required TResult Function(String message) activateDrugError,
-    required TResult Function() deactivateDrugLoading,
-    required TResult Function(T message) deactivateDrugSuccess,
-    required TResult Function(String message) deactivateDrugError,
-    required TResult Function() reactivateDrugLoading,
-    required TResult Function(T message) reactivateDrugSuccess,
-    required TResult Function(String message) reactivateDrugError,
-  }) {
-    return deactivateDrugSuccess(message);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? prescriptionLoading,
-    TResult? Function(T data)? prescriptionSuccess,
-    TResult? Function(String message)? prescriptionError,
-    TResult? Function()? prescriptionsLoading,
-    TResult? Function(T doctors, T drugs)? prescriptionsSuccess,
-    TResult? Function(String message)? prescriptionsError,
-    TResult? Function()? activateDrugLoading,
-    TResult? Function(T message)? activateDrugSuccess,
-    TResult? Function(String message)? activateDrugError,
-    TResult? Function()? deactivateDrugLoading,
-    TResult? Function(T message)? deactivateDrugSuccess,
-    TResult? Function(String message)? deactivateDrugError,
-    TResult? Function()? reactivateDrugLoading,
-    TResult? Function(T message)? reactivateDrugSuccess,
-    TResult? Function(String message)? reactivateDrugError,
-  }) {
-    return deactivateDrugSuccess?.call(message);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? prescriptionLoading,
-    TResult Function(T data)? prescriptionSuccess,
-    TResult Function(String message)? prescriptionError,
-    TResult Function()? prescriptionsLoading,
-    TResult Function(T doctors, T drugs)? prescriptionsSuccess,
-    TResult Function(String message)? prescriptionsError,
-    TResult Function()? activateDrugLoading,
-    TResult Function(T message)? activateDrugSuccess,
-    TResult Function(String message)? activateDrugError,
-    TResult Function()? deactivateDrugLoading,
-    TResult Function(T message)? deactivateDrugSuccess,
-    TResult Function(String message)? deactivateDrugError,
-    TResult Function()? reactivateDrugLoading,
-    TResult Function(T message)? reactivateDrugSuccess,
-    TResult Function(String message)? reactivateDrugError,
-    required TResult orElse(),
-  }) {
-    if (deactivateDrugSuccess != null) {
-      return deactivateDrugSuccess(message);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial<T> value) initial,
-    required TResult Function(PrescriptionLoading<T> value) prescriptionLoading,
-    required TResult Function(PrescriptionSuccess<T> value) prescriptionSuccess,
-    required TResult Function(PrescriptionError<T> value) prescriptionError,
-    required TResult Function(PrescriptionsLoading<T> value)
-        prescriptionsLoading,
-    required TResult Function(PrescriptionsSuccess<T> value)
-        prescriptionsSuccess,
-    required TResult Function(PrescriptionsError<T> value) prescriptionsError,
-    required TResult Function(ActivateDrugLoading<T> value) activateDrugLoading,
-    required TResult Function(ActivateDrugSuccess<T> value) activateDrugSuccess,
-    required TResult Function(ActivateDrugError<T> value) activateDrugError,
-    required TResult Function(DeactivateDrugLoading<T> value)
-        deactivateDrugLoading,
-    required TResult Function(DeactivateDrugSuccess<T> value)
-        deactivateDrugSuccess,
-    required TResult Function(DeactivateDrugError<T> value) deactivateDrugError,
-    required TResult Function(ReactivateDrugLoading<T> value)
-        reactivateDrugLoading,
-    required TResult Function(ReactivateDrugSuccess<T> value)
-        reactivateDrugSuccess,
-    required TResult Function(ReactivateDrugError<T> value) reactivateDrugError,
-  }) {
-    return deactivateDrugSuccess(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(PrescriptionLoading<T> value)? prescriptionLoading,
-    TResult? Function(PrescriptionSuccess<T> value)? prescriptionSuccess,
-    TResult? Function(PrescriptionError<T> value)? prescriptionError,
-    TResult? Function(PrescriptionsLoading<T> value)? prescriptionsLoading,
-    TResult? Function(PrescriptionsSuccess<T> value)? prescriptionsSuccess,
-    TResult? Function(PrescriptionsError<T> value)? prescriptionsError,
-    TResult? Function(ActivateDrugLoading<T> value)? activateDrugLoading,
-    TResult? Function(ActivateDrugSuccess<T> value)? activateDrugSuccess,
-    TResult? Function(ActivateDrugError<T> value)? activateDrugError,
-    TResult? Function(DeactivateDrugLoading<T> value)? deactivateDrugLoading,
-    TResult? Function(DeactivateDrugSuccess<T> value)? deactivateDrugSuccess,
-    TResult? Function(DeactivateDrugError<T> value)? deactivateDrugError,
-    TResult? Function(ReactivateDrugLoading<T> value)? reactivateDrugLoading,
-    TResult? Function(ReactivateDrugSuccess<T> value)? reactivateDrugSuccess,
-    TResult? Function(ReactivateDrugError<T> value)? reactivateDrugError,
-  }) {
-    return deactivateDrugSuccess?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial<T> value)? initial,
-    TResult Function(PrescriptionLoading<T> value)? prescriptionLoading,
-    TResult Function(PrescriptionSuccess<T> value)? prescriptionSuccess,
-    TResult Function(PrescriptionError<T> value)? prescriptionError,
-    TResult Function(PrescriptionsLoading<T> value)? prescriptionsLoading,
-    TResult Function(PrescriptionsSuccess<T> value)? prescriptionsSuccess,
-    TResult Function(PrescriptionsError<T> value)? prescriptionsError,
-    TResult Function(ActivateDrugLoading<T> value)? activateDrugLoading,
-    TResult Function(ActivateDrugSuccess<T> value)? activateDrugSuccess,
-    TResult Function(ActivateDrugError<T> value)? activateDrugError,
-    TResult Function(DeactivateDrugLoading<T> value)? deactivateDrugLoading,
-    TResult Function(DeactivateDrugSuccess<T> value)? deactivateDrugSuccess,
-    TResult Function(DeactivateDrugError<T> value)? deactivateDrugError,
-    TResult Function(ReactivateDrugLoading<T> value)? reactivateDrugLoading,
-    TResult Function(ReactivateDrugSuccess<T> value)? reactivateDrugSuccess,
-    TResult Function(ReactivateDrugError<T> value)? reactivateDrugError,
-    required TResult orElse(),
-  }) {
-    if (deactivateDrugSuccess != null) {
-      return deactivateDrugSuccess(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class DeactivateDrugSuccess<T> implements PrescriptionState<T> {
-  const factory DeactivateDrugSuccess(final T message) =
-      _$DeactivateDrugSuccessImpl<T>;
-
-  T get message;
-  @JsonKey(ignore: true)
-  _$$DeactivateDrugSuccessImplCopyWith<T, _$DeactivateDrugSuccessImpl<T>>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$DeactivateDrugErrorImplCopyWith<T, $Res> {
-  factory _$$DeactivateDrugErrorImplCopyWith(_$DeactivateDrugErrorImpl<T> value,
-          $Res Function(_$DeactivateDrugErrorImpl<T>) then) =
-      __$$DeactivateDrugErrorImplCopyWithImpl<T, $Res>;
-  @useResult
-  $Res call({String message});
-}
-
-/// @nodoc
-class __$$DeactivateDrugErrorImplCopyWithImpl<T, $Res>
-    extends _$PrescriptionStateCopyWithImpl<T, $Res,
-        _$DeactivateDrugErrorImpl<T>>
-    implements _$$DeactivateDrugErrorImplCopyWith<T, $Res> {
-  __$$DeactivateDrugErrorImplCopyWithImpl(_$DeactivateDrugErrorImpl<T> _value,
-      $Res Function(_$DeactivateDrugErrorImpl<T>) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? message = null,
-  }) {
-    return _then(_$DeactivateDrugErrorImpl<T>(
-      null == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$DeactivateDrugErrorImpl<T> implements DeactivateDrugError<T> {
-  const _$DeactivateDrugErrorImpl(this.message);
-
-  @override
-  final String message;
-
-  @override
-  String toString() {
-    return 'PrescriptionState<$T>.deactivateDrugError(message: $message)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$DeactivateDrugErrorImpl<T> &&
-            (identical(other.message, message) || other.message == message));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, message);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$DeactivateDrugErrorImplCopyWith<T, _$DeactivateDrugErrorImpl<T>>
-      get copyWith => __$$DeactivateDrugErrorImplCopyWithImpl<T,
-          _$DeactivateDrugErrorImpl<T>>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() prescriptionLoading,
-    required TResult Function(T data) prescriptionSuccess,
-    required TResult Function(String message) prescriptionError,
-    required TResult Function() prescriptionsLoading,
-    required TResult Function(T doctors, T drugs) prescriptionsSuccess,
-    required TResult Function(String message) prescriptionsError,
-    required TResult Function() activateDrugLoading,
-    required TResult Function(T message) activateDrugSuccess,
-    required TResult Function(String message) activateDrugError,
-    required TResult Function() deactivateDrugLoading,
-    required TResult Function(T message) deactivateDrugSuccess,
-    required TResult Function(String message) deactivateDrugError,
-    required TResult Function() reactivateDrugLoading,
-    required TResult Function(T message) reactivateDrugSuccess,
-    required TResult Function(String message) reactivateDrugError,
-  }) {
-    return deactivateDrugError(message);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? prescriptionLoading,
-    TResult? Function(T data)? prescriptionSuccess,
-    TResult? Function(String message)? prescriptionError,
-    TResult? Function()? prescriptionsLoading,
-    TResult? Function(T doctors, T drugs)? prescriptionsSuccess,
-    TResult? Function(String message)? prescriptionsError,
-    TResult? Function()? activateDrugLoading,
-    TResult? Function(T message)? activateDrugSuccess,
-    TResult? Function(String message)? activateDrugError,
-    TResult? Function()? deactivateDrugLoading,
-    TResult? Function(T message)? deactivateDrugSuccess,
-    TResult? Function(String message)? deactivateDrugError,
-    TResult? Function()? reactivateDrugLoading,
-    TResult? Function(T message)? reactivateDrugSuccess,
-    TResult? Function(String message)? reactivateDrugError,
-  }) {
-    return deactivateDrugError?.call(message);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? prescriptionLoading,
-    TResult Function(T data)? prescriptionSuccess,
-    TResult Function(String message)? prescriptionError,
-    TResult Function()? prescriptionsLoading,
-    TResult Function(T doctors, T drugs)? prescriptionsSuccess,
-    TResult Function(String message)? prescriptionsError,
-    TResult Function()? activateDrugLoading,
-    TResult Function(T message)? activateDrugSuccess,
-    TResult Function(String message)? activateDrugError,
-    TResult Function()? deactivateDrugLoading,
-    TResult Function(T message)? deactivateDrugSuccess,
-    TResult Function(String message)? deactivateDrugError,
-    TResult Function()? reactivateDrugLoading,
-    TResult Function(T message)? reactivateDrugSuccess,
-    TResult Function(String message)? reactivateDrugError,
-    required TResult orElse(),
-  }) {
-    if (deactivateDrugError != null) {
-      return deactivateDrugError(message);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial<T> value) initial,
-    required TResult Function(PrescriptionLoading<T> value) prescriptionLoading,
-    required TResult Function(PrescriptionSuccess<T> value) prescriptionSuccess,
-    required TResult Function(PrescriptionError<T> value) prescriptionError,
-    required TResult Function(PrescriptionsLoading<T> value)
-        prescriptionsLoading,
-    required TResult Function(PrescriptionsSuccess<T> value)
-        prescriptionsSuccess,
-    required TResult Function(PrescriptionsError<T> value) prescriptionsError,
-    required TResult Function(ActivateDrugLoading<T> value) activateDrugLoading,
-    required TResult Function(ActivateDrugSuccess<T> value) activateDrugSuccess,
-    required TResult Function(ActivateDrugError<T> value) activateDrugError,
-    required TResult Function(DeactivateDrugLoading<T> value)
-        deactivateDrugLoading,
-    required TResult Function(DeactivateDrugSuccess<T> value)
-        deactivateDrugSuccess,
-    required TResult Function(DeactivateDrugError<T> value) deactivateDrugError,
-    required TResult Function(ReactivateDrugLoading<T> value)
-        reactivateDrugLoading,
-    required TResult Function(ReactivateDrugSuccess<T> value)
-        reactivateDrugSuccess,
-    required TResult Function(ReactivateDrugError<T> value) reactivateDrugError,
-  }) {
-    return deactivateDrugError(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(PrescriptionLoading<T> value)? prescriptionLoading,
-    TResult? Function(PrescriptionSuccess<T> value)? prescriptionSuccess,
-    TResult? Function(PrescriptionError<T> value)? prescriptionError,
-    TResult? Function(PrescriptionsLoading<T> value)? prescriptionsLoading,
-    TResult? Function(PrescriptionsSuccess<T> value)? prescriptionsSuccess,
-    TResult? Function(PrescriptionsError<T> value)? prescriptionsError,
-    TResult? Function(ActivateDrugLoading<T> value)? activateDrugLoading,
-    TResult? Function(ActivateDrugSuccess<T> value)? activateDrugSuccess,
-    TResult? Function(ActivateDrugError<T> value)? activateDrugError,
-    TResult? Function(DeactivateDrugLoading<T> value)? deactivateDrugLoading,
-    TResult? Function(DeactivateDrugSuccess<T> value)? deactivateDrugSuccess,
-    TResult? Function(DeactivateDrugError<T> value)? deactivateDrugError,
-    TResult? Function(ReactivateDrugLoading<T> value)? reactivateDrugLoading,
-    TResult? Function(ReactivateDrugSuccess<T> value)? reactivateDrugSuccess,
-    TResult? Function(ReactivateDrugError<T> value)? reactivateDrugError,
-  }) {
-    return deactivateDrugError?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial<T> value)? initial,
-    TResult Function(PrescriptionLoading<T> value)? prescriptionLoading,
-    TResult Function(PrescriptionSuccess<T> value)? prescriptionSuccess,
-    TResult Function(PrescriptionError<T> value)? prescriptionError,
-    TResult Function(PrescriptionsLoading<T> value)? prescriptionsLoading,
-    TResult Function(PrescriptionsSuccess<T> value)? prescriptionsSuccess,
-    TResult Function(PrescriptionsError<T> value)? prescriptionsError,
-    TResult Function(ActivateDrugLoading<T> value)? activateDrugLoading,
-    TResult Function(ActivateDrugSuccess<T> value)? activateDrugSuccess,
-    TResult Function(ActivateDrugError<T> value)? activateDrugError,
-    TResult Function(DeactivateDrugLoading<T> value)? deactivateDrugLoading,
-    TResult Function(DeactivateDrugSuccess<T> value)? deactivateDrugSuccess,
-    TResult Function(DeactivateDrugError<T> value)? deactivateDrugError,
-    TResult Function(ReactivateDrugLoading<T> value)? reactivateDrugLoading,
-    TResult Function(ReactivateDrugSuccess<T> value)? reactivateDrugSuccess,
-    TResult Function(ReactivateDrugError<T> value)? reactivateDrugError,
-    required TResult orElse(),
-  }) {
-    if (deactivateDrugError != null) {
-      return deactivateDrugError(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class DeactivateDrugError<T> implements PrescriptionState<T> {
-  const factory DeactivateDrugError(final String message) =
-      _$DeactivateDrugErrorImpl<T>;
-
-  String get message;
-  @JsonKey(ignore: true)
-  _$$DeactivateDrugErrorImplCopyWith<T, _$DeactivateDrugErrorImpl<T>>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$ReactivateDrugLoadingImplCopyWith<T, $Res> {
-  factory _$$ReactivateDrugLoadingImplCopyWith(
-          _$ReactivateDrugLoadingImpl<T> value,
-          $Res Function(_$ReactivateDrugLoadingImpl<T>) then) =
-      __$$ReactivateDrugLoadingImplCopyWithImpl<T, $Res>;
-}
-
-/// @nodoc
-class __$$ReactivateDrugLoadingImplCopyWithImpl<T, $Res>
-    extends _$PrescriptionStateCopyWithImpl<T, $Res,
-        _$ReactivateDrugLoadingImpl<T>>
-    implements _$$ReactivateDrugLoadingImplCopyWith<T, $Res> {
-  __$$ReactivateDrugLoadingImplCopyWithImpl(
-      _$ReactivateDrugLoadingImpl<T> _value,
-      $Res Function(_$ReactivateDrugLoadingImpl<T>) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$ReactivateDrugLoadingImpl<T> implements ReactivateDrugLoading<T> {
-  const _$ReactivateDrugLoadingImpl();
-
-  @override
-  String toString() {
-    return 'PrescriptionState<$T>.reactivateDrugLoading()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ReactivateDrugLoadingImpl<T>);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() prescriptionLoading,
-    required TResult Function(T data) prescriptionSuccess,
-    required TResult Function(String message) prescriptionError,
-    required TResult Function() prescriptionsLoading,
-    required TResult Function(T doctors, T drugs) prescriptionsSuccess,
-    required TResult Function(String message) prescriptionsError,
-    required TResult Function() activateDrugLoading,
-    required TResult Function(T message) activateDrugSuccess,
-    required TResult Function(String message) activateDrugError,
-    required TResult Function() deactivateDrugLoading,
-    required TResult Function(T message) deactivateDrugSuccess,
-    required TResult Function(String message) deactivateDrugError,
-    required TResult Function() reactivateDrugLoading,
-    required TResult Function(T message) reactivateDrugSuccess,
-    required TResult Function(String message) reactivateDrugError,
-  }) {
-    return reactivateDrugLoading();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? prescriptionLoading,
-    TResult? Function(T data)? prescriptionSuccess,
-    TResult? Function(String message)? prescriptionError,
-    TResult? Function()? prescriptionsLoading,
-    TResult? Function(T doctors, T drugs)? prescriptionsSuccess,
-    TResult? Function(String message)? prescriptionsError,
-    TResult? Function()? activateDrugLoading,
-    TResult? Function(T message)? activateDrugSuccess,
-    TResult? Function(String message)? activateDrugError,
-    TResult? Function()? deactivateDrugLoading,
-    TResult? Function(T message)? deactivateDrugSuccess,
-    TResult? Function(String message)? deactivateDrugError,
-    TResult? Function()? reactivateDrugLoading,
-    TResult? Function(T message)? reactivateDrugSuccess,
-    TResult? Function(String message)? reactivateDrugError,
-  }) {
-    return reactivateDrugLoading?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? prescriptionLoading,
-    TResult Function(T data)? prescriptionSuccess,
-    TResult Function(String message)? prescriptionError,
-    TResult Function()? prescriptionsLoading,
-    TResult Function(T doctors, T drugs)? prescriptionsSuccess,
-    TResult Function(String message)? prescriptionsError,
-    TResult Function()? activateDrugLoading,
-    TResult Function(T message)? activateDrugSuccess,
-    TResult Function(String message)? activateDrugError,
-    TResult Function()? deactivateDrugLoading,
-    TResult Function(T message)? deactivateDrugSuccess,
-    TResult Function(String message)? deactivateDrugError,
-    TResult Function()? reactivateDrugLoading,
-    TResult Function(T message)? reactivateDrugSuccess,
-    TResult Function(String message)? reactivateDrugError,
-    required TResult orElse(),
-  }) {
-    if (reactivateDrugLoading != null) {
-      return reactivateDrugLoading();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial<T> value) initial,
-    required TResult Function(PrescriptionLoading<T> value) prescriptionLoading,
-    required TResult Function(PrescriptionSuccess<T> value) prescriptionSuccess,
-    required TResult Function(PrescriptionError<T> value) prescriptionError,
-    required TResult Function(PrescriptionsLoading<T> value)
-        prescriptionsLoading,
-    required TResult Function(PrescriptionsSuccess<T> value)
-        prescriptionsSuccess,
-    required TResult Function(PrescriptionsError<T> value) prescriptionsError,
-    required TResult Function(ActivateDrugLoading<T> value) activateDrugLoading,
-    required TResult Function(ActivateDrugSuccess<T> value) activateDrugSuccess,
-    required TResult Function(ActivateDrugError<T> value) activateDrugError,
-    required TResult Function(DeactivateDrugLoading<T> value)
-        deactivateDrugLoading,
-    required TResult Function(DeactivateDrugSuccess<T> value)
-        deactivateDrugSuccess,
-    required TResult Function(DeactivateDrugError<T> value) deactivateDrugError,
-    required TResult Function(ReactivateDrugLoading<T> value)
-        reactivateDrugLoading,
-    required TResult Function(ReactivateDrugSuccess<T> value)
-        reactivateDrugSuccess,
-    required TResult Function(ReactivateDrugError<T> value) reactivateDrugError,
-  }) {
-    return reactivateDrugLoading(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(PrescriptionLoading<T> value)? prescriptionLoading,
-    TResult? Function(PrescriptionSuccess<T> value)? prescriptionSuccess,
-    TResult? Function(PrescriptionError<T> value)? prescriptionError,
-    TResult? Function(PrescriptionsLoading<T> value)? prescriptionsLoading,
-    TResult? Function(PrescriptionsSuccess<T> value)? prescriptionsSuccess,
-    TResult? Function(PrescriptionsError<T> value)? prescriptionsError,
-    TResult? Function(ActivateDrugLoading<T> value)? activateDrugLoading,
-    TResult? Function(ActivateDrugSuccess<T> value)? activateDrugSuccess,
-    TResult? Function(ActivateDrugError<T> value)? activateDrugError,
-    TResult? Function(DeactivateDrugLoading<T> value)? deactivateDrugLoading,
-    TResult? Function(DeactivateDrugSuccess<T> value)? deactivateDrugSuccess,
-    TResult? Function(DeactivateDrugError<T> value)? deactivateDrugError,
-    TResult? Function(ReactivateDrugLoading<T> value)? reactivateDrugLoading,
-    TResult? Function(ReactivateDrugSuccess<T> value)? reactivateDrugSuccess,
-    TResult? Function(ReactivateDrugError<T> value)? reactivateDrugError,
-  }) {
-    return reactivateDrugLoading?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial<T> value)? initial,
-    TResult Function(PrescriptionLoading<T> value)? prescriptionLoading,
-    TResult Function(PrescriptionSuccess<T> value)? prescriptionSuccess,
-    TResult Function(PrescriptionError<T> value)? prescriptionError,
-    TResult Function(PrescriptionsLoading<T> value)? prescriptionsLoading,
-    TResult Function(PrescriptionsSuccess<T> value)? prescriptionsSuccess,
-    TResult Function(PrescriptionsError<T> value)? prescriptionsError,
-    TResult Function(ActivateDrugLoading<T> value)? activateDrugLoading,
-    TResult Function(ActivateDrugSuccess<T> value)? activateDrugSuccess,
-    TResult Function(ActivateDrugError<T> value)? activateDrugError,
-    TResult Function(DeactivateDrugLoading<T> value)? deactivateDrugLoading,
-    TResult Function(DeactivateDrugSuccess<T> value)? deactivateDrugSuccess,
-    TResult Function(DeactivateDrugError<T> value)? deactivateDrugError,
-    TResult Function(ReactivateDrugLoading<T> value)? reactivateDrugLoading,
-    TResult Function(ReactivateDrugSuccess<T> value)? reactivateDrugSuccess,
-    TResult Function(ReactivateDrugError<T> value)? reactivateDrugError,
-    required TResult orElse(),
-  }) {
-    if (reactivateDrugLoading != null) {
-      return reactivateDrugLoading(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class ReactivateDrugLoading<T> implements PrescriptionState<T> {
-  const factory ReactivateDrugLoading() = _$ReactivateDrugLoadingImpl<T>;
-}
-
-/// @nodoc
-abstract class _$$ReactivateDrugSuccessImplCopyWith<T, $Res> {
-  factory _$$ReactivateDrugSuccessImplCopyWith(
-          _$ReactivateDrugSuccessImpl<T> value,
-          $Res Function(_$ReactivateDrugSuccessImpl<T>) then) =
-      __$$ReactivateDrugSuccessImplCopyWithImpl<T, $Res>;
-  @useResult
-  $Res call({T message});
-}
-
-/// @nodoc
-class __$$ReactivateDrugSuccessImplCopyWithImpl<T, $Res>
-    extends _$PrescriptionStateCopyWithImpl<T, $Res,
-        _$ReactivateDrugSuccessImpl<T>>
-    implements _$$ReactivateDrugSuccessImplCopyWith<T, $Res> {
-  __$$ReactivateDrugSuccessImplCopyWithImpl(
-      _$ReactivateDrugSuccessImpl<T> _value,
-      $Res Function(_$ReactivateDrugSuccessImpl<T>) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? message = freezed,
-  }) {
-    return _then(_$ReactivateDrugSuccessImpl<T>(
-      freezed == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as T,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$ReactivateDrugSuccessImpl<T> implements ReactivateDrugSuccess<T> {
-  const _$ReactivateDrugSuccessImpl(this.message);
-
-  @override
-  final T message;
-
-  @override
-  String toString() {
-    return 'PrescriptionState<$T>.reactivateDrugSuccess(message: $message)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ReactivateDrugSuccessImpl<T> &&
-            const DeepCollectionEquality().equals(other.message, message));
-  }
-
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(message));
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ReactivateDrugSuccessImplCopyWith<T, _$ReactivateDrugSuccessImpl<T>>
-      get copyWith => __$$ReactivateDrugSuccessImplCopyWithImpl<T,
-          _$ReactivateDrugSuccessImpl<T>>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() prescriptionLoading,
-    required TResult Function(T data) prescriptionSuccess,
-    required TResult Function(String message) prescriptionError,
-    required TResult Function() prescriptionsLoading,
-    required TResult Function(T doctors, T drugs) prescriptionsSuccess,
-    required TResult Function(String message) prescriptionsError,
-    required TResult Function() activateDrugLoading,
-    required TResult Function(T message) activateDrugSuccess,
-    required TResult Function(String message) activateDrugError,
-    required TResult Function() deactivateDrugLoading,
-    required TResult Function(T message) deactivateDrugSuccess,
-    required TResult Function(String message) deactivateDrugError,
-    required TResult Function() reactivateDrugLoading,
-    required TResult Function(T message) reactivateDrugSuccess,
-    required TResult Function(String message) reactivateDrugError,
-  }) {
-    return reactivateDrugSuccess(message);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? prescriptionLoading,
-    TResult? Function(T data)? prescriptionSuccess,
-    TResult? Function(String message)? prescriptionError,
-    TResult? Function()? prescriptionsLoading,
-    TResult? Function(T doctors, T drugs)? prescriptionsSuccess,
-    TResult? Function(String message)? prescriptionsError,
-    TResult? Function()? activateDrugLoading,
-    TResult? Function(T message)? activateDrugSuccess,
-    TResult? Function(String message)? activateDrugError,
-    TResult? Function()? deactivateDrugLoading,
-    TResult? Function(T message)? deactivateDrugSuccess,
-    TResult? Function(String message)? deactivateDrugError,
-    TResult? Function()? reactivateDrugLoading,
-    TResult? Function(T message)? reactivateDrugSuccess,
-    TResult? Function(String message)? reactivateDrugError,
-  }) {
-    return reactivateDrugSuccess?.call(message);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? prescriptionLoading,
-    TResult Function(T data)? prescriptionSuccess,
-    TResult Function(String message)? prescriptionError,
-    TResult Function()? prescriptionsLoading,
-    TResult Function(T doctors, T drugs)? prescriptionsSuccess,
-    TResult Function(String message)? prescriptionsError,
-    TResult Function()? activateDrugLoading,
-    TResult Function(T message)? activateDrugSuccess,
-    TResult Function(String message)? activateDrugError,
-    TResult Function()? deactivateDrugLoading,
-    TResult Function(T message)? deactivateDrugSuccess,
-    TResult Function(String message)? deactivateDrugError,
-    TResult Function()? reactivateDrugLoading,
-    TResult Function(T message)? reactivateDrugSuccess,
-    TResult Function(String message)? reactivateDrugError,
-    required TResult orElse(),
-  }) {
-    if (reactivateDrugSuccess != null) {
-      return reactivateDrugSuccess(message);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial<T> value) initial,
-    required TResult Function(PrescriptionLoading<T> value) prescriptionLoading,
-    required TResult Function(PrescriptionSuccess<T> value) prescriptionSuccess,
-    required TResult Function(PrescriptionError<T> value) prescriptionError,
-    required TResult Function(PrescriptionsLoading<T> value)
-        prescriptionsLoading,
-    required TResult Function(PrescriptionsSuccess<T> value)
-        prescriptionsSuccess,
-    required TResult Function(PrescriptionsError<T> value) prescriptionsError,
-    required TResult Function(ActivateDrugLoading<T> value) activateDrugLoading,
-    required TResult Function(ActivateDrugSuccess<T> value) activateDrugSuccess,
-    required TResult Function(ActivateDrugError<T> value) activateDrugError,
-    required TResult Function(DeactivateDrugLoading<T> value)
-        deactivateDrugLoading,
-    required TResult Function(DeactivateDrugSuccess<T> value)
-        deactivateDrugSuccess,
-    required TResult Function(DeactivateDrugError<T> value) deactivateDrugError,
-    required TResult Function(ReactivateDrugLoading<T> value)
-        reactivateDrugLoading,
-    required TResult Function(ReactivateDrugSuccess<T> value)
-        reactivateDrugSuccess,
-    required TResult Function(ReactivateDrugError<T> value) reactivateDrugError,
-  }) {
-    return reactivateDrugSuccess(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(PrescriptionLoading<T> value)? prescriptionLoading,
-    TResult? Function(PrescriptionSuccess<T> value)? prescriptionSuccess,
-    TResult? Function(PrescriptionError<T> value)? prescriptionError,
-    TResult? Function(PrescriptionsLoading<T> value)? prescriptionsLoading,
-    TResult? Function(PrescriptionsSuccess<T> value)? prescriptionsSuccess,
-    TResult? Function(PrescriptionsError<T> value)? prescriptionsError,
-    TResult? Function(ActivateDrugLoading<T> value)? activateDrugLoading,
-    TResult? Function(ActivateDrugSuccess<T> value)? activateDrugSuccess,
-    TResult? Function(ActivateDrugError<T> value)? activateDrugError,
-    TResult? Function(DeactivateDrugLoading<T> value)? deactivateDrugLoading,
-    TResult? Function(DeactivateDrugSuccess<T> value)? deactivateDrugSuccess,
-    TResult? Function(DeactivateDrugError<T> value)? deactivateDrugError,
-    TResult? Function(ReactivateDrugLoading<T> value)? reactivateDrugLoading,
-    TResult? Function(ReactivateDrugSuccess<T> value)? reactivateDrugSuccess,
-    TResult? Function(ReactivateDrugError<T> value)? reactivateDrugError,
-  }) {
-    return reactivateDrugSuccess?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial<T> value)? initial,
-    TResult Function(PrescriptionLoading<T> value)? prescriptionLoading,
-    TResult Function(PrescriptionSuccess<T> value)? prescriptionSuccess,
-    TResult Function(PrescriptionError<T> value)? prescriptionError,
-    TResult Function(PrescriptionsLoading<T> value)? prescriptionsLoading,
-    TResult Function(PrescriptionsSuccess<T> value)? prescriptionsSuccess,
-    TResult Function(PrescriptionsError<T> value)? prescriptionsError,
-    TResult Function(ActivateDrugLoading<T> value)? activateDrugLoading,
-    TResult Function(ActivateDrugSuccess<T> value)? activateDrugSuccess,
-    TResult Function(ActivateDrugError<T> value)? activateDrugError,
-    TResult Function(DeactivateDrugLoading<T> value)? deactivateDrugLoading,
-    TResult Function(DeactivateDrugSuccess<T> value)? deactivateDrugSuccess,
-    TResult Function(DeactivateDrugError<T> value)? deactivateDrugError,
-    TResult Function(ReactivateDrugLoading<T> value)? reactivateDrugLoading,
-    TResult Function(ReactivateDrugSuccess<T> value)? reactivateDrugSuccess,
-    TResult Function(ReactivateDrugError<T> value)? reactivateDrugError,
-    required TResult orElse(),
-  }) {
-    if (reactivateDrugSuccess != null) {
-      return reactivateDrugSuccess(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class ReactivateDrugSuccess<T> implements PrescriptionState<T> {
-  const factory ReactivateDrugSuccess(final T message) =
-      _$ReactivateDrugSuccessImpl<T>;
-
-  T get message;
-  @JsonKey(ignore: true)
-  _$$ReactivateDrugSuccessImplCopyWith<T, _$ReactivateDrugSuccessImpl<T>>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$ReactivateDrugErrorImplCopyWith<T, $Res> {
-  factory _$$ReactivateDrugErrorImplCopyWith(_$ReactivateDrugErrorImpl<T> value,
-          $Res Function(_$ReactivateDrugErrorImpl<T>) then) =
-      __$$ReactivateDrugErrorImplCopyWithImpl<T, $Res>;
-  @useResult
-  $Res call({String message});
-}
-
-/// @nodoc
-class __$$ReactivateDrugErrorImplCopyWithImpl<T, $Res>
-    extends _$PrescriptionStateCopyWithImpl<T, $Res,
-        _$ReactivateDrugErrorImpl<T>>
-    implements _$$ReactivateDrugErrorImplCopyWith<T, $Res> {
-  __$$ReactivateDrugErrorImplCopyWithImpl(_$ReactivateDrugErrorImpl<T> _value,
-      $Res Function(_$ReactivateDrugErrorImpl<T>) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? message = null,
-  }) {
-    return _then(_$ReactivateDrugErrorImpl<T>(
-      null == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$ReactivateDrugErrorImpl<T> implements ReactivateDrugError<T> {
-  const _$ReactivateDrugErrorImpl(this.message);
-
-  @override
-  final String message;
-
-  @override
-  String toString() {
-    return 'PrescriptionState<$T>.reactivateDrugError(message: $message)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ReactivateDrugErrorImpl<T> &&
-            (identical(other.message, message) || other.message == message));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, message);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ReactivateDrugErrorImplCopyWith<T, _$ReactivateDrugErrorImpl<T>>
-      get copyWith => __$$ReactivateDrugErrorImplCopyWithImpl<T,
-          _$ReactivateDrugErrorImpl<T>>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() prescriptionLoading,
-    required TResult Function(T data) prescriptionSuccess,
-    required TResult Function(String message) prescriptionError,
-    required TResult Function() prescriptionsLoading,
-    required TResult Function(T doctors, T drugs) prescriptionsSuccess,
-    required TResult Function(String message) prescriptionsError,
-    required TResult Function() activateDrugLoading,
-    required TResult Function(T message) activateDrugSuccess,
-    required TResult Function(String message) activateDrugError,
-    required TResult Function() deactivateDrugLoading,
-    required TResult Function(T message) deactivateDrugSuccess,
-    required TResult Function(String message) deactivateDrugError,
-    required TResult Function() reactivateDrugLoading,
-    required TResult Function(T message) reactivateDrugSuccess,
-    required TResult Function(String message) reactivateDrugError,
-  }) {
-    return reactivateDrugError(message);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? prescriptionLoading,
-    TResult? Function(T data)? prescriptionSuccess,
-    TResult? Function(String message)? prescriptionError,
-    TResult? Function()? prescriptionsLoading,
-    TResult? Function(T doctors, T drugs)? prescriptionsSuccess,
-    TResult? Function(String message)? prescriptionsError,
-    TResult? Function()? activateDrugLoading,
-    TResult? Function(T message)? activateDrugSuccess,
-    TResult? Function(String message)? activateDrugError,
-    TResult? Function()? deactivateDrugLoading,
-    TResult? Function(T message)? deactivateDrugSuccess,
-    TResult? Function(String message)? deactivateDrugError,
-    TResult? Function()? reactivateDrugLoading,
-    TResult? Function(T message)? reactivateDrugSuccess,
-    TResult? Function(String message)? reactivateDrugError,
-  }) {
-    return reactivateDrugError?.call(message);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? prescriptionLoading,
-    TResult Function(T data)? prescriptionSuccess,
-    TResult Function(String message)? prescriptionError,
-    TResult Function()? prescriptionsLoading,
-    TResult Function(T doctors, T drugs)? prescriptionsSuccess,
-    TResult Function(String message)? prescriptionsError,
-    TResult Function()? activateDrugLoading,
-    TResult Function(T message)? activateDrugSuccess,
-    TResult Function(String message)? activateDrugError,
-    TResult Function()? deactivateDrugLoading,
-    TResult Function(T message)? deactivateDrugSuccess,
-    TResult Function(String message)? deactivateDrugError,
-    TResult Function()? reactivateDrugLoading,
-    TResult Function(T message)? reactivateDrugSuccess,
-    TResult Function(String message)? reactivateDrugError,
-    required TResult orElse(),
-  }) {
-    if (reactivateDrugError != null) {
-      return reactivateDrugError(message);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial<T> value) initial,
-    required TResult Function(PrescriptionLoading<T> value) prescriptionLoading,
-    required TResult Function(PrescriptionSuccess<T> value) prescriptionSuccess,
-    required TResult Function(PrescriptionError<T> value) prescriptionError,
-    required TResult Function(PrescriptionsLoading<T> value)
-        prescriptionsLoading,
-    required TResult Function(PrescriptionsSuccess<T> value)
-        prescriptionsSuccess,
-    required TResult Function(PrescriptionsError<T> value) prescriptionsError,
-    required TResult Function(ActivateDrugLoading<T> value) activateDrugLoading,
-    required TResult Function(ActivateDrugSuccess<T> value) activateDrugSuccess,
-    required TResult Function(ActivateDrugError<T> value) activateDrugError,
-    required TResult Function(DeactivateDrugLoading<T> value)
-        deactivateDrugLoading,
-    required TResult Function(DeactivateDrugSuccess<T> value)
-        deactivateDrugSuccess,
-    required TResult Function(DeactivateDrugError<T> value) deactivateDrugError,
-    required TResult Function(ReactivateDrugLoading<T> value)
-        reactivateDrugLoading,
-    required TResult Function(ReactivateDrugSuccess<T> value)
-        reactivateDrugSuccess,
-    required TResult Function(ReactivateDrugError<T> value) reactivateDrugError,
-  }) {
-    return reactivateDrugError(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(PrescriptionLoading<T> value)? prescriptionLoading,
-    TResult? Function(PrescriptionSuccess<T> value)? prescriptionSuccess,
-    TResult? Function(PrescriptionError<T> value)? prescriptionError,
-    TResult? Function(PrescriptionsLoading<T> value)? prescriptionsLoading,
-    TResult? Function(PrescriptionsSuccess<T> value)? prescriptionsSuccess,
-    TResult? Function(PrescriptionsError<T> value)? prescriptionsError,
-    TResult? Function(ActivateDrugLoading<T> value)? activateDrugLoading,
-    TResult? Function(ActivateDrugSuccess<T> value)? activateDrugSuccess,
-    TResult? Function(ActivateDrugError<T> value)? activateDrugError,
-    TResult? Function(DeactivateDrugLoading<T> value)? deactivateDrugLoading,
-    TResult? Function(DeactivateDrugSuccess<T> value)? deactivateDrugSuccess,
-    TResult? Function(DeactivateDrugError<T> value)? deactivateDrugError,
-    TResult? Function(ReactivateDrugLoading<T> value)? reactivateDrugLoading,
-    TResult? Function(ReactivateDrugSuccess<T> value)? reactivateDrugSuccess,
-    TResult? Function(ReactivateDrugError<T> value)? reactivateDrugError,
-  }) {
-    return reactivateDrugError?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial<T> value)? initial,
-    TResult Function(PrescriptionLoading<T> value)? prescriptionLoading,
-    TResult Function(PrescriptionSuccess<T> value)? prescriptionSuccess,
-    TResult Function(PrescriptionError<T> value)? prescriptionError,
-    TResult Function(PrescriptionsLoading<T> value)? prescriptionsLoading,
-    TResult Function(PrescriptionsSuccess<T> value)? prescriptionsSuccess,
-    TResult Function(PrescriptionsError<T> value)? prescriptionsError,
-    TResult Function(ActivateDrugLoading<T> value)? activateDrugLoading,
-    TResult Function(ActivateDrugSuccess<T> value)? activateDrugSuccess,
-    TResult Function(ActivateDrugError<T> value)? activateDrugError,
-    TResult Function(DeactivateDrugLoading<T> value)? deactivateDrugLoading,
-    TResult Function(DeactivateDrugSuccess<T> value)? deactivateDrugSuccess,
-    TResult Function(DeactivateDrugError<T> value)? deactivateDrugError,
-    TResult Function(ReactivateDrugLoading<T> value)? reactivateDrugLoading,
-    TResult Function(ReactivateDrugSuccess<T> value)? reactivateDrugSuccess,
-    TResult Function(ReactivateDrugError<T> value)? reactivateDrugError,
-    required TResult orElse(),
-  }) {
-    if (reactivateDrugError != null) {
-      return reactivateDrugError(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class ReactivateDrugError<T> implements PrescriptionState<T> {
-  const factory ReactivateDrugError(final String message) =
-      _$ReactivateDrugErrorImpl<T>;
-
-  String get message;
-  @JsonKey(ignore: true)
-  _$$ReactivateDrugErrorImplCopyWith<T, _$ReactivateDrugErrorImpl<T>>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$StateErrorImplCopyWith<T, _$StateErrorImpl<T>> get copyWith =>
+      throw _privateConstructorUsedError;
 }

@@ -1,6 +1,4 @@
 import 'dart:async';
-import 'dart:io';
-
 import 'package:dio/dio.dart';
 import 'package:logger/logger.dart';
 import 'package:pharmalink/core/networking/api/auth_service.dart';
@@ -11,8 +9,6 @@ import '../../../features/access/auth/logic/cubit/auth_cubit.dart';
 import '../../../features/access/sign/data/models/signin/signin_response.dart';
 import '../../di/dependency_injection.dart';
 import 'api_constants.dart';
-import 'api_error_handler.dart';
-import 'api_result.dart';
 
 class RefreshTokenInterceptor extends Interceptor {
   List<Map<dynamic, dynamic>> failedRequests = [];
@@ -172,11 +168,13 @@ class RefreshTokenInterceptor extends Interceptor {
       try {
         // Call your refresh token API
         final newAccessToken = await _refreshToken();
+        // Save the new access token
+        setAccessToken(newAccessToken.accessToken);
         // Update the authorization header
-        dio.options.headers["Authorization"] = "${ApiConstants.tokenKey} ${newAccessToken.accessToken}";
+        dio.options.headers["Authorization"] = AuthSharedPrefs.getAccessToken();
         // Retry the failed request with the new token
         final options = err.response!.requestOptions;
-        options.headers["Authorization"] = "${ApiConstants.tokenKey} ${newAccessToken.accessToken}";
+        options.headers["Authorization"] = AuthSharedPrefs.getAccessToken();
         final response = await dio.fetch(options);
         return handler.resolve(response);
       } catch (e) {

@@ -39,13 +39,17 @@ class ApiConstants {
   // Get Reminder List
   static const reminderList = "Reminder/list/";
 
-  // Add Reminder
+  // Check Reminder
   static const makeReminderDone = "Reminder/check/{reminder_id}/";
 
   // Prescription
   static const prescriptionsList1 =
       "Prescription/user/state-prescriptions/Doctorinfo/";
   static const prescriptionsList2 = "Prescription/user/active-prescriptions/";
+  static const activatePrescription =
+      "Prescription/user/activate-prescription/{prescription_id}/";
+  static const deactivatePrescription =
+      "Prescription/user/deactivate-prescription/{prescription_id}/";
 
   // Prescription Detail
   static const specificPrescriptionInfo =

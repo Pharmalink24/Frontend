@@ -24,7 +24,10 @@ class ChangeImageListener extends StatelessWidget {
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: Text('Success', style: AppTextStyle.headlineLarge(context)),
+          title: Text(
+            'Success',
+            style: AppTextStyle.headlineLarge(context),
+          ),
           content: Text('Image uploaded successfully',
               style: AppTextStyle.bodyMedium(context)),
           actions: <Widget>[
@@ -35,7 +38,10 @@ class ChangeImageListener extends StatelessWidget {
                 context.pushRoute(
                     const MainRoute()); // Todo: Refresh the page after uploading the image successfully
               },
-              child: const Text('OK'),
+              child: Text(
+                'Ok',
+                style: AppTextStyle.labelLarge(context),
+              ),
             ),
           ],
         );

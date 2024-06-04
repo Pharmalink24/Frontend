@@ -122,7 +122,10 @@ class PrescriptionHeaderCard extends StatelessWidget {
             Text(
               '${AppLocalizations.of(context).translate("dr")} $doctorFirstName $doctorLastName'
                   .crop(18),
-              style: AppTextStyle.titleLarge(context),
+              style: AppTextStyle.titleLarge(context).copyWith(
+                color: context.colorScheme.scrim,
+                fontWeight: FontWeight.bold,
+              ),
             ),
             const SizedBox(height: 8.0),
             _buildTime(context),

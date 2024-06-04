@@ -114,6 +114,20 @@ abstract class ApiService {
     @Header('Authorization') String? auth,
   );
 
+  // Activate Prescription
+  @POST(ApiConstants.activatePrescription)
+  Future<MessageResponse> activatePrescription(
+    @Path('prescription_id') int prescriptionId,
+    @Header('Authorization') String? auth,
+  );
+
+  // Deactivate Prescription
+  @POST(ApiConstants.deactivatePrescription)
+  Future<MessageResponse> deactivatePrescription(
+    @Path('prescription_id') int prescriptionId,
+    @Header('Authorization') String? auth,
+  );
+
   //-------------------- DRUG INTERACTION --------------------//
 
   // Search Drug from drug eye

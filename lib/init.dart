@@ -17,9 +17,9 @@ Future<void> init() async {
 
   // Initialize get it
   setupGetIt();
-  
+
   // Initialize PreferenceUtils instance.
-  await SharedPrefsService.init();
+  await sharedPreferencesInit();
 
   // Initialize firebase messaging
   await firebaseMessagingInit();
@@ -29,6 +29,11 @@ Future<void> init() async {
 
   // Initialize background service
   await initializeBackgroundAndForegroundService();
+}
+
+Future<void> sharedPreferencesInit() async {
+  await SharedPrefsService.init();
+  // EntrySharedPrefs.clearEntry();
 }
 
 Future<void> firebaseMessagingInit() async {

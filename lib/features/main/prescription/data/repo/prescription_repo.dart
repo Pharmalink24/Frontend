@@ -57,8 +57,43 @@ class PrescriptionRepo {
     }
   }
 
+  // Activate Prescription
+  Future<ApiResult<MessageResponse>> activatePrescription(
+    int prescriptionId,
+  ) async {
+    try {
+      final message = await _apiService.activatePrescription(
+        prescriptionId,
+        AuthSharedPrefs.getAccessToken(),
+      );
+      return ApiResult.success(message);
+    } catch (error) {
+      getIt<Logger>().e(error);
+      return ApiResult.failure(ErrorHandler.handle(error));
+    }
+  }
+
+  // Deactivate Prescription
+  Future<ApiResult<MessageResponse>> deactivatePrescription(
+    int prescriptionId,
+  ) async {
+    try {
+      final message = await _apiService.deactivatePrescription(
+        prescriptionId,
+        AuthSharedPrefs.getAccessToken(),
+      );
+      return ApiResult.success(message);
+    } catch (error) {
+      getIt<Logger>().e(error);
+      return ApiResult.failure(ErrorHandler.handle(error));
+    }
+  }
+
+  // Activate Drug
   Future<ApiResult<MessageResponse>> activateDrug(
-      int prescriptionId, String drugName) async {
+    int prescriptionId,
+    String drugName,
+  ) async {
     try {
       final message = await _apiService.activateDrug(
         prescriptionId,
@@ -72,8 +107,11 @@ class PrescriptionRepo {
     }
   }
 
+  // Deactivate Drug
   Future<ApiResult<MessageResponse>> deactivateDrug(
-      int prescriptionId, String drugName) async {
+    int prescriptionId,
+    String drugName,
+  ) async {
     try {
       final message = await _apiService.deactivateDrug(
         prescriptionId,

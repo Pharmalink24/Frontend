@@ -147,32 +147,8 @@ class HomeHeaderRow extends StatelessWidget {
 
   // Shimmer effect
   static Widget buildShimmer(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      crossAxisAlignment: CrossAxisAlignment.end,
-      children: [
-        Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            AppShimmer.circle(
-              context,
-              width: 40,
-              height: 40,
-            ),
-            const SizedBox(width: 10),
-            AppShimmer.rectangle(
-              context,
-              width: 200,
-              height: 40,
-            ),
-          ],
-        ),
-        AppShimmer.circle(
-          context,
-          width: 40,
-          height: 40,
-        ),
-      ],
+    return const AppShimmer(
+      child: HomeHeaderRow(),
     );
   }
 }

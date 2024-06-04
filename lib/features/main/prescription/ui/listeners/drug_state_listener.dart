@@ -2,10 +2,9 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pharmalink/core/routes/app_router.dart';
+import 'package:pharmalink/core/theme/styles.dart';
 import 'package:pharmalink/features/main/prescription/logic/prescription_state.dart';
-
 import '../../../../../core/enums/drug_state.dart';
-import '../../../../../core/models/message_response.dart';
 import '../../../../../core/widgets/loading/loading_overlay.dart';
 import '../../logic/prescription_cubit.dart';
 
@@ -39,19 +38,23 @@ class DrugStateListener extends StatelessWidget {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('Success'),
+        title: Text(
+          'Success',
+          style: AppTextStyle.headlineLarge(context),
+        ),
         content: Text(message),
         actions: [
           TextButton(
             onPressed: () {
-              context.maybePop(); 
-              
-              // Todo: add push Replacement
-              context.pushRoute(
-                PrescriptionsRoute(state: state),
+              context.maybePop();
+              context.navigateTo(
+                const MainPrescriptionRoute(),
               );
             },
-            child: const Text('OK'),
+            child: Text(
+              'Ok',
+              style: AppTextStyle.labelLarge(context),
+            ),
           ),
         ],
       ),
@@ -67,27 +70,17 @@ class DrugStateListener extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocListener<PrescriptionCubit, PrescriptionState>(
       listenWhen: (previous, current) =>
-          current is ActivateDrugError ||
-          current is ActivateDrugSuccess ||
-          current is ActivateDrugLoading ||
-          current is DeactivateDrugError ||
-          current is DeactivateDrugSuccess ||
-          current is DeactivateDrugLoading,
+          current is StateError ||
+          current is StateSuccess ||
+          current is StateLoading,
       listener: (context, state) {
-        if (state is ActivateDrugError) {
-          _showErrorDialog(context, state.message);
-        } else if (state is ActivateDrugSuccess) {
-          var data = state.message as MessageResponse;
-          _showSuccessDialog(context, data.message);
-        } else if (state is ActivateDrugLoading) {
-          _showLoading(context);
-        } else if (state is DeactivateDrugError) {
-          _showErrorDialog(context, state.message);
-        } else if (state is DeactivateDrugSuccess) {
-          var data = state.message as MessageResponse;
-
-          _showSuccessDialog(context, data.message);
-        } else if (state is DeactivateDrugLoading) {
+        if (state is StateError) {
+          var message = state.message;
+          _showErrorDialog(context, message);
+        } else if (state is StateSuccess) {
+          var message = state.message;
+          _showSuccessDialog(context, message.message);
+        } else if (state is StateLoading) {
           _showLoading(context);
         }
       },

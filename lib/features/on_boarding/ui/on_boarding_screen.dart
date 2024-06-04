@@ -4,52 +4,13 @@ import 'package:introduction_screen/introduction_screen.dart';
 import 'package:pharmalink/core/routes/app_router.dart';
 import 'package:pharmalink/core/theme/colors.dart';
 import '../../../core/localization/app_localizations.dart';
-import '../models/on_boarding_pages.dart';
 import '../../../core/theme/styles.dart';
-import 'widgets/intro_image.dart';
-import "../models/on_boarding_page.dart";
 import 'package:auto_route/auto_route.dart';
+import 'widgets/on_boarding_screens.dart';
 
 @RoutePage()
-class OnBoardingScreen extends StatefulWidget {
+class OnBoardingScreen extends StatelessWidget {
   const OnBoardingScreen({super.key});
-
-  @override
-  OnBoardingScreenState createState() => OnBoardingScreenState();
-}
-
-class OnBoardingScreenState extends State<OnBoardingScreen> {
-  List<PageViewModel> listPagesViewModel = [];
-
-  @override
-  void initState() {
-    for (OnBoardingPageModel pageModel in onBoardingPages) {
-      listPagesViewModel.add(
-        PageViewModel(
-          title: AppLocalizations.of(context).isEnLocale
-              ? pageModel.title
-              : pageModel.titleInArabic,
-          body: AppLocalizations.of(context).isEnLocale
-              ? pageModel.body
-              : pageModel.bodyInArabic,
-          image: IntroImage(path: pageModel.image),
-          decoration: PageDecoration(
-            titleTextStyle: AppTextStyle.headlineLarge(context).copyWith(
-              fontWeight: FontWeight.w700,
-            ),
-            bodyTextStyle: AppTextStyle.labelSmall(context)
-                .copyWith(fontSize: 16.0, fontWeight: FontWeight.w700),
-            pageColor: context.colorScheme.surface,
-            imagePadding: const EdgeInsets.all(0.0),
-            imageFlex: 7,
-            bodyFlex: 5,
-            footerFlex: 1,
-          ),
-        ),
-      );
-    }
-    super.initState();
-  }
 
   void _onIntroEnd(BuildContext context) {
     // Push to sign screen
@@ -59,7 +20,7 @@ class OnBoardingScreenState extends State<OnBoardingScreen> {
   @override
   Widget build(BuildContext context) {
     return IntroductionScreen(
-      pages: listPagesViewModel,
+      pages: createListPagesViewModel(context),
       globalBackgroundColor: context.colorScheme.surface,
       allowImplicitScrolling: true,
       onDone: () => _onIntroEnd(context),
@@ -79,7 +40,6 @@ class OnBoardingScreenState extends State<OnBoardingScreen> {
         AppLocalizations.of(context).translate('signIn'),
         style: AppTextStyle.labelMedium(context).copyWith(
           color: context.colorScheme.tertiary,
-          // fontSize: 15.0,
         ),
       ),
       controlsMargin: const EdgeInsets.all(16),

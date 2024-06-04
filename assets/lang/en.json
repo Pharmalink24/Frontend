@@ -60,7 +60,7 @@
     "newDrugsDescription": "View or activate new drugs.",
     "Active": "Active",
     "activeDrugs": "Active Drugs",
-    "activeDrugsDescription": "View or deactivate new drugs.",
+    "activeDrugsDescription": "View or deactivate active drugs.",
     "Inactive": "Inactive",
     "inactiveDrugs": "Inactive Drugs",
     "inactiveDrugsDescription": "View or reactivate past drugs.",

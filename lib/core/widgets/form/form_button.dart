@@ -12,6 +12,7 @@ class FormButton extends StatelessWidget {
   final bool hideKeyboardWhenClicked;
   final double? width;
   final double? height;
+  final Color? textColor;
 
   const FormButton({
     super.key,
@@ -24,6 +25,7 @@ class FormButton extends StatelessWidget {
     this.hideKeyboardWhenClicked = true,
     this.width = double.infinity,
     this.height = 50.0,
+    this.textColor,
   });
 
   @override
@@ -55,7 +57,7 @@ class FormButton extends StatelessWidget {
           child: Text(
             text,
             style: AppTextStyle.titleSmall(context).copyWith(
-              color: context.colorScheme.primaryContainer,
+              color: textColor ?? context.colorScheme.primaryContainer,
             ),
           ),
         ),

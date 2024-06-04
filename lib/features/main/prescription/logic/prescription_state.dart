@@ -20,27 +20,8 @@ class PrescriptionState<T> with _$PrescriptionState<T> {
   const factory PrescriptionState.prescriptionsError(String message) =
       PrescriptionsError;
 
-  // Activate Drug
-  const factory PrescriptionState.activateDrugLoading() = ActivateDrugLoading;
-  const factory PrescriptionState.activateDrugSuccess(T message) =
-      ActivateDrugSuccess<T>;
-  const factory PrescriptionState.activateDrugError(String message) =
-      ActivateDrugError;
-
-  // Deactivate Drug
-  const factory PrescriptionState.deactivateDrugLoading() =
-      DeactivateDrugLoading;
-  const factory PrescriptionState.deactivateDrugSuccess(T message) =
-      DeactivateDrugSuccess<T>;
-  const factory PrescriptionState.deactivateDrugError(String message) =
-      DeactivateDrugError;
-
-  // Reactivate Drug
-    const factory PrescriptionState.reactivateDrugLoading() =
-      ReactivateDrugLoading;
-  const factory PrescriptionState.reactivateDrugSuccess(T message) =
-      ReactivateDrugSuccess<T>;
-  const factory PrescriptionState.reactivateDrugError(String message) =
-      ReactivateDrugError;
-
+  // Activate & Deactivate & Reactivate Drug
+  const factory PrescriptionState.stateLoading() = StateLoading;
+  const factory PrescriptionState.stateSuccess(T message) = StateSuccess<T>;
+  const factory PrescriptionState.stateError(String message) = StateError;
 }

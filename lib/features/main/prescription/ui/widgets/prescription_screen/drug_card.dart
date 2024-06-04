@@ -3,13 +3,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:pharmalink/core/enums/drug_state.dart';
 import 'package:pharmalink/core/theme/colors.dart';
+import 'package:pharmalink/core/widgets/form/form_button.dart';
 import 'package:pharmalink/features/main/prescription/logic/prescription_cubit.dart';
 import '../../../../../../core/localization/app_localizations.dart';
 import '../../../../../../core/models/drug_info.dart';
 import '../../../../../../core/theme/styles.dart';
 import 'package:expansion_tile_card/expansion_tile_card.dart';
-
-import '../ff_button_widget.dart';
 
 class DrugCard extends StatelessWidget {
   final String tradeName;
@@ -26,12 +25,12 @@ class DrugCard extends StatelessWidget {
   Widget _buildDrugIcon(BuildContext context) {
     return drugInfo.dosageUnit == 'capsule'
         ? Icon(
-            size: 30.0,
+            size: 28.0,
             FontAwesomeIcons.capsules,
             color: context.colorScheme.primary,
           )
         : Icon(
-            size: 30.0,
+            size: 28.0,
             FontAwesomeIcons.syringe,
             color: context.colorScheme.primary,
           );
@@ -40,7 +39,7 @@ class DrugCard extends StatelessWidget {
   Widget _buildTradeName(BuildContext context) {
     return Text(
       tradeName,
-      style: AppTextStyle.bodySmall(context),
+      style: AppTextStyle.bodyMedium(context),
     );
   }
 
@@ -53,46 +52,37 @@ class DrugCard extends StatelessWidget {
 
   Widget _buildButtonBar(BuildContext context) {
     if (drugInfo.state == DrugState.NEW) {
-      return FFButtonWidget(
+      return FormButton(
+        width: double.infinity,
         onPressed: () {
           context
               .read<PrescriptionCubit>()
               .activateDrug(prescriptionId, tradeName);
         },
         text: AppLocalizations.of(context).translate('activate'),
-        options: FFButtonOptions(
-          width: double.infinity,
-          color: context.colorScheme.primary,
-          textStyle: AppTextStyle.titleSmall(context),
-        ),
+        color: context.colorScheme.primary,
       );
     } else if (drugInfo.state == DrugState.ACTIVE) {
-      return FFButtonWidget(
+      return FormButton(
+        width: double.infinity,
         onPressed: () {
           context
               .read<PrescriptionCubit>()
               .deactivateDrug(prescriptionId, tradeName);
         },
         text: AppLocalizations.of(context).translate('deactivate'),
-        options: FFButtonOptions(
-          width: double.infinity,
-          color: context.colorScheme.primary,
-          textStyle: AppTextStyle.titleSmall(context),
-        ),
+        color: context.colorScheme.primary,
       );
     } else {
-      return FFButtonWidget(
+      return FormButton(
+        width: double.infinity,
         onPressed: () {
           context
               .read<PrescriptionCubit>()
               .reactivateDrug(prescriptionId, tradeName);
         },
         text: AppLocalizations.of(context).translate('reactivate'),
-        options: FFButtonOptions(
-          width: double.infinity,
-          color: context.colorScheme.primary,
-          textStyle: AppTextStyle.titleSmall(context),
-        ),
+        color: context.colorScheme.primary,
       );
     }
   }
