@@ -110,10 +110,13 @@ class ChatCubit extends Cubit<ChatState> {
 
   // Send message to the chat channel
   void sendMessage(int receiverDoctorId) {
-    if (messageController.text.isNotEmpty) {
+    var message = messageController.text.trim(); 
+    if (message.isNotEmpty) {
       // Create the message
       _chatRepo.sendMessageToMessagingChannel(
-          receiverDoctorId, messageController.text);
+        receiverDoctorId,
+        message,
+      );
 
       // Clear the input field
       messageController.clear();
