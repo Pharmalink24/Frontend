@@ -17,29 +17,17 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      throw UnsupportedError(
-        'DefaultFirebaseOptions have not been configured for web - '
-        'you can reconfigure this by running the FlutterFire CLI again.',
-      );
+      return web;
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
         return android;
       case TargetPlatform.iOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for ios - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return ios;
       case TargetPlatform.macOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for macos - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return macos;
       case TargetPlatform.windows:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for windows - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return windows;
       case TargetPlatform.linux:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for linux - '
@@ -59,4 +47,43 @@ class DefaultFirebaseOptions {
     projectId: 'pharmalink-333f6',
     storageBucket: 'pharmalink-333f6.appspot.com',
   );
+
+  static const FirebaseOptions web = FirebaseOptions(
+    apiKey: 'AIzaSyB0ebdc6g0Ul0fYoNodvess1hf-l8693uU',
+    appId: '1:196203930512:web:1b7b18c90bbd28a6cec915',
+    messagingSenderId: '196203930512',
+    projectId: 'pharmalink-333f6',
+    authDomain: 'pharmalink-333f6.firebaseapp.com',
+    storageBucket: 'pharmalink-333f6.appspot.com',
+    measurementId: 'G-J9V84JBXR6',
+  );
+
+  static const FirebaseOptions macos = FirebaseOptions(
+    apiKey: 'AIzaSyBcvdaYPezRWPcfSYxNsefl_Nq49BcPR2I',
+    appId: '1:196203930512:ios:e4215ef538a9699ecec915',
+    messagingSenderId: '196203930512',
+    projectId: 'pharmalink-333f6',
+    storageBucket: 'pharmalink-333f6.appspot.com',
+    iosBundleId: 'com.example.pharmalink',
+  );
+
+  static const FirebaseOptions ios = FirebaseOptions(
+    apiKey: 'AIzaSyBcvdaYPezRWPcfSYxNsefl_Nq49BcPR2I',
+    appId: '1:196203930512:ios:e4215ef538a9699ecec915',
+    messagingSenderId: '196203930512',
+    projectId: 'pharmalink-333f6',
+    storageBucket: 'pharmalink-333f6.appspot.com',
+    iosBundleId: 'com.example.pharmalink',
+  );
+
+  static const FirebaseOptions windows = FirebaseOptions(
+    apiKey: 'AIzaSyB0ebdc6g0Ul0fYoNodvess1hf-l8693uU',
+    appId: '1:196203930512:web:871eb2630a92c6b4cec915',
+    messagingSenderId: '196203930512',
+    projectId: 'pharmalink-333f6',
+    authDomain: 'pharmalink-333f6.firebaseapp.com',
+    storageBucket: 'pharmalink-333f6.appspot.com',
+    measurementId: 'G-Y6C71R6DPR',
+  );
+
 }
