@@ -65,6 +65,9 @@ class ApiConstants {
 
   // Chat
   static const getMessagesHistory = "chat/user-retrieve-messages/";
+
+  // Set Device Token
+  static const setDeviceToken = "user/update_device_token/";
 }
 
 class ApiErrors {

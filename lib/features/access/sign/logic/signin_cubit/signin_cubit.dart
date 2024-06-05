@@ -26,7 +26,7 @@ class SigninCubit extends Cubit<SigninState> {
     emit(const SigninState.loading());
 
     // Sign in
-    final response = await _signinRepo.signin(
+    final signInResponse = await _signinRepo.signin(
       SigninRequestBody(
         email: emailController.text,
         password: passwordController.text,
@@ -34,13 +34,22 @@ class SigninCubit extends Cubit<SigninState> {
     );
 
     // Authorized or not?
-    response.when(
-      success: (signinResponse) async {
+    signInResponse.when(
+      success: (signinResponse) async {        
+        // Set Authorization data
         await _authRepo.setAuth(signinResponse);
+
+        // Update device token
+        await _signinRepo.updateDeviceToken();
+
+        // Emit success
         emit(SigninState.success(signinResponse));
       },
       failure: (error) async {
+        // Clear Authorization data
         await _authRepo.clearAuthData();
+
+        // Emit error
         emit(SigninState.error(
             error: error.apiErrorModel.error ?? ERR.UNEXPECTED));
       },
@@ -53,12 +62,10 @@ class SigninCubit extends Cubit<SigninState> {
     await _authRepo.logout();
     await _authRepo.clearAuthData();
   }
-  
+
   // Dispose
   void dispose() {
     emailController.dispose();
     passwordController.dispose();
   }
-
-
 }

@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:logger/logger.dart';
 import 'package:pharmalink/core/networking/api/auth_service.dart';
+import 'package:pharmalink/core/notifications/firebase_notifications.dart';
 import 'package:pharmalink/features/main/chat/logic/cubit/chat_cubit.dart';
 import '../../features/access/forget_password/data/repo/forget_password_repo.dart';
 import '../../features/access/forget_password/logic/forget_password_cubit.dart';
@@ -39,7 +40,8 @@ import '../networking/socket/socket_service.dart';
 final getIt = GetIt.instance;
 
 Future<void> setupGetIt() async {
-    //-------------------- CORE --------------------//
+
+  //-------------------- CORE --------------------//
 
   // Authorization
   getIt.registerFactory<AuthCubit>(() => AuthCubit());
@@ -56,15 +58,23 @@ Future<void> setupGetIt() async {
   // Logger
   getIt.registerLazySingleton<Logger>(() => Logger());
 
+  //-------------------- Networking --------------------//
+
   // Auth Dio & Auth Service
   Dio authDio = AuthDioFactory.getDio();
   getIt.registerLazySingleton<AuthService>(() => AuthService(authDio));
+  
   // Api Dio & Api Service
   Dio appDio = AppDioFactory.getDio(getIt(),getIt());
   getIt.registerLazySingleton<ApiService>(() => ApiService(appDio));
 
   // Socket
   getIt.registerLazySingleton<SocketService>(() => SocketService());
+
+  //-------------------- Notifications --------------------//
+
+  // Firebase Messaging
+  getIt.registerLazySingleton<FirebaseNotifications>(() => FirebaseNotifications(getIt()));
 
   //-------------------- AUTHENTICATION --------------------//
 

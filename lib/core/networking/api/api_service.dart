@@ -14,6 +14,7 @@ import '../../../features/main/settings/change_password/data/models/change_passw
 import '../../../features/main/settings/change_password/data/models/change_password_response.dart';
 import 'package:retrofit/http.dart';
 import '../../../features/main/drug_interaction/data/models/drug_eye_search_request_params.dart';
+import '../../models/device_token_request_body.dart';
 import '../../models/drug_search.dart';
 import '../../../features/main/drug_interaction/data/models/drug_interaction_request_body.dart';
 import '../../../features/main/drug_interaction/data/models/drug_interaction_response.dart';
@@ -35,6 +36,13 @@ abstract class ApiService {
   factory ApiService(Dio dio, {String baseUrl}) = _ApiService;
 
   //-------------------- AUTHENTICATION --------------------//
+
+  // Firebase Token
+  @POST(ApiConstants.setDeviceToken)
+  Future<MessageResponse> setDeviceToken(
+    @Body() DeviceTokenRequestBody deviceToken,
+    @Header('Authorization') String? auth,
+  );
 
   // Sign in
   @POST(ApiConstants.signIn)
