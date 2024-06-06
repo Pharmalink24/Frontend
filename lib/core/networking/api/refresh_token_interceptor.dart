@@ -46,10 +46,10 @@ class RefreshTokenInterceptor extends Interceptor {
       response.when(
         success: (newToken) async {
           Logger().i('Token refreshed successfully');
-          //       // Save the new token
-          //       await AuthSharedPrefs.setAccessToken(newToken.accessToken);
-          //       // Retry the request with the new token
-          //       await retry(handler, err);
+          // Save the new token
+          await AuthSharedPrefs.setAccessToken(newToken.accessToken);
+          // Retry the request with the new token
+          await retry(handler, err);
         },
         failure: (error) async {
           // Refresh token failed
