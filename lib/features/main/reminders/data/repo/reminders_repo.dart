@@ -22,7 +22,7 @@ class RemindersRepo {
   Future<ApiResult<List<Reminder>>> getRemindersList() async {
     try {
       final reminders =
-          await _apiService.getReminderList(AuthSharedPrefs.getAccessToken());
+          await _apiService.getReminderList();
       return ApiResult.success(reminders);
     } catch (error) {
       getIt<Logger>().e(error);
@@ -34,7 +34,6 @@ class RemindersRepo {
     try {
       final response = await _apiService.makeReminderDone(
         reminderId,
-        AuthSharedPrefs.getAccessToken(),
       );
       return ApiResult.success(response);
     } catch (error) {

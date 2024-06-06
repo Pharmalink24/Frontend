@@ -34,7 +34,6 @@ class SigninRepo {
       final deviceToken = await getIt<FirebaseNotifications>().getDeviceToken();
       final response = await _apiService.setDeviceToken(
         DeviceTokenRequestBody(deviceToken: deviceToken),
-        AuthSharedPrefs.getAccessToken(),
       );
       return ApiResult.success(response);
     } catch (error) {

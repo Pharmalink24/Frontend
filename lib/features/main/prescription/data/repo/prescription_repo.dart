@@ -20,7 +20,6 @@ class PrescriptionRepo {
     try {
       final prescription = await _apiService.getSpecificPrescriptionInfo(
         prescriptionId,
-        AuthSharedPrefs.getAccessToken(),
       );
       return ApiResult.success(prescription);
     } catch (error) {
@@ -34,7 +33,6 @@ class PrescriptionRepo {
     try {
       final prescriptions = await _apiService.getPrescriptionsDoctors(
         StateRequestBody(state: drugState),
-        AuthSharedPrefs.getAccessToken(),
       );
       return ApiResult.success(prescriptions);
     } catch (error) {
@@ -48,7 +46,6 @@ class PrescriptionRepo {
     try {
       final prescriptions = await _apiService.getPrescriptionsDrugs(
         StateRequestBody(state: drugState),
-        AuthSharedPrefs.getAccessToken(),
       );
       return ApiResult.success(prescriptions);
     } catch (error) {
@@ -64,7 +61,6 @@ class PrescriptionRepo {
     try {
       final message = await _apiService.activatePrescription(
         prescriptionId,
-        AuthSharedPrefs.getAccessToken(),
       );
       return ApiResult.success(message);
     } catch (error) {
@@ -80,7 +76,6 @@ class PrescriptionRepo {
     try {
       final message = await _apiService.deactivatePrescription(
         prescriptionId,
-        AuthSharedPrefs.getAccessToken(),
       );
       return ApiResult.success(message);
     } catch (error) {
@@ -98,7 +93,6 @@ class PrescriptionRepo {
       final message = await _apiService.activateDrug(
         prescriptionId,
         drugName,
-        AuthSharedPrefs.getAccessToken(),
       );
       return ApiResult.success(message);
     } catch (error) {
@@ -116,7 +110,6 @@ class PrescriptionRepo {
       final message = await _apiService.deactivateDrug(
         prescriptionId,
         drugName,
-        AuthSharedPrefs.getAccessToken(),
       );
       return ApiResult.success(message);
     } catch (error) {

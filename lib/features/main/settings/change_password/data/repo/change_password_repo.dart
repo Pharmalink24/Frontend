@@ -15,7 +15,6 @@ class ChangePasswordRepo {
     try {
       final response = await _apiService.changePassword(
         changePasswordRequestBody,
-        AuthSharedPrefs.getAccessToken(),
       );
 
       return ApiResult.success(response);

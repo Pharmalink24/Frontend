@@ -14,7 +14,6 @@ class ProfileRepo {
   Future<ApiResult<User>> getUserInformation() async {
     try {
       final user = await _apiService.getUserInformation(
-        AuthSharedPrefs.getAccessToken(),
       );
       return ApiResult.success(user);
     } catch (error) {

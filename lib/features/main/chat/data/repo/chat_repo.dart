@@ -75,7 +75,6 @@ class ChatRepo {
         receiverId,
         pageNumber,
         pageSize,
-        AuthSharedPrefs.getAccessToken(),
       );
 
       return ApiResult.success(result);

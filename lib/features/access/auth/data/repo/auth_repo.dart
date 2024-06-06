@@ -22,7 +22,7 @@ class AuthRepo {
 
   Future<void> logout() async {
     try {
-      await _apiService.logout(AuthSharedPrefs.getAccessToken());
+      await _apiService.logout();
     } catch (error) {
       getIt<Logger>().e(error);
     }

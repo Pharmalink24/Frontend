@@ -1,17 +1,15 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:dio/dio.dart';
 import 'package:logger/logger.dart';
-import 'package:pharmalink/core/models/message_response.dart';
 import 'package:pharmalink/core/networking/api/api_constants.dart';
 import 'package:pharmalink/core/networking/api/api_error_handler.dart';
 import 'package:pharmalink/core/routes/app_router.dart';
 import 'package:pharmalink/core/shared_preferences/auth_prefs.dart';
-import '../../../features/access/auth/data/models/refresh_token_response.dart';
-import '../../../pharmalink_app.dart';
-import 'api_result.dart';
+import '../../../../features/access/auth/data/models/refresh_token_response.dart';
+import '../../../../pharmalink_app.dart';
+import '../api_result.dart';
 
-class RefreshTokenInterceptor extends Interceptor {
-  RefreshTokenInterceptor();
+class AuthInterceptor extends Interceptor {
+  AuthInterceptor();
 
   // Instance of Dio
   final Dio _dio = Dio(BaseOptions(baseUrl: ApiConstants.httpsDomain));
@@ -37,9 +35,30 @@ class RefreshTokenInterceptor extends Interceptor {
   }
 
   // ------------------ Interceptor ------------------ //
+
+  @override
+  Future<void> onRequest(
+    RequestOptions options,
+    RequestInterceptorHandler handler,
+  ) async {
+    if (options.headers['requires-token'] == 'false') {
+      // if the request doesn't need token, then just continue to the next
+      // interceptor
+      options.headers.remove('requires-token'); //remove the auxiliary header
+      return handler.next(options);
+    }
+
+    final accessToken = AuthSharedPrefs.getAccessToken();
+
+    options.headers
+        .addAll({'authorization': '${ApiConstants.tokenKey} $accessToken'});
+    return handler.next(options);
+  }
+
   @override
   void onError(DioException err, ErrorInterceptorHandler handler) async {
-    if (err.response?.statusCode == 401) {
+    if (err.type == DioExceptionType.badResponse &&
+        err.response?.statusCode == 401) {
       // Attempt to refresh the token
       final response = await refreshToken();
 
@@ -48,15 +67,16 @@ class RefreshTokenInterceptor extends Interceptor {
           // Save the new token
           await AuthSharedPrefs.setAccessToken(newToken.accessToken);
           // Retry the request with the new token
-          await retry(handler, err);
+          handler.resolve(await _retryRequest(err.requestOptions));
         },
         failure: (error) async {
           // Refresh token failed
           appRouter.push(const SignRoute());
-          Logger().i(appRouter.currentPath);
 
           // Clear the auth data
           await AuthSharedPrefs.clearAuthData();
+
+          Logger().i(appRouter.currentPath);
 
           // So reject the request
           handler.reject(err);
@@ -67,29 +87,20 @@ class RefreshTokenInterceptor extends Interceptor {
     }
   }
 
-  Future<void> retry(ErrorInterceptorHandler handler, DioException err) async {
+  Future<Response<dynamic>> _retryRequest(RequestOptions requestOptions) async {
     // Update the token in headers
-    final requestOptions = err.requestOptions;
     requestOptions.headers['Authorization'] = AuthSharedPrefs.getAccessToken();
 
-    try {
-      final response = await _dio.request(
-        requestOptions.path,
-        options: Options(
-          method: requestOptions.method,
-          headers: requestOptions.headers,
-        ),
-        data: requestOptions.data,
-        queryParameters: requestOptions.queryParameters,
-      );
-      handler.resolve(response);
-    } catch (e) {
-      handler.reject(
-        DioException(
-          requestOptions: requestOptions,
-          error: e,
-        ),
-      );
-    }
+    final response = await _dio.request<dynamic>(
+      requestOptions.path,
+      options: Options(
+        method: requestOptions.method,
+        headers: requestOptions.headers,
+      ),
+      data: requestOptions.data,
+      queryParameters: requestOptions.queryParameters,
+    );
+
+    return response;
   }
 }

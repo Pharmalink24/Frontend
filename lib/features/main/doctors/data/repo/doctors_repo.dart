@@ -15,7 +15,7 @@ class DoctorsRepo {
   Future<ApiResult<List<Doctor>>> getDoctorList() async {
     try {
       final response =
-          await _apiService.getDoctorList(AuthSharedPrefs.getAccessToken());
+          await _apiService.getDoctorList();
       return ApiResult.success(response);
     } catch (error) {
       getIt<Logger>().e(error);
@@ -27,7 +27,6 @@ class DoctorsRepo {
     try {
       final response = await _apiService.getDoctorProfile(
         doctorId,
-        AuthSharedPrefs.getAccessToken(),
       );
       return ApiResult.success(response);
     } catch (error) {

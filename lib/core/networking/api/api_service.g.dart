@@ -51,14 +51,10 @@ class _ApiService implements ApiService {
 
   @override
   Future<MessageResponse> setDeviceToken(
-    DeviceTokenRequestBody deviceToken,
-    String? auth,
-  ) async {
+      DeviceTokenRequestBody deviceToken) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
-    queryParameters.removeWhere((k, v) => v == null);
-    final _headers = <String, dynamic>{r'Authorization': auth};
-    _headers.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(deviceToken.toJson());
     final _result = await _dio
@@ -83,12 +79,10 @@ class _ApiService implements ApiService {
   }
 
   @override
-  Future<void> logout(String? auth) async {
+  Future<void> logout() async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
-    queryParameters.removeWhere((k, v) => v == null);
-    final _headers = <String, dynamic>{r'Authorization': auth};
-    _headers.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     await _dio.fetch<void>(_setStreamType<void>(Options(
       method: 'POST',
@@ -112,7 +106,8 @@ class _ApiService implements ApiService {
   Future<SigninResponse> signin(SigninRequestBody signinRequestBody) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{};
+    final _headers = <String, dynamic>{r'requires-token': 'false'};
+    _headers.removeWhere((k, v) => v == null);
     final _data = <String, dynamic>{};
     _data.addAll(signinRequestBody.toJson());
     final _result = await _dio
@@ -140,7 +135,8 @@ class _ApiService implements ApiService {
   Future<SignupResponse> signup(SignupRequestBody signupRequestBody) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{};
+    final _headers = <String, dynamic>{r'requires-token': 'false'};
+    _headers.removeWhere((k, v) => v == null);
     final _data = <String, dynamic>{};
     _data.addAll(signupRequestBody.toJson());
     final _result = await _dio
@@ -170,7 +166,8 @@ class _ApiService implements ApiService {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     queryParameters.addAll(verificationRequestParams.toJson());
-    final _headers = <String, dynamic>{};
+    final _headers = <String, dynamic>{r'requires-token': 'false'};
+    _headers.removeWhere((k, v) => v == null);
     const Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<Map<String, dynamic>>(
         _setStreamType<VerificationResponse>(Options(
@@ -198,7 +195,8 @@ class _ApiService implements ApiService {
       ForgetPasswordRequestBody forgetPasswordRequestBody) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{};
+    final _headers = <String, dynamic>{r'requires-token': 'false'};
+    _headers.removeWhere((k, v) => v == null);
     final _data = <String, dynamic>{};
     _data.addAll(forgetPasswordRequestBody.toJson());
     final _result = await _dio
@@ -223,12 +221,10 @@ class _ApiService implements ApiService {
   }
 
   @override
-  Future<List<Reminder>> getReminderList(String? auth) async {
+  Future<List<Reminder>> getReminderList() async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
-    queryParameters.removeWhere((k, v) => v == null);
-    final _headers = <String, dynamic>{r'Authorization': auth};
-    _headers.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _result =
         await _dio.fetch<List<dynamic>>(_setStreamType<List<Reminder>>(Options(
@@ -254,15 +250,10 @@ class _ApiService implements ApiService {
   }
 
   @override
-  Future<void> makeReminderDone(
-    int reminderId,
-    String? auth,
-  ) async {
+  Future<void> makeReminderDone(int reminderId) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
-    queryParameters.removeWhere((k, v) => v == null);
-    final _headers = <String, dynamic>{r'Authorization': auth};
-    _headers.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     await _dio.fetch<void>(_setStreamType<void>(Options(
       method: 'PUT',
@@ -284,15 +275,11 @@ class _ApiService implements ApiService {
 
   @override
   Future<List<PrescriptionDoctor>> getPrescriptionsDoctors(
-    StateRequestBody stateRequestBody,
-    String? auth,
-  ) async {
+      StateRequestBody stateRequestBody) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     queryParameters.addAll(stateRequestBody.toJson());
-    queryParameters.removeWhere((k, v) => v == null);
-    final _headers = <String, dynamic>{r'Authorization': auth};
-    _headers.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _result = await _dio
         .fetch<List<dynamic>>(_setStreamType<List<PrescriptionDoctor>>(Options(
@@ -320,15 +307,11 @@ class _ApiService implements ApiService {
 
   @override
   Future<List<PrescriptionInfo>> getPrescriptionsDrugs(
-    StateRequestBody stateRequestBody,
-    String? auth,
-  ) async {
+      StateRequestBody stateRequestBody) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     queryParameters.addAll(stateRequestBody.toJson());
-    queryParameters.removeWhere((k, v) => v == null);
-    final _headers = <String, dynamic>{r'Authorization': auth};
-    _headers.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _result = await _dio
         .fetch<List<dynamic>>(_setStreamType<List<PrescriptionInfo>>(Options(
@@ -356,14 +339,10 @@ class _ApiService implements ApiService {
 
   @override
   Future<PrescriptionInfo> getSpecificPrescriptionInfo(
-    int prescriptionId,
-    String? auth,
-  ) async {
+      int prescriptionId) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
-    queryParameters.removeWhere((k, v) => v == null);
-    final _headers = <String, dynamic>{r'Authorization': auth};
-    _headers.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _result = await _dio
         .fetch<Map<String, dynamic>>(_setStreamType<PrescriptionInfo>(Options(
@@ -390,13 +369,10 @@ class _ApiService implements ApiService {
   Future<MessageResponse> activateDrug(
     int prescriptionId,
     String drugName,
-    String? auth,
   ) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'drug_name': drugName};
-    queryParameters.removeWhere((k, v) => v == null);
-    final _headers = <String, dynamic>{r'Authorization': auth};
-    _headers.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _result = await _dio
         .fetch<Map<String, dynamic>>(_setStreamType<MessageResponse>(Options(
@@ -423,13 +399,10 @@ class _ApiService implements ApiService {
   Future<MessageResponse> deactivateDrug(
     int prescriptionId,
     String drugName,
-    String? auth,
   ) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'drug_name': drugName};
-    queryParameters.removeWhere((k, v) => v == null);
-    final _headers = <String, dynamic>{r'Authorization': auth};
-    _headers.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _result = await _dio
         .fetch<Map<String, dynamic>>(_setStreamType<MessageResponse>(Options(
@@ -453,15 +426,10 @@ class _ApiService implements ApiService {
   }
 
   @override
-  Future<MessageResponse> activatePrescription(
-    int prescriptionId,
-    String? auth,
-  ) async {
+  Future<MessageResponse> activatePrescription(int prescriptionId) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
-    queryParameters.removeWhere((k, v) => v == null);
-    final _headers = <String, dynamic>{r'Authorization': auth};
-    _headers.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _result = await _dio
         .fetch<Map<String, dynamic>>(_setStreamType<MessageResponse>(Options(
@@ -485,15 +453,10 @@ class _ApiService implements ApiService {
   }
 
   @override
-  Future<MessageResponse> deactivatePrescription(
-    int prescriptionId,
-    String? auth,
-  ) async {
+  Future<MessageResponse> deactivatePrescription(int prescriptionId) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
-    queryParameters.removeWhere((k, v) => v == null);
-    final _headers = <String, dynamic>{r'Authorization': auth};
-    _headers.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _result = await _dio
         .fetch<Map<String, dynamic>>(_setStreamType<MessageResponse>(Options(
@@ -620,12 +583,10 @@ class _ApiService implements ApiService {
   }
 
   @override
-  Future<User> getUserInformation(String? auth) async {
+  Future<User> getUserInformation() async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
-    queryParameters.removeWhere((k, v) => v == null);
-    final _headers = <String, dynamic>{r'Authorization': auth};
-    _headers.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _result =
         await _dio.fetch<Map<String, dynamic>>(_setStreamType<User>(Options(
@@ -649,15 +610,10 @@ class _ApiService implements ApiService {
   }
 
   @override
-  Future<User> updateUserInformation(
-    User user,
-    String? auth,
-  ) async {
+  Future<User> updateUserInformation(User user) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
-    queryParameters.removeWhere((k, v) => v == null);
-    final _headers = <String, dynamic>{r'Authorization': auth};
-    _headers.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(user.toJson());
     final _result =
@@ -682,17 +638,10 @@ class _ApiService implements ApiService {
   }
 
   @override
-  Future<User> updateUserImage(
-    File image,
-    String? auth,
-  ) async {
+  Future<User> updateUserImage(File image) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
-    queryParameters.removeWhere((k, v) => v == null);
-    final _headers = <String, dynamic>{
-      r'Content-Type': 'application/json',
-      r'Authorization': auth,
-    };
+    final _headers = <String, dynamic>{r'Content-Type': 'application/json'};
     _headers.removeWhere((k, v) => v == null);
     final _data = FormData();
     _data.files.add(MapEntry(
@@ -726,14 +675,10 @@ class _ApiService implements ApiService {
 
   @override
   Future<ChangePasswordResponse> changePassword(
-    ChangePasswordRequestBody changePasswordRequestBody,
-    String? auth,
-  ) async {
+      ChangePasswordRequestBody changePasswordRequestBody) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
-    queryParameters.removeWhere((k, v) => v == null);
-    final _headers = <String, dynamic>{r'Authorization': auth};
-    _headers.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(changePasswordRequestBody.toJson());
     final _result = await _dio.fetch<Map<String, dynamic>>(
@@ -758,12 +703,10 @@ class _ApiService implements ApiService {
   }
 
   @override
-  Future<List<Doctor>> getDoctorList(String? auth) async {
+  Future<List<Doctor>> getDoctorList() async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
-    queryParameters.removeWhere((k, v) => v == null);
-    final _headers = <String, dynamic>{r'Authorization': auth};
-    _headers.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _result =
         await _dio.fetch<List<dynamic>>(_setStreamType<List<Doctor>>(Options(
@@ -789,15 +732,10 @@ class _ApiService implements ApiService {
   }
 
   @override
-  Future<DoctorInfo> getDoctorProfile(
-    int doctorId,
-    String? auth,
-  ) async {
+  Future<DoctorInfo> getDoctorProfile(int doctorId) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
-    queryParameters.removeWhere((k, v) => v == null);
-    final _headers = <String, dynamic>{r'Authorization': auth};
-    _headers.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _result = await _dio
         .fetch<Map<String, dynamic>>(_setStreamType<DoctorInfo>(Options(
@@ -826,7 +764,6 @@ class _ApiService implements ApiService {
     int receiverDoctorId,
     int page,
     int pageSize,
-    String? auth,
   ) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
@@ -835,9 +772,7 @@ class _ApiService implements ApiService {
       r'page': page,
       r'page_size': pageSize,
     };
-    queryParameters.removeWhere((k, v) => v == null);
-    final _headers = <String, dynamic>{r'Authorization': auth};
-    _headers.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<Map<String, dynamic>>(
         _setStreamType<MessagesHistoryResponse>(Options(

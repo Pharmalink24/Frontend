@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
-import 'refresh_token_interceptor.dart';
+import 'interceptors/auth_interceptor.dart';
 
 class AppDioFactory {
   /// private constructor as I don't want to allow creating an instance of this class
@@ -24,7 +24,7 @@ class AppDioFactory {
   }
 
   static void addDioInterceptor() {
-    dio?.interceptors.add(RefreshTokenInterceptor());
+    dio?.interceptors.add(AuthInterceptor());
 
     dio?.interceptors.add(
       PrettyDioLogger(

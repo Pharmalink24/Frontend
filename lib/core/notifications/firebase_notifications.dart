@@ -52,7 +52,6 @@ class FirebaseNotifications {
     _firebaseMessaging.onTokenRefresh.listen((deviceToken) {
       _apiService.setDeviceToken(
         DeviceTokenRequestBody(deviceToken: deviceToken),
-        AuthSharedPrefs.getAccessToken(),
       );
     }).onError((err) {
       // Error getting token.

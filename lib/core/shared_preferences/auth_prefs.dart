@@ -2,7 +2,6 @@
 
 import 'package:logger/logger.dart';
 import 'package:pharmalink/core/di/dependency_injection.dart';
-import 'package:pharmalink/core/networking/api/api_constants.dart';
 import 'package:pharmalink/core/shared_preferences/shared_preferences_service.dart';
 import 'package:pharmalink/features/access/sign/data/models/signin/signin_response.dart';
 
@@ -32,7 +31,7 @@ abstract class AuthSharedPrefs {
   }
 
   static String? getAccessToken() {
-    return "${ApiConstants.tokenKey} ${SharedPrefsService.getString(_ACCESS_TOKEN)}";
+    return SharedPrefsService.getString(_ACCESS_TOKEN);
   }
 
   static String? getRefreshToken() {

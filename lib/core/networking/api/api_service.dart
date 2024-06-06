@@ -49,35 +49,44 @@ abstract class ApiService {
   @POST(ApiConstants.setDeviceToken)
   Future<MessageResponse> setDeviceToken(
     @Body() DeviceTokenRequestBody deviceToken,
-    @Header('Authorization') String? auth,
   );
 
   // Logout
   @POST(ApiConstants.logout)
-  Future<void> logout(
-    @Header('Authorization') String? auth,
-  );
+  Future<void> logout();
 
   // Sign in
   @POST(ApiConstants.signIn)
+  @Headers(<String, dynamic>{
+    'requires-token': 'false',
+  })
   Future<SigninResponse> signin(
     @Body() SigninRequestBody signinRequestBody,
   );
 
   // Signup
   @POST(ApiConstants.signUp)
+  @Headers(<String, dynamic>{
+    'requires-token': 'false',
+  })
   Future<SignupResponse> signup(
     @Body() SignupRequestBody signupRequestBody,
   );
 
   // Resend Verification
   @POST(ApiConstants.sendVerification)
+  @Headers(<String, dynamic>{
+    'requires-token': 'false',
+  })
   Future<VerificationResponse> resendVerification(
     @Queries() VerificationRequestParams verificationRequestParams,
   );
 
   // Forget Password
   @POST(ApiConstants.forgetPassword)
+  @Headers(<String, dynamic>{
+    'requires-token': 'false',
+  })
   Future<MessageResponse> forgetPassword(
     @Body() ForgetPasswordRequestBody forgetPasswordRequestBody,
   );
@@ -86,15 +95,12 @@ abstract class ApiService {
 
   // Get Reminder List
   @GET(ApiConstants.reminderList)
-  Future<List<Reminder>> getReminderList(
-    @Header('Authorization') String? auth,
-  );
+  Future<List<Reminder>> getReminderList();
 
   // Make Reminder Done
   @PUT(ApiConstants.makeReminderDone)
   Future<void> makeReminderDone(
     @Path('reminder_id') int reminderId,
-    @Header('Authorization') String? auth,
   );
 
   //-------------------- Prescription --------------------//
@@ -103,21 +109,18 @@ abstract class ApiService {
   @GET(ApiConstants.prescriptionsList1)
   Future<List<PrescriptionDoctor>> getPrescriptionsDoctors(
     @Queries() StateRequestBody stateRequestBody,
-    @Header('Authorization') String? auth,
   );
 
   // Prescription
   @GET(ApiConstants.prescriptionsList2)
   Future<List<PrescriptionInfo>> getPrescriptionsDrugs(
     @Queries() StateRequestBody stateRequestBody,
-    @Header('Authorization') String? auth,
   );
 
   // Prescription Detail
   @GET(ApiConstants.specificPrescriptionInfo)
   Future<PrescriptionInfo> getSpecificPrescriptionInfo(
     @Path('prescription_id') int prescriptionId,
-    @Header('Authorization') String? auth,
   );
 
   // Activate Drug
@@ -125,7 +128,6 @@ abstract class ApiService {
   Future<MessageResponse> activateDrug(
     @Path('prescription_id') int prescriptionId,
     @Query('drug_name') String drugName,
-    @Header('Authorization') String? auth,
   );
 
   // Deactivate Drug
@@ -133,21 +135,18 @@ abstract class ApiService {
   Future<MessageResponse> deactivateDrug(
     @Path('prescription_id') int prescriptionId,
     @Query('drug_name') String drugName,
-    @Header('Authorization') String? auth,
   );
 
   // Activate Prescription
   @POST(ApiConstants.activatePrescription)
   Future<MessageResponse> activatePrescription(
     @Path('prescription_id') int prescriptionId,
-    @Header('Authorization') String? auth,
   );
 
   // Deactivate Prescription
   @POST(ApiConstants.deactivatePrescription)
   Future<MessageResponse> deactivatePrescription(
     @Path('prescription_id') int prescriptionId,
-    @Header('Authorization') String? auth,
   );
 
   //-------------------- DRUG INTERACTION --------------------//
@@ -177,15 +176,12 @@ abstract class ApiService {
 
   // User Profile Data
   @GET(ApiConstants.userInformation)
-  Future<User> getUserInformation(
-    @Header('Authorization') String? auth,
-  );
+  Future<User> getUserInformation();
 
   // Update User Profile
   @PATCH(ApiConstants.updateUserInformation)
   Future<User> updateUserInformation(
     @Body() User user,
-    @Header('Authorization') String? auth,
   );
 
   // Update User Image
@@ -196,28 +192,23 @@ abstract class ApiService {
   @MultiPart()
   Future<User> updateUserImage(
     @Part() File image,
-    @Header('Authorization') String? auth,
   );
 
   // Change Password
   @PATCH(ApiConstants.changePassword)
   Future<ChangePasswordResponse> changePassword(
     @Body() ChangePasswordRequestBody changePasswordRequestBody,
-    @Header('Authorization') String? auth,
   );
 
   //-------------------- Doctor --------------------//
 
   // Get Doctors List
   @GET(ApiConstants.doctorsList)
-  Future<List<Doctor>> getDoctorList(
-    @Header('Authorization') String? auth,
-  );
+  Future<List<Doctor>> getDoctorList();
 
   @GET(ApiConstants.doctorProfile)
   Future<DoctorInfo> getDoctorProfile(
     @Path('doctor_id') int doctorId,
-    @Header('Authorization') String? auth,
   );
 
   //-------------------- Chat --------------------//
@@ -228,7 +219,6 @@ abstract class ApiService {
     @Query('receiver_doctor_id') int receiverDoctorId,
     @Query('page') int page,
     @Query('page_size') int pageSize,
-    @Header('Authorization') String? auth,
   );
 
   // @Put(ApiConstants.updateMessage)

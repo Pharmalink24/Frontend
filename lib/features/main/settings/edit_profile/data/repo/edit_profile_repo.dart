@@ -17,7 +17,6 @@ class EditProfileRepo {
   Future<ApiResult<User>> getUserInformation() async {
     try {
       final drugs = await _apiService.getUserInformation(
-        AuthSharedPrefs.getAccessToken(),
       );
       return ApiResult.success(drugs);
     } catch (error) {
@@ -30,7 +29,6 @@ class EditProfileRepo {
     try {
       final response = await _apiService.updateUserInformation(
         user,
-        AuthSharedPrefs.getAccessToken(),
       );
       return ApiResult.success(response);
     } catch (error) {
@@ -43,7 +41,6 @@ class EditProfileRepo {
     try {
       final response = await _apiService.updateUserImage(
         image,
-        AuthSharedPrefs.getAccessToken(),
       );
       return ApiResult.success(response);
     } catch (error) {
