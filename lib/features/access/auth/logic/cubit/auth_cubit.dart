@@ -1,10 +1,13 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pharmalink/core/networking/api/api_service.dart';
+import 'package:pharmalink/features/access/auth/data/repo/auth_repo.dart';
 import '../../../../../core/shared_preferences/auth_prefs.dart';
 import '../../../../../core/shared_preferences/entry_prefs.dart';
 import 'auth_state.dart';
 
 class AuthCubit extends Cubit<AuthState> {
-  AuthCubit() : super(const AuthState.initial());
+  final AuthRepo _authRepo;
+  AuthCubit(this._authRepo) : super(const AuthState.initial());
 
   void checkAuthentication() async {
     emit(const Loading());
@@ -22,6 +25,7 @@ class AuthCubit extends Cubit<AuthState> {
   }
 
   void logout() {
+    _authRepo.logout();
     AuthSharedPrefs.clearAuthData(); // Clear stored tokens
     emit(const Unauthenticated());
   }

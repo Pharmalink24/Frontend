@@ -21,6 +21,7 @@ class OnBoardingScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return IntroductionScreen(
       pages: createListPagesViewModel(context),
+      skipStyle: ButtonStyle(),
       globalBackgroundColor: context.colorScheme.surface,
       allowImplicitScrolling: true,
       onDone: () => _onIntroEnd(context),
@@ -55,7 +56,7 @@ class OnBoardingScreen extends StatelessWidget {
         activeColor: context.colorScheme.primary,
       ),
       dotsContainerDecorator: ShapeDecoration(
-        color: context.colorScheme.secondary,
+        color: context.colorScheme.primaryContainer,
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(16.0)),
         ),

@@ -7,9 +7,10 @@ import '../../models/on_boarding_page.dart';
 import '../../models/on_boarding_pages.dart';
 import 'intro_image.dart';
 
-List<PageViewModel> listPagesViewModel = [];
 
 List<PageViewModel> createListPagesViewModel(BuildContext context) {
+  List<PageViewModel> listPagesViewModel = [];
+
   for (OnBoardingPageModel pageModel in onBoardingPages) {
     listPagesViewModel.add(
       PageViewModel(

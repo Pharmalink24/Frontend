@@ -57,6 +57,12 @@ abstract class AuthSharedPrefs {
     return true;
   }
 
+  /// Set Access Token
+  static Future<bool> setAccessToken(String accessToken) async {
+    await SharedPrefsService.setString(_ACCESS_TOKEN, accessToken);
+    return true;
+  }
+
   static Future<bool> clearAuthData() async {
     await SharedPrefsService.remove(_ID);
     await SharedPrefsService.remove(_USERNAME);

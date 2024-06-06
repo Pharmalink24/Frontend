@@ -2,14 +2,14 @@
 
 import 'package:logger/logger.dart';
 import 'package:pharmalink/core/di/dependency_injection.dart';
+import 'package:pharmalink/core/networking/api/api_service.dart';
 import 'package:pharmalink/core/shared_preferences/auth_prefs.dart';
-import '../../../../../core/networking/api/auth_service.dart';
 import '../../../sign/data/models/signin/signin_response.dart';
 
 
 class AuthRepo {
-  final AuthService _authService;
-  AuthRepo(this._authService);
+  final ApiService _apiService;
+  AuthRepo(this._apiService);
 
   bool isLoggedIn() {
     try {
@@ -22,7 +22,7 @@ class AuthRepo {
 
   Future<void> logout() async {
     try {
-      await _authService.logout(AuthSharedPrefs.getAccessToken());
+      await _apiService.logout(AuthSharedPrefs.getAccessToken());
     } catch (error) {
       getIt<Logger>().e(error);
     }

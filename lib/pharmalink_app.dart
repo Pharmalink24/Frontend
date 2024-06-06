@@ -14,10 +14,10 @@ import 'core/routes/app_router.dart';
 import 'features/access/auth/logic/cubit/auth_cubit.dart';
 import 'features/access/sign/logic/signin_cubit/signin_cubit.dart';
 
+  final appRouter = AppRouter();
+
 class PharmalinkApp extends StatelessWidget {
   PharmalinkApp({super.key});
-
-  final _appRouter = AppRouter();
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +57,7 @@ class PharmalinkApp extends StatelessWidget {
             theme: AppTheme.lightTheme(),
             darkTheme: AppTheme.darkTheme(),
             themeMode: themeState,
-            routerConfig: _appRouter.config(),
+            routerConfig: appRouter.config(),
             debugShowCheckedModeBanner: false,
           );
         },

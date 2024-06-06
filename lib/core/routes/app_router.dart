@@ -204,6 +204,7 @@ class AuthGuard extends AutoRouteGuard {
   void onNavigation(NavigationResolver resolver, StackRouter router) async {
     bool isLoggedIn = AuthSharedPrefs.isUserLoggedIn();
     bool isFirstEntry = EntrySharedPrefs.isFirstEntry();
+    isFirstEntry ? EntrySharedPrefs.storeEntryData(!isFirstEntry) : null;
 
     if (isLoggedIn) {
       router.push(const MainRoute());

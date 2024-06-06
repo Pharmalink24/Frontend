@@ -2,6 +2,8 @@ import 'dart:io';
 
 import 'package:dio/dio.dart' hide Headers;
 import '../../../features/access/auth/data/models/forget_password_request_body.dart';
+import '../../../features/access/auth/data/models/refresh_token_request_body.dart';
+import '../../../features/access/auth/data/models/refresh_token_response.dart';
 import '../../../features/access/sign/data/models/signin/signin_request_body.dart';
 import '../../../features/access/sign/data/models/signin/signin_response.dart';
 import '../../../features/main/chat/data/models/messages_history_response.dart';
@@ -37,10 +39,22 @@ abstract class ApiService {
 
   //-------------------- AUTHENTICATION --------------------//
 
+  // Refresh Token
+  @POST(ApiConstants.refreshToken)
+  Future<RefreshTokenResponse> refreshToken(
+    @Body() RefreshTokenRequestBody refreshTokenRequestBody,
+  );
+
   // Firebase Token
   @POST(ApiConstants.setDeviceToken)
   Future<MessageResponse> setDeviceToken(
     @Body() DeviceTokenRequestBody deviceToken,
+    @Header('Authorization') String? auth,
+  );
+
+  // Logout
+  @POST(ApiConstants.logout)
+  Future<void> logout(
     @Header('Authorization') String? auth,
   );
 
