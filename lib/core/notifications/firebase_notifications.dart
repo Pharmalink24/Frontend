@@ -35,12 +35,12 @@ class FirebaseNotifications {
 
   //* Get the FCM token
   Future<void> handleTokens() async {
-    // // For apple platforms, ensure the APNS token is available before making any FCM plugin API calls
-    // final apnsToken = await _firebaseMessaging.getAPNSToken();
-    // if (apnsToken != null) {
-    //   // APNS token is available
-    //   Logger().i('APNS Token: $apnsToken');
-    // }
+    // For apple platforms, ensure the APNS token is available before making any FCM plugin API calls
+    final apnsToken = await _firebaseMessaging.getAPNSToken();
+    if (apnsToken != null) {
+      // APNS token is available
+      Logger().i('APNS Token: $apnsToken');
+    }
 
     // Get the token each time the application loads
     final deviceToken = await getDeviceToken();

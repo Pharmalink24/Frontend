@@ -8,7 +8,7 @@ import '../../../../features/access/auth/data/models/refresh_token_response.dart
 import '../../../../pharmalink_app.dart';
 import '../api_result.dart';
 
-class AuthInterceptor extends Interceptor {
+class AuthInterceptor extends QueuedInterceptor {
   AuthInterceptor();
 
   // Instance of Dio
@@ -59,6 +59,9 @@ class AuthInterceptor extends Interceptor {
   void onError(DioException err, ErrorInterceptorHandler handler) async {
     if (err.type == DioExceptionType.badResponse &&
         err.response?.statusCode == 401) {
+        
+      Logger().i('Token expired, refreshing token...');
+
       // Attempt to refresh the token
       final response = await refreshToken();
 
@@ -88,8 +91,10 @@ class AuthInterceptor extends Interceptor {
   }
 
   Future<Response<dynamic>> _retryRequest(RequestOptions requestOptions) async {
+    final accessToken = AuthSharedPrefs.getAccessToken();
+
     // Update the token in headers
-    requestOptions.headers['Authorization'] = AuthSharedPrefs.getAccessToken();
+    requestOptions.headers['Authorization'] = '${ApiConstants.tokenKey} $accessToken';
 
     final response = await _dio.request<dynamic>(
       requestOptions.path,
