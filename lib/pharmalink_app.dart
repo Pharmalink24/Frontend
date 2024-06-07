@@ -8,16 +8,19 @@ import 'package:pharmalink/core/helpers/constants/strings.dart';
 import 'package:pharmalink/core/localization/app_localizations_setup.dart';
 import 'package:pharmalink/core/theme/app_theme.dart';
 import 'package:pharmalink/features/main/chat/logic/cubit/chat_cubit.dart';
-
 import 'core/Blocs/connection/bloc/network_event.dart';
 import 'core/routes/app_router.dart';
 import 'features/access/auth/logic/cubit/auth_cubit.dart';
-import 'features/access/sign/logic/signin_cubit/signin_cubit.dart';
+import 'package:device_preview/device_preview.dart';
 
-  final appRouter = AppRouter();
+final appRouter = AppRouter();
 
 class PharmalinkApp extends StatelessWidget {
-  const PharmalinkApp({super.key});
+  final bool isReleaseMode;
+  const PharmalinkApp({
+    super.key,
+    this.isReleaseMode = false,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -44,12 +47,15 @@ class PharmalinkApp extends StatelessWidget {
           final localeState = context.watch<LocaleCubit>().state;
           final themeState = context.watch<ThemeCubit>().state;
           return MaterialApp.router(
+            builder: !isReleaseMode ? DevicePreview.appBuilder : null,
             supportedLocales: AppLocalizationsSetup.supportedLocales,
             localizationsDelegates:
                 AppLocalizationsSetup.localizationsDelegates,
             localeResolutionCallback:
                 AppLocalizationsSetup.localeResolutionCallback,
-            locale: localeState.locale,
+            locale: !isReleaseMode
+                ? DevicePreview.locale(context)
+                : localeState.locale,
             title: appTitle,
             theme: AppTheme.lightTheme(),
             darkTheme: AppTheme.darkTheme(),
