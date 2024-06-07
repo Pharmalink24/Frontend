@@ -7,7 +7,7 @@ import 'package:pharmalink/shared/data/data_sources/remote/api/api_constants.dar
 import 'package:pharmalink/shared/data/data_sources/remote/socket/socket_constants.dart';
 import 'package:web_socket_channel/io.dart';
 
-import '../../../../../features/main/chat/data/models/message.dart';
+import '../../../../../features/app/chat/data/models/message.dart';
 import '../../../../../core/di/dependency_injection.dart';
 import 'socket_channel.dart';
 

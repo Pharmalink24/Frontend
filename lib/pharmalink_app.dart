@@ -7,7 +7,7 @@ import 'package:pharmalink/core/di/dependency_injection.dart';
 import 'package:pharmalink/core/helpers/constants/strings.dart';
 import 'package:pharmalink/core/localization/app_localizations_setup.dart';
 import 'package:pharmalink/core/theme/app_theme.dart';
-import 'package:pharmalink/features/main/chat/logic/cubit/chat_cubit.dart';
+import 'package:pharmalink/features/app/chat/logic/cubit/chat_cubit.dart';
 import 'shared/presentation/logic/connection/network_event.dart';
 import 'core/routes/app_router.dart';
 import 'features/access/auth/logic/cubit/auth_cubit.dart';

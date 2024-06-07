@@ -8,7 +8,7 @@ import '../../../resources/resources.dart';
 import '../../../core/helpers/extensions/extensions.dart';
 import '../../data/data_sources/remote/api/api_constants.dart';
 import '../../../core/theme/styles.dart';
-import '../../../features/main/doctors/data/models/doctor.dart';
+import '../../../features/app/doctors/data/models/doctor.dart';
 import 'loading/loading_indicator.dart';
 
 class DoctorCard extends StatelessWidget {
