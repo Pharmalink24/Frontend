@@ -5,6 +5,7 @@ import 'package:pharmalink/resources/resources.dart';
 
 void main() {
   test('backgrounds assets test', () {
+    expect(File(Backgrounds.brokenLink).existsSync(), isTrue);
     expect(File(Backgrounds.doctor).existsSync(), isTrue);
     expect(File(Backgrounds.doctorDark).existsSync(), isTrue);
     expect(File(Backgrounds.doctors).existsSync(), isTrue);

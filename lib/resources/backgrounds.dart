@@ -3,6 +3,7 @@ part of 'resources.dart';
 class Backgrounds {
   Backgrounds._();
 
+  static const String brokenLink = 'assets/images/backgrounds/broken_link.png';
   static const String doctor = 'assets/images/backgrounds/doctor.svg';
   static const String doctorDark = 'assets/images/backgrounds/doctor_dark.svg';
   static const String doctors = 'assets/images/backgrounds/doctors.svg';

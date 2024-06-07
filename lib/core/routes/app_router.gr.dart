@@ -69,12 +69,6 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const EditProfileScreen(),
       );
     },
-    Error404Route.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const Error404Screen(),
-      );
-    },
     ForgetPasswordRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -137,6 +131,12 @@ abstract class _$AppRouter extends RootStackRouter {
           args.chat,
           key: args.key,
         ),
+      );
+    },
+    NotFound404ErrorRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const NotFound404ErrorScreen(),
       );
     },
     OnBoardingRoute.name: (routeData) {
@@ -353,20 +353,6 @@ class EditProfileRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [Error404Screen]
-class Error404Route extends PageRouteInfo<void> {
-  const Error404Route({List<PageRouteInfo>? children})
-      : super(
-          Error404Route.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'Error404Route';
-
-  static const PageInfo<void> page = PageInfo<void>(name);
-}
-
-/// generated route for
 /// [ForgetPasswordScreen]
 class ForgetPasswordRoute extends PageRouteInfo<void> {
   const ForgetPasswordRoute({List<PageRouteInfo>? children})
@@ -528,6 +514,20 @@ class MessagesRouteArgs {
   String toString() {
     return 'MessagesRouteArgs{chat: $chat, key: $key}';
   }
+}
+
+/// generated route for
+/// [NotFound404ErrorScreen]
+class NotFound404ErrorRoute extends PageRouteInfo<void> {
+  const NotFound404ErrorRoute({List<PageRouteInfo>? children})
+      : super(
+          NotFound404ErrorRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'NotFound404ErrorRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for
