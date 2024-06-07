@@ -25,8 +25,8 @@ import 'package:pharmalink/features/on_boarding/ui/on_boarding_screen.dart';
 import 'package:pharmalink/features/splash/ui/splash_screen.dart';
 import '../../features/main/chat/ui/chats_screen.dart';
 import '../../features/main/prescription/data/models/prescription_info.dart';
-import '../shared_preferences/auth_prefs.dart';
-import '../shared_preferences/entry_prefs.dart';
+import '../helpers/shared_preferences/auth_prefs.dart';
+import '../helpers/shared_preferences/entry_prefs.dart';
 
 part 'app_router.gr.dart';
 

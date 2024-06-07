@@ -3,9 +3,10 @@ import 'package:logger/logger.dart';
 import 'package:pharmalink/core/networking/api/api_constants.dart';
 import 'package:pharmalink/core/networking/api/api_error_handler.dart';
 import 'package:pharmalink/core/routes/app_router.dart';
-import 'package:pharmalink/core/shared_preferences/auth_prefs.dart';
+import 'package:pharmalink/core/helpers/shared_preferences/auth_prefs.dart';
 import '../../../../features/access/auth/data/models/refresh_token_response.dart';
 import '../../../../pharmalink_app.dart';
+import '../../../di/dependency_injection.dart';
 import '../api_result.dart';
 
 class AuthInterceptor extends QueuedInterceptor {
@@ -59,8 +60,7 @@ class AuthInterceptor extends QueuedInterceptor {
   void onError(DioException err, ErrorInterceptorHandler handler) async {
     if (err.type == DioExceptionType.badResponse &&
         err.response?.statusCode == 401) {
-        
-      Logger().i('Token expired, refreshing token...');
+      getIt<Logger>().i('Token expired, refreshing token...');
 
       // Attempt to refresh the token
       final response = await refreshToken();
@@ -79,7 +79,7 @@ class AuthInterceptor extends QueuedInterceptor {
           // Clear the auth data
           await AuthSharedPrefs.clearAuthData();
 
-          Logger().i(appRouter.currentPath);
+          getIt<Logger>().i(appRouter.currentPath);
 
           // So reject the request
           handler.reject(err);
@@ -94,7 +94,8 @@ class AuthInterceptor extends QueuedInterceptor {
     final accessToken = AuthSharedPrefs.getAccessToken();
 
     // Update the token in headers
-    requestOptions.headers['Authorization'] = '${ApiConstants.tokenKey} $accessToken';
+    requestOptions.headers['Authorization'] =
+        '${ApiConstants.tokenKey} $accessToken';
 
     final response = await _dio.request<dynamic>(
       requestOptions.path,

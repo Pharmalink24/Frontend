@@ -2,7 +2,7 @@
 
 import 'package:logger/logger.dart';
 import 'package:pharmalink/core/di/dependency_injection.dart';
-import 'package:pharmalink/core/shared_preferences/shared_preferences_service.dart';
+import 'package:pharmalink/core/helpers/shared_preferences/shared_preferences_service.dart';
 import 'package:pharmalink/features/access/sign/data/models/signin/signin_response.dart';
 
 abstract class AuthSharedPrefs {
@@ -15,7 +15,7 @@ abstract class AuthSharedPrefs {
 
   /// check if user is logged in or not
   static bool isUserLoggedIn() {
-    return SharedPrefsService.getBool(_IS_LOGGED_IN, false) ?? false;
+    return SharedPrefsService.getBool(_IS_LOGGED_IN) ?? false;
   }
 
   static int? getUserId() {
@@ -31,45 +31,44 @@ abstract class AuthSharedPrefs {
   }
 
   static String? getAccessToken() {
-    return SharedPrefsService.getString(_ACCESS_TOKEN);
+    return SharedPrefsService.getSecuredString(_ACCESS_TOKEN);
   }
 
   static String? getRefreshToken() {
-    return SharedPrefsService.getString(_REFRESH_TOKEN);
+    return SharedPrefsService.getSecuredString(_REFRESH_TOKEN);
   }
 
   /// save [UserAuth] in shared pref
   static Future<bool> storeAuthData(SigninResponse userAuthData) async {
     // save user id
-    await SharedPrefsService.setInt(_ID, userAuthData.id);
+    await SharedPrefsService.setData(_ID, userAuthData.id);
     // save username
-    await SharedPrefsService.setString(_USERNAME, userAuthData.username);
+    await SharedPrefsService.setData(_USERNAME, userAuthData.username);
     // save email
-    await SharedPrefsService.setString(_EMAIL, userAuthData.email);
+    await SharedPrefsService.setData(_EMAIL, userAuthData.email);
     // save access token and refresh token
-    await SharedPrefsService.setString(_ACCESS_TOKEN, userAuthData.accessToken);
-    await SharedPrefsService.setString(
+    await SharedPrefsService.setSecuredString(_ACCESS_TOKEN, userAuthData.accessToken);
+    await SharedPrefsService.setSecuredString(
         _REFRESH_TOKEN, userAuthData.refreshToken);
     // set user logged in
-    await SharedPrefsService.setBool(_IS_LOGGED_IN, true);
+    await SharedPrefsService.setData(_IS_LOGGED_IN, true);
 
     return true;
   }
 
   /// Set Access Token
   static Future<bool> setAccessToken(String accessToken) async {
-    await SharedPrefsService.setString(_ACCESS_TOKEN, accessToken);
+    await SharedPrefsService.setSecuredString(_ACCESS_TOKEN, accessToken);
     return true;
   }
 
   static Future<bool> clearAuthData() async {
-    await SharedPrefsService.remove(_ID);
-    await SharedPrefsService.remove(_USERNAME);
-    await SharedPrefsService.remove(_EMAIL);
-    await SharedPrefsService.remove(_REFRESH_TOKEN);
-    await SharedPrefsService.remove(_ACCESS_TOKEN);
+    await SharedPrefsService.removeData(_ID);
+    await SharedPrefsService.removeData(_USERNAME);
+    await SharedPrefsService.removeData(_EMAIL);
+    await SharedPrefsService.clearAllSecuredData();
 
-    await SharedPrefsService.setBool(_IS_LOGGED_IN, false);
+    await SharedPrefsService.setData(_IS_LOGGED_IN, false);
 
     return true;
   }

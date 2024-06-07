@@ -45,6 +45,7 @@ extension Navigation on BuildContext {
     );
     ScaffoldMessenger.of(this).showSnackBar(snackBar);
 
+    }
     // Displaying AlertDialog
     void displayAlertDialog({
       required String title,
@@ -81,7 +82,7 @@ extension Navigation on BuildContext {
         },
       );
     }
-  }
+  
 
   // Build Your Widget Based on Orientation
   T orientationAction<T>({

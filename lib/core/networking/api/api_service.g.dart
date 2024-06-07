@@ -481,15 +481,11 @@ class _ApiService implements ApiService {
 
   @override
   Future<List<DrugSearch>> searchDrugFromDrugEye(
-    DrugEyeSearchRequestParams drugEyeSearchRequestParams,
-    String? auth,
-  ) async {
+      DrugEyeSearchRequestParams drugEyeSearchRequestParams) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     queryParameters.addAll(drugEyeSearchRequestParams.toJson());
-    queryParameters.removeWhere((k, v) => v == null);
-    final _headers = <String, dynamic>{r'Authorization': auth};
-    _headers.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _result = await _dio
         .fetch<List<dynamic>>(_setStreamType<List<DrugSearch>>(Options(
@@ -516,14 +512,10 @@ class _ApiService implements ApiService {
 
   @override
   Future<TwoDrugsInteractionResponse> checkInteractionBetweenTwoDrugs(
-    DrugInteractionRequestBody drugInteractionRequestBody,
-    String? auth,
-  ) async {
+      DrugInteractionRequestBody drugInteractionRequestBody) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
-    queryParameters.removeWhere((k, v) => v == null);
-    final _headers = <String, dynamic>{r'Authorization': auth};
-    _headers.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(drugInteractionRequestBody.toJson());
     final _result = await _dio.fetch<Map<String, dynamic>>(
@@ -549,14 +541,10 @@ class _ApiService implements ApiService {
 
   @override
   Future<List<Interaction>> checkInteractionBetweenDrugAndMedications(
-    DrugInteractionRequestBody drugInteractionRequestBody,
-    String? auth,
-  ) async {
+      DrugInteractionRequestBody drugInteractionRequestBody) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
-    queryParameters.removeWhere((k, v) => v == null);
-    final _headers = <String, dynamic>{r'Authorization': auth};
-    _headers.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(drugInteractionRequestBody.toJson());
     final _result = await _dio

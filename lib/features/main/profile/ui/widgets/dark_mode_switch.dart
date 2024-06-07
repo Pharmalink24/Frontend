@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pharmalink/core/theme/colors.dart';
 import '../../../../../core/Blocs/theme/theme_cubit.dart';
-import '../../../../../core/shared_preferences/settings_prefs.dart';
+import '../../../../../core/helpers/shared_preferences/settings_prefs.dart';
 import '../../../../../core/theme/styles.dart';
 import '../../../../../core/localization/app_localizations.dart';
 

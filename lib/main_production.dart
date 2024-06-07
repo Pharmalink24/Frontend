@@ -3,6 +3,8 @@ import 'pharmalink_app.dart';
 import 'init.dart';
 
 void main() async {
+  // initialize the app
   await init();
-  runApp(PharmalinkApp());
+  // run the app
+  runApp(const PharmalinkApp());
 }

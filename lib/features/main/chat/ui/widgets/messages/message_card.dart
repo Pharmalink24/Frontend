@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
 import 'package:pharmalink/core/helpers/extensions.dart';
-import 'package:pharmalink/core/shared_preferences/auth_prefs.dart';
+import 'package:pharmalink/core/helpers/shared_preferences/auth_prefs.dart';
 import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/theme/shadow.dart';
 import 'package:pharmalink/core/theme/styles.dart';

@@ -1,10 +1,7 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:logger/logger.dart';
 import 'package:pharmalink/core/models/message_response.dart';
 import 'package:pharmalink/core/notifications/firebase_notifications.dart';
-import 'package:pharmalink/core/shared_preferences/auth_prefs.dart';
 import '../../../../../core/di/dependency_injection.dart';
-
 import '../../../../../core/models/device_token_request_body.dart';
 import '../../../../../core/networking/api/api_error_handler.dart';
 import '../../../../../core/networking/api/api_result.dart';

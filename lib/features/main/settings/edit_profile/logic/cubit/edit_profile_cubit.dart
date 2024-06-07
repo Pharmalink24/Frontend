@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import '../../../../../../core/helpers/errors.dart';
 import '../../../../../../core/models/user.dart';
-import '../../../../../../core/shared_preferences/auth_prefs.dart';
+import '../../../../../../core/helpers/shared_preferences/auth_prefs.dart';
 import '../../data/repo/edit_profile_repo.dart';
 import 'edit_profile_state.dart';
 
@@ -51,7 +51,8 @@ class EditProfileCubit extends Cubit<EditProfileState> {
         fname: fnameController.text,
         lname: lnameController.text,
         username: usernameController.text,
-        email: AuthSharedPrefs.getEmail(),
+        email: AuthSharedPrefs.getEmail(), // Get the email from the shared preferences
+        // Todo: delete the email from the user model
         phone: phoneController.text,
         birthdate: birthdateController.text,
         gender: genderController.text,

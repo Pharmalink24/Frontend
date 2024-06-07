@@ -12,10 +12,10 @@ abstract class EntrySharedPrefs {
 
   /// save [IsFirstEntry] in shared pref
   static Future<bool> storeEntryData(bool isFirstEntry) async {
-    return await SharedPrefsService.setBool(IS_FIRST_ENTRY, isFirstEntry);
+    return await SharedPrefsService.setData(IS_FIRST_ENTRY, isFirstEntry);
   }
 
   static Future<bool> clearEntry() async {
-    return await SharedPrefsService.remove(IS_FIRST_ENTRY);
+    return await SharedPrefsService.removeData(IS_FIRST_ENTRY);
   }
 }

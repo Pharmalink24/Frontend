@@ -155,7 +155,6 @@ abstract class ApiService {
   @GET(ApiConstants.searchDrugFromDrugEye)
   Future<List<DrugSearch>> searchDrugFromDrugEye(
     @Queries() DrugEyeSearchRequestParams drugEyeSearchRequestParams,
-    @Header("Authorization") String? auth,
   );
 
   // TODO: EDIT THIS FROM 'POST' TO 'GET' WHEN BACKEND EDIT IT.
@@ -163,13 +162,11 @@ abstract class ApiService {
   @POST(ApiConstants.twoDrugInteraction)
   Future<TwoDrugsInteractionResponse> checkInteractionBetweenTwoDrugs(
     @Body() DrugInteractionRequestBody drugInteractionRequestBody,
-    @Header("Authorization") String? auth,
   );
 
   @POST(ApiConstants.drugAndMedicationsInteraction)
   Future<List<Interaction>> checkInteractionBetweenDrugAndMedications(
     @Body() DrugInteractionRequestBody drugInteractionRequestBody,
-    @Header("Authorization") String? auth,
   );
 
   //-------------------- User Profile --------------------//

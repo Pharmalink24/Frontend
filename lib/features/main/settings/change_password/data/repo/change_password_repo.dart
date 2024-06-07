@@ -1,10 +1,8 @@
 import '../../../../../../core/networking/api/api_error_handler.dart';
 import '../../../../../../core/networking/api/api_result.dart';
 import '../../../../../../core/networking/api/api_service.dart';
-import '../../../../../../core/shared_preferences/auth_prefs.dart';
-import '../models/change_password_response.dart';
-
 import '../models/change_password_request_body.dart';
+import '../models/change_password_response.dart';
 
 class ChangePasswordRepo {
   final ApiService _apiService;

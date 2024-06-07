@@ -4,7 +4,6 @@ import '../../../../../core/di/dependency_injection.dart';
 import '../../../../../core/networking/api/api_error_handler.dart';
 import '../../../../../core/networking/api/api_result.dart';
 import '../../../../../core/networking/api/api_service.dart';
-import '../../../../../core/shared_preferences/auth_prefs.dart';
 import '../models/drug_eye_search_request_params.dart';
 import '../../../../../core/models/drug_search.dart';
 import '../models/drug_interaction_request_body.dart';
@@ -18,8 +17,8 @@ class DrugInteractionRepo {
   Future<ApiResult<List<DrugSearch>>> searchDrugFromDrugEye(
       DrugEyeSearchRequestParams drugEyeSearchRequestParams) async {
     try {
-      final drugs = await _apiService.searchDrugFromDrugEye(
-          drugEyeSearchRequestParams, AuthSharedPrefs.getAccessToken());
+      final drugs =
+          await _apiService.searchDrugFromDrugEye(drugEyeSearchRequestParams);
       return ApiResult.success(drugs);
     } catch (error) {
       getIt<Logger>().e(error);
@@ -30,8 +29,8 @@ class DrugInteractionRepo {
   Future<ApiResult<TwoDrugsInteractionResponse>> checkInteractionBetween2Drugs(
       DrugInteractionRequestBody drugInteractionRequestBody) async {
     try {
-      final result = await _apiService.checkInteractionBetweenTwoDrugs(
-          drugInteractionRequestBody, AuthSharedPrefs.getAccessToken());
+      final result = await _apiService
+          .checkInteractionBetweenTwoDrugs(drugInteractionRequestBody);
       return ApiResult.success(result);
     } catch (error) {
       getIt<Logger>().e(error);
@@ -45,7 +44,8 @@ class DrugInteractionRepo {
     try {
       final result =
           await _apiService.checkInteractionBetweenDrugAndMedications(
-              drugInteractionRequestBody, AuthSharedPrefs.getAccessToken());
+        drugInteractionRequestBody,
+      );
       return ApiResult.success(result);
     } catch (error) {
       getIt<Logger>().e(error);

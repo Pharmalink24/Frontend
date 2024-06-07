@@ -10,14 +10,14 @@ abstract class SettingsSharedPrefs {
 
   /// save [LANGUAGE] in shared pref
   static Future<bool> storeLocale(Language language) async {
-    return await SharedPrefsService.setString(LANGUAGE, language.key);
+    return await SharedPrefsService.setData(LANGUAGE, language.key);
   }
 
   /// save [THEME] in shared pref
   /// 0 for light theme
   /// 1 for dark theme
   static Future<bool> storeTheme(int theme) async {
-    return await SharedPrefsService.setInt(THEME, theme);
+    return await SharedPrefsService.setData(THEME, theme);
   }
 
   /// get [LANGUAGE] from shared pref
@@ -33,7 +33,7 @@ abstract class SettingsSharedPrefs {
   }
 
   static Future<void> clearEntry() async {
-    await SharedPrefsService.remove(LANGUAGE);
-    await SharedPrefsService.remove(THEME);
+    await SharedPrefsService.removeData(LANGUAGE);
+    await SharedPrefsService.removeData(THEME);
   }
 }

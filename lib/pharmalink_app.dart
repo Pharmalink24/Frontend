@@ -17,7 +17,7 @@ import 'features/access/sign/logic/signin_cubit/signin_cubit.dart';
   final appRouter = AppRouter();
 
 class PharmalinkApp extends StatelessWidget {
-  PharmalinkApp({super.key});
+  const PharmalinkApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -37,9 +37,6 @@ class PharmalinkApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => getIt<ChatCubit>(),
-        ),
-        BlocProvider(
-          create: (context) => getIt<SigninCubit>(),
         ),
       ],
       child: Builder(

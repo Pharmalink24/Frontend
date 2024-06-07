@@ -3,6 +3,8 @@ import 'package:rxdart/rxdart.dart';
 import 'package:web_socket_channel/io.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';
 
+import '../../di/dependency_injection.dart';
+
 class SocketChannel {
   SocketChannel(this._getIOWebSocketChannel) {
     _startConnection();
@@ -61,6 +63,6 @@ class SocketChannel {
   void close() {
     _isManuallyClosed = true;
     _sink.close();
-    Logger().i('Socket Channel Closed');
+    getIt<Logger>().i('Socket Channel Closed');
   }
 }

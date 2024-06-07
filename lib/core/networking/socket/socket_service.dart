@@ -3,10 +3,12 @@ import 'dart:io';
 
 import 'package:logger/logger.dart';
 import 'package:pharmalink/core/helpers/extensions.dart';
+import 'package:pharmalink/core/networking/api/api_constants.dart';
 import 'package:pharmalink/core/networking/socket/socket_constants.dart';
 import 'package:web_socket_channel/io.dart';
 
 import '../../../features/main/chat/data/models/message.dart';
+import '../../di/dependency_injection.dart';
 import 'socket_channel.dart';
 
 class SocketService {
@@ -19,7 +21,7 @@ class SocketService {
   SocketChannel? _userChatsChannel;
 
   Map<String, String> getHeaders(String auth) => {
-        HttpHeaders.authorizationHeader: auth,
+        HttpHeaders.authorizationHeader: '${ApiConstants.tokenKey} $auth',
       };
 
   String setPathParams(String url, Map<String, dynamic> paths) {
@@ -52,8 +54,8 @@ class SocketService {
     url = setPathParams(url, {'user_id': currentUserId});
 
     // Log the url and headers
-    Logger().i('url: $url');
-    Logger().i('headers: $headers');
+    getIt<Logger>().i('url: $url');
+    getIt<Logger>().i('headers: $headers');
 
     // Connect to the messaging channel
     _messagingChannel = SocketChannel(
@@ -69,7 +71,7 @@ class SocketService {
   // Close the messaging channel
   void closeMessagingChannel() {
     _messagingChannel?.close();
-    Logger().i('Messaging Channel is closed');
+    getIt<Logger>().i('Messaging Channel is closed');
   }
 
   //-------------------- User Chats Channel --------------------//
@@ -83,8 +85,8 @@ class SocketService {
     String url = '$baseUrl${WebSocketConstants.allChatsChannel}';
 
     // Log the url and headers
-    Logger().i('url: $url');
-    Logger().i('headers: $headers');
+    getIt<Logger>().i('url: $url');
+    getIt<Logger>().i('headers: $headers');
 
     // Connect to the messaging channel
     _userChatsChannel = SocketChannel(
@@ -100,7 +102,7 @@ class SocketService {
   // Close the user chats channel
   void closeUserChatsChannel() {
     _userChatsChannel?.close();
-    Logger().i('User Chats Channel is closed');
+    getIt<Logger>().i('User Chats Channel is closed');
   }
 
   //-------------------- Listen to Channels --------------------//
@@ -109,11 +111,11 @@ class SocketService {
   void listenToMessagingChannel(Function onListen) {
     _messagingChannel?.stream.listen(
       (event) {
-        Logger().i('Received message: $event');
+        getIt<Logger>().i('Received message: $event');
         onListen(event);
       },
       onError: (error) => Logger().e('Error in messaging channel: $error'),
-      onDone: () => Logger().i('Messaging Channel is closed'),
+      onDone: () => getIt<Logger>().i('Messaging Channel is closed'),
     );
   }
 
@@ -121,11 +123,11 @@ class SocketService {
   void listenToUserChats(Function onListen) {
     _userChatsChannel?.stream.listen(
       (event) {
-        Logger().i('Received chats: $event');
+        getIt<Logger>().i('Received chats: $event');
         onListen(event);
       },
       onError: (error) => Logger().e('Error in user chats channel: $error'),
-      onDone: () => Logger().i('User chats Channel is closed'),
+      onDone: () => getIt<Logger>().i('User chats Channel is closed'),
     );
   }
 
@@ -133,7 +135,7 @@ class SocketService {
 
   // Send message to the messaging channel
   void sendMessageToMessagingChannel(Message message) {
-    Logger().i('Sending message: ${message.toJson()}');
+    getIt<Logger>().i('Sending message: ${message.toJson()}');
 
     // Convert the message to json
     final messageJson = jsonEncode(message.toJson());

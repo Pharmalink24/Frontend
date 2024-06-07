@@ -1,10 +1,12 @@
 import 'package:logger/logger.dart';
+import 'package:pharmalink/core/di/dependency_injection.dart';
 import 'package:pharmalink/core/networking/socket/socket_constants.dart';
 import 'package:pharmalink/features/main/chat/data/models/message.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';
 
 void main() {
-  String url = '${WebSocketConstants.wsDomain}${WebSocketConstants.messagingChannel}';
+  String url =
+      '${WebSocketConstants.wsDomain}${WebSocketConstants.messagingChannel}';
 
   Map<String, dynamic> pathParams = {
     'user_id': '1',
@@ -14,7 +16,7 @@ void main() {
     url = url.replaceFirst('{$key}', value.toString());
   });
 
-  Logger().i(url);
+  getIt<Logger>().i(url);
 
   final channel = WebSocketChannel.connect(
     Uri.parse(url),
@@ -28,7 +30,7 @@ void main() {
 
   channel.sink.add(msg);
   channel.stream.listen((message) {
-    Logger().i(message);
+    getIt<Logger>().i(message);
     channel.sink.close();
   });
 }
