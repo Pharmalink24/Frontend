@@ -2,12 +2,12 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:pharmalink/core/routes/app_router.dart';
 import 'package:pharmalink/core/theme/colors.dart';
-import '../../../../../core/widgets/card_container_with_title.dart';
+import '../../../../../shared/presentation/widgets/card_container_with_title.dart';
 import '../../../../../core/theme/styles.dart';
-import '../../../../../core/widgets/text_with_icon.dart';
+import '../../../../../shared/presentation/widgets/text_with_icon.dart';
 import '../../../../../core/localization/app_localizations.dart';
 import '../../../doctors/data/models/doctor.dart';
-import '../../../../../core/widgets/doctor_card.dart';
+import '../../../../../shared/presentation/widgets/doctor_card.dart';
 
 class DoctorsContainer extends StatelessWidget {
   final List<Doctor> doctors;

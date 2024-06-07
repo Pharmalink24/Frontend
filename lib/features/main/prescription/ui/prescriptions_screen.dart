@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pharmalink/features/main/prescription/ui/widgets/prescriptions_screen/prescriptions_widget.dart';
 import '../../../../core/di/dependency_injection.dart';
-import '../../../../core/enums/drug_state.dart';
+import '../../../../shared/domain/entities/enums/drug_state.dart';
 import '../logic/prescription_cubit.dart';
 
 @RoutePage()

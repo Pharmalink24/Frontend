@@ -3,9 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_typeahead/flutter_typeahead.dart';
 import 'package:pharmalink/core/theme/colors.dart';
 import '../../../../../core/theme/styles.dart';
-import '../../../../../core/widgets/loading/loading_indicator.dart';
+import '../../../../../shared/presentation/widgets/loading/loading_indicator.dart';
 import '../../logic/cubit/drug_interaction_cubit.dart';
-import '../../../../../core/models/drug_search.dart';
+import '../../../../../shared/domain/entities/models/drug_search.dart';
 import '../../../../../core/localization/app_localizations.dart';
 
 class DrugSearchField extends StatelessWidget {

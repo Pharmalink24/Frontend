@@ -2,12 +2,12 @@
 
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:pharmalink/core/enums/drug_state.dart';
+import 'package:pharmalink/shared/domain/entities/enums/drug_state.dart';
 import 'package:pharmalink/core/routes/app_router.dart';
 import 'package:pharmalink/core/theme/colors.dart';
 import '../../../../../../core/theme/shadow.dart';
 import '../../../../../../core/theme/styles.dart';
-import '../../../../../../core/widgets/clip_shadow_path.dart';
+import '../../../../../../shared/presentation/widgets/clip_shadow_path.dart';
 
 class PrescriptionCategoryWidget extends StatelessWidget {
   final String title;

@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
-import '../../../../../core/enums/gender.dart';
+import '../../../../../shared/domain/entities/enums/gender.dart';
 
 part 'doctor_info.g.dart';
 

@@ -2,9 +2,9 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:pharmalink/core/theme/gradient.dart';
 import 'package:pharmalink/resources/resources.dart';
-import '../../../../../core/networking/api/api_constants.dart';
-import '../../../../../core/widgets/loading/loading_indicator.dart';
-import '../../../../../core/widgets/parallax_container.dart';
+import '../../../../../shared/data/data_sources/remote/api/api_constants.dart';
+import '../../../../../shared/presentation/widgets/loading/loading_indicator.dart';
+import '../../../../../shared/presentation/widgets/parallax_container.dart';
 
 class DoctorImage extends StatelessWidget {
   final String? image;

@@ -19,12 +19,12 @@ import '../../features/main/settings/edit_profile/data/repo/edit_profile_repo.da
 import '../../features/main/settings/edit_profile/logic/cubit/edit_profile_cubit.dart';
 import '../../features/main/settings/change_password/data/repo/change_password_repo.dart';
 import '../../features/main/settings/change_password/logic/cubit/change_password_cubit.dart';
-import '../Blocs/connection/network_cubit.dart';
-import '../Blocs/locale/locale_cubit.dart';
-import '../Blocs/theme/theme_cubit.dart';
+import '../../shared/presentation/logic/connection/network_cubit.dart';
+import '../../shared/presentation/logic/locale/locale_cubit.dart';
+import '../../shared/presentation/logic/theme/theme_cubit.dart';
 import 'package:pharmalink/features/main/chat/data/repo/chat_repo.dart';
-import '../networking/api/api_service.dart';
-import '../networking/api/app_dio_factory.dart';
+import '../../shared/data/data_sources/remote/api/api_service.dart';
+import '../../shared/data/data_sources/remote/api/app_dio_factory.dart';
 import '../../features/access/auth/logic/cubit/auth_cubit.dart';
 import '../../features/access/auth/data/repo/auth_repo.dart';
 import '../../features/access/sign/data/repo/signin_repo.dart';
@@ -33,7 +33,7 @@ import '../../features/access/sign/logic/signup_cubit/signup_cubit.dart';
 import '../../features/access/sign/data/repo/signup_repo.dart';
 import '../../features/access/verification/data/repo/verification_repo.dart';
 import '../../features/access/verification/logic/cubit/verification_cubit.dart';
-import '../networking/socket/socket_service.dart';
+import '../../shared/data/data_sources/remote/socket/socket_service.dart';
 
 final getIt = GetIt.instance;
 

@@ -2,11 +2,11 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pharmalink/core/Blocs/locale/locale_cubit.dart';
-import 'package:pharmalink/core/enums/language.dart';
-import 'package:pharmalink/core/helpers/classes/field_item.dart';
+import 'package:pharmalink/shared/presentation/logic/locale/locale_cubit.dart';
+import 'package:pharmalink/shared/domain/entities/enums/language.dart';
+import 'package:pharmalink/shared/domain/entities/classes/field_item.dart';
 import 'package:pharmalink/core/theme/colors.dart';
-import 'package:pharmalink/core/widgets/form/form_drop_down_button.dart';
+import 'package:pharmalink/shared/presentation/widgets/form/form_drop_down_button.dart';
 import 'package:pharmalink/core/localization/app_localizations.dart';
 
 class LanguageDropDown extends StatefulWidget {

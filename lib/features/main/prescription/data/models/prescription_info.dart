@@ -1,5 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import '../../../../../core/models/drug_info.dart';
+import '../../../../../shared/domain/entities/models/drug_info.dart';
 part 'prescription_info.g.dart';
 
 @JsonSerializable()

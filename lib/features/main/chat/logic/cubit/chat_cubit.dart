@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
-import '../../../../../core/helpers/errors.dart';
+import '../../../../../core/helpers/constants/errors.dart';
 import '../../data/models/message.dart';
 import '../../data/repo/chat_repo.dart';
 import 'chat_state.dart';

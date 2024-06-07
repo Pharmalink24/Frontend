@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
-import '../../../../../core/helpers/errors.dart';
+import '../../../../../core/helpers/constants/errors.dart';
 import '../../data/models/signup/signup_request_body.dart';
 import 'signup_state.dart';
 import '../../data/repo/signup_repo.dart';

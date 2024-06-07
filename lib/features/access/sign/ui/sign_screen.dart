@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/features/access/sign/ui/widgets/form_tab.dart';
 import '../../../../core/theme/app_bar.dart';
-import '../../../../core/widgets/terms_and_conditions_text.dart';
+import '../../../../shared/presentation/widgets/terms_and_conditions_text.dart';
 import 'package:auto_route/auto_route.dart';
 
 @RoutePage()    

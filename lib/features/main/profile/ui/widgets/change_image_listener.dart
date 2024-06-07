@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pharmalink/core/routes/app_router.dart';
 import 'package:pharmalink/core/theme/styles.dart';
-import 'package:pharmalink/core/widgets/loading/loading_overlay.dart';
+import 'package:pharmalink/shared/presentation/widgets/loading/loading_overlay.dart';
 import 'package:pharmalink/features/main/settings/edit_profile/logic/cubit/edit_profile_cubit.dart';
 import 'package:pharmalink/features/main/settings/edit_profile/logic/cubit/edit_profile_state.dart';
 

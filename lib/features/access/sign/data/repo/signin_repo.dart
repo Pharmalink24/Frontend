@@ -1,11 +1,11 @@
 import 'package:logger/logger.dart';
-import 'package:pharmalink/core/models/message_response.dart';
+import 'package:pharmalink/shared/domain/entities/models/message_response.dart';
 import 'package:pharmalink/core/notifications/firebase_notifications.dart';
 import '../../../../../core/di/dependency_injection.dart';
-import '../../../../../core/models/device_token_request_body.dart';
-import '../../../../../core/networking/api/api_error_handler.dart';
-import '../../../../../core/networking/api/api_result.dart';
-import '../../../../../core/networking/api/api_service.dart';
+import '../../../../../shared/domain/entities/models/device_token_request_body.dart';
+import '../../../../../shared/data/data_sources/remote/api/api_error_handler.dart';
+import '../../../../../shared/data/data_sources/remote/api/api_result.dart';
+import '../../../../../shared/data/data_sources/remote/api/api_service.dart';
 import '../models/signin/signin_request_body.dart';
 import '../models/signin/signin_response.dart';
 

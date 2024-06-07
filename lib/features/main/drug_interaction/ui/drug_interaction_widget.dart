@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/localization/app_localizations.dart';
-import '../../../../core/widgets/form/form_button.dart';
+import '../../../../shared/presentation/widgets/form/form_button.dart';
 import '../logic/cubit/drug_interaction_cubit.dart';
 import 'widgets/drug_interaction_inputs_tab.dart';
 import 'widgets/interaction_result_container.dart';

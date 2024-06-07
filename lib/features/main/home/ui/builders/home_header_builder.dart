@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pharmalink/features/main/home/ui/widgets/home_header_row.dart';
-import '../../../../../core/models/user.dart';
-import '../../../../../core/widgets/error_card.dart';
+import '../../../../../shared/domain/entities/models/user.dart';
+import '../../../../../shared/presentation/widgets/error_card.dart';
 import '../../../profile/logic/profile_cubit/profile_cubit.dart';
 import '../../../profile/logic/profile_cubit/profile_state.dart';
 

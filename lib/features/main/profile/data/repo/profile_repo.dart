@@ -1,10 +1,10 @@
 import 'package:logger/logger.dart';
 
 import '../../../../../core/di/dependency_injection.dart';
-import '../../../../../core/models/user.dart';
-import '../../../../../core/networking/api/api_error_handler.dart';
-import '../../../../../core/networking/api/api_result.dart';
-import '../../../../../core/networking/api/api_service.dart';
+import '../../../../../shared/domain/entities/models/user.dart';
+import '../../../../../shared/data/data_sources/remote/api/api_error_handler.dart';
+import '../../../../../shared/data/data_sources/remote/api/api_result.dart';
+import '../../../../../shared/data/data_sources/remote/api/api_service.dart';
 
 class ProfileRepo {
   final ApiService _apiService;

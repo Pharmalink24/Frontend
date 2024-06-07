@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:pharmalink/core/helpers/extensions.dart';
+import 'package:pharmalink/core/helpers/extensions/extensions.dart';
 import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/theme/gradient.dart';
 import 'package:pharmalink/core/theme/shadow.dart';

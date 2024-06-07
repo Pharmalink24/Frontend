@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pharmalink/core/routes/app_router.dart';
 import 'package:pharmalink/core/theme/colors.dart';
-import '../../../../../core/widgets/loading/loading_overlay.dart';
+import '../../../../../shared/presentation/widgets/loading/loading_overlay.dart';
 import '../../../../../core/theme/styles.dart';
 import '../../data/models/signin/signin_response.dart';
 import '../../logic/signin_cubit/signin_cubit.dart';

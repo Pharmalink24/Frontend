@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import '../../../../../core/helpers/errors.dart';
+import '../../../../../core/helpers/constants/errors.dart';
 import '../../data/models/verification_request_params.dart';
 import '../../data/repo/verification_repo.dart';
 import 'verification_state.dart';

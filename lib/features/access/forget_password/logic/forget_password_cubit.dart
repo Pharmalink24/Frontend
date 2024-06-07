@@ -2,7 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import '../data/repo/forget_password_repo.dart';
 import 'forget_password_state.dart';
-import '../../../../../core/helpers/errors.dart';
+import '../../../../core/helpers/constants/errors.dart';
 
 class ForgetPasswordCubit extends Cubit<ForgetPasswordState> {
   final ForgetPasswordRepo _forgetPasswordRepo;

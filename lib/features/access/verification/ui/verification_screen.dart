@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pharmalink/core/di/dependency_injection.dart';
 import 'package:pharmalink/core/routes/app_router.dart';
 import 'package:pharmalink/core/theme/app_bar.dart';
-import 'package:pharmalink/core/widgets/form/form_button.dart';
+import 'package:pharmalink/shared/presentation/widgets/form/form_button.dart';
 import 'package:pharmalink/features/access/verification/data/models/verification_request_params.dart';
 import 'package:pharmalink/features/access/verification/logic/cubit/verification_cubit.dart';
 import 'package:pharmalink/features/access/verification/ui/widgets/email_text.dart';

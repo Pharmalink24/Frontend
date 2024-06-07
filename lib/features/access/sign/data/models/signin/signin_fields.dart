@@ -1,5 +1,5 @@
-import "../../../../../../core/helpers/classes/field.dart";
-import "../../../../../../core/helpers/classes/field_type.dart";
+import "../../../../../../shared/domain/entities/classes/field.dart";
+import "../../../../../../shared/domain/entities/enums/field_type.dart";
 
 
 Map<String, Field> signInFields = {

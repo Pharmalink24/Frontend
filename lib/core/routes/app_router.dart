@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:pharmalink/core/enums/drug_state.dart';
+import 'package:pharmalink/shared/domain/entities/enums/drug_state.dart';
 import 'package:pharmalink/features/404/error_404_screen.dart';
 import 'package:pharmalink/features/access/forget_password/ui/forget_password_screen.dart';
 import 'package:pharmalink/features/access/sign/ui/sign_screen.dart';
@@ -25,8 +25,8 @@ import 'package:pharmalink/features/on_boarding/ui/on_boarding_screen.dart';
 import 'package:pharmalink/features/splash/ui/splash_screen.dart';
 import '../../features/main/chat/ui/chats_screen.dart';
 import '../../features/main/prescription/data/models/prescription_info.dart';
-import '../helpers/shared_preferences/auth_prefs.dart';
-import '../helpers/shared_preferences/entry_prefs.dart';
+import '../../shared/data/data_sources/local/shared_preferences/auth_prefs.dart';
+import '../../shared/data/data_sources/local/shared_preferences/entry_prefs.dart';
 
 part 'app_router.gr.dart';
 

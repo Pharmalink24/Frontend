@@ -7,7 +7,7 @@ import 'package:pharmalink/features/main/drug_interaction/ui/widgets/drug_intera
 
 import '../../../../../core/localization/app_localizations.dart';
 import '../../../../../core/theme/styles.dart';
-import '../../../../../core/widgets/card_container_with_title.dart';
+import '../../../../../shared/presentation/widgets/card_container_with_title.dart';
 import 'drug_interaction_between_two_drugs.dart';
 
 class DrugInteractionInputsTab extends StatefulWidget {

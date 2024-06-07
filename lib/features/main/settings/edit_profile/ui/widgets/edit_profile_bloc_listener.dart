@@ -4,9 +4,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pharmalink/core/routes/app_router.dart';
 import 'package:pharmalink/core/theme/colors.dart';
 import '../../../../../../core/localization/app_localizations.dart';
-import '../../../../../../core/models/user.dart';
+import '../../../../../../shared/domain/entities/models/user.dart';
 import '../../../../../../core/theme/styles.dart';
-import '../../../../../../core/widgets/loading/loading_overlay.dart';
+import '../../../../../../shared/presentation/widgets/loading/loading_overlay.dart';
 import '../../logic/cubit/edit_profile_cubit.dart';
 import '../../logic/cubit/edit_profile_state.dart';
 

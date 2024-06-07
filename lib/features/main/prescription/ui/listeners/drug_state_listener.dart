@@ -4,8 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pharmalink/core/routes/app_router.dart';
 import 'package:pharmalink/core/theme/styles.dart';
 import 'package:pharmalink/features/main/prescription/logic/prescription_state.dart';
-import '../../../../../core/enums/drug_state.dart';
-import '../../../../../core/widgets/loading/loading_overlay.dart';
+import '../../../../../shared/domain/entities/enums/drug_state.dart';
+import '../../../../../shared/presentation/widgets/loading/loading_overlay.dart';
 import '../../logic/prescription_cubit.dart';
 
 class DrugStateListener extends StatelessWidget {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../../../core/widgets/app_shimmer.dart';
-import '../../../../../core/widgets/error_card.dart';
+import '../../../../../shared/presentation/widgets/app_shimmer.dart';
+import '../../../../../shared/presentation/widgets/error_card.dart';
 import '../../../reminders/logic/reminders_state.dart';
 import '../../../reminders/data/models/reminder.dart';
 import '../../../reminders/logic/reminders_cubit.dart';

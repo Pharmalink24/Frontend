@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:pharmalink/core/notifications/firebase_notifications.dart';
 import 'core/di/dependency_injection.dart';
 import 'dart:async';
-import 'core/helpers/shared_preferences/shared_preferences_service.dart';
+import 'shared/data/data_sources/local/shared_preferences/shared_preferences_service.dart';
 import 'firebase_options.dart';
 
 

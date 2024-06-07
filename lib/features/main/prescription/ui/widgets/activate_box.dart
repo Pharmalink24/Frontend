@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pharmalink/core/enums/drug_state.dart';
+import 'package:pharmalink/shared/domain/entities/enums/drug_state.dart';
 import 'package:pharmalink/core/theme/colors.dart';
-import 'package:pharmalink/core/widgets/form/form_button.dart';
-import 'package:pharmalink/core/widgets/modal_bottom_widget.dart';
+import 'package:pharmalink/shared/presentation/widgets/form/form_button.dart';
+import 'package:pharmalink/shared/presentation/widgets/modal_bottom_widget.dart';
 import '../../logic/prescription_cubit.dart';
 import '../listeners/drug_state_listener.dart';
 

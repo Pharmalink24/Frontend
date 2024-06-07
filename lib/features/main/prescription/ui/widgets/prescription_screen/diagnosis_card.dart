@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pharmalink/core/localization/app_localizations.dart';
 import '../../../../../../core/theme/styles.dart';
-import '../../../../../../core/widgets/expansion_card_container.dart';
+import '../../../../../../shared/presentation/widgets/expansion_card_container.dart';
 
 class DiagnosisCard extends StatelessWidget {
   final String diagnosis;

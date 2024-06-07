@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../../../core/helpers/errors.dart';
+import '../../../../../core/helpers/constants/errors.dart';
 import '../../../auth/data/repo/auth_repo.dart';
 import '../../data/models/signin/signin_request_body.dart';
 import '../../data/repo/signin_repo.dart';

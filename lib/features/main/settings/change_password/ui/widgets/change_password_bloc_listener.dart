@@ -5,7 +5,7 @@ import 'package:pharmalink/core/routes/app_router.dart';
 import 'package:pharmalink/core/theme/colors.dart';
 import '../../../../../../core/localization/app_localizations.dart';
 import '../../../../../../core/theme/styles.dart';
-import '../../../../../../core/widgets/loading/loading_overlay.dart';
+import '../../../../../../shared/presentation/widgets/loading/loading_overlay.dart';
 import '../../data/models/change_password_response.dart';
 import '../../logic/cubit/change_password_cubit.dart';
 import '../../logic/cubit/change_password_state.dart';

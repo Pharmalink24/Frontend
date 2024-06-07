@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
-import '../../../../core/enums/drug_state.dart';
-import '../../../../core/helpers/errors.dart';
+import '../../../../shared/domain/entities/enums/drug_state.dart';
+import '../../../../core/helpers/constants/errors.dart';
 import '../data/repo/prescription_repo.dart';
 import 'prescription_state.dart';
 

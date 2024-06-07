@@ -1,7 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:pharmalink/core/enums/drug_state.dart';
+import 'package:pharmalink/shared/domain/entities/enums/drug_state.dart';
 
-import '../../../../../core/enums/eating_state.dart';
+import '../../../../../shared/domain/entities/enums/eating_state.dart';
 
 part 'reminder.g.dart';
 

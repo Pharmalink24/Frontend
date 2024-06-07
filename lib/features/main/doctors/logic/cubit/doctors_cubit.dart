@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import '../../../../../core/helpers/errors.dart';
+import '../../../../../core/helpers/constants/errors.dart';
 import 'doctors_state.dart';
 import '../../data/repo/doctors_repo.dart';
 

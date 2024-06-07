@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pharmalink/core/theme/colors.dart';
-import '../../../../../core/Blocs/theme/theme_cubit.dart';
-import '../../../../../core/helpers/shared_preferences/settings_prefs.dart';
+import '../../../../../shared/presentation/logic/theme/theme_cubit.dart';
+import '../../../../../shared/data/data_sources/local/shared_preferences/settings_prefs.dart';
 import '../../../../../core/theme/styles.dart';
 import '../../../../../core/localization/app_localizations.dart';
 

@@ -1,8 +1,8 @@
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:logger/logger.dart';
-import 'package:pharmalink/core/networking/api/api_service.dart';
+import 'package:pharmalink/shared/data/data_sources/remote/api/api_service.dart';
 import '../di/dependency_injection.dart';
-import '../models/device_token_request_body.dart';
+import '../../shared/domain/entities/models/device_token_request_body.dart';
 
 class FirebaseNotifications {
   final ApiService _apiService;

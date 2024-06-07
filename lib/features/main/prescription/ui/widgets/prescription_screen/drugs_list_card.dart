@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:pharmalink/core/theme/colors.dart';
 import '../../../../../../core/localization/app_localizations.dart';
-import '../../../../../../core/models/drug_info.dart';
+import '../../../../../../shared/domain/entities/models/drug_info.dart';
 import '../../../../../../core/theme/styles.dart';
-import '../../../../../../core/widgets/expansion_card_container.dart';
+import '../../../../../../shared/presentation/widgets/expansion_card_container.dart';
 import 'drug_card.dart';
 
 class DrugsListCard extends StatelessWidget {

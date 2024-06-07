@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pharmalink/core/localization/app_localizations.dart';
 import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/theme/styles.dart';
-import 'package:pharmalink/core/widgets/loading/loading_indicator.dart';
+import 'package:pharmalink/shared/presentation/widgets/loading/loading_indicator.dart';
 import 'package:pharmalink/features/main/chat/data/models/chats_response.dart';
 import 'package:pharmalink/features/main/chat/logic/cubit/chat_cubit.dart';
 import 'package:pharmalink/features/main/chat/ui/widgets/chats/chats_header.dart';

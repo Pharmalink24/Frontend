@@ -3,10 +3,10 @@ import 'dart:io';
 
 import 'package:logger/logger.dart';
 import 'package:pharmalink/core/di/dependency_injection.dart';
-import 'package:pharmalink/core/models/user.dart';
-import 'package:pharmalink/core/networking/api/api_error_handler.dart';
-import 'package:pharmalink/core/networking/api/api_result.dart';
-import 'package:pharmalink/core/networking/api/api_service.dart';
+import 'package:pharmalink/shared/domain/entities/models/user.dart';
+import 'package:pharmalink/shared/data/data_sources/remote/api/api_error_handler.dart';
+import 'package:pharmalink/shared/data/data_sources/remote/api/api_result.dart';
+import 'package:pharmalink/shared/data/data_sources/remote/api/api_service.dart';
 
 class EditProfileRepo {
   final ApiService _apiService;

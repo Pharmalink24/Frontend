@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import '../../../../core/helpers/errors.dart';
+import '../../../../core/helpers/constants/errors.dart';
 import '../data/models/reminder.dart';
 import '../data/repo/reminders_repo.dart';
 import 'reminders_state.dart';

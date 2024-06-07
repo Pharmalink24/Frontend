@@ -4,14 +4,14 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:pharmalink/core/networking/api/api_constants.dart';
+import 'package:pharmalink/shared/data/data_sources/remote/api/api_constants.dart';
 import 'package:pharmalink/core/routes/app_router.dart';
 import 'package:pharmalink/core/theme/colors.dart';
 import 'package:pharmalink/core/theme/gradient.dart';
 import '../../../../../core/theme/styles.dart';
 import '../../../../../core/localization/app_localizations.dart';
-import '../../../../../core/widgets/app_shimmer.dart';
-import '../../../../../core/widgets/loading/loading_indicator.dart';
+import '../../../../../shared/presentation/widgets/app_shimmer.dart';
+import '../../../../../shared/presentation/widgets/loading/loading_indicator.dart';
 import '../../../../../resources/resources.dart';
 
 const kFontSize = 22.0;

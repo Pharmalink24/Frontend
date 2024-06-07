@@ -3,9 +3,9 @@ import 'dart:io';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import '../../../../../../core/helpers/errors.dart';
-import '../../../../../../core/models/user.dart';
-import '../../../../../../core/helpers/shared_preferences/auth_prefs.dart';
+import '../../../../../../core/helpers/constants/errors.dart';
+import '../../../../../../shared/domain/entities/models/user.dart';
+import '../../../../../../shared/data/data_sources/local/shared_preferences/auth_prefs.dart';
 import '../../data/repo/edit_profile_repo.dart';
 import 'edit_profile_state.dart';
 

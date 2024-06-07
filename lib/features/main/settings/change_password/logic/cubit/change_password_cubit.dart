@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
-import '../../../../../../core/helpers/errors.dart';
+import '../../../../../../core/helpers/constants/errors.dart';
 import '../../data/models/change_password_request_body.dart';
 import '../../data/repo/change_password_repo.dart';
 import 'change_password_state.dart';

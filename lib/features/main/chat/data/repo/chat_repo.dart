@@ -1,10 +1,10 @@
 import 'dart:convert';
 import 'package:logger/logger.dart';
-import 'package:pharmalink/core/networking/api/api_service.dart';
-import 'package:pharmalink/core/networking/socket/socket_service.dart';
-import '../../../../../core/helpers/shared_preferences/auth_prefs.dart';
-import '../../../../../core/networking/api/api_error_handler.dart';
-import '../../../../../core/networking/api/api_result.dart';
+import 'package:pharmalink/shared/data/data_sources/remote/api/api_service.dart';
+import 'package:pharmalink/shared/data/data_sources/remote/socket/socket_service.dart';
+import '../../../../../shared/data/data_sources/local/shared_preferences/auth_prefs.dart';
+import '../../../../../shared/data/data_sources/remote/api/api_error_handler.dart';
+import '../../../../../shared/data/data_sources/remote/api/api_result.dart';
 import '../models/chats_response.dart';
 import '../models/message.dart';
 import '../models/messages_history_response.dart';
