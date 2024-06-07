@@ -8,18 +8,13 @@ import '../../../../../features/access/sign/data/models/signin/signin_request_bo
 import '../../../../../features/access/sign/data/models/signin/signin_response.dart';
 import '../../../../../features/app/chat/data/models/messages_history_response.dart';
 import '../../../../../features/app/doctors/data/models/doctor.dart';
-import '../../../../../features/app/drug_interaction/data/models/interaction.dart';
-import '../../../../../features/app/prescription/data/models/prescription_doctor.dart';
-import '../../../../../features/app/prescription/data/models/prescription_info.dart';
-import '../../../../../features/app/reminders/data/models/reminder.dart';
+import '../../../../../features/app/prescription/domain/models/prescription_doctor.dart';
+import '../../../../../features/app/prescription/domain/models/prescription_info.dart';
+import '../../../../../features/app/reminders/domain/models/reminder.dart';
 import '../../../../../features/app/settings/change_password/data/models/change_password_request_body.dart';
 import '../../../../../features/app/settings/change_password/data/models/change_password_response.dart';
 import 'package:retrofit/http.dart';
-import '../../../../../features/app/drug_interaction/data/models/drug_eye_search_request_params.dart';
 import '../../../../domain/entities/models/device_token_request_body.dart';
-import '../../../../domain/entities/models/drug_search.dart';
-import '../../../../../features/app/drug_interaction/data/models/drug_interaction_request_body.dart';
-import '../../../../../features/app/drug_interaction/data/models/drug_interaction_response.dart';
 import '../../../../domain/entities/models/message_response.dart';
 import '../../../../domain/entities/models/state_request_body.dart';
 import '../../../../domain/entities/models/user.dart';
@@ -149,25 +144,6 @@ abstract class ApiService {
     @Path('prescription_id') int prescriptionId,
   );
 
-  //-------------------- DRUG INTERACTION --------------------//
-
-  // Search Drug from drug eye
-  @GET(ApiConstants.searchDrugFromDrugEye)
-  Future<List<DrugSearch>> searchDrugFromDrugEye(
-    @Queries() DrugEyeSearchRequestParams drugEyeSearchRequestParams,
-  );
-
-  // TODO: EDIT THIS FROM 'POST' TO 'GET' WHEN BACKEND EDIT IT.
-  // Drug Interaction Checker
-  @POST(ApiConstants.twoDrugInteraction)
-  Future<TwoDrugsInteractionResponse> checkInteractionBetweenTwoDrugs(
-    @Body() DrugInteractionRequestBody drugInteractionRequestBody,
-  );
-
-  @POST(ApiConstants.drugAndMedicationsInteraction)
-  Future<List<Interaction>> checkInteractionBetweenDrugAndMedications(
-    @Body() DrugInteractionRequestBody drugInteractionRequestBody,
-  );
 
   //-------------------- User Profile --------------------//
 
