@@ -19,7 +19,7 @@ import '../../features/main/settings/edit_profile/data/repo/edit_profile_repo.da
 import '../../features/main/settings/edit_profile/logic/cubit/edit_profile_cubit.dart';
 import '../../features/main/settings/change_password/data/repo/change_password_repo.dart';
 import '../../features/main/settings/change_password/logic/cubit/change_password_cubit.dart';
-import '../Blocs/connection/bloc/network_cubit.dart';
+import '../Blocs/connection/network_cubit.dart';
 import '../Blocs/locale/locale_cubit.dart';
 import '../Blocs/theme/theme_cubit.dart';
 import 'package:pharmalink/features/main/chat/data/repo/chat_repo.dart';
