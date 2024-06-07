@@ -10,7 +10,7 @@ class DrugInteractionWithMedications extends StatelessWidget {
   Widget _buildDescription(BuildContext context) {
     return Text(
       "We helps you decide whether a medication might interact with another medication you're currently using.",
-      style: AppTextStyle.labelSmall(context),
+      style: AppTextStyle.labelMedium(context),
       textAlign: TextAlign.center,
     );
   }

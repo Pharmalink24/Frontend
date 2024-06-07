@@ -2,8 +2,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:pharmalink/core/notifications/firebase_notifications.dart';
 import 'core/di/dependency_injection.dart';
-import 'core/shared_preferences/shared_preferences_service.dart';
 import 'dart:async';
+import 'core/helpers/shared_preferences/shared_preferences_service.dart';
 import 'firebase_options.dart';
 
 

@@ -15,27 +15,27 @@ abstract class AuthSharedPrefs {
 
   /// check if user is logged in or not
   static bool isUserLoggedIn() {
-    return SharedPrefsService.getBool(_IS_LOGGED_IN) ?? false;
+    return SharedPrefsService.getBool(_IS_LOGGED_IN);
   }
 
-  static int? getUserId() {
+  static int getUserId() {
     return SharedPrefsService.getInt(_ID);
   }
 
-  static String? getUsername() {
+  static String getUsername() {
     return SharedPrefsService.getString(_USERNAME);
   }
 
-  static String? getEmail() {
+  static String getEmail() {
     return SharedPrefsService.getString(_EMAIL);
   }
 
-  static String? getAccessToken() {
-    return SharedPrefsService.getSecuredString(_ACCESS_TOKEN);
+  static Future<String> getAccessToken() async {
+    return await SharedPrefsService.getSecuredString(_ACCESS_TOKEN);
   }
 
-  static String? getRefreshToken() {
-    return SharedPrefsService.getSecuredString(_REFRESH_TOKEN);
+  static Future<String> getRefreshToken() async {
+    return await SharedPrefsService.getSecuredString(_REFRESH_TOKEN);
   }
 
   /// save [UserAuth] in shared pref

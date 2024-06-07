@@ -3,7 +3,7 @@ import 'package:flutter/material.dart' show Locale;
 import 'package:meta/meta.dart';
 import '../../enums/language.dart';
 
-import '../../shared_preferences/settings_prefs.dart';
+import '../../helpers/shared_preferences/settings_prefs.dart';
 
 part 'locale_state.dart';
 

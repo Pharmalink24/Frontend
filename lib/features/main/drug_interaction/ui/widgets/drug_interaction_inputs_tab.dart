@@ -57,12 +57,12 @@ class _DrugInteractionInputsTabState extends State<DrugInteractionInputsTab>
       labelStyle: AppTextStyle.displaySmall(context).copyWith(
         color: context.colorScheme.onPrimary,
         fontFamily: AppFonts.getFont(context, Font.tertiary),
-        fontSize: AppLocalizations.of(context).isEnLocale ? 14.0 : 10.0,
+        fontSize: 14.0,
       ),
       unselectedLabelStyle: AppTextStyle.displaySmall(context).copyWith(
         color: context.colorScheme.onSecondary,
         fontFamily: AppFonts.getFont(context, Font.tertiary),
-        fontSize: AppLocalizations.of(context).isEnLocale ? 14.0 : 10.0,
+        fontSize: 14.0,
       ),
       indicatorColor: context.colorScheme.primary,
       indicatorWeight: 1,
@@ -88,7 +88,7 @@ class _DrugInteractionInputsTabState extends State<DrugInteractionInputsTab>
   Widget build(BuildContext context) {
     return CardContainerWithTitle(
       title: AppLocalizations.of(context).translate('drugInteractionTitle'),
-      textStyle: AppTextStyle.displayMedium(context).copyWith(fontSize: 28),
+      // textStyle: AppTextStyle.displayMedium(context).copyWith(fontSize: 28),
       isScrollable: false,
       child: Column(
         children: [

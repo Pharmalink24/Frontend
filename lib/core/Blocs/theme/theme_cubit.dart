@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../shared_preferences/settings_prefs.dart';
+
+import '../../helpers/shared_preferences/settings_prefs.dart';
 
 class ThemeCubit extends Cubit<ThemeMode> {
   ThemeCubit()

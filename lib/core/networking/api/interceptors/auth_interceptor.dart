@@ -19,7 +19,7 @@ class AuthInterceptor extends QueuedInterceptor {
   Future<ApiResult<RefreshTokenResponse>> refreshToken() async {
     try {
       final data = {
-        'refresh_token': AuthSharedPrefs.getRefreshToken(),
+        'refresh_token': await AuthSharedPrefs.getRefreshToken(),
       };
 
       final result = await _dio.post(
@@ -49,7 +49,7 @@ class AuthInterceptor extends QueuedInterceptor {
       return handler.next(options);
     }
 
-    final accessToken = AuthSharedPrefs.getAccessToken();
+    final accessToken = await AuthSharedPrefs.getAccessToken();
 
     options.headers
         .addAll({'authorization': '${ApiConstants.tokenKey} $accessToken'});
@@ -91,7 +91,7 @@ class AuthInterceptor extends QueuedInterceptor {
   }
 
   Future<Response<dynamic>> _retryRequest(RequestOptions requestOptions) async {
-    final accessToken = AuthSharedPrefs.getAccessToken();
+    final accessToken = await AuthSharedPrefs.getAccessToken();
 
     // Update the token in headers
     requestOptions.headers['Authorization'] =

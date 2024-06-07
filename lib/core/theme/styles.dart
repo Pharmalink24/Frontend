@@ -208,7 +208,7 @@ class AppTextFieldDecoration {
     return _generalInputDecoration(context).copyWith(
       contentPadding: const EdgeInsets.all(14.0),
       suffixIcon: Icon(
-        Icons.keyboard_arrow_down_rounded,
+        Icons.search_rounded,
         color: context.colorScheme.secondary,
       ),
       hintStyle: AppTextStyle.labelMedium(context),

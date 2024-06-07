@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:logger/logger.dart';
 import 'package:pharmalink/core/networking/api/api_service.dart';
 import 'package:pharmalink/core/networking/socket/socket_service.dart';
-import 'package:pharmalink/core/shared_preferences/auth_prefs.dart';
+import '../../../../../core/helpers/shared_preferences/auth_prefs.dart';
 import '../../../../../core/networking/api/api_error_handler.dart';
 import '../../../../../core/networking/api/api_result.dart';
 import '../models/chats_response.dart';
@@ -17,9 +17,9 @@ class ChatRepo {
   ChatRepo(this._socketService, this._apiService);
 
   // ------------------------ Chat Channels ------------------------ //
-  void retrieveUserChats(Function(ChatsResponse chats) onListen) {
+  void retrieveUserChats(Function(ChatsResponse chats) onListen) async {
     // Get the access token
-    final String accessToken = AuthSharedPrefs.getAccessToken() ?? '';
+    final String accessToken = await AuthSharedPrefs.getAccessToken();
 
     // Connect to the user chats channel
     _socketService.connectToUserChatsChannel(accessToken);
@@ -35,13 +35,15 @@ class ChatRepo {
   }
 
   // ------------------------ Messaging Channels ------------------------ //
-  void messaging(Function(Message message) onListen) {
+  void messaging(Function(Message message) onListen) async {
     // Get the access token
-    final String accessToken = AuthSharedPrefs.getAccessToken() ?? '';
+    final String accessToken = await AuthSharedPrefs.getAccessToken();
 
     // Connect to the chatting channel
     _socketService.connectToMessagingChannel(
-        AuthSharedPrefs.getUserId() ?? -1, accessToken);
+      AuthSharedPrefs.getUserId(),
+      accessToken,
+    );
 
     // Listen to the chatting channel
     _socketService.listenToMessagingChannel(
@@ -57,7 +59,7 @@ class ChatRepo {
     _socketService.sendMessageToMessagingChannel(
       Message(
         message: message,
-        senderUserId: AuthSharedPrefs.getUserId() ?? -1,
+        senderUserId: AuthSharedPrefs.getUserId(),
         receiverDoctorId: receiverId,
       ),
     );
@@ -71,7 +73,7 @@ class ChatRepo {
   }) async {
     try {
       final result = await _apiService.getMessagesHistory(
-        AuthSharedPrefs.getUserId() ?? -1,
+        AuthSharedPrefs.getUserId(),
         receiverId,
         pageNumber,
         pageSize,
