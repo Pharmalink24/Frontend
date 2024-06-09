@@ -2,7 +2,6 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:pharmalink/core/enums/drug_state.dart';
 import 'package:pharmalink/features/404/error_404_screen.dart';
-import 'package:pharmalink/features/access/forget_password/ui/forget_password_screen.dart';
 import 'package:pharmalink/features/access/sign/ui/sign_screen.dart';
 import 'package:pharmalink/features/access/verification/ui/verification_screen.dart';
 import 'package:pharmalink/features/main/chat/data/models/chat.dart';
@@ -23,6 +22,7 @@ import 'package:pharmalink/features/main/settings/change_password/ui/change_pass
 import 'package:pharmalink/features/main/settings/edit_profile/ui/edit_profile_screen.dart';
 import 'package:pharmalink/features/on_boarding/ui/on_boarding_screen.dart';
 import 'package:pharmalink/features/splash/ui/splash_screen.dart';
+import '../../features/access/forget_password/ui/forget_password_screen.dart';
 import '../../features/main/chat/ui/chats_screen.dart';
 import '../../features/main/prescription/data/models/prescription_info.dart';
 import '../helpers/shared_preferences/auth_prefs.dart';

@@ -6,7 +6,6 @@ import 'dart:async';
 import 'core/helpers/shared_preferences/shared_preferences_service.dart';
 import 'firebase_options.dart';
 
-
 Future<void> init() async {
   // Required for async calls in `main`
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,6 +20,7 @@ Future<void> init() async {
 
   // Initialize PreferenceUtils instance.
   await SharedPrefsService.init();
+  SharedPrefsService.clearAllData();
 
   // Initialize firebase messaging
   await getIt<FirebaseNotifications>().init();
