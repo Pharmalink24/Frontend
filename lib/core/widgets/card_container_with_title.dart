@@ -18,8 +18,10 @@ class CardContainerWithTitle extends StatelessWidget {
     required this.title,
     required this.child,
     this.iconButton = const SizedBox.shrink(),
-    this.padding = const EdgeInsets.all(12.0),
-    this.margin = const EdgeInsets.symmetric(vertical: 8.0),
+    this.padding = const EdgeInsets.all(16.0),
+    this.margin = const EdgeInsets.symmetric(
+      vertical: 12.0,
+    ),
     this.textStyle,
     this.isScrollable = true,
   });

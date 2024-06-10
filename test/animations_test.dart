@@ -7,5 +7,6 @@ void main() {
   test('animations assets test', () {
     expect(File(Animations.hourglass).existsSync(), isTrue);
     expect(File(Animations.noConnection).existsSync(), isTrue);
+    expect(File(Animations.success).existsSync(), isTrue);
   });
 }

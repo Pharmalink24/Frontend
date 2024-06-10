@@ -13,6 +13,7 @@ class FormButton extends StatelessWidget {
   final double? width;
   final double? height;
   final Color? textColor;
+  final double fontSize;
 
   const FormButton({
     super.key,
@@ -26,6 +27,7 @@ class FormButton extends StatelessWidget {
     this.width = double.infinity,
     this.height = 50.0,
     this.textColor,
+    this.fontSize = 18.0,
   });
 
   @override
@@ -56,8 +58,9 @@ class FormButton extends StatelessWidget {
           },
           child: Text(
             text,
-            style: AppTextStyle.titleSmall(context).copyWith(
+            style: AppTextStyle.titleMedium(context).copyWith(
               color: textColor ?? context.colorScheme.primaryContainer,
+              fontSize: fontSize,
             ),
           ),
         ),

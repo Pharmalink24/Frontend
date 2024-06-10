@@ -4,6 +4,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:pharmalink/core/helpers/extensions.dart';
 import 'package:pharmalink/core/networking/api/api_constants.dart';
 import 'package:pharmalink/core/routes/app_router.dart';
 import 'package:pharmalink/core/theme/colors.dart';
@@ -14,7 +15,7 @@ import '../../../../../core/widgets/app_shimmer.dart';
 import '../../../../../core/widgets/loading/loading_indicator.dart';
 import '../../../../../resources/resources.dart';
 
-const kFontSize = 22.0;
+const kFontSize = 26.0;
 
 class HomeHeaderRow extends StatelessWidget {
   final String fname;
@@ -46,11 +47,11 @@ class HomeHeaderRow extends StatelessWidget {
       repeatForever: true,
       animatedTexts: [
         ColorizeAnimatedText(
-          fname,
+          fname.capitalizeFirstLetter,
           textStyle: AppTextStyle.bodyMedium(context).copyWith(
             color: context.colorScheme.primary,
             fontSize: kFontSize,
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w900,
           ),
           colors: AppGradients.primaryColors(context),
           textAlign: TextAlign.start,
@@ -58,11 +59,11 @@ class HomeHeaderRow extends StatelessWidget {
           speed: const Duration(milliseconds: 1000),
         ),
         ColorizeAnimatedText(
-          lname,
+          lname.capitalizeFirstLetter,
           textStyle: AppTextStyle.bodyMedium(context).copyWith(
             color: context.colorScheme.primary,
             fontSize: kFontSize,
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w900,
           ),
           colors: AppGradients.primaryColors(context),
           textAlign: TextAlign.start,
@@ -135,8 +136,9 @@ class HomeHeaderRow extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             _buildImage(context),
-            const SizedBox(width: 10),
+            const SizedBox(width: 12),
             _buildHello(context),
+            const SizedBox(width: 4),
             _buildName(context),
           ],
         ),

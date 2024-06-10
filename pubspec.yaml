@@ -66,6 +66,7 @@ dependencies:
   flutter_secure_storage: ^9.2.2
   device_preview: ^1.2.0
   device_preview_screenshot: ^1.0.0
+  custom_navigation_bar: ^0.8.2
 
 dev_dependencies:
   auto_route_generator: ^8.0.0

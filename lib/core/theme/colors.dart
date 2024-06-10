@@ -9,8 +9,8 @@ class AppColors {
   static const Color alternate = Color(0xFFF9F9F9);
   static const Color transparent = Colors.transparent;
 
-  static const Color primaryText = Color(0xFF14181B);
-  static const Color secondaryText = Color(0xFF57636C);
+  static const Color primaryText = Color(0xFF212121);
+  static const Color secondaryText = Color(0xFF757575);
   static const Color alternateText = Color(0xFFF9F9F9);
 
   static const Color primaryBackground = Color(0XFFf1f4f8);
@@ -47,7 +47,8 @@ class AppColors {
   static const Color error = Color(0xFFFF5963);
   static const Color info = Color(0xFFFFFFFF);
 
-  static Color shadow = const Color(0xFF000000).withOpacity(0.08);
+  static Color shadow = const Color(0xFF000000).withOpacity(0.17);
+  static Color shadowDark = darkAlternate.withOpacity(0.1);
 }
 
 class AppColorScheme {
@@ -78,7 +79,7 @@ class AppColorScheme {
     onErrorContainer: AppColors.error,
     onInverseSurface: AppColors.primaryText,
     // Shadows
-    shadow: const Color(0xFF000000).withOpacity(0.17),
+    shadow: AppColors.shadow,
   );
 
   static ColorScheme dark = ColorScheme.fromSeed(
@@ -108,7 +109,7 @@ class AppColorScheme {
     onErrorContainer: AppColors.error,
     onInverseSurface: AppColors.darkPrimaryText,
     // Shadows
-    shadow: AppColors.darkAlternate.withOpacity(0.1),
+    shadow: AppColors.shadowDark,
   );
 }
 

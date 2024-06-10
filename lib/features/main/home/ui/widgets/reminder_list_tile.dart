@@ -54,7 +54,7 @@ class _ReminderListTileState extends State<ReminderListTile> {
                 children: [
                   Text(
                     widget.reminder.drugFirstName,
-                    style: AppTextStyle.titleSmall(context).copyWith(
+                    style: AppTextStyle.titleMedium(context).copyWith(
                       color: context.colorScheme.scrim,
                     ),
                   ),
@@ -63,7 +63,7 @@ class _ReminderListTileState extends State<ReminderListTile> {
               ),
               Text(
                 '${widget.reminder.drugRemainingName}',
-                style: AppTextStyle.bodySmall(context).copyWith(
+                style: AppTextStyle.titleSmall(context).copyWith(
                   color: context.colorScheme.onSurface,
                 ),
               ),
@@ -79,8 +79,8 @@ class _ReminderListTileState extends State<ReminderListTile> {
       width: double.infinity,
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       decoration: BoxDecoration(
-        color: context.colorScheme.primary.withAlpha(100),
-        borderRadius: BorderRadius.circular(8.0),
+        color: context.colorScheme.secondary.withAlpha(75),
+        borderRadius: BorderRadius.circular(12.0),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -93,12 +93,12 @@ class _ReminderListTileState extends State<ReminderListTile> {
               children: [
                 Icon(
                   FontAwesomeIcons.solidCalendarDays,
-                  size: 24,
+                  size: 22,
                   color: context.colorScheme.scrim,
                 ),
                 Text(
                   '${widget.reminder.date}',
-                  style: AppTextStyle.labelMedium(context).copyWith(
+                  style: AppTextStyle.labelLarge(context).copyWith(
                     color: context.colorScheme.scrim,
                   ),
                 ),
@@ -113,12 +113,12 @@ class _ReminderListTileState extends State<ReminderListTile> {
               children: [
                 Icon(
                   FontAwesomeIcons.solidClock,
-                  size: 24,
+                  size: 22,
                   color: context.colorScheme.scrim,
                 ),
                 Text(
                   '${widget.reminder.getNextDoseTime()?.format('hh:mm a')}',
-                  style: AppTextStyle.labelMedium(context).copyWith(
+                  style: AppTextStyle.labelLarge(context).copyWith(
                     color: context.colorScheme.scrim,
                   ),
                 ),

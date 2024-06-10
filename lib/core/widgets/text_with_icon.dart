@@ -27,8 +27,8 @@ class TextWithIcon extends StatelessWidget {
           const SizedBox(width: 4.0), // SizedBox(
           Icon(
             icon,
-            size: 20,
-            color: context.colorScheme.secondary,
+            size: 24,
+            color: context.colorScheme.tertiary,
           ),
         ],
       ),

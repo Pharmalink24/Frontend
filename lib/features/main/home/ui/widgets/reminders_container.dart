@@ -86,7 +86,7 @@ class _RemindersContainerState extends State<RemindersContainer>
       controller: tabBarController,
       tabs: [
         Tab(
-          text: AppLocalizations.of(context).translate('Previous'),
+          text: AppLocalizations.of(context).translate('Missed'),
         ),
         Tab(
           text: AppLocalizations.of(context).translate('Today'),
@@ -103,9 +103,9 @@ class _RemindersContainerState extends State<RemindersContainer>
       enableFeedback: false,
       labelPadding: const EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
       labelStyle: AppTextStyle.titleLarge(context).copyWith(
-        fontWeight: FontWeight.bold,
+        fontWeight: FontWeight.w900,
       ),
-      unselectedLabelStyle: AppTextStyle.titleSmall(context),
+      unselectedLabelStyle: AppTextStyle.titleMedium(context),
       indicatorColor: context.colorScheme.primary,
       indicatorWeight: 3,
     );
@@ -137,6 +137,10 @@ class _RemindersContainerState extends State<RemindersContainer>
         onTap: () => context.pushRoute(
           ReminderCalenderRoute(reminders: widget.reminders),
         ),
+      ),
+      textStyle: AppTextStyle.titleLarge(context).copyWith(
+        fontWeight: FontWeight.bold,
+        fontSize: 24,
       ),
       child: Column(
         children: [

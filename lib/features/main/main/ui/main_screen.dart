@@ -1,5 +1,7 @@
+import 'package:custom_navigation_bar/custom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:pharmalink/core/routes/app_router.dart';
 import 'package:pharmalink/features/404/connection_lost_widget.dart';
 import '../../../../core/Blocs/connection/bloc/network_cubit.dart';
@@ -25,12 +27,11 @@ class _MainScreenState extends State<MainScreen> {
         buildWhen: (previous, current) => current != previous,
         builder: (context, state) {
           if (state is ConnectionFailure) {
-                        return const Scaffold(
+            return const Scaffold(
               body: Center(
                 child: ConnectionLost(),
               ),
             );
-
           } else {
             return AutoTabsScaffold(
               resizeToAvoidBottomInset: false,
@@ -44,7 +45,7 @@ class _MainScreenState extends State<MainScreen> {
                 return AppBottomNavigationBar(
                   currentIndex: tabsRouter.activeIndex,
                   onTap: tabsRouter.setActiveIndex,
-                  items: getBottomNavigationBarItems(navigationItems),
+                  items: navigationItems,
                 );
               },
             );

@@ -25,7 +25,7 @@ class DoctorCard extends StatelessWidget {
     super.key,
     this.width,
     this.height,
-    this.titleFontSize = 16.0,
+    this.titleFontSize = 18.0,
     this.subTitleFontSize = 11.0,
     this.outerPadding = const EdgeInsetsDirectional.fromSTEB(0, 0, 16, 0),
     this.innerPadding = const EdgeInsetsDirectional.only(start: 8, end: 0),
@@ -68,10 +68,12 @@ class DoctorCard extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Dr. ${doctor.firstName.crop(8)}\n${doctor.lastName.crop(8)}',
+                          'Dr. ${doctor.firstName.crop(8)}\n${doctor.lastName.crop(8)}'
+                              .capitalizeFirstLetter,
                           textAlign: TextAlign.start,
                           style: AppTextStyle.titleMedium(context).copyWith(
                             fontSize: titleFontSize,
+                            fontWeight: FontWeight.w600,
                           ),
                         ),
                         Text(

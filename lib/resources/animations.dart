@@ -6,4 +6,5 @@ class Animations {
   static const String hourglass = 'assets/images/animations/hourglass.json';
   static const String noConnection =
       'assets/images/animations/no_connection.json';
+  static const String success = 'assets/images/animations/success.json';
 }

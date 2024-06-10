@@ -1,9 +1,11 @@
+import "package:custom_navigation_bar/custom_navigation_bar.dart";
 import "package:flutter/material.dart";
+import "package:pharmalink/core/theme/colors.dart";
 
 class AppBottomNavigationBar extends StatelessWidget {
   final int currentIndex;
   final Function onTap;
-  final List<BottomNavigationBarItem> items;
+  final List<CustomNavigationBarItem> items;
 
   const AppBottomNavigationBar({
     super.key,
@@ -14,21 +16,21 @@ class AppBottomNavigationBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BottomNavigationBar(
-      currentIndex: currentIndex,
-      onTap: (i) => onTap(i),
-      items: items,
-      backgroundColor:
-          Theme.of(context).bottomNavigationBarTheme.backgroundColor,
-      selectedItemColor:
-          Theme.of(context).bottomNavigationBarTheme.selectedItemColor,
-      unselectedItemColor:
-          Theme.of(context).bottomNavigationBarTheme.unselectedItemColor,
-      selectedLabelStyle:
-          Theme.of(context).bottomNavigationBarTheme.selectedLabelStyle,
-      unselectedLabelStyle:
-          Theme.of(context).bottomNavigationBarTheme.unselectedLabelStyle,
-      elevation: Theme.of(context).bottomNavigationBarTheme.elevation,
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 8.0),
+      child: CustomNavigationBar(
+        currentIndex: currentIndex,
+        onTap: (i) => onTap(i),
+        items: items,
+        backgroundColor: context.colorScheme.primaryContainer,
+        selectedColor: context.colorScheme.primary,
+        unSelectedColor: context.colorScheme.onSecondary,
+        isFloating: true,
+        bubbleCurve: Curves.decelerate,
+        iconSize: 28.0,
+        borderRadius: const Radius.circular(12.0),
+        strokeColor: context.colorScheme.scrim,
+      ),
     );
   }
 }

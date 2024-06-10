@@ -1,44 +1,19 @@
+import 'package:custom_navigation_bar/custom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import 'bottom_navigation_bar_item_info.dart';
-
 // List of navigation items
-List<BottomNavigationBarItemInfo> navigationItems = [
-  BottomNavigationBarItemInfo(
-    icon: FontAwesomeIcons.house,
-    label: "Home",
+List<CustomNavigationBarItem> navigationItems = [
+  CustomNavigationBarItem(
+    icon: const Icon(FontAwesomeIcons.house),
   ),
-  BottomNavigationBarItemInfo(
-    icon: FontAwesomeIcons.clipboardList,
-    label: "Prescriptions",
+  CustomNavigationBarItem(
+    icon: const Icon(FontAwesomeIcons.clipboardList),
   ),
-  BottomNavigationBarItemInfo(
-    icon: FontAwesomeIcons.flaskVial,
-    label: "Drug Interactions",
+  CustomNavigationBarItem(
+    icon: const Icon(FontAwesomeIcons.flaskVial),
   ),
-  BottomNavigationBarItemInfo(
-    icon: FontAwesomeIcons.solidUser,
-    label: "User Information",
+  CustomNavigationBarItem(
+    icon: const Icon(FontAwesomeIcons.solidUser),
   ),
 ];
-
-// Function to retrieve bottom navigation bar items given navigation items info list
-List<BottomNavigationBarItem> getBottomNavigationBarItems(navigationItems) {
-  List<BottomNavigationBarItem> items = [];
-
-  for (var itemInfo in navigationItems) {
-    items.add(
-      BottomNavigationBarItem(
-        icon: FaIcon(
-          itemInfo.icon,
-          size: 24.0,
-        ),
-        label: itemInfo.label,
-        tooltip: itemInfo.label,
-      ),
-    );
-  }
-
-  return items;
-}

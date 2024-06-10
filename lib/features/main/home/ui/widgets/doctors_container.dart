@@ -25,6 +25,8 @@ class DoctorsContainer extends StatelessWidget {
         return DoctorCard(
           doctors[index],
           width: 225,
+          innerPadding:
+              const EdgeInsetsDirectional.only(start: 8, end: 0, top: 12),
         );
       },
     );
@@ -62,6 +64,10 @@ class DoctorsContainer extends StatelessWidget {
             ? Icons.arrow_circle_right_sharp
             : Icons.arrow_circle_left_sharp,
         text: AppLocalizations.of(context).translate('viewAll'),
+      ),
+      textStyle: AppTextStyle.titleLarge(context).copyWith(
+        fontWeight: FontWeight.bold,
+        fontSize: 24,
       ),
       child: doctors.isEmpty
           ? buildNoDataWidget(context)

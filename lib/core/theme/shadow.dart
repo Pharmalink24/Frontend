@@ -6,7 +6,7 @@ class AppShadows {
   static Shadow shadow(BuildContext context) {
     return Shadow(
       color: context.colorScheme.shadow,
-      blurRadius: 4.0,
+      blurRadius: 2.0,
       offset: const Offset(0, 1),
     );
   }
@@ -16,7 +16,7 @@ class AppShadows {
     return [
       BoxShadow(
         color: context.colorScheme.shadow,
-        blurRadius: 4.0,
+        blurRadius: 2.0,
         offset: const Offset(0, 1),
       ),
     ];

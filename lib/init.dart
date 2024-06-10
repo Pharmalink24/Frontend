@@ -20,7 +20,7 @@ Future<void> init() async {
 
   // Initialize PreferenceUtils instance.
   await SharedPrefsService.init();
-  SharedPrefsService.clearAllData();
+  // SharedPrefsService.clearAllData();
 
   // Initialize firebase messaging
   await getIt<FirebaseNotifications>().init();

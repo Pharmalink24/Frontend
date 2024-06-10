@@ -1,6 +1,7 @@
 // Flutter Packages
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:lottie/lottie.dart';
 import 'package:pharmalink/core/di/dependency_injection.dart';
 import 'package:pharmalink/core/routes/app_router.dart';
 import 'package:pharmalink/core/theme/app_bar.dart';
@@ -15,6 +16,8 @@ import 'package:pharmalink/features/access/verification/ui/widgets/verification_
 import 'package:pharmalink/core/localization/app_localizations.dart';
 
 import 'package:auto_route/auto_route.dart';
+
+import '../../../../resources/resources.dart';
 
 @RoutePage()
 class VerificationScreen extends StatelessWidget {
@@ -32,6 +35,7 @@ class VerificationScreen extends StatelessWidget {
     return Scaffold(
       appBar: const AppBarWidget(
         type: AppBarType.withoutTitle,
+        isCentered: true,
       ).build(context),
       body: BlocProvider(
         create: (context) => getIt<VerificationCubit>(),
@@ -42,6 +46,12 @@ class VerificationScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
+                // Lottie.asset(
+                //   Animations.noConnection,
+                //   width: 200,
+                //   height: 200,
+                //   fit: BoxFit.fill,
+                // ),
                 const PleaseVerifyText(),
                 EmailText(email: email),
                 const JustClickText(),
