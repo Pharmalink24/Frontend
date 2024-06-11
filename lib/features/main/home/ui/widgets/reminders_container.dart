@@ -86,13 +86,13 @@ class _RemindersContainerState extends State<RemindersContainer>
       controller: tabBarController,
       tabs: [
         Tab(
-          text: AppLocalizations.of(context).translate('Missed'),
+          text: AppLocalizations.of(context).translate('missed'),
         ),
         Tab(
-          text: AppLocalizations.of(context).translate('Today'),
+          text: AppLocalizations.of(context).translate('today'),
         ),
         Tab(
-          text: AppLocalizations.of(context).translate('Coming'),
+          text: AppLocalizations.of(context).translate('activation'),
         ),
       ],
       splashBorderRadius: BorderRadius.circular(12),
@@ -101,7 +101,7 @@ class _RemindersContainerState extends State<RemindersContainer>
       tabAlignment: TabAlignment.center,
       indicatorSize: TabBarIndicatorSize.label,
       enableFeedback: false,
-      labelPadding: const EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
+      labelPadding: const EdgeInsetsDirectional.fromSTEB(14, 0, 14, 0),
       labelStyle: AppTextStyle.titleLarge(context).copyWith(
         fontWeight: FontWeight.w900,
       ),
@@ -118,11 +118,11 @@ class _RemindersContainerState extends State<RemindersContainer>
       controller: tabBarController,
       children: [
         _buildReminders(context,
-            bloc.filterReminders(widget.reminders, ReminderTime.previous)),
+            bloc.filterReminders(widget.reminders, ReminderType.previous)),
         _buildReminders(context,
-            bloc.filterReminders(widget.reminders, ReminderTime.today)),
+            bloc.filterReminders(widget.reminders, ReminderType.today)),
         _buildReminders(context,
-            bloc.filterReminders(widget.reminders, ReminderTime.coming)),
+            bloc.filterReminders(widget.reminders, ReminderType.activation)),
       ],
     );
   }

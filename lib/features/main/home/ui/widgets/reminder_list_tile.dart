@@ -74,7 +74,11 @@ class _ReminderListTileState extends State<ReminderListTile> {
     );
   }
 
-  Widget _buildTime(BuildContext context) {
+  Widget _buildTime(
+    BuildContext context,
+    {required String date,
+    String? time,}
+  ) {
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
@@ -97,7 +101,7 @@ class _ReminderListTileState extends State<ReminderListTile> {
                   color: context.colorScheme.scrim,
                 ),
                 Text(
-                  '${widget.reminder.date}',
+                  date,
                   style: AppTextStyle.labelLarge(context).copyWith(
                     color: context.colorScheme.scrim,
                   ),
@@ -106,25 +110,27 @@ class _ReminderListTileState extends State<ReminderListTile> {
             ),
           ),
           const SizedBox(width: 24.0),
-          Expanded(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                Icon(
-                  FontAwesomeIcons.solidClock,
-                  size: 22,
-                  color: context.colorScheme.scrim,
-                ),
-                Text(
-                  '${widget.reminder.getNextDoseTime()?.format('hh:mm a')}',
-                  style: AppTextStyle.labelLarge(context).copyWith(
-                    color: context.colorScheme.scrim,
+          time != null
+              ? Expanded(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Icon(
+                        FontAwesomeIcons.solidClock,
+                        size: 22,
+                        color: context.colorScheme.scrim,
+                      ),
+                      Text(
+                        time,
+                        style: AppTextStyle.labelLarge(context).copyWith(
+                          color: context.colorScheme.scrim,
+                        ),
+                      ),
+                    ],
                   ),
-                ),
-              ],
-            ),
-          ),
+                )
+              : const SizedBox.shrink(),
         ],
       ),
     );
@@ -167,7 +173,16 @@ class _ReminderListTileState extends State<ReminderListTile> {
               children: [
                 _buildInfo(context),
                 const SizedBox(height: 20.0),
-                _buildTime(context),
+                widget.reminder.isActivationReminder()
+                    ? _buildTime(
+                        context,
+                        date: widget.reminder.activationDate,
+                      )
+                    : _buildTime(
+                        context,
+                        date: widget.reminder.nextDoseDate,
+                        time: widget.reminder.getNextDoseTime()?.format('hh:mm a'),
+                      ),
               ],
             ),
           ),

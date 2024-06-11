@@ -6,11 +6,12 @@ import '../../../../../core/networking/api/api_result.dart';
 import '../../../../../core/networking/api/api_service.dart';
 import '../models/reminder.dart';
 
-enum ReminderTime {
+enum ReminderType {
   all,
   previous,
   today,
   coming,
+  activation,
 }
 
 class RemindersRepo {
@@ -20,8 +21,7 @@ class RemindersRepo {
 
   Future<ApiResult<List<Reminder>>> getRemindersList() async {
     try {
-      final reminders =
-          await _apiService.getReminderList();
+      final reminders = await _apiService.getReminderList();
       return ApiResult.success(reminders);
     } catch (error) {
       getIt<Logger>().e(error);
@@ -42,20 +42,26 @@ class RemindersRepo {
   }
 
   List<Reminder> filterReminders(
-      List<Reminder> reminders, ReminderTime filter) {
+      List<Reminder> reminders, ReminderType filter) {
     List<Reminder> filteredReminders = [];
 
-    if (filter == ReminderTime.all) {
+    if (filter == ReminderType.all) {
       filteredReminders = reminders;
-    } else if (filter == ReminderTime.previous) {
+    } else if (filter == ReminderType.previous) {
+      filteredReminders = reminders
+          .where((reminder) => reminder.isNextDoseBeforeToday())
+          .toList();
+    } else if (filter == ReminderType.today) {
       filteredReminders =
-          reminders.where((reminder) => reminder.isBeforeToday()).toList();
-    } else if (filter == ReminderTime.today) {
-      filteredReminders =
-          reminders.where((reminder) => reminder.isToday()).toList();
-    } else if (filter == ReminderTime.coming) {
-      filteredReminders =
-          reminders.where((reminder) => reminder.isAfterToday()).toList();
+          reminders.where((reminder) => reminder.isNextDoseToday()).toList();
+    } else if (filter == ReminderType.coming) {
+      filteredReminders = reminders
+          .where((reminder) => reminder.isNextDoseAfterToday())
+          .toList();
+    } else if (filter == ReminderType.activation) {
+      filteredReminders = reminders
+          .where((reminder) => reminder.isActivationReminder())
+          .toList();
     }
 
     return filteredReminders;

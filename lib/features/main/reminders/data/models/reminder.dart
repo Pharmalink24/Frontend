@@ -41,25 +41,35 @@ class Reminder {
     required this.prescriptionId,
   });
 
-  bool isToday() {
+  bool isNextDoseToday() {
     return getNextDoseTime()?.day == DateTime.now().day &&
         getNextDoseTime()?.month == DateTime.now().month &&
         getNextDoseTime()?.year == DateTime.now().year;
   }
 
-  bool isBeforeToday() {
+  bool isNextDoseBeforeToday() {
     return getNextDoseTime()
             ?.isBefore(DateTime.now().subtract(const Duration(days: 1))) ??
         false;
   }
 
-  bool isAfterToday() {
+  bool isNextDoseAfterToday() {
     return getNextDoseTime()?.isAfter(DateTime.now()) ?? false;
+  }
+
+  bool isActivationReminder() {
+    return startDateActivate != null;
   }
 
   DateTime? getNextDoseTime() {
     return nextDoseTime != null
         ? DateTime.parse(nextDoseTime!).toLocal()
+        : null;
+  }
+
+  DateTime? getActivationTime() {
+    return startDateActivate != null
+        ? DateTime.parse(startDateActivate!).toLocal()
         : null;
   }
 
@@ -75,14 +85,24 @@ class Reminder {
 
   // ----------------- Date ----------------- //
 
-  get dayOfDate => getNextDoseTime()?.day;
-  get monthOfDate => getNextDoseTime()?.month;
+  get dayOfNextDoseTimeDate => getNextDoseTime()?.day;
+  get monthOfNextDoseTimeDate => getNextDoseTime()?.month;
 
-  get date {
+  get nextDoseDate {
     // Return the date in the format of 'dd MMM'
-    return "${dayOfDate.toString().padLeft(2, '0')}"
+    return "${dayOfNextDoseTimeDate.toString().padLeft(2, '0')}"
         "/"
-        "${monthOfDate.toString().padLeft(2, '0')}";
+        "${monthOfNextDoseTimeDate.toString().padLeft(2, '0')}";
+  }
+
+  get dayOfActivationTimeDate => getActivationTime()?.day;
+  get monthOfActivationTimeDate => getActivationTime()?.month;
+
+  get activationDate {
+    // Return the date in the format of 'dd MMM'
+    return "${dayOfActivationTimeDate.toString().padLeft(2, '0')}"
+        "/"
+        "${monthOfActivationTimeDate.toString().padLeft(2, '0')}";
   }
 
   // ----------------- Time ----------------- //

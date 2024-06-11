@@ -146,7 +146,11 @@
     "chatWithDoctor": "الدردشة مع الطبيب",
     "chatsDescription": "عرض وإدارة الدردشات الخاصة بك.",
 
-    "noReminders": "لا توجد تذكيرات"
+    "noReminders": "لا توجد تذكيرات",
+
+    "missed": "فائت",
+    "today": "اليوم",
+    "activation": "التفعيل"
 
 
 }

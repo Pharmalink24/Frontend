@@ -144,6 +144,10 @@
     "chatWithDoctor": "Chat with Doctor",
     "chatsDescription": "View your chat with a doctor.",
 
-    "noReminders": "No Reminders"
+    "noReminders": "No Reminders",
+
+    "missed": "Missed",
+    "today": "Today",
+    "activation": "Activation"
 
 }

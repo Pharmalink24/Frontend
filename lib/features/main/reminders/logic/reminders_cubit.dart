@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:logger/logger.dart';
 import '../../../../core/helpers/errors.dart';
 import '../data/models/reminder.dart';
 import '../data/repo/reminders_repo.dart';
@@ -15,6 +16,7 @@ class RemindersCubit extends Cubit<RemindersState> {
 
     // Get data
     final response = await _remindersRepo.getRemindersList();
+
     response.when(
       success: (data) {
         emit(RemindersState.remindersSuccess(data));
@@ -50,7 +52,7 @@ class RemindersCubit extends Cubit<RemindersState> {
   }
 
   List<Reminder> filterReminders(
-      List<Reminder> reminders, ReminderTime filter) {
+      List<Reminder> reminders, ReminderType filter) {
     final filteredReminders = _remindersRepo.filterReminders(reminders, filter);
     return filteredReminders;
   }
