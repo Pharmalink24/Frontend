@@ -11,15 +11,12 @@ import 'package:pharmalink/features/main/chat/logic/cubit/chat_cubit.dart';
 import 'core/Blocs/connection/bloc/network_event.dart';
 import 'core/routes/app_router.dart';
 import 'features/access/auth/logic/cubit/auth_cubit.dart';
-import 'package:device_preview/device_preview.dart';
 
 final appRouter = AppRouter();
 
 class PharmalinkApp extends StatelessWidget {
-  final bool isReleaseMode;
   const PharmalinkApp({
     super.key,
-    this.isReleaseMode = false,
   });
 
   @override
@@ -47,15 +44,12 @@ class PharmalinkApp extends StatelessWidget {
           final localeState = context.watch<LocaleCubit>().state;
           final themeState = context.watch<ThemeCubit>().state;
           return MaterialApp.router(
-            builder: !isReleaseMode ? DevicePreview.appBuilder : null,
             supportedLocales: AppLocalizationsSetup.supportedLocales,
             localizationsDelegates:
                 AppLocalizationsSetup.localizationsDelegates,
             localeResolutionCallback:
                 AppLocalizationsSetup.localeResolutionCallback,
-            locale: !isReleaseMode
-                ? DevicePreview.locale(context)
-                : localeState.locale,
+            locale: localeState.locale,
             title: appTitle,
             theme: AppTheme.lightTheme(),
             darkTheme: AppTheme.darkTheme(),

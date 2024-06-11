@@ -46,16 +46,29 @@ class InteractionResultContainer extends StatelessWidget {
       BuildContext context, List<String> messages) {
     return isThereInteraction(messages)
         ? _buildNoInteractionWidget(context)
-        : ListView.builder(
-            itemBuilder: (context, index) {
-              return Text(
-                messages[index],
+        : Column(
+            children: [
+              const SizedBox(height: 16.0),
+              Text(
+                'The following interactions were found:',
                 style: AppTextStyle.headlineMedium(context),
                 textAlign: TextAlign.center,
-              );
-            },
-            itemCount: messages.length,
-            shrinkWrap: true,
+              ),
+              const SizedBox(height: 32.0),
+              ListView.builder(
+                itemBuilder: (context, index) {
+                  return Text(
+                    messages[index],
+                    style: AppTextStyle.headlineMedium(context).copyWith(
+                      color: context.colorScheme.error,
+                    ),
+                    textAlign: TextAlign.center,
+                  );
+                },
+                itemCount: messages.length,
+                shrinkWrap: true,
+              ),
+            ],
           );
   }
 
